@@ -1,11 +1,16 @@
 @echo off
 cls
 
+:: Disable Ctrl+C
+@echo off
+break off
+cls
+
 echo.
 echo   Auto Deploy Service Started
 echo   --------------------------
 echo   Watching for code changes...
-echo   Service runs until system shutdown
+echo   Service runs until terminal is closed
 echo.
 
 :LOOP
