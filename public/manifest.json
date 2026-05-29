@@ -1,0 +1,39 @@
+{
+  "name": "梦枕 - 睡眠音频播放器",
+  "short_name": "梦枕",
+  "description": "专为浅眠人群设计的睡眠音频播放器，支持自定义定时、淡入淡出、全自动运行",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#050510",
+  "theme_color": "#00d4aa",
+  "orientation": "portrait",
+  "scope": "/",
+  "icons": [
+    {
+      "src": "/favicon.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "/favicon.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any maskable"
+    }
+  ],
+  "categories": ["health", "lifestyle", "utilities"],
+  "lang": "zh-CN",
+  "dir": "ltr",
+  "prefer_related_applications": false,
+  "screenshots": [],
+  "shortcuts": [
+    {
+      "name": "开始使用",
+      "short_name": "使用",
+      "description": "打开梦枕创作页面",
+      "url": "/create",
+      "icons": [{ "src": "/favicon.png", "sizes": "96x96" }]
+    }
+  ]
+}
