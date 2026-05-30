@@ -3,7 +3,7 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "build": "bash ./scripts/build.sh",
+    "build": "scripts\\build.bat",
     "dev": "npx next dev --port 5000",
     "lint": "eslint",
     "start": "bash ./scripts/start.sh",
