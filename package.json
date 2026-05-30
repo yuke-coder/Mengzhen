@@ -3,14 +3,13 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "build": "node -e \"const { execSync } = require('child_process'); try { execSync('npm run build-windows', { stdio: 'inherit' }); } catch { execSync('npm run build-linux', { stdio: 'inherit' }); }\"",
+    "build": "scripts\\build.bat",
     "build-windows": "scripts\\build.bat",
-    "build-linux": "node -e \"const fs = require('fs'); const swFile = 'public/sw.js'; let content = fs.readFileSync(swFile, 'utf8'); const timestamp = new Date().toISOString().slice(0, 19).replace(/[-:T]/g, ''); content = content.replace(/const CACHE_VERSION = 'v[0-9]*'/, `const CACHE_VERSION = 'v${timestamp}'`); fs.writeFileSync(swFile, content); console.log('✓ SW cache version updated to v' + timestamp);\" && next build",
+    "build-linux": "next build",
     "dev": "npx next dev --port 5000",
     "lint": "eslint",
     "start": "bash ./scripts/start.sh",
-    "ts-check": "tsc -p tsconfig.json",
-    "export": "npm run build && next export -o out"
+    "ts-check": "tsc -p tsconfig.json"
   },
   "dependencies": {
     "@aws-sdk/client-s3": "^3.958.0",
