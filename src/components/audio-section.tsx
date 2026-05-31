@@ -483,15 +483,12 @@ export function AudioSection({
           processFiles(e.dataTransfer.files);
         }}
         onClick={(e) => {
-          e.preventDefault();
           e.stopPropagation();
-          requestAnimationFrame(() => {
-            const input = fileInputRef.current;
-            if (input) {
-              input.value = '';
-              input.click();
-            }
-          });
+          const input = fileInputRef.current;
+          if (input) {
+            input.value = '';
+            input.click();
+          }
         }}
         className={cn(
           "relative p-6 rounded-xl border-2 border-dashed transition-all duration-300 cursor-pointer",
