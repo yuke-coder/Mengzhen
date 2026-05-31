@@ -59,7 +59,8 @@ export interface Audio {
   id: string; // UUID 主键
   user_id: string; // 关联 users.id（谁上传的）
   title: string; // 音频标题
-  file_url: string; // 文件存储路径（Supabase Storage 路径）
+  file_url: string; // 文件存储路径（Supabase Storage 公开 URL）
+  file_key: string; // 文件存储键（Supabase Storage 路径，如 audios/userId/xxx.mp3）
   file_name: string; // 原始文件名
   file_size: number; // 文件大小（字节）
   duration: number; // 时长（秒，0 表示未知）
