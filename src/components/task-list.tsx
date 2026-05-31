@@ -255,6 +255,9 @@ function useTaskState(task: ScheduledTask) {
     return "idle";
   });
 
+  const statusRef = useRef(status);
+  statusRef.current = status;
+
   useEffect(() => {
     const update = () => {
       const currentPhase = scheduler.getTaskPhase(task.id);
@@ -270,9 +273,15 @@ function useTaskState(task: ScheduledTask) {
     };
 
     update();
-    const timer = setInterval(update, 1000);
-    return () => clearInterval(timer);
-  }, [task, scheduler]);
+
+    if (statusRef.current === 'executing') {
+      const timer = setInterval(update, 1000);
+      return () => clearInterval(timer);
+    } else if (statusRef.current === 'pending') {
+      const timer = setInterval(update, 5000);
+      return () => clearInterval(timer);
+    }
+  }, [task, scheduler, status]);
 
   useEffect(() => {
     const handleEvent = (event: SchedulerEvent) => {
