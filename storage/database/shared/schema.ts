@@ -147,6 +147,7 @@ CREATE TABLE IF NOT EXISTS public.audios (
   user_id UUID NOT NULL REFERENCES public.users(id) ON DELETE CASCADE,
   title VARCHAR(200) NOT NULL,
   file_url TEXT NOT NULL,
+  file_key TEXT,
   file_name VARCHAR(255) NOT NULL,
   file_size INTEGER NOT NULL DEFAULT 0,
   duration REAL NOT NULL DEFAULT 0,
@@ -161,6 +162,27 @@ CREATE TABLE IF NOT EXISTS public.audios (
 CREATE INDEX IF NOT EXISTS idx_audios_user_id ON public.audios(user_id);
 -- 索引：按排序查询
 CREATE INDEX IF NOT EXISTS idx_audios_sort_order ON public.audios(user_id, sort_order);
+-- 索引：按 file_key 查询
+CREATE INDEX IF NOT EXISTS idx_audios_file_key ON public.audios(file_key);
+`;
+
+export const CREATE_AUDIO_FILES_TABLE_SQL = `
+CREATE TABLE IF NOT EXISTS public.audio_files (
+  id UUID PRIMARY KEY DEFAULT gen_random_uuid(),
+  user_id UUID NOT NULL REFERENCES public.users(id) ON DELETE CASCADE,
+  bucket_id UUID,
+  path TEXT NOT NULL,
+  name VARCHAR(255) NOT NULL,
+  size INTEGER NOT NULL DEFAULT 0,
+  mime_type VARCHAR(50) NOT NULL DEFAULT 'audio/mpeg',
+  metadata JSONB,
+  created_at TIMESTAMPTZ NOT NULL DEFAULT now()
+);
+
+-- 索引：按用户查询
+CREATE INDEX IF NOT EXISTS idx_audio_files_user_id ON public.audio_files(user_id);
+-- 唯一约束：同一用户同一路径不重复
+CREATE UNIQUE INDEX IF NOT EXISTS idx_audio_files_user_path ON public.audio_files(user_id, path);
 `;
 
 /**
