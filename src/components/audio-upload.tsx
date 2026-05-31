@@ -1320,7 +1320,7 @@ export function AudioUpload({
         )
       );
     }
-  }, [audios, onAudioUploaded]);
+  }, [onAudioUploaded]);
 
   // 拖拽排序
   const handleDragStart = useCallback((index: number) => {
