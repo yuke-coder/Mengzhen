@@ -62,21 +62,16 @@ export default function RootLayout({
         <div className="relative z-10 pt-14">
           <ThemeProvider>
             <AuthProvider>
-              {/* 全局动态背景 - 必须在 ThemeProvider 内部 */}
-              <div className="fixed inset-0 overflow-hidden z-0">
-                <DynamicBackground />
-              </div>
+              <ClientProviders>
+                {/* 全局导航栏 - 需要AuthProvider(UserMenu)和ThemeProvider(ThemeToggle) */}
+                <Navbar />
 
-              {/* 全局导航栏 - 需要AuthProvider(UserMenu)和ThemeProvider(ThemeToggle) */}
-              <Navbar />
-
-              {children}
+                {children}
+              </ClientProviders>
             </AuthProvider>
             <Toaster position="top-center" richColors />
           </ThemeProvider>
         </div>
-
-        <RippleEffect />
 
         {/* Ripple effect for buttons */}
         <Script id="ripple-init" strategy="afterInteractive">{`
