@@ -807,13 +807,13 @@ export function AudioUpload({
       if (files && files.length > 0) {
         processFiles(files);
       }
-      setTimeout(() => {
+      requestAnimationFrame(() => {
         if (fileInputRef.current) {
           try {
             fileInputRef.current.value = "";
           } catch {}
         }
-      }, 300);
+      });
     },
     [processFiles]
   );
@@ -1696,15 +1696,6 @@ export function AudioUpload({
           e.preventDefault();
           processFiles(e.dataTransfer.files);
         }}
-        onClick={(e) => {
-          if (disabled) return;
-          e.stopPropagation();
-          const input = fileInputRef.current;
-          if (input) {
-            input.value = '';
-            input.click();
-          }
-        }}
         className={cn(
           "relative p-8 sm:p-8 rounded-xl border-2 border-dashed transition-all duration-300 cursor-pointer",
           "hover:border-[var(--brand-glow)]/60 hover:bg-[var(--brand-glow)]/5",
@@ -1718,7 +1709,8 @@ export function AudioUpload({
           accept="audio/*,.mp3,.wav,.ogg,.m4a,.flac,.aac"
           multiple
           onChange={handleFileSelect}
-          style={{ position: 'absolute', width: 1, height: 1, opacity: 0, overflow: 'hidden', clip: 'rect(0 0 0 0)', clipPath: 'inset(50%)', whiteSpace: 'nowrap' }}
+          disabled={disabled}
+          className="absolute inset-0 w-full h-full opacity-0 cursor-pointer z-10"
         />
         <div className="flex flex-col items-center gap-3 sm:gap-3 py-2 sm:py-0">
           <div className={cn(
