@@ -138,6 +138,13 @@ export default function RootLayout({
 
                 registration.update();
 
+                if ('requestIdleCallback' in window) {
+                  requestIdleCallback(function() {
+                    registration.active && registration.active.postMessage({ type: 'PREFETCH' });
+                    registration.active && registration.active.postMessage({ type: 'TRIM_CACHES' });
+                  });
+                }
+
                 setInterval(function() {
                   registration.update();
                 }, 5 * 60 * 1000);
