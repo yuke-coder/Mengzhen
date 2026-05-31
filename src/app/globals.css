@@ -346,15 +346,14 @@
   .dark body {
     background: linear-gradient(135deg, oklch(0.10 0.015 265) 0%, oklch(0.07 0.015 265) 50%, oklch(0.05 0.01 265) 100%);
   }
-  /* 让使用 CSS 变量的元素也参与过渡 */
-  body *,
-  body *::before,
-  body *::after {
+  body.theme-transitioning,
+  body.theme-transitioning *,
+  body.theme-transitioning *::before,
+  body.theme-transitioning *::after {
     transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease, box-shadow 0.25s ease;
   }
 }
 
-/* 尊重用户的减少动画偏好 */
 @media (prefers-reduced-motion: reduce) {
   body,
   body *,
@@ -365,13 +364,74 @@
   }
 }
 
-/* ===== 移动端触控优化 ===== */
 @media (max-width: 767px) {
-  /* 防止iOS弹性滚动导致的布局问题 */
   body {
     overscroll-behavior-y: contain;
     -webkit-text-size-adjust: 100%;
   }
+
+  button:hover,
+  [role="button"]:hover,
+  a:hover,
+  .group:hover .group-hover\:scale-110,
+  .group:hover .group-hover\:translate-x-0\.5,
+  .group:hover .group-hover\:opacity-100,
+  .group:hover .group-hover\:shadow-xl,
+  .group:hover .group-hover\:shadow-\[var\(--brand-start\)\]\/50,
+  .group:hover .group-hover\:-translate-y-0\.5,
+  [class*="hover:"]:hover,
+  .group:hover [class*="group-hover:"] {
+    transform: none !important;
+    box-shadow: none !important;
+    opacity: unset !important;
+    scale: unset !important;
+  }
+
+  .group:hover .group-hover\:scale-110 {
+    transform: none !important;
+  }
+
+  *:hover {
+    transition-duration: 0ms !important;
+  }
+
+  .task-diffuse-waiting::before,
+  .task-diffuse-fadein::before,
+  .task-diffuse-playing::before,
+  .task-diffuse-fadeout::before {
+    animation-duration: 0ms !important;
+  }
+
+  #stars,
+  #stars2,
+  #stars3,
+  .stars-1,
+  .stars-2,
+  .stars-3 {
+    animation-duration: 0ms !important;
+  }
+
+  .animate-dash,
+  .animate-dash-reverse,
+  .animate-glow,
+  .animate-pulse-slow {
+    animation-duration: 0ms !important;
+  }
+
+  .char-hidden {
+    opacity: 1 !important;
+    transform: none !important;
+    animation: none !important;
+  }
+}
+
+@media (min-width: 768px) {
+  button,
+  [role="button"],
+  a {
+    transition: all 0.2s ease;
+  }
+}
 
   /* 确保所有可点击元素满足44px最小触控区域 */
   button,
