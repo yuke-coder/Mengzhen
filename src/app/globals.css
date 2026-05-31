@@ -373,22 +373,32 @@
   button:hover,
   [role="button"]:hover,
   a:hover,
-  .group:hover .group-hover\:scale-110,
-  .group:hover .group-hover\:translate-x-0\.5,
-  .group:hover .group-hover\:opacity-100,
-  .group:hover .group-hover\:shadow-xl,
-  .group:hover .group-hover\:shadow-\[var\(--brand-start\)\]\/50,
-  .group:hover .group-hover\:-translate-y-0\.5,
   [class*="hover:"]:hover,
   .group:hover [class*="group-hover:"] {
     transform: none !important;
     box-shadow: none !important;
     opacity: unset !important;
     scale: unset !important;
+    translate: unset !important;
+    filter: unset !important;
+    background-color: unset !important;
+    border-color: unset !important;
+    color: unset !important;
   }
 
-  .group:hover .group-hover\:scale-110 {
+  .group:hover .group-hover\:scale-110,
+  .group:hover .group-hover\:translate-x-1,
+  .group:hover .group-hover\:translate-x-0\.5,
+  .group:hover .group-hover\:-translate-y-0\.5,
+  .group:hover .group-hover\:-translate-y-1,
+  .group:hover .group-hover\:-translate-y-2,
+  .group:hover .group-hover\:opacity-100,
+  .group:hover .group-hover\:shadow-xl,
+  .group:hover .group-hover\:shadow-2xl,
+  .group:hover .group-hover\:shadow-\[var\(--brand-start\)\]\/50 {
     transform: none !important;
+    box-shadow: none !important;
+    opacity: unset !important;
   }
 
   *:hover {
