@@ -1698,15 +1698,12 @@ export function AudioUpload({
         }}
         onClick={(e) => {
           if (disabled) return;
-          e.preventDefault();
           e.stopPropagation();
-          requestAnimationFrame(() => {
-            const input = fileInputRef.current;
-            if (input) {
-              input.value = '';
-              input.click();
-            }
-          });
+          const input = fileInputRef.current;
+          if (input) {
+            input.value = '';
+            input.click();
+          }
         }}
         className={cn(
           "relative p-8 sm:p-8 rounded-xl border-2 border-dashed transition-all duration-300 cursor-pointer",
