@@ -635,7 +635,7 @@ function TaskItem({
               </div>
               {infoRow}
             </div>
-            <StatusBadge task={task} />
+            <StatusBadge task={task} status={status} phase={phase} />
           </div>
           {audioRow}
 
