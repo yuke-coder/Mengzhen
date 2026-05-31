@@ -1217,7 +1217,11 @@ export function AudioUpload({
 
   // 上传单个音频
   const handleUploadSingle = useCallback(async (id: string) => {
-    const audio = audios.find((a) => a.id === id);
+    let audio: AudioItem | undefined;
+    setAudios((prev) => {
+      audio = prev.find((a) => a.id === id);
+      return prev;
+    });
     if (!audio || audio.uploading) return;
 
     // 如果已经自动上传过（有 serverUrl 和 fileKey），只需额外保存到 audio_files 表
