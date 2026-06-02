@@ -6,6 +6,7 @@ const nextConfig: NextConfig = {
       bodySizeLimit: '10mb',
     },
     optimizeCss: true,
+    optimizePackageImports: ['lucide-react'],
   },
   images: {
     formats: ['image/avif', 'image/webp'],
