@@ -5,6 +5,7 @@ import {
 } from './task-types';
 import { getAllTasks, saveAllTasks, updateTask } from './task-store';
 import { getAudioBlob } from './audio-db';
+import { schedulerLog } from './scheduler-log';
 
 type SchedulerCallback = (event: SchedulerEvent) => void;
 
@@ -27,6 +28,8 @@ interface ActivePlayback {
   startedAt: number;
   targetVolume: number;
   retryCount: number;
+  gainNode: GainNode | null;
+  sourceNode: MediaElementAudioSourceNode | null;
 }
 
 class TaskScheduler {
@@ -42,6 +45,8 @@ class TaskScheduler {
 
   async start() {
     if (this.checkInterval) return;
+
+    schedulerLog.info('Scheduler', '启动调度器');
 
     await this.resumeActiveTasks();
 
@@ -283,7 +288,41 @@ class TaskScheduler {
   }
 
   private emitTicks() {
+    const now = Date.now();
     this.activePlaybacks.forEach((playback, taskId) => {
+      const task = getAllTasks().find(t => t.id === taskId);
+      if (task) {
+        const endTime = playback.startedAt + task.playDurationMinutes * 60 * 1000;
+        const fadeInMs = (task.fadeInDuration || 0) * 1000;
+        const fadeInEnd = playback.startedAt + fadeInMs;
+
+        if (playback.phase === 'fading-in' && now >= fadeInEnd) {
+          this.setVolume(playback, playback.targetVolume);
+          playback.phase = 'playing';
+          if (playback.fadeTimer) {
+            clearInterval(playback.fadeTimer);
+            playback.fadeTimer = null;
+          }
+          schedulerLog.warn('TickBackup', '渐入超时，强制切到播放', { taskId, delay: now - fadeInEnd });
+          this.emit({
+            type: 'phase-change',
+            taskId,
+            phase: 'playing',
+            remainingMs: this.computePlaybackRemaining(playback),
+          });
+        }
+
+        if (playback.phase === 'playing' && now >= endTime) {
+          if (playback.endTimer) {
+            clearTimeout(playback.endTimer);
+            playback.endTimer = null;
+          }
+          schedulerLog.warn('TickBackup', '播放超时，强制触发渐出', { taskId, delay: now - endTime });
+          this.startFadeOut(task, playback);
+          return;
+        }
+      }
+
       this.emit({
         type: 'tick',
         taskId,
@@ -291,11 +330,8 @@ class TaskScheduler {
         remainingMs: this.computePlaybackRemaining(playback),
       });
 
-      if (!this.isBackground && this.activePlaybacks.size > 0) {
-        const task = getAllTasks().find(t => t.id === taskId);
-        if (task) {
-          this.updateMediaSessionForTask(task, playback);
-        }
+      if (this.activePlaybacks.size > 0 && task) {
+        this.updateMediaSessionForTask(task, playback);
       }
     });
   }
@@ -362,6 +398,16 @@ class TaskScheduler {
 
     this.ensureAudioContext();
 
+    schedulerLog.info('Playback', '开始播放', {
+      taskId: task.id,
+      taskName: task.name,
+      fadeIn: task.fadeInDuration || 0,
+      fadeOut: task.fadeOutDuration || 0,
+      duration: task.playDurationMinutes,
+      volume: task.volume,
+      hasGainNode: !!this.audioContext,
+    });
+
     updateTask(task.id, { status: 'executing', lastExecutedAt: Date.now() });
 
     const audio = new Audio();
@@ -378,6 +424,8 @@ class TaskScheduler {
       startedAt: Date.now(),
       targetVolume,
       retryCount: 0,
+      gainNode: null,
+      sourceNode: null,
     };
 
     this.activePlaybacks.set(task.id, playback);
@@ -408,7 +456,17 @@ class TaskScheduler {
     if (!this.activePlaybacks.has(task.id)) return;
 
     audio.src = audioUrl;
-    audio.volume = 0;
+
+    const graph = this.connectAudioGraph(audio, 0);
+    playback.gainNode = graph.gainNode;
+    playback.sourceNode = graph.sourceNode;
+    if (playback.gainNode) {
+      audio.volume = 1.0;
+      schedulerLog.debug('Playback', '使用GainNode音频图');
+    } else {
+      audio.volume = 0;
+      schedulerLog.warn('Playback', 'GainNode不可用，降级使用audio.volume');
+    }
 
     audio.onerror = () => {
       console.error('[TaskScheduler] Audio error for task:', task.id);
@@ -417,8 +475,10 @@ class TaskScheduler {
 
     try {
       await audio.play();
+      schedulerLog.info('Playback', 'audio.play()成功', { taskId: task.id });
     } catch (err) {
       console.error('[TaskScheduler] Audio play failed:', err);
+      schedulerLog.error('Playback', 'audio.play()失败', { taskId: task.id, error: String(err) });
       this.handlePlaybackError(task.id, err instanceof Error ? err : new Error('Play failed'));
       return;
     }
@@ -441,8 +501,9 @@ class TaskScheduler {
     const fadeInDuration = task.fadeInDuration || 0;
 
     if (fadeInDuration <= 0) {
-      playback.audio.volume = playback.targetVolume;
+      this.setVolume(playback, playback.targetVolume);
       playback.phase = 'playing';
+      schedulerLog.debug('FadeIn', '无渐入，直接播放', { taskId: task.id });
       this.emit({
         type: 'phase-change',
         taskId: task.id,
@@ -453,21 +514,22 @@ class TaskScheduler {
       return;
     }
 
-    const totalSteps = fadeInDuration * 10;
-    const volumeStep = playback.targetVolume / totalSteps;
-    let currentStep = 0;
+    if (playback.gainNode && this.audioContext) {
+      playback.gainNode.gain.setValueAtTime(0, this.audioContext.currentTime);
+      playback.gainNode.gain.linearRampToValueAtTime(
+        playback.targetVolume,
+        this.audioContext.currentTime + fadeInDuration
+      );
+      schedulerLog.info('FadeIn', 'GainNode渐入开始', {
+        taskId: task.id,
+        duration: fadeInDuration,
+        targetVolume: playback.targetVolume,
+        audioCtxTime: this.audioContext.currentTime,
+      });
 
-    playback.fadeTimer = setInterval(() => {
-      currentStep++;
-      const newVol = Math.min(currentStep * volumeStep, playback.targetVolume);
-      playback.audio.volume = newVol;
-
-      if (currentStep >= totalSteps) {
-        if (playback.fadeTimer) {
-          clearInterval(playback.fadeTimer);
-          playback.fadeTimer = null;
-        }
-        playback.audio.volume = playback.targetVolume;
+      playback.fadeTimer = setTimeout(() => {
+        if (!this.activePlaybacks.has(task.id)) return;
+        if (playback.phase !== 'fading-in') return;
         playback.phase = 'playing';
         this.emit({
           type: 'phase-change',
@@ -476,8 +538,34 @@ class TaskScheduler {
           remainingMs: this.computePlaybackRemaining(playback),
         });
         this.updateMediaSessionForTask(task, playback);
-      }
-    }, 100);
+      }, fadeInDuration * 1000) as unknown as ReturnType<typeof setInterval>;
+    } else {
+      const totalSteps = fadeInDuration * 10;
+      const volumeStep = playback.targetVolume / totalSteps;
+      let currentStep = 0;
+
+      playback.fadeTimer = setInterval(() => {
+        currentStep++;
+        const newVol = Math.min(currentStep * volumeStep, playback.targetVolume);
+        playback.audio.volume = newVol;
+
+        if (currentStep >= totalSteps) {
+          if (playback.fadeTimer) {
+            clearInterval(playback.fadeTimer);
+            playback.fadeTimer = null;
+          }
+          playback.audio.volume = playback.targetVolume;
+          playback.phase = 'playing';
+          this.emit({
+            type: 'phase-change',
+            taskId: task.id,
+            phase: 'playing',
+            remainingMs: this.computePlaybackRemaining(playback),
+          });
+          this.updateMediaSessionForTask(task, playback);
+        }
+      }, 100);
+    }
   }
 
   private scheduleEnd(task: ScheduledTask, playback: ActivePlayback) {
@@ -496,6 +584,13 @@ class TaskScheduler {
   private startFadeOut(task: ScheduledTask, playback: ActivePlayback) {
     const fadeOutDuration = task.fadeOutDuration || 0;
 
+    schedulerLog.info('FadeOut', '开始渐出', {
+      taskId: task.id,
+      fadeOutDuration,
+      currentPhase: playback.phase,
+      hasGainNode: !!playback.gainNode,
+    });
+
     if (fadeOutDuration <= 0) {
       this.completeTask(task, playback);
       return;
@@ -510,31 +605,53 @@ class TaskScheduler {
     });
     this.updateMediaSessionForTask(task, playback);
 
-    const totalSteps = fadeOutDuration * 10;
-    const volumeStep = playback.targetVolume / totalSteps;
-    let currentStep = 0;
-
     if (playback.fadeTimer) {
       clearInterval(playback.fadeTimer);
       playback.fadeTimer = null;
     }
 
-    playback.fadeTimer = setInterval(() => {
-      currentStep++;
-      const newVol = Math.max(0, playback.targetVolume - currentStep * volumeStep);
-      playback.audio.volume = newVol;
+    if (playback.gainNode && this.audioContext) {
+      playback.gainNode.gain.setValueAtTime(playback.gainNode.gain.value, this.audioContext.currentTime);
+      playback.gainNode.gain.linearRampToValueAtTime(
+        0,
+        this.audioContext.currentTime + fadeOutDuration
+      );
 
-      if (currentStep >= totalSteps) {
-        if (playback.fadeTimer) {
-          clearInterval(playback.fadeTimer);
-          playback.fadeTimer = null;
-        }
+      playback.fadeTimer = setTimeout(() => {
+        if (!this.activePlaybacks.has(task.id)) return;
+        if (playback.phase !== 'fading-out') return;
         this.completeTask(task, playback);
-      }
-    }, 100);
+      }, fadeOutDuration * 1000) as unknown as ReturnType<typeof setInterval>;
+    } else {
+      const totalSteps = fadeOutDuration * 10;
+      const volumeStep = playback.targetVolume / totalSteps;
+      let currentStep = 0;
+
+      playback.fadeTimer = setInterval(() => {
+        currentStep++;
+        const newVol = Math.max(0, playback.targetVolume - currentStep * volumeStep);
+        playback.audio.volume = newVol;
+
+        if (currentStep >= totalSteps) {
+          if (playback.fadeTimer) {
+            clearInterval(playback.fadeTimer);
+            playback.fadeTimer = null;
+          }
+          this.completeTask(task, playback);
+        }
+      }, 100);
+    }
   }
 
   private completeTask(task: ScheduledTask, playback: ActivePlayback) {
+    schedulerLog.info('Complete', '任务完成', {
+      taskId: task.id,
+      taskName: task.name,
+      repeatType: task.repeatType,
+      startedAt: playback.startedAt,
+      elapsed: Date.now() - playback.startedAt,
+    });
+
     this.stopPlayback(task.id);
 
     if (task.repeatType === 'once') {
@@ -568,6 +685,13 @@ class TaskScheduler {
       clearTimeout(playback.endTimer);
     }
 
+    if (playback.sourceNode) {
+      try { playback.sourceNode.disconnect(); } catch {}
+    }
+    if (playback.gainNode) {
+      try { playback.gainNode.disconnect(); } catch {}
+    }
+
     playback.audio.pause();
     playback.audio.src = '';
 
@@ -579,12 +703,6 @@ class TaskScheduler {
   }
 
   private async resolveAudioUrl(taskAudio: TaskAudio): Promise<string | undefined> {
-    if (taskAudio.fileKey) {
-      return `/api/audio/proxy?key=${encodeURIComponent(taskAudio.fileKey)}`;
-    }
-    if (taskAudio.serverUrl) {
-      return taskAudio.serverUrl;
-    }
     if (taskAudio.dbKey) {
       try {
         const blob = await getAudioBlob(taskAudio.dbKey);
@@ -594,6 +712,12 @@ class TaskScheduler {
       } catch (err) {
         console.error('[TaskScheduler] IndexedDB read failed:', err);
       }
+    }
+    if (taskAudio.serverUrl) {
+      return taskAudio.serverUrl;
+    }
+    if (taskAudio.fileKey) {
+      return `/api/audio/proxy?key=${encodeURIComponent(taskAudio.fileKey)}`;
     }
     return undefined;
   }
@@ -648,6 +772,14 @@ class TaskScheduler {
       phase = 'playing';
     }
 
+    schedulerLog.info('Resume', '恢复播放', {
+      taskId: task.id,
+      taskName: task.name,
+      phase,
+      startedAt: audioStartAt,
+      remainingMs: Math.max(0, endTime - now),
+    });
+
     const audio = new Audio();
     const targetVolume = (task.volume || 70) / 100;
 
@@ -659,9 +791,11 @@ class TaskScheduler {
       endTimer: null,
       currentAudioIndex: 0,
       currentBlobUrl: null,
-      startedAt: now,
+      startedAt: audioStartAt,
       targetVolume,
       retryCount: 0,
+      gainNode: null,
+      sourceNode: null,
     };
 
     this.activePlaybacks.set(task.id, playback);
@@ -686,18 +820,28 @@ class TaskScheduler {
 
     audio.src = audioUrl;
 
+    let initialVolume = 0;
     let seekTime = 0;
     if (phase === 'fading-in') {
       const elapsed = now - audioStartAt;
       const progress = Math.min(elapsed / fadeInMs, 1);
-      audio.volume = targetVolume * progress;
+      initialVolume = targetVolume * progress;
       seekTime = elapsed / 1000;
     } else if (phase === 'playing') {
-      audio.volume = targetVolume;
+      initialVolume = targetVolume;
       seekTime = (now - startTime) / 1000;
     } else {
-      audio.volume = targetVolume;
+      initialVolume = targetVolume;
       seekTime = task.playDurationMinutes * 60;
+    }
+
+    const graph = this.connectAudioGraph(audio, initialVolume);
+    playback.gainNode = graph.gainNode;
+    playback.sourceNode = graph.sourceNode;
+    if (playback.gainNode) {
+      audio.volume = 1.0;
+    } else {
+      audio.volume = initialVolume;
     }
 
     audio.currentTime = seekTime;
@@ -749,7 +893,7 @@ class TaskScheduler {
     const progress = Math.min(elapsed / (fadeInDuration * 1000), 1);
 
     if (progress >= 1) {
-      playback.audio.volume = playback.targetVolume;
+      this.setVolume(playback, playback.targetVolume);
       playback.phase = 'playing';
       this.emit({
         type: 'phase-change',
@@ -761,22 +905,21 @@ class TaskScheduler {
       return;
     }
 
-    const remainingSteps = Math.ceil((1 - progress) * fadeInDuration * 10);
-    const remainingVolume = playback.targetVolume * (1 - progress);
-    const volumeStep = remainingVolume / remainingSteps;
-    let currentStep = 0;
+    const remainingDuration = (1 - progress) * fadeInDuration;
 
-    playback.fadeTimer = setInterval(() => {
-      currentStep++;
-      const newVol = Math.min(playback.audio.volume + volumeStep, playback.targetVolume);
-      playback.audio.volume = newVol;
+    if (playback.gainNode && this.audioContext) {
+      playback.gainNode.gain.setValueAtTime(
+        playback.targetVolume * progress,
+        this.audioContext.currentTime
+      );
+      playback.gainNode.gain.linearRampToValueAtTime(
+        playback.targetVolume,
+        this.audioContext.currentTime + remainingDuration
+      );
 
-      if (currentStep >= remainingSteps) {
-        if (playback.fadeTimer) {
-          clearInterval(playback.fadeTimer);
-          playback.fadeTimer = null;
-        }
-        playback.audio.volume = playback.targetVolume;
+      playback.fadeTimer = setTimeout(() => {
+        if (!this.activePlaybacks.has(task.id)) return;
+        if (playback.phase !== 'fading-in') return;
         playback.phase = 'playing';
         this.emit({
           type: 'phase-change',
@@ -785,8 +928,35 @@ class TaskScheduler {
           remainingMs: this.computePlaybackRemaining(playback),
         });
         this.updateMediaSessionForTask(task, playback);
-      }
-    }, 100);
+      }, remainingDuration * 1000) as unknown as ReturnType<typeof setInterval>;
+    } else {
+      const remainingSteps = Math.ceil((1 - progress) * fadeInDuration * 10);
+      const remainingVolume = playback.targetVolume * (1 - progress);
+      const volumeStep = remainingVolume / remainingSteps;
+      let currentStep = 0;
+
+      playback.fadeTimer = setInterval(() => {
+        currentStep++;
+        const newVol = Math.min(playback.audio.volume + volumeStep, playback.targetVolume);
+        playback.audio.volume = newVol;
+
+        if (currentStep >= remainingSteps) {
+          if (playback.fadeTimer) {
+            clearInterval(playback.fadeTimer);
+            playback.fadeTimer = null;
+          }
+          playback.audio.volume = playback.targetVolume;
+          playback.phase = 'playing';
+          this.emit({
+            type: 'phase-change',
+            taskId: task.id,
+            phase: 'playing',
+            remainingMs: this.computePlaybackRemaining(playback),
+          });
+          this.updateMediaSessionForTask(task, playback);
+        }
+      }, 100);
+    }
   }
 
   private resumeFadeOut(task: ScheduledTask, playback: ActivePlayback) {
@@ -807,31 +977,47 @@ class TaskScheduler {
       return;
     }
 
-    const remainingVolume = playback.targetVolume * (1 - progress);
-    playback.audio.volume = remainingVolume;
-
-    const remainingSteps = Math.ceil((1 - progress) * fadeOutDuration * 10);
-    const volumeStep = remainingVolume / remainingSteps;
-    let currentStep = 0;
+    const remainingDuration = (1 - progress) * fadeOutDuration;
+    const currentVolume = playback.targetVolume * (1 - progress);
 
     if (playback.fadeTimer) {
       clearInterval(playback.fadeTimer);
       playback.fadeTimer = null;
     }
 
-    playback.fadeTimer = setInterval(() => {
-      currentStep++;
-      const newVol = Math.max(0, playback.audio.volume - volumeStep);
-      playback.audio.volume = newVol;
+    if (playback.gainNode && this.audioContext) {
+      playback.gainNode.gain.setValueAtTime(currentVolume, this.audioContext.currentTime);
+      playback.gainNode.gain.linearRampToValueAtTime(
+        0,
+        this.audioContext.currentTime + remainingDuration
+      );
 
-      if (currentStep >= remainingSteps) {
-        if (playback.fadeTimer) {
-          clearInterval(playback.fadeTimer);
-          playback.fadeTimer = null;
-        }
+      playback.fadeTimer = setTimeout(() => {
+        if (!this.activePlaybacks.has(task.id)) return;
+        if (playback.phase !== 'fading-out') return;
         this.completeTask(task, playback);
-      }
-    }, 100);
+      }, remainingDuration * 1000) as unknown as ReturnType<typeof setInterval>;
+    } else {
+      playback.audio.volume = currentVolume;
+
+      const remainingSteps = Math.ceil((1 - progress) * fadeOutDuration * 10);
+      const volumeStep = currentVolume / remainingSteps;
+      let currentStep = 0;
+
+      playback.fadeTimer = setInterval(() => {
+        currentStep++;
+        const newVol = Math.max(0, playback.audio.volume - volumeStep);
+        playback.audio.volume = newVol;
+
+        if (currentStep >= remainingSteps) {
+          if (playback.fadeTimer) {
+            clearInterval(playback.fadeTimer);
+            playback.fadeTimer = null;
+          }
+          this.completeTask(task, playback);
+        }
+      }, 100);
+    }
   }
 
   private async requestWakeLock() {
@@ -839,11 +1025,15 @@ class TaskScheduler {
     try {
       if ('wakeLock' in navigator) {
         this.wakeLock = await navigator.wakeLock.request('screen');
+        schedulerLog.info('WakeLock', '屏幕唤醒锁获取成功');
         this.wakeLock.addEventListener('release', () => {
+          schedulerLog.info('WakeLock', '屏幕唤醒锁已释放');
           this.wakeLock = null;
         });
       }
-    } catch {}
+    } catch (e) {
+      schedulerLog.warn('WakeLock', '屏幕唤醒锁获取失败', { error: String(e) });
+    }
   }
 
   private releaseWakeLock() {
@@ -857,11 +1047,13 @@ class TaskScheduler {
     const handleVisibility = () => {
       if (document.visibilityState === 'visible') {
         this.isBackground = false;
+        schedulerLog.info('Visibility', '页面恢复可见', { activePlaybacks: this.activePlaybacks.size });
         this.adjustTickInterval();
         this.requestWakeLock();
         this.syncPlaybackStates();
       } else {
         this.isBackground = true;
+        schedulerLog.info('Visibility', '页面进入后台', { activePlaybacks: this.activePlaybacks.size });
         this.adjustTickInterval();
       }
     };
@@ -877,11 +1069,58 @@ class TaskScheduler {
   }
 
   private syncPlaybackStates() {
+    const now = Date.now();
+    schedulerLog.info('Sync', '同步播放状态', { activePlaybacks: this.activePlaybacks.size, audioCtxState: this.audioContext?.state });
+
+    if (this.audioContext && this.audioContext.state === 'suspended') {
+      this.audioContext.resume().catch(() => {});
+    }
+
     this.activePlaybacks.forEach((playback, taskId) => {
       const task = getAllTasks().find(t => t.id === taskId);
       if (!task) return;
 
+      const endTime = playback.startedAt + task.playDurationMinutes * 60 * 1000;
+      const fadeInMs = (task.fadeInDuration || 0) * 1000;
+      const fadeInEnd = playback.startedAt + fadeInMs;
+      const fadeOutMs = (task.fadeOutDuration || 0) * 1000;
+
+      if (playback.phase === 'fading-in' && now >= fadeInEnd) {
+        this.setVolume(playback, playback.targetVolume);
+        playback.phase = 'playing';
+        if (playback.fadeTimer) {
+          clearInterval(playback.fadeTimer);
+          playback.fadeTimer = null;
+        }
+        schedulerLog.warn('Sync', '恢复时渐入已超时，强制切到播放', { taskId });
+        this.emit({
+          type: 'phase-change',
+          taskId,
+          phase: 'playing',
+          remainingMs: this.computePlaybackRemaining(playback),
+        });
+      }
+
+      if (playback.phase === 'playing' && now >= endTime) {
+        if (playback.endTimer) {
+          clearTimeout(playback.endTimer);
+          playback.endTimer = null;
+        }
+        schedulerLog.warn('Sync', '恢复时播放已超时，强制触发渐出', { taskId, delay: now - endTime });
+        this.startFadeOut(task, playback);
+        return;
+      }
+
+      if (playback.phase === 'fading-out' && now >= endTime + fadeOutMs) {
+        schedulerLog.warn('Sync', '恢复时渐出已超时，强制完成任务', { taskId });
+        this.completeTask(task, playback);
+        return;
+      }
+
       if (playback.audio.paused) {
+        if (this.audioContext && this.audioContext.state === 'suspended') {
+          this.audioContext.resume().catch(() => {});
+        }
         playback.audio.play().catch(() => {
           this.handlePlaybackError(taskId, new Error('Audio paused unexpectedly'));
         });
@@ -911,10 +1150,16 @@ class TaskScheduler {
       album: '自定义任务',
     });
 
+    navigator.mediaSession.playbackState = playback.audio.paused ? 'paused' : 'playing';
+
     navigator.mediaSession.setActionHandler('play', () => {
+      if (this.audioContext && this.audioContext.state === 'suspended') {
+        this.audioContext.resume().catch(() => {});
+      }
       if (playback.audio.paused) {
         playback.audio.play().catch(() => {});
       }
+      navigator.mediaSession.playbackState = 'playing';
     });
 
     navigator.mediaSession.setActionHandler('pause', () => {
@@ -928,6 +1173,7 @@ class TaskScheduler {
 
   private clearMediaSession() {
     if (!('mediaSession' in navigator)) return;
+    navigator.mediaSession.playbackState = 'none';
     navigator.mediaSession.metadata = null;
     navigator.mediaSession.setActionHandler('play', null);
     navigator.mediaSession.setActionHandler('pause', null);
@@ -937,6 +1183,8 @@ class TaskScheduler {
   private async handlePlaybackError(taskId: string, error: Error): Promise<void> {
     const playback = this.activePlaybacks.get(taskId);
     if (!playback) return;
+
+    schedulerLog.error('Error', '播放错误', { taskId, error: error.message, retryCount: playback.retryCount, phase: playback.phase });
 
     const task = getAllTasks().find(t => t.id === taskId);
     if (!task) {
@@ -983,9 +1231,9 @@ class TaskScheduler {
         if (!this.activePlaybacks.has(taskId)) return;
 
         playback.audio.src = audioUrl;
-        playback.audio.volume = playback.phase === 'fading-in'
+        this.setVolume(playback, playback.phase === 'fading-in'
           ? playback.targetVolume * 0.5
-          : playback.targetVolume;
+          : playback.targetVolume);
 
         await playback.audio.play();
 
@@ -1023,10 +1271,41 @@ class TaskScheduler {
     if (!this.audioContext || this.audioContext.state === 'closed') {
       try {
         this.audioContext = new (window.AudioContext || (window as unknown as { webkitAudioContext: typeof AudioContext }).webkitAudioContext)();
+        this.audioContext.onstatechange = () => {
+          if (!this.audioContext) return;
+          schedulerLog.info('AudioCtx', '状态变化', { state: this.audioContext.state });
+          if (this.audioContext.state === 'suspended' && this.activePlaybacks.size > 0) {
+            schedulerLog.warn('AudioCtx', 'AudioContext被挂起，尝试恢复');
+            this.audioContext.resume().catch(() => {});
+          }
+        };
       } catch {}
     }
     if (this.audioContext && this.audioContext.state === 'suspended') {
       this.audioContext.resume().catch(() => {});
+    }
+  }
+
+  private connectAudioGraph(audio: HTMLAudioElement, initialVolume: number): { gainNode: GainNode | null; sourceNode: MediaElementAudioSourceNode | null } {
+    this.ensureAudioContext();
+    if (!this.audioContext) return { gainNode: null, sourceNode: null };
+    try {
+      const source = this.audioContext.createMediaElementSource(audio);
+      const gain = this.audioContext.createGain();
+      gain.gain.setValueAtTime(initialVolume, this.audioContext.currentTime);
+      source.connect(gain);
+      gain.connect(this.audioContext.destination);
+      return { gainNode: gain, sourceNode: source };
+    } catch {
+      return { gainNode: null, sourceNode: null };
+    }
+  }
+
+  private setVolume(playback: ActivePlayback, volume: number) {
+    if (playback.gainNode && this.audioContext) {
+      playback.gainNode.gain.setValueAtTime(volume, this.audioContext.currentTime);
+    } else {
+      playback.audio.volume = volume;
     }
   }
 }

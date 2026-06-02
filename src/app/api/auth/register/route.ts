@@ -76,7 +76,7 @@ export async function POST(request: NextRequest) {
       .from('users')
       .insert({
         username: username,
-        password: passwordHash,
+        password_hash: passwordHash,
       })
       .select('id, username, created_at')
       .single();
@@ -105,24 +105,24 @@ export async function POST(request: NextRequest) {
     const expiresAt = new Date();
     expiresAt.setFullYear(expiresAt.getFullYear() + 1);
 
-    // 存储 session 到数据库（使用 RPC 避免 Supabase 的类型转换问题）
+    // 存储 session 到数据库
     try {
-      await client.rpc('create_session', {
-        p_user_id: newUser.id,
-        p_token: sessionToken,
-        p_expires_at: expiresAt.toISOString(),
+      await client.from('sessions').insert({
+        user_id: newUser.id,
+        token: sessionToken,
+        expires_at: expiresAt.toISOString(),
       });
     } catch (sessionError) {
       console.error('存储session失败:', sessionError);
       // session 存储失败不影响注册成功
     }
 
-    // 设置 session cookie（预览环境需要 sameSite: 'none' 和 secure: true）
+    const isDev = process.env.NODE_ENV === 'development';
     const cookieStore = await cookies();
     cookieStore.set(SESSION_COOKIE_NAME, sessionToken, {
       httpOnly: true,
-      secure: true,
-      sameSite: 'none',
+      secure: !isDev,
+      sameSite: isDev ? 'lax' : 'none',
       maxAge: SESSION_MAX_AGE,
       path: '/',
     });

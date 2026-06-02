@@ -19,6 +19,7 @@ import { Card } from "@/components/ui/card";
 import { useTheme, type Theme } from "@/lib/theme-context";
 import { useAuth } from "@/lib/auth-context";
 import DynamicBackground from "@/components/dynamic-background";
+import { SchedulerDebugPanel } from "@/components/scheduler-debug-panel";
 
 import {
     ArrowLeft,
@@ -1653,6 +1654,7 @@ function CreatePageContent() {
                     <p className="text-xs text-muted-foreground">深夜助眠播放器 · PWA渐进式网页应用 · 自定义音频</p>
                 </div>
             </footer>
+            <SchedulerDebugPanel />
         </div>
     );
 }
