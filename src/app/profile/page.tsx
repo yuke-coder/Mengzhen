@@ -3,16 +3,22 @@
 import { useState, useEffect, useRef } from "react";
 import { useAuth } from "@/lib/auth-context";
 import { useRouter } from "next/navigation";
-import { LocationSelector } from "@/components/location-selector";
-import { formatFullAddress } from "@/lib/location-data";
+import { LocationCascader, planetValueToText, planetTextToValue, countryValueToText, countryTextToValue } from "@/components/location-cascader";
+import { useProfile } from "@/lib/profile-context";
+import { format } from "date-fns"
+import { cn } from "@/lib/utils"
+import { Calendar } from "@/components/ui/calendar"
 import {
-  Brain,
+  Popover,
+  PopoverContent,
+  PopoverTrigger,
+} from "@/components/ui/popover"
+import { Button } from "@/components/ui/button";
+import {
   Camera,
-  Save,
-  X,
   User,
   Mail,
-  Calendar,
+  Calendar as CalendarIcon,
   MapPin,
   FileText,
   Heart,
@@ -42,9 +48,9 @@ interface ProfileFormData {
 export default function ProfilePage() {
   const { user, loading, updateUser } = useAuth();
   const router = useRouter();
+  const { saving, setSaving, setSubmitHandler, setCancelHandler } = useProfile();
   const fileInputRef = useRef<HTMLInputElement>(null);
   const usernameInputRef = useRef<HTMLInputElement>(null);
-  const [saving, setSaving] = useState(false);
   const [uploadingAvatar, setUploadingAvatar] = useState(false);
   const [editingUsername, setEditingUsername] = useState(false);
   const [message, setMessage] = useState<{ type: "success" | "error"; text: string } | null>(null);
@@ -64,7 +70,6 @@ export default function ProfilePage() {
     }
   }, [loading, user, router]);
 
-  // 加载用户名修改限制信息
   useEffect(() => {
     const loadProfile = async () => {
       try {
@@ -73,19 +78,14 @@ export default function ProfilePage() {
         });
         const data = await res.json();
         if (data.success) {
-          // 解析 location 字符串为对象
           const locationObj: LocationValue = { planet: "", country: "", province: "", city: "", district: "" };
           if (data.profile.location) {
             const parts = data.profile.location.split('/');
-            // 简化处理：假设 location 格式为 "省份/城市/区县"
-            if (parts.length >= 1) locationObj.province = parts[0] || "";
-            if (parts.length >= 2) locationObj.city = parts[1] || "";
-            if (parts.length >= 3) locationObj.district = parts[2] || "";
-            // 如果有星球或国家信息，从 parts[0] 中推断
-            if (parts[0]?.includes('地球') || parts[0]?.includes('中国')) {
-              locationObj.planet = 'earth';
-              locationObj.country = 'CN';
-            }
+            if (parts.length >= 1) locationObj.planet = planetTextToValue(parts[0]) || parts[0];
+            if (parts.length >= 2) locationObj.country = countryTextToValue(parts[1]) || parts[1];
+            if (parts.length >= 3) locationObj.province = parts[2] || "";
+            if (parts.length >= 4) locationObj.city = parts[3] || "";
+            if (parts.length >= 5) locationObj.district = parts[4] || "";
           }
           setFormData({
             username: data.profile.username || "",
@@ -111,13 +111,11 @@ export default function ProfilePage() {
     const file = e.target.files?.[0];
     if (!file || !user) return;
 
-    // 验证文件类型
     if (!file.type.startsWith("image/")) {
       setMessage({ type: "error", text: "请选择图片文件" });
       return;
     }
 
-    // 验证文件大小（最大 5MB）
     if (file.size > 5 * 1024 * 1024) {
       setMessage({ type: "error", text: "图片大小不能超过 5MB" });
       return;
@@ -136,7 +134,6 @@ export default function ProfilePage() {
 
       const data = await res.json();
       if (data.success) {
-        // 使用带时间戳的 URL 防止缓存
         const timestamp = Date.now();
         const newAvatarUrl = `${data.avatar_url}?t=${timestamp}`;
         updateUser({ avatar_url: newAvatarUrl });
@@ -163,7 +160,7 @@ export default function ProfilePage() {
     try {
       const currentGender = formData.gender || "secret";
       const defaultAvatarUrl = defaultAvatars[currentGender as keyof typeof defaultAvatars];
-      
+
       const res = await fetch(`/api/avatar?gender=${currentGender}`, {
         method: "DELETE",
         credentials: "include",
@@ -180,19 +177,18 @@ export default function ProfilePage() {
     }
   };
 
-  const handleSubmit = async (e: React.FormEvent) => {
-    e.preventDefault();
+  const handleSubmit = async (e?: React.FormEvent) => {
+    e?.preventDefault();
     if (!user) return;
 
     setSaving(true);
     setMessage(null);
     try {
-      // 将 location 对象转换为字符串格式
       const loc = formData.location;
       const submitData = {
         ...formData,
-        location: loc.planet && loc.country
-          ? `${loc.planet} > ${loc.country}${loc.province ? ` > ${loc.province}` : ""}${loc.city ? ` > ${loc.city}` : ""}${loc.district ? ` > ${loc.district}` : ""}`
+        location: loc.planet || loc.country || loc.province || loc.city || loc.district
+          ? [loc.planet ? planetValueToText(loc.planet) : '', loc.country ? countryValueToText(loc.country) : '', loc.province, loc.city, loc.district].filter(Boolean).join('/')
           : undefined,
       };
       const res = await fetch("/api/profile", {
@@ -204,7 +200,6 @@ export default function ProfilePage() {
 
       const data = await res.json();
       if (data.success) {
-        // 更新本地状态
         updateUser({
           username: data.profile.username,
           nickname: data.profile.nickname,
@@ -222,7 +217,6 @@ export default function ProfilePage() {
         }));
         setEditingUsername(false);
         setMessage({ type: "success", text: data.message || "资料更新成功" });
-        // 保存成功后返回上一页（预览环境使用 router.push）
         setTimeout(() => {
           if (window.location.hostname.includes('preview') || window.location.hostname.includes('dev.coze')) {
             router.push('/');
@@ -245,44 +239,34 @@ export default function ProfilePage() {
     setTimeout(() => usernameInputRef.current?.focus(), 0);
   };
 
+  const handleSubmitRef = useRef(handleSubmit);
+  handleSubmitRef.current = handleSubmit;
+
+  const handleCancelRef = useRef(() => router.back());
+  handleCancelRef.current = () => router.back();
+
+  useEffect(() => {
+    const stableSubmit = () => { handleSubmitRef.current(); };
+    const stableCancel = () => { handleCancelRef.current(); };
+    setSubmitHandler(() => stableSubmit);
+    setCancelHandler(() => stableCancel);
+    return () => {
+      setSubmitHandler(() => null);
+      setCancelHandler(() => null);
+    };
+  }, []);
+
   if (loading || !user) {
     return (
-      <div className="min-h-screen flex items-center justify-center" style={{ background: "var(--background)" }}>
-        <Loader2 className="w-8 h-8 animate-spin" style={{ color: "var(--brand-start)" }} />
+      <div className="min-h-screen flex items-center justify-center">
+        <Loader2 className="w-8 h-8 animate-spin text-[var(--brand-start)]" />
       </div>
     );
   }
 
   return (
-    <div className="min-h-screen" style={{ background: "var(--background)" }}>
-      {/* Header */}
-      <header className="sticky top-0 z-50 backdrop-blur-xl border-b border-[var(--border)]" style={{ background: "rgba(5, 5, 16, 0.8)" }}>
-        <div className="max-w-4xl mx-auto px-4 py-4">
-          <div className="flex items-center justify-between">
-            <button onClick={() => router.back()} className="p-2 rounded-lg hover:bg-[var(--muted)] transition-colors">
-              <X className="w-5 h-5" style={{ color: "var(--foreground)" }} />
-            </button>
-            <h1 className="text-lg font-semibold" style={{ color: "var(--foreground)" }}>编辑资料</h1>
-            <button
-              onClick={handleSubmit}
-              disabled={saving}
-              className="flex items-center gap-2 px-4 py-2 rounded-lg font-medium transition-all hover:-translate-y-0.5 hover:shadow-lg active:scale-[0.98]"
-              style={{
-                background: "linear-gradient(135deg, var(--brand-start), var(--brand-end))",
-                color: "white",
-                opacity: saving ? 0.7 : 1
-              }}
-            >
-              {saving ? <Loader2 className="w-4 h-4 animate-spin" /> : <Save className="w-4 h-4" />}
-              保存
-            </button>
-          </div>
-        </div>
-      </header>
-
-      {/* Content */}
-      <main className="max-w-4xl mx-auto px-4 py-6">
-        {/* Message */}
+    <div className="min-h-screen">
+      <div className="max-w-4xl mx-auto px-4 py-6">
         {message && (
           <div
             className="mb-6 p-4 rounded-lg border flex items-center gap-3"
@@ -299,10 +283,9 @@ export default function ProfilePage() {
 
         <form onSubmit={handleSubmit} className="space-y-6">
           {/* Avatar & Gender Section */}
-          <div className="p-6 rounded-xl border" style={{ background: "var(--card)", borderColor: "var(--border)" }}>
+          <div className="p-6 rounded-xl border glass border-border/50">
             <div className="flex items-center gap-6">
-              {/* Avatar Preview - Clickable */}
-              <div 
+              <div
                 className="relative cursor-pointer group shrink-0"
                 onClick={() => fileInputRef.current?.click()}
               >
@@ -310,7 +293,7 @@ export default function ProfilePage() {
                   {user.avatar_url ? (
                     <img src={`${user.avatar_url}${user.avatar_url.includes('?') ? '&' : '?'}t=${Date.now()}`} alt="头像" className="w-full h-full object-cover" />
                   ) : (
-                    <div className="w-full h-full flex items-center justify-center" style={{ background: "var(--muted)" }}>
+                    <div className="w-full h-full flex items-center justify-center glass">
                       <User className="w-12 h-12" style={{ color: "var(--muted-foreground)" }} />
                     </div>
                   )}
@@ -320,13 +303,11 @@ export default function ProfilePage() {
                     <Loader2 className="w-6 h-6 animate-spin text-white" />
                   </div>
                 )}
-                {/* Hover Overlay */}
                 <div className="absolute inset-0 flex items-center justify-center rounded-full bg-black/50 opacity-0 group-hover:opacity-100 transition-opacity">
                   <Camera className="w-8 h-8 text-white" />
                 </div>
               </div>
 
-              {/* Gender Selection */}
               <div className="flex-1">
                 <label className="flex items-center gap-2 text-sm font-medium mb-3" style={{ color: "var(--muted-foreground)" }}>
                   <Heart className="w-4 h-4" />
@@ -370,7 +351,7 @@ export default function ProfilePage() {
           </div>
 
           {/* Username Section */}
-          <div className="p-6 rounded-xl border" style={{ background: "var(--card)", borderColor: "var(--border)" }}>
+          <div className="p-6 rounded-xl border glass border-border/50">
             <label className="flex items-center gap-3 text-sm font-medium mb-3" style={{ color: "var(--muted-foreground)" }}>
               <Mail className="w-4 h-4" />
               用户名
@@ -385,9 +366,8 @@ export default function ProfilePage() {
                     value={formData.username}
                     onChange={(e) => setFormData({ ...formData, username: e.target.value })}
                     placeholder="输入用户名"
-                    className="flex-1 px-4 py-3 rounded-lg border transition-colors focus:outline-none focus:ring-2"
+                    className="flex-1 px-4 py-3 rounded-lg border transition-colors focus:outline-none focus:ring-2 glass"
                     style={{
-                      background: "var(--background)",
                       borderColor: "var(--brand-start)",
                       color: "var(--foreground)",
                       "--tw-ring-color": "var(--brand-start)",
@@ -408,7 +388,7 @@ export default function ProfilePage() {
               </div>
             ) : (
               <div className="flex items-center justify-between">
-                <div className="px-4 py-3 rounded-lg" style={{ background: "var(--muted)", color: "var(--foreground)" }}>
+                <div className="px-4 py-3 rounded-lg glass" style={{ color: "var(--foreground)" }}>
                   {user.username}
                 </div>
                 <button
@@ -431,12 +411,12 @@ export default function ProfilePage() {
             </p>
           </div>
 
-          {/* Nickname (Unified with username, deprecated) */}
-          <div className="p-6 rounded-xl border" style={{ background: "var(--card)", borderColor: "var(--border)" }}>
+          {/* Nickname */}
+          <div className="p-6 rounded-xl border glass border-border/50">
             <label className="flex items-center gap-3 text-sm font-medium mb-3" style={{ color: "var(--muted-foreground)" }}>
               <User className="w-4 h-4" />
               显示名称
-              <span className="text-xs px-2 py-0.5 rounded" style={{ background: "var(--muted)", color: "var(--muted-foreground)" }}>
+              <span className="text-xs px-2 py-0.5 rounded glass" style={{ color: "var(--muted-foreground)" }}>
                 选填
               </span>
             </label>
@@ -446,9 +426,8 @@ export default function ProfilePage() {
               onChange={(e) => setFormData({ ...formData, nickname: e.target.value })}
               maxLength={30}
               placeholder="不填则显示用户名"
-              className="w-full px-4 py-3 rounded-lg border transition-colors focus:outline-none focus:ring-2"
+              className="w-full px-4 py-3 rounded-lg border transition-colors focus:outline-none focus:ring-2 glass"
               style={{
-                background: "var(--background)",
                 borderColor: "var(--border)",
                 color: "var(--foreground)",
                 "--tw-ring-color": "var(--brand-start)",
@@ -460,39 +439,63 @@ export default function ProfilePage() {
           </div>
 
           {/* Birthday */}
-          <div className="p-6 rounded-xl border" style={{ background: "var(--card)", borderColor: "var(--border)" }}>
+          <div className="p-6 rounded-xl border glass border-border/50">
             <label className="flex items-center gap-3 text-sm font-medium mb-3" style={{ color: "var(--muted-foreground)" }}>
-              <Calendar className="w-4 h-4" />
+              <CalendarIcon className="w-4 h-4" />
               生日
             </label>
-            <input
-              type="date"
-              value={formData.birthday}
-              onChange={(e) => setFormData({ ...formData, birthday: e.target.value })}
-              className="w-full px-4 py-3 rounded-lg border transition-colors focus:outline-none focus:ring-2"
-              style={{
-                background: "var(--background)",
-                borderColor: "var(--border)",
-                color: "var(--foreground)",
-                "--tw-ring-color": "var(--brand-start)",
-              } as React.CSSProperties}
-            />
+            <Popover>
+              <PopoverTrigger asChild>
+                <Button
+                  variant="outline"
+                  className={cn(
+                    "w-full justify-start text-left font-normal px-4 py-3 rounded-lg",
+                    !formData.birthday && "text-muted-foreground"
+                  )}
+                  style={{ borderColor: "var(--border)", color: formData.birthday ? "var(--foreground)" : "var(--muted-foreground)" }}
+                >
+                  <CalendarIcon className="mr-2 h-4 w-4" />
+                  {formData.birthday ? format(new Date(formData.birthday), "yyyy-MM-dd") : <span>选择生日</span>}
+                </Button>
+              </PopoverTrigger>
+              <PopoverContent className="w-auto p-0" align="start">
+                <Calendar
+                  mode="single"
+                  selected={(() => {
+                    if (!formData.birthday) return undefined;
+                    const displayDate = new Date(formData.birthday);
+                    displayDate.setDate(displayDate.getDate() - 1);
+                    return displayDate;
+                  })()}
+                  onSelect={(date) => {
+                    if (date) {
+                      const correctedDate = new Date(date);
+                      correctedDate.setDate(correctedDate.getDate() + 1);
+                      setFormData({ ...formData, birthday: correctedDate.toISOString().split("T")[0] });
+                    } else {
+                      setFormData({ ...formData, birthday: "" });
+                    }
+                  }}
+                  initialFocus
+                />
+              </PopoverContent>
+            </Popover>
           </div>
 
           {/* Location */}
-          <div className="p-6 rounded-xl border" style={{ background: "var(--card)", borderColor: "var(--border)" }}>
+          <div className="p-6 rounded-xl border glass border-border/50">
             <label className="flex items-center gap-3 text-sm font-medium mb-3" style={{ color: "var(--muted-foreground)" }}>
               <MapPin className="w-4 h-4" />
               所在地
             </label>
-            <LocationSelector
+            <LocationCascader
               value={formData.location}
               onChange={(newLocation) => setFormData({ ...formData, location: newLocation })}
             />
           </div>
 
           {/* Signature */}
-          <div className="p-6 rounded-xl border" style={{ background: "var(--card)", borderColor: "var(--border)" }}>
+          <div className="p-6 rounded-xl border glass border-border/50">
             <label className="flex items-center gap-3 text-sm font-medium mb-3" style={{ color: "var(--muted-foreground)" }}>
               <FileText className="w-4 h-4" />
               个性签名
@@ -503,18 +506,20 @@ export default function ProfilePage() {
               onChange={(e) => setFormData({ ...formData, signature: e.target.value })}
               maxLength={100}
               placeholder="一句话介绍自己"
-              className="w-full px-4 py-3 rounded-lg border transition-colors focus:outline-none focus:ring-2"
+              className="w-full px-4 py-3 rounded-lg border transition-colors focus:outline-none focus:ring-2 glass"
               style={{
-                background: "var(--background)",
                 borderColor: "var(--border)",
                 color: "var(--foreground)",
                 "--tw-ring-color": "var(--brand-start)",
               } as React.CSSProperties}
             />
+            <p className="text-xs mt-2 text-right" style={{ color: "var(--muted-foreground)" }}>
+              {formData.signature.length}/100
+            </p>
           </div>
 
           {/* Bio */}
-          <div className="p-6 rounded-xl border" style={{ background: "var(--card)", borderColor: "var(--border)" }}>
+          <div className="p-6 rounded-xl border glass border-border/50">
             <label className="flex items-center gap-3 text-sm font-medium mb-3" style={{ color: "var(--muted-foreground)" }}>
               <FileText className="w-4 h-4" />
               个人简介
@@ -525,9 +530,8 @@ export default function ProfilePage() {
               maxLength={500}
               rows={4}
               placeholder="详细介绍一下自己..."
-              className="w-full px-4 py-3 rounded-lg border transition-colors focus:outline-none focus:ring-2 resize-none"
+              className="w-full px-4 py-3 rounded-lg border transition-colors focus:outline-none focus:ring-2 resize-none glass"
               style={{
-                background: "var(--background)",
                 borderColor: "var(--border)",
                 color: "var(--foreground)",
                 "--tw-ring-color": "var(--brand-start)",
@@ -538,7 +542,7 @@ export default function ProfilePage() {
             </p>
           </div>
         </form>
-      </main>
+      </div>
     </div>
   );
 }
