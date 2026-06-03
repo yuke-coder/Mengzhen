@@ -165,7 +165,7 @@ export async function POST(request: NextRequest) {
 const DEFAULT_AVATARS = {
   male: "/avatars/default-male.png",
   female: "/avatars/default-female.png",
-  secret: "/avatars/default.png",
+  secret: "/avatars/default-secret.png",
 };
 
 export async function DELETE(request: NextRequest) {

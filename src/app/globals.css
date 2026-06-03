@@ -748,12 +748,6 @@
   background: transparent;
 }
 
-.glass {
-  background: rgba(255, 255, 255, 0.05);
-  backdrop-filter: blur(12px);
-  -webkit-backdrop-filter: blur(12px);
-}
-
 :root:not(.dark) .light-bg {
   background: rgba(255, 255, 255, 0.85) !important;
   backdrop-filter: blur(10px);
@@ -1516,5 +1510,18 @@ button:disabled,
 
 .group:hover .sweep-fill {
   transform: scaleX(1);
+}
+
+/* ============================================
+   毛玻璃效果 - 用于个人资料卡片和输入框
+   ============================================ */
+.glass {
+  background: rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+}
+
+.dark .glass {
+  background: rgba(255, 255, 255, 0.04);
 }
 

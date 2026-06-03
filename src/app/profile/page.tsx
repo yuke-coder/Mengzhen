@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useEffect, useRef, useCallback } from "react";
+import { useState, useEffect, useRef } from "react";
 import { useAuth } from "@/lib/auth-context";
 import { useRouter } from "next/navigation";
 import { LocationCascader, planetValueToText, planetTextToValue, countryValueToText, countryTextToValue } from "@/components/location-cascader";
@@ -15,6 +15,7 @@ import {
 } from "@/components/ui/popover"
 import { Button } from "@/components/ui/button";
 import {
+  Brain,
   Camera,
   User,
   Mail,
@@ -51,27 +52,9 @@ export default function ProfilePage() {
   const { saving, setSaving, setSubmitHandler, setCancelHandler } = useProfile();
   const fileInputRef = useRef<HTMLInputElement>(null);
   const usernameInputRef = useRef<HTMLInputElement>(null);
-  // 记录进入 profile 之前的路径，作为 router.back() 失效时的兜底跳转目标
-  const previousPathRef = useRef<string>("/");
   const [uploadingAvatar, setUploadingAvatar] = useState(false);
   const [editingUsername, setEditingUsername] = useState(false);
   const [message, setMessage] = useState<{ type: "success" | "error"; text: string } | null>(null);
-
-  useEffect(() => {
-    if (typeof window !== "undefined") {
-      const ref = document.referrer;
-      try {
-        if (ref) {
-          const u = new URL(ref);
-          if (u.origin === window.location.origin && !u.pathname.startsWith("/profile")) {
-            previousPathRef.current = u.pathname + u.search;
-          }
-        }
-      } catch {
-        // ignore
-      }
-    }
-  }, []);
   const [formData, setFormData] = useState<ProfileFormData>({
     username: "",
     nickname: "",
@@ -88,6 +71,7 @@ export default function ProfilePage() {
     }
   }, [loading, user, router]);
 
+  // 加载用户名修改限制信息
   useEffect(() => {
     const loadProfile = async () => {
       try {
@@ -96,6 +80,7 @@ export default function ProfilePage() {
         });
         const data = await res.json();
         if (data.success) {
+          // 解析 location 字符串为对象
           const locationObj: LocationValue = { planet: "", country: "", province: "", city: "", district: "" };
           if (data.profile.location) {
             const parts = data.profile.location.split('/');
@@ -129,11 +114,13 @@ export default function ProfilePage() {
     const file = e.target.files?.[0];
     if (!file || !user) return;
 
+    // 验证文件类型
     if (!file.type.startsWith("image/")) {
       setMessage({ type: "error", text: "请选择图片文件" });
       return;
     }
 
+    // 验证文件大小（最大 5MB）
     if (file.size > 5 * 1024 * 1024) {
       setMessage({ type: "error", text: "图片大小不能超过 5MB" });
       return;
@@ -152,6 +139,7 @@ export default function ProfilePage() {
 
       const data = await res.json();
       if (data.success) {
+        // 使用带时间戳的 URL 防止缓存
         const timestamp = Date.now();
         const newAvatarUrl = `${data.avatar_url}?t=${timestamp}`;
         updateUser({ avatar_url: newAvatarUrl });
@@ -169,7 +157,7 @@ export default function ProfilePage() {
   const defaultAvatars = {
     male: "/avatars/default-male.png",
     female: "/avatars/default-female.png",
-    secret: "/avatars/default.png",
+    secret: "/avatars/default-secret.png",
   };
 
   const handleResetAvatar = async () => {
@@ -178,7 +166,7 @@ export default function ProfilePage() {
     try {
       const currentGender = formData.gender || "secret";
       const defaultAvatarUrl = defaultAvatars[currentGender as keyof typeof defaultAvatars];
-
+      
       const res = await fetch(`/api/avatar?gender=${currentGender}`, {
         method: "DELETE",
         credentials: "include",
@@ -202,6 +190,7 @@ export default function ProfilePage() {
     setSaving(true);
     setMessage(null);
     try {
+      // 将 location 对象转换为字符串格式
       const loc = formData.location;
       const submitData = {
         ...formData,
@@ -218,6 +207,7 @@ export default function ProfilePage() {
 
       const data = await res.json();
       if (data.success) {
+        // 更新本地状态
         updateUser({
           username: data.profile.username,
           nickname: data.profile.nickname,
@@ -235,8 +225,13 @@ export default function ProfilePage() {
         }));
         setEditingUsername(false);
         setMessage({ type: "success", text: data.message || "资料更新成功" });
+        // 保存成功后返回上一页（预览环境使用 router.push）
         setTimeout(() => {
-          navigateBack();
+          if (window.location.hostname.includes('preview') || window.location.hostname.includes('dev.coze')) {
+            router.push('/');
+          } else {
+            router.back();
+          }
         }, 800);
       } else {
         setMessage({ type: "error", text: data.error || "更新失败" });
@@ -248,25 +243,6 @@ export default function ProfilePage() {
     }
   };
 
-  const navigateBack = useCallback(() => {
-    if (typeof window === "undefined") return;
-    const fallback = previousPathRef.current || "/";
-    // 在 preview / dev.coze 域名下直接回到首页
-    if (
-      window.location.hostname.includes("preview") ||
-      window.location.hostname.includes("dev.coze")
-    ) {
-      router.push("/");
-      return;
-    }
-    // 历史栈里存在上一页且不是当前页时才用 back，否则用兜底路径
-    if (window.history.length > 1 && document.referrer && !document.referrer.endsWith("/profile")) {
-      router.back();
-    } else {
-      router.push(fallback);
-    }
-  }, [router]);
-
   const startEditUsername = () => {
     setEditingUsername(true);
     setTimeout(() => usernameInputRef.current?.focus(), 0);
@@ -275,8 +251,8 @@ export default function ProfilePage() {
   const handleSubmitRef = useRef(handleSubmit);
   handleSubmitRef.current = handleSubmit;
 
-  const handleCancelRef = useRef(navigateBack);
-  handleCancelRef.current = navigateBack;
+  const handleCancelRef = useRef(() => router.back());
+  handleCancelRef.current = () => router.back();
 
   useEffect(() => {
     const stableSubmit = () => { handleSubmitRef.current(); };
@@ -318,7 +294,8 @@ export default function ProfilePage() {
           {/* Avatar & Gender Section */}
           <div className="p-6 rounded-xl border glass border-border/50">
             <div className="flex items-center gap-6">
-              <div
+              {/* Avatar Preview - Clickable */}
+              <div 
                 className="relative cursor-pointer group shrink-0"
                 onClick={() => fileInputRef.current?.click()}
               >
@@ -336,11 +313,13 @@ export default function ProfilePage() {
                     <Loader2 className="w-6 h-6 animate-spin text-white" />
                   </div>
                 )}
+                {/* Hover Overlay */}
                 <div className="absolute inset-0 flex items-center justify-center rounded-full bg-black/50 opacity-0 group-hover:opacity-100 transition-opacity">
                   <Camera className="w-8 h-8 text-white" />
                 </div>
               </div>
 
+              {/* Gender Selection */}
               <div className="flex-1">
                 <label className="flex items-center gap-2 text-sm font-medium mb-3" style={{ color: "var(--muted-foreground)" }}>
                   <Heart className="w-4 h-4" />
@@ -401,6 +380,7 @@ export default function ProfilePage() {
                     placeholder="输入用户名"
                     className="flex-1 px-4 py-3 rounded-lg border transition-colors focus:outline-none focus:ring-2 glass"
                     style={{
+                      
                       borderColor: "var(--brand-start)",
                       color: "var(--foreground)",
                       "--tw-ring-color": "var(--brand-start)",
@@ -444,7 +424,7 @@ export default function ProfilePage() {
             </p>
           </div>
 
-          {/* Nickname */}
+          {/* Nickname (Unified with username, deprecated) */}
           <div className="p-6 rounded-xl border glass border-border/50">
             <label className="flex items-center gap-3 text-sm font-medium mb-3" style={{ color: "var(--muted-foreground)" }}>
               <User className="w-4 h-4" />
@@ -461,6 +441,7 @@ export default function ProfilePage() {
               placeholder="不填则显示用户名"
               className="w-full px-4 py-3 rounded-lg border transition-colors focus:outline-none focus:ring-2 glass"
               style={{
+                
                 borderColor: "var(--border)",
                 color: "var(--foreground)",
                 "--tw-ring-color": "var(--brand-start)",
@@ -496,12 +477,14 @@ export default function ProfilePage() {
                   mode="single"
                   selected={(() => {
                     if (!formData.birthday) return undefined;
+                    // 修复日期显示偏移问题：减一天
                     const displayDate = new Date(formData.birthday);
                     displayDate.setDate(displayDate.getDate() - 1);
                     return displayDate;
                   })()}
                   onSelect={(date) => {
                     if (date) {
+                      // 修复日期偏移问题：加一天
                       const correctedDate = new Date(date);
                       correctedDate.setDate(correctedDate.getDate() + 1);
                       setFormData({ ...formData, birthday: correctedDate.toISOString().split("T")[0] });
@@ -541,14 +524,12 @@ export default function ProfilePage() {
               placeholder="一句话介绍自己"
               className="w-full px-4 py-3 rounded-lg border transition-colors focus:outline-none focus:ring-2 glass"
               style={{
+                
                 borderColor: "var(--border)",
                 color: "var(--foreground)",
                 "--tw-ring-color": "var(--brand-start)",
               } as React.CSSProperties}
             />
-            <p className="text-xs mt-2 text-right" style={{ color: "var(--muted-foreground)" }}>
-              {formData.signature.length}/100
-            </p>
           </div>
 
           {/* Bio */}
@@ -565,6 +546,7 @@ export default function ProfilePage() {
               placeholder="详细介绍一下自己..."
               className="w-full px-4 py-3 rounded-lg border transition-colors focus:outline-none focus:ring-2 resize-none glass"
               style={{
+                
                 borderColor: "var(--border)",
                 color: "var(--foreground)",
                 "--tw-ring-color": "var(--brand-start)",
