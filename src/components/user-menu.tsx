@@ -5,17 +5,19 @@ import Link from 'next/link';
 import { useRouter } from 'next/navigation';
 import { useAuth } from '@/lib/auth-context';
 import { cn } from '@/lib/utils';
-import LogOut from 'lucide-react/dist/esm/icons/log-out';
-import History from 'lucide-react/dist/esm/icons/history';
-import LogIn from 'lucide-react/dist/esm/icons/log-in';
-import UserPlus from 'lucide-react/dist/esm/icons/user-plus';
-import Loader2 from 'lucide-react/dist/esm/icons/loader-2';
-import Settings from 'lucide-react/dist/esm/icons/settings';
-import User from 'lucide-react/dist/esm/icons/user';
-import MapPin from 'lucide-react/dist/esm/icons/map-pin';
-import Calendar from 'lucide-react/dist/esm/icons/calendar';
-import FileText from 'lucide-react/dist/esm/icons/file-text';
-import Heart from 'lucide-react/dist/esm/icons/heart';
+import {
+  LogOut,
+  History,
+  LogIn,
+  UserPlus,
+  Loader2,
+  Settings,
+  User,
+  MapPin,
+  Calendar,
+  FileText,
+  Heart
+} from 'lucide-react';
 
 const GENDER_MAP: Record<string, string> = {
   male: '男',
