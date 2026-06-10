@@ -265,7 +265,6 @@ export default function ProfilePage() {
             }
           });
         };
-        setUndoHandler(() => undoAction);
 
         // 同步显示非阻塞弹窗
         showToast({
