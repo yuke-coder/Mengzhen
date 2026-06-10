@@ -522,9 +522,9 @@ export default function ProfilePage() {
                       // 修复日期偏移问题：加一天
                       const correctedDate = new Date(date);
                       correctedDate.setDate(correctedDate.getDate() + 1);
-                      setFormData({ ...formData, birthday: correctedDate.toISOString().split("T")[0] });
+                      updateFormData({ ...formData, birthday: correctedDate.toISOString().split("T")[0] });
                     } else {
-                      setFormData({ ...formData, birthday: "" });
+                      updateFormData({ ...formData, birthday: "" });
                     }
                   }}
                   initialFocus
@@ -541,7 +541,7 @@ export default function ProfilePage() {
             </label>
             <LocationCascader
               value={formData.location}
-              onChange={(newLocation) => setFormData({ ...formData, location: newLocation })}
+              onChange={(newLocation) => updateFormData({ ...formData, location: newLocation })}
             />
           </div>
 
