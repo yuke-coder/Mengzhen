@@ -1,4 +1,4 @@
-const CACHE_VERSION = 'v9';
+const CACHE_VERSION = 'v10';
 const STATIC_CACHE = 'mengzhen-static-' + CACHE_VERSION;
 const AUDIO_CACHE = 'mengzhen-audio-' + CACHE_VERSION;
 const API_CACHE = 'mengzhen-api-' + CACHE_VERSION;
