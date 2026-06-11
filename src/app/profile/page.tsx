@@ -266,12 +266,13 @@ export default function ProfilePage() {
           });
         };
 
-        // 先执行跳转，弹窗在目标页面显示
-        sessionStorage.setItem("profile-toast", JSON.stringify({
+        // 显示非阻塞弹窗，2秒后自动跳转，撤销则留在页面
+        showToast({
           message: data.message || "资料更新成功",
-          undoSnapshot: currentSnapshot,
-        }));
-        router.back();
+          undoAction,
+          undoLabel: "撤销",
+          onAutoClose: () => router.back(),
+        });
       } else {
         showToast({ message: data.error || "更新失败" });
       }
