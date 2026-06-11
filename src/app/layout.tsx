@@ -6,6 +6,7 @@ import { AuthProvider } from "@/lib/auth-context";
 import Navbar from "@/components/navbar";
 import { Toaster } from "@/components/ui/sonner";
 import ClientProviders from "@/components/client-providers";
+import { ProfileToastListener } from "@/components/profile-toast-listener";
 
 export const viewport: Viewport = {
   themeColor: [
@@ -65,6 +66,7 @@ export default function RootLayout({
                 <Navbar />
 
                 {children}
+                <ProfileToastListener />
               </ClientProviders>
             </AuthProvider>
             <Toaster position="top-center" richColors />
