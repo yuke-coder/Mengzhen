@@ -104,6 +104,12 @@ export async function POST(request: NextRequest) {
 
     if (dbError) {
       console.error("[Audio Upload] audios 表写入失败:", dbError);
+      // 尝试清理已上传的存储文件
+      await supabase.storage.from("audios").remove([fileName]);
+      return NextResponse.json(
+        { success: false, error: "音频记录保存失败，请重试" },
+        { status: 500 }
+      );
     }
 
     if (saveToFiles) {
