@@ -50,7 +50,19 @@ export default function HistoryPage() {
   const [audios, setAudios] = useState<AudioRecord[]>([]);
   const [loading, setLoading] = useState(true);
   const [playingId, setPlayingId] = useState<string | null>(null);
-  const [currentAudio, setCurrentAudio] = useState<HTMLAudioElement | null>(null);
+  const currentAudioRef = useRef<HTMLAudioElement | null>(null);
+
+  // 组件卸载时清理音频
+  useEffect(() => {
+    return () => {
+      if (currentAudioRef.current) {
+        currentAudioRef.current.pause();
+        currentAudioRef.current.removeAttribute('src');
+        currentAudioRef.current.load();
+        currentAudioRef.current = null;
+      }
+    };
+  }, []);
 
   useEffect(() => {
     if (!authLoading && !user) {
@@ -67,10 +79,10 @@ export default function HistoryPage() {
       if (data.success) {
         setAudios(data.audios || []);
       } else {
-        console.error('获取历史记录失败:', data.error);
+        console.error('获取音频列表失败:', data.error);
       }
     } catch (err) {
-      console.error('获取历史记录失败:', err);
+      console.error('获取音频列表失败:', err);
     } finally {
       setLoading(false);
     }
@@ -80,15 +92,18 @@ export default function HistoryPage() {
     fetchAudios();
   }, [fetchAudios]);
 
-  const handlePlay = (audio: AudioRecord) => {
-    if (currentAudio) {
-      currentAudio.pause();
-      currentAudio.currentTime = 0;
+  const handlePlay = useCallback((audio: AudioRecord) => {
+    // 停止当前播放
+    if (currentAudioRef.current) {
+      currentAudioRef.current.pause();
+      currentAudioRef.current.removeAttribute('src');
+      currentAudioRef.current.load();
+      currentAudioRef.current = null;
     }
 
+    // 如果点击的是正在播放的，则停止
     if (playingId === audio.id) {
       setPlayingId(null);
-      setCurrentAudio(null);
       return;
     }
 
@@ -96,15 +111,31 @@ export default function HistoryPage() {
       ? `/api/audio/proxy?key=${encodeURIComponent(audio.file_key)}`
       : audio.file_url;
 
-    const audioEl = new Audio(url);
-    audioEl.play();
+    const audioEl = new Audio();
+    audioEl.src = url;
+    
     audioEl.onended = () => {
       setPlayingId(null);
-      setCurrentAudio(null);
+      currentAudioRef.current = null;
     };
+    audioEl.onerror = () => {
+      console.error('[梦枕] 播放失败:', audio.title);
+      setPlayingId(null);
+      currentAudioRef.current = null;
+    };
+
+    currentAudioRef.current = audioEl;
     setPlayingId(audio.id);
-    setCurrentAudio(audioEl);
-  };
+    
+    audioEl.play().catch((err) => {
+      // AbortError 是正常的（快速切换/导航时），不报错
+      if (err.name !== 'AbortError') {
+        console.error('[梦枕] 播放失败:', err);
+      }
+      setPlayingId(null);
+      currentAudioRef.current = null;
+    });
+  }, [playingId]);
 
   const handleExport = async (audio: AudioRecord) => {
     try {
