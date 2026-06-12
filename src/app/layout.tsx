@@ -57,14 +57,20 @@ export default function RootLayout({
           strategy="beforeInteractive"
         >{THEME_INJECTION_SCRIPT}</Script>
 
+        {/* 全局导航栏 - 需要 AuthProvider 和 ThemeProvider */}
+        <ThemeProvider>
+          <AuthProvider>
+            <ClientProviders>
+              <Navbar />
+            </ClientProviders>
+          </AuthProvider>
+        </ThemeProvider>
+
         {/* 页面内容（pt-14 为固定导航栏留出空间） */}
-        <div className="relative z-10 pt-14">
+        <div className="pt-14">
           <ThemeProvider>
             <AuthProvider>
               <ClientProviders>
-                {/* 全局导航栏 - 需要AuthProvider(UserMenu)和ThemeProvider(ThemeToggle) */}
-                <Navbar />
-
                 {children}
                 <ProfileToastListener />
               </ClientProviders>
