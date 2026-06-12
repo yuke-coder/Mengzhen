@@ -2,8 +2,6 @@ import { NextRequest, NextResponse } from "next/server";
 import { getSupabaseClient } from "@/storage/database/supabase-client";
 import { getAuthUser } from "@/lib/auth";
 
-const MAX_FILE_SIZE = 50 * 1024 * 1024;
-
 const ALLOWED_TYPES = [
   "audio/mpeg",
   "audio/wav",
