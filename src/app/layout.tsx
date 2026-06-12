@@ -57,27 +57,22 @@ export default function RootLayout({
           strategy="beforeInteractive"
         >{THEME_INJECTION_SCRIPT}</Script>
 
-        {/* 全局导航栏 - 需要 AuthProvider 和 ThemeProvider */}
+        {/* 全局导航栏 + 页面内容 */}
         <ThemeProvider>
           <AuthProvider>
             <ClientProviders>
+              {/* 导航栏：position: fixed + z-index 确保在所有页面内容之上 */}
               <Navbar />
-            </ClientProviders>
-          </AuthProvider>
-        </ThemeProvider>
 
-        {/* 页面内容（pt-14 为固定导航栏留出空间） */}
-        <div className="pt-14">
-          <ThemeProvider>
-            <AuthProvider>
-              <ClientProviders>
+              {/* 页面内容（pt-14 为固定导航栏留出空间） */}
+              <div className="pt-14">
                 {children}
                 <ProfileToastListener />
-              </ClientProviders>
-            </AuthProvider>
-            <Toaster position="top-center" richColors />
-          </ThemeProvider>
-        </div>
+              </div>
+            </ClientProviders>
+          </AuthProvider>
+          <Toaster position="top-center" richColors />
+        </ThemeProvider>
 
         {/* Ripple effect for buttons */}
         <Script id="ripple-init" strategy="afterInteractive">{`
