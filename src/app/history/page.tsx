@@ -1,6 +1,6 @@
 'use client';
 
-import { useEffect, useState } from 'react';
+import { useEffect, useState, useCallback } from 'react';
 import { useRouter } from 'next/navigation';
 import { useAuth } from '@/lib/auth-context';
 import Navbar from '@/components/navbar';
@@ -58,25 +58,27 @@ export default function HistoryPage() {
     }
   }, [user, authLoading, router]);
 
-  useEffect(() => {
+  const fetchAudios = useCallback(async () => {
     if (!user) return;
-
-    async function fetchAudios() {
-      try {
-        const res = await fetch('/api/audio/my-list');
-        const data = await res.json();
-        if (data.success) {
-          setAudios(data.audios || []);
-        }
-      } catch (err) {
-        console.error('获取历史记录失败:', err);
-      } finally {
-        setLoading(false);
+    setLoading(true);
+    try {
+      const res = await fetch('/api/audio/my-list', { cache: 'no-store' });
+      const data = await res.json();
+      if (data.success) {
+        setAudios(data.audios || []);
+      } else {
+        console.error('获取历史记录失败:', data.error);
       }
+    } catch (err) {
+      console.error('获取历史记录失败:', err);
+    } finally {
+      setLoading(false);
     }
-
-    fetchAudios();
   }, [user]);
+
+  useEffect(() => {
+    fetchAudios();
+  }, [fetchAudios]);
 
   const handlePlay = (audio: AudioRecord) => {
     if (currentAudio) {
