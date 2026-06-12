@@ -297,8 +297,9 @@ export async function POST(request: NextRequest) {
 
     if (uploadError) {
       console.error("[Audio Upload] 存储上传失败:", uploadError);
+      const userMsg = translateStorageError(uploadError.message || "");
       return NextResponse.json(
-        { success: false, error: uploadError.message || "上传失败，请重试" },
+        { success: false, error: userMsg },
         { status: 500 }
       );
     }
