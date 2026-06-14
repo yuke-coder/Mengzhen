@@ -499,12 +499,13 @@ export function AnimatedLoginPage() {
           <div className="text-center mb-10">
             <h1 className="text-3xl font-bold tracking-tight mb-2">欢迎回来</h1>
             <p className="text-muted-foreground text-sm">请输入您的账户信息</p>
-
+          </div>
 
           {/* Login Form */}
           <form onSubmit={handleSubmit} className="space-y-5">
-            <label htmlFor="username" className="text-sm font-medium mb-1 block">用户名</label>
-            <input
+            <div className="space-y-2">
+              <label htmlFor="username" className="text-sm font-medium">用户名</label>
+              <input
                 id="username"
                 type="text"
                 placeholder="请输入用户名"
@@ -517,9 +518,10 @@ export function AnimatedLoginPage() {
                 disabled={isLoading}
                 className="h-12 w-full px-4 rounded-xl bg-transparent border border-white/30 focus:border-white focus:outline-none focus:ring-2 focus:ring-white/20 transition-all text-white placeholder:text-white/50"
               />
+            </div>
 
-
-            <label htmlFor="password" className="text-sm font-medium mb-1 block">密码</label>
+            <div className="space-y-2">
+              <label htmlFor="password" className="text-sm font-medium">密码</label>
               <div className="relative">
                 <input
                   id="password"
@@ -539,11 +541,11 @@ export function AnimatedLoginPage() {
                   {showPassword ? (
                     <EyeOff className="size-5" />
                   ) : (
-
+                    <Eye className="size-5" />
                   )}
                 </button>
               </div>
-
+            </div>
 
             {error && (
               <div className="p-3 text-sm text-red-400 bg-red-950/20 border border-red-900/30 rounded-xl">
@@ -574,8 +576,8 @@ export function AnimatedLoginPage() {
               立即注册
             </Link>
           </div>
+        </div>
       </div>
-
-  );
     </div>
+  );
 }

@@ -577,8 +577,7 @@ export function AnimatedRegisterPage() {
       </div>
 
      {/* Right Register Section */}
-      <div className="relative z-10 flex items-center justify-center p-4 sm:p-8">
-        <div className="w-full max-w-[420px] bg-black/10 backdrop-blur-sm rounded-2xl p-6 sm:p-8">
+      <div className="relative z-10 mx-auto w-full max-w-[420px] bg-black/10 backdrop-blur-sm rounded-2xl p-6 sm:p-8 mt-8">
           {/* Header */}
           <div className="text-center mb-10">
             <h1 className="text-3xl font-bold tracking-tight mb-2">创建账户</h1>
@@ -587,9 +586,8 @@ export function AnimatedRegisterPage() {
 
           {/* Register Form */}
           <form onSubmit={handleSubmit} className="space-y-5">
-            <div className="space-y-2">
-              <label htmlFor="username" className="text-sm font-medium">用户名</label>
-              <input
+            <label htmlFor="username" className="text-sm font-medium mb-1 block">用户名</label>
+            <input
                 id="username"
                 type="text"
                 placeholder="请输入用户名"
@@ -602,10 +600,9 @@ export function AnimatedRegisterPage() {
                 disabled={isLoading}
                 className="h-12 w-full px-4 rounded-xl bg-transparent border border-white/30 focus:border-white focus:outline-none focus:ring-2 focus:ring-white/20 transition-all text-white placeholder:text-white/50"
               />
-            </div>
 
-            <div className="space-y-2">
-              <label htmlFor="password" className="text-sm font-medium">密码</label>
+
+            <label htmlFor="password" className="text-sm font-medium mb-1 block">密码</label>
               <div className="relative">
                 <input
                   id="password"
@@ -628,11 +625,10 @@ export function AnimatedRegisterPage() {
                     <Eye className="size-5" />
                   )}
                 </button>
-              </div>
-            </div>
 
-            <div className="space-y-2">
-              <label htmlFor="confirmPassword" className="text-sm font-medium">确认密码</label>
+
+
+            <label htmlFor="confirmPassword" className="text-sm font-medium mb-1 block">确认密码</label>
               <div className="relative">
                 <input
                   id="confirmPassword"
@@ -655,7 +651,7 @@ export function AnimatedRegisterPage() {
                     <Eye className="size-5" />
                   )}
                 </button>
-              </div>
+
               {/* Password match indicator */}
               {confirmPassword.length > 0 && (
                 <div className={cn(
@@ -673,9 +669,9 @@ export function AnimatedRegisterPage() {
                       <span>密码不匹配</span>
                     </>
                   )}
-                </div>
-              )}
-            </div>
+
+
+
 
             {error && (
               <div className="p-3 text-sm text-red-400 bg-red-950/20 border border-red-900/30 rounded-xl">
@@ -706,8 +702,8 @@ export function AnimatedRegisterPage() {
               立即登录
             </Link>
           </div>
-        </div>
       </div>
+
     </div>
   );
 }
