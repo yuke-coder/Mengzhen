@@ -93,7 +93,10 @@ export default function RootLayout({
         <Script id="sw-register" strategy="afterInteractive" dangerouslySetInnerHTML={{ __html: `
           if ('serviceWorker' in navigator) {
             window.addEventListener('load', function() {
-              var isLocal = ['localhost', '127.0.0.1', '::1'].includes(location.hostname);
+              var isLocal = ['localhost', '127.0.0.1', '::1'].includes(location.hostname)
+                || /^10\./.test(location.hostname)
+                || /^192\.168\./.test(location.hostname)
+                || /^172\.(1[6-9]|2[0-9]|3[0-1])\./.test(location.hostname);
               if (isLocal) {
                 navigator.serviceWorker.getRegistrations().then(function(registrations) {
                   registrations.forEach(function(registration) {

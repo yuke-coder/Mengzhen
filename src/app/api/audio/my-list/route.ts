@@ -12,16 +12,31 @@ export async function GET() {
   if (!supabase) return NextResponse.json({ error: "服务器配置错误" }, { status: 500 });
 
   const { data, error } = await supabase
-    .from("audios")
-    .select("id, title, file_url, file_key, file_name, file_size, duration, mime_type, created_at")
+    .from("audio_files")
+    .select("id, path, name, size, mime_type, metadata, created_at")
     .eq("user_id", user.id)
-    .eq("is_active", true)
     .order("created_at", { ascending: false });
 
   if (error) {
     console.error("[Audio MyList] 查询失败:", error);
-    return NextResponse.json({ error: "获取历史记录失败" }, { status: 500 });
+    return NextResponse.json({ error: "获取我的音频失败" }, { status: 500 });
   }
 
-  return NextResponse.json({ success: true, audios: data || [] });
+  const audios = (data || []).map((audio) => {
+    const { data: urlData } = supabase.storage.from("audios").getPublicUrl(audio.path);
+    const metadata = audio.metadata as { duration?: number } | null;
+    return {
+      id: audio.id,
+      title: audio.name,
+      file_url: urlData?.publicUrl || "",
+      file_key: audio.path,
+      file_name: audio.name,
+      file_size: audio.size || 0,
+      duration: metadata?.duration || 0,
+      mime_type: audio.mime_type,
+      created_at: audio.created_at,
+    };
+  });
+
+  return NextResponse.json({ success: true, audios });
 }

@@ -43,18 +43,19 @@ import { cn } from "@/lib/utils";
 
 type IconComponent = React.ComponentType<{ className?: string }>;
 
-const homeCardClass = "group relative overflow-hidden bg-transparent border border-border/50 shadow-lg shadow-foreground/5 transition-all duration-300 ease-out hover:border-[var(--brand-glow)]/40 hover:shadow-xl hover:shadow-[var(--brand-glow)]/10";
+const homeCardClass = "home-diffuse-card group relative overflow-hidden bg-transparent border border-border/50 shadow-lg shadow-foreground/5 transition-all duration-300 ease-out hover:border-[var(--brand-glow)]/40 hover:shadow-xl hover:shadow-[var(--brand-glow)]/10";
 const homeLiftCardClass = cn(homeCardClass, "hover:-translate-y-1");
 const homeStrongLiftCardClass = cn(homeCardClass, "hover:-translate-y-2 duration-400");
 
-function PainCard({ icon: Icon, title, desc, iconBg }: {
+function PainCard({ icon: Icon, title, desc, iconBg, style }: {
     icon: IconComponent;
     title: string;
     desc: string;
     iconBg: string;
+    style?: React.CSSProperties;
 }) {
     return (
-        <div className={cn(homeStrongLiftCardClass, "p-6 rounded-2xl")}>
+        <div className={cn(homeStrongLiftCardClass, "p-6 rounded-2xl")} style={style}>
             <div className="flex flex-col items-center text-center gap-4">
                 <div
                     className={`w-14 h-14 rounded-2xl bg-gradient-to-br ${iconBg} flex items-center justify-center group-hover:scale-110 transition-transform duration-300`}>
@@ -269,6 +270,38 @@ const heroChips: { icon: IconComponent; text: string }[] = [
     { icon: Clock, text: "时段自定义配置" },
     { icon: Volume2, text: "精细化音量管控" }
 ];
+
+const diffuseShapes = [
+    ["82deg", "24%", "38%", "42% 58% 64% 36% / 53% 34% 66% 47%", "rotate(-18deg) skew(-10deg, 3deg)", "rotate(-23deg) skew(-12deg, 5deg) scale(1.12)"],
+    ["218deg", "76%", "28%", "61% 39% 44% 56% / 36% 62% 38% 64%", "rotate(14deg) skew(8deg, -5deg)", "rotate(19deg) skew(10deg, -7deg) scale(1.1)"],
+    ["312deg", "30%", "82%", "37% 63% 52% 48% / 68% 41% 59% 32%", "rotate(-6deg) skew(11deg, 2deg)", "rotate(-11deg) skew(14deg, 3deg) scale(1.11)"],
+    ["154deg", "82%", "74%", "56% 44% 33% 67% / 47% 70% 30% 53%", "rotate(24deg) skew(-5deg, 9deg)", "rotate(30deg) skew(-6deg, 11deg) scale(1.1)"],
+    ["18deg", "58%", "18%", "68% 32% 57% 43% / 40% 55% 45% 60%", "rotate(8deg) skew(-14deg, 6deg)", "rotate(13deg) skew(-16deg, 8deg) scale(1.1)"],
+    ["268deg", "18%", "66%", "45% 55% 35% 65% / 63% 35% 65% 37%", "rotate(-28deg) skew(6deg, -9deg)", "rotate(-34deg) skew(8deg, -11deg) scale(1.12)"],
+] as const;
+
+const diffuseHue = (i: number, step: number) => (152 + i * 37 + step * 28) % 360;
+const cardDiffuse = (i: number): React.CSSProperties => {
+    const [angle, x, y, radius, transform, hoverTransform] = diffuseShapes[i % diffuseShapes.length];
+    const colors = Array.from({ length: 7 }, (_, n) => `hsl(${diffuseHue(i, n)} 72% ${62 + ((i + n) % 4) * 5}% / ${0.4 + ((i + n) % 3) * 0.08})`);
+    return {
+        ["--diffuse-angle" as string]: angle,
+        ["--diffuse-x" as string]: x,
+        ["--diffuse-y" as string]: y,
+        ["--diffuse-radius" as string]: radius,
+        ["--diffuse-transform" as string]: transform,
+        ["--diffuse-hover-transform" as string]: hoverTransform,
+        ...Object.fromEntries(colors.map((color, n) => [`--diffuse-${"abcdefg"[n]}`, color])),
+    };
+};
+
+const minimalPrinciples: { icon: IconComponent; title: string; desc: string }[] = [
+    { icon: Music, title: "私人音频", desc: "不做内容流，不推曲库，只播放你自己选择的声音。" },
+    { icon: Clock, title: "自动任务", desc: "设好时间、时长和音量渐变，夜里按计划安静执行。" },
+    { icon: Shield, title: "少即是安", desc: "只保留音频和任务所需数据，不追踪睡眠，也不制造打扰。" }
+];
+
+const minimalBoundaries = ["无广告", "无订阅", "无推荐流", "无社交分享", "无睡眠监测", "无多余弹窗"];
 
 const heroNodes = [
     { x: 200, y: 300, r: 4, delay: 0 },
@@ -516,10 +549,7 @@ export default function HomePage() {
 
                         {/* 第一板块：核心痛点 - 独立卡片平铺 */}
                         <div className="grid md:grid-cols-2 gap-6 mb-16">
-                            <div className={cn(homeCardClass, "flex items-start gap-4 p-5 rounded-2xl hover:-translate-y-0.5")}>
-                                <div className="absolute -top-2 -right-2 px-2 py-0.5 rounded-full bg-[var(--brand-glow)]/20 text-[var(--brand-glow)] text-xs font-medium">
-                                    专为浅眠人群
-                                </div>
+                            <div className={cn(homeCardClass, "flex items-start gap-4 p-5 rounded-2xl hover:-translate-y-0.5")} style={cardDiffuse(0)}>
                                 <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-[var(--brand-start)]/20 to-[var(--brand-end)]/10 flex items-center justify-center shrink-0">
                                     <Moon className="w-6 h-6 text-[var(--brand-glow)]" />
                                 </div>
@@ -528,10 +558,7 @@ export default function HomePage() {
                                     <p className="text-sm text-muted-foreground/70 leading-relaxed">对音量突变敏感，音频启停稍有不慎便会彻底惊醒，难以再次入睡</p>
                                 </div>
                             </div>
-                            <div className={cn(homeCardClass, "flex items-start gap-4 p-5 rounded-2xl hover:-translate-y-0.5")}>
-                                <div className="absolute -top-2 -right-2 px-2 py-0.5 rounded-full bg-[var(--brand-glow)]/20 text-[var(--brand-glow)] text-xs font-medium">
-                                    专为浅眠人群
-                                </div>
+                            <div className={cn(homeCardClass, "flex items-start gap-4 p-5 rounded-2xl hover:-translate-y-0.5")} style={cardDiffuse(1)}>
                                 <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-[var(--brand-start)]/20 to-[var(--brand-end)]/10 flex items-center justify-center shrink-0">
                                     <Sun className="w-6 h-6 text-[var(--brand-glow)]" />
                                 </div>
@@ -540,10 +567,7 @@ export default function HomePage() {
                                     <p className="text-sm text-muted-foreground/70 leading-relaxed">入睡效率良好，但夜间频繁中途醒来，需要柔和音频辅助接续睡眠</p>
                                 </div>
                             </div>
-                            <div className={cn(homeCardClass, "flex items-start gap-4 p-5 rounded-2xl hover:-translate-y-0.5")}>
-                                <div className="absolute -top-2 -right-2 px-2 py-0.5 rounded-full bg-[var(--brand-glow)]/20 text-[var(--brand-glow)] text-xs font-medium">
-                                    专为浅眠人群
-                                </div>
+                            <div className={cn(homeCardClass, "flex items-start gap-4 p-5 rounded-2xl hover:-translate-y-0.5")} style={cardDiffuse(2)}>
                                 <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-[var(--brand-start)]/20 to-[var(--brand-end)]/10 flex items-center justify-center shrink-0">
                                     <Volume2 className="w-6 h-6 text-[var(--brand-glow)]" />
                                 </div>
@@ -552,10 +576,7 @@ export default function HomePage() {
                                     <p className="text-sm text-muted-foreground/70 leading-relaxed">精准音量渐入渐出自定义，彻底规避音频启停音量骤变惊醒用户的问题</p>
                                 </div>
                             </div>
-                            <div className={cn(homeCardClass, "flex items-start gap-4 p-5 rounded-2xl hover:-translate-y-0.5")}>
-                                <div className="absolute -top-2 -right-2 px-2 py-0.5 rounded-full bg-[var(--brand-glow)]/20 text-[var(--brand-glow)] text-xs font-medium">
-                                    专为浅眠人群
-                                </div>
+                            <div className={cn(homeCardClass, "flex items-start gap-4 p-5 rounded-2xl hover:-translate-y-0.5")} style={cardDiffuse(3)}>
                                 <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-[var(--brand-start)]/20 to-[var(--brand-end)]/10 flex items-center justify-center shrink-0">
                                     <Clock className="w-6 h-6 text-[var(--brand-glow)]" />
                                 </div>
@@ -581,7 +602,7 @@ export default function HomePage() {
                                 { icon: Volume2, title: "零突变音量", desc: "全程音量渐入渐出，彻底规避惊醒风险，营造柔和睡眠氛围" },
                                 { icon: Moon, title: "黑屏后台播放", desc: "锁屏休眠持续播放，不干扰睡眠，支持定时自动停止" }
                             ].map((item, idx) => (
-                                <div key={idx} className={cn(homeLiftCardClass, "p-5 rounded-2xl")}>
+                                <div key={idx} className={cn(homeLiftCardClass, "p-5 rounded-2xl")} style={cardDiffuse(4 + idx)}>
                                     <div className="relative flex items-center gap-3 mb-3">
                                         <div className="w-10 h-10 rounded-lg flex items-center justify-center group-hover:scale-110 transition-transform duration-300">
                                             <item.icon className="w-5 h-5 text-[var(--brand-glow)]" />
@@ -607,7 +628,7 @@ export default function HomePage() {
                                 { icon: Settings2, title: "全面自定义", desc: "定时、渐变音量、播放规则全部可调" },
                                 { icon: Calendar, title: "周期定时", desc: "每日/工作日重复定时，适配长期规律睡眠" }
                             ].map((item, idx) => (
-                                <div key={idx} className={cn(homeLiftCardClass, "p-5 rounded-2xl")}>
+                                <div key={idx} className={cn(homeLiftCardClass, "p-5 rounded-2xl")} style={cardDiffuse(7 + idx)}>
                                     <div className="relative flex items-center gap-3 mb-3">
                                         <div className="w-10 h-10 rounded-lg flex items-center justify-center group-hover:scale-110 transition-transform duration-300">
                                             <item.icon className="w-5 h-5 text-[var(--brand-glow)]" />
@@ -635,7 +656,7 @@ export default function HomePage() {
                                         { icon: RefreshCw, title: "异常兜底", desc: "系统杀进程后可自动重试唤醒" },
                                         { icon: WifiOff, title: "离线模式", desc: "断网网络不佳时定时播放正常" }
                                     ].map((item, idx) => (
-                                        <div key={idx} className={cn(homeCardClass, "p-4 rounded-xl text-center hover:-translate-y-0.5")}>
+                                        <div key={idx} className={cn(homeCardClass, "p-4 rounded-xl text-center hover:-translate-y-0.5")} style={cardDiffuse(13 + idx)}>
                                             <div className="relative w-10 h-10 rounded-lg bg-[var(--brand-glow)]/10 flex items-center justify-center mx-auto mb-3 group-hover:scale-110 transition-transform duration-300">
                                                 <item.icon className="w-5 h-5 text-[var(--brand-glow)]" />
                                             </div>
@@ -658,21 +679,21 @@ export default function HomePage() {
                             <p className="text-muted-foreground/60">兼顾云端便捷性与本地隐私安全</p>
                         </div>
                         <div className="grid md:grid-cols-3 gap-4 mb-12">
-                            <div className={cn(homeStrongLiftCardClass, "p-6 rounded-2xl")}>
+                            <div className={cn(homeStrongLiftCardClass, "p-6 rounded-2xl")} style={cardDiffuse(17)}>
                                 <div className="relative w-12 h-12 rounded-xl bg-gradient-to-br from-sky-500/20 to-blue-500/10 flex items-center justify-center mb-4 group-hover:scale-110 transition-transform duration-300">
                                     <Database className="w-6 h-6 text-sky-400" />
                                 </div>
                                 <h4 className="relative text-lg font-semibold text-foreground/90 mb-2 group-hover:text-sky-400 transition-colors duration-300">云端数据库</h4>
                                 <p className="relative text-sm text-muted-foreground/70 leading-relaxed">音频文件统一存入云端数据库，跨设备同步无缝使用</p>
                             </div>
-                            <div className={cn(homeStrongLiftCardClass, "p-6 rounded-2xl")}>
+                            <div className={cn(homeStrongLiftCardClass, "p-6 rounded-2xl")} style={cardDiffuse(18)}>
                                 <div className="relative w-12 h-12 rounded-xl bg-gradient-to-br from-amber-500/20 to-orange-500/10 flex items-center justify-center mb-4 group-hover:scale-110 transition-transform duration-300">
                                     <Cookie className="w-6 h-6 text-amber-400" />
                                 </div>
                                 <h4 className="relative text-lg font-semibold text-foreground/90 mb-2 group-hover:text-amber-400 transition-colors duration-300">本地持久化</h4>
                                 <p className="relative text-sm text-muted-foreground/70 leading-relaxed">Cookie 本地存储配置信息，响应速度快、隐私性强</p>
                             </div>
-                            <div className={cn(homeStrongLiftCardClass, "p-6 rounded-2xl")}>
+                            <div className={cn(homeStrongLiftCardClass, "p-6 rounded-2xl")} style={cardDiffuse(19)}>
                                 <div className="relative w-12 h-12 rounded-xl bg-gradient-to-br from-emerald-500/20 to-teal-500/10 flex items-center justify-center mb-4 group-hover:scale-110 transition-transform duration-300">
                                     <Shield className="w-6 h-6 text-emerald-400" />
                                 </div>
@@ -682,37 +703,55 @@ export default function HomePage() {
                         </div>
 
                         {/* 第五板块：极简纯粹 */}
-                        <div className="text-center mb-8">
-                            <h3 className="text-2xl font-bold text-foreground/90 mb-2">纯粹极简的产品定位</h3>
-                                <p className="text-muted-foreground/60">零干扰沉浸式接续睡眠体验</p>
-                                <div className="flex flex-wrap justify-center gap-3">
-                                    {[
-                                        { text: "无广告", color: "bg-emerald-500/10 border-emerald-500/20 text-emerald-400 hover:bg-emerald-500/20 hover:border-emerald-500/30" },
-                                        { text: "无付费会员", color: "bg-cyan-500/10 border-cyan-500/20 text-cyan-400 hover:bg-cyan-500/20 hover:border-cyan-500/30" },
-                                        { text: "无订阅", color: "bg-violet-500/10 border-violet-500/20 text-violet-400 hover:bg-violet-500/20 hover:border-violet-500/30" },
-                                        { text: "无推广弹窗", color: "bg-amber-500/10 border-amber-500/20 text-amber-400 hover:bg-amber-500/20 hover:border-amber-500/30" },
-                                        { text: "无睡眠监测", color: "bg-pink-500/10 border-pink-500/20 text-pink-400 hover:bg-pink-500/20 hover:border-pink-500/30" },
-                                        { text: "无社交分享", color: "bg-rose-500/10 border-rose-500/20 text-rose-400 hover:bg-rose-500/20 hover:border-rose-500/30" },
-                                        { text: "轻量快速", color: "bg-sky-500/10 border-sky-500/20 text-sky-400 hover:bg-sky-500/20 hover:border-sky-500/30" },
-                                        { text: "低资源占用", color: "bg-teal-500/10 border-teal-500/20 text-teal-400 hover:bg-teal-500/20 hover:border-teal-500/30" },
-                                        { text: "无感更新", color: "bg-indigo-500/10 border-indigo-500/20 text-indigo-400 hover:bg-indigo-500/20 hover:border-indigo-500/30" }
-                                    ].map((tag, idx) => (
-                                        <span key={idx} className={`px-4 py-2 rounded-full text-sm font-medium border hover:shadow-lg hover:-translate-y-0.5 transition-all duration-300 cursor-default ${tag.color}`}>
-                                            {tag.text}
-                                        </span>
+                        <div className="mb-12">
+                            <div className="mb-6 text-center">
+                                <h3 className="mb-2 text-2xl font-bold text-foreground/90">纯粹极简的产品定位</h3>
+                                <p className="text-sm text-muted-foreground/65">梦枕不争夺注意力，只在深夜替你完成播放这件事。</p>
+                            </div>
+                            <div className="grid gap-4 md:grid-cols-[1.05fr_1fr]">
+                                <div className={cn(homeStrongLiftCardClass, "rounded-2xl p-6 md:p-8")} style={cardDiffuse(22)}>
+                                    <div className="relative flex h-full flex-col justify-between gap-8">
+                                        <div>
+                                            <div className="mb-4 inline-flex items-center gap-2 rounded-full border border-[var(--brand-glow)]/25 px-3 py-1 text-xs font-medium text-[var(--brand-glow)]">
+                                                留下必要，删掉噪音
+                                            </div>
+                                            <p className="text-2xl font-semibold leading-tight text-foreground/90 md:text-3xl">
+                                                不把睡眠变成报表、课程或社区，只把助眠音频按时送到耳边。
+                                            </p>
+                                        </div>
+                                        <div className="flex flex-wrap gap-2">
+                                            {minimalBoundaries.map((text) => (
+                                                <span key={text} className="rounded-full border border-border/55 px-3 py-1.5 text-xs font-medium text-muted-foreground/75">
+                                                    {text}
+                                                </span>
+                                            ))}
+                                        </div>
+                                    </div>
+                                </div>
+                                <div className="grid gap-3">
+                                    {minimalPrinciples.map(({ icon: Icon, title, desc }, idx) => (
+                                        <div key={title} className={cn(homeLiftCardClass, "rounded-2xl p-4")} style={cardDiffuse(23 + idx)}>
+                                            <div className="relative flex items-start gap-3">
+                                                <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-xl border border-[var(--brand-glow)]/20 text-[var(--brand-glow)] transition-transform duration-300 group-hover:scale-110">
+                                                    <Icon className="h-5 w-5" />
+                                                </div>
+                                                <div>
+                                                    <h4 className="mb-1 font-semibold text-foreground/90">{title}</h4>
+                                                    <p className="text-sm leading-relaxed text-muted-foreground/70">{desc}</p>
+                                                </div>
+                                            </div>
+                                        </div>
                                     ))}
                                 </div>
-                                <div className="mt-6 text-center">
-                                    <p className="text-sm text-muted-foreground/60">只专注接续睡眠核心功能，轻量化架构设计</p>
-                                </div>
                             </div>
+                        </div>
 
                         {/* 第六板块：安全保障 */}
                         <div className="text-center mb-8">
                             <h3 className="text-2xl font-bold text-foreground/90 mb-2">全方位隐私安全保障</h3>
                             <p className="text-muted-foreground/60">用户数据完全可控</p>
                             <div className="grid md:grid-cols-2 gap-6">
-                                <div className={cn(homeStrongLiftCardClass, "p-6 rounded-2xl")}>
+                                <div className={cn(homeStrongLiftCardClass, "p-6 rounded-2xl")} style={cardDiffuse(26)}>
                                     <div className="relative flex items-center gap-3 mb-4">
                                         <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-violet-500/20 to-violet-600/10 flex items-center justify-center group-hover:scale-110 transition-transform duration-300">
                                             <Shield className="w-6 h-6 text-violet-400" />
@@ -737,7 +776,7 @@ export default function HomePage() {
                                         </li>
                                     </ul>
                                 </div>
-                                <div className={cn(homeStrongLiftCardClass, "p-6 rounded-2xl")}>
+                                <div className={cn(homeStrongLiftCardClass, "p-6 rounded-2xl")} style={cardDiffuse(27)}>
                                     <div className="relative flex items-center gap-3 mb-4">
                                         <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-cyan-500/20 to-cyan-600/10 flex items-center justify-center group-hover:scale-110 transition-transform duration-300">
                                             <Lock className="w-6 h-6 text-cyan-400" />
@@ -778,7 +817,7 @@ export default function HomePage() {
                                 </div>
                                 <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
                                 {/* 1. 浅眠 / 神经衰弱人群 */}
-                                <div className={cn(homeStrongLiftCardClass, "p-6 rounded-2xl")}>
+                                <div className={cn(homeStrongLiftCardClass, "p-6 rounded-2xl")} style={cardDiffuse(28)}>
                                     <div className="relative">
                                         <div className="w-14 h-14 rounded-xl flex items-center justify-center mb-4 group-hover:scale-110 transition-transform duration-300">
                                             <Moon className="w-8 h-8 text-[var(--brand-glow)]" />
@@ -794,7 +833,7 @@ export default function HomePage() {
                                 </div>
 
                                 {/* 2. 高压都市上班族 */}
-                                <div className={cn(homeStrongLiftCardClass, "p-6 rounded-2xl")}>
+                                <div className={cn(homeStrongLiftCardClass, "p-6 rounded-2xl")} style={cardDiffuse(29)}>
                                     <div className="relative">
                                         <div className="w-14 h-14 rounded-xl flex items-center justify-center mb-4 group-hover:scale-110 transition-transform duration-300">
                                             <Briefcase className="w-8 h-8 text-amber-500" />
@@ -810,7 +849,7 @@ export default function HomePage() {
                                 </div>
 
                                 {/* 3. 住校学生群体 */}
-                                <div className={cn(homeStrongLiftCardClass, "p-6 rounded-2xl")}>
+                                <div className={cn(homeStrongLiftCardClass, "p-6 rounded-2xl")} style={cardDiffuse(30)}>
                                     <div className="relative">
                                         <div className="w-14 h-14 rounded-xl flex items-center justify-center mb-4 group-hover:scale-110 transition-transform duration-300">
                                             <GraduationCap className="w-8 h-8 text-purple-500" />
@@ -826,7 +865,7 @@ export default function HomePage() {
                                 </div>
 
                                 {/* 4. 产后宝妈 / 新手父母 */}
-                                <div className={cn(homeStrongLiftCardClass, "p-6 rounded-2xl")}>
+                                <div className={cn(homeStrongLiftCardClass, "p-6 rounded-2xl")} style={cardDiffuse(31)}>
                                     <div className="relative">
                                         <div className="w-14 h-14 rounded-xl flex items-center justify-center mb-4 group-hover:scale-110 transition-transform duration-300">
                                             <Heart className="w-8 h-8 text-pink-500" />
@@ -842,7 +881,7 @@ export default function HomePage() {
                                 </div>
 
                                 {/* 5. 情绪性失眠 / 焦虑人群 */}
-                                <div className={cn(homeStrongLiftCardClass, "p-6 rounded-2xl")}>
+                                <div className={cn(homeStrongLiftCardClass, "p-6 rounded-2xl")} style={cardDiffuse(32)}>
                                     <div className="relative">
                                         <div className="w-14 h-14 rounded-xl flex items-center justify-center mb-4 group-hover:scale-110 transition-transform duration-300">
                                             <Brain className="w-8 h-8 text-sky-500" />
@@ -858,7 +897,7 @@ export default function HomePage() {
                                 </div>
 
                                 {/* 6. 中老年浅眠用户 */}
-                                <div className={cn(homeStrongLiftCardClass, "p-6 rounded-2xl")}>
+                                <div className={cn(homeStrongLiftCardClass, "p-6 rounded-2xl")} style={cardDiffuse(33)}>
                                     <div className="relative">
                                         <div className="w-14 h-14 rounded-xl flex items-center justify-center mb-4 group-hover:scale-110 transition-transform duration-300">
                                             <Users className="w-8 h-8 text-emerald-500" />
@@ -904,6 +943,7 @@ export default function HomePage() {
                                     }}
                                     type="button"
                                     className={cn(homeStrongLiftCardClass, "p-8 rounded-3xl border-2 border-amber-500/40 hover:border-amber-500 text-left cursor-pointer w-full active:scale-95")}
+                                    style={cardDiffuse(34)}
                                 >
                                     <div className="absolute top-4 right-4 w-16 h-16 rounded-2xl bg-gradient-to-br from-amber-200 to-amber-300 flex items-center justify-center group-hover:scale-110 transition-transform duration-300">
                                         <Sun className="w-8 h-8 text-amber-700" />
@@ -925,6 +965,7 @@ export default function HomePage() {
                                     }}
                                     type="button"
                                     className={cn(homeStrongLiftCardClass, "p-8 rounded-3xl border-2 border-indigo-500/40 hover:border-indigo-500 text-left cursor-pointer w-full active:scale-95")}
+                                    style={cardDiffuse(35)}
                                 >
                                     <div className="absolute top-4 right-4 w-16 h-16 rounded-2xl bg-gradient-to-br from-indigo-500 to-purple-600 flex items-center justify-center group-hover:scale-110 transition-transform duration-300">
                                         <Moon className="w-8 h-8 text-white" />
@@ -950,7 +991,7 @@ export default function HomePage() {
                             <div className="grid grid-cols-2 md:grid-cols-4 gap-4 max-w-4xl mx-auto">
 
                                 {/* 免费权益卡片1 */}
-                                <div className={cn(homeLiftCardClass, "p-5 rounded-2xl text-center")}
+                                <div className={cn(homeLiftCardClass, "p-5 rounded-2xl text-center")} style={cardDiffuse(36)}
                                 >
                                     <div className="relative">
                                         <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-green-500/30 to-green-600/15 flex items-center justify-center mx-auto mb-3 group-hover:scale-110 transition-transform duration-300">
@@ -962,7 +1003,7 @@ export default function HomePage() {
                                 </div>
 
                                 {/* 免费权益卡片2 */}
-                                <div className={cn(homeLiftCardClass, "p-5 rounded-2xl text-center")}
+                                <div className={cn(homeLiftCardClass, "p-5 rounded-2xl text-center")} style={cardDiffuse(37)}
                                 >
                                     <div className="relative">
                                         <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-blue-500/30 to-blue-600/15 flex items-center justify-center mx-auto mb-3 group-hover:scale-110 transition-transform duration-300">
@@ -974,7 +1015,7 @@ export default function HomePage() {
                                 </div>
 
                                 {/* 免费权益卡片3 */}
-                                <div className={cn(homeLiftCardClass, "p-5 rounded-2xl text-center")}
+                                <div className={cn(homeLiftCardClass, "p-5 rounded-2xl text-center")} style={cardDiffuse(38)}
                                 >
                                     <div className="relative">
                                         <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-purple-500/30 to-purple-600/15 flex items-center justify-center mx-auto mb-3 group-hover:scale-110 transition-transform duration-300">
@@ -986,7 +1027,7 @@ export default function HomePage() {
                                 </div>
 
                                 {/* 免费权益卡片4 */}
-                                <div className={cn(homeLiftCardClass, "p-5 rounded-2xl text-center")}
+                                <div className={cn(homeLiftCardClass, "p-5 rounded-2xl text-center")} style={cardDiffuse(39)}
                                 >
                                     <div className="relative">
                                         <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-amber-500/30 to-amber-600/15 flex items-center justify-center mx-auto mb-3 group-hover:scale-110 transition-transform duration-300">
@@ -998,7 +1039,7 @@ export default function HomePage() {
                                 </div>
 
                                 {/* 免费权益卡片5 */}
-                                <div className={cn(homeLiftCardClass, "p-5 rounded-2xl text-center")}
+                                <div className={cn(homeLiftCardClass, "p-5 rounded-2xl text-center")} style={cardDiffuse(40)}
                                 >
                                     <div className="relative">
                                         <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-cyan-500/30 to-cyan-600/15 flex items-center justify-center mx-auto mb-3 group-hover:scale-110 transition-transform duration-300">
@@ -1010,7 +1051,7 @@ export default function HomePage() {
                                 </div>
 
                                 {/* 免费权益卡片6 */}
-                                <div className={cn(homeLiftCardClass, "p-5 rounded-2xl text-center")}
+                                <div className={cn(homeLiftCardClass, "p-5 rounded-2xl text-center")} style={cardDiffuse(41)}
                                 >
                                     <div className="relative">
                                         <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-pink-500/30 to-pink-600/15 flex items-center justify-center mx-auto mb-3 group-hover:scale-110 transition-transform duration-300">
@@ -1022,7 +1063,7 @@ export default function HomePage() {
                                 </div>
 
                                 {/* 免费权益卡片7 */}
-                                <div className={cn(homeLiftCardClass, "p-5 rounded-2xl text-center")}
+                                <div className={cn(homeLiftCardClass, "p-5 rounded-2xl text-center")} style={cardDiffuse(42)}
                                 >
                                     <div className="relative">
                                         <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-emerald-500/30 to-emerald-600/15 flex items-center justify-center mx-auto mb-3 group-hover:scale-110 transition-transform duration-300">
@@ -1034,7 +1075,7 @@ export default function HomePage() {
                                 </div>
 
                                 {/* 免费权益卡片8 */}
-                                <div className={cn(homeLiftCardClass, "p-5 rounded-2xl text-center")}>
+                                <div className={cn(homeLiftCardClass, "p-5 rounded-2xl text-center")} style={cardDiffuse(43)}>
                                     <div className="relative">
                                         <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-indigo-500/30 to-indigo-600/15 flex items-center justify-center mx-auto mb-3 group-hover:scale-110 transition-transform duration-300">
                                             <Crown className="w-6 h-6 text-indigo-500" />
@@ -1061,10 +1102,10 @@ export default function HomePage() {
                         </RevealGroup>
                         <RevealGroup delayBase={100}>
                             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-                                <PainCard icon={Upload} title="音频难上传" desc="想用专属音频助眠，却找不到支持私人音频文件的应用" iconBg="from-teal-500/20 to-emerald-500/10" />
-                                <PainCard icon={Clock} title="定时不智能" desc="普通定时器无法自动停止，半夜醒来还得手动关闭" iconBg="from-blue-500/20 to-cyan-500/10" />
-                                <PainCard icon={Volume2} title="启停太突兀" desc="音频突然播放或停止，音量骤变极易惊醒浅眠的你" iconBg="from-violet-500/20 to-purple-500/10" />
-                                <PainCard icon={Zap} title="操作太繁琐" desc="现有工具功能分散，全流程自动化难以实现" iconBg="from-amber-500/20 to-orange-500/10" />
+                                <PainCard icon={Upload} title="音频难上传" desc="想用专属音频助眠，却找不到支持私人音频文件的应用" iconBg="from-teal-500/20 to-emerald-500/10" style={cardDiffuse(44)} />
+                                <PainCard icon={Clock} title="定时不智能" desc="普通定时器无法自动停止，半夜醒来还得手动关闭" iconBg="from-blue-500/20 to-cyan-500/10" style={cardDiffuse(45)} />
+                                <PainCard icon={Volume2} title="启停太突兀" desc="音频突然播放或停止，音量骤变极易惊醒浅眠的你" iconBg="from-violet-500/20 to-purple-500/10" style={cardDiffuse(46)} />
+                                <PainCard icon={Zap} title="操作太繁琐" desc="现有工具功能分散，全流程自动化难以实现" iconBg="from-amber-500/20 to-orange-500/10" style={cardDiffuse(47)} />
                             </div>
                         </RevealGroup>
                         <RevealGroup delayBase={300}>
@@ -1122,7 +1163,8 @@ export default function HomePage() {
                             }].map((item, idx) => <RevealGroup key={idx} delayBase={idx * 120}>
                                 <div className="relative group">
                                     <div
-                                        className={cn(homeLiftCardClass, "h-[200px] p-8 rounded-2xl flex flex-col duration-400")}>
+                                        className={cn(homeLiftCardClass, "h-[200px] p-8 rounded-2xl flex flex-col duration-400")}
+                                        style={cardDiffuse(48 + idx)}>
                                         <div
                                             className={`absolute top-0 left-0 right-0 h-1 bg-gradient-to-r ${item.color} to-transparent opacity-60`} />
                                         <div className="relative z-10 text-center flex flex-col h-full">

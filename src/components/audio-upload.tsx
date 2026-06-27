@@ -140,7 +140,7 @@ export function AudioUpload({
   const { user } = useAuth();
   const router = useRouter();
 
-  // 处理从历史记录导入音频
+  // 处理从我的音频导入音频
   useEffect(() => {
     if (!importFileKey || !user) return;
 
@@ -783,7 +783,7 @@ export function AudioUpload({
           dbKey,
         });
         
-        // 登录用户额外上传到服务器（写入历史记录表）
+        // 登录用户自动上传为播放资源，不自动进入我的音频
         if (user) {
           autoUploadToServer(id, file);
         }
@@ -1233,7 +1233,7 @@ export function AudioUpload({
         const res = await fetch("/api/audio/save-to-files", {
           method: "POST",
           headers: { "Content-Type": "application/json" },
-          body: JSON.stringify({ fileKey: audio.fileKey, name: audio.name, size: audio.file?.size || 0, mime_type: audio.file?.type || "audio/mpeg" }),
+          body: JSON.stringify({ fileKey: audio.fileKey, name: audio.name, size: audio.file?.size || 0, mime_type: audio.file?.type || "audio/mpeg", duration: audio.duration || 0 }),
         });
         const data = await res.json();
         if (data.success) {

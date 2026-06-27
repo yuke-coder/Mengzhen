@@ -15,7 +15,7 @@ export async function GET(request: NextRequest) {
   const fileKey = searchParams.get("fileKey");
   if (!fileKey) return NextResponse.json({ error: "缺少 fileKey" }, { status: 400 });
 
-  // 先查 audio_files 表
+  // 先查我的音频库
   const { data: fileData, error: fileError } = await supabase
     .from("audio_files")
     .select("id, user_id, path, name, size, mime_type, metadata, created_at")
@@ -40,7 +40,7 @@ export async function GET(request: NextRequest) {
     });
   }
 
-  // 回退查 audios 表（save_to_files=false 时记录在此）
+  // 回退查自动上传的播放资源
   const { data: audioData, error: audioError } = await supabase
     .from("audios")
     .select("id, title, file_key, file_name, file_size, mime_type, duration, created_at")

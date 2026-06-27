@@ -566,10 +566,6 @@ export function AnimatedRegisterPage() {
           </div>
         </div>
 
-        <div className="relative z-20 text-sm text-white/60">
-          <p>免费注册，开启智能思维导图之旅</p>
-        </div>
-
         {/* Decorative elements */}
         <div className="absolute inset-0 bg-grid-white/[0.05] bg-[size:20px_20px]" />
         <div className="absolute top-1/4 right-1/4 size-64 bg-white/10 rounded-full blur-3xl" />
@@ -581,7 +577,6 @@ export function AnimatedRegisterPage() {
           {/* Header */}
           <div className="text-center mb-10">
             <h1 className="text-3xl font-bold tracking-tight mb-2">创建账户</h1>
-            <p className="text-muted-foreground text-sm">注册后即可开始创作脑图</p>
           </div>
 
           {/* Register Form */}

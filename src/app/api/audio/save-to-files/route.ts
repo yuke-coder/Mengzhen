@@ -10,7 +10,7 @@ export async function POST(request: NextRequest) {
     }
 
     const body = await request.json();
-    const { fileKey, name, size, mime_type } = body;
+    const { fileKey, name, size, mime_type, duration } = body;
 
     if (!fileKey || !name) {
       return NextResponse.json({ success: false, error: "缺少必要参数" }, { status: 400 });
@@ -39,6 +39,7 @@ export async function POST(request: NextRequest) {
       name,
       size: size || 0,
       mime_type: mime_type || "audio/mpeg",
+      metadata: { duration: duration || 0 },
     });
 
     if (error) {

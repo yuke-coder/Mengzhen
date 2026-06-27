@@ -483,10 +483,6 @@ export function AnimatedLoginPage() {
           </div>
         </div>
 
-        <div className="relative z-20 text-sm text-white/60">
-          <p>将文章内容智能转化为多种风格的思维导图</p>
-        </div>
-
         {/* Decorative elements */}
         <div className="absolute inset-0 bg-grid-white/[0.05] bg-[size:20px_20px]" />
         <div className="absolute top-1/4 right-1/4 size-64 bg-white/10 rounded-full blur-3xl" />

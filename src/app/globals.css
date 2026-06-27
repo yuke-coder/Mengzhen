@@ -1392,29 +1392,36 @@ button:disabled,
   background: rgba(255, 255, 255, 0.04);
 }
 
-/* 首页助眠能力卡片：透明普通卡 + 专业模板渐变叠加 */
-.sleep-capability-card {
-  background: transparent;
-  border: 1px solid hsl(var(--border) / 0.45);
-  box-shadow: 0 10px 24px rgba(0, 0, 0, 0.08);
-  transform: translateY(0) scale(1);
-  transition: transform 280ms ease, box-shadow 280ms ease, border-color 280ms ease;
-  will-change: transform;
+.home-diffuse-card::before {
+  content: "";
+  position: absolute;
+  inset: -45%;
+  pointer-events: none;
+  opacity: var(--diffuse-opacity, 0.28);
+  background: conic-gradient(from var(--diffuse-angle, 138deg) at var(--diffuse-x, 42%) var(--diffuse-y, 46%), transparent 0 6%, var(--diffuse-a, #9ed2be8a) 11%, var(--diffuse-b, #a5c4e466) 18%, transparent 27%, var(--diffuse-c, #f5d0a98a) 36%, var(--diffuse-d, #ffb88c66) 44%, transparent 53%, var(--diffuse-e, #e8b4d48a) 63%, var(--diffuse-f, #d4c4f066) 71%, transparent 80%, var(--diffuse-g, #c4e0f08a) 89%, transparent 100%);
+  border-radius: var(--diffuse-radius, 48% 52% 43% 57% / 55% 39% 61% 45%);
+  filter: blur(30px);
+  transform: var(--diffuse-transform, rotate(-8deg) skew(-7deg, 4deg));
+  transition: opacity 300ms ease, transform 300ms ease;
 }
 
-.sleep-capability-card__diffuse {
-  background: var(--card-gradient);
-  opacity: 0.9;
-  transition: opacity 220ms ease, background 220ms ease;
+.home-diffuse-card:hover::before {
+  opacity: var(--diffuse-hover-opacity, 0.42);
+  transform: var(--diffuse-hover-transform, rotate(-12deg) skew(-9deg, 5deg) scale(1.08));
 }
 
-.sleep-capability-card:hover {
-  border-color: hsl(var(--primary) / 0.34);
-  box-shadow: 0 18px 42px var(--card-shadow);
-  transform: translateY(-4px);
+.dark .home-diffuse-card::before {
+  opacity: 0.2;
 }
 
-.sleep-capability-card:hover .sleep-capability-card__diffuse {
-  background: var(--card-gradient-hover);
-  opacity: 1;
+.dark .home-diffuse-card:hover::before {
+  opacity: 0.32;
+}
+
+.home-page {
+  user-select: none;
+}
+
+.home-page :where(h1, h2, h3, h4, p, span, li) {
+  cursor: default;
 }
