@@ -3,7 +3,6 @@
 import { useState, useEffect } from 'react';
 import Link from 'next/link';
 import { useRouter, usePathname } from 'next/navigation';
-import Image from 'next/image';
 import { UserMenu } from '@/components/user-menu';
 import { useTheme, type Theme } from '@/lib/theme-context';
 import RippleButton from '@/components/RippleButton';
@@ -177,18 +176,18 @@ export default function Navbar({ activePage, onScrollToSection }: NavbarProps) {
             <span className="absolute bottom-1 left-1/2 -translate-x-1/2 w-0 h-0.5 bg-gradient-to-r from-[var(--brand-start)] to-[var(--brand-end)] rounded-full transition-all duration-300 group-hover:w-full" />
           </button>
 
-          {/* 模板 */}
+          {/* 展示模式 */}
           <button
-            onClick={() => scrollToSection('templates')}
+            onClick={() => scrollToSection('display-mode')}
             className="group relative text-sm text-muted-foreground hover:text-foreground transition-all duration-200 px-4 py-2 rounded-full hover:bg-[var(--brand-start)]/5"
           >
-            <span className="relative z-10" suppressHydrationWarning>模板</span>
+            <span className="relative z-10" suppressHydrationWarning>展示模式</span>
             <span className="absolute bottom-1 left-1/2 -translate-x-1/2 w-0 h-0.5 bg-gradient-to-r from-[var(--brand-start)] to-[var(--brand-end)] rounded-full transition-all duration-300 group-hover:w-full" />
           </button>
 
           {/* CTA 按钮 */}
           {isHome ? (
-            <Link href="/settings" className="group relative ml-3">
+            <div className="group relative ml-3">
               <span className="absolute -inset-1.5 bg-gradient-to-r from-[var(--brand-start)] via-[var(--brand-mid)] to-[var(--brand-end)] rounded-full blur-md opacity-0 group-hover:opacity-60 transition-all duration-300" />
               <RippleButton
                 onClick={() => router.push('/settings')}
@@ -203,10 +202,10 @@ export default function Navbar({ activePage, onScrollToSection }: NavbarProps) {
                   <ChevronRight className="w-4 h-4 transition-all duration-300 group-hover:translate-x-1.5" />
                 </span>
               </RippleButton>
-            </Link>
+            </div>
           ) : (
             <span className="text-sm text-foreground/60 ml-3 px-4 py-2 rounded-full bg-[var(--brand-start)]/10 cursor-default" suppressHydrationWarning>
-              开始创作
+              音频工作台
             </span>
           )}
         </nav>

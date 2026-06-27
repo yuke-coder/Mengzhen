@@ -1,45 +1,29 @@
 "use client";
 import { useState, useCallback, useEffect, useRef } from "react";
-import Link from "next/link";
 import Image from "next/image";
 import { useRouter } from "next/navigation";
-import { MindMapTemplate } from "@/lib/mindmap-types";
 import { TemplateSelector } from "@/components/template-selector";
 import RippleButton from "@/components/RippleButton";
-import { Button } from "@/components/ui/button";
 import LazySection from "@/components/lazy-section";
-import { useTheme, type Theme } from "@/lib/theme-context";
+import { useTheme } from "@/lib/theme-context";
 
 import {
     Brain,
-    Wand2,
     Layers,
-    Download,
     Music,
     Clock,
     Volume2,
     Upload,
-    Edit3,
     Zap,
     Shield,
-    FileText,
     Smartphone,
     ChevronRight,
     Sun,
     Moon,
     Monitor,
     Sparkles,
-    BookOpen,
     GraduationCap,
-    Coffee,
     Briefcase,
-    Code2,
-    Video,
-    Palette,
-    HelpCircle,
-    Lightbulb,
-    HardDrive,
-    Globe,
     Database,
     Cookie,
     Headphones,
@@ -59,18 +43,19 @@ import { cn } from "@/lib/utils";
 
 type IconComponent = React.ComponentType<{ className?: string }>;
 
-function PainCard({ icon: Icon, title, desc, color, iconBg }: {
+const homeCardClass = "group relative overflow-hidden bg-transparent border border-border/50 shadow-lg shadow-foreground/5 transition-all duration-300 ease-out hover:border-[var(--brand-glow)]/40 hover:shadow-xl hover:shadow-[var(--brand-glow)]/10";
+const homeLiftCardClass = cn(homeCardClass, "hover:-translate-y-1");
+const homeStrongLiftCardClass = cn(homeCardClass, "hover:-translate-y-2 duration-400");
+
+function PainCard({ icon: Icon, title, desc, iconBg }: {
     icon: IconComponent;
     title: string;
     desc: string;
-    color: string;
     iconBg: string;
 }) {
     return (
-        <div className="group relative p-6 rounded-2xl backdrop-blur-sm border border-border/50 hover:border-[var(--brand-glow)]/40 shadow-lg hover:shadow-xl hover:shadow-[var(--brand-glow)]/10 hover:-translate-y-2 transition-all duration-400 ease-out overflow-hidden">
-            <div
-                className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-current to-transparent opacity-20" />
-            <div className="relative z-10 flex flex-col items-center text-center gap-4">
+        <div className={cn(homeStrongLiftCardClass, "p-6 rounded-2xl")}>
+            <div className="flex flex-col items-center text-center gap-4">
                 <div
                     className={`w-14 h-14 rounded-2xl bg-gradient-to-br ${iconBg} flex items-center justify-center group-hover:scale-110 transition-transform duration-300`}>
                     <Icon className="w-7 h-7 text-[var(--brand-glow)]" />
@@ -79,10 +64,6 @@ function PainCard({ icon: Icon, title, desc, color, iconBg }: {
                     <h3 className="text-lg font-semibold text-foreground/90 mb-2">{title}？</h3>
                     <p className="text-sm text-muted-foreground/70 leading-relaxed">{desc}</p>
                 </div>
-            </div>
-            <div
-                className="absolute right-4 top-1/2 -translate-y-1/2 opacity-0 group-hover:opacity-30 transition-opacity duration-300">
-                <ChevronRight className="w-8 h-8 text-muted-foreground/40" />
             </div>
         </div>
     );
@@ -163,38 +144,6 @@ function RevealGroup(
     );
 }
 
-function CharReveal(
-    {
-        text,
-        className = "",
-        charClassName = "",
-        delayBase = 0,
-        charDelay = 60
-    }: {
-        text: string;
-        className?: string;
-        charClassName?: string;
-        delayBase?: number;
-        charDelay?: number;
-    }
-) {
-    return (
-        <span
-            className={cn("inline-flex flex-wrap justify-center", className)}
-            suppressHydrationWarning>
-            {text.split("").map((char, i) => <span
-                key={i}
-                className={cn("char-hidden animate-char-reveal", charClassName)}
-                style={{
-                    "--char-delay": `${delayBase + i * charDelay}ms`,
-                    width: char === " " ? "0.3em" : "auto"
-                } as React.CSSProperties}>
-                {char === " " ? "\u00A0" : char}
-            </span>)}
-        </span>
-    );
-}
-
 function WordReveal(
     {
         text,
@@ -268,11 +217,9 @@ function useScrollVisibility(targetRef: React.RefObject<HTMLElement | null>) {
 
 function FloatingBar(
     {
-        visible,
-        selectedTemplates
+        visible
     }: {
         visible: boolean;
-        selectedTemplates: string[];
     }
 ) {
     const router = useRouter();
@@ -283,21 +230,18 @@ function FloatingBar(
                 "fixed bottom-0 left-0 right-0 z-[500]",
                 visible ? "translate-y-0 opacity-100" : "translate-y-4 opacity-0 pointer-events-none"
             )}
-            style={{
+                style={{
                 transition: visible ? "transform 0.3s ease-out, opacity 0.3s ease-out" : "transform 0.5s cubic-bezier(0.4, 0, 0.2, 1), opacity 0.5s ease-out"
             }}>
-            {}
             <div className="mx-auto max-w-md px-5 pb-5">
                 <div
-                    className="group relative flex items-center justify-between gap-4 px-4 py-3 rounded-2xl \\\                                bg-background/80 backdrop-blur-xl border border-border/60 \\\                                shadow-lg shadow-foreground/5\\\                                hover:shadow-xl hover:shadow-foreground/10 hover:border-border/80\\\                                transition-all duration-300 ease-out\\\                                overflow-hidden">
-                    {}
-                    <div
-                        className="absolute inset-0 bg-gradient-to-r from-[var(--brand-start)]/5 via-[var(--brand-mid)]/3 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
-                    {}
+                    className="group relative flex items-center justify-between gap-4 px-4 py-3 rounded-2xl backdrop-blur-xl border border-border/60 shadow-lg shadow-foreground/5 hover:shadow-xl hover:shadow-foreground/10 hover:border-border/80 transition-all duration-300 ease-out overflow-hidden">
                     <div className="relative flex items-center gap-3 z-10">
-                        <img
+                        <Image
                             src="/logo.png"
                             alt="梦枕"
+                            width={36}
+                            height={36}
                             className="w-9 h-9 rounded-xl shadow-md shadow-[inset_0_2px_6px_rgba(0,0,0,0.35)] transition-transform duration-300 group-hover:scale-110" />
                         <span className="font-bold text-base tracking-tight">
                             <span
@@ -305,11 +249,8 @@ function FloatingBar(
                                                                                                                             </span>
                         </span>
                     </div>
-                    {}
                     <RippleButton
-                        onClick={() => router.push(
-                            `/settings${selectedTemplates.length > 0 ? `?templates=${selectedTemplates.join(",")}` : ""}`
-                        )}
+                        onClick={() => router.push("/settings")}
                         className="relative flex items-center gap-2 px-4 py-2 rounded-xl bg-gradient-to-r from-[var(--brand-start)] to-[var(--brand-end)] text-white font-semibold text-sm shadow-lg shadow-[var(--brand-start)]/25 hover:shadow-xl hover:shadow-[var(--brand-start)]/35 hover:scale-105 active:scale-95 transition-all duration-200 ease-out z-10">
                         <span className="relative flex items-center gap-2">
                             <span suppressHydrationWarning>免费体验</span>
@@ -345,15 +286,15 @@ const heroVariants = {
         section: "relative sm:hidden min-h-[calc(100svh-56px)] flex flex-col items-center justify-start px-4 pt-4 pb-20 overflow-hidden",
         content: "relative z-10 w-full max-w-[23rem] mx-auto text-center space-y-4",
         title: "max-w-[22.5rem]",
-        titleFontSize: "clamp(70px, 15vw, 120px)",
+        titleFontSize: "clamp(62px, 13vw, 88px)",
         subtitle: "PWA构建·云端同步·本地持久化",
         subtitleClass: "flex-wrap gap-x-2 gap-y-1 max-w-[18rem] mx-auto text-xs leading-snug font-light",
         explore: false
     },
     desktop: {
         section: "relative hidden sm:flex min-h-[85vh] flex-col items-center justify-center px-6 overflow-hidden",
-        content: "relative z-10 w-full max-w-4xl mx-auto text-center space-y-10",
-        title: "max-w-4xl",
+        content: "relative z-10 w-full max-w-3xl mx-auto text-center space-y-10",
+        title: "max-w-3xl",
         titleFontSize: undefined,
         subtitle: "PWA渐进式网页应用构建·云端数据库数据持久化·Cookie客户端本地持久化存储",
         subtitleClass: "text-lg md:text-xl max-w-xl mx-auto leading-relaxed font-light",
@@ -403,7 +344,7 @@ function HeroBackdrop({ id }: { id: string }) {
     );
 }
 
-function HeroTitle({ className, fontSize = "clamp(56px, 12vw, 120px)", gradientId }: {
+function HeroTitle({ className, fontSize = "clamp(52px, 9vw, 96px)", gradientId }: {
     className?: string;
     fontSize?: string;
     gradientId: string;
@@ -469,12 +410,8 @@ function HeroCta({ buttonRef, onClick, mobile = false }: {
                 "hover:z-20 transition-[transform,box-shadow,z-index] duration-300 hover:shadow-2xl hover:shadow-[var(--brand-start)]/35 hover:scale-105 active:scale-95",
                 mobile ? "gap-2.5 px-5 py-2.5 rounded-xl" : "gap-3 px-6 py-3 rounded-2xl"
             )}>
-            <div className="absolute inset-0 bg-gradient-to-r from-[var(--brand-end)] to-[var(--brand-start)] opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
-            <div className="absolute inset-0 opacity-30">
-                <div className="absolute inset-0 bg-[length:200%_100%] bg-gradient-to-r from-transparent via-white/20 to-transparent animate-shimmer" />
-            </div>
             <div className="relative flex items-center gap-3">
-                <img src="/logo.png" alt="梦枕" className={cn("group-hover:scale-110 transition-transform duration-300 rounded shadow-md", mobile ? "w-5 h-5" : "w-6 h-6")} />
+                <Image src="/logo.png" alt="梦枕" width={24} height={24} className={cn("group-hover:scale-110 transition-transform duration-300 rounded shadow-md", mobile ? "w-5 h-5" : "w-6 h-6")} />
                 <span className={mobile ? "text-xl" : "text-2xl"} style={{ fontFamily: "DOUYINSANSBOLD-GB", filter: "drop-shadow(rgb(161, 161, 170) 0px 0px 10px)" }} suppressHydrationWarning>免费体验</span>
                 <ChevronRight className="w-5 h-5 group-hover:translate-x-1 transition-transform duration-300" />
             </div>
@@ -486,7 +423,7 @@ function HeroChips({ mobile = false }: { mobile?: boolean }) {
     return (
         <div className={cn("flex items-center justify-center", mobile ? "flex-nowrap gap-1.5 pt-2" : "flex-wrap gap-3 pt-2")}>
             {heroChips.map((item, idx) => (
-                <div key={idx} className={cn("group flex items-center rounded-full bg-background/60 backdrop-blur-sm border border-border/50 hover:border-[var(--brand-glow)]/40 hover:bg-background/80 transition-all duration-300 cursor-default", mobile ? "gap-1 px-2 py-1.5" : "gap-2 px-4 py-2")}>
+                <div key={idx} className={cn("group flex items-center rounded-full backdrop-blur-sm border border-border/50 hover:border-[var(--brand-glow)]/40 transition-all duration-300 cursor-default", mobile ? "gap-1 px-2 py-1.5" : "gap-2 px-4 py-2")}>
                     <item.icon className={cn("text-[var(--brand-glow)] group-hover:scale-110 transition-transform", mobile ? "w-3 h-3" : "w-4 h-4")} />
                     <span className="text-sm text-foreground/80 group-hover:text-foreground transition-colors" style={{ fontFamily: "DOUYINSANSBOLD-GB", fontWeight: "normal", fontSize: mobile ? "clamp(10px, 2.8vw, 16px)" : "16px" }}>{item.text}</span>
                 </div>
@@ -541,11 +478,8 @@ function DesktopHero(props: HeroProps) {
 
 export default function HomePage() {
     const router = useRouter();
-    const { setTheme, resolvedTheme } = useTheme();
+    const { setTheme } = useTheme();
     
-    const [selectedTemplates, setSelectedTemplates] = useState<MindMapTemplate[]>([]);
-    const [recommendedTemplates, setRecommendedTemplates] = useState<MindMapTemplate[]>([]);
-    const [isRecommending, setIsRecommending] = useState(false);
     const mobileHeroButtonRef = useRef<HTMLButtonElement>(null);
     const desktopHeroButtonRef = useRef<HTMLButtonElement>(null);
     const bottomCtaRef = useRef<HTMLButtonElement>(null);
@@ -554,14 +488,8 @@ export default function HomePage() {
     const bottomCtaVisible = useScrollVisibility(bottomCtaRef as React.RefObject<HTMLElement | null>);
     const showFloatingBar = !mobileHeroButtonVisible && !desktopHeroButtonVisible && !bottomCtaVisible;
     const startExperience = useCallback(() => {
-        router.push(`/settings${selectedTemplates.length > 0 ? `?templates=${selectedTemplates.join(",")}` : ""}`);
-    }, [router, selectedTemplates]);
-
-    const scrollToSection = (id: string) => {
-        document.getElementById(id)?.scrollIntoView({
-            behavior: "smooth"
-        });
-    };
+        router.push("/settings");
+    }, [router]);
 
     return (
         <div
@@ -573,10 +501,6 @@ export default function HomePage() {
                 <DesktopHero buttonRef={desktopHeroButtonRef} onStart={startExperience} />
                 <LazySection>
                 <section id="features" className="py-32 px-6 relative overflow-hidden">
-                    <div className="absolute inset-0 overflow-hidden pointer-events-none">
-                        <div className="absolute top-0 left-1/4 w-96 h-96 rounded-full bg-gradient-radial from-[var(--brand-glow)]/8 via-transparent to-transparent blur-3xl" />
-                        <div className="absolute bottom-0 right-1/4 w-80 h-80 rounded-full bg-gradient-radial from-[var(--brand-end)]/5 via-transparent to-transparent blur-3xl" />
-                    </div>
                     <div className="max-w-6xl mx-auto relative z-10">
                         <RevealGroup className="text-center mb-20" delayBase={0}>
                             <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-[var(--brand-glow)]/10 border border-[var(--brand-glow)]/20 mb-6">
@@ -592,10 +516,7 @@ export default function HomePage() {
 
                         {/* 第一板块：核心痛点 - 独立卡片平铺 */}
                         <div className="grid md:grid-cols-2 gap-6 mb-16">
-                            <div className="group relative flex items-start gap-4 p-5 rounded-2xl border border-[var(--brand-glow)]/20 hover:border-[var(--brand-glow)]/40 hover:shadow-lg hover:shadow-[var(--brand-glow)]/10 hover:-translate-y-0.5 transition-all duration-300"
-                                style={{
-                                    background: `radial-gradient(circle 80% 70% at 10% 20%, rgba(34, 211, 170, 0.35), transparent), radial-gradient(circle 60% 80% at 90% 30%, rgba(6, 182, 212, 0.25), transparent), radial-gradient(circle 70% 50% at 30% 80%, rgba(16, 185, 129, 0.2), transparent), radial-gradient(circle 50% 60% at 70% 90%, rgba(0, 212, 170, 0.15), transparent), radial-gradient(circle 90% 40% at 50% 50%, rgba(20, 184, 166, 0.1), transparent)`
-                                }}>
+                            <div className={cn(homeCardClass, "flex items-start gap-4 p-5 rounded-2xl hover:-translate-y-0.5")}>
                                 <div className="absolute -top-2 -right-2 px-2 py-0.5 rounded-full bg-[var(--brand-glow)]/20 text-[var(--brand-glow)] text-xs font-medium">
                                     专为浅眠人群
                                 </div>
@@ -607,10 +528,7 @@ export default function HomePage() {
                                     <p className="text-sm text-muted-foreground/70 leading-relaxed">对音量突变敏感，音频启停稍有不慎便会彻底惊醒，难以再次入睡</p>
                                 </div>
                             </div>
-                            <div className="group relative flex items-start gap-4 p-5 rounded-2xl border border-[var(--brand-glow)]/20 hover:border-[var(--brand-glow)]/40 hover:shadow-lg hover:shadow-[var(--brand-glow)]/10 hover:-translate-y-0.5 transition-all duration-300"
-                                style={{
-                                    background: `radial-gradient(circle 90% 60% at 85% 15%, rgba(251, 191, 36, 0.35), transparent), radial-gradient(circle 70% 80% at 15% 25%, rgba(249, 115, 22, 0.25), transparent), radial-gradient(circle 60% 70% at 40% 85%, rgba(245, 158, 11, 0.2), transparent), radial-gradient(circle 80% 50% at 75% 75%, rgba(234, 179, 8, 0.15), transparent), radial-gradient(circle 50% 90% at 20% 60%, rgba(202, 138, 4, 0.1), transparent)`
-                                }}>
+                            <div className={cn(homeCardClass, "flex items-start gap-4 p-5 rounded-2xl hover:-translate-y-0.5")}>
                                 <div className="absolute -top-2 -right-2 px-2 py-0.5 rounded-full bg-[var(--brand-glow)]/20 text-[var(--brand-glow)] text-xs font-medium">
                                     专为浅眠人群
                                 </div>
@@ -622,10 +540,7 @@ export default function HomePage() {
                                     <p className="text-sm text-muted-foreground/70 leading-relaxed">入睡效率良好，但夜间频繁中途醒来，需要柔和音频辅助接续睡眠</p>
                                 </div>
                             </div>
-                            <div className="group relative flex items-start gap-4 p-5 rounded-2xl border border-[var(--brand-glow)]/20 hover:border-[var(--brand-glow)]/40 hover:shadow-lg hover:shadow-[var(--brand-glow)]/10 hover:-translate-y-0.5 transition-all duration-300"
-                                style={{
-                                    background: `radial-gradient(circle 80% 90% at 25% 35%, rgba(168, 85, 247, 0.35), transparent), radial-gradient(circle 70% 60% at 75% 15%, rgba(139, 92, 246, 0.25), transparent), radial-gradient(circle 60% 80% at 45% 90%, rgba(124, 58, 237, 0.2), transparent), radial-gradient(circle 90% 70% at 80% 65%, rgba(109, 40, 217, 0.15), transparent), radial-gradient(circle 50% 50% at 15% 55%, rgba(147, 51, 234, 0.1), transparent)`
-                                }}>
+                            <div className={cn(homeCardClass, "flex items-start gap-4 p-5 rounded-2xl hover:-translate-y-0.5")}>
                                 <div className="absolute -top-2 -right-2 px-2 py-0.5 rounded-full bg-[var(--brand-glow)]/20 text-[var(--brand-glow)] text-xs font-medium">
                                     专为浅眠人群
                                 </div>
@@ -637,10 +552,7 @@ export default function HomePage() {
                                     <p className="text-sm text-muted-foreground/70 leading-relaxed">精准音量渐入渐出自定义，彻底规避音频启停音量骤变惊醒用户的问题</p>
                                 </div>
                             </div>
-                            <div className="group relative flex items-start gap-4 p-5 rounded-2xl border border-[var(--brand-glow)]/20 hover:border-[var(--brand-glow)]/40 hover:shadow-lg hover:shadow-[var(--brand-glow)]/10 hover:-translate-y-0.5 transition-all duration-300"
-                                style={{
-                                    background: `radial-gradient(circle 70% 80% at 55% 10%, rgba(236, 72, 153, 0.35), transparent), radial-gradient(circle 80% 60% at 35% 75%, rgba(244, 63, 94, 0.25), transparent), radial-gradient(circle 60% 90% at 85% 45%, rgba(225, 29, 72, 0.2), transparent), radial-gradient(circle 90% 70% at 15% 85%, rgba(190, 24, 93, 0.15), transparent), radial-gradient(circle 50% 50% at 65% 35%, rgba(219, 39, 119, 0.1), transparent)`
-                                }}>
+                            <div className={cn(homeCardClass, "flex items-start gap-4 p-5 rounded-2xl hover:-translate-y-0.5")}>
                                 <div className="absolute -top-2 -right-2 px-2 py-0.5 rounded-full bg-[var(--brand-glow)]/20 text-[var(--brand-glow)] text-xs font-medium">
                                     专为浅眠人群
                                 </div>
@@ -665,13 +577,11 @@ export default function HomePage() {
                         </div>
                         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 mb-12">
                             {[
-                                { icon: RefreshCw, title: "觉醒自动续播", desc: "夜间醒来后，柔和音频无缝衔接，帮助快速重新入睡", gradient: "radial-gradient(ellipse 70% 60% at 20% 30%, rgba(34, 211, 170, 0.25), transparent), radial-gradient(ellipse 60% 50% at 80% 70%, rgba(6, 182, 212, 0.2), transparent), radial-gradient(ellipse 50% 40% at 50% 50%, rgba(16, 185, 129, 0.15), transparent)" },
-                                { icon: Volume2, title: "零突变音量", desc: "全程音量渐入渐出，彻底规避惊醒风险，营造柔和睡眠氛围", gradient: "radial-gradient(ellipse 70% 60% at 30% 40%, rgba(16, 185, 129, 0.25), transparent), radial-gradient(ellipse 60% 50% at 70% 80%, rgba(20, 184, 166, 0.2), transparent), radial-gradient(ellipse 50% 40% at 50% 50%, rgba(5, 150, 105, 0.15), transparent)" },
-                                { icon: Moon, title: "黑屏后台播放", desc: "锁屏休眠持续播放，不干扰睡眠，支持定时自动停止", gradient: "radial-gradient(ellipse 70% 60% at 40% 20%, rgba(139, 92, 246, 0.25), transparent), radial-gradient(ellipse 60% 50% at 60% 80%, rgba(124, 58, 237, 0.2), transparent), radial-gradient(ellipse 50% 40% at 50% 50%, rgba(109, 40, 217, 0.15), transparent)" }
+                                { icon: RefreshCw, title: "觉醒自动续播", desc: "夜间醒来后，柔和音频无缝衔接，帮助快速重新入睡" },
+                                { icon: Volume2, title: "零突变音量", desc: "全程音量渐入渐出，彻底规避惊醒风险，营造柔和睡眠氛围" },
+                                { icon: Moon, title: "黑屏后台播放", desc: "锁屏休眠持续播放，不干扰睡眠，支持定时自动停止" }
                             ].map((item, idx) => (
-                                <div key={idx} className="group relative p-5 rounded-2xl backdrop-blur-sm border border-border/50 hover:border-[var(--brand-glow)]/40 shadow-lg hover:shadow-xl hover:shadow-[var(--brand-glow)]/10 hover:-translate-y-1 transition-all duration-300 overflow-hidden"
-                                    style={{ background: item.gradient }}>
-                                    <div className="absolute inset-0 bg-gradient-to-br from-[var(--brand-glow)]/8 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+                                <div key={idx} className={cn(homeLiftCardClass, "p-5 rounded-2xl")}>
                                     <div className="relative flex items-center gap-3 mb-3">
                                         <div className="w-10 h-10 rounded-lg flex items-center justify-center group-hover:scale-110 transition-transform duration-300">
                                             <item.icon className="w-5 h-5 text-[var(--brand-glow)]" />
@@ -690,16 +600,14 @@ export default function HomePage() {
                         </div>
                         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 mb-12">
                             {[
-                                { icon: Music, title: "全格式兼容", desc: "MP3、WAV、FLAC 等全主流音频格式", gradient: "radial-gradient(ellipse 70% 60% at 20% 30%, rgba(34, 211, 238, 0.25), transparent), radial-gradient(ellipse 60% 50% at 80% 70%, rgba(59, 130, 246, 0.2), transparent), radial-gradient(ellipse 50% 40% at 50% 50%, rgba(14, 165, 233, 0.15), transparent)" },
-                                { icon: Headphones, title: "在线试听", desc: "上传后实时预览，快速筛选适配音频", gradient: "radial-gradient(ellipse 70% 60% at 30% 40%, rgba(14, 165, 233, 0.25), transparent), radial-gradient(ellipse 60% 50% at 70% 80%, rgba(99, 102, 241, 0.2), transparent), radial-gradient(ellipse 50% 40% at 50% 50%, rgba(79, 70, 229, 0.15), transparent)" },
-                                { icon: Volume2, title: "小数级音量", desc: "0-100% 精细化分级，支持 0.1 微调", gradient: "radial-gradient(ellipse 70% 60% at 40% 20%, rgba(168, 85, 247, 0.25), transparent), radial-gradient(ellipse 60% 50% at 60% 80%, rgba(139, 92, 246, 0.2), transparent), radial-gradient(ellipse 50% 40% at 50% 50%, rgba(124, 58, 237, 0.15), transparent)" },
-                                { icon: Layers, title: "播放列表", desc: "自定义音频播放顺序，编排专属播放列表", gradient: "radial-gradient(ellipse 70% 60% at 20% 50%, rgba(251, 191, 36, 0.25), transparent), radial-gradient(ellipse 60% 50% at 80% 30%, rgba(249, 115, 22, 0.2), transparent), radial-gradient(ellipse 50% 40% at 50% 50%, rgba(245, 158, 11, 0.15), transparent)" },
-                                { icon: Settings2, title: "全面自定义", desc: "定时、渐变音量、播放规则全部可调", gradient: "radial-gradient(ellipse 70% 60% at 30% 20%, rgba(236, 72, 153, 0.25), transparent), radial-gradient(ellipse 60% 50% at 70% 80%, rgba(244, 63, 94, 0.2), transparent), radial-gradient(ellipse 50% 40% at 50% 50%, rgba(225, 29, 72, 0.15), transparent)" },
-                                { icon: Calendar, title: "周期定时", desc: "每日/工作日重复定时，适配长期规律睡眠", gradient: "radial-gradient(ellipse 70% 60% at 20% 30%, rgba(16, 185, 129, 0.25), transparent), radial-gradient(ellipse 60% 50% at 80% 70%, rgba(20, 184, 166, 0.2), transparent), radial-gradient(ellipse 50% 40% at 50% 50%, rgba(5, 150, 105, 0.15), transparent)" }
+                                { icon: Music, title: "全格式兼容", desc: "MP3、WAV、FLAC 等全主流音频格式" },
+                                { icon: Headphones, title: "在线试听", desc: "上传后实时预览，快速筛选适配音频" },
+                                { icon: Volume2, title: "小数级音量", desc: "0-100% 精细化分级，支持 0.1 微调" },
+                                { icon: Layers, title: "播放列表", desc: "自定义音频播放顺序，编排专属播放列表" },
+                                { icon: Settings2, title: "全面自定义", desc: "定时、渐变音量、播放规则全部可调" },
+                                { icon: Calendar, title: "周期定时", desc: "每日/工作日重复定时，适配长期规律睡眠" }
                             ].map((item, idx) => (
-                                <div key={idx} className="group relative p-5 rounded-2xl backdrop-blur-sm border border-border/50 hover:border-[var(--brand-glow)]/40 shadow-lg hover:shadow-xl hover:shadow-[var(--brand-glow)]/10 hover:-translate-y-1 transition-all duration-300 overflow-hidden"
-                                    style={{ background: item.gradient }}>
-                                    <div className="absolute inset-0 bg-gradient-to-br from-[var(--brand-glow)]/8 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+                                <div key={idx} className={cn(homeLiftCardClass, "p-5 rounded-2xl")}>
                                     <div className="relative flex items-center gap-3 mb-3">
                                         <div className="w-10 h-10 rounded-lg flex items-center justify-center group-hover:scale-110 transition-transform duration-300">
                                             <item.icon className="w-5 h-5 text-[var(--brand-glow)]" />
@@ -722,14 +630,12 @@ export default function HomePage() {
                                 </div>
                                 <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-4">
                                     {[
-                                        { icon: Zap, title: "后台唤醒", desc: "锁屏休眠仍可定时唤醒正常播放", gradient: "radial-gradient(ellipse 80% 70% at 20% 30%, rgba(251, 191, 36, 0.3), transparent), radial-gradient(ellipse 60% 80% at 80% 70%, rgba(249, 115, 22, 0.25), transparent), radial-gradient(ellipse 70% 50% at 40% 85%, rgba(234, 179, 8, 0.2), transparent), radial-gradient(ellipse 90% 60% at 60% 40%, rgba(202, 138, 4, 0.15), transparent)" },
-                                        { icon: Battery, title: "电池优化", desc: "忽略电池优化引导，提升休眠稳定性", gradient: "radial-gradient(ellipse 80% 70% at 30% 20%, rgba(168, 85, 247, 0.3), transparent), radial-gradient(ellipse 60% 80% at 70% 80%, rgba(139, 92, 246, 0.25), transparent), radial-gradient(ellipse 70% 50% at 50% 50%, rgba(124, 58, 237, 0.2), transparent), radial-gradient(ellipse 90% 60% at 20% 60%, rgba(147, 51, 234, 0.15), transparent)" },
-                                        { icon: RefreshCw, title: "异常兜底", desc: "系统杀进程后可自动重试唤醒", gradient: "radial-gradient(ellipse 80% 70% at 25% 35%, rgba(236, 72, 153, 0.3), transparent), radial-gradient(ellipse 60% 80% at 75% 65%, rgba(244, 63, 94, 0.25), transparent), radial-gradient(ellipse 70% 50% at 45% 80%, rgba(225, 29, 72, 0.2), transparent), radial-gradient(ellipse 90% 60% at 65% 25%, rgba(190, 24, 93, 0.15), transparent)" },
-                                        { icon: WifiOff, title: "离线模式", desc: "断网网络不佳时定时播放正常", gradient: "radial-gradient(ellipse 80% 70% at 20% 25%, rgba(14, 165, 233, 0.3), transparent), radial-gradient(ellipse 60% 80% at 80% 75%, rgba(99, 102, 241, 0.25), transparent), radial-gradient(ellipse 70% 50% at 50% 45%, rgba(79, 70, 229, 0.2), transparent), radial-gradient(ellipse 90% 60% at 30% 70%, rgba(99, 102, 241, 0.15), transparent)" }
+                                        { icon: Zap, title: "后台唤醒", desc: "锁屏休眠仍可定时唤醒正常播放" },
+                                        { icon: Battery, title: "电池优化", desc: "忽略电池优化引导，提升休眠稳定性" },
+                                        { icon: RefreshCw, title: "异常兜底", desc: "系统杀进程后可自动重试唤醒" },
+                                        { icon: WifiOff, title: "离线模式", desc: "断网网络不佳时定时播放正常" }
                                     ].map((item, idx) => (
-                                        <div key={idx} className="group relative text-center p-4 rounded-xl backdrop-blur-sm border border-border/50 hover:border-[var(--brand-glow)]/40 shadow-lg hover:shadow-xl hover:shadow-[var(--brand-glow)]/10 hover:-translate-y-0.5 transition-all duration-300 overflow-hidden"
-                                            style={{ background: item.gradient }}>
-                                            <div className="absolute inset-0 bg-gradient-to-br from-[var(--brand-glow)]/5 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+                                        <div key={idx} className={cn(homeCardClass, "p-4 rounded-xl text-center hover:-translate-y-0.5")}>
                                             <div className="relative w-10 h-10 rounded-lg bg-[var(--brand-glow)]/10 flex items-center justify-center mx-auto mb-3 group-hover:scale-110 transition-transform duration-300">
                                                 <item.icon className="w-5 h-5 text-[var(--brand-glow)]" />
                                             </div>
@@ -752,27 +658,21 @@ export default function HomePage() {
                             <p className="text-muted-foreground/60">兼顾云端便捷性与本地隐私安全</p>
                         </div>
                         <div className="grid md:grid-cols-3 gap-4 mb-12">
-                            <div className="group relative p-6 rounded-2xl backdrop-blur-sm border border-border/50 hover:border-[var(--brand-glow)]/40 shadow-lg hover:shadow-xl hover:shadow-[var(--brand-glow)]/10 hover:-translate-y-2 transition-all duration-400 ease-out overflow-hidden"
-                                style={{ background: "radial-gradient(ellipse 80% 70% at 20% 30%, rgba(14, 165, 233, 0.3), transparent), radial-gradient(ellipse 60% 80% at 80% 70%, rgba(59, 130, 246, 0.25), transparent), radial-gradient(ellipse 70% 50% at 40% 85%, rgba(34, 211, 238, 0.2), transparent), radial-gradient(ellipse 90% 60% at 60% 40%, rgba(6, 182, 212, 0.15), transparent)" }}>
-                                <div className="absolute inset-0 bg-gradient-to-br from-sky-500/8 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+                            <div className={cn(homeStrongLiftCardClass, "p-6 rounded-2xl")}>
                                 <div className="relative w-12 h-12 rounded-xl bg-gradient-to-br from-sky-500/20 to-blue-500/10 flex items-center justify-center mb-4 group-hover:scale-110 transition-transform duration-300">
                                     <Database className="w-6 h-6 text-sky-400" />
                                 </div>
                                 <h4 className="relative text-lg font-semibold text-foreground/90 mb-2 group-hover:text-sky-400 transition-colors duration-300">云端数据库</h4>
                                 <p className="relative text-sm text-muted-foreground/70 leading-relaxed">音频文件统一存入云端数据库，跨设备同步无缝使用</p>
                             </div>
-                            <div className="group relative p-6 rounded-2xl backdrop-blur-sm border border-border/50 hover:border-[var(--brand-glow)]/40 shadow-lg hover:shadow-xl hover:shadow-[var(--brand-glow)]/10 hover:-translate-y-2 transition-all duration-400 ease-out overflow-hidden"
-                                style={{ background: "radial-gradient(ellipse 80% 70% at 30% 20%, rgba(251, 191, 36, 0.3), transparent), radial-gradient(ellipse 60% 80% at 70% 80%, rgba(249, 115, 22, 0.25), transparent), radial-gradient(ellipse 70% 50% at 50% 50%, rgba(234, 179, 8, 0.2), transparent), radial-gradient(ellipse 90% 60% at 20% 70%, rgba(202, 138, 4, 0.15), transparent)" }}>
-                                <div className="absolute inset-0 bg-gradient-to-br from-amber-500/8 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+                            <div className={cn(homeStrongLiftCardClass, "p-6 rounded-2xl")}>
                                 <div className="relative w-12 h-12 rounded-xl bg-gradient-to-br from-amber-500/20 to-orange-500/10 flex items-center justify-center mb-4 group-hover:scale-110 transition-transform duration-300">
                                     <Cookie className="w-6 h-6 text-amber-400" />
                                 </div>
                                 <h4 className="relative text-lg font-semibold text-foreground/90 mb-2 group-hover:text-amber-400 transition-colors duration-300">本地持久化</h4>
                                 <p className="relative text-sm text-muted-foreground/70 leading-relaxed">Cookie 本地存储配置信息，响应速度快、隐私性强</p>
                             </div>
-                            <div className="group relative p-6 rounded-2xl backdrop-blur-sm border border-border/50 hover:border-[var(--brand-glow)]/40 shadow-lg hover:shadow-xl hover:shadow-[var(--brand-glow)]/10 hover:-translate-y-2 transition-all duration-400 ease-out overflow-hidden"
-                                style={{ background: "radial-gradient(ellipse 80% 70% at 25% 35%, rgba(16, 185, 129, 0.3), transparent), radial-gradient(ellipse 60% 80% at 75% 65%, rgba(20, 184, 166, 0.25), transparent), radial-gradient(ellipse 70% 50% at 45% 80%, rgba(5, 150, 105, 0.2), transparent), radial-gradient(ellipse 90% 60% at 65% 25%, rgba(6, 182, 212, 0.15), transparent)" }}>
-                                <div className="absolute inset-0 bg-gradient-to-br from-emerald-500/8 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+                            <div className={cn(homeStrongLiftCardClass, "p-6 rounded-2xl")}>
                                 <div className="relative w-12 h-12 rounded-xl bg-gradient-to-br from-emerald-500/20 to-teal-500/10 flex items-center justify-center mb-4 group-hover:scale-110 transition-transform duration-300">
                                     <Shield className="w-6 h-6 text-emerald-400" />
                                 </div>
@@ -812,9 +712,7 @@ export default function HomePage() {
                             <h3 className="text-2xl font-bold text-foreground/90 mb-2">全方位隐私安全保障</h3>
                             <p className="text-muted-foreground/60">用户数据完全可控</p>
                             <div className="grid md:grid-cols-2 gap-6">
-                                <div className="group relative p-6 rounded-2xl backdrop-blur-sm border border-border/50 hover:border-[var(--brand-glow)]/40 shadow-lg hover:shadow-xl hover:shadow-[var(--brand-glow)]/10 hover:-translate-y-2 transition-all duration-400 ease-out overflow-hidden"
-                                    style={{ background: "radial-gradient(ellipse 80% 70% at 20% 30%, rgba(168, 85, 247, 0.25), transparent), radial-gradient(ellipse 60% 80% at 80% 70%, rgba(139, 92, 246, 0.2), transparent), radial-gradient(ellipse 70% 50% at 40% 85%, rgba(124, 58, 237, 0.15), transparent), radial-gradient(ellipse 90% 60% at 60% 40%, rgba(147, 51, 234, 0.1), transparent)" }}>
-                                    <div className="absolute inset-0 bg-gradient-to-br from-violet-500/8 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+                                <div className={cn(homeStrongLiftCardClass, "p-6 rounded-2xl")}>
                                     <div className="relative flex items-center gap-3 mb-4">
                                         <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-violet-500/20 to-violet-600/10 flex items-center justify-center group-hover:scale-110 transition-transform duration-300">
                                             <Shield className="w-6 h-6 text-violet-400" />
@@ -839,9 +737,7 @@ export default function HomePage() {
                                         </li>
                                     </ul>
                                 </div>
-                                <div className="group relative p-6 rounded-2xl backdrop-blur-sm border border-border/50 hover:border-[var(--brand-glow)]/40 shadow-lg hover:shadow-xl hover:shadow-[var(--brand-glow)]/10 hover:-translate-y-2 transition-all duration-400 ease-out overflow-hidden"
-                                    style={{ background: "radial-gradient(ellipse 80% 70% at 30% 20%, rgba(34, 211, 238, 0.25), transparent), radial-gradient(ellipse 60% 80% at 70% 80%, rgba(6, 182, 212, 0.2), transparent), radial-gradient(ellipse 70% 50% at 50% 50%, rgba(14, 165, 233, 0.15), transparent), radial-gradient(ellipse 90% 60% at 20% 70%, rgba(0, 182, 199, 0.1), transparent)" }}>
-                                    <div className="absolute inset-0 bg-gradient-to-br from-cyan-500/8 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+                                <div className={cn(homeStrongLiftCardClass, "p-6 rounded-2xl")}>
                                     <div className="relative flex items-center gap-3 mb-4">
                                         <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-cyan-500/20 to-cyan-600/10 flex items-center justify-center group-hover:scale-110 transition-transform duration-300">
                                             <Lock className="w-6 h-6 text-cyan-400" />
@@ -873,9 +769,6 @@ export default function HomePage() {
 
                         {/* 第七板块：精准用户群体 */}
                         <section className="py-20 px-6 relative overflow-hidden">
-                            <div className="absolute inset-0 overflow-hidden pointer-events-none">
-                                <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[900px] h-[300px] rounded-full bg-gradient-radial from-[var(--brand-glow)]/5 via-transparent to-transparent" />
-                            </div>
                             <div className="max-w-4xl mx-auto relative z-10">
                                 <div className="text-center mb-12">
                                     <h2 className="text-3xl md:text-4xl font-bold tracking-tight">
@@ -885,9 +778,7 @@ export default function HomePage() {
                                 </div>
                                 <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
                                 {/* 1. 浅眠 / 神经衰弱人群 */}
-                                <div className="group relative p-6 rounded-2xl backdrop-blur-sm border border-border/50 hover:border-[var(--brand-glow)]/40 shadow-lg hover:shadow-xl hover:shadow-[var(--brand-glow)]/10 hover:-translate-y-2 transition-all duration-400 ease-out overflow-hidden"
-                                    style={{ background: "radial-gradient(ellipse 70% 60% at 20% 30%, rgba(34, 211, 238, 0.20), transparent), radial-gradient(ellipse 60% 50% at 80% 70%, rgba(16, 185, 129, 0.15), transparent)" }}>
-                                    <div className="absolute inset-0 bg-gradient-to-br from-[var(--brand-glow)]/8 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+                                <div className={cn(homeStrongLiftCardClass, "p-6 rounded-2xl")}>
                                     <div className="relative">
                                         <div className="w-14 h-14 rounded-xl flex items-center justify-center mb-4 group-hover:scale-110 transition-transform duration-300">
                                             <Moon className="w-8 h-8 text-[var(--brand-glow)]" />
@@ -903,9 +794,7 @@ export default function HomePage() {
                                 </div>
 
                                 {/* 2. 高压都市上班族 */}
-                                <div className="group relative p-6 rounded-2xl backdrop-blur-sm border border-border/50 hover:border-[var(--brand-glow)]/40 shadow-lg hover:shadow-xl hover:shadow-[var(--brand-glow)]/10 hover:-translate-y-2 transition-all duration-400 ease-out overflow-hidden"
-                                    style={{ background: "radial-gradient(ellipse 70% 60% at 30% 40%, rgba(251, 191, 36, 0.20), transparent), radial-gradient(ellipse 60% 50% at 70% 80%, rgba(217, 119, 6, 0.15), transparent)" }}>
-                                    <div className="absolute inset-0 bg-gradient-to-br from-amber-500/8 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+                                <div className={cn(homeStrongLiftCardClass, "p-6 rounded-2xl")}>
                                     <div className="relative">
                                         <div className="w-14 h-14 rounded-xl flex items-center justify-center mb-4 group-hover:scale-110 transition-transform duration-300">
                                             <Briefcase className="w-8 h-8 text-amber-500" />
@@ -921,9 +810,7 @@ export default function HomePage() {
                                 </div>
 
                                 {/* 3. 住校学生群体 */}
-                                <div className="group relative p-6 rounded-2xl backdrop-blur-sm border border-border/50 hover:border-[var(--brand-glow)]/40 shadow-lg hover:shadow-xl hover:shadow-[var(--brand-glow)]/10 hover:-translate-y-2 transition-all duration-400 ease-out overflow-hidden"
-                                    style={{ background: "radial-gradient(ellipse 70% 60% at 25% 35%, rgba(168, 85, 247, 0.20), transparent), radial-gradient(ellipse 60% 50% at 75% 75%, rgba(139, 92, 246, 0.15), transparent)" }}>
-                                    <div className="absolute inset-0 bg-gradient-to-br from-purple-500/8 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+                                <div className={cn(homeStrongLiftCardClass, "p-6 rounded-2xl")}>
                                     <div className="relative">
                                         <div className="w-14 h-14 rounded-xl flex items-center justify-center mb-4 group-hover:scale-110 transition-transform duration-300">
                                             <GraduationCap className="w-8 h-8 text-purple-500" />
@@ -939,9 +826,7 @@ export default function HomePage() {
                                 </div>
 
                                 {/* 4. 产后宝妈 / 新手父母 */}
-                                <div className="group relative p-6 rounded-2xl backdrop-blur-sm border border-border/50 hover:border-[var(--brand-glow)]/40 shadow-lg hover:shadow-xl hover:shadow-[var(--brand-glow)]/10 hover:-translate-y-2 transition-all duration-400 ease-out overflow-hidden"
-                                    style={{ background: "radial-gradient(ellipse 70% 60% at 20% 30%, rgba(236, 72, 153, 0.20), transparent), radial-gradient(ellipse 60% 50% at 80% 70%, rgba(219, 39, 119, 0.15), transparent)" }}>
-                                    <div className="absolute inset-0 bg-gradient-to-br from-pink-500/8 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+                                <div className={cn(homeStrongLiftCardClass, "p-6 rounded-2xl")}>
                                     <div className="relative">
                                         <div className="w-14 h-14 rounded-xl flex items-center justify-center mb-4 group-hover:scale-110 transition-transform duration-300">
                                             <Heart className="w-8 h-8 text-pink-500" />
@@ -957,9 +842,7 @@ export default function HomePage() {
                                 </div>
 
                                 {/* 5. 情绪性失眠 / 焦虑人群 */}
-                                <div className="group relative p-6 rounded-2xl backdrop-blur-sm border border-border/50 hover:border-[var(--brand-glow)]/40 shadow-lg hover:shadow-xl hover:shadow-[var(--brand-glow)]/10 hover:-translate-y-2 transition-all duration-400 ease-out overflow-hidden"
-                                    style={{ background: "radial-gradient(ellipse 70% 60% at 30% 25%, rgba(14, 165, 233, 0.20), transparent), radial-gradient(ellipse 60% 50% at 70% 80%, rgba(2, 132, 199, 0.15), transparent)" }}>
-                                    <div className="absolute inset-0 bg-gradient-to-br from-sky-500/8 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+                                <div className={cn(homeStrongLiftCardClass, "p-6 rounded-2xl")}>
                                     <div className="relative">
                                         <div className="w-14 h-14 rounded-xl flex items-center justify-center mb-4 group-hover:scale-110 transition-transform duration-300">
                                             <Brain className="w-8 h-8 text-sky-500" />
@@ -975,9 +858,7 @@ export default function HomePage() {
                                 </div>
 
                                 {/* 6. 中老年浅眠用户 */}
-                                <div className="group relative p-6 rounded-2xl backdrop-blur-sm border border-border/50 hover:border-[var(--brand-glow)]/40 shadow-lg hover:shadow-xl hover:shadow-[var(--brand-glow)]/10 hover:-translate-y-2 transition-all duration-400 ease-out overflow-hidden"
-                                    style={{ background: "radial-gradient(ellipse 70% 60% at 25% 30%, rgba(16, 185, 129, 0.20), transparent), radial-gradient(ellipse 60% 50% at 75% 75%, rgba(5, 150, 105, 0.15), transparent)" }}>
-                                    <div className="absolute inset-0 bg-gradient-to-br from-emerald-500/8 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+                                <div className={cn(homeStrongLiftCardClass, "p-6 rounded-2xl")}>
                                     <div className="relative">
                                         <div className="w-14 h-14 rounded-xl flex items-center justify-center mb-4 group-hover:scale-110 transition-transform duration-300">
                                             <Users className="w-8 h-8 text-emerald-500" />
@@ -997,10 +878,7 @@ export default function HomePage() {
                 </section>
 
                 {/* 展示模式切换 & 全功能免费 */}
-                <section className="py-20 px-6 relative overflow-hidden">
-                    <div className="absolute inset-0 overflow-hidden pointer-events-none">
-                        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[600px] rounded-full bg-gradient-radial from-[var(--brand-glow)]/8 via-transparent to-transparent" />
-                    </div>
+                <section id="display-mode" className="py-20 px-6 relative overflow-hidden scroll-mt-20">
                     <div className="max-w-5xl mx-auto relative z-10">
 
                         {/* 1. 展示模式切换 */}
@@ -1025,7 +903,7 @@ export default function HomePage() {
                                         setTheme("light");
                                     }}
                                     type="button"
-                                    className="relative p-8 rounded-3xl backdrop-blur-sm border-2 border-amber-500/40 hover:border-amber-500 hover:shadow-xl hover:shadow-amber-500/15 hover:-translate-y-2 transition-all duration-400 ease-out overflow-hidden text-left cursor-pointer w-full bg-gradient-to-br from-amber-50 to-amber-100 active:scale-95"
+                                    className={cn(homeStrongLiftCardClass, "p-8 rounded-3xl border-2 border-amber-500/40 hover:border-amber-500 text-left cursor-pointer w-full active:scale-95")}
                                 >
                                     <div className="absolute top-4 right-4 w-16 h-16 rounded-2xl bg-gradient-to-br from-amber-200 to-amber-300 flex items-center justify-center group-hover:scale-110 transition-transform duration-300">
                                         <Sun className="w-8 h-8 text-amber-700" />
@@ -1046,7 +924,7 @@ export default function HomePage() {
                                         setTheme("dark");
                                     }}
                                     type="button"
-                                    className="relative p-8 rounded-3xl backdrop-blur-sm border-2 border-indigo-500/40 hover:border-indigo-500 hover:shadow-xl hover:shadow-indigo-500/15 hover:-translate-y-2 transition-all duration-400 ease-out overflow-hidden text-left cursor-pointer w-full bg-gradient-to-br from-indigo-900 to-purple-900 active:scale-95"
+                                    className={cn(homeStrongLiftCardClass, "p-8 rounded-3xl border-2 border-indigo-500/40 hover:border-indigo-500 text-left cursor-pointer w-full active:scale-95")}
                                 >
                                     <div className="absolute top-4 right-4 w-16 h-16 rounded-2xl bg-gradient-to-br from-indigo-500 to-purple-600 flex items-center justify-center group-hover:scale-110 transition-transform duration-300">
                                         <Moon className="w-8 h-8 text-white" />
@@ -1072,10 +950,8 @@ export default function HomePage() {
                             <div className="grid grid-cols-2 md:grid-cols-4 gap-4 max-w-4xl mx-auto">
 
                                 {/* 免费权益卡片1 */}
-                                <div className="group relative p-5 rounded-2xl border border-green-500/30 hover:border-green-500/60 hover:shadow-xl hover:shadow-green-500/10 hover:-translate-y-1 transition-all duration-300 overflow-hidden text-center"
-                                    style={{ background: "radial-gradient(ellipse 80% 70% at 20% 30%, rgba(34, 197, 94, 0.25), transparent), radial-gradient(ellipse 60% 80% at 80% 70%, rgba(22, 163, 74, 0.2), transparent), radial-gradient(ellipse 70% 50% at 40% 85%, rgba(21, 128, 61, 0.15), transparent)" }}
+                                <div className={cn(homeLiftCardClass, "p-5 rounded-2xl text-center")}
                                 >
-                                    <div className="absolute inset-0 bg-gradient-to-br from-green-500/10 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
                                     <div className="relative">
                                         <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-green-500/30 to-green-600/15 flex items-center justify-center mx-auto mb-3 group-hover:scale-110 transition-transform duration-300">
                                             <Gift className="w-6 h-6 text-green-500" />
@@ -1086,10 +962,8 @@ export default function HomePage() {
                                 </div>
 
                                 {/* 免费权益卡片2 */}
-                                <div className="group relative p-5 rounded-2xl border border-blue-500/30 hover:border-blue-500/60 hover:shadow-xl hover:shadow-blue-500/10 hover:-translate-y-1 transition-all duration-300 overflow-hidden text-center"
-                                    style={{ background: "radial-gradient(ellipse 80% 70% at 30% 20%, rgba(59, 130, 246, 0.25), transparent), radial-gradient(ellipse 60% 80% at 70% 80%, rgba(37, 99, 235, 0.2), transparent), radial-gradient(ellipse 70% 50% at 50% 50%, rgba(29, 78, 216, 0.15), transparent)" }}
+                                <div className={cn(homeLiftCardClass, "p-5 rounded-2xl text-center")}
                                 >
-                                    <div className="absolute inset-0 bg-gradient-to-br from-blue-500/10 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
                                     <div className="relative">
                                         <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-blue-500/30 to-blue-600/15 flex items-center justify-center mx-auto mb-3 group-hover:scale-110 transition-transform duration-300">
                                             <Clock className="w-6 h-6 text-blue-500" />
@@ -1100,10 +974,8 @@ export default function HomePage() {
                                 </div>
 
                                 {/* 免费权益卡片3 */}
-                                <div className="group relative p-5 rounded-2xl border border-purple-500/30 hover:border-purple-500/60 hover:shadow-xl hover:shadow-purple-500/10 hover:-translate-y-1 transition-all duration-300 overflow-hidden text-center"
-                                    style={{ background: "radial-gradient(ellipse 80% 70% at 25% 35%, rgba(168, 85, 247, 0.25), transparent), radial-gradient(ellipse 60% 80% at 75% 65%, rgba(139, 92, 246, 0.2), transparent), radial-gradient(ellipse 70% 50% at 45% 80%, rgba(124, 58, 237, 0.15), transparent)" }}
+                                <div className={cn(homeLiftCardClass, "p-5 rounded-2xl text-center")}
                                 >
-                                    <div className="absolute inset-0 bg-gradient-to-br from-purple-500/10 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
                                     <div className="relative">
                                         <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-purple-500/30 to-purple-600/15 flex items-center justify-center mx-auto mb-3 group-hover:scale-110 transition-transform duration-300">
                                             <Zap className="w-6 h-6 text-purple-500" />
@@ -1114,10 +986,8 @@ export default function HomePage() {
                                 </div>
 
                                 {/* 免费权益卡片4 */}
-                                <div className="group relative p-5 rounded-2xl border border-amber-500/30 hover:border-amber-500/60 hover:shadow-xl hover:shadow-amber-500/10 hover:-translate-y-1 transition-all duration-300 overflow-hidden text-center"
-                                    style={{ background: "radial-gradient(ellipse 80% 70% at 20% 25%, rgba(251, 191, 36, 0.25), transparent), radial-gradient(ellipse 60% 80% at 80% 75%, rgba(249, 115, 22, 0.2), transparent), radial-gradient(ellipse 70% 50% at 50% 45%, rgba(234, 179, 8, 0.15), transparent)" }}
+                                <div className={cn(homeLiftCardClass, "p-5 rounded-2xl text-center")}
                                 >
-                                    <div className="absolute inset-0 bg-gradient-to-br from-amber-500/10 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
                                     <div className="relative">
                                         <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-amber-500/30 to-amber-600/15 flex items-center justify-center mx-auto mb-3 group-hover:scale-110 transition-transform duration-300">
                                             <Shield className="w-6 h-6 text-amber-500" />
@@ -1128,10 +998,8 @@ export default function HomePage() {
                                 </div>
 
                                 {/* 免费权益卡片5 */}
-                                <div className="group relative p-5 rounded-2xl border border-cyan-500/30 hover:border-cyan-500/60 hover:shadow-xl hover:shadow-cyan-500/10 hover:-translate-y-1 transition-all duration-300 overflow-hidden text-center"
-                                    style={{ background: "radial-gradient(ellipse 80% 70% at 30% 30%, rgba(34, 211, 238, 0.25), transparent), radial-gradient(ellipse 60% 80% at 70% 70%, rgba(6, 182, 212, 0.2), transparent), radial-gradient(ellipse 70% 50% at 40% 60%, rgba(14, 165, 233, 0.15), transparent)" }}
+                                <div className={cn(homeLiftCardClass, "p-5 rounded-2xl text-center")}
                                 >
-                                    <div className="absolute inset-0 bg-gradient-to-br from-cyan-500/10 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
                                     <div className="relative">
                                         <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-cyan-500/30 to-cyan-600/15 flex items-center justify-center mx-auto mb-3 group-hover:scale-110 transition-transform duration-300">
                                             <Smartphone className="w-6 h-6 text-cyan-500" />
@@ -1142,10 +1010,8 @@ export default function HomePage() {
                                 </div>
 
                                 {/* 免费权益卡片6 */}
-                                <div className="group relative p-5 rounded-2xl border border-pink-500/30 hover:border-pink-500/60 hover:shadow-xl hover:shadow-pink-500/10 hover:-translate-y-1 transition-all duration-300 overflow-hidden text-center"
-                                    style={{ background: "radial-gradient(ellipse 80% 70% at 25% 40%, rgba(236, 72, 153, 0.25), transparent), radial-gradient(ellipse 60% 80% at 75% 60%, rgba(244, 63, 94, 0.2), transparent), radial-gradient(ellipse 70% 50% at 50% 75%, rgba(225, 29, 72, 0.15), transparent)" }}
+                                <div className={cn(homeLiftCardClass, "p-5 rounded-2xl text-center")}
                                 >
-                                    <div className="absolute inset-0 bg-gradient-to-br from-pink-500/10 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
                                     <div className="relative">
                                         <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-pink-500/30 to-pink-600/15 flex items-center justify-center mx-auto mb-3 group-hover:scale-110 transition-transform duration-300">
                                             <Shield className="w-6 h-6 text-pink-500" />
@@ -1156,10 +1022,8 @@ export default function HomePage() {
                                 </div>
 
                                 {/* 免费权益卡片7 */}
-                                <div className="group relative p-5 rounded-2xl border border-emerald-500/30 hover:border-emerald-500/60 hover:shadow-xl hover:shadow-emerald-500/10 hover:-translate-y-1 transition-all duration-300 overflow-hidden text-center"
-                                    style={{ background: "radial-gradient(ellipse 80% 70% at 20% 35%, rgba(16, 185, 129, 0.25), transparent), radial-gradient(ellipse 60% 80% at 80% 65%, rgba(5, 150, 105, 0.2), transparent), radial-gradient(ellipse 70% 50% at 45% 55%, rgba(4, 120, 87, 0.15), transparent)" }}
+                                <div className={cn(homeLiftCardClass, "p-5 rounded-2xl text-center")}
                                 >
-                                    <div className="absolute inset-0 bg-gradient-to-br from-emerald-500/10 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
                                     <div className="relative">
                                         <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-emerald-500/30 to-emerald-600/15 flex items-center justify-center mx-auto mb-3 group-hover:scale-110 transition-transform duration-300">
                                             <Zap className="w-6 h-6 text-emerald-500" />
@@ -1170,8 +1034,7 @@ export default function HomePage() {
                                 </div>
 
                                 {/* 免费权益卡片8 */}
-                                <div className="group relative p-5 rounded-2xl border border-indigo-500/30 hover:border-indigo-500/60 hover:shadow-xl hover:shadow-indigo-500/10 hover:-translate-y-1 transition-all duration-300 overflow-hidden text-center">
-                                    <div className="absolute inset-0 bg-gradient-to-br from-indigo-500/10 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+                                <div className={cn(homeLiftCardClass, "p-5 rounded-2xl text-center")}>
                                     <div className="relative">
                                         <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-indigo-500/30 to-indigo-600/15 flex items-center justify-center mx-auto mb-3 group-hover:scale-110 transition-transform duration-300">
                                             <Crown className="w-6 h-6 text-indigo-500" />
@@ -1187,11 +1050,6 @@ export default function HomePage() {
                 </section>
 
                 <section className="py-16 px-6 relative overflow-hidden">
-                    {}
-                    <div className="absolute inset-0 overflow-hidden pointer-events-none">
-                        <div
-                            className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[900px] h-[400px] rounded-full bg-gradient-radial from-[var(--brand-glow)]/5 via-transparent to-transparent" />
-                    </div>
                     <div className="max-w-5xl mx-auto relative z-10">
                         <RevealGroup className="text-center mb-12" delayBase={0}>
                             <h2 className="text-2xl md:text-3xl font-bold tracking-tight mb-4">
@@ -1203,13 +1061,12 @@ export default function HomePage() {
                         </RevealGroup>
                         <RevealGroup delayBase={100}>
                             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-                                <PainCard icon={Upload} title="音频难上传" desc="想用专属音频助眠，却找不到支持私人音频文件的应用" color="from-teal-500/15 to-emerald-500/8" iconBg="from-teal-500/20 to-emerald-500/10" />
-                                <PainCard icon={Clock} title="定时不智能" desc="普通定时器无法自动停止，半夜醒来还得手动关闭" color="from-blue-500/15 to-cyan-500/8" iconBg="from-blue-500/20 to-cyan-500/10" />
-                                <PainCard icon={Volume2} title="启停太突兀" desc="音频突然播放或停止，音量骤变极易惊醒浅眠的你" color="from-violet-500/15 to-purple-500/8" iconBg="from-violet-500/20 to-purple-500/10" />
-                                <PainCard icon={Zap} title="操作太繁琐" desc="现有工具功能分散，全流程自动化难以实现" color="from-amber-500/15 to-orange-500/8" iconBg="from-amber-500/20 to-orange-500/10" />
+                                <PainCard icon={Upload} title="音频难上传" desc="想用专属音频助眠，却找不到支持私人音频文件的应用" iconBg="from-teal-500/20 to-emerald-500/10" />
+                                <PainCard icon={Clock} title="定时不智能" desc="普通定时器无法自动停止，半夜醒来还得手动关闭" iconBg="from-blue-500/20 to-cyan-500/10" />
+                                <PainCard icon={Volume2} title="启停太突兀" desc="音频突然播放或停止，音量骤变极易惊醒浅眠的你" iconBg="from-violet-500/20 to-purple-500/10" />
+                                <PainCard icon={Zap} title="操作太繁琐" desc="现有工具功能分散，全流程自动化难以实现" iconBg="from-amber-500/20 to-orange-500/10" />
                             </div>
                         </RevealGroup>
-                        {}
                         <RevealGroup delayBase={300}>
                             <div className="mt-10 text-center">
                                 <div
@@ -1221,45 +1078,19 @@ export default function HomePage() {
                         </RevealGroup>
                     </div>
                 </section>
-                {}
                 <section id="templates" className="py-20 px-6">
-                    <div className="max-w-4xl mx-auto">
+                    <div className="max-w-5xl mx-auto">
                         <RevealGroup className="text-center mb-10" delayBase={0}>
                             <h2
-                                className="text-3xl md:text-4xl font-bold bg-gradient-to-r from-[var(--brand-start)] via-[var(--brand-mid)] to-[var(--brand-end)] bg-clip-text text-transparent mb-4 tracking-wide">专业模板</h2>
-                            <p className="text-base text-muted-foreground font-medium">选择最适合的展示方式</p>
+                                className="text-3xl md:text-4xl font-bold bg-gradient-to-r from-[var(--brand-start)] via-[var(--brand-mid)] to-[var(--brand-end)] bg-clip-text text-transparent mb-4 tracking-wide">助眠能力</h2>
+                            <p className="text-base text-muted-foreground font-medium">围绕夜间自动播放，把关键细节拆成可感知的功能卡片</p>
                         </RevealGroup>
                         <RevealGroup delayBase={100}>
-                            <TemplateSelector
-                                selected={selectedTemplates}
-                                onChange={setSelectedTemplates}
-                                maxSelect={5}
-                                recommended={recommendedTemplates} />
+                            <TemplateSelector />
                         </RevealGroup>
                     </div>
                 </section>
-                {}
                 <section className="py-28 px-6 relative">
-                    {}
-                    <div className="absolute inset-0 overflow-hidden pointer-events-none">
-                        <svg
-                            className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[120%] h-[400px] opacity-20"
-                            viewBox="0 0 1200 200">
-                            <defs>
-                                <linearGradient id="flowGrad" x1="0%" y1="0%" x2="100%" y2="0%">
-                                    <stop offset="0%" stopColor="var(--brand-dim)" stopOpacity="0" />
-                                    <stop offset="50%" stopColor="var(--brand-glow)" stopOpacity="0.6" />
-                                    <stop offset="100%" stopColor="var(--brand-dim)" stopOpacity="0" />
-                                </linearGradient>
-                            </defs>
-                            <path
-                                d="M0,100 Q300,60 600,100 T1200,100"
-                                fill="none"
-                                stroke="url(#flowGrad)"
-                                strokeWidth="2"
-                                className="animate-flow-line" />
-                        </svg>
-                    </div>
                     <div className="max-w-4xl mx-auto relative z-10">
                         <RevealGroup className="text-center mb-16" delayBase={0}>
                             <h2 className="text-4xl md:text-5xl font-bold tracking-tight mb-4">
@@ -1267,44 +1098,31 @@ export default function HomePage() {
                                 <span
                                     className="bg-gradient-to-r from-[var(--brand-start)] via-[var(--brand-mid)] to-[var(--brand-end)] bg-clip-text text-transparent" suppressHydrationWarning>三步</span>
                             </h2>
-                            <p className="text-base text-muted-foreground/70">从文章到脑图，弹指之间</p>
+                            <p className="text-base text-muted-foreground/70">从音频到任务，几步完成夜间自动播放</p>
                         </RevealGroup>
                         <div className="grid md:grid-cols-3 gap-6 relative">
-                            {}
-                            <div className="hidden md:block absolute top-16 left-1/3 right-1/3 h-px">
-                                <div
-                                    className="absolute left-1/2 right-0 top-0 h-px bg-gradient-to-r from-[var(--brand-glow)]/40 to-transparent" />
-                                <div
-                                    className="absolute left-0 right-1/2 top-0 h-px bg-gradient-to-l from-[var(--brand-glow)]/40 to-transparent" />
-                            </div>
                             {[{
                                 num: "01",
-                                icon: FileText,
-                                title: "输入内容",
-                                desc: "粘贴文章、输入链接或上传文档，支持多种格式",
+                                icon: Upload,
+                                title: "上传音频",
+                                desc: "导入助眠音乐、白噪音或自己的录音文件",
                                 color: "from-[var(--brand-start)]"
                             }, {
                                 num: "02",
-                                icon: Wand2,
-                                title: "智能生成",
-                                desc: "AI 瞬间分析内容结构，生成精美思维导图",
+                                icon: Clock,
+                                title: "设置任务",
+                                desc: "选择开始时间、播放时长、音量和淡入淡出",
                                 color: "from-[var(--brand-mid)]"
                             }, {
                                 num: "03",
-                                icon: Download,
-                                title: "导出使用",
-                                desc: "一键下载高清图片，或直接全屏展示",
+                                icon: Headphones,
+                                title: "自动播放",
+                                desc: "让任务在夜间按计划执行，减少手动操作",
                                 color: "from-[var(--brand-end)]"
                             }].map((item, idx) => <RevealGroup key={idx} delayBase={idx * 120}>
                                 <div className="relative group">
-                                    {}
                                     <div
-                                        className="absolute -top-3 -left-1 text-6xl font-bold opacity-5 select-none pointer-events-none">
-                                        {item.num}
-                                    </div>
-                                    <div
-                                        className="relative h-[200px] p-8 rounded-2xl bg-background/60 backdrop-blur-sm border border-border/50 hover:border-[var(--brand-glow)]/30 shadow-lg hover:shadow-2xl hover:-translate-y-1 transition-all duration-400 ease-out overflow-hidden flex flex-col">
-                                        {}
+                                        className={cn(homeLiftCardClass, "h-[200px] p-8 rounded-2xl flex flex-col duration-400")}>
                                         <div
                                             className={`absolute top-0 left-0 right-0 h-1 bg-gradient-to-r ${item.color} to-transparent opacity-60`} />
                                         <div className="relative z-10 text-center flex flex-col h-full">
@@ -1322,22 +1140,15 @@ export default function HomePage() {
                         </div>
                     </div>
                 </section>
-                {}
                 <section id="start" className="py-24 px-6 relative">
-                    {}
-                    <div className="absolute inset-0 overflow-hidden pointer-events-none">
-                        <div
-                            className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[400px] rounded-full bg-gradient-radial from-[var(--brand-glow)]/10 via-transparent to-transparent blur-3xl" />
-                    </div>
                     <div className="max-w-2xl mx-auto relative z-10 text-center">
                         <RevealGroup delayBase={0}>
                             <h2 className="text-3xl md:text-4xl font-bold tracking-tight mb-4">
                                 <span suppressHydrationWarning className="text-foreground/90">开始</span>
                                 <span
-                                    className="bg-gradient-to-r from-[var(--brand-start)] via-[var(--brand-mid)] to-[var(--brand-end)] bg-clip-text text-transparent" suppressHydrationWarning>创作</span>
+                                    className="bg-gradient-to-r from-[var(--brand-start)] via-[var(--brand-mid)] to-[var(--brand-end)] bg-clip-text text-transparent" suppressHydrationWarning>设置</span>
                             </h2>
-                            <p className="text-base text-muted-foreground/70 mb-8">输入你的文章，让 AI 为你生成精美的思维导图</p>
-                            {}
+                            <p className="text-base text-muted-foreground/70 mb-8">上传音频并创建任务，让梦枕按你的节奏播放</p>
                             <div className="flex items-center justify-center mb-8">
                                 <div
                                     className="flex items-center gap-2 px-4 py-2 rounded-full bg-gradient-to-r from-[var(--brand-start)]/15 to-[var(--brand-end)]/10 border border-[var(--brand-start)]/20">
@@ -1345,29 +1156,19 @@ export default function HomePage() {
                                     <span suppressHydrationWarning className="text-[var(--brand-start)] text-sm font-medium">无需登录 · 开箱即用</span>
                                 </div>
                             </div>
-                            {}
                             <RippleButton
                                 ref={bottomCtaRef}
-                                onClick={() => router.push(
-                                    `/settings${selectedTemplates.length > 0 ? `?templates=${selectedTemplates.join(",")}` : ""}`
-                                )}
+                                onClick={() => router.push("/settings")}
                                 className="group relative inline-flex items-center gap-3 px-8 py-4 rounded-2xl bg-gradient-to-r from-[var(--brand-start)] to-[var(--brand-end)] text-white font-semibold text-xl shadow-xl shadow-[var(--brand-start)]/25 hover:shadow-2xl hover:shadow-[var(--brand-start)]/35 hover:scale-105 active:scale-95 transition-all duration-300">
-                                {}
-                                <div
-                                    className="absolute inset-0 bg-gradient-to-r from-[var(--brand-end)] to-[var(--brand-start)] opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
-                                {}
-                                <div className="absolute inset-0 opacity-30">
-                                    <div
-                                        className="absolute inset-0 bg-[length:200%_100%] bg-gradient-to-r from-transparent via-white/20 to-transparent animate-shimmer" />
-                                </div>
-                                {}
                                 <div className="relative flex items-center gap-3">
-                                    <img 
+                                    <Image
                                         src="/logo.png" 
                                         alt="梦枕" 
+                                        width={28}
+                                        height={28}
                                         className="w-7 h-7 group-hover:scale-110 transition-transform duration-300 rounded shadow-md" 
                                     />
-                                    <span suppressHydrationWarning>免费体验</span>
+                                    <span suppressHydrationWarning>开始设置</span>
                                     <ChevronRight
                                         className="w-6 h-6 group-hover:translate-x-1 transition-transform duration-300" />
                                 </div>
@@ -1377,7 +1178,6 @@ export default function HomePage() {
                 </section>
                 </LazySection>
             </main>
-            {}
             <footer className="border-t border-border py-8 px-6 bg-muted/20 relative z-20">
                 <div className="max-w-5xl mx-auto text-center">
                     <div className="flex items-center justify-center gap-2 mb-3">
@@ -1394,8 +1194,7 @@ export default function HomePage() {
                     <p className="text-xs text-muted-foreground">深夜助眠播放器 · PWA渐进式网页应用 · 自定义音频</p>
                 </div>
             </footer>
-            {}
-            <FloatingBar visible={showFloatingBar} selectedTemplates={selectedTemplates} />
+            <FloatingBar visible={showFloatingBar} />
         </div>
     );
 }

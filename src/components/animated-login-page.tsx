@@ -499,7 +499,7 @@ export function AnimatedLoginPage() {
           <div className="text-center mb-10">
             <h1 className="text-3xl font-bold tracking-tight mb-2">欢迎回来</h1>
             <p className="text-muted-foreground text-sm">请输入您的账户信息</p>
-
+          </div>
 
           {/* Login Form */}
           <form onSubmit={handleSubmit} className="space-y-5">
@@ -539,7 +539,7 @@ export function AnimatedLoginPage() {
                   {showPassword ? (
                     <EyeOff className="size-5" />
                   ) : (
-
+                    <Eye className="size-5" />
                   )}
                 </button>
               </div>
@@ -574,8 +574,7 @@ export function AnimatedLoginPage() {
               立即注册
             </Link>
           </div>
-      </div>
-
-  );
     </div>
+    </div>
+  );
 }

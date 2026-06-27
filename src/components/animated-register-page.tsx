@@ -625,7 +625,7 @@ export function AnimatedRegisterPage() {
                     <Eye className="size-5" />
                   )}
                 </button>
-
+              </div>
 
 
             <label htmlFor="confirmPassword" className="text-sm font-medium mb-1 block">确认密码</label>
@@ -669,9 +669,9 @@ export function AnimatedRegisterPage() {
                       <span>密码不匹配</span>
                     </>
                   )}
-
-
-
+                </div>
+              )}
+            </div>
 
             {error && (
               <div className="p-3 text-sm text-red-400 bg-red-950/20 border border-red-900/30 rounded-xl">
