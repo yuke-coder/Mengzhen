@@ -270,7 +270,7 @@ function CreatePageContent() {
                                 { icon: Upload, text: "音频上传", desc: "私人声音库" },
                                 { icon: Clock, text: "定时任务", desc: "按计划播放" },
                                 { icon: Volume2, text: "淡入淡出", desc: "减少惊醒" }
-                            ].map((item, idx) => <div key={idx} className="group relative flex items-center gap-3 px-5 py-3 rounded-2xl md:bg-background/40 md:backdrop-blur-sm border border-border/50 hover:border-[var(--brand-glow)]/50 md:hover:bg-background/70 transition-all duration-300 cursor-default overflow-hidden">
+                            ].map((item, idx) => <div key={idx} className="group relative flex items-center gap-3 px-5 py-3 transition-all duration-300 cursor-default">
                                 <div className="relative flex items-center justify-center w-10 h-10 rounded-xl bg-gradient-to-br from-[var(--brand-start)]/20 to-[var(--brand-end)]/20">
                                     <item.icon className="w-5 h-5 text-[var(--brand-glow)]" />
                                 </div>
@@ -281,36 +281,31 @@ function CreatePageContent() {
                             </div>)}
                         </div>
 
-                        <div className="relative md:bg-background/90 md:backdrop-blur-2xl md:border md:border-border/80 md:rounded-3xl md:overflow-hidden md:shadow-2xl md:shadow-[var(--brand-start)]/10">
-                            <div className="hidden sm:block absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-[var(--brand-start)] via-[var(--brand-mid)] to-[var(--brand-end)]" />
-                            <div className="p-2 sm:p-6 md:p-8">
-                                <AudioUpload
-                                    importFileKey={searchParams.get("fileKey") || undefined}
-                                    mode={playMode}
-                                    onModeChange={handleModeChange}
-                                    onAudioUploaded={(audioList) => {
-                                        const last = audioList[audioList.length - 1];
-                                        if (last) toast.success(`「${last.file.name}」上传成功`);
+                        <AudioUpload
+                            importFileKey={searchParams.get("fileKey") || undefined}
+                            mode={playMode}
+                            onModeChange={handleModeChange}
+                            onAudioUploaded={(audioList) => {
+                                const last = audioList[audioList.length - 1];
+                                if (last) toast.success(`「${last.file.name}」上传成功`);
+                            }}
+                            onAudioRemoved={() => {}}
+                        >
+                            <div className="space-y-5 sm:space-y-6">
+                                <button
+                                    onClick={() => {
+                                        setEditingTask(null);
+                                        setShowTaskForm(true);
                                     }}
-                                    onAudioRemoved={() => {}}
+                                    className="w-full relative overflow-hidden px-5 sm:px-5 py-4 sm:py-3.5 rounded-xl font-bold text-sm transition-all duration-300 transform text-[#050510] hover:-translate-y-0.5 cursor-pointer flex items-center justify-center gap-2"
+                                    style={{ background: "linear-gradient(135deg, #00d4aa 0%, #00b894 50%, #00d4aa 100%)", boxShadow: "0 4px 15px rgba(0, 212, 170, 0.3)" }}
                                 >
-                                    <div className="space-y-5 sm:space-y-6">
-                                        <button
-                                            onClick={() => {
-                                                setEditingTask(null);
-                                                setShowTaskForm(true);
-                                            }}
-                                            className="w-full relative overflow-hidden px-5 sm:px-5 py-4 sm:py-3.5 rounded-xl font-bold text-sm transition-all duration-300 transform text-[#050510] hover:-translate-y-0.5 cursor-pointer flex items-center justify-center gap-2"
-                                            style={{ background: "linear-gradient(135deg, #00d4aa 0%, #00b894 50%, #00d4aa 100%)", boxShadow: "0 4px 15px rgba(0, 212, 170, 0.3)" }}
-                                        >
-                                            <Plus className="w-4 h-4" />
-                                            新建任务
-                                        </button>
-                                        <TaskList tasks={tasks} onEdit={handleEditTask} onRefresh={() => setTasksVersion(v => v + 1)} />
-                                    </div>
-                                </AudioUpload>
+                                    <Plus className="w-4 h-4" />
+                                    新建任务
+                                </button>
+                                <TaskList tasks={tasks} onEdit={handleEditTask} onRefresh={() => setTasksVersion(v => v + 1)} />
                             </div>
-                        </div>
+                        </AudioUpload>
                     </div>
                 </section>
             </main>

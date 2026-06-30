@@ -218,8 +218,6 @@ export function TaskForm({ editTask, onSave, onCancel }: TaskFormProps) {
         initialVolume={editTask?.volume || 50}
       />
 
-      <div className="h-px bg-gradient-to-r from-transparent via-border/40 to-transparent" />
-
       <div className="space-y-4">
         <div className="space-y-1.5">
           <label className="text-xs font-medium text-muted-foreground">任务名称</label>
@@ -229,7 +227,7 @@ export function TaskForm({ editTask, onSave, onCancel }: TaskFormProps) {
             onChange={(e) => setTaskName(e.target.value)}
             placeholder="输入任务名称"
             maxLength={50}
-            className="w-full h-11 sm:h-10 px-3 rounded-lg border border-border/60 bg-muted/30 text-sm text-foreground placeholder:text-muted-foreground/50 focus:outline-none focus:border-[var(--brand-start)]/60 focus:ring-1 focus:ring-[var(--brand-start)]/30 transition-all"
+            className="w-full h-11 sm:h-10 px-3 rounded-lg border border-border/60 bg-transparent text-sm text-foreground placeholder:text-muted-foreground/50 focus:outline-none focus:border-[var(--brand-start)]/60 focus:ring-1 focus:ring-[var(--brand-start)]/30 transition-all"
           />
         </div>
 
@@ -244,10 +242,10 @@ export function TaskForm({ editTask, onSave, onCancel }: TaskFormProps) {
                 key={opt.value}
                 onClick={() => setRepeatType(opt.value)}
                 className={cn(
-                  "p-3 sm:p-3 rounded-xl border text-left transition-all cursor-pointer min-h-[52px] sm:min-h-0",
+                  "p-3 sm:p-3 text-left transition-all cursor-pointer min-h-[52px] sm:min-h-0",
                   repeatType === opt.value
-                    ? "border-[var(--brand-start)]/60 bg-[var(--brand-start)]/10 shadow-sm"
-                    : "border-border/40 bg-muted/20 hover:border-border/60 hover:bg-muted/40 active:bg-muted/50"
+                    ? "text-[var(--brand-start)]"
+                    : ""
                 )}
               >
                 <div className={cn(
@@ -282,7 +280,7 @@ export function TaskForm({ editTask, onSave, onCancel }: TaskFormProps) {
           onChange={setPlayDurationMinutes}
         />
 
-        <div className="space-y-3 pt-2 border-t border-border/30">
+        <div className="space-y-3 pt-2">
           <div className="flex items-center justify-between">
             <span className="text-xs text-muted-foreground/60 font-medium uppercase tracking-wider">音量渐入</span>
             <span className="text-sm font-mono text-foreground tabular-nums">{fadeInDuration}s</span>

@@ -397,18 +397,18 @@ function TaskItem({
     "即将播放";
 
   const borderClass = isDragging
-    ? "border-[var(--brand-start)] shadow-lg shadow-[var(--brand-start)]/15 scale-[1.02] opacity-80 z-10"
+    ? "scale-[1.02] opacity-80 z-10"
     : status === "executing" && phase === "fading-in"
-      ? "border-cyan-500/30"
+      ? ""
       : status === "executing" && phase === "playing"
-        ? "border-emerald-500/30"
+        ? ""
         : status === "executing" && phase === "fading-out"
-          ? "border-amber-500/30"
+          ? ""
           : status === "executing"
-            ? "border-emerald-500/30"
+            ? ""
             : status === "cancelled"
               ? "opacity-60"
-              : "hover:border-border";
+              : "";
 
   const diffuseClass = isDragging
     ? ""
@@ -628,15 +628,14 @@ function TaskItem({
       <div
         onTouchStart={onTouchStart ? (e) => onTouchStart(e, index) : undefined}
         className={cn(
-          "backdrop-blur-sm border border-border/60 rounded-xl overflow-hidden transition-all duration-200 bg-card",
+          "transition-all duration-200",
           isSwapAnimating && "transition-all duration-[700ms] ease-[cubic-bezier(0.22,1,0.36,1)]",
           isDragging && "opacity-60 scale-[0.97]",
-          isMobileDragTarget && "border-[var(--brand-start)]/50 bg-[var(--brand-start)]/5",
+          isMobileDragTarget && "bg-[var(--brand-start)]/5",
           borderClass,
           diffuseClass
         )}
       >
-        <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-[var(--brand-glow)]/20 to-transparent" />
         <div className="p-3">
           <div className="flex items-center justify-between gap-2 mb-1">
             <div className="flex items-center gap-2 min-w-0">
@@ -680,7 +679,7 @@ function TaskItem({
 
           {audioRow}
 
-          <div className="mt-2 pt-2 border-t border-border/30 flex items-center gap-1.5 flex-wrap">
+          <div className="mt-2 pt-2 flex items-center gap-1.5 flex-wrap">
             {status !== "cancelled" && status !== "completed" && status !== "executing" && (
               <button
                 onClick={(e) => {
@@ -746,7 +745,7 @@ function TaskItem({
       onDragOver={(e) => onDragOver(e, index)}
       onDragEnd={onDragEnd}
       className={cn(
-        "group/task backdrop-blur-sm border border-border/60 rounded-xl overflow-hidden cursor-pointer transition-all duration-200 bg-card",
+        "group/task cursor-pointer transition-all duration-200",
         isSwapAnimating
           ? "transition-all duration-[700ms] ease-[cubic-bezier(0.22,1,0.36,1)]"
           : "transition-all duration-200",
@@ -754,7 +753,6 @@ function TaskItem({
         diffuseClass
       )}
     >
-      <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-[var(--brand-glow)]/20 to-transparent" />
       <div className="p-4">
         <div className="flex items-start justify-between gap-3">
           <div className="flex items-center gap-2 flex-shrink-0">

@@ -12,7 +12,7 @@ interface ModeSwitchProps {
 
 export function ModeSwitch({ mode, onModeChange }: ModeSwitchProps) {
   return (
-    <div className="flex items-center gap-1 p-1 sm:p-1 rounded-xl bg-muted/50 border border-border/40">
+    <div className="flex items-center gap-1 p-1 sm:p-1 rounded-xl">
       <button
         onClick={() => onModeChange("default")}
         className={cn(

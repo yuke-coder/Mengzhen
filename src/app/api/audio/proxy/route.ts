@@ -48,7 +48,6 @@ export async function GET(request: NextRequest) {
       headers: {
         "Content-Type": contentType,
         "Content-Length": buffer.byteLength.toString(),
-        "Cache-Control": "private, max-age=86400",
       },
     });
   } catch (err) {

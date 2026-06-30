@@ -24,7 +24,7 @@ export const metadata: Metadata = {
     icon: "/favicon.png",
     apple: "/favicon.png",
   },
-  manifest: "/manifest.json",
+  manifest: process.env.NODE_ENV === "production" ? "/manifest.json" : undefined,
   appleWebApp: {
     capable: true,
     statusBarStyle: "black-translucent",
@@ -42,6 +42,9 @@ export const metadata: Metadata = {
 
 // 内联脚本：React 水合前读取主题偏好并设置 class，防止 FOUC 闪烁
 const THEME_INJECTION_SCRIPT = `(function(){try{var d=document.documentElement;var t=localStorage.getItem('theme');if(t==='dark'||t==='light'){d.classList.add(t)}else if(!t||t==='system'){var m=window.matchMedia('(prefers-color-scheme:dark)');if(m.matches)d.classList.add('dark')}}catch(e){}})()`;
+const PWA_SCRIPT = process.env.NODE_ENV === "production"
+  ? `if("serviceWorker"in navigator){window.addEventListener("load",function(){navigator.serviceWorker.register("/sw.js",{updateViaCache:"none"}).catch(function(e){console.warn("SW registration failed:",e)})})}`
+  : `window.addEventListener("load",function(){if("serviceWorker"in navigator){navigator.serviceWorker.getRegistrations().then(function(rs){rs.forEach(function(r){r.unregister()})})}if("caches"in window){caches.keys().then(function(keys){keys.forEach(function(key){caches.delete(key)})})}})`;
 
 export default function RootLayout({
   children,
@@ -89,78 +92,7 @@ export default function RootLayout({
             });
           });
         `}</Script>
-        {/* Service Worker Registration with Pre-cache */}
-        <Script id="sw-register" strategy="afterInteractive" dangerouslySetInnerHTML={{ __html: `
-          if ('serviceWorker' in navigator) {
-            window.addEventListener('load', function() {
-              var isLocal = ['localhost', '127.0.0.1', '::1'].includes(location.hostname)
-                || /^10\./.test(location.hostname)
-                || /^192\.168\./.test(location.hostname)
-                || /^172\.(1[6-9]|2[0-9]|3[0-1])\./.test(location.hostname);
-              if (isLocal) {
-                navigator.serviceWorker.getRegistrations().then(function(registrations) {
-                  registrations.forEach(function(registration) {
-                    registration.unregister();
-                  });
-                });
-                if ('caches' in window) {
-                  caches.keys().then(function(keys) {
-                    keys.forEach(function(key) {
-                      caches.delete(key);
-                    });
-                  });
-                }
-                return;
-              }
-
-              var refreshing = false;
-              navigator.serviceWorker.addEventListener('controllerchange', function() {
-                if (refreshing) return;
-                refreshing = true;
-                window.location.reload();
-              });
-
-              navigator.serviceWorker.register('/sw.js', { updateViaCache: 'none' }).then(function(registration) {
-                if (registration.active) {
-                  registration.active.postMessage({
-                    type: 'CACHE_URLS',
-                    urls: ['/', '/settings', '/templates']
-                  });
-                  registration.active.postMessage({ type: 'CLEAR_OLD_CACHES' });
-                }
-
-                registration.addEventListener('updatefound', function() {
-                  var newWorker = registration.installing;
-                  newWorker.addEventListener('statechange', function() {
-                    if (newWorker.state === 'installed' && navigator.serviceWorker.controller) {
-                      newWorker.postMessage({ type: 'SKIP_WAITING' });
-                    }
-                    if (newWorker.state === 'activated') {
-                      if (registration.active) {
-                        registration.active.postMessage({ type: 'CLEAR_OLD_CACHES' });
-                      }
-                    }
-                  });
-                });
-
-                registration.update();
-
-                if ('requestIdleCallback' in window) {
-                  requestIdleCallback(function() {
-                    registration.active && registration.active.postMessage({ type: 'PREFETCH' });
-                    registration.active && registration.active.postMessage({ type: 'TRIM_CACHES' });
-                  });
-                }
-
-                setInterval(function() {
-                  registration.update();
-                }, 5 * 60 * 1000);
-              }).catch(function(error) {
-                console.log('SW registration failed:', error);
-              });
-            });
-          }
-        `}} />
+        <Script id="pwa" strategy="afterInteractive">{PWA_SCRIPT}</Script>
       </body>
     </html>
   );

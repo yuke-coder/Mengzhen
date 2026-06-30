@@ -1669,7 +1669,7 @@ export function AudioUpload({
       <div className="space-y-3 sm:space-y-6">
 
         {/* 模式切换 - 固定显示 */}
-        <div className="flex flex-col items-center gap-2.5 pb-4 sm:pb-0 border-b border-border/40 sm:border-0">
+        <div className="flex flex-col items-center gap-2.5 pb-4 sm:pb-0">
           <ModeSwitch mode={mode} onModeChange={onModeChange || (() => {})} />
           <p className="text-xs text-muted-foreground/60 text-center leading-relaxed px-4">
             {mode === "default"
@@ -1693,9 +1693,8 @@ export function AudioUpload({
           processFiles(e.dataTransfer.files);
         }}
         className={cn(
-          "relative p-4 sm:p-8 rounded-xl border-2 border-dashed transition-all duration-300 cursor-pointer",
-          "hover:border-[var(--brand-glow)]/60 hover:bg-[var(--brand-glow)]/5",
-          dragOver && !disabled && "border-[var(--brand-glow)] bg-[var(--brand-glow)]/10 scale-[1.02]",
+          "relative p-4 sm:p-8 transition-all duration-300 cursor-pointer",
+          dragOver && !disabled && "scale-[1.02]",
           disabled && "opacity-50 cursor-not-allowed"
         )}
       >
@@ -1814,31 +1813,25 @@ export function AudioUpload({
                   onMouseDown={(e) => handleMouseDown(e, audio.id, index)}
                   onClick={() => togglePlay(audio.id)}
                   className={cn(
-                    "group/audio relative backdrop-blur-sm border border-border/60 rounded-xl overflow-hidden cursor-pointer select-none",
+                    "group/audio relative cursor-pointer select-none",
                     // 交换动画：慢速（700ms）+ 缓动曲线 + 轻微弹性
                     isSwapAnimating
                       ? "transition-all duration-[700ms] ease-[cubic-bezier(0.22,1,0.36,1)]"
                       : "transition-all duration-200",
                     isDragging
-                      ? "border-[var(--brand-start)] shadow-lg shadow-[var(--brand-start)]/15 scale-[1.02] opacity-80 z-10"
-                      : isPlaying && audioPhase === "fading-in"
-                        ? "border-cyan-500/40 ring-1 ring-cyan-500/20"
-                        : isPlaying && audioPhase === "playing"
-                          ? "border-[var(--brand-start)] ring-1 ring-[var(--brand-start)]/30"
-                          : isPlaying && audioPhase === "fading-out"
-                            ? "border-amber-500/40 ring-1 ring-amber-500/20"
-                            : "hover:border-border",
+                      ? "scale-[1.02] opacity-80 z-10"
+                      : "",
                     disabled && "opacity-50 pointer-events-none"
                   )}
                   style={{
                     // 弥散渐变背景 - 根据播放阶段变化
                     ...(isPlaying && audioPhase === "fading-in"
-                      ? { background: 'radial-gradient(ellipse at 20% 50%, color-mix(in srgb, #22d3ee 14%, transparent), color-mix(in srgb, #06b6d4 7%, transparent) 40%, color-mix(in srgb, #0891b2 2%, transparent) 70%, transparent 100%), var(--card)' }
+                      ? { background: 'radial-gradient(ellipse at 20% 50%, color-mix(in srgb, #22d3ee 14%, transparent), color-mix(in srgb, #06b6d4 7%, transparent) 40%, color-mix(in srgb, #0891b2 2%, transparent) 70%, transparent 100%)' }
                       : isPlaying && audioPhase === "playing"
-                        ? { background: 'radial-gradient(ellipse at 20% 50%, color-mix(in srgb, var(--brand-start) 12%, transparent), color-mix(in srgb, var(--brand-mid) 6%, transparent) 40%, color-mix(in srgb, var(--brand-end) 2%, transparent) 70%, transparent 100%), var(--card)' }
+                        ? { background: 'radial-gradient(ellipse at 20% 50%, color-mix(in srgb, var(--brand-start) 12%, transparent), color-mix(in srgb, var(--brand-mid) 6%, transparent) 40%, color-mix(in srgb, var(--brand-end) 2%, transparent) 70%, transparent 100%)' }
                         : isPlaying && audioPhase === "fading-out"
-                          ? { background: 'radial-gradient(ellipse at 20% 50%, color-mix(in srgb, #f59e0b 14%, transparent), color-mix(in srgb, #d97706 7%, transparent) 40%, color-mix(in srgb, #b45309 2%, transparent) 70%, transparent 100%), var(--card)' }
-                          : { background: 'radial-gradient(ellipse at 30% 40%, color-mix(in srgb, var(--brand-start) 4%, transparent), transparent 60%), color-mix(in srgb, var(--card) 80%, transparent)' }),
+                          ? { background: 'radial-gradient(ellipse at 20% 50%, color-mix(in srgb, #f59e0b 14%, transparent), color-mix(in srgb, #d97706 7%, transparent) 40%, color-mix(in srgb, #b45309 2%, transparent) 70%, transparent 100%)' }
+                          : { background: 'transparent' }),
                     ...(isCurrentlyDragging ? {
                       position: 'fixed',
                       top: draggingY,
@@ -1851,9 +1844,6 @@ export function AudioUpload({
                     } : {}),
                   }}
                 >
-                  {/* 顶部渐变条 */}
-                  <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-[var(--brand-glow)]/20 to-transparent" />
-
                   <div className="p-3 sm:p-4 space-y-2 sm:space-y-3">
                     {/* 主行：拖拽手柄 + 播放按钮 + 文件信息 + 操作 */}
                     <div className="flex items-center gap-3">
@@ -2095,8 +2085,8 @@ export function AudioUpload({
           </div>
           {/* 倒计时状态显示 */}
           {(isCountingDown || countdownPlayingId) && (
-            <div className="pt-4 border-t border-border/30">
-              <div className="bg-[var(--brand-start)]/10 border border-[var(--brand-start)]/20 rounded-xl p-4 space-y-3">
+            <div className="pt-4">
+              <div className="p-4 space-y-3">
                 <div className="flex items-center justify-between">
                   <span className="text-sm font-medium text-[var(--brand-start)] flex items-center gap-2">
                     <Clock className="w-4 h-4" />
@@ -2129,8 +2119,7 @@ export function AudioUpload({
 
             {/* 音量控制卡片 - 固定模块 */}
 
-        <div className="bg-card dark:bg-card/80 backdrop-blur-sm border border-border/60 rounded-2xl overflow-hidden">
-          <div className="h-px bg-gradient-to-r from-transparent via-[var(--brand-glow)]/20 to-transparent" />
+        <div>
           <div className="p-3 sm:p-5 space-y-2.5">
             <div className="flex items-center justify-between">
               <label className="text-xs font-medium text-muted-foreground flex items-center gap-1.5">
@@ -2164,8 +2153,7 @@ export function AudioUpload({
 
         {/* 播放时段设置 - 仅默认模式显示 */}
         {mode === "default" && (
-        <div className="bg-card dark:bg-card/80 backdrop-blur-sm border border-border/60 rounded-2xl overflow-hidden">
-          <div className="h-px bg-gradient-to-r from-transparent via-[var(--brand-glow)]/20 to-transparent" />
+        <div>
           <div className="p-3 sm:p-5 space-y-4">
             <div className="flex items-center justify-between">
               <label className="text-xs font-medium text-muted-foreground flex items-center gap-1.5">
@@ -2256,7 +2244,7 @@ export function AudioUpload({
                   }}
                 />
 
-                <div className="mt-2 p-2.5 rounded-lg bg-muted/50 border border-border/30">
+                <div className="mt-2 p-2.5">
                   <p className="text-xs text-muted-foreground leading-relaxed">
                     💡 渐入将在开始时间前开始播放，渐出将在结束时间后完成。实际播放时段 = 目标音量时段。
                   </p>

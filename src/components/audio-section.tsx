@@ -491,9 +491,8 @@ export function AudioSection({
           }
         }}
         className={cn(
-          "relative p-6 rounded-xl border-2 border-dashed transition-all duration-300 cursor-pointer",
-          "hover:border-[var(--brand-glow)]/60 hover:bg-[var(--brand-glow)]/5",
-          dragOver && "border-[var(--brand-glow)] bg-[var(--brand-glow)]/10 scale-[1.02]"
+          "relative p-6 transition-all duration-300 cursor-pointer",
+          dragOver && "scale-[1.02]"
         )}
       >
         <input
@@ -597,14 +596,9 @@ export function AudioSection({
                   key={audio.id}
                   onClick={() => togglePlay(audio.id)}
                   className={cn(
-                    "group/audio relative bg-card dark:bg-card/80 backdrop-blur-sm border border-border/60 rounded-xl overflow-hidden cursor-pointer transition-all duration-200",
-                    isPlaying
-                      ? "border-[var(--brand-start)] bg-[var(--brand-start)]/5 ring-1 ring-[var(--brand-start)]/30"
-                      : "hover:border-border"
+                    "group/audio relative cursor-pointer transition-all duration-200"
                   )}
                 >
-                  <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-[var(--brand-glow)]/20 to-transparent" />
-
                   <div className="p-3 space-y-2">
                     <div className="flex items-center gap-2.5">
                       <button
@@ -759,8 +753,7 @@ export function AudioSection({
         </div>
       )}
 
-      <div className="bg-card dark:bg-card/80 backdrop-blur-sm border border-border/60 rounded-2xl overflow-hidden">
-        <div className="h-px bg-gradient-to-r from-transparent via-[var(--brand-glow)]/20 to-transparent" />
+      <div>
         <div className="p-4 space-y-2.5">
           <div className="flex items-center justify-between">
             <label className="text-xs font-medium text-muted-foreground flex items-center gap-1.5">

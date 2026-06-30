@@ -1,7 +1,5 @@
 import type { NextConfig } from "next";
 
-const isProd = process.env.NODE_ENV === 'production';
-
 const nextConfig: NextConfig = {
   experimental: {
     serverActions: {
@@ -26,36 +24,6 @@ const nextConfig: NextConfig = {
         { key: 'X-Frame-Options', value: 'DENY' },
         { key: 'X-XSS-Protection', value: '1; mode=block' },
         { key: 'Referrer-Policy', value: 'strict-origin-when-cross-origin' },
-      ],
-    },
-    {
-      source: '/_next/static/(.*)',
-      headers: [
-        { key: 'Cache-Control', value: isProd ? 'public, max-age=31536000, immutable' : 'no-store' },
-      ],
-    },
-    {
-      source: '/favicon.(png|svg|ico)',
-      headers: [
-        { key: 'Cache-Control', value: 'public, max-age=86400' },
-      ],
-    },
-    {
-      source: '/logo.png',
-      headers: [
-        { key: 'Cache-Control', value: 'public, max-age=86400' },
-      ],
-    },
-    {
-      source: '/manifest.json',
-      headers: [
-        { key: 'Cache-Control', value: 'public, max-age=3600' },
-      ],
-    },
-    {
-      source: '/sw.js',
-      headers: [
-        { key: 'Cache-Control', value: 'public, max-age=0, must-revalidate' },
       ],
     },
   ],
