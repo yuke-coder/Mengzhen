@@ -1,8 +1,8 @@
 "use client";
 
-import React, { useEffect, useState, useCallback, Component } from "react";
+import React, { useEffect, useState } from "react";
 import { cn } from "@/lib/utils";
-import { X, AlertCircle } from "lucide-react";
+import { X } from "lucide-react";
 
 interface TaskModalProps {
   visible: boolean;
@@ -10,61 +10,9 @@ interface TaskModalProps {
   children: React.ReactNode;
 }
 
-interface ErrorBoundaryProps {
-  children: React.ReactNode;
-  onError: () => void;
-}
-
-interface ErrorBoundaryState {
-  hasError: boolean;
-  error: Error | null;
-}
-
-class ModalErrorBoundary extends Component<ErrorBoundaryProps, ErrorBoundaryState> {
-  constructor(props: ErrorBoundaryProps) {
-    super(props);
-    this.state = { hasError: false, error: null };
-  }
-
-  static getDerivedStateFromError(error: Error) {
-    return { hasError: true, error };
-  }
-
-  componentDidCatch(error: Error, errorInfo: React.ErrorInfo) {
-    console.error("[TaskModal] Child component error:", error, errorInfo);
-    this.props.onError();
-  }
-
-  render() {
-    if (this.state.hasError) {
-      return (
-        <div className="flex flex-col items-center justify-center p-8 gap-4 text-center">
-          <AlertCircle className="w-10 h-10 text-destructive" />
-          <div>
-            <p className="text-sm font-medium text-foreground">内容加载出错</p>
-            <p className="text-xs text-muted-foreground mt-1">{this.state.error?.message}</p>
-          </div>
-          <button
-            onClick={() => this.setState({ hasError: false, error: null })}
-            className="text-xs text-[var(--brand-start)] hover:underline"
-          >
-            重试
-          </button>
-        </div>
-      );
-    }
-    return this.props.children;
-  }
-}
-
 export function TaskModal({ visible, onClose, children }: TaskModalProps) {
   const [mounted, setMounted] = useState(false);
   const [animating, setAnimating] = useState(false);
-
-  const handleError = useCallback(() => {
-    // 子组件崩溃时确保清理 body overflow，防止页面被锁死
-    document.body.style.overflow = "";
-  }, []);
 
   useEffect(() => {
     if (visible) {
@@ -94,13 +42,6 @@ export function TaskModal({ visible, onClose, children }: TaskModalProps) {
     return () => window.removeEventListener("keydown", handleEsc);
   }, [mounted, onClose]);
 
-  const handleOverlayClick = useCallback(
-    (e: React.MouseEvent) => {
-      if (e.target === e.currentTarget) onClose();
-    },
-    [onClose]
-  );
-
   if (!mounted) return null;
 
   return (
@@ -108,32 +49,34 @@ export function TaskModal({ visible, onClose, children }: TaskModalProps) {
       className={cn(
         "fixed inset-0 z-[100] flex items-end sm:items-center justify-center sm:justify-center transition-all duration-[600ms] ease-[cubic-bezier(0.22,1,0.36,1)]",
         animating
-          ? "bg-black/20 dark:bg-black/40 backdrop-blur-md"
+          ? "bg-transparent backdrop-blur-0 sm:bg-black/20 dark:sm:bg-black/40 sm:backdrop-blur-md"
           : "bg-black/0 backdrop-blur-0"
       )}
-      onClick={handleOverlayClick}
+      onClick={(e) => {
+        if (e.target === e.currentTarget) onClose();
+      }}
     >
       <div
         className={cn(
           "relative w-full sm:max-w-3xl flex flex-col overflow-hidden transition-all duration-[600ms] ease-[cubic-bezier(0.22,1,0.36,1)]",
-          "bg-background dark:bg-background/95 backdrop-blur-xl border border-border/60",
-          "shadow-[0_8px_60px_rgba(0,0,0,0.12),0_2px_20px_rgba(0,212,170,0.06)] dark:shadow-[0_8px_60px_rgba(0,0,0,0.3),0_2px_20px_rgba(0,212,170,0.08)]",
-          "sm:rounded-2xl rounded-t-2xl sm:rounded-b-2xl",
-          "max-h-[92vh] sm:max-h-[82vh]",
+          "h-[100dvh] bg-transparent",
+          "sm:h-auto sm:max-h-[82vh] sm:bg-background dark:sm:bg-background/95 sm:backdrop-blur-xl sm:border sm:border-border/60",
+          "sm:shadow-[0_8px_60px_rgba(0,0,0,0.12),0_2px_20px_rgba(0,212,170,0.06)] dark:sm:shadow-[0_8px_60px_rgba(0,0,0,0.3),0_2px_20px_rgba(0,212,170,0.08)] sm:rounded-2xl",
           animating
-            ? "opacity-100 scale-100 translate-y-0"
-            : "opacity-0 scale-[0.96] translate-y-4"
+            ? "opacity-100"
+            : "opacity-0 sm:scale-[0.96] sm:translate-y-4"
         )}
         onClick={(e) => e.stopPropagation()}
       >
         <div
           className={cn(
             "absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-[var(--brand-start)] via-[var(--brand-mid)] to-[var(--brand-end)] transition-opacity duration-[600ms]",
+            "hidden sm:block",
             animating ? "opacity-100" : "opacity-0"
           )}
         />
 
-        <div className="flex-1 overflow-y-auto overscroll-contain p-4 sm:p-6 md:p-8 -webkit-overflow-scrolling-touch">
+        <div className="flex-1 overflow-y-auto overscroll-contain px-4 pt-14 pb-6 sm:p-6 md:p-8 -webkit-overflow-scrolling-touch">
           <div
             className={cn(
               "transition-all duration-[600ms] ease-[cubic-bezier(0.22,1,0.36,1)]",
@@ -143,15 +86,14 @@ export function TaskModal({ visible, onClose, children }: TaskModalProps) {
             )}
             style={{ transitionDelay: animating ? "150ms" : "0ms" }}
           >
-            <ModalErrorBoundary onError={handleError}>
-              {children}
-            </ModalErrorBoundary>
+            {children}
           </div>
         </div>
 
         <div
           className={cn(
             "absolute bottom-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-[var(--brand-glow)]/30 to-transparent transition-opacity duration-[600ms]",
+            "hidden sm:block",
             animating ? "opacity-100" : "opacity-0"
           )}
         />

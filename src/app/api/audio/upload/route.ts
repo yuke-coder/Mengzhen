@@ -8,42 +8,6 @@ export const maxDuration = 60;
 
 const ALLOWED_EXTENSIONS = [".mp3", ".wav", ".ogg", ".m4a", ".flac", ".aac"];
 
-let bucketEnsured = false;
-// 确保 audios bucket 存在且配置正确
-async function ensureAudiosBucket() {
-  if (bucketEnsured) return;
-  const supabase = getSupabaseClient();
-  if (!supabase) return;
-
-  try {
-    const { data: bucket } = await supabase.storage.getBucket("audios");
-    if (bucket) {
-      await supabase.storage.updateBucket("audios", {
-        public: true,
-        allowedMimeTypes: ["audio/*"],
-      });
-    } else {
-      await supabase.storage.createBucket("audios", {
-        public: true,
-        allowedMimeTypes: ["audio/*"],
-      });
-    }
-    bucketEnsured = true;
-  } catch (err) {
-    const errMsg = err instanceof Error ? err.message : String(err);
-    console.warn("[Audio Upload] bucket 配置检查（忽略，数据库已设置）:", errMsg);
-    bucketEnsured = true;
-  }
-}
-
-// 从 Content-Type header 中提取 multipart boundary
-function extractBoundary(contentType: string): string | null {
-  const match = contentType.match(/boundary=(?:"([^"]+)"|([^;]+))/i);
-  if (!match) return null;
-  return match[1] || match[2] || null;
-}
-
-// 将 Supabase 的英文错误信息转换为友好的中文提示
 function translateStorageError(rawMessage: string): string {
   const msg = (rawMessage || "").toLowerCase();
   if (msg.includes("invalid content type") || msg.includes("mime") || msg.includes("content-type")) {
@@ -61,104 +25,6 @@ function translateStorageError(rawMessage: string): string {
   return rawMessage || "上传失败，请重试";
 }
 
-// 从 multipart body 中解析出文件字段（name="audio"）
-// 返回 { fileBuffer, filename, contentType } 或 null
-function parseMultipartFile(
-  body: Uint8Array,
-  boundary: string,
-  fieldName: string = "audio"
-): { fileBuffer: Uint8Array; filename: string; contentType: string } | null {
-  const encoder = new TextEncoder();
-  const decoder = new TextDecoder("utf-8");
-
-  const delimiter = encoder.encode("--" + boundary);
-  const closingDelimiter = encoder.encode("--" + boundary + "--");
-
-  // 查找所有 delimiter 位置
-  const findSequence = (data: Uint8Array, seq: Uint8Array, start: number = 0): number => {
-    for (let i = start; i <= data.length - seq.length; i++) {
-      let found = true;
-      for (let j = 0; j < seq.length; j++) {
-        if (data[i + j] !== seq[j]) {
-          found = false;
-          break;
-        }
-      }
-      if (found) return i;
-    }
-    return -1;
-  };
-
-  // 查找第一个 delimiter
-  let pos = findSequence(body, delimiter, 0);
-  if (pos === -1) return null;
-
-  while (pos !== -1 && pos < body.length) {
-    // 跳过 delimiter 本身
-    let partStart = pos + delimiter.length;
-
-    // 检查是否是 closing delimiter
-    if (partStart + 2 <= body.length && body[partStart] === 45 && body[partStart + 1] === 45) {
-      break;
-    }
-
-    // 跳过 \r\n 或 \n
-    if (body[partStart] === 13 && body[partStart + 1] === 10) partStart += 2;
-    else if (body[partStart] === 10) partStart += 1;
-
-    // 查找下一个 delimiter（这部分的结束）
-    const nextDelimPos = findSequence(body, delimiter, partStart);
-    if (nextDelimPos === -1) break;
-
-    // 这部分的结束位置：下一个 delimiter 之前的 \r\n--
-    const partEnd = nextDelimPos - 2; // 减去前面的 \r\n
-
-    // 解析 headers：查找空行（\r\n\r\n）
-    const partBody = body.subarray(partStart, partEnd);
-    let headerEnd = -1;
-    for (let i = 0; i < partBody.length - 3; i++) {
-      if (partBody[i] === 13 && partBody[i + 1] === 10 &&
-          partBody[i + 2] === 13 && partBody[i + 3] === 10) {
-        headerEnd = i;
-        break;
-      }
-      // 兼容 \n\n
-      if (partBody[i] === 10 && partBody[i + 1] === 10) {
-        headerEnd = i;
-        break;
-      }
-    }
-    if (headerEnd === -1) {
-      pos = nextDelimPos;
-      continue;
-    }
-
-    const headersText = decoder.decode(partBody.subarray(0, headerEnd));
-    const contentStart = headerEnd + (partBody[headerEnd] === 13 ? 4 : 2);
-
-    // 检查是否是目标字段
-    const nameMatch = headersText.match(/name="([^"]+)"/);
-    if (nameMatch && nameMatch[1] === fieldName) {
-      // 提取 filename
-      const filenameMatch = headersText.match(/filename="([^"]+)"/);
-      const filename = filenameMatch ? filenameMatch[1] : "audio";
-
-      // 提取 Content-Type
-      const ctMatch = headersText.match(/Content-Type:\s*([^\r\n]+)/i);
-      const contentType = ctMatch ? ctMatch[1].trim() : "audio/mpeg";
-
-      // 文件内容
-      const fileBuffer = partBody.subarray(contentStart);
-
-      return { fileBuffer, filename, contentType };
-    }
-
-    pos = nextDelimPos;
-  }
-
-  return null;
-}
-
 export async function POST(request: NextRequest) {
   try {
     const authUser = await getAuthUser();
@@ -173,68 +39,19 @@ export async function POST(request: NextRequest) {
     const url = new URL(request.url);
     const saveToFiles = url.searchParams.get("save_to_files") === "true";
 
-    // 从 Content-Type 中获取 boundary
-    const contentType = request.headers.get("content-type") || "";
-    if (!contentType.includes("multipart/form-data")) {
-      return NextResponse.json(
-        { success: false, error: "请求格式错误" },
-        { status: 400 }
-      );
-    }
-
-    const boundary = extractBoundary(contentType);
-    if (!boundary) {
-      return NextResponse.json(
-        { success: false, error: "无法解析 multipart boundary" },
-        { status: 400 }
-      );
-    }
-
-    const reader = request.body?.getReader();
-    if (!reader) {
-      return NextResponse.json(
-        { success: false, error: "无法读取请求体" },
-        { status: 400 }
-      );
-    }
-
-    const chunks: Uint8Array[] = [];
-    while (true) {
-      const { done, value } = await reader.read();
-      if (done) break;
-      if (value) chunks.push(value);
-    }
-
-    // 合并所有 chunk
-    let totalLen = 0;
-    for (const c of chunks) totalLen += c.length;
-    const body = new Uint8Array(totalLen);
-    let offset = 0;
-    for (const c of chunks) {
-      body.set(c, offset);
-      offset += c.length;
-    }
-
-    if (body.length === 0) {
-      return NextResponse.json(
-        { success: false, error: "请选择音频文件" },
-        { status: 400 }
-      );
-    }
-
-    // 解析 multipart body 获取文件
-    const parsed = parseMultipartFile(body, boundary, "audio");
-    if (!parsed) {
+    const formData = await request.formData();
+    const file = formData.get("audio");
+    if (!(file instanceof File)) {
       return NextResponse.json(
         { success: false, error: "未找到音频文件字段" },
         { status: 400 }
       );
     }
 
-    const { fileBuffer, filename, contentType: fileType } = parsed;
-    const fileSize = fileBuffer.length;
+    const filename = file.name || "audio";
+    const fileType = file.type || "";
+    const fileSize = file.size;
 
-    // 验证扩展名
     const ext = "." + filename.split(".").pop()?.toLowerCase();
     const typeOk = fileType.startsWith("audio/") || fileType === "";
     const extOk = ALLOWED_EXTENSIONS.includes(ext);
@@ -253,8 +70,6 @@ export async function POST(request: NextRequest) {
       );
     }
 
-    await ensureAudiosBucket();
-
     const timestamp = Date.now();
     const randomStr = Math.random().toString(36).substring(2, 10);
     const fileExt = ext || ".mp3";
@@ -262,10 +77,9 @@ export async function POST(request: NextRequest) {
 
     console.log(`[Audio Upload] 上传文件: ${filename}, 大小: ${fileSize} 字节, 目标路径: ${fileName}`);
 
-    // 直接上传 Uint8Array 到 Supabase
     const { error: uploadError } = await supabase.storage
       .from("audios")
-      .upload(fileName, fileBuffer, {
+      .upload(fileName, file, {
         contentType: fileType || "audio/mpeg",
         upsert: true,
       });
@@ -282,7 +96,6 @@ export async function POST(request: NextRequest) {
     const { data: urlData } = supabase.storage.from("audios").getPublicUrl(fileName);
     const audioUrl = urlData.publicUrl;
 
-    // 写入 audios 表
     const { error: dbError } = await supabase.from("audios").insert({
       user_id: userId,
       title: filename.replace(/\.[^/.]+$/, ""),

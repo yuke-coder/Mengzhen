@@ -6,6 +6,7 @@ const SESSION_COOKIE_NAME = "mindmap_session";
 export interface AuthUser {
   id: string;
   username: string;
+  created_at: string;
 }
 
 export async function getAuthUser(): Promise<AuthUser | null> {
@@ -39,7 +40,7 @@ export async function getAuthUser(): Promise<AuthUser | null> {
 
     const { data: authUser, error: authError } = await client
       .from('users')
-      .select('id, username')
+      .select('id, username, created_at')
       .eq('id', session.user_id)
       .maybeSingle();
 
@@ -50,6 +51,7 @@ export async function getAuthUser(): Promise<AuthUser | null> {
     return {
       id: String(authUser.id),
       username: authUser.username,
+      created_at: authUser.created_at,
     };
   } catch {
     return null;

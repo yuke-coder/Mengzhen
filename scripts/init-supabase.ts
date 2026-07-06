@@ -178,17 +178,12 @@ async function main() {
     console.log('  现有 buckets:', buckets.map((b) => b.name).join(', ') || '(空)');
   }
 
-  const bucketConfigs: Record<string, { fileSizeLimit: number; allowedMimeTypes: string[] }> = {
+  const bucketConfigs: Record<string, { allowedMimeTypes: string[] }> = {
     avatars: {
-      fileSizeLimit: 5 * 1024 * 1024,
       allowedMimeTypes: ['image/jpeg', 'image/png', 'image/gif', 'image/webp'],
     },
     audios: {
-      fileSizeLimit: 100 * 1024 * 1024, // 100MB
-      allowedMimeTypes: [
-        'audio/mpeg', 'audio/mp3', 'audio/wav', 'audio/ogg',
-        'audio/x-m4a', 'audio/flac', 'audio/aac',
-      ],
+      allowedMimeTypes: ['audio/*'],
     },
   };
 
@@ -198,24 +193,22 @@ async function main() {
       // 更新已有 bucket 的配置
       const { error: updateErr } = await supabase.storage.updateBucket(name, {
         public: true,
-        fileSizeLimit: config.fileSizeLimit,
         allowedMimeTypes: config.allowedMimeTypes,
       });
       if (updateErr) {
         console.error(`  ⚠️ 更新 ${name} 配置失败:`, updateErr.message);
       } else {
-        console.log(`  ✅ 更新 ${name} 配置成功 (大小限制: ${config.fileSizeLimit / (1024 * 1024)}MB)`);
+        console.log(`  ✅ 更新 ${name} 配置成功`);
       }
     } else {
       const { error } = await supabase.storage.createBucket(name, {
         public: true,
-        fileSizeLimit: config.fileSizeLimit,
         allowedMimeTypes: config.allowedMimeTypes,
       });
       if (error) {
         console.error(`  ❌ 创建 ${name} 失败:`, error.message);
       } else {
-        console.log(`  ✅ 创建 ${name} 成功 (大小限制: ${config.fileSizeLimit / (1024 * 1024)}MB)`);
+        console.log(`  ✅ 创建 ${name} 成功`);
       }
     }
   }
