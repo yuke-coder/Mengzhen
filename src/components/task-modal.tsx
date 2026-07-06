@@ -47,10 +47,10 @@ export function TaskModal({ visible, onClose, children }: TaskModalProps) {
   return (
     <div
       className={cn(
-        "fixed inset-0 z-[100] flex items-end sm:items-center justify-center sm:justify-center transition-all duration-[600ms] ease-[cubic-bezier(0.22,1,0.36,1)]",
+        "fixed inset-0 z-[100] flex items-end sm:items-center justify-center transition-all duration-[600ms] ease-[cubic-bezier(0.22,1,0.36,1)]",
         animating
-          ? "bg-transparent backdrop-blur-0 sm:bg-black/20 dark:sm:bg-black/40 sm:backdrop-blur-md"
-          : "bg-black/0 backdrop-blur-0"
+          ? "bg-black/0 sm:bg-black/20 dark:sm:bg-black/40"
+          : "bg-black/0"
       )}
       onClick={(e) => {
         if (e.target === e.currentTarget) onClose();
@@ -59,8 +59,8 @@ export function TaskModal({ visible, onClose, children }: TaskModalProps) {
       <div
         className={cn(
           "relative w-full sm:max-w-3xl flex flex-col overflow-hidden transition-all duration-[600ms] ease-[cubic-bezier(0.22,1,0.36,1)]",
-          "h-[100dvh] bg-transparent",
-          "sm:h-auto sm:max-h-[82vh] sm:bg-background dark:sm:bg-background/95 sm:backdrop-blur-xl sm:border sm:border-border/60",
+          "h-[100dvh] bg-background/70 dark:bg-background/35 backdrop-blur-xl",
+          "sm:h-auto sm:max-h-[82vh] sm:bg-background/85 dark:sm:bg-background/60 sm:border sm:border-border/60",
           "sm:shadow-[0_8px_60px_rgba(0,0,0,0.12),0_2px_20px_rgba(0,212,170,0.06)] dark:sm:shadow-[0_8px_60px_rgba(0,0,0,0.3),0_2px_20px_rgba(0,212,170,0.08)] sm:rounded-2xl",
           animating
             ? "opacity-100"
@@ -104,9 +104,8 @@ export function TaskModal({ visible, onClose, children }: TaskModalProps) {
         className={cn(
           "fixed z-[101] p-2.5 sm:p-3 rounded-full transition-all duration-[600ms] cursor-pointer",
           "backdrop-blur-md",
-          "bg-white/80 border-border/40 hover:border-border/60 active:border-border",
-          "text-foreground hover:text-foreground active:text-foreground",
-          "dark:bg-black/50 dark:border-white/20 dark:hover:border-white/40 dark:active:border-white/50",
+          "bg-white/80 text-foreground",
+          "dark:bg-black/50",
           "dark:text-white/80 dark:hover:text-white dark:active:text-white",
           "hover:shadow-lg hover:shadow-black/10 dark:hover:shadow-black/30 active:shadow-md",
           "hover:bg-white/90 active:bg-white/95 dark:hover:bg-black/60 dark:active:bg-black/70",
