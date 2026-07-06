@@ -318,8 +318,7 @@ const heroVariants = {
     mobile: {
         section: "relative sm:hidden min-h-[calc(100svh-56px)] flex flex-col items-center justify-start px-4 pt-4 pb-20 overflow-hidden",
         content: "relative z-10 w-full max-w-[23rem] mx-auto text-center space-y-4",
-        title: "max-w-[22.5rem]",
-        titleFontSize: "clamp(62px, 13vw, 88px)",
+        title: "w-[22rem] max-w-full",
         subtitle: "PWA构建·云端同步·本地持久化",
         subtitleClass: "flex-wrap gap-x-2 gap-y-1 max-w-[18rem] mx-auto text-xs leading-snug font-light",
         explore: false
@@ -327,8 +326,7 @@ const heroVariants = {
     desktop: {
         section: "relative hidden sm:flex min-h-[85vh] flex-col items-center justify-center px-6 overflow-hidden",
         content: "relative z-10 w-full max-w-3xl mx-auto text-center space-y-10",
-        title: "max-w-3xl",
-        titleFontSize: undefined,
+        title: "w-[31rem] max-w-full",
         subtitle: "PWA渐进式网页应用构建·云端数据库数据持久化·Cookie客户端本地持久化存储",
         subtitleClass: "text-lg md:text-xl max-w-xl mx-auto leading-relaxed font-light",
         explore: true
@@ -377,9 +375,9 @@ function HeroBackdrop({ id }: { id: string }) {
     );
 }
 
-function HeroTitle({ className, fontSize = "clamp(52px, 9vw, 96px)", gradientId }: {
+function HeroTitle({ className, fontSize, gradientId }: {
     className?: string;
-    fontSize?: string;
+    fontSize: string;
     gradientId: string;
 }) {
     return (
@@ -486,7 +484,7 @@ function HeroView({ mode, buttonRef, onStart }: HeroProps & { mode: HeroMode }) 
         <section className={variant.section}>
             <HeroBackdrop id={`${mode}Hero`} />
             <div className={variant.content}>
-                <HeroTitle gradientId={`${mode}HeroTitle`} className={variant.title} fontSize={variant.titleFontSize} />
+                <HeroTitle gradientId={`${mode}HeroTitle`} className={variant.title} fontSize={mobile ? "76px" : "74px"} />
                 <WordReveal text={variant.subtitle} className={variant.subtitleClass} delayBase={1200} wordDelay={200} />
                 <RevealGroup delayBase={300}>
                     <div className="inline-flex flex-col items-center gap-4">

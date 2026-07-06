@@ -6,9 +6,6 @@ export const dynamic = 'force-dynamic';
 
 const SESSION_COOKIE_NAME = "mindmap_session";
 
-// 头像文件大小限制 5MB
-const MAX_FILE_SIZE = 5 * 1024 * 1024;
-
 // 允许的图片类型
 const ALLOWED_TYPES = ["image/jpeg", "image/png", "image/gif", "image/webp"];
 
@@ -70,14 +67,6 @@ export async function POST(request: NextRequest) {
     if (!file) {
       return NextResponse.json(
         { success: false, error: "请选择头像图片" },
-        { status: 400 }
-      );
-    }
-
-    // 验证文件大小
-    if (file.size > MAX_FILE_SIZE) {
-      return NextResponse.json(
-        { success: false, error: "头像图片不能超过 5MB" },
         { status: 400 }
       );
     }

@@ -23,19 +23,8 @@ import {
   VolumeX,
 } from "lucide-react";
 
-const MAX_FILE_SIZE = 100 * 1024 * 1024;
 const MAX_FILES = 20;
-const ALLOWED_TYPES = [
-  "audio/mpeg",
-  "audio/wav",
-  "audio/ogg",
-  "audio/mp3",
-  "audio/x-m4a",
-  "audio/flac",
-  "audio/aac",
-];
 const ALLOWED_EXTENSIONS = [".mp3", ".wav", ".ogg", ".m4a", ".flac", ".aac"];
-const ACCEPTED_TYPES = [...ALLOWED_TYPES, ...ALLOWED_EXTENSIONS];
 
 function formatFileSize(bytes: number): string {
   if (bytes < 1024) return bytes + " B";
@@ -79,7 +68,6 @@ export function AudioSection({
   initialVolume = 50,
 }: AudioSectionProps) {
   const { user } = useAuth();
-  const fileInputRef = useRef<HTMLInputElement>(null);
   const audioRefs = useRef<Record<string, HTMLAudioElement>>({});
   const isMountedRef = useRef<boolean>(true);
   const isClearingRef = useRef<boolean>(false);
@@ -142,11 +130,8 @@ export function AudioSection({
 
   const validateFile = useCallback(
     (file: File): string | null => {
-      if (file.size > MAX_FILE_SIZE) {
-        return `文件大小超过 ${MAX_FILE_SIZE / (1024 * 1024)}MB 限制`;
-      }
       const ext = "." + file.name.split(".").pop()?.toLowerCase();
-      const typeOk = ALLOWED_TYPES.includes(file.type) || file.type.startsWith('audio/') || file.type === '';
+      const typeOk = file.type.startsWith('audio/') || file.type === '';
       const extOk = ALLOWED_EXTENSIONS.includes(ext);
       if (!typeOk && !extOk) {
         return `不支持的音频格式，请上传 ${ALLOWED_EXTENSIONS.join(", ")} 文件`;
@@ -482,34 +467,21 @@ export function AudioSection({
           setDragOver(false);
           processFiles(e.dataTransfer.files);
         }}
-        onClick={(e) => {
-          e.stopPropagation();
-          const input = fileInputRef.current;
-          if (input) {
-            input.value = '';
-            input.click();
-          }
-        }}
         className={cn(
           "relative p-6 transition-all duration-300 cursor-pointer",
           dragOver && "scale-[1.02]"
         )}
       >
         <input
-          ref={fileInputRef}
           type="file"
           accept="audio/*,.mp3,.wav,.ogg,.m4a,.flac,.aac"
           multiple
           onChange={(e) => {
             e.stopPropagation();
             if (e.target.files) processFiles(e.target.files);
-            setTimeout(() => {
-              try {
-                if (fileInputRef.current) fileInputRef.current.value = "";
-              } catch {}
-            }, 300);
+            e.currentTarget.value = "";
           }}
-          style={{ position: 'absolute', width: 1, height: 1, opacity: 0, overflow: 'hidden', clip: 'rect(0 0 0 0)', clipPath: 'inset(50%)', whiteSpace: 'nowrap' }}
+          className="absolute inset-0 w-full h-full opacity-0 cursor-pointer z-10"
         />
         <div className="flex flex-col items-center gap-2.5">
           <div

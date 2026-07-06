@@ -146,12 +146,6 @@ export default function ProfilePage() {
       return;
     }
 
-    // 验证文件大小（最大 5MB）
-    if (file.size > 5 * 1024 * 1024) {
-      showToast({ message: "图片大小不能超过 5MB" });
-      return;
-    }
-
     setUploadingAvatar(true);
     try {
       const avatarData = new FormData();

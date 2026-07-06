@@ -73,18 +73,7 @@ const dragStyles = `
 `;
 
 const MAX_FILES = 20;
-const MAX_FILE_SIZE = 500 * 1024 * 1024; // 500MB (Supabase bucket 已配置此限制)
-const ALLOWED_TYPES = [
-  "audio/mpeg",
-  "audio/wav",
-  "audio/ogg",
-  "audio/mp3",
-  "audio/x-m4a",
-  "audio/flac",
-  "audio/aac",
-];
 const ALLOWED_EXTENSIONS = [".mp3", ".wav", ".ogg", ".m4a", ".flac", ".aac"];
-const ACCEPTED_TYPES = [...ALLOWED_TYPES, ...ALLOWED_EXTENSIONS];
 
 function formatFileSize(bytes: number): string {
   if (bytes < 1024) return bytes + " B";
@@ -449,7 +438,6 @@ export function AudioUpload({
 
   const durationSeconds = startTime.hour * 3600 + startTime.minute * 60;
 
-  const fileInputRef = useRef<HTMLInputElement>(null);
   const audioRefs = useRef<Record<string, HTMLAudioElement>>({});
   const volumeSliderRef = useRef<HTMLInputElement>(null);
 
@@ -652,13 +640,10 @@ export function AudioUpload({
 
 
   const validateFile = (file: File): string | null => {
-    if (file.size > MAX_FILE_SIZE) {
-      return `文件 "${file.name}" 超过 ${(MAX_FILE_SIZE / (1024 * 1024)).toFixed(0)}MB 限制`;
-    }
     const ext = "." + file.name.split(".").pop()?.toLowerCase();
     // PWA standalone 模式下，部分浏览器可能不报告 MIME 类型（file.type 为空）
     // 此时仅通过扩展名验证
-    const typeOk = ALLOWED_TYPES.includes(file.type) || file.type.startsWith('audio/') || file.type === '';
+    const typeOk = file.type.startsWith('audio/') || file.type === '';
     const extOk = ALLOWED_EXTENSIONS.includes(ext);
     if (!typeOk && !extOk) {
       return `不支持的音频格式，请上传 ${ALLOWED_EXTENSIONS.join(", ")} 文件`;
@@ -803,13 +788,7 @@ export function AudioUpload({
       if (files && files.length > 0) {
         processFiles(files);
       }
-      requestAnimationFrame(() => {
-        if (fileInputRef.current) {
-          try {
-            fileInputRef.current.value = "";
-          } catch {}
-        }
-      });
+      e.currentTarget.value = "";
     },
     [processFiles]
   );
@@ -1699,7 +1678,6 @@ export function AudioUpload({
         )}
       >
         <input
-          ref={fileInputRef}
           type="file"
           accept="audio/*,.mp3,.wav,.ogg,.m4a,.flac,.aac"
           multiple

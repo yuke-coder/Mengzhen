@@ -6,22 +6,10 @@ export const runtime = "nodejs";
 export const dynamic = "force-dynamic";
 export const maxDuration = 60;
 
-const ALLOWED_TYPES = [
-  "audio/mpeg",
-  "audio/wav",
-  "audio/ogg",
-  "audio/mp3",
-  "audio/x-m4a",
-  "audio/flac",
-  "audio/aac",
-];
-
 const ALLOWED_EXTENSIONS = [".mp3", ".wav", ".ogg", ".m4a", ".flac", ".aac"];
 
 let bucketEnsured = false;
 // 确保 audios bucket 存在且配置正确
-// 注意：数据库中 file_size_limit 已手动设置为 500MB，
-// 这里只设置 MIME 类型和 public 属性，不覆盖大小限制
 async function ensureAudiosBucket() {
   if (bucketEnsured) return;
   const supabase = getSupabaseClient();
@@ -30,28 +18,18 @@ async function ensureAudiosBucket() {
   try {
     const { data: bucket } = await supabase.storage.getBucket("audios");
     if (bucket) {
-      // 仅更新 public 属性和 MIME 类型（不覆盖 fileSizeLimit，已手动设为 500MB）
       await supabase.storage.updateBucket("audios", {
         public: true,
-        allowedMimeTypes: [
-          "audio/mpeg", "audio/mp3", "audio/wav", "audio/ogg",
-          "audio/x-m4a", "audio/flac", "audio/aac",
-        ],
+        allowedMimeTypes: ["audio/*"],
       });
     } else {
       await supabase.storage.createBucket("audios", {
         public: true,
-        fileSizeLimit: 500 * 1024 * 1024,
-        allowedMimeTypes: [
-          "audio/mpeg", "audio/mp3", "audio/wav", "audio/ogg",
-          "audio/x-m4a", "audio/flac", "audio/aac",
-        ],
+        allowedMimeTypes: ["audio/*"],
       });
     }
     bucketEnsured = true;
   } catch (err) {
-    // updateBucket 失败通常是因为 Supabase JS SDK 对 fileSizeLimit 有校验，
-    // 但我们已通过 SQL 直接改了数据库，所以这里忽略失败
     const errMsg = err instanceof Error ? err.message : String(err);
     console.warn("[Audio Upload] bucket 配置检查（忽略，数据库已设置）:", errMsg);
     bucketEnsured = true;
@@ -68,9 +46,6 @@ function extractBoundary(contentType: string): string | null {
 // 将 Supabase 的英文错误信息转换为友好的中文提示
 function translateStorageError(rawMessage: string): string {
   const msg = (rawMessage || "").toLowerCase();
-  if (msg.includes("exceeded the maximum allowed") || msg.includes("file size") || msg.includes("too large")) {
-    return "音频文件超过存储平台的单文件大小限制，请压缩或分段上传";
-  }
   if (msg.includes("invalid content type") || msg.includes("mime") || msg.includes("content-type")) {
     return "不支持的音频格式，请上传 MP3 / WAV / OGG / M4A / FLAC 等格式";
   }
@@ -215,7 +190,6 @@ export async function POST(request: NextRequest) {
       );
     }
 
-    // 关键：直接读取原始 body 流，绕过 Next.js formData() 的大小限制
     const reader = request.body?.getReader();
     if (!reader) {
       return NextResponse.json(
@@ -262,7 +236,7 @@ export async function POST(request: NextRequest) {
 
     // 验证扩展名
     const ext = "." + filename.split(".").pop()?.toLowerCase();
-    const typeOk = ALLOWED_TYPES.includes(fileType) || fileType.startsWith("audio/") || fileType === "";
+    const typeOk = fileType.startsWith("audio/") || fileType === "";
     const extOk = ALLOWED_EXTENSIONS.includes(ext);
     if (!typeOk && !extOk) {
       return NextResponse.json(

@@ -4,7 +4,7 @@
   "private": true,
   "scripts": {
     "build": "next build",
-    "dev": "npx next dev --port 5000",
+    "dev": "npx next dev --webpack --port 5000",
     "lint": "eslint",
     "ts-check": "tsc -p tsconfig.json"
   },
