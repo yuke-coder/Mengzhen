@@ -474,7 +474,7 @@ export function AudioSection({
       >
         <input
           type="file"
-          accept="audio/*,.mp3,.wav,.ogg,.m4a,.flac,.aac"
+          accept=".mp3,.wav,.ogg,.m4a,.flac,.aac"
           multiple
           onChange={(e) => {
             e.stopPropagation();

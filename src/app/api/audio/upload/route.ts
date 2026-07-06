@@ -80,7 +80,6 @@ export async function POST(request: NextRequest) {
     const { error: uploadError } = await supabase.storage
       .from("audios")
       .upload(fileName, file, {
-        contentType: fileType || "audio/mpeg",
         upsert: true,
       });
 

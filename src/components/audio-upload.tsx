@@ -1679,7 +1679,7 @@ export function AudioUpload({
       >
         <input
           type="file"
-          accept="audio/*,.mp3,.wav,.ogg,.m4a,.flac,.aac"
+          accept=".mp3,.wav,.ogg,.m4a,.flac,.aac"
           multiple
           onChange={handleFileSelect}
           disabled={disabled}
