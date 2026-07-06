@@ -24,7 +24,7 @@ export const metadata: Metadata = {
     icon: "/favicon.png",
     apple: "/favicon.png",
   },
-  manifest: process.env.NODE_ENV === "production" ? "/manifest.json" : undefined,
+  manifest: "/manifest.json",
   appleWebApp: {
     capable: true,
     statusBarStyle: "black-translucent",
