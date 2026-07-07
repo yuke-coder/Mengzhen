@@ -13,54 +13,57 @@ interface ThemeContextType {
 
 const ThemeContext = createContext<ThemeContextType | undefined>(undefined);
 
-/** 同步读取已解析的主题（仅在客户端调用） */
 function getResolvedTheme(theme: Theme): ResolvedTheme {
   if (theme === "system") {
     if (typeof window !== "undefined") {
-      return window.matchMedia("(prefers-color-scheme:dark)").matches ? "dark" : "light";
+      return window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light";
     }
     return "dark";
   }
   return theme;
 }
 
-/** 同步从 localStorage 读取主题偏好 */
 function getStoredTheme(): Theme | null {
   if (typeof window === "undefined") return null;
-  try { return localStorage.getItem("theme") as Theme | null; } catch { return null; }
+  try {
+    const value = localStorage.getItem("theme-mode");
+    if (value === "dark" || value === "light") return value;
+    if (value === "auto" || value === "system") return "system";
+  } catch {}
+  return null;
+}
+
+function applyResolvedTheme(resolved: ResolvedTheme) {
+  const root = document.documentElement;
+  root.classList.remove("dark");
+  if (resolved === "dark") {
+    root.classList.add("dark");
+    document.body.setAttribute("theme-mode", "dark");
+  } else {
+    document.body.removeAttribute("theme-mode");
+  }
 }
 
 export function ThemeProvider({ children }: { children: React.ReactNode }) {
-  // 初始状态：优先从 localStorage 同步读取，默认为暗色模式
-  const [theme, setThemeState] = useState<Theme>(() => getStoredTheme() ?? "dark");
+  const [theme, setThemeState] = useState<Theme>(() => getStoredTheme() ?? "system");
   const [resolvedTheme, setResolvedTheme] = useState<ResolvedTheme>(() =>
-    getResolvedTheme(getStoredTheme() ?? "dark")
+    getResolvedTheme(getStoredTheme() ?? "system")
   );
 
   const setTheme = useCallback((newTheme: Theme) => {
-    console.log("ThemeContext: setTheme called with", newTheme);
-    document.body.classList.add('theme-transitioning');
     setThemeState(newTheme);
-    try { localStorage.setItem("theme", newTheme); } catch {}
-    setTimeout(() => {
-      document.body.classList.remove('theme-transitioning');
-    }, 350);
+    try {
+      localStorage.setItem("theme-mode", newTheme === "system" ? "auto" : newTheme);
+      localStorage.removeItem("theme");
+    } catch {}
   }, []);
 
   useEffect(() => {
-    const root = document.documentElement;
-
-    // 解析实际主题并更新 DOM class
     const resolved = getResolvedTheme(theme);
     setResolvedTheme(resolved);
-
-    root.classList.remove("light", "dark");
-    root.classList.add(resolved);
-    
-    console.log("ThemeContext: Theme changed to", theme, "resolved:", resolved, "classes:", root.className);
+    applyResolvedTheme(resolved);
   }, [theme]);
 
-  // 监听系统主题变化（仅当 theme === "system" 时）
   useEffect(() => {
     if (theme !== "system") return;
 
@@ -68,8 +71,7 @@ export function ThemeProvider({ children }: { children: React.ReactNode }) {
     const handler = (e: MediaQueryListEvent) => {
       const resolved = e.matches ? "dark" : "light";
       setResolvedTheme(resolved);
-      document.documentElement.classList.remove("light", "dark");
-      document.documentElement.classList.add(resolved);
+      applyResolvedTheme(resolved);
     };
 
     mq.addEventListener("change", handler);

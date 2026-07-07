@@ -2,6 +2,8 @@
 
 import React, { useEffect, useState } from "react";
 import { cn } from "@/lib/utils";
+import { useIsMobile } from "@/hooks/use-mobile";
+import { Drawer, DrawerContent, DrawerTitle } from "@/components/ui/drawer";
 import { X } from "lucide-react";
 
 interface TaskModalProps {
@@ -10,13 +12,18 @@ interface TaskModalProps {
   children: React.ReactNode;
 }
 
+const MOBILE_SNAP_POINTS = [0.72, 1];
+
 export function TaskModal({ visible, onClose, children }: TaskModalProps) {
+  const isMobile = useIsMobile();
   const [mounted, setMounted] = useState(false);
   const [animating, setAnimating] = useState(false);
+  const [snap, setSnap] = useState<number | string | null>(0.72);
 
   useEffect(() => {
     if (visible) {
       setMounted(true);
+      setSnap(0.72);
       document.body.style.overflow = "hidden";
       requestAnimationFrame(() => {
         requestAnimationFrame(() => {
@@ -44,6 +51,34 @@ export function TaskModal({ visible, onClose, children }: TaskModalProps) {
 
   if (!mounted) return null;
 
+  if (isMobile) {
+    return (
+      <Drawer
+        open={visible}
+        onOpenChange={(open) => { if (!open) onClose(); }}
+        direction="bottom"
+        snapPoints={MOBILE_SNAP_POINTS}
+        activeSnapPoint={snap}
+        setActiveSnapPoint={setSnap}
+        snapToSequentialPoint
+      >
+        <DrawerContent className="h-[100dvh] max-h-none rounded-t-2xl border-t border-border/60 bg-background/70 backdrop-blur-xl dark:bg-background/35">
+          <DrawerTitle className="sr-only">新建任务</DrawerTitle>
+          <button
+            type="button"
+            onClick={onClose}
+            className="absolute right-3 top-3 z-[101] flex min-h-[40px] min-w-[40px] items-center justify-center rounded-full bg-white/80 p-2.5 text-foreground backdrop-blur-md dark:bg-black/50 dark:text-white/80"
+          >
+            <X className="w-5 h-5" />
+          </button>
+          <div className="flex-1 overflow-y-auto overscroll-contain px-4 pb-6 pt-4 -webkit-overflow-scrolling-touch">
+            {children}
+          </div>
+        </DrawerContent>
+      </Drawer>
+    );
+  }
+
   return (
     <div
       className={cn(
@@ -59,8 +94,7 @@ export function TaskModal({ visible, onClose, children }: TaskModalProps) {
       <div
         className={cn(
           "relative w-full sm:max-w-3xl flex flex-col overflow-hidden transition-all duration-[600ms] ease-[cubic-bezier(0.22,1,0.36,1)]",
-          "h-[100dvh] bg-background/70 dark:bg-background/35 backdrop-blur-xl",
-          "sm:h-auto sm:max-h-[82vh] sm:bg-background/85 dark:sm:bg-background/60 sm:border sm:border-border/60",
+          "sm:h-auto sm:max-h-[82vh] sm:bg-background/85 dark:sm:bg-background/60 sm:backdrop-blur-xl sm:border sm:border-border/60",
           "sm:shadow-[0_8px_60px_rgba(0,0,0,0.12),0_2px_20px_rgba(0,212,170,0.06)] dark:sm:shadow-[0_8px_60px_rgba(0,0,0,0.3),0_2px_20px_rgba(0,212,170,0.08)] sm:rounded-2xl",
           animating
             ? "opacity-100"
@@ -76,7 +110,24 @@ export function TaskModal({ visible, onClose, children }: TaskModalProps) {
           )}
         />
 
-        <div className="flex-1 overflow-y-auto overscroll-contain px-4 pt-14 pb-6 sm:p-6 md:p-8 -webkit-overflow-scrolling-touch">
+        <button
+          type="button"
+          onClick={onClose}
+          className={cn(
+            "fixed z-[101] top-5 right-5 p-3 rounded-full transition-all duration-[600ms] cursor-pointer",
+            "backdrop-blur-md bg-white/80 text-foreground dark:bg-black/50",
+            "dark:text-white/80 dark:hover:text-white dark:active:text-white",
+            "hover:shadow-lg hover:shadow-black/10 dark:hover:shadow-black/30 active:shadow-md",
+            "hover:bg-white/90 active:bg-white/95 dark:hover:bg-black/60 dark:active:bg-black/70",
+            "flex items-center justify-center",
+            animating ? "opacity-100 scale-100" : "opacity-0 scale-75"
+          )}
+          style={{ transitionDelay: animating ? "200ms" : "0ms" }}
+        >
+          <X className="w-5 h-5" />
+        </button>
+
+        <div className="flex-1 overflow-y-auto overscroll-contain sm:p-6 md:p-8 -webkit-overflow-scrolling-touch">
           <div
             className={cn(
               "transition-all duration-[600ms] ease-[cubic-bezier(0.22,1,0.36,1)]",
@@ -98,27 +149,6 @@ export function TaskModal({ visible, onClose, children }: TaskModalProps) {
           )}
         />
       </div>
-
-      <button
-        onClick={onClose}
-        className={cn(
-          "fixed z-[101] p-2.5 sm:p-3 rounded-full transition-all duration-[600ms] cursor-pointer",
-          "backdrop-blur-md",
-          "bg-white/80 text-foreground",
-          "dark:bg-black/50",
-          "dark:text-white/80 dark:hover:text-white dark:active:text-white",
-          "hover:shadow-lg hover:shadow-black/10 dark:hover:shadow-black/30 active:shadow-md",
-          "hover:bg-white/90 active:bg-white/95 dark:hover:bg-black/60 dark:active:bg-black/70",
-          "min-w-[40px] min-h-[40px] sm:min-w-0 sm:min-h-0 flex items-center justify-center",
-          "top-3 right-3 sm:top-5 sm:right-5",
-          animating
-            ? "opacity-100 scale-100"
-            : "opacity-0 scale-75"
-        )}
-        style={{ transitionDelay: animating ? "200ms" : "0ms" }}
-      >
-        <X className="w-5 h-5" />
-      </button>
     </div>
   );
 }

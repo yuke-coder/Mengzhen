@@ -4,8 +4,6 @@ import {
   PlayConfig,
   generateTaskId,
   getNextExecuteDate,
-  STEP_DURATION,
-  TaskRepeatType,
   TaskAudio,
 } from './task-types';
 

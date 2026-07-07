@@ -3,7 +3,7 @@ import {
   TaskAudio,
   getNextExecuteDate,
 } from './task-types';
-import { getAllTasks, saveAllTasks, updateTask } from './task-store';
+import { getAllTasks, updateTask } from './task-store';
 import { getAudioBlob } from './audio-db';
 import { schedulerLog } from './scheduler-log';
 
@@ -759,7 +759,6 @@ class TaskScheduler {
     const startTime = this.getTaskStartTimestamp(task);
     const endTime = startTime + task.playDurationMinutes * 60 * 1000;
     const fadeInMs = (task.fadeInDuration || 0) * 1000;
-    const fadeOutMs = (task.fadeOutDuration || 0) * 1000;
     const audioStartAt = startTime - fadeInMs;
 
     let phase: 'fading-in' | 'playing' | 'fading-out';

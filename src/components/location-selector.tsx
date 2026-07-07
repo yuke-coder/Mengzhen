@@ -12,7 +12,6 @@ import {
   getProvincesByCountry,
   getCitiesByProvince,
   getDistrictsByCity,
-  Planet,
   Country,
   Province,
   City,
@@ -112,8 +111,6 @@ export function LocationSelector({ value, onChange, disabled }: LocationSelector
   }, [value.city]);
 
   const handleChange = (field: 'planet' | 'country' | 'province' | 'city' | 'district', code: string) => {
-    const newValue = { ...value, [field]: code };
-    
     // 根据改变的层级，重置后续层级
     switch (field) {
       case 'planet':

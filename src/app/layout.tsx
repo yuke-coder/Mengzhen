@@ -4,7 +4,7 @@ import "./globals.css";
 import { ThemeProvider } from "@/lib/theme-context";
 import { AuthProvider } from "@/lib/auth-context";
 import Navbar from "@/components/navbar";
-import { Toaster } from "@/components/ui/sonner";
+import { Toaster } from "@/components/sonner";
 import ClientProviders from "@/components/client-providers";
 import { ProfileToastListener } from "@/components/profile-toast-listener";
 
@@ -40,9 +40,7 @@ export const metadata: Metadata = {
   },
 };
 
-// 内联脚本：React 水合前读取主题偏好并设置 class，防止 FOUC 闪烁
-const THEME_INJECTION_SCRIPT = `(function(){try{var d=document.documentElement;var t=localStorage.getItem('theme');if(t==='dark'||t==='light'){d.classList.add(t)}else if(!t||t==='system'){var m=window.matchMedia('(prefers-color-scheme:dark)');if(m.matches)d.classList.add('dark')}}catch(e){}})()`;
-const CACHE_CLEANUP_SCRIPT = `window.addEventListener("load",function(){if("serviceWorker"in navigator){navigator.serviceWorker.getRegistrations().then(function(rs){rs.forEach(function(r){r.unregister()})})}if("caches"in window){caches.keys().then(function(keys){keys.forEach(function(key){caches.delete(key)})})}})`;
+const THEME_INJECTION_SCRIPT = `(function(){try{var d=document.documentElement,b=document.body,t=localStorage.getItem('theme-mode')||'auto';if(t==='system')t='auto';var r=t==='auto'?(window.matchMedia('(prefers-color-scheme: dark)').matches?'dark':'light'):t;if(r==='dark'){d.classList.add('dark');if(b)b.setAttribute('theme-mode','dark')}}catch(e){}})()`;
 
 export default function RootLayout({
   children,
@@ -52,7 +50,6 @@ export default function RootLayout({
   return (
     <html lang="zh-CN" suppressHydrationWarning>
       <body suppressHydrationWarning>
-        {/* beforeInteractive: 在页面水合前执行，读取 localStorage 设置主题 class */}
         <Script
           id="theme-injection"
           strategy="beforeInteractive"
@@ -65,32 +62,15 @@ export default function RootLayout({
               {/* 导航栏：position: fixed + z-index 确保在所有页面内容之上 */}
               <Navbar />
 
-              {/* 页面内容（pt-14 为固定导航栏留出空间） */}
-              <div className="pt-14">
+              <div className="pt-12 sm:pt-14">
                 {children}
                 <ProfileToastListener />
               </div>
             </ClientProviders>
+            <Toaster position="top-right" />
           </AuthProvider>
-          <Toaster position="top-center" richColors />
         </ThemeProvider>
 
-        {/* Ripple effect for buttons */}
-        <Script id="ripple-init" strategy="afterInteractive">{`
-          document.addEventListener('DOMContentLoaded', function() {
-            document.addEventListener('click', function(e) {
-              const btn = e.target.closest('.ripple-btn');
-              if (!btn) return;
-              const rect = btn.getBoundingClientRect();
-              const size = Math.max(rect.width, rect.height);
-              const ripple = document.createElement('span');
-              ripple.style.cssText = 'position:absolute;border-radius:50%;background:rgba(255,255,255,0.6);width:'+size+'px;height:'+size+'px;left:'+(e.clientX-rect.left-size/2)+'px;top:'+(e.clientY-rect.top-size/2)+'px;transform:scale(0);animation:ripple 0.6s linear;pointer-events:none';
-              btn.appendChild(ripple);
-              setTimeout(function(){ripple.remove()}, 600);
-            });
-          });
-        `}</Script>
-        <Script id="cache-cleanup" strategy="afterInteractive">{CACHE_CLEANUP_SCRIPT}</Script>
       </body>
     </html>
   );

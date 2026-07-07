@@ -6,7 +6,7 @@ import { useAuth } from "@/lib/auth-context";
 import { saveAudioBlob, deleteAudioBlob } from "@/lib/audio-db";
 import { TaskAudio } from "@/lib/task-types";
 import { cn } from "@/lib/utils";
-import { toast } from "sonner";
+import { Spinner } from "@/components/ui/spinner";
 import {
   Upload,
   Music2,
@@ -14,7 +14,6 @@ import {
   Play,
   Pause,
   Trash2,
-  Loader2,
   CheckCircle2,
   AlertCircle,
   Volume2,
@@ -474,7 +473,6 @@ export function AudioSection({
       >
         <input
           type="file"
-          accept=".mp3,.wav,.ogg,.m4a,.flac,.aac"
           multiple
           onChange={(e) => {
             e.stopPropagation();
@@ -545,7 +543,7 @@ export function AudioSection({
               >
                 {anyUploading ? (
                   <span className="flex items-center gap-1">
-                    <Loader2 className="w-3 h-3 animate-spin" />
+                    <Spinner size="sm" className="h-3 w-3" />
                     上传中...
                   </span>
                 ) : (
@@ -617,7 +615,7 @@ export function AudioSection({
                           )}
                           {audio.uploading && (
                             <span className="flex items-center gap-1 text-[var(--brand-start)]">
-                              <Loader2 className="w-3 h-3 animate-spin" />
+                              <Spinner size="sm" className="h-3 w-3" />
                               {audio.uploadProgress || 0}%
                             </span>
                           )}

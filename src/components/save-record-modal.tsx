@@ -17,7 +17,6 @@ interface SaveRecordModalProps {
 export function SaveRecordModal({
   isOpen,
   onClose,
-  isLoggedIn,
   onLogin,
   message,
   type,

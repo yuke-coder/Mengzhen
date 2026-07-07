@@ -33,6 +33,7 @@ const eslintConfig = defineConfig([
     'scripts/**/*.js',
     // Third-party libraries:
     'public/lib/jsmind/**',
+    'src/components/sonner/**',
     // Mengzhen project (separate project):
     'mengzhen/**',
   ]),

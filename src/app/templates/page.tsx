@@ -2,7 +2,7 @@
 
 import { useState, useEffect, useCallback, useRef, useMemo } from 'react';
 import { useRouter } from 'next/navigation';
-import { Volume2, VolumeX, Clock, Music, Music2, Timer, Play, Pause, CheckCircle2, HardDrive } from 'lucide-react';
+import { Volume2, VolumeX, Clock, Music2, Play, Pause, CheckCircle2, HardDrive } from 'lucide-react';
 import DynamicBackground from '@/components/dynamic-background';
 import { getAudioBlob } from '@/lib/audio-db';
 
@@ -30,11 +30,6 @@ interface DreamConfig {
   createdAt: number;
 }
 
-// 辅助函数
-function cn(...classes: (string | boolean | undefined | null)[]) {
-  return classes.filter(Boolean).join(' ');
-}
-
 export default function TemplatesPage() {
   const router = useRouter();
 
@@ -51,7 +46,6 @@ export default function TemplatesPage() {
   const [isConfigLoaded, setIsConfigLoaded] = useState(false); // 配置是否已读取完成
   // 当前音频播放进度
   const [currentAudioElapsed, setCurrentAudioElapsed] = useState(0);
-  const [currentAudioRemaining, setCurrentAudioRemaining] = useState(0);
   const [currentAudioName, setCurrentAudioName] = useState('');
 
   // Refs
@@ -75,6 +69,7 @@ export default function TemplatesPage() {
   const [fadeInRemaining, setFadeInRemaining] = useState(0); // 渐入剩余秒数
   const [fadeOutRemaining, setFadeOutRemaining] = useState(0); // 渐出剩余秒数
   const [initialFadeOutSeconds, setInitialFadeOutSeconds] = useState(0); // 渐出开始时的初始剩余秒数（用于计算稳定的进度条）
+  const [playStarted, setPlayStarted] = useState(false);
 
   // PWA: Wake Lock（防止屏幕熄灭）
   const wakeLockRef = useRef<WakeLockSentinel | null>(null);
@@ -258,21 +253,6 @@ export default function TemplatesPage() {
     isFadingOutRef.current = false;
     setInitialFadeOutSeconds(0);
   }, []);
-
-  // 取消播放并跳转
-  const handleCancel = useCallback(() => {
-    isStartedRef.current = false;
-    stopPlayback();
-    setRemainingSeconds(0);
-    setCountdownSeconds(0);
-    // 跳转到创作页面
-    router.push('/settings');
-  }, [router, stopPlayback]);
-
-  const getPlayDurationSeconds = () => {
-    if (!config?.playDuration) return 30 * 60;
-    return (config.playDuration.hour * 60 + config.playDuration.minute) * 60;
-  };
 
   // PWA: 请求屏幕唤醒锁
   const requestWakeLock = useCallback(async () => {
@@ -517,28 +497,9 @@ export default function TemplatesPage() {
     // 音频时间更新
     const handleTimeUpdate = () => {
       setCurrentAudioElapsed(audio.currentTime);
-      setCurrentAudioRemaining(audio.duration - audio.currentTime);
 
       // 更新剩余时间显示（结束时间检查由独立定时器负责）
-      const endHour = endTime?.hour ?? -1;
-      const endMinute = endTime?.minute ?? -1;
-
-      if (endHour >= 0 && endMinute >= 0) {
-        const now = new Date();
-        let endDateTime: Date;
-        if (endTime?.year && endTime?.month && endTime?.day) {
-          endDateTime = new Date(endTime.year, endTime.month - 1, endTime.day, endTime.hour, endTime.minute, endTime.second ?? 0, 0);
-        } else {
-          endDateTime = new Date(now);
-          endDateTime.setHours(endHour, endMinute, endTime?.second ?? 0, 0);
-        }
-        const remainingMs = endDateTime.getTime() - now.getTime();
-        const remainingSec = Math.ceil(remainingMs / 1000);
-        // 注意：播放中的剩余时间由独立的 useEffect 更新，这里不再设置
-      } else {
-        // 按播放时长倒计时
-        // 注意：播放中的剩余时间由独立的 useEffect 更新，这里不再设置
-      }
+      // 播放中的剩余时间由独立的 useEffect 更新。
     };
 
     audio.ontimeupdate = handleTimeUpdate;
@@ -647,10 +608,6 @@ export default function TemplatesPage() {
     playAudioHelper(0, audio);
   }, [isPlaying, config, playAudioHelper, ensureAudioContext]);
 
-  // PWA: 渐出定时器（渐入完成后启动独立的渐出倒计时）
-  // 使用 playStartedRef 触发，确保组件挂载时如果已经在播放状态也能启动
-  const [playStarted, setPlayStarted] = useState(false);
-  
   // 当渐入完成时，标记播放已开始
   useEffect(() => {
     if (!isFadingIn && isPlaying && !playStarted) {
@@ -835,13 +792,6 @@ export default function TemplatesPage() {
     return `${m.toString().padStart(2, '0')}:${s.toString().padStart(2, '0')}`;
   };
 
-  // 获取当前播放音频名称
-  const getCurrentAudioName = () => {
-    if (!config) return currentAudioName;
-    const orderedAudios = config.order.map(id => config.audios.find(a => a.id === id)).filter(Boolean) as AudioItem[];
-    return orderedAudios[currentAudioIndex % orderedAudios.length]?.name || currentAudioName;
-  };
-
   // 获取下一个播放音频名称
   const getNextAudioName = () => {
     if (!config || config.order.length <= 1) return '';
@@ -868,7 +818,7 @@ export default function TemplatesPage() {
     const fadeIn = config.fadeInDuration;
     const startDate = new Date(startYear, startMonth - 1, startDay, startHour, startMinute, startSecond, 0);
     const fadeDate = new Date(startDate.getTime() - fadeIn * 1000);
-    const now = Date.now();
+    const now = currentTime.getTime();
     const fadeMs = fadeDate.getTime() - now;
     const fadeSec = Math.max(0, Math.ceil(fadeMs / 1000));
     const hours = Math.floor(fadeSec / 3600);
@@ -887,7 +837,7 @@ export default function TemplatesPage() {
     const startMinute = config.startTime.minute;
     const startSecond = config.startTime.second ?? 0;
     const startDate = new Date(startYear, startMonth - 1, startDay, startHour, startMinute, startSecond, 0);
-    const now = Date.now();
+    const now = currentTime.getTime();
     const startMs = startDate.getTime() - now;
     const startSec = Math.max(0, Math.ceil(startMs / 1000));
     const hours = Math.floor(startSec / 3600);
@@ -1290,7 +1240,6 @@ export default function TemplatesPage() {
                             // 计算渐入开始时间 = 开始时间 - 渐入时长
                             const fadeDate = new Date(startDate.getTime() - fadeIn * 1000);
                             
-                            const fadeYear = fadeDate.getFullYear();
                             const fadeMonth = fadeDate.getMonth() + 1;
                             const fadeDay = fadeDate.getDate();
                             const fadeHour = fadeDate.getHours();

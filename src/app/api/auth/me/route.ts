@@ -1,10 +1,9 @@
 import { NextResponse } from 'next/server';
 import { cookies } from 'next/headers';
 import { getSupabaseClient } from '@/lib/supabase-client';
+import { SESSION_COOKIE_NAME } from '@/lib/session';
 
 export const dynamic = 'force-dynamic';
-
-const SESSION_COOKIE_NAME = 'mindmap_session';
 
 export async function GET() {
   try {

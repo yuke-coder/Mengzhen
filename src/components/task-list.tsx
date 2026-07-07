@@ -10,11 +10,11 @@ import {
   getNextExecuteDate,
   TaskAudio,
 } from "@/lib/task-types";
-import { deleteTask, updateTask, getAllTasks, saveAllTasks } from "@/lib/task-store";
+import { deleteTask, getAllTasks, saveAllTasks } from "@/lib/task-store";
 import { getTaskScheduler, type SchedulerEvent } from "@/lib/task-scheduler";
-import { FeedbackModal, type FeedbackType } from "@/components/feedback-modal";
+import { FeedbackModal } from "@/components/feedback-modal";
 import { cn } from "@/lib/utils";
-import { toast } from "sonner";
+import { toast } from "@/components/sonner";
 import {
   Trash2,
   Edit3,
@@ -24,7 +24,6 @@ import {
   Repeat,
   CalendarClock,
   CheckCircle2,
-  Loader2,
   PauseCircle,
   Volume2,
   HardDrive,
@@ -34,13 +33,13 @@ import {
   TrendingUp,
   TrendingDown,
   RotateCcw,
-  MoreHorizontal,
 } from "lucide-react";
 import { useIsMobile } from "@/hooks/use-mobile";
 
 interface TaskListProps {
   tasks: ScheduledTask[];
   onEdit: (task: ScheduledTask) => void;
+  onCreate?: () => void;
   onRefresh: () => void;
 }
 
@@ -177,7 +176,7 @@ function StatusBadge({ task, status, phase }: { task: ScheduledTask; status: Tas
       }
       return "已取消";
     }
-  }, [status, phase, remainingMs, task.repeatType]);
+  }, [status, phase, remainingMs, task.repeatType, task.skipUntil]);
 
   const config = useMemo(() => {
     if (status === "pending") {
@@ -356,45 +355,7 @@ function TaskItem({
 }: TaskItemProps) {
   const { status, phase } = useTaskState(task);
   const isMobile = useIsMobile();
-  const [showActions, setShowActions] = useState(false);
   const firstAudio = task.audios[0];
-  const actionsRef = useRef<HTMLDivElement>(null);
-
-  useEffect(() => {
-    if (!showActions) return;
-    const handleClickOutside = (e: MouseEvent | TouchEvent) => {
-      if (actionsRef.current && !actionsRef.current.contains(e.target as Node)) {
-        setShowActions(false);
-      }
-    };
-    const timer = setTimeout(() => {
-      document.addEventListener('mousedown', handleClickOutside);
-      document.addEventListener('touchstart', handleClickOutside);
-    }, 0);
-    return () => {
-      clearTimeout(timer);
-      document.removeEventListener('mousedown', handleClickOutside);
-      document.removeEventListener('touchstart', handleClickOutside);
-    };
-  }, [showActions]);
-
-  const statusLabel = cn(
-    "text-[11px] font-medium flex-shrink-0",
-    status === "executing" && phase === "fading-in" && "text-cyan-400",
-    status === "executing" && phase === "playing" && "text-emerald-400",
-    status === "executing" && phase === "fading-out" && "text-amber-400",
-    status === "completed" && "text-zinc-400",
-    status === "cancelled" && "text-amber-400",
-    status === "pending" && "text-[var(--brand-start)]"
-  );
-
-  const statusText =
-    status === "executing" && phase === "fading-in" ? "渐入中" :
-    status === "executing" && phase === "playing" ? "播放中" :
-    status === "executing" && phase === "fading-out" ? "渐出中" :
-    status === "completed" ? "已播放" :
-    status === "cancelled" ? "已取消播放" :
-    "即将播放";
 
   const borderClass = isDragging
     ? "scale-[1.02] opacity-80 z-10"
@@ -550,76 +511,6 @@ function TaskItem({
       >
         <Trash2 className="w-3.5 h-3.5" />
       </button>
-    </div>
-  );
-
-  const mobileActions = (
-    <div ref={actionsRef} className="relative flex-shrink-0">
-      <button
-        onClick={(e) => { e.stopPropagation(); setShowActions(!showActions); }}
-        className="p-2.5 sm:p-2 rounded-xl sm:rounded-lg text-muted-foreground hover:text-foreground hover:bg-muted/60 active:bg-muted transition-all cursor-pointer min-w-[40px] sm:min-w-[36px] min-h-[40px] sm:min-h-[36px] flex items-center justify-center border border-border/30 hover:border-border/50"
-        title="更多操作"
-      >
-        <MoreHorizontal className="w-4.5 h-4.5 sm:w-4 sm:h-4" />
-      </button>
-      {showActions && (
-        <div className="absolute right-0 top-full mt-1.5 sm:mt-1 z-50 bg-card/95 backdrop-blur-xl border border-border/60 rounded-xl shadow-xl py-1.5 sm:py-1 min-w-[150px] sm:min-w-[140px]">
-          {status !== "cancelled" && status !== "completed" && status !== "executing" && (
-            <button
-              onClick={(e) => {
-                e.stopPropagation();
-                const sched = getTaskScheduler();
-                sched.executeNow(task.id);
-                onRefresh();
-                toast.success(`任务「${task.name}」已开始执行`);
-                setShowActions(false);
-              }}
-              className="w-full flex items-center gap-3 px-4 py-3 sm:py-2.5 text-sm text-foreground hover:bg-emerald-500/10 active:bg-emerald-500/15 transition-colors cursor-pointer min-h-[48px] sm:min-h-[44px]"
-            >
-              <PlayCircle className="w-4 h-4 text-emerald-400" />
-              立即执行
-            </button>
-          )}
-          {status !== "cancelled" && status !== "completed" && (
-            <button
-              onClick={(e) => { e.stopPropagation(); onCancel(task); setShowActions(false); }}
-              className="w-full flex items-center gap-3 px-4 py-3 sm:py-2.5 text-sm text-foreground hover:bg-amber-500/10 active:bg-amber-500/15 transition-colors cursor-pointer min-h-[48px] sm:min-h-[44px]"
-            >
-              <XCircle className="w-4 h-4 text-amber-400" />
-              取消执行
-            </button>
-          )}
-          {status === "cancelled" && task.skipUntil && task.repeatType !== "once" && (
-            <button
-              onClick={(e) => {
-                e.stopPropagation();
-                const sched = getTaskScheduler();
-                sched.resumeTask(task.id);
-                toast.success(`任务「${task.name}」已恢复执行`);
-                setShowActions(false);
-              }}
-              className="w-full flex items-center gap-3 px-4 py-3 sm:py-2.5 text-sm text-foreground hover:bg-emerald-500/10 active:bg-emerald-500/15 transition-colors cursor-pointer min-h-[48px] sm:min-h-[44px]"
-            >
-              <RotateCcw className="w-4 h-4 text-emerald-400" />
-              恢复执行
-            </button>
-          )}
-          <button
-            onClick={(e) => { e.stopPropagation(); onEdit(task); setShowActions(false); }}
-            className="w-full flex items-center gap-3 px-4 py-3 sm:py-2.5 text-sm text-foreground hover:bg-[var(--brand-start)]/10 active:bg-[var(--brand-start)]/15 transition-colors cursor-pointer min-h-[48px] sm:min-h-[44px]"
-          >
-            <Edit3 className="w-4 h-4 text-[var(--brand-start)]" />
-            编辑任务
-          </button>
-          <button
-            onClick={(e) => { e.stopPropagation(); onDelete(task); setShowActions(false); }}
-            className="w-full flex items-center gap-3 px-4 py-3 sm:py-2.5 text-sm text-foreground hover:bg-red-500/10 active:bg-red-500/15 transition-colors cursor-pointer min-h-[48px] sm:min-h-[44px]"
-          >
-            <Trash2 className="w-4 h-4 text-red-400" />
-            删除任务
-          </button>
-        </div>
-      )}
     </div>
   );
 
@@ -782,7 +673,7 @@ function TaskItem({
   );
 }
 
-export function TaskList({ tasks, onEdit, onRefresh }: TaskListProps) {
+export function TaskList({ tasks, onEdit, onCreate, onRefresh }: TaskListProps) {
   const [deleteConfirmId, setDeleteConfirmId] = useState<string | null>(null);
 
   const [dragIndex, setDragIndex] = useState<number | null>(null);
@@ -1032,7 +923,13 @@ export function TaskList({ tasks, onEdit, onRefresh }: TaskListProps) {
           <CalendarClock className="w-8 h-8 sm:w-10 sm:h-10 text-muted-foreground/30" />
         </div>
         <p className="text-sm text-muted-foreground font-medium">暂无自定义任务</p>
-        <p className="text-xs text-muted-foreground/60 mt-1.5 sm:mt-1 leading-relaxed">点击上方&ldquo;新建任务&rdquo;按钮创建</p>
+        <button
+          type="button"
+          onClick={onCreate}
+          className="mt-3 text-xs font-medium text-[var(--brand-start)]"
+        >
+          新建任务
+        </button>
       </div>
     );
   }

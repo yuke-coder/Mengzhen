@@ -4,14 +4,13 @@ import { useState, useRef, useEffect, useCallback } from 'react';
 import Link from 'next/link';
 import { useRouter } from 'next/navigation';
 import { useAuth } from '@/lib/auth-context';
+import { Spinner } from '@/components/ui/spinner';
 import { cn } from '@/lib/utils';
 import {
   LogOut,
   History,
   LogIn,
   UserPlus,
-  Loader2,
-  Settings,
   User,
   MapPin,
   Calendar,
@@ -136,7 +135,7 @@ export function UserMenu() {
   if (loading) {
     return (
       <div className="flex items-center gap-2 px-4 py-2">
-        <Loader2 className="w-4 h-4 animate-spin text-muted-foreground" />
+        <Spinner size="sm" className="h-4 w-4 text-muted-foreground" />
       </div>
     );
   }
@@ -217,8 +216,21 @@ export function UserMenu() {
       <Link
         href="/auth/login"
         title="登录"
+        aria-label="登录"
         className={cn(
-          "flex items-center gap-2 px-4 py-2 rounded-full max-[430px]:px-2.5",
+          "flex size-9 items-center justify-center rounded-full md:hidden",
+          "text-muted-foreground hover:text-foreground",
+          "hover:bg-[var(--brand-start)]/5 active:bg-[var(--brand-start)]/10",
+          "active:scale-95 transition-all duration-200"
+        )}
+      >
+        <LogIn className="w-4 h-4" />
+      </Link>
+      <Link
+        href="/auth/login"
+        title="登录"
+        className={cn(
+          "hidden md:flex items-center gap-2 px-4 py-2 rounded-full",
           "text-sm text-muted-foreground hover:text-foreground",
           "hover:bg-[var(--brand-start)]/5 transition-all duration-200"
         )}
@@ -230,7 +242,7 @@ export function UserMenu() {
         href="/auth/register"
         title="注册"
         className={cn(
-          "flex items-center gap-2 px-4 py-2 rounded-full max-[430px]:px-3",
+          "hidden md:flex items-center gap-2 px-4 py-2 rounded-full",
           "text-sm font-medium text-white",
           "bg-gradient-to-r from-[var(--brand-start)] to-[var(--brand-end)]",
           "hover:shadow-lg hover:shadow-[var(--brand-start)]/30",

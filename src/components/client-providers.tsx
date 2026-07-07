@@ -7,10 +7,6 @@ const DynamicBackground = dynamic(() => import("@/components/dynamic-background"
   loading: () => <div className="fixed inset-0 z-0" />,
 });
 
-const RippleEffect = dynamic(() => import("@/components/RippleEffect"), {
-  ssr: false,
-});
-
 export default function ClientProviders({ children }: { children: React.ReactNode }) {
   return (
     <>
@@ -18,7 +14,6 @@ export default function ClientProviders({ children }: { children: React.ReactNod
         <DynamicBackground />
       </div>
       {children}
-      <RippleEffect />
     </>
   );
 }

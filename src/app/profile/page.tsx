@@ -5,10 +5,11 @@ import { useAuth } from "@/lib/auth-context";
 import { useRouter } from "next/navigation";
 import { LocationCascader, planetValueToText, planetTextToValue, countryValueToText, countryTextToValue } from "@/components/location-cascader";
 import { useProfile } from "@/lib/profile-context";
-import { useNonBlockingToast } from "@/components/non-blocking-toast";
+import { toast } from "@/components/sonner";
 import { format } from "date-fns"
 import { cn } from "@/lib/utils"
 import { Calendar } from "@/components/ui/calendar"
+import { Spinner } from "@/components/ui/spinner"
 import {
   Popover,
   PopoverContent,
@@ -23,7 +24,6 @@ import {
   MapPin,
   FileText,
   Heart,
-  Loader2,
   Edit3,
 } from "lucide-react";
 
@@ -48,8 +48,7 @@ interface ProfileFormData {
 export default function ProfilePage() {
   const { user, loading, updateUser } = useAuth();
   const router = useRouter();
-  const { saving, setSaving, snapshot, setSnapshot, isDirty, setIsDirty } = useProfile();
-  const { showToast, dismissAll } = useNonBlockingToast();
+  const { setSaving, setSnapshot, setIsDirty } = useProfile();
   const fileInputRef = useRef<HTMLInputElement>(null);
   const usernameInputRef = useRef<HTMLInputElement>(null);
   const originalDataRef = useRef<ProfileFormData | null>(null); // 保存原始数据用于 dirty 检测
@@ -74,7 +73,7 @@ export default function ProfilePage() {
 
   // 用户编辑时自动关闭弹窗并更新 dirty 状态
   const updateFormData = useCallback((value: ProfileFormData | ((prev: ProfileFormData) => ProfileFormData)) => {
-    dismissAll();
+    toast.dismiss();
     if (typeof value === 'function') {
       const updater = value as (prev: ProfileFormData) => ProfileFormData;
       setFormData((prev) => {
@@ -86,7 +85,7 @@ export default function ProfilePage() {
       setIsDirty(isFormDirty(originalDataRef.current, value));
       setFormData(value);
     }
-  }, [dismissAll, setIsDirty, isFormDirty]);
+  }, [setIsDirty, isFormDirty]);
 
   useEffect(() => {
     if (!loading && !user) {
@@ -142,7 +141,7 @@ export default function ProfilePage() {
 
     // 验证文件类型
     if (!file.type.startsWith("image/")) {
-      showToast({ message: "请选择图片文件" });
+      toast("请选择图片文件");
       return;
     }
 
@@ -163,12 +162,12 @@ export default function ProfilePage() {
         const timestamp = Date.now();
         const newAvatarUrl = `${data.avatar_url}?t=${timestamp}`;
         updateUser({ avatar_url: newAvatarUrl });
-        showToast({ message: "头像上传成功" });
+        toast("头像上传成功");
       } else {
-        showToast({ message: data.error || "上传失败" });
+        toast(data.error || "上传失败");
       }
     } catch {
-      showToast({ message: "上传失败，请重试" });
+      toast("上传失败，请重试");
     } finally {
       setUploadingAvatar(false);
     }
@@ -194,10 +193,10 @@ export default function ProfilePage() {
       const data = await res.json();
       if (data.success) {
         updateUser({ avatar_url: defaultAvatarUrl });
-        showToast({ message: "头像已重置" });
+        toast("头像已重置");
       }
     } catch {
-      showToast({ message: "重置失败" });
+      toast("重置失败");
     } finally {
       setUploadingAvatar(false);
     }
@@ -293,16 +292,14 @@ export default function ProfilePage() {
                 signature: undoData.profile.signature || null,
                 bio: undoData.profile.bio || null,
               });
-              showToast({ message: "已撤销修改" });
+              toast("已撤销修改");
             }
           });
         };
 
         // 显示非阻塞弹窗，2秒后自动跳转，撤销则留在页面
-        showToast({
-          message: data.message || "资料更新成功",
-          undoAction,
-          undoLabel: "撤销",
+        toast(data.message || "资料更新成功", {
+          action: { label: "撤销", onClick: undoAction },
           onAutoClose: () => {
             if (!hasUndoneRef.current) {
               router.back();
@@ -310,10 +307,10 @@ export default function ProfilePage() {
           },
         });
       } else {
-        showToast({ message: data.error || "更新失败" });
+        toast(data.error || "更新失败");
       }
     } catch {
-      showToast({ message: "更新失败，请重试" });
+      toast("更新失败，请重试");
     } finally {
       setSaving(false);
     }
@@ -327,7 +324,10 @@ export default function ProfilePage() {
   if (loading || !user) {
     return (
       <div className="min-h-screen flex items-center justify-center">
-        <Loader2 className="w-8 h-8 animate-spin text-[var(--brand-start)]" />
+        <div className="flex flex-col items-center gap-4">
+          <Spinner className="text-foreground" />
+          <p className="text-base text-muted-foreground">Loading...</p>
+        </div>
       </div>
     );
   }
@@ -337,118 +337,111 @@ export default function ProfilePage() {
       <div className="max-w-4xl mx-auto px-4 py-6">
         <form id="profile-form" onSubmit={handleSubmit} className="space-y-6">
           {/* Avatar & Gender Section */}
-          <div className="p-6 rounded-xl border glass border-border/50">
-            <div className="flex items-center gap-6">
-              {/* Avatar Preview - Clickable */}
-              <div 
-                className="relative cursor-pointer group shrink-0"
-                onClick={() => fileInputRef.current?.click()}
-              >
-                <div className="w-24 h-24 rounded-full overflow-hidden border-2 transition-all group-hover:border-[var(--brand-end)]" style={{ borderColor: "var(--brand-start)" }}>
-                  {user.avatar_url ? (
-                    <img src={`${user.avatar_url}${user.avatar_url.includes('?') ? '&' : '?'}t=${Date.now()}`} alt="头像" className="w-full h-full object-cover" />
-                  ) : (
-                    <div className="w-full h-full flex items-center justify-center glass">
-                      <User className="w-12 h-12" style={{ color: "var(--muted-foreground)" }} />
-                    </div>
-                  )}
-                </div>
-                {uploadingAvatar && (
-                  <div className="absolute inset-0 flex items-center justify-center rounded-full" style={{ background: "rgba(0,0,0,0.5)" }}>
-                    <Loader2 className="w-6 h-6 animate-spin text-white" />
+          <section className="flex items-center gap-6">
+            <div
+              className="relative cursor-pointer group shrink-0"
+              onClick={() => fileInputRef.current?.click()}
+            >
+              <div className="w-24 h-24 rounded-full overflow-hidden border-2 transition-all group-hover:border-[var(--brand-end)]" style={{ borderColor: "var(--brand-start)" }}>
+                {user.avatar_url ? (
+                    <img src={user.avatar_url} alt="头像" className="w-full h-full object-cover" />
+                ) : (
+                  <div className="w-full h-full flex items-center justify-center" style={{ background: "var(--muted)/30" }}>
+                    <User className="w-12 h-12" style={{ color: "var(--muted-foreground)" }} />
                   </div>
                 )}
-                {/* Hover Overlay */}
-                <div className="absolute inset-0 flex items-center justify-center rounded-full bg-black/50 opacity-0 group-hover:opacity-100 transition-opacity">
-                  <Camera className="w-8 h-8 text-white" />
-                </div>
               </div>
-
-              {/* Gender Selection */}
-              <div className="flex-1">
-                <label className="flex items-center gap-2 text-sm font-medium mb-3" style={{ color: "var(--muted-foreground)" }}>
-                  <Heart className="w-4 h-4" />
-                  性别
-                </label>
-                <div className="flex gap-3">
-                  {[
-                    { value: "male", label: "男", emoji: "♂" },
-                    { value: "female", label: "女", emoji: "♀" },
-                    { value: "secret", label: "保密", emoji: "🔒" },
-                  ].map((option) => (
-                    <button
-                      key={option.value}
-                      type="button"
-                      onClick={() => updateFormData({ ...formData, gender: option.value as ProfileFormData["gender"] })}
-                      className="flex-1 py-2.5 px-4 rounded-lg border font-medium transition-all"
-                      style={{
-                        background: formData.gender === option.value ? "var(--brand-start)" : "transparent",
-                        borderColor: formData.gender === option.value ? "var(--brand-start)" : "var(--border)",
-                        color: formData.gender === option.value ? "white" : "var(--foreground)",
-                      }}
-                    >
-                      {option.emoji} {option.label}
-                    </button>
-                  ))}
+              {uploadingAvatar && (
+                <div className="absolute inset-0 flex items-center justify-center rounded-full" style={{ background: "rgba(0,0,0,0.5)" }}>
+                  <Spinner size="sm" className="h-6 w-6 text-white" />
                 </div>
-                {user.avatar_url && (
-                  <button
-                    type="button"
-                    onClick={handleResetAvatar}
-                    disabled={uploadingAvatar}
-                    className="mt-3 px-4 py-2 rounded-lg font-medium border transition-colors hover:bg-[var(--muted)] text-sm"
-                    style={{ borderColor: "var(--border)", color: "var(--muted-foreground)" }}
-                  >
-                    重置默认头像
-                  </button>
-                )}
+              )}
+              <div className="absolute inset-0 flex items-center justify-center rounded-full bg-black/50 opacity-0 group-hover:opacity-100 transition-opacity">
+                <Camera className="w-8 h-8 text-white" />
               </div>
             </div>
+
+            <div className="flex-1">
+              <label className="flex items-center gap-2 text-sm font-medium mb-3" style={{ color: "var(--muted-foreground)" }}>
+                <Heart className="w-4 h-4" />
+                性别
+              </label>
+              <div className="flex gap-3">
+                {[
+                  { value: "male", label: "男", emoji: "♂" },
+                  { value: "female", label: "女", emoji: "♀" },
+                  { value: "secret", label: "保密", emoji: "🔒" },
+                ].map((option) => (
+                  <button
+                    key={option.value}
+                    type="button"
+                    onClick={() => updateFormData({ ...formData, gender: option.value as ProfileFormData["gender"] })}
+                    className="flex-1 py-2.5 px-4 rounded-lg border font-medium transition-all"
+                    style={{
+                      background: formData.gender === option.value ? "var(--brand-start)" : "transparent",
+                      borderColor: formData.gender === option.value ? "var(--brand-start)" : "var(--border)",
+                      color: formData.gender === option.value ? "white" : "var(--foreground)",
+                    }}
+                  >
+                    {option.emoji} {option.label}
+                  </button>
+                ))}
+              </div>
+              {user.avatar_url && (
+                <button
+                  type="button"
+                  onClick={handleResetAvatar}
+                  disabled={uploadingAvatar}
+                  className="mt-3 px-4 py-2 rounded-lg font-medium border transition-colors hover:bg-[var(--muted)] text-sm"
+                  style={{ borderColor: "var(--border)", color: "var(--muted-foreground)" }}
+                >
+                  重置默认头像
+                </button>
+              )}
+            </div>
             <input ref={fileInputRef} type="file" accept="image/*" onChange={handleAvatarUpload} className="hidden" />
-          </div>
+          </section>
 
           {/* Username Section */}
-          <div className="p-6 rounded-xl border glass border-border/50">
+          <section>
             <label className="flex items-center gap-3 text-sm font-medium mb-3" style={{ color: "var(--muted-foreground)" }}>
               <Mail className="w-4 h-4" />
               用户名
             </label>
 
             {editingUsername ? (
-              <div className="space-y-3">
-                <div className="flex items-center gap-3">
-                  <input
-                    ref={usernameInputRef}
-                    type="text"
-                    value={formData.username}
-                    onChange={(e) => updateFormData({ ...formData, username: e.target.value })}
-                    placeholder="输入用户名"
-                    className="flex-1 px-4 py-3 rounded-lg border transition-colors focus:outline-none focus:ring-2 glass"
-                    style={{
-                      
-                      borderColor: "var(--brand-start)",
-                      color: "var(--foreground)",
-                      "--tw-ring-color": "var(--brand-start)",
-                    } as React.CSSProperties}
-                  />
-                  <button
-                    type="button"
-                    onClick={() => {
-                      setEditingUsername(false);
-                      updateFormData((prev) => ({ ...prev, username: user.username || "" }));
-                    }}
-                    className="px-4 py-3 rounded-lg border font-medium transition-colors hover:bg-[var(--muted)]"
-                    style={{ borderColor: "var(--border)", color: "var(--foreground)" }}
-                  >
-                    取消
-                  </button>
-                </div>
+              <div className="flex items-center gap-3">
+                <input
+                  ref={usernameInputRef}
+                  type="text"
+                  value={formData.username}
+                  onChange={(e) => updateFormData({ ...formData, username: e.target.value })}
+                  placeholder="输入用户名"
+                  className="flex-1 px-4 py-3 rounded-lg border transition-colors focus:outline-none focus:ring-2"
+                  style={{
+                    background: "transparent",
+                    borderColor: "var(--brand-start)",
+                    color: "var(--foreground)",
+                    "--tw-ring-color": "var(--brand-start)",
+                  } as React.CSSProperties}
+                />
+                <button
+                  type="button"
+                  onClick={() => {
+                    setEditingUsername(false);
+                    updateFormData((prev) => ({ ...prev, username: user.username || "" }));
+                  }}
+                  className="px-4 py-3 rounded-lg border font-medium transition-colors hover:bg-[var(--muted)]"
+                  style={{ borderColor: "var(--border)", color: "var(--foreground)" }}
+                >
+                  取消
+                </button>
               </div>
             ) : (
               <div className="flex items-center justify-between">
-                <div className="px-4 py-3 rounded-lg glass" style={{ color: "var(--foreground)" }}>
+                <span className="px-4 py-3" style={{ color: "var(--foreground)" }}>
                   {user.username}
-                </div>
+                </span>
                 <button
                   type="button"
                   onClick={startEditUsername}
@@ -467,14 +460,14 @@ export default function ProfilePage() {
             <p className="text-xs mt-3" style={{ color: "var(--muted-foreground)" }}>
               用户名用于登录，可随时修改
             </p>
-          </div>
+          </section>
 
-          {/* Nickname (Unified with username, deprecated) */}
-          <div className="p-6 rounded-xl border glass border-border/50">
+          {/* Nickname */}
+          <section>
             <label className="flex items-center gap-3 text-sm font-medium mb-3" style={{ color: "var(--muted-foreground)" }}>
               <User className="w-4 h-4" />
               显示名称
-              <span className="text-xs px-2 py-0.5 rounded glass" style={{ color: "var(--muted-foreground)" }}>
+              <span className="text-xs px-2 py-0.5 rounded" style={{ color: "var(--muted-foreground)", background: "var(--muted)/30" }}>
                 选填
               </span>
             </label>
@@ -484,9 +477,9 @@ export default function ProfilePage() {
               onChange={(e) => updateFormData({ ...formData, nickname: e.target.value })}
               maxLength={30}
               placeholder="不填则显示用户名"
-              className="w-full px-4 py-3 rounded-lg border transition-colors focus:outline-none focus:ring-2 glass"
+              className="w-full px-4 py-3 rounded-lg border transition-colors focus:outline-none focus:ring-2"
               style={{
-                
+                background: "transparent",
                 borderColor: "var(--border)",
                 color: "var(--foreground)",
                 "--tw-ring-color": "var(--brand-start)",
@@ -495,10 +488,10 @@ export default function ProfilePage() {
             <p className="text-xs mt-2" style={{ color: "var(--muted-foreground)" }}>
               在个人页面和社区中显示的名称，不影响登录
             </p>
-          </div>
+          </section>
 
           {/* Birthday */}
-          <div className="p-6 rounded-xl border glass border-border/50">
+          <section>
             <label className="flex items-center gap-3 text-sm font-medium mb-3" style={{ color: "var(--muted-foreground)" }}>
               <CalendarIcon className="w-4 h-4" />
               生日
@@ -511,7 +504,7 @@ export default function ProfilePage() {
                     "w-full justify-start text-left font-normal px-4 py-3 rounded-lg",
                     !formData.birthday && "text-muted-foreground"
                   )}
-                  style={{ borderColor: "var(--border)", color: formData.birthday ? "var(--foreground)" : "var(--muted-foreground)" }}
+                  style={{ borderColor: "var(--border)", color: formData.birthday ? "var(--foreground)" : "var(--muted-foreground)", background: "transparent" }}
                 >
                   <CalendarIcon className="mr-2 h-4 w-4" />
                   {formData.birthday ? format(new Date(formData.birthday), "yyyy-MM-dd") : <span>选择生日</span>}
@@ -522,14 +515,12 @@ export default function ProfilePage() {
                   mode="single"
                   selected={(() => {
                     if (!formData.birthday) return undefined;
-                    // 修复日期显示偏移问题：减一天
                     const displayDate = new Date(formData.birthday);
                     displayDate.setDate(displayDate.getDate() - 1);
                     return displayDate;
                   })()}
                   onSelect={(date) => {
                     if (date) {
-                      // 修复日期偏移问题：加一天
                       const correctedDate = new Date(date);
                       correctedDate.setDate(correctedDate.getDate() + 1);
                       updateFormData({ ...formData, birthday: correctedDate.toISOString().split("T")[0] });
@@ -541,10 +532,10 @@ export default function ProfilePage() {
                 />
               </PopoverContent>
             </Popover>
-          </div>
+          </section>
 
           {/* Location */}
-          <div className="p-6 rounded-xl border glass border-border/50">
+          <section>
             <label className="flex items-center gap-3 text-sm font-medium mb-3" style={{ color: "var(--muted-foreground)" }}>
               <MapPin className="w-4 h-4" />
               所在地
@@ -553,10 +544,10 @@ export default function ProfilePage() {
               value={formData.location}
               onChange={(newLocation) => updateFormData({ ...formData, location: newLocation })}
             />
-          </div>
+          </section>
 
           {/* Signature */}
-          <div className="p-6 rounded-xl border glass border-border/50">
+          <section>
             <label className="flex items-center gap-3 text-sm font-medium mb-3" style={{ color: "var(--muted-foreground)" }}>
               <FileText className="w-4 h-4" />
               个性签名
@@ -567,18 +558,18 @@ export default function ProfilePage() {
               onChange={(e) => updateFormData({ ...formData, signature: e.target.value })}
               maxLength={100}
               placeholder="一句话介绍自己"
-              className="w-full px-4 py-3 rounded-lg border transition-colors focus:outline-none focus:ring-2 glass"
+              className="w-full px-4 py-3 rounded-lg border transition-colors focus:outline-none focus:ring-2"
               style={{
-                
+                background: "transparent",
                 borderColor: "var(--border)",
                 color: "var(--foreground)",
                 "--tw-ring-color": "var(--brand-start)",
               } as React.CSSProperties}
             />
-          </div>
+          </section>
 
           {/* Bio */}
-          <div className="p-6 rounded-xl border glass border-border/50">
+          <section>
             <label className="flex items-center gap-3 text-sm font-medium mb-3" style={{ color: "var(--muted-foreground)" }}>
               <FileText className="w-4 h-4" />
               个人简介
@@ -589,9 +580,9 @@ export default function ProfilePage() {
               maxLength={500}
               rows={4}
               placeholder="详细介绍一下自己..."
-              className="w-full px-4 py-3 rounded-lg border transition-colors focus:outline-none focus:ring-2 resize-none glass"
+              className="w-full px-4 py-3 rounded-lg border transition-colors focus:outline-none focus:ring-2 resize-none"
               style={{
-                
+                background: "transparent",
                 borderColor: "var(--border)",
                 color: "var(--foreground)",
                 "--tw-ring-color": "var(--brand-start)",
@@ -600,7 +591,7 @@ export default function ProfilePage() {
             <p className="text-xs mt-2 text-right" style={{ color: "var(--muted-foreground)" }}>
               {formData.bio.length}/500
             </p>
-          </div>
+          </section>
         </form>
       </div>
     </div>

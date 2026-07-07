@@ -5,12 +5,12 @@ import { useRouter } from 'next/navigation';
 import { useAuth } from '@/lib/auth-context';
 import Navbar from '@/components/navbar';
 import { Button } from '@/components/ui/button';
+import { Spinner } from '@/components/ui/spinner';
 import { 
   Music, 
   Play, 
   Clock, 
   FileText, 
-  Loader2,
   Download,
   RefreshCw,
   Calendar
@@ -229,7 +229,7 @@ export default function HistoryPage() {
   if (authLoading || !user) {
     return (
       <div className="min-h-screen bg-background flex items-center justify-center">
-        <Loader2 className="w-6 h-6 animate-spin text-muted-foreground" />
+        <Spinner className="text-muted-foreground" />
       </div>
     );
   }
@@ -247,7 +247,11 @@ export default function HistoryPage() {
             onClick={() => fetchAudios()}
             disabled={loading}
           >
-            <RefreshCw className={cn("w-5 h-5", loading && "animate-spin")} />
+            {loading ? (
+              <Spinner size="sm" className="h-5 w-5 text-muted-foreground" />
+            ) : (
+              <RefreshCw className="w-5 h-5" />
+            )}
           </Button>
           <div>
             <h1 className="text-2xl font-bold text-foreground">我的音频</h1>
@@ -260,8 +264,8 @@ export default function HistoryPage() {
         {/* 列表 */}
         {loading ? (
           <div className="flex flex-col items-center justify-center py-20 gap-4">
-            <Loader2 className="w-8 h-8 animate-spin text-muted-foreground" />
-            <p className="text-sm text-muted-foreground">加载中...</p>
+            <Spinner className="text-muted-foreground" />
+            <p className="text-sm text-muted-foreground">Loading...</p>
           </div>
         ) : audios.length === 0 ? (
           <div className="flex flex-col items-center justify-center py-20 gap-4">

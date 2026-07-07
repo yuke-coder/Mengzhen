@@ -1,18 +1,18 @@
 "use client";
 
-import React, { useState, useCallback, useRef, useEffect, useMemo } from "react";
+import React, { useState, useCallback, useRef, useEffect } from "react";
 import Image from "next/image";
 import { useAuth } from "@/lib/auth-context";
 import { saveAudioBlob, deleteAudioBlob } from "@/lib/audio-db";
 import { cn } from "@/lib/utils";
 import { Button } from "@/components/ui/button";
+import { Spinner } from "@/components/ui/spinner";
 import { WheelDateTimePicker, type DateTimeValue } from "@/components/wheel-date-time-picker";
 
 import { useRouter } from "next/navigation";
-import { toast } from "sonner";
-import { DurationSetter } from "@/components/duration-setter";
+import { toast } from "@/components/sonner";
 import { ModeSwitch } from "@/components/mode-switch";
-import { STEP_DURATION, PlayMode } from "@/lib/task-types";
+import { PlayMode } from "@/lib/task-types";
 import {
   Upload,
   Music2,
@@ -20,7 +20,6 @@ import {
   Play,
   Pause,
   Trash2,
-  Loader2,
   CheckCircle2,
   AlertCircle,
   Volume2,
@@ -28,8 +27,6 @@ import {
   GripVertical,
   Volume1,
   VolumeX,
-  Sparkles,
-  ChevronDown,
   Timer,
 } from "lucide-react";
 
@@ -188,7 +185,6 @@ export function AudioUpload({
   const [dragStartIndex, setDragStartIndex] = useState<number | null>(null);
   const longPressTimerRef = useRef<ReturnType<typeof setTimeout> | null>(null);
   const itemRefs = useRef<Record<string, HTMLDivElement | null>>({});
-  const dragGhostRef = useRef<HTMLDivElement | null>(null);
   const lastMoveYRef = useRef<number>(0);
   const lastMoveTimeRef = useRef<number>(0);
   const isMountedRef = useRef<boolean>(true); // 组件挂载状态追踪;
@@ -216,27 +212,14 @@ export function AudioUpload({
       second: now.getSeconds()
     };
   });
-  const [playDurationMinutes, setPlayDurationMinutes] = useState(30);
 
   // 音量渐入/渐出时长（秒）
   const [fadeInDuration, setFadeInDuration] = useState(60);
   const [fadeOutDuration, setFadeOutDuration] = useState(60);
-  // 倒计时播放模式
-  const [countdownPlayingId, setCountdownPlayingId] = useState<string | null>(null);
-  // 倒计时状态
-  const [isCountingDown, setIsCountingDown] = useState(false);
-  const [countdownRemaining, setCountdownRemaining] = useState<number>(0);
-  const [countdownStatus, setCountdownStatus] = useState<string>("等待开始");
   // 音频播放阶段：idle | fading-in | playing | fading-out
   const [audioPhase, setAudioPhase] = useState<"idle" | "fading-in" | "playing" | "fading-out">("idle");
   // 渐变定时器 refs
   const fadeTimerRef = useRef<ReturnType<typeof setInterval> | null>(null);
-  const fadeVolumeRef = useRef<number>(0);
-  const fadeTargetRef = useRef<number>(0);
-  // 倒计时定时器 ref
-  const countdownTimerRef = useRef<ReturnType<typeof setInterval> | null>(null);
-  // 结束时间检测定时器 ref
-  const endTimeTimerRef = useRef<ReturnType<typeof setInterval> | null>(null);
 
   // 开始时间是否有效（不能早于当前时间）
   const [isStartTimeValid, setIsStartTimeValid] = useState(true);
@@ -441,33 +424,6 @@ export function AudioUpload({
   const audioRefs = useRef<Record<string, HTMLAudioElement>>({});
   const volumeSliderRef = useRef<HTMLInputElement>(null);
 
-  // 保存梦枕配置到 localStorage
-  const saveDreamConfig = useCallback(() => {
-    if (audios.length === 0) return;
-    
-    // 保存音频配置
-    const config = {
-      audios: audios.map(a => ({
-        id: a.id,
-        name: a.name,
-        url: a.url,
-        fileKey: a.fileKey || null,
-        serverUrl: a.serverUrl || null,
-        dbKey: a.dbKey || null,
-        duration: a.duration
-      })),
-      order: audios.map(a => a.id),
-      volume,
-      fadeInDuration,
-      fadeOutDuration,
-      startTime: { hour: startTime.hour, minute: startTime.minute, second: startTime.second },
-      endTime: { hour: endTime.hour, minute: endTime.minute, second: endTime.second },
-      createdAt: Date.now()
-    };
-    
-    localStorage.setItem('dream_config', JSON.stringify(config));
-  }, [audios, volume, fadeInDuration, fadeOutDuration, startTime, endTime]);
-
   const handleDreamPillow = async () => {
     const fadeInSec = (fadeInDuration || 0);
     const startValid = isStartTimeValidFn(startTime, fadeInSec);
@@ -591,31 +547,9 @@ export function AudioUpload({
     if (!el) return;
 
     const endTime = durationSeconds;
-    let fadeOutStarted = false;
 
     const handleTimeUpdate = () => {
       if (!isMountedRef.current) return;
-
-      // 仅对倒计时播放模式应用渐出
-      if (countdownPlayingId === playingId && !fadeOutStarted && fadeOutDuration > 0) {
-        const timeRemaining = endTime - el.currentTime;
-        if (timeRemaining <= fadeOutDuration && timeRemaining > 0) {
-          fadeOutStarted = true;
-          const startVol = el.volume;
-          const step = startVol / (fadeOutDuration * 20);
-          const fadeTimer = setInterval(() => {
-            if (!isMountedRef.current || isClearingRef.current) {
-              clearInterval(fadeTimer);
-              return;
-            }
-            fadeVolumeRef.current = Math.max(fadeVolumeRef.current - step, 0);
-            el.volume = fadeVolumeRef.current;
-            if (fadeVolumeRef.current <= 0) {
-              clearInterval(fadeTimer);
-            }
-          }, 50);
-        }
-      }
 
       if (el.currentTime >= endTime) {
         if (fadeTimerRef.current) {
@@ -626,7 +560,6 @@ export function AudioUpload({
         el.volume = volume / 100;
         if (!isClearingRef.current) {
           setPlayingId(null);
-          setCountdownPlayingId(null);
         }
       }
     };
@@ -634,12 +567,12 @@ export function AudioUpload({
     return () => {
       el.removeEventListener("timeupdate", handleTimeUpdate);
     };
-  }, [playingId, durationSeconds, countdownPlayingId, fadeOutDuration, volume]);
+  }, [playingId, durationSeconds, volume]);
 
 
 
 
-  const validateFile = (file: File): string | null => {
+  const validateFile = useCallback((file: File): string | null => {
     const ext = "." + file.name.split(".").pop()?.toLowerCase();
     // PWA standalone 模式下，部分浏览器可能不报告 MIME 类型（file.type 为空）
     // 此时仅通过扩展名验证
@@ -652,14 +585,13 @@ export function AudioUpload({
       return `文件 "${file.name}" 已存在`;
     }
     return null;
-  };
+  }, [audios]);
 
   // 自动上传单个音频到服务器（写入 audios 表）
   // 未登录时跳过上传，保留 blob URL（仅当前页面可播放）
   const autoUploadToServer = useCallback(async (id: string, file: File) => {
     // 未登录时跳过上传，保留本地 blob URL
     if (!user) {
-      console.log(`[自动上传] ${file.name} 用户未登录，跳过服务器上传（仅本地播放）`);
       return;
     }
 
@@ -715,7 +647,6 @@ export function AudioUpload({
           onAudioCountChange?.(updated.length);
           return updated;
         });
-        console.log(`[自动上传] ${file.name} 上传成功, fileKey: ${response.file_key}`);
       } else {
         setAudios((prev) =>
           prev.map((a) => (a.id === id ? { ...a, uploading: false, uploadError: response.error || "上传失败" } : a))
@@ -732,7 +663,7 @@ export function AudioUpload({
       );
       console.warn(`[自动上传] ${file.name} 异常:`, err);
     }
-  }, [onAudioUploaded, onAudioCountChange]);
+  }, [user, onAudioUploaded, onAudioCountChange]);
 
   const processFiles = useCallback(
     async (files: FileList | File[]) => {
@@ -754,7 +685,6 @@ export function AudioUpload({
         try {
           await saveAudioBlob(id, file);
           dbKey = id;
-          console.log('[processFiles] 音频已存入IndexedDB, dbKey:', dbKey);
         } catch (err) {
           console.warn('[processFiles] IndexedDB存储失败，将依赖blob URL:', err);
         }
@@ -778,7 +708,7 @@ export function AudioUpload({
         setAudios((prev) => [...prev, ...newAudios]);
       }
     },
-    [audios, autoUploadToServer, user]
+    [audios, validateFile, autoUploadToServer, user]
   );
 
   const handleFileSelect = useCallback(
@@ -791,16 +721,6 @@ export function AudioUpload({
       e.currentTarget.value = "";
     },
     [processFiles]
-  );
-
-  const handleDrop = useCallback(
-    (e: React.DragEvent) => {
-      e.preventDefault();
-      setDragOver(false);
-      if (disabled) return;
-      processFiles(e.dataTransfer.files);
-    },
-    [processFiles, disabled]
   );
 
   const handleRemove = useCallback(
@@ -858,327 +778,13 @@ export function AudioUpload({
     }
   }, [playingId, volume]);
 
-  // 将 DateTimeValue 转换为 Date 对象
-  const dateTimeToDate = useCallback((time: DateTimeValue): Date => {
-    return new Date(time.year, time.month - 1, time.day, time.hour, time.minute, time.second);
-  }, []);
-
-  // 格式化剩余时间显示
-  const formatCountdownTime = useCallback((seconds: number): string => {
-    if (seconds <= 0) return "00:00:00";
-    const h = Math.floor(seconds / 3600);
-    const m = Math.floor((seconds % 3600) / 60);
-    const s = seconds % 60;
-    return `${String(h).padStart(2, "0")}:${String(m).padStart(2, "0")}:${String(s).padStart(2, "0")}`;
-  }, []);
-
   // 清理所有定时器
   const clearAllTimers = useCallback(() => {
     if (fadeTimerRef.current) {
       clearInterval(fadeTimerRef.current);
       fadeTimerRef.current = null;
     }
-    if (countdownTimerRef.current) {
-      clearInterval(countdownTimerRef.current);
-      countdownTimerRef.current = null;
-    }
-    if (endTimeTimerRef.current) {
-      clearInterval(endTimeTimerRef.current);
-      endTimeTimerRef.current = null;
-    }
   }, []);
-
-  // 开始倒计时（等待到开始时间）
-  const startCountdown = useCallback(() => {
-    if (audios.length === 0) return;
-
-    // 清理之前的定时器
-    clearAllTimers();
-
-    const startDate = dateTimeToDate(startTime);
-    const endDate = dateTimeToDate(endTime);
-    const now = new Date();
-
-    // 验证时间
-    if (startDate <= now) {
-      setCountdownStatus("开始时间已过，立即播放");
-      // 立即开始播放
-      startCountdownPlayback(audios[0].id);
-      return;
-    }
-
-    if (endDate <= startDate) {
-      setCountdownStatus("结束时间必须晚于开始时间");
-      return;
-    }
-
-    setIsCountingDown(true);
-    setCountdownStatus("倒计时中");
-
-    // 计算初始剩余时间
-    const updateRemaining = () => {
-      const now = new Date();
-      const remaining = Math.max(0, Math.ceil((startDate.getTime() - now.getTime()) / 1000));
-      setCountdownRemaining(remaining);
-      return remaining;
-    };
-
-    updateRemaining();
-
-    // 倒计时定时器
-    countdownTimerRef.current = setInterval(() => {
-      if (!isMountedRef.current || isClearingRef.current) {
-        if (countdownTimerRef.current !== null) clearInterval(countdownTimerRef.current);
-        countdownTimerRef.current = null;
-        return;
-      }
-
-      const remaining = updateRemaining();
-
-      if (remaining <= 0) {
-        // 倒计时结束，开始播放
-        if (countdownTimerRef.current) {
-          clearInterval(countdownTimerRef.current);
-          countdownTimerRef.current = null;
-        }
-        if (!isClearingRef.current) {
-          setCountdownStatus("倒计时结束，开始播放");
-          setIsCountingDown(false);
-          startCountdownPlayback(audios[0].id);
-        }
-      }
-    }, 1000);
-  }, [audios, startTime, endTime, dateTimeToDate, clearAllTimers]);
-
-  // 停止倒计时
-  const stopCountdown = useCallback(() => {
-    clearAllTimers();
-    setIsCountingDown(false);
-    setCountdownStatus("已停止");
-    setCountdownRemaining(0);
-    stopCountdownPlayback();
-  }, [clearAllTimers]);
-
-  // 倒计时播放：应用渐入效果
-  const startCountdownPlayback = useCallback((id: string) => {
-    const el = audioRefs.current[id];
-    if (!el) return;
-
-    // 停止其他所有音频
-    Object.entries(audioRefs.current).forEach(([key, ael]) => {
-      if (key !== id && ael && !ael.paused) {
-        ael.pause();
-      }
-    });
-
-    // 停止之前的渐变
-    if (fadeTimerRef.current) {
-      clearInterval(fadeTimerRef.current);
-      fadeTimerRef.current = null;
-    }
-
-    // 停止之前的结束时间检测
-    if (endTimeTimerRef.current) {
-      clearInterval(endTimeTimerRef.current);
-      endTimeTimerRef.current = null;
-    }
-
-    // 重置到开头
-    el.currentTime = 0;
-    fadeVolumeRef.current = 0;
-    fadeTargetRef.current = volume / 100;
-    el.volume = 0;
-    el.play().catch((err) => console.error("[梦枕] 倒计时播放失败:", err));
-
-    setCountdownPlayingId(id);
-    setPlayingId(id);
-    setCountdownStatus("播放中");
-
-    // 清除之前的试听模式停止监听
-    const handleEnded = () => {
-      if (!isMountedRef.current) return;
-      if (fadeTimerRef.current) {
-        clearInterval(fadeTimerRef.current);
-        fadeTimerRef.current = null;
-      }
-      if (endTimeTimerRef.current) {
-        clearInterval(endTimeTimerRef.current);
-        endTimeTimerRef.current = null;
-      }
-      setPlayingId(null);
-      setCountdownPlayingId(null);
-      setCountdownStatus("播放完成");
-      setIsCountingDown(false);
-      setAudioPhase("idle");
-    };
-    el.removeEventListener("ended", handleEnded);
-    el.addEventListener("ended", handleEnded);
-
-    // 渐入效果
-    if (fadeInDuration > 0 && volume > 0) {
-      setAudioPhase("fading-in");
-      const step = (fadeTargetRef.current / (fadeInDuration * 20)); // 每秒20步
-      fadeTimerRef.current = setInterval(() => {
-        if (!isMountedRef.current || isClearingRef.current) {
-          if (fadeTimerRef.current !== null) clearInterval(fadeTimerRef.current);
-          fadeTimerRef.current = null;
-          return;
-        }
-        fadeVolumeRef.current = Math.min(fadeVolumeRef.current + step, fadeTargetRef.current);
-        el.volume = fadeVolumeRef.current;
-        if (fadeVolumeRef.current >= fadeTargetRef.current) {
-          if (fadeTimerRef.current) {
-            clearInterval(fadeTimerRef.current);
-            fadeTimerRef.current = null;
-          }
-          if (!isClearingRef.current) {
-            setAudioPhase("playing");
-          }
-        }
-      }, 50);
-    } else {
-      el.volume = fadeTargetRef.current;
-      if (!isClearingRef.current) {
-        setAudioPhase("playing");
-      }
-    }
-
-    // 结束时间检测定时器
-    const endDate = dateTimeToDate(endTime);
-    endTimeTimerRef.current = setInterval(() => {
-      if (!isMountedRef.current || isClearingRef.current) {
-        if (endTimeTimerRef.current !== null) clearInterval(endTimeTimerRef.current);
-        endTimeTimerRef.current = null;
-        return;
-      }
-
-      const now = new Date();
-
-      // 检查是否到达结束时间
-      if (now >= endDate) {
-        if (endTimeTimerRef.current) {
-          clearInterval(endTimeTimerRef.current);
-          endTimeTimerRef.current = null;
-        }
-
-        if (!isClearingRef.current) {
-          setCountdownStatus("到达结束时间，正在停止");
-        }
-
-        // 应用渐出效果并停止
-        const stopWithFadeOut = () => {
-          if (fadeOutDuration > 0 && el.volume > 0) {
-            setAudioPhase("fading-out");
-            const startVol = el.volume;
-            const step = startVol / (fadeOutDuration * 20);
-
-            if (fadeTimerRef.current) {
-              clearInterval(fadeTimerRef.current);
-            }
-
-            fadeTimerRef.current = setInterval(() => {
-              if (!isMountedRef.current || isClearingRef.current) {
-                if (fadeTimerRef.current !== null) clearInterval(fadeTimerRef.current);
-                fadeTimerRef.current = null;
-                return;
-              }
-              fadeVolumeRef.current = Math.max(fadeVolumeRef.current - step, 0);
-              el.volume = fadeVolumeRef.current;
-
-              if (fadeVolumeRef.current <= 0) {
-                if (fadeTimerRef.current) {
-                  clearInterval(fadeTimerRef.current);
-                  fadeTimerRef.current = null;
-                }
-                el.pause();
-                el.volume = volume / 100; // 恢复音量设置
-                if (!isClearingRef.current) {
-                  setPlayingId(null);
-                  setCountdownPlayingId(null);
-                  setCountdownStatus("已停止");
-                  setIsCountingDown(false);
-                  setAudioPhase("idle");
-                }
-              }
-            }, 50);
-          } else {
-            el.pause();
-            el.volume = volume / 100;
-            if (!isClearingRef.current) {
-              setPlayingId(null);
-              setCountdownPlayingId(null);
-              setCountdownStatus("已停止");
-              setIsCountingDown(false);
-              setAudioPhase("idle");
-            }
-          }
-        };
-
-        stopWithFadeOut();
-      }
-    }, 100);
-  }, [volume, fadeInDuration, fadeOutDuration, endTime, dateTimeToDate]);
-
-  // 停止倒计时播放（应用渐出效果）
-  const stopCountdownPlayback = useCallback(() => {
-    if (!countdownPlayingId) return;
-    const el = audioRefs.current[countdownPlayingId];
-    if (!el) return;
-
-    // 清理所有定时器
-    if (fadeTimerRef.current) {
-      clearInterval(fadeTimerRef.current);
-      fadeTimerRef.current = null;
-    }
-    if (endTimeTimerRef.current) {
-      clearInterval(endTimeTimerRef.current);
-      endTimeTimerRef.current = null;
-    }
-
-    const startVol = el.volume;
-    const targetVol = 0;
-
-    if (fadeOutDuration > 0 && startVol > 0) {
-      setAudioPhase("fading-out");
-      const step = (startVol / (fadeOutDuration * 20));
-      fadeTimerRef.current = setInterval(() => {
-        if (!isMountedRef.current || isClearingRef.current) {
-          if (fadeTimerRef.current) {
-            clearInterval(fadeTimerRef.current);
-            fadeTimerRef.current = null;
-          }
-          return;
-        }
-        fadeVolumeRef.current = Math.max(fadeVolumeRef.current - step, targetVol);
-        el.volume = fadeVolumeRef.current;
-        if (fadeVolumeRef.current <= targetVol) {
-          if (fadeTimerRef.current) {
-            clearInterval(fadeTimerRef.current);
-            fadeTimerRef.current = null;
-          }
-          el.pause();
-          el.volume = volume / 100; // 恢复音量设置
-          if (!isClearingRef.current) {
-            setPlayingId(null);
-            setCountdownPlayingId(null);
-            setCountdownStatus("已停止");
-            setIsCountingDown(false);
-            setAudioPhase("idle");
-          }
-        }
-      }, 50);
-    } else {
-      el.pause();
-      el.volume = volume / 100;
-      if (!isClearingRef.current) {
-        setPlayingId(null);
-        setCountdownPlayingId(null);
-        setCountdownStatus("已停止");
-        setIsCountingDown(false);
-        setAudioPhase("idle");
-      }
-    }
-  }, [countdownPlayingId, fadeOutDuration, volume]);
 
   const handleSeek = useCallback(
     (id: string, time: number) => {
@@ -1219,7 +825,6 @@ export function AudioUpload({
           setAudios((prev) =>
             prev.map((a) => (a.id === id ? { ...a, uploading: false, uploadProgress: 100, savedToFiles: true } : a))
           );
-          console.log(`[上传到我的音频] ${audio.name} 保存成功`);
         } else {
           setAudios((prev) =>
             prev.map((a) => (a.id === id ? { ...a, uploading: false, uploadError: data.error || "保存失败" } : a))
@@ -1487,7 +1092,6 @@ export function AudioUpload({
     const item = itemRefs.current[audioId];
     if (!item) return;
 
-    const startY = e.clientY;
     const rect = item.getBoundingClientRect();
     const offsetY = e.clientY - rect.top;
 
@@ -1679,7 +1283,6 @@ export function AudioUpload({
       >
         <input
           type="file"
-          accept=".mp3,.wav,.ogg,.m4a,.flac,.aac"
           multiple
           onChange={handleFileSelect}
           disabled={disabled}
@@ -1755,7 +1358,7 @@ export function AudioUpload({
               >
                 {anyUploading ? (
                   <>
-                    <Loader2 className="w-3 h-3 mr-1 animate-spin" />
+                    <Spinner size="sm" className="mr-1 h-3 w-3" />
                     上传中...
                   </>
                 ) : (
@@ -1890,7 +1493,7 @@ export function AudioUpload({
                           )}
                           {audio.uploading && (
                             <span className="flex items-center gap-1 text-[var(--brand-start)]">
-                              <Loader2 className="w-3 h-3 animate-spin" />
+                              <Spinner size="sm" className="h-3 w-3" />
                               {audio.uploadProgress || 0}%
                             </span>
                           )}
@@ -2041,10 +1644,6 @@ export function AudioUpload({
                         setAudios([]);
                         setCurrentTimes({});
                         setPlayingId(null);
-                        setIsCountingDown(false);
-                        setCountdownPlayingId(null);
-                        setCountdownStatus("等待开始");
-                        setCountdownRemaining(0);
                         setAudioPhase("idle");
                         // 清空完成，重置标志
                         isClearingRef.current = false;
@@ -2061,37 +1660,6 @@ export function AudioUpload({
               </Button>
             )}
           </div>
-          {/* 倒计时状态显示 */}
-          {(isCountingDown || countdownPlayingId) && (
-            <div className="pt-4">
-              <div className="p-4 space-y-3">
-                <div className="flex items-center justify-between">
-                  <span className="text-sm font-medium text-[var(--brand-start)] flex items-center gap-2">
-                    <Clock className="w-4 h-4" />
-                    {countdownStatus}
-                  </span>
-                  {isCountingDown && (
-                    <span className="text-lg font-mono font-bold text-[var(--brand-start)]">
-                      {formatCountdownTime(countdownRemaining)}
-                    </span>
-                  )}
-                </div>
-                {isCountingDown && (
-                  <div className="text-xs text-muted-foreground">
-                    等待到 {startTime.month}/{startTime.day} {String(startTime.hour).padStart(2, "0")}:{String(startTime.minute).padStart(2, "0")} 开始播放
-                  </div>
-                )}
-                {countdownPlayingId && (
-                  <div className="text-xs text-muted-foreground">
-                    将在 {endTime.month}/{endTime.day} {String(endTime.hour).padStart(2, "0")}:{String(endTime.minute).padStart(2, "0")} 自动停止
-                  </div>
-                )}
-              </div>
-            </div>
-          )}
-          
-          {/* 倒计时播放按钮 */}
-          {/* 倒计时由播放页自动触发，无需前端按钮 */}
         </div>
       )}
 
@@ -2159,7 +1727,6 @@ export function AudioUpload({
                 label="开始时间"
                 value={startTime}
                 onChange={(v) => {
-                  console.log('[onChange startTime]', JSON.stringify(v));
                   setStartTime(v);
                   validateStartTime(v);
                 }}
@@ -2169,7 +1736,6 @@ export function AudioUpload({
                 label="结束时间"
                 value={endTime}
                 onChange={(v) => {
-                  console.log('[onChange endTime]', JSON.stringify(v));
                   setEndTime(v);
                   validateEndTime(v, startTime);
                 }}

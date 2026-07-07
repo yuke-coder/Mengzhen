@@ -3,8 +3,9 @@
 import { useState, useEffect, useRef, memo } from "react";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
+import { MobileAuthPanel } from "@/components/mobile-auth-panel";
 import { useAuth } from "@/lib/auth-context";
-import { cn } from "@/lib/utils";
+import { Spinner } from "@/components/ui/spinner";
 import { Eye, EyeOff, LogIn } from "lucide-react";
 
 interface PupilProps {
@@ -293,7 +294,11 @@ export function AnimatedLoginPage() {
   };
 
   return (
-    <div className="relative min-h-screen grid lg:grid-cols-2">
+    <>
+    <div className="md:hidden">
+      <MobileAuthPanel />
+    </div>
+    <div className="relative hidden min-h-screen md:grid lg:grid-cols-2">
       {/* 渐变动画背景 - 容器内绝对定位，不覆盖导航栏 */}
       <div className="absolute inset-0 bg-gradient-to-r from-[#ee7752] via-[#e73c7e] to-[#23a6d5] bg-[length:400%_400%] animate-gradient" />
       {/* 左侧渐变动画区域 */}
@@ -553,7 +558,7 @@ export function AnimatedLoginPage() {
               disabled={isLoading}
             >
               {isLoading ? (
-                <div className="w-5 h-5 border-2 border-white/30 border-t-white rounded-full animate-spin" />
+                <Spinner size="sm" className="h-5 w-5 text-white" />
               ) : (
                 <>
                   <LogIn className="size-5" />
@@ -572,5 +577,6 @@ export function AnimatedLoginPage() {
           </div>
     </div>
     </div>
+    </>
   );
 }

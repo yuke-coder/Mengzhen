@@ -12,13 +12,6 @@ const LEVEL_COLORS: Record<LogLevel, string> = {
   debug: "text-zinc-400",
 };
 
-const LEVEL_BG: Record<LogLevel, string> = {
-  info: "bg-blue-500/10",
-  warn: "bg-amber-500/10",
-  error: "bg-red-500/10",
-  debug: "bg-zinc-500/10",
-};
-
 function formatTime(ts: number): string {
   const d = new Date(ts);
   return `${d.getHours().toString().padStart(2, "0")}:${d.getMinutes().toString().padStart(2, "0")}:${d.getSeconds().toString().padStart(2, "0")}.${d.getMilliseconds().toString().padStart(3, "0")}`;

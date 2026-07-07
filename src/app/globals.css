@@ -12,76 +12,6 @@
   animation: gradient 15s ease infinite;
 }
 
-/* 星空粒子背景 - 首页和创作页 */
-.starry-background,
-.starry-container,
-.star-bg {
-  position: fixed !important;
-  top: 0 !important;
-  left: 0 !important;
-  width: 100vw !important;
-  height: 100vh !important;
-  overflow: hidden !important;
-  background: radial-gradient(ellipse at bottom, #1B2735 0%, #090A0F 100%) !important;
-  z-index: 0 !important;
-  pointer-events: none !important;
-}
-
-/* 亮色模式网格滚动背景 */
-.light-mode .grid-background,
-.light-mode .grid-bg,
-.light-mode .star-bg {
-  background: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADIAAAAyCAIAAACRXR/mAAAACXBIWXMAAAsTAAALEwEAmpwYAAAAIGNIUk0AAHolAACAgwAA+f8AAIDpAAB1MAAA6mAAADqYAAAXb5JfxUYAAABnSURBVHja7M5RDYAwDEXRDgmvEocnlrQS2SwUFST9uEfBGWs9c97nbGtDcquqiKhOImLs/UpuzVzWEi1atGjRokWLFi1atGjRokWLFi1atGjRokWLFi1af7Ukz8xWp8z8AAAA//8DAJ4LoEAAlL1nAAAAAElFTkSuQmCC") repeat 0 0 !important;
-  background-color: #f0f0f0 !important;
-  animation: grid-scrolling 0.92s linear infinite !important;
-}
-
-@keyframes grid-scrolling {
-  0% { background-position: 50px 50px; }
-  100% { background-position: 0 0; }
-}
-
-/* 星星层 */
-#stars, #stars2, #stars3 {
-  position: absolute !important;
-  width: 100% !important;
-  height: 100% !important;
-  top: 0 !important;
-  left: 0 !important;
-  background: transparent !important;
-  overflow: hidden !important;
-}
-
-#stars::after, #stars2::after, #stars3::after {
-  content: " " !important;
-  position: absolute !important;
-  top: 2000px !important;
-  left: 0 !important;
-  width: 100% !important;
-  height: 100% !important;
-  background: transparent !important;
-}
-
-@keyframes animStar {
-  from { transform: translateY(0px); }
-  to { transform: translateY(-2000px); }
-}
-
-#stars {
-  box-shadow: inherit;
-  animation: animStar 50s linear infinite;
-}
-
-#stars2 {
-  box-shadow: inherit;
-  animation: animStar 100s linear infinite;
-}
-
-#stars3 {
-  box-shadow: inherit;
-  animation: animStar 150s linear infinite;
-}
-
 .star-particle {
   mix-blend-mode: screen;
   background-image: radial-gradient(
@@ -346,12 +276,6 @@
   .dark body {
     background: linear-gradient(135deg, oklch(0.10 0.015 265) 0%, oklch(0.07 0.015 265) 50%, oklch(0.05 0.01 265) 100%);
   }
-  body.theme-transitioning,
-  body.theme-transitioning *,
-  body.theme-transitioning *::before,
-  body.theme-transitioning *::after {
-    transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease, box-shadow 0.25s ease;
-  }
 }
 
 @media (prefers-reduced-motion: reduce) {
@@ -461,49 +385,6 @@
   }
 }
 
-/* Glow Effect - Dark */
-.dark .glow-cyan {
-  box-shadow: 0 0 30px oklch(0.70 0.15 175 / 0.15);
-}
-
-/* Glow Effect - Light */
-.glow-cyan {
-  box-shadow: 0 0 30px oklch(0.62 0.16 165 / 0.12);
-}
-
-/* Floating Animation - More Subtle */
-@keyframes float {
-  0%, 100% { transform: translateY(0); }
-  50% { transform: translateY(-8px); }
-}
-
-/* Pulse Glow Animation */
-@keyframes pulse-glow {
-  0%, 100% { opacity: 0.4; }
-  50% { opacity: 0.7; }
-}
-
-/* Data Stream Animation */
-@keyframes data-stream {
-  0% { transform: translateY(0); opacity: 0; }
-  10% { opacity: 1; }
-  90% { opacity: 1; }
-  100% { transform: translateY(20px); opacity: 0; }
-}
-
-/* Draw Line Animation */
-@keyframes draw-line {
-  from { stroke-dashoffset: 1000; }
-  to { stroke-dashoffset: 0; }
-}
-
-/* Scroll reveal base */
-.scroll-reveal {
-  opacity: 0;
-  transform: translateY(20px);
-  transition: opacity 0.6s ease, transform 0.6s ease;
-}
-
 /* New Animations for Generating State */
 @keyframes spin {
   from { transform: rotate(0deg); }
@@ -513,27 +394,6 @@
 @keyframes fade-in {
   from { opacity: 0; transform: scale(0.8); }
   to { opacity: 1; transform: scale(1); }
-}
-
-@keyframes particle-float {
-  0%, 100% { transform: translate(0, 0) scale(1); opacity: 0.3; }
-  25% { transform: translate(5px, -10px) scale(1.2); opacity: 0.6; }
-  50% { transform: translate(-5px, -5px) scale(0.8); opacity: 0.4; }
-  75% { transform: translate(10px, -15px) scale(1.1); opacity: 0.5; }
-}
-
-@keyframes shimmer {
-  0% { transform: translateX(-100%); }
-  100% { transform: translateX(200%); }
-}
-
-/* Radial gradient background */
-.bg-gradient-radial {
-  background: radial-gradient(circle, var(--tw-gradient-stops));
-}
-.scroll-reveal.visible {
-  opacity: 1;
-  transform: translateY(0);
 }
 
 /* Hero Section Animations */
@@ -701,28 +561,6 @@
   }
 }
 
-@keyframes flow-line {
-  0% {
-    stroke-dashoffset: 200;
-  }
-  100% {
-    stroke-dashoffset: 0;
-  }
-}
-
-/* ========================================
-   Pacman Loading Animation
-   ======================================== */
-
-/* 品牌色变量 */
-:root {
-  --pacman-color: var(--brand-glow);
-}
-
-.dark {
-  --pacman-color: #2BC496;
-}
-
 /* 亮色模式：背景透明以显示网格 */
 :root:not(.dark) {
   --background: transparent;
@@ -765,115 +603,6 @@
   border: 1px solid rgba(0, 0, 0, 0.1) !important;
 }
 
-.load20 {
-  position: relative;
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-}
-
-.load20 > div:nth-child(2) {
-  animation: pacman-balls 1s -0.99s infinite linear;
-}
-.load20 > div:nth-child(3) {
-  animation: pacman-balls 1s -0.66s infinite linear;
-}
-.load20 > div:nth-child(4) {
-  animation: pacman-balls 1s -0.33s infinite linear;
-}
-.load20 > div:nth-child(5) {
-  animation: pacman-balls 1s 0s infinite linear;
-}
-
-/* 吃豆人上半部分 */
-.load20 > div:first-of-type {
-  width: 0px;
-  height: 0px;
-  border-right: 25px solid transparent;
-  border-top: 25px solid var(--pacman-color);
-  border-left: 25px solid var(--pacman-color);
-  border-bottom: 25px solid var(--pacman-color);
-  border-radius: 25px;
-  animation: rotate_pacman_half_up 0.5s 0s infinite;
-  position: relative;
-  left: -30px;
-}
-
-/* 吃豆人下半部分 */
-.load20 > div:nth-child(2) {
-  width: 0px;
-  height: 0px;
-  border-right: 25px solid transparent;
-  border-top: 25px solid var(--pacman-color);
-  border-left: 25px solid var(--pacman-color);
-  border-bottom: 25px solid var(--pacman-color);
-  border-radius: 25px;
-  animation: rotate_pacman_half_down 0.5s 0s infinite;
-  margin-top: -50px;
-  position: relative;
-  left: -30px;
-}
-
-/* 被吃的小球 */
-.load20 > div:nth-child(3),
-.load20 > div:nth-child(4),
-.load20 > div:nth-child(5) {
-  background-color: var(--pacman-color);
-  width: 10px;
-  height: 10px;
-  border-radius: 100%;
-  margin: 2px;
-  position: absolute;
-  transform: translate(0, -6.25px);
-  top: 25px;
-  left: 70px;
-  opacity: 0;
-}
-
-.load20 > div:nth-child(3) {
-  animation: pacman-balls 1s -0.66s infinite linear;
-}
-.load20 > div:nth-child(4) {
-  animation: pacman-balls 1s -0.33s infinite linear;
-}
-.load20 > div:nth-child(5) {
-  animation: pacman-balls 1s 0s infinite linear;
-}
-
-@keyframes pacman-balls {
-  75% {
-    opacity: 0.7;
-  }
-  100% {
-    transform: translate(-100px, -6.25px);
-    opacity: 0;
-  }
-}
-
-@keyframes rotate_pacman_half_up {
-  0% {
-    transform: rotate(270deg);
-  }
-  50% {
-    transform: rotate(360deg);
-  }
-  100% {
-    transform: rotate(270deg);
-  }
-}
-
-@keyframes rotate_pacman_half_down {
-  0% {
-    transform: rotate(90deg);
-  }
-  50% {
-    transform: rotate(0deg);
-  }
-  100% {
-    transform: rotate(90deg);
-  }
-}
-
 .animate-dash {
   animation: dash 20s linear infinite;
 }
@@ -892,39 +621,6 @@
 
 .animate-scroll-indicator {
   animation: scroll-indicator 2s ease-in-out infinite;
-}
-
-.animate-flow-line {
-  stroke-dasharray: 10 10;
-  animation: flow-line 3s linear infinite;
-}
-
-/* 流光动画 - 用于按钮效果 */
-@keyframes shimmer {
-  0% {
-    transform: translateX(-100%);
-  }
-  100% {
-    transform: translateX(200%);
-  }
-}
-
-.animate-shimmer {
-  animation: shimmer 2.5s ease-in-out infinite;
-}
-
-/* 脉冲动画变体 */
-@keyframes pulse-glow {
-  0%, 100% {
-    box-shadow: 0 0 20px var(--brand-start, #9ED2BE), 0 0 40px transparent;
-  }
-  50% {
-    box-shadow: 0 0 30px var(--brand-start, #9ED2BE), 0 0 60px var(--brand-start, #9ED2BE);
-  }
-}
-
-.animate-pulse-glow {
-  animation: pulse-glow 2s ease-in-out infinite;
 }
 
 /* 青紫对角渐变 - Hero标题专用，整体渐变 */
@@ -1038,93 +734,6 @@
   white-space: nowrap;
 }
 
-/* 额外的 scale 值 */
-.scale-102 {
-  transform: scale(1.02);
-}
-
-/* 水滴涟漪按钮效果 */
-.ripple-btn {
-  position: relative;
-  overflow: hidden;
-  cursor: pointer;
-}
-
-.ripple-container {
-  position: absolute;
-  inset: 0;
-  overflow: hidden;
-  pointer-events: none;
-  z-index: 10;
-}
-
-.ripple-wave {
-  position: absolute;
-  border-radius: 50%;
-  transform: translate(-50%, -50%) scale(0);
-  pointer-events: none;
-}
-
-/* 第一层涟漪 - 最亮最快 */
-.ripple-wave.ring-1 {
-  width: 80px;
-  height: 80px;
-  background: radial-gradient(circle, rgba(255, 255, 255, 0.9) 0%, rgba(204, 40, 251, 0.6) 40%, transparent 70%);
-  animation: ripple-expand-1 1s cubic-bezier(0.25, 0.46, 0.45, 0.94) forwards;
-  box-shadow: 0 0 20px rgba(204, 40, 251, 0.5), 0 0 40px rgba(255, 255, 255, 0.3);
-}
-
-/* 第二层涟漪 - 中等 */
-.ripple-wave.ring-2 {
-  width: 120px;
-  height: 120px;
-  background: radial-gradient(circle, rgba(255, 255, 255, 0.6) 0%, rgba(204, 40, 251, 0.4) 40%, transparent 70%);
-  animation: ripple-expand-2 1.2s cubic-bezier(0.25, 0.46, 0.45, 0.94) forwards;
-  box-shadow: 0 0 30px rgba(204, 40, 251, 0.4);
-}
-
-/* 第三层涟漪 - 最大最淡 */
-.ripple-wave.ring-3 {
-  width: 180px;
-  height: 180px;
-  background: radial-gradient(circle, rgba(255, 255, 255, 0.3) 0%, rgba(204, 40, 251, 0.2) 40%, transparent 70%);
-  animation: ripple-expand-3 1.4s cubic-bezier(0.25, 0.46, 0.45, 0.94) forwards;
-  box-shadow: 0 0 40px rgba(204, 40, 251, 0.3);
-}
-
-@keyframes ripple-expand-1 {
-  0% {
-    transform: translate(-50%, -50%) scale(0);
-    opacity: 1;
-  }
-  100% {
-    transform: translate(-50%, -50%) scale(3);
-    opacity: 0;
-  }
-}
-
-@keyframes ripple-expand-2 {
-  0% {
-    transform: translate(-50%, -50%) scale(0);
-    opacity: 0.8;
-  }
-  100% {
-    transform: translate(-50%, -50%) scale(4);
-    opacity: 0;
-  }
-}
-
-@keyframes ripple-expand-3 {
-  0% {
-    transform: translate(-50%, -50%) scale(0);
-    opacity: 0.5;
-  }
-  100% {
-    transform: translate(-50%, -50%) scale(5);
-    opacity: 0;
-  }
-}
-
 /* ================================================
    全局按钮悬浮抬升动效
    标准化参数：抬升 4px，时长 200ms
@@ -1157,9 +766,19 @@ button:disabled,
   box-shadow: none !important;
 }
 
-/* 涟漪按钮容器特殊处理 */
-.ripple-container {
-  pointer-events: none;
+@media (max-width: 639px) {
+  button:disabled,
+  [role="button"]:disabled {
+    color: color-mix(in oklch, var(--foreground) 38%, transparent) !important;
+    background: color-mix(in oklch, var(--foreground) 12%, transparent) !important;
+    border-color: color-mix(in oklch, var(--foreground) 12%, transparent) !important;
+    cursor: default !important;
+  }
+
+  button:disabled *,
+  [role="button"]:disabled * {
+    color: currentColor !important;
+  }
 }
 
 /* 固定定位元素禁止抬升 */
@@ -1341,12 +960,6 @@ button:disabled,
 
 .fill-btn:hover::before {
   width: 100%;
-}
-
-/* Ripple Effect for Buttons */
-.ripple-btn {
-  position: relative;
-  overflow: hidden;
 }
 
 @keyframes ripple {

@@ -2,12 +2,9 @@ import { NextRequest, NextResponse } from 'next/server';
 import bcrypt from 'bcryptjs';
 import { cookies } from 'next/headers';
 import { getSupabaseClient } from '@/lib/supabase-client';
+import { SESSION_COOKIE_NAME, SESSION_MAX_AGE } from '@/lib/session';
 
 export const dynamic = 'force-dynamic';
-
-const SESSION_COOKIE_NAME = 'mindmap_session';
-// 持久化登录：1年有效期（秒）
-const SESSION_MAX_AGE = 365 * 24 * 60 * 60;
 
 // 生成随机 token
 function generateToken(): string {
@@ -132,14 +129,6 @@ export async function POST(request: NextRequest) {
       path: '/',
     });
 
-    console.log('[Register] Cookie 已设置:', {
-      name: SESSION_COOKIE_NAME,
-      token: sessionToken.substring(0, 10) + '...',
-      isDev,
-      secure: !isDev,
-      sameSite: 'lax',
-    });
-
     return NextResponse.json({
       success: true,
       message: '注册成功',
@@ -175,7 +164,10 @@ export async function POST(request: NextRequest) {
           message = '数据库连接中断，请稍后重试';
           break;
         }
-        currentError = (currentError as any).cause as Error | null;
+        const cause: unknown = currentError instanceof Error && "cause" in currentError
+          ? currentError.cause
+          : null;
+        currentError = cause instanceof Error ? cause : null;
       }
     }
     

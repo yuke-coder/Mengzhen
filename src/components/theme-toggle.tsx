@@ -1,84 +1,117 @@
 "use client";
 
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef, type PointerEvent } from "react";
 import { Sun, Moon, Monitor } from "lucide-react";
 import { cn } from "@/lib/utils";
 import { useTheme, type Theme } from "@/lib/theme-context";
+import {
+  DropdownMenu,
+  DropdownMenuContent,
+  DropdownMenuItem,
+  DropdownMenuTrigger,
+} from "@/components/ui/dropdown-menu";
+
+const themes: { value: Theme; label: string; description: string; icon: typeof Sun }[] = [
+  { value: "light", label: "浅色模式", description: "始终使用浅色主题", icon: Sun },
+  { value: "dark", label: "深色模式", description: "始终使用深色主题", icon: Moon },
+  { value: "system", label: "自动模式", description: "跟随系统主题设置", icon: Monitor },
+];
+
+const triggerClass =
+  "inline-flex h-8 w-8 sm:h-9 sm:w-9 items-center justify-center rounded-full border-0 bg-black/[0.05] text-current hover:bg-black/[0.09] focus-visible:bg-black/[0.09] dark:bg-white/[0.12] dark:hover:bg-white/[0.16] dark:focus-visible:bg-white/[0.16] focus-visible:outline-none";
+
+const menuClass =
+  "w-[154px] overflow-hidden rounded-md border border-black/[0.08] bg-white p-0 text-zinc-950 shadow-[0_0_1px_rgba(0,0,0,.3),0_4px_14px_rgba(0,0,0,.1)] dark:border-white/[0.08] dark:bg-[rgb(67,68,74)] dark:text-[rgb(249,249,249)] dark:shadow-[inset_0_0_0_1px_rgba(255,255,255,.1),0_4px_14px_rgba(0,0,0,.25)]";
+
+const itemBaseClass =
+  "rounded-none px-4 py-2 text-current hover:bg-black/[0.05] focus:bg-black/[0.05] active:bg-black/[0.09] dark:hover:bg-white/[0.12] dark:focus:bg-white/[0.12] dark:active:bg-white/[0.16]";
 
 export function ThemeToggle() {
-  const { theme, setTheme } = useTheme();
+  const { theme, resolvedTheme, setTheme } = useTheme();
   const [mounted, setMounted] = useState(false);
-  const [showTip, setShowTip] = useState(false);
+  const [open, setOpen] = useState(false);
+  const closeTimer = useRef<ReturnType<typeof setTimeout> | null>(null);
 
   useEffect(() => {
     setMounted(true);
+    return () => {
+      if (closeTimer.current) clearTimeout(closeTimer.current);
+    };
   }, []);
 
-  const themes: { value: Theme; label: string; icon: typeof Sun }[] = [
-    { value: "light", label: "亮色模式", icon: Sun },
-    { value: "dark", label: "暗色模式", icon: Moon },
-    { value: "system", label: "跟随系统", icon: Monitor },
-  ];
-
-  const currentIndex = themes.findIndex((t) => t.value === theme);
-  const nextTheme = themes[(currentIndex + 1) % 3];
-
-  const cycleTheme = () => {
-    setTheme(nextTheme.value);
+  const currentTheme = themes.find((item) => item.value === theme) ?? themes[2];
+  const Icon = currentTheme.icon;
+  const resolvedLabel = resolvedTheme === "dark" ? "深色" : "浅色";
+  const openMenu = (event: PointerEvent) => {
+    if (event.pointerType !== "mouse") return;
+    if (closeTimer.current) clearTimeout(closeTimer.current);
+    setOpen(true);
+  };
+  const closeMenu = (event: PointerEvent) => {
+    if (event.pointerType === "mouse") closeTimer.current = setTimeout(() => setOpen(false), 120);
   };
 
   if (!mounted) {
-    return <div className="w-9 h-9 rounded-lg bg-muted/50 border border-border/50" aria-hidden="true" />;
+    return <div className="w-8 h-8 sm:w-9 sm:h-9 rounded-full bg-[#2f3037]" aria-hidden="true" />;
   }
 
   return (
-    <div className="relative" onMouseEnter={() => setShowTip(true)} onMouseLeave={() => setShowTip(false)}>
-      <button
-        onClick={cycleTheme}
-        className={`relative w-9 h-9 rounded-lg flex items-center justify-center bg-muted/50 hover:bg-muted active:bg-muted/80 border border-border/50 hover:border-border transition-all duration-200 group overflow-hidden focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 focus-visible:ring-offset-background`}
-        title={`当前：${themes[currentIndex].label}（点击切换为 ${nextTheme.label}）`}
-      >
-        <div className="relative w-[18px] h-[18px]">
-          {themes.map(({ value, icon: Icon }) => (
-            <Icon
-              key={value}
-              className={cn(
-                "absolute inset-0 h-[18px] w-[18px] transition-all duration-300 ease-out",
-                theme === value
-                  ? "rotate-0 scale-100 opacity-100 text-primary"
-                  : value === nextTheme.value
-                    ? "rotate-45 scale-50 opacity-0 text-primary/40"
-                    : "-rotate-45 scale-0 opacity-0 text-primary/20"
-              )}
-            />
-          ))}
-        </div>
-        <div className="absolute inset-0 rounded-lg bg-gradient-to-br from-primary/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-200" />
-        <div className="absolute bottom-[3px] left-1/2 -translate-x-1/2 flex gap-[3px]">
-          {themes.map(({ value }) => (
-            <span
-              key={value}
-              className={cn(
-                "w-[3px] h-[3px] rounded-full transition-all duration-300",
-                theme === value ? "bg-primary scale-100" : "bg-muted-foreground/30 scale-75"
-              )}
-            />
-          ))}
-        </div>
-      </button>
+    <DropdownMenu open={open} onOpenChange={setOpen} modal={false}>
       <div
-        className={cn(
-          "absolute top-full mt-2 left-1/2 -translate-x-1/2 px-2.5 py-1 rounded-md text-xs font-medium",
-          "bg-popover text-popover-foreground border border-border shadow-lg",
-          "pointer-events-none whitespace-nowrap z-50",
-          "transition-opacity duration-150 origin-bottom",
-          showTip ? "opacity-100 translate-y-0" : "opacity-0 translate-y-1"
-        )}
+        className="relative"
+        onPointerEnter={openMenu}
+        onPointerLeave={closeMenu}
       >
-        {themes[currentIndex].label}
-        <span className="text-muted-foreground ml-1">→ {nextTheme.label}</span>
-        <div className="absolute -top-1 left-1/2 -translate-x-1/2 w-2 h-2 rotate-45 bg-popover border-l border-t border-border" />
+        <DropdownMenuTrigger asChild>
+          <button
+            type="button"
+            className={triggerClass}
+            style={{ transform: "none" }}
+            title={`当前：${currentTheme.label}`}
+            aria-label="切换页面模式"
+          >
+            <Icon className="h-[18px] w-[18px]" />
+          </button>
+        </DropdownMenuTrigger>
+        <DropdownMenuContent
+          align="end"
+          sideOffset={8}
+          className={menuClass}
+          onPointerEnter={openMenu}
+          onPointerLeave={closeMenu}
+        >
+          <div className="py-1">
+            {themes.map(({ value, label, description, icon: ItemIcon }) => (
+              <DropdownMenuItem
+                key={value}
+                onSelect={() => {
+                  setTheme(value);
+                  setOpen(false);
+                }}
+                className={cn(
+                  itemBaseClass,
+                  "items-start gap-[9px]",
+                  theme === value && "bg-[rgb(239,248,255)] font-semibold hover:bg-[rgb(239,248,255)] focus:bg-[rgb(239,248,255)] dark:bg-[rgba(84,169,255,.2)] dark:hover:bg-[rgba(84,169,255,.2)] dark:focus:bg-[rgba(84,169,255,.2)]"
+                )}
+              >
+                <ItemIcon className="mt-0.5 size-[18px] shrink-0 text-current" />
+                <span className="min-w-0">
+                  <span className="block whitespace-nowrap text-[14px] leading-[18px]">{label}</span>
+                  <span className="mt-0.5 block whitespace-nowrap text-[12px] font-normal leading-4 text-zinc-950/60 dark:text-[rgba(249,249,249,.6)]">{description}</span>
+                </span>
+              </DropdownMenuItem>
+            ))}
+          </div>
+          {theme === "system" && (
+            <>
+              <div className="h-px bg-black/[0.08] dark:bg-white/[0.08]" />
+              <div className="px-3 py-2 text-xs leading-4 text-zinc-950/60 dark:text-[rgba(249,249,249,.6)]">
+                当前跟随系统：<span className="text-zinc-950/80 dark:text-[rgba(249,249,249,.8)]">{resolvedLabel}</span>
+              </div>
+            </>
+          )}
+        </DropdownMenuContent>
       </div>
-    </div>
+    </DropdownMenu>
   );
 }

@@ -138,20 +138,6 @@ export default function DynamicBackground() {
           contain: layout style paint;
         }
         
-        .grid-container::before {
-          content: "灵图";
-          position: absolute;
-          top: 50%;
-          left: 50%;
-          transform: translate(-50%, -50%);
-          font-size: 8rem;
-          font-weight: 100;
-          font-style: normal;
-          color: rgba(0, 0, 0, 0.03);
-          pointer-events: none;
-          white-space: nowrap;
-        }
-        
         @keyframes bg-scrolling-reverse {
           0% {
             background-position: 50px 50px;

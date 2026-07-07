@@ -19,7 +19,8 @@
     ],
     "paths": {
       "@/*": ["./src/*"]
-    }
+    },
+    "incremental": false
   },
   "include": [
     "next-env.d.ts",
@@ -29,5 +30,5 @@
     ".next/dev/types/**/*.ts",
     "**/*.mts"
   ],
-  "exclude": ["node_modules", "dist", "server.ts"]
+  "exclude": ["node_modules", "dist", "server.ts", "src/components/sonner"]
 }

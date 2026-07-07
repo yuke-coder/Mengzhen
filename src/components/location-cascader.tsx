@@ -418,7 +418,7 @@ export function LocationCascader({ value, onChange, disabled }: LocationCascader
             disabled={disabled}
             className={cn(
               "w-full px-4 py-3 text-left rounded-lg border flex items-center justify-between gap-2 transition-all duration-200",
-              "bg-[var(--background)] border-[var(--border)]",
+              "bg-transparent border-[var(--border)]",
               disabled ? 'opacity-50 cursor-not-allowed' : 'hover:border-[var(--brand-start)]/50 focus:outline-none focus:ring-2 focus:ring-[var(--brand-start)]/30',
               open && 'border-[var(--brand-start)] ring-2 ring-[var(--brand-start)]/30'
             )}

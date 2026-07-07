@@ -251,7 +251,7 @@ function FloatingBar(
                         </span>
                     </div>
                     <RippleButton
-                        onClick={() => router.push("/settings")}
+                        onClick={() => router.replace("/settings")}
                         className="relative flex items-center gap-2 px-4 py-2 rounded-xl bg-gradient-to-r from-[var(--brand-start)] to-[var(--brand-end)] text-white font-semibold text-sm shadow-lg shadow-[var(--brand-start)]/25 hover:shadow-xl hover:shadow-[var(--brand-start)]/35 hover:scale-105 active:scale-95 transition-all duration-200 ease-out z-10">
                         <span className="relative flex items-center gap-2">
                             <span suppressHydrationWarning>免费体验</span>
@@ -519,7 +519,7 @@ export default function HomePage() {
     const bottomCtaVisible = useScrollVisibility(bottomCtaRef as React.RefObject<HTMLElement | null>);
     const showFloatingBar = !mobileHeroButtonVisible && !desktopHeroButtonVisible && !bottomCtaVisible;
     const startExperience = useCallback(() => {
-        router.push("/settings");
+        router.replace("/settings");
     }, [router]);
 
     return (
@@ -1198,7 +1198,7 @@ export default function HomePage() {
                             </div>
                             <RippleButton
                                 ref={bottomCtaRef}
-                                onClick={() => router.push("/settings")}
+                                onClick={() => router.replace("/settings")}
                                 className="group relative inline-flex items-center gap-3 px-8 py-4 rounded-2xl bg-gradient-to-r from-[var(--brand-start)] to-[var(--brand-end)] text-white font-semibold text-xl shadow-xl shadow-[var(--brand-start)]/25 hover:shadow-2xl hover:shadow-[var(--brand-start)]/35 hover:scale-105 active:scale-95 transition-all duration-300">
                                 <div className="relative flex items-center gap-3">
                                     <Image

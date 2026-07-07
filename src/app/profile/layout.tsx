@@ -1,12 +1,12 @@
 "use client";
 
 import Link from "next/link";
-import { Brain, Save, Loader2, X } from "lucide-react";
+import { Brain, Save, X } from "lucide-react";
 import { UserMenu } from "@/components/user-menu";
 import { ThemeToggle } from "@/components/theme-toggle";
-import StarryBackground from "@/components/starry-background";
+import { Spinner } from "@/components/ui/spinner";
 import { ProfileProvider, useProfile } from "@/lib/profile-context";
-import { NonBlockingToastProvider } from "@/components/non-blocking-toast";
+
 import { useEffect } from "react";
 import { useRouter } from "next/navigation";
 
@@ -37,7 +37,7 @@ function NavButtons() {
             opacity: saving ? 0.7 : 1,
           }}
         >
-          {saving ? <Loader2 className="w-3.5 h-3.5 animate-spin" /> : <Save className="w-3.5 h-3.5" />}
+          {saving ? <Spinner size="sm" className="h-3.5 w-3.5 text-white" /> : <Save className="w-3.5 h-3.5" />}
           保存
         </button>
       )}
@@ -54,10 +54,6 @@ function ProfileLayoutInner({ children }: { children: React.ReactNode }) {
   }, []);
   return (
     <div className="min-h-screen text-foreground overflow-x-hidden relative z-10">
-      <div className="fixed inset-0 overflow-hidden z-0">
-        <StarryBackground />
-      </div>
-
       <header className="fixed top-0 left-0 right-0 z-[9999] isolation-isolate bg-background/80 backdrop-blur-xl border-b border-border/50">
         <div className="max-w-5xl mx-auto px-6 h-14 flex items-center justify-between relative">
           <div className="flex items-center gap-4 z-30">
@@ -113,9 +109,7 @@ export default function ProfileLayout({
 }) {
   return (
     <ProfileProvider>
-      <NonBlockingToastProvider>
-        <ProfileLayoutInner>{children}</ProfileLayoutInner>
-      </NonBlockingToastProvider>
+      <ProfileLayoutInner>{children}</ProfileLayoutInner>
     </ProfileProvider>
   );
 }

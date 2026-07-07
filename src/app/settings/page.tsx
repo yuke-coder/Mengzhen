@@ -1,17 +1,16 @@
 "use client";
-import { useState, useCallback, useEffect, useRef, Suspense } from "react";
-import Link from "next/link";
+import { useState, useCallback, useEffect, Suspense } from "react";
 import Image from "next/image";
 import { useSearchParams } from "next/navigation";
-import { toast } from "sonner";
+import { toast } from "@/components/sonner";
 import { AudioUpload } from "@/components/audio-upload";
 import { TaskForm } from "@/components/task-form";
 import { TaskList } from "@/components/task-list";
 import { TaskModal } from "@/components/task-modal";
+import { Spinner } from "@/components/ui/spinner";
 import { PlayMode, ScheduledTask } from "@/lib/task-types";
-import { getPlayMode, setPlayMode as savePlayMode, getAllTasks, cleanupCompletedOnceTasks, cleanupCancelledTasks, type CleanupResult } from "@/lib/task-store";
+import { getPlayMode, setPlayMode as savePlayMode, getAllTasks, cleanupCompletedOnceTasks, cleanupCancelledTasks } from "@/lib/task-store";
 import { startTaskScheduler, stopTaskScheduler, getTaskScheduler } from "@/lib/task-scheduler";
-import { type Theme } from "@/lib/theme-context";
 import DynamicBackground from "@/components/dynamic-background";
 import { SchedulerDebugPanel } from "@/components/scheduler-debug-panel";
 
@@ -21,133 +20,6 @@ import {
     Clock,
     Volume2,
 } from "lucide-react";
-
-import { cn } from "@/lib/utils";
-
-function usePrecisionReveal(
-    options?: {
-        threshold?: number;
-    }
-) {
-    const ref = useRef<HTMLDivElement>(null);
-    const [isVisible, setIsVisible] = useState(false);
-
-    useEffect(() => {
-        const element = ref.current;
-
-        if (!element)
-            return;
-
-        const observer = new IntersectionObserver(([entry]) => {
-            if (entry.isIntersecting) {
-                setIsVisible(true);
-                observer.unobserve(element);
-            }
-        }, {
-            threshold: options?.threshold ?? 0.1
-        });
-
-        observer.observe(element);
-        return () => observer.disconnect();
-    }, [options?.threshold]);
-
-    return {
-        ref,
-        isVisible
-    };
-}
-
-function RevealGroup(
-    {
-        children,
-        className = "",
-        delayBase = 0,
-        id
-    }: {
-        children: React.ReactNode;
-        className?: string;
-        delayBase?: number;
-        id?: string;
-    }
-) {
-    const {
-        ref,
-        isVisible
-    } = usePrecisionReveal({
-        threshold: 0.08
-    });
-
-    return (
-        <div ref={ref} id={id} className={cn("space-y-2", className)}>
-            {Array.isArray(children) ? children.map((child, i) => <div
-                key={i}
-                style={{
-                    opacity: isVisible ? 1 : 0,
-                    transform: isVisible ? "translateY(0)" : "translateY(16px)",
-                    transition: `opacity 0.5s ease ${delayBase + i * 80}ms, transform 0.5s ease ${delayBase + i * 80}ms`
-                }}>
-                {child}
-            </div>) : <div
-                style={{
-                    opacity: isVisible ? 1 : 0,
-                    transform: isVisible ? "translateY(0)" : "translateY(16px)",
-                    transition: `opacity 0.5s ease ${delayBase}ms, transform 0.5s ease ${delayBase}ms`
-                }}>
-                {children}
-            </div>}
-        </div>
-    );
-}
-
-function WordReveal(
-    {
-        text,
-        className = "",
-        wordClassName = "",
-        delayBase = 0,
-        wordDelay = 150,
-        separator = "·"
-    }: {
-        text: string;
-        className?: string;
-        wordClassName?: string;
-        delayBase?: number;
-        wordDelay?: number;
-        separator?: string;
-    }
-) {
-    const words = text.split(separator).filter(w => w.trim());
-
-    return (
-        <span
-            className={cn("inline-flex items-center justify-center gap-3", className)}
-            suppressHydrationWarning>
-            {words.map((word, i) => <span key={i} className="inline-flex">
-                {word.split("").map((char, j) => <span
-                    key={j}
-                    className={cn(
-                        "char-hidden animate-char-reveal text-foreground/60",
-                        wordClassName
-                    )}
-                    style={{
-                        '--char-delay': `${delayBase + i * wordDelay + j * 40}ms`
-                    } as React.CSSProperties}>
-                    {char}
-                </span>)}
-                {i < words.length - 1 && <span
-                    className={cn(
-                        "char-hidden animate-char-reveal text-[var(--brand-glow)]/50 mx-2"
-                    )}
-                    style={{
-                        '--char-delay': `${delayBase + i * wordDelay + word.length * 40}ms`
-                    } as React.CSSProperties}>
-                    {separator}
-                </span>}
-            </span>)}
-        </span>
-    );
-}
-
 
 export default function CreatePage() {
     return (
@@ -162,16 +34,9 @@ function LoadingFallback() {
         <div
             className="min-h-screen flex items-center justify-center bg-background"
             suppressHydrationWarning>
-            <div className="text-center">
-                <Image
-                    src="/logo.png"
-                    alt="梦枕"
-                    width={48}
-                    height={48}
-                    className="rounded-xl mx-auto mb-4 animate-pulse shadow-[inset_0_2px_6px_rgba(0,0,0,0.35)]"
-                    priority
-                />
-                <p className="text-muted-foreground">加载中...</p>
+            <div className="flex flex-col items-center gap-4">
+                <Spinner className="text-foreground" />
+                <p className="text-base text-muted-foreground">Loading...</p>
             </div>
         </div>
     );
@@ -227,7 +92,7 @@ function CreatePageContent() {
         }
     }, []);
 
-    const handleTaskSaved = useCallback((_task: ScheduledTask) => {
+    const handleTaskSaved = useCallback(() => {
         setShowTaskForm(false);
         setEditingTask(null);
         setTasksVersion(v => v + 1);
@@ -241,7 +106,7 @@ function CreatePageContent() {
     return (
         <div className="min-h-screen text-foreground overflow-x-hidden relative z-10" suppressHydrationWarning>
             <DynamicBackground />
-            <main className="pt-14 relative">
+            <main className="pt-0 sm:pt-14 relative">
                 <section className="relative min-h-[85vh] flex flex-col items-center justify-center px-4 sm:px-6 overflow-hidden">
                     <div className="relative z-20 max-w-4xl mx-auto w-full space-y-6 px-2 sm:px-4 md:px-0">
                         <div className="text-center space-y-4 mt-8">
@@ -303,7 +168,10 @@ function CreatePageContent() {
                                     <Plus className="w-4 h-4" />
                                     新建任务
                                 </button>
-                                <TaskList tasks={tasks} onEdit={handleEditTask} onRefresh={() => setTasksVersion(v => v + 1)} />
+                                <TaskList tasks={tasks} onEdit={handleEditTask} onCreate={() => {
+                                    setEditingTask(null);
+                                    setShowTaskForm(true);
+                                }} onRefresh={() => setTasksVersion(v => v + 1)} />
                             </div>
                         </AudioUpload>
                     </div>
@@ -320,7 +188,7 @@ function CreatePageContent() {
                 }} />
             </TaskModal>
 
-            <footer className="border-t border-border py-8 px-6 bg-muted/20 relative z-20">
+            <footer className="hidden sm:block border-t border-border py-8 px-6 bg-muted/20 relative z-20">
                 <div className="max-w-5xl mx-auto text-center">
                     <div className="flex items-center justify-center gap-2 mb-3">
                         <Image src="/logo.png" alt="梦枕" width={20} height={20} className="rounded-md shadow-[inset_0_1px_4px_rgba(0,0,0,0.35)]" />

@@ -1,93 +1,13 @@
 'use client';
 
-import { useState, useEffect } from 'react';
 import Link from 'next/link';
 import { useRouter, usePathname } from 'next/navigation';
 import { UserMenu } from '@/components/user-menu';
-import { useTheme, type Theme } from '@/lib/theme-context';
+import { ThemeToggle } from '@/components/theme-toggle';
 import RippleButton from '@/components/RippleButton';
-import { cn } from '@/lib/utils';
 import {
   ChevronRight,
-  Sun,
-  Moon,
-  Monitor,
 } from 'lucide-react';
-
-/* ── ThemeToggle ── */
-function ThemeToggle() {
-  const { theme, setTheme } = useTheme();
-  const [mounted, setMounted] = useState(false);
-  const [showTip, setShowTip] = useState(false);
-
-  useEffect(() => { setMounted(true); }, []);
-
-  const themes: { value: Theme; label: string; icon: typeof Sun }[] = [
-    { value: 'light', label: '亮色模式', icon: Sun },
-    { value: 'dark',  label: '暗色模式', icon: Moon },
-    { value: 'system', label: '跟随系统', icon: Monitor },
-  ];
-
-  const currentIndex = themes.findIndex(t => t.value === theme);
-  const nextTheme = themes[(currentIndex + 1) % 3];
-
-  if (!mounted) {
-    return <div className="w-9 h-9 rounded-lg bg-muted/50 border border-border/50" aria-hidden="true" />;
-  }
-
-  return (
-    <div className="relative" onMouseEnter={() => setShowTip(true)} onMouseLeave={() => setShowTip(false)}>
-      <button
-        onClick={() => setTheme(nextTheme.value)}
-        className={`relative w-9 h-9 rounded-lg flex items-center justify-center
-          bg-muted/50 hover:bg-muted active:bg-muted/80
-          border border-border/50 hover:border-border
-          transition-all duration-200 group overflow-hidden
-          focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 focus-visible:ring-offset-background`}
-        title={`当前：${themes[currentIndex].label}（点击切换为 ${nextTheme.label}）`}
-      >
-        <div className="relative w-[18px] h-[18px]">
-          {themes.map(({ value, icon: Icon }) => (
-            <Icon
-              key={value}
-              className={cn(
-                'absolute inset-0 h-[18px] w-[18px] transition-all duration-300 ease-out',
-                theme === value
-                  ? 'rotate-0 scale-100 opacity-100 text-primary'
-                  : value === nextTheme.value
-                    ? 'rotate-45 scale-50 opacity-0 text-primary/40'
-                    : '-rotate-45 scale-0 opacity-0 text-primary/20',
-              )}
-            />
-          ))}
-        </div>
-        <div className="absolute inset-0 rounded-lg bg-gradient-to-br from-primary/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-200" />
-        <div className="absolute bottom-[3px] left-1/2 -translate-x-1/2 flex gap-[3px]">
-          {themes.map(({ value }) => (
-            <span
-              key={value}
-              className={cn(
-                'w-[3px] h-[3px] rounded-full transition-all duration-300',
-                theme === value ? 'bg-primary scale-100' : 'bg-muted-foreground/30 scale-75',
-              )}
-            />
-          ))}
-        </div>
-      </button>
-      {showTip && (
-        <div className={cn(
-          'absolute top-full mt-2 left-1/2 -translate-x-1/2 px-2.5 py-1 rounded-md text-xs font-medium',
-          'bg-popover text-popover-foreground border border-border shadow-lg',
-          'pointer-events-none whitespace-nowrap z-50 transition-opacity duration-150 origin-bottom',
-        )}>
-          {themes[currentIndex].label}
-          <span className="text-muted-foreground ml-1">→ {nextTheme.label}</span>
-          <div className="absolute -top-1 left-1/2 -translate-x-1/2 w-2 h-2 rotate-45 bg-popover border-l border-t border-border" />
-        </div>
-      )}
-    </div>
-  );
-}
 
 /* ── Navbar Props ── */
 export interface NavbarProps {
@@ -119,16 +39,16 @@ export default function Navbar({ activePage, onScrollToSection }: NavbarProps) {
 
   return (
     <header id="main-navbar" className="fixed top-0 left-0 right-0 z-[9999] isolation-isolate bg-background/80 backdrop-blur-xl border-b border-border/50">
-      <div className="max-w-5xl mx-auto px-6 h-14 flex items-center justify-between relative">
+      <div className="max-w-5xl mx-auto px-3 sm:px-6 h-12 sm:h-14 flex items-center justify-between relative">
         {/* 左侧：Logo + 品牌名 */}
-        <div className="flex items-center gap-4 z-30">
-          <Link href="/" className="flex items-center gap-3 group">
+        <div className="flex items-center gap-3 sm:gap-4 z-30">
+          <Link href="/" className="flex items-center gap-2 sm:gap-3 group">
             <img
               src="/logo.png"
               alt="梦枕"
-              className="w-9 h-9 rounded-lg shadow-lg shadow-[inset_0_2px_6px_rgba(0,0,0,0.35)] transition-transform duration-300 group-hover:scale-110 z-30"
+              className="w-7 h-7 sm:w-9 sm:h-9 rounded-lg shadow-lg shadow-[inset_0_2px_6px_rgba(0,0,0,0.35)] transition-transform duration-300 group-hover:scale-110 z-30"
             />
-            <span className="font-bold text-xl tracking-tight">
+            <span className="font-bold text-lg sm:text-xl tracking-tight">
               <span className="bg-gradient-to-r from-purple-500 via-purple-600 to-fuchsia-500 bg-clip-text text-transparent" suppressHydrationWarning>
                 梦枕
               </span>
@@ -190,7 +110,7 @@ export default function Navbar({ activePage, onScrollToSection }: NavbarProps) {
             <div className="group relative ml-3">
               <span className="absolute -inset-1.5 bg-gradient-to-r from-[var(--brand-start)] via-[var(--brand-mid)] to-[var(--brand-end)] rounded-full blur-md opacity-0 group-hover:opacity-60 transition-all duration-300" />
               <RippleButton
-                onClick={() => router.push('/settings')}
+                onClick={() => router.replace('/settings')}
                 className="relative flex items-center gap-2 px-5 py-2 rounded-full bg-gradient-to-r from-[var(--brand-start)] via-[var(--brand-mid)] to-[var(--brand-end)] text-white font-semibold text-sm shadow-lg shadow-[var(--brand-start)]/30 transition-all duration-300 group-hover:shadow-xl group-hover:shadow-[var(--brand-start)]/50 group-hover:-translate-y-0.5"
               >
                 <span className="absolute inset-0 -translate-x-full group-hover:translate-x-full transition-transform duration-500 ease-out">
@@ -211,7 +131,7 @@ export default function Navbar({ activePage, onScrollToSection }: NavbarProps) {
         </nav>
 
          {/* 右侧：用户菜单 + 主题切换（登录/注册页隐藏） */}
-         <div className="z-10 flex items-center gap-3">
+         <div className="z-10 flex items-center gap-2 sm:gap-3">
             {!isAuthPage && <UserMenu />}
            {!isAuthPage && <ThemeToggle />}
          </div>

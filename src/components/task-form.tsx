@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useState, useCallback, useMemo } from "react";
+import React, { useState, useCallback, useEffect, useMemo } from "react";
 import {
   ScheduledTask,
   TaskRepeatType,
@@ -10,7 +10,7 @@ import { createTask, updateTask } from "@/lib/task-store";
 import { WheelDateTimePicker, type DateTimeValue } from "@/components/wheel-date-time-picker";
 import { DurationSetter } from "@/components/duration-setter";
 import { AudioSection } from "@/components/audio-section";
-import { toast } from "sonner";
+import { toast } from "@/components/sonner";
 import { cn } from "@/lib/utils";
 import {
   Save,
@@ -65,12 +65,17 @@ export function TaskForm({ editTask, onSave, onCancel }: TaskFormProps) {
 
   const [taskAudios, setTaskAudios] = useState<TaskAudio[]>(editTask?.audios || []);
   const [taskVolume, setTaskVolume] = useState(editTask?.volume || 50);
+  const [nowMs, setNowMs] = useState(() => Date.now());
+
+  useEffect(() => {
+    const timer = setInterval(() => setNowMs(Date.now()), 1000);
+    return () => clearInterval(timer);
+  }, []);
 
   const timeError = useMemo<string | null>(() => {
     if (repeatType !== "once") {
       return null;
     }
-    const now = Date.now();
     const target = new Date(
       startTime.year,
       startTime.month - 1,
@@ -83,14 +88,14 @@ export function TaskForm({ editTask, onSave, onCancel }: TaskFormProps) {
     const fadeInMs = fadeInDuration * 1000;
     const audioStartAt = target - fadeInMs;
 
-    if (audioStartAt < now - 2000) {
+    if (audioStartAt < nowMs - 2000) {
       if (fadeInDuration > 0) {
         return "开始时间不足以完成渐入效果，请选择稍后的时间点";
       }
       return "开始时间不能早于当前时间";
     }
     return null;
-  }, [startTime, repeatType, fadeInDuration]);
+  }, [startTime, repeatType, fadeInDuration, nowMs]);
 
   const validateTime = useCallback((): { valid: boolean; error: string | null } => {
     if (repeatType !== "once") {
