@@ -18,7 +18,7 @@ const themes: { value: Theme; label: string; description: string; icon: typeof S
 ];
 
 const triggerClass =
-  "inline-flex h-8 w-8 sm:h-9 sm:w-9 items-center justify-center rounded-md border-0 bg-black/[0.05] text-current hover:bg-black/[0.09] focus-visible:bg-black/[0.09] dark:bg-white/[0.12] dark:hover:bg-white/[0.16] dark:focus-visible:bg-white/[0.16] focus-visible:outline-none";
+  "inline-flex h-8 w-8 sm:h-9 sm:w-9 shrink-0 items-center justify-center rounded-full border-0 bg-black/[0.05] text-current hover:bg-black/[0.09] focus-visible:bg-black/[0.09] dark:bg-white/[0.12] dark:hover:bg-white/[0.16] dark:focus-visible:bg-white/[0.16] focus-visible:outline-none";
 
 const menuClass =
   "w-[154px] overflow-hidden rounded-md border border-black/[0.08] bg-white p-0 text-zinc-950 shadow-[0_0_1px_rgba(0,0,0,.3),0_4px_14px_rgba(0,0,0,.1)] dark:border-white/[0.08] dark:bg-[rgb(67,68,74)] dark:text-[rgb(249,249,249)] dark:shadow-[inset_0_0_0_1px_rgba(255,255,255,.1),0_4px_14px_rgba(0,0,0,.25)]";
@@ -52,7 +52,7 @@ export function ThemeToggle() {
   };
 
   if (!mounted) {
-    return <div className="w-8 h-8 sm:w-9 sm:h-9 rounded-md bg-[#2f3037]" aria-hidden="true" />;
+    return <div className="w-8 h-8 sm:w-9 sm:h-9 rounded-full bg-[#2f3037]" aria-hidden="true" />;
   }
 
   return (

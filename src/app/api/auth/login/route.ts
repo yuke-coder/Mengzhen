@@ -1,20 +1,9 @@
 import { NextRequest, NextResponse } from 'next/server';
 import bcrypt from 'bcryptjs';
-import { cookies } from 'next/headers';
 import { getSupabaseClient } from '@/lib/supabase-client';
-import { SESSION_COOKIE_NAME, SESSION_MAX_AGE } from '@/lib/session';
+import { createSession, toAuthUser } from '@/lib/session';
 
 export const dynamic = 'force-dynamic';
-
-// 生成随机 token
-function generateToken(): string {
-  const chars = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
-  let token = '';
-  for (let i = 0; i < 64; i++) {
-    token += chars.charAt(Math.floor(Math.random() * chars.length));
-  }
-  return token;
-}
 
 export async function POST(request: NextRequest) {
   try {
@@ -67,46 +56,12 @@ export async function POST(request: NextRequest) {
       );
     }
 
-    // 生成 session token
-    const sessionToken = generateToken();
-
-    // 计算过期时间（1年后）
-    const expiresAt = new Date();
-    expiresAt.setFullYear(expiresAt.getFullYear() + 1);
-
-    // 存储 session 到数据库
-    try {
-      await client.from('sessions').insert({
-        user_id: user.id,
-        token: sessionToken,
-        expires_at: expiresAt.toISOString(),
-      });
-    } catch (sessionError) {
-      console.error('存储session失败:', sessionError);
-      // session 存储失败不影响登录成功
-    }
-
-    const isDev = process.env.NODE_ENV === 'development';
-    const cookieStore = await cookies();
-    
-    // 生产环境：secure=true，确保移动端 HTTPS 环境能正常接收 cookie
-    // sameSite='lax' 在移动端兼容性最好，支持同源请求
-    cookieStore.set(SESSION_COOKIE_NAME, sessionToken, {
-      httpOnly: true,
-      secure: !isDev,
-      sameSite: 'lax',
-      maxAge: SESSION_MAX_AGE,
-      path: '/',
-    });
+    await createSession(client, user.id);
 
     return NextResponse.json({
       success: true,
       message: '登录成功',
-      user: {
-        id: user.id,
-        username: user.username,
-        createdAt: user.created_at,
-      },
+      user: toAuthUser(user),
     });
   } catch (error) {
     console.error('登录错误:', error);

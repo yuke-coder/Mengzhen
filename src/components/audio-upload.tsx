@@ -1284,6 +1284,7 @@ export function AudioUpload({
         <input
           type="file"
           multiple
+          accept="audio/*,.mp3,.wav,.ogg,.m4a,.flac,.aac"
           onChange={handleFileSelect}
           disabled={disabled}
           className="absolute inset-0 w-full h-full opacity-0 cursor-pointer z-10"

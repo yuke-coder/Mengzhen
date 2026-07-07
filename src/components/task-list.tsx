@@ -33,6 +33,7 @@ import {
   TrendingUp,
   TrendingDown,
   RotateCcw,
+  Plus,
 } from "lucide-react";
 import { useIsMobile } from "@/hooks/use-mobile";
 
@@ -918,16 +919,16 @@ export function TaskList({ tasks, onEdit, onCreate, onRefresh }: TaskListProps) 
 
   if (tasks.length === 0) {
     return (
-      <div className="py-10 sm:py-12 text-center px-4">
-        <div className="inline-flex items-center justify-center w-16 h-16 sm:w-10 sm:h-10 rounded-2xl bg-muted/50 mb-4 sm:mb-3">
-          <CalendarClock className="w-8 h-8 sm:w-10 sm:h-10 text-muted-foreground/30" />
-        </div>
-        <p className="text-sm text-muted-foreground font-medium">暂无自定义任务</p>
+      <div className="py-10 sm:py-12 text-center px-4 space-y-4">
+        <CalendarClock className="mx-auto size-16 sm:size-20 p-4 rounded-xl border border-[var(--brand-start)]/20 text-[var(--brand-start)]" />
+        <p className="text-lg sm:text-xl font-medium tracking-tight">暂无自定义任务</p>
+        <p className="text-sm sm:text-base text-muted-foreground/80 leading-relaxed">点击新建你的第一个定时播放任务，让音频按时响起</p>
         <button
           type="button"
           onClick={onCreate}
-          className="mt-3 text-xs font-medium text-[var(--brand-start)]"
+          className="inline-flex items-center gap-2 px-4 py-2 rounded-lg text-sm font-medium text-[var(--brand-start)] border border-[var(--brand-start)]/30 hover:bg-[var(--brand-start)]/10 hover:border-[var(--brand-start)]/50 active:scale-95 transition-all cursor-pointer"
         >
+          <Plus className="w-4 h-4" />
           新建任务
         </button>
       </div>

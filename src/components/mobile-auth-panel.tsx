@@ -26,29 +26,11 @@ export function MobileAuthPanel() {
     }
 
     setLoading(true);
-    const loginResult = await auth.login(username, password);
-    if (loginResult.success) {
-      router.push("/");
-      return;
-    }
-
-    if (loginResult.message !== "用户名或密码错误") {
-      setLoading(false);
-      setError(loginResult.message);
-      return;
-    }
-
-    if (password.length < 6) {
-      setLoading(false);
-      setError("密码错误；创建新账号需至少 6 位密码");
-      return;
-    }
-
-    const registerResult = await auth.register(username, password);
+    const result = await auth.loginOrRegister(username.trim(), password);
     setLoading(false);
 
-    if (registerResult.success) router.push("/");
-    else setError(registerResult.message === "用户名已被注册" ? loginResult.message : registerResult.message);
+    if (result.success) router.push("/");
+    else setError(result.message);
   };
 
   return (

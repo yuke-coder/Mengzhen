@@ -327,7 +327,12 @@
     opacity: revert-layer !important;
   }
 
-  *:hover {
+  /* 仅禁用交互元素的 hover transition，避免误触；不作用于由状态驱动的弹出层自身 */
+  button:hover,
+  [role="button"]:hover,
+  a:hover,
+  [class*="hover:"]:hover,
+  .group:hover [class*="group-hover:"] {
     transition-duration: 0ms !important;
   }
 

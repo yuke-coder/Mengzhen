@@ -6,6 +6,7 @@ import { useRouter } from "next/navigation";
 import { MobileAuthPanel } from "@/components/mobile-auth-panel";
 import { useAuth } from "@/lib/auth-context";
 import { Spinner } from "@/components/ui/spinner";
+import { useIsMobile } from "@/hooks/use-mobile";
 import { Eye, EyeOff, LogIn } from "lucide-react";
 
 interface PupilProps {
@@ -146,7 +147,7 @@ const EyeBall = memo(({
 });
 EyeBall.displayName = 'EyeBall';
 
-export function AnimatedLoginPage() {
+function DesktopLoginPage() {
   const [showPassword, setShowPassword] = useState(false);
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
@@ -294,11 +295,7 @@ export function AnimatedLoginPage() {
   };
 
   return (
-    <>
-    <div className="md:hidden">
-      <MobileAuthPanel />
-    </div>
-    <div className="relative hidden min-h-screen md:grid lg:grid-cols-2">
+    <div className="relative min-h-screen grid lg:grid-cols-2">
       {/* 渐变动画背景 - 容器内绝对定位，不覆盖导航栏 */}
       <div className="absolute inset-0 bg-gradient-to-r from-[#ee7752] via-[#e73c7e] to-[#23a6d5] bg-[length:400%_400%] animate-gradient" />
       {/* 左侧渐变动画区域 */}
@@ -577,6 +574,9 @@ export function AnimatedLoginPage() {
           </div>
     </div>
     </div>
-    </>
   );
+}
+
+export function AnimatedLoginPage() {
+  return useIsMobile() ? <MobileAuthPanel /> : <DesktopLoginPage />;
 }

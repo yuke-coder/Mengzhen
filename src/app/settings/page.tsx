@@ -14,13 +14,6 @@ import { startTaskScheduler, stopTaskScheduler, getTaskScheduler } from "@/lib/t
 import DynamicBackground from "@/components/dynamic-background";
 import { SchedulerDebugPanel } from "@/components/scheduler-debug-panel";
 
-import {
-    Plus,
-    Upload,
-    Clock,
-    Volume2,
-} from "lucide-react";
-
 export default function CreatePage() {
     return (
         <Suspense fallback={<LoadingFallback />}>
@@ -130,22 +123,6 @@ function CreatePageContent() {
                             <p className="text-lg text-muted-foreground/70">上传音频 · 自定义定时 · 自动助眠播放</p>
                         </div>
 
-                        <div className="flex flex-wrap items-center justify-center gap-3">
-                            {[
-                                { icon: Upload, text: "音频上传", desc: "私人声音库" },
-                                { icon: Clock, text: "定时任务", desc: "按计划播放" },
-                                { icon: Volume2, text: "淡入淡出", desc: "减少惊醒" }
-                            ].map((item, idx) => <div key={idx} className="group relative flex items-center gap-3 px-5 py-3 transition-all duration-300 cursor-default">
-                                <div className="relative flex items-center justify-center w-10 h-10 rounded-xl bg-gradient-to-br from-[var(--brand-start)]/20 to-[var(--brand-end)]/20">
-                                    <item.icon className="w-5 h-5 text-[var(--brand-glow)]" />
-                                </div>
-                                <div className="relative flex flex-col">
-                                    <span className="text-sm font-medium text-foreground/90">{item.text}</span>
-                                    <span className="text-xs text-muted-foreground/60">{item.desc}</span>
-                                </div>
-                            </div>)}
-                        </div>
-
                         <AudioUpload
                             importFileKey={searchParams.get("fileKey") || undefined}
                             mode={playMode}
@@ -157,17 +134,6 @@ function CreatePageContent() {
                             onAudioRemoved={() => {}}
                         >
                             <div className="space-y-5 sm:space-y-6">
-                                <button
-                                    onClick={() => {
-                                        setEditingTask(null);
-                                        setShowTaskForm(true);
-                                    }}
-                                    className="w-full relative overflow-hidden px-5 sm:px-5 py-4 sm:py-3.5 rounded-xl font-bold text-sm transition-all duration-300 transform text-[#050510] hover:-translate-y-0.5 cursor-pointer flex items-center justify-center gap-2"
-                                    style={{ background: "linear-gradient(135deg, #00d4aa 0%, #00b894 50%, #00d4aa 100%)", boxShadow: "0 4px 15px rgba(0, 212, 170, 0.3)" }}
-                                >
-                                    <Plus className="w-4 h-4" />
-                                    新建任务
-                                </button>
                                 <TaskList tasks={tasks} onEdit={handleEditTask} onCreate={() => {
                                     setEditingTask(null);
                                     setShowTaskForm(true);

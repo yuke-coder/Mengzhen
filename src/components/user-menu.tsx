@@ -144,38 +144,46 @@ export function UserMenu() {
     const hasCustomAvatar = !!user.avatar_url;
 
     return (
-      <div className="relative" ref={menuRef} onMouseLeave={delayedHide}>
-         <button
-           onMouseEnter={() => { cancelDelayedHide(); setIsOpen(true); }}
-           className={cn(
-            "w-9 h-9 rounded-md overflow-hidden",
-           "border-2 border-[var(--brand-start)]/30",
-           "transition-all duration-250",
-           "hover:opacity-60 hover:shadow-lg hover:shadow-[var(--brand-start)]/25 hover:border-[var(--brand-start)]/60",
-           "focus:outline-none focus:ring-2 focus:ring-[var(--brand-start)]/40 focus:ring-offset-2 focus:ring-offset-background"
-         )}
-       >
-         {hasCustomAvatar && user.avatar_url ? (
+      <div className="relative" ref={menuRef}>
+        <button
+          onMouseEnter={() => { cancelDelayedHide(); setIsOpen(true); }}
+          className={cn(
+            "w-9 h-9 rounded-full overflow-hidden",
+            "border-2 border-[var(--brand-start)]/30",
+            "transition-all duration-200",
+            "hover:opacity-60 hover:shadow-lg hover:shadow-[var(--brand-start)]/25 hover:border-[var(--brand-start)]/60",
+            "focus:outline-none focus:ring-2 focus:ring-[var(--brand-start)]/40 focus:ring-offset-2 focus:ring-offset-background"
+          )}
+        >
+          {hasCustomAvatar && user.avatar_url ? (
             <img src={user.avatar_url} alt="头像" className="block w-full h-full object-cover" />
-         ) : (
-           <div className="w-full h-full bg-gradient-to-br from-[var(--brand-start)]/20 to-[var(--brand-end)]/20 flex items-center justify-center">
-             <User className="w-1/2 h-1/2 text-[var(--brand-end)]" />
-           </div>
-         )}
+          ) : (
+            <div className="w-full h-full bg-gradient-to-br from-[var(--brand-start)]/20 to-[var(--brand-end)]/20 flex items-center justify-center">
+              <User className="w-1/2 h-1/2 text-[var(--brand-end)]" />
+            </div>
+          )}
         </button>
 
         <div
           className={cn(
-            "absolute right-0 top-full mt-1.5 py-2 min-w-[240px] max-w-[300px]",
-            "rounded-xl bg-background/95 backdrop-blur-xl",
-            "border border-border/50 shadow-xl shadow-black/10",
-            "transition-all duration-200 ease-out origin-top-right z-[10000] isolation-isolate",
-            isOpen
-              ? "opacity-100 scale-100 translate-y-0 pointer-events-auto"
-              : "opacity-0 scale-95 -translate-y-1 pointer-events-none"
+            "absolute right-0 top-full pt-1.5 z-[10000] isolation-isolate",
+            isOpen ? "pointer-events-auto" : "pointer-events-none"
           )}
           onMouseEnter={cancelDelayedHide}
+          onMouseLeave={delayedHide}
         >
+          <div
+            data-user-menu-dropdown
+            className={cn(
+              "py-2 min-w-[240px] max-w-[300px]",
+              "rounded-xl bg-background/95 backdrop-blur-xl",
+              "border border-border/50 shadow-xl shadow-black/10",
+              "transition-all duration-200 ease-out origin-top-right will-change-[transform,opacity]",
+              isOpen
+                ? "opacity-100 scale-100 translate-y-0"
+                : "opacity-0 scale-95 -translate-y-1"
+            )}
+          >
           <ProfileCard user={user} onEditProfile={() => { setIsOpen(false); router.push('/profile'); }} />
 
           <div className="py-1">
@@ -208,6 +216,7 @@ export function UserMenu() {
           </div>
         </div>
       </div>
+    </div>
     );
   }
 
@@ -218,7 +227,7 @@ export function UserMenu() {
         title="登录"
         aria-label="登录"
         className={cn(
-          "flex size-9 items-center justify-center rounded-md md:hidden",
+          "flex size-9 items-center justify-center rounded-full md:hidden",
           "text-muted-foreground hover:text-foreground",
           "hover:bg-[var(--brand-start)]/5 active:bg-[var(--brand-start)]/10",
           "active:scale-95 transition-all duration-200"

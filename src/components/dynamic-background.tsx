@@ -2,11 +2,9 @@
 
 import { useMemo, useState, useEffect } from 'react';
 import { useTheme } from '@/lib/theme-context';
-import { usePathname } from 'next/navigation';
 
 export default function DynamicBackground() {
   const { resolvedTheme } = useTheme();
-  const pathname = usePathname();
   const [mounted, setMounted] = useState(false);
 
   useEffect(() => {
@@ -28,8 +26,6 @@ export default function DynamicBackground() {
   const stars1 = useMemo(() => generateStars(700, 1), []);
   const stars2 = useMemo(() => generateStars(200, 2), []);
   const stars3 = useMemo(() => generateStars(100, 3), []);
-
-  if (pathname?.startsWith('/auth/')) return null;
 
   if (isDark) {
     return (

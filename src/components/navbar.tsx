@@ -38,7 +38,7 @@ export default function Navbar({ activePage, onScrollToSection }: NavbarProps) {
   };
 
   return (
-    <header id="main-navbar" className="fixed top-0 left-0 right-0 z-[9999] isolation-isolate bg-background/80 backdrop-blur-xl border-b border-border/50">
+    <header id="main-navbar" className="fixed top-0 left-0 right-0 z-[9999] isolate bg-white/10 dark:bg-black/40 backdrop-blur-2xl backdrop-saturate-[180%] border-b border-black/5 dark:border-white/10 transition-colors duration-300">
       <div className="max-w-5xl mx-auto px-3 sm:px-6 h-12 sm:h-14 flex items-center justify-between relative">
         {/* 左侧：Logo + 品牌名 */}
         <div className="flex items-center gap-3 sm:gap-4 z-30">
