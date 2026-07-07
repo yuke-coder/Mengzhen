@@ -52,6 +52,8 @@ export function TaskModal({ visible, onClose, children }: TaskModalProps) {
   if (!mounted) return null;
 
   if (isMobile) {
+    const isFullScreen = snap === 1;
+
     return (
       <Drawer
         open={visible}
@@ -62,7 +64,15 @@ export function TaskModal({ visible, onClose, children }: TaskModalProps) {
         setActiveSnapPoint={setSnap}
         snapToSequentialPoint
       >
-        <DrawerContent className="h-[100dvh] max-h-none rounded-t-2xl border-t border-border/60 bg-background/70 backdrop-blur-xl dark:bg-background/35">
+        <DrawerContent
+          data-fullscreen={isFullScreen}
+          className={cn(
+            "h-[100dvh] max-h-none border-t border-border/60 bg-background/70 backdrop-blur-xl transition-[border-radius,box-shadow,background-color] duration-200 ease-[cubic-bezier(0.22,1,0.36,1)] dark:bg-background/35",
+            isFullScreen
+              ? "rounded-none bg-background/80 shadow-none dark:bg-background/45"
+              : "rounded-t-2xl shadow-[0_-18px_48px_rgba(0,0,0,0.14)] dark:shadow-[0_-18px_54px_rgba(0,0,0,0.35)]"
+          )}
+        >
           <DrawerTitle className="sr-only">新建任务</DrawerTitle>
           <button
             type="button"
@@ -71,7 +81,12 @@ export function TaskModal({ visible, onClose, children }: TaskModalProps) {
           >
             <X className="w-5 h-5" />
           </button>
-          <div className="flex-1 overflow-y-auto overscroll-contain px-4 pb-6 pt-4 -webkit-overflow-scrolling-touch">
+          <div
+            className={cn(
+              "flex-1 overflow-y-auto overscroll-contain px-4 pb-6 pt-4 -webkit-overflow-scrolling-touch",
+              isFullScreen && "mobile-task-sheet-fullscreen"
+            )}
+          >
             {children}
           </div>
         </DrawerContent>
