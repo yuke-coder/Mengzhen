@@ -6,6 +6,7 @@ import { useAuth } from "@/lib/auth-context";
 import { saveAudioBlob, deleteAudioBlob } from "@/lib/audio-db";
 import { TaskAudio } from "@/lib/task-types";
 import { cn } from "@/lib/utils";
+import { AUDIO_ACCEPT, AUDIO_EXTENSIONS } from "@/lib/audio-formats";
 import { Spinner } from "@/components/ui/spinner";
 import {
   Upload,
@@ -23,7 +24,6 @@ import {
 } from "lucide-react";
 
 const MAX_FILES = 20;
-const ALLOWED_EXTENSIONS = [".mp3", ".wav", ".ogg", ".m4a", ".flac", ".aac"];
 
 function formatFileSize(bytes: number): string {
   if (bytes < 1024) return bytes + " B";
@@ -131,9 +131,9 @@ export function AudioSection({
     (file: File): string | null => {
       const ext = "." + file.name.split(".").pop()?.toLowerCase();
       const typeOk = file.type.startsWith('audio/') || file.type === '';
-      const extOk = ALLOWED_EXTENSIONS.includes(ext);
+      const extOk = AUDIO_EXTENSIONS.includes(ext);
       if (!typeOk && !extOk) {
-        return `不支持的音频格式，请上传 ${ALLOWED_EXTENSIONS.join(", ")} 文件`;
+        return `不支持的音频格式，请上传 ${AUDIO_EXTENSIONS.join(", ")} 文件`;
       }
       if (audios.some((a) => a.file.name === file.name)) {
         return `文件 "${file.name}" 已存在`;
@@ -474,7 +474,7 @@ export function AudioSection({
         <input
           type="file"
           multiple
-          accept="audio/*,.mp3,.wav,.ogg,.m4a,.flac,.aac"
+          accept={AUDIO_ACCEPT}
           onChange={(e) => {
             e.stopPropagation();
             if (e.target.files) processFiles(e.target.files);

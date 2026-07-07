@@ -1,12 +1,11 @@
 import { NextRequest, NextResponse } from "next/server";
 import { getSupabaseClient } from "@/lib/supabase-client";
 import { getAuthUser } from "@/lib/auth";
+import { AUDIO_EXTENSIONS } from "@/lib/audio-formats";
 
 export const runtime = "nodejs";
 export const dynamic = "force-dynamic";
 export const maxDuration = 60;
-
-const ALLOWED_EXTENSIONS = [".mp3", ".wav", ".ogg", ".m4a", ".flac", ".aac"];
 
 function translateStorageError(rawMessage: string): string {
   const msg = (rawMessage || "").toLowerCase();
@@ -54,10 +53,10 @@ export async function POST(request: NextRequest) {
 
     const ext = "." + filename.split(".").pop()?.toLowerCase();
     const typeOk = fileType.startsWith("audio/") || fileType === "";
-    const extOk = ALLOWED_EXTENSIONS.includes(ext);
+    const extOk = AUDIO_EXTENSIONS.includes(ext);
     if (!typeOk && !extOk) {
       return NextResponse.json(
-        { success: false, error: `不支持的音频格式，请上传 ${ALLOWED_EXTENSIONS.join(", ")} 文件` },
+        { success: false, error: `不支持的音频格式，请上传 ${AUDIO_EXTENSIONS.join(", ")} 文件` },
         { status: 400 }
       );
     }

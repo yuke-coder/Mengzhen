@@ -40,7 +40,7 @@ export default function Navbar({ activePage, onScrollToSection }: NavbarProps) {
   return (
     <header
       id="main-navbar"
-      className="fixed top-0 left-0 right-0 z-[9999] isolate w-full border-b border-black/10 dark:border-white/10 bg-white/85 dark:bg-black/55 backdrop-blur-2xl backdrop-saturate-[180%] supports-[backdrop-filter]:bg-white/55 supports-[backdrop-filter]:dark:bg-black/35 transition-colors duration-300"
+      className="nav-fade-edge fixed top-0 left-0 right-0 z-[9999] isolate w-full"
     >
       <div className="max-w-5xl mx-auto px-3 sm:px-6 h-12 sm:h-14 flex items-center justify-between relative">
         {/* 左侧：Logo + 品牌名 */}

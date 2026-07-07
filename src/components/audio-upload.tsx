@@ -13,6 +13,7 @@ import { useRouter } from "next/navigation";
 import { toast } from "@/components/sonner";
 import { ModeSwitch } from "@/components/mode-switch";
 import { PlayMode } from "@/lib/task-types";
+import { AUDIO_ACCEPT, AUDIO_EXTENSIONS } from "@/lib/audio-formats";
 import {
   Upload,
   Music2,
@@ -70,7 +71,6 @@ const dragStyles = `
 `;
 
 const MAX_FILES = 20;
-const ALLOWED_EXTENSIONS = [".mp3", ".wav", ".ogg", ".m4a", ".flac", ".aac"];
 
 function formatFileSize(bytes: number): string {
   if (bytes < 1024) return bytes + " B";
@@ -577,9 +577,9 @@ export function AudioUpload({
     // PWA standalone 模式下，部分浏览器可能不报告 MIME 类型（file.type 为空）
     // 此时仅通过扩展名验证
     const typeOk = file.type.startsWith('audio/') || file.type === '';
-    const extOk = ALLOWED_EXTENSIONS.includes(ext);
+    const extOk = AUDIO_EXTENSIONS.includes(ext);
     if (!typeOk && !extOk) {
-      return `不支持的音频格式，请上传 ${ALLOWED_EXTENSIONS.join(", ")} 文件`;
+      return `不支持的音频格式，请上传 ${AUDIO_EXTENSIONS.join(", ")} 文件`;
     }
     if (audios.some((a) => a.file.name === file.name)) {
       return `文件 "${file.name}" 已存在`;
@@ -1284,7 +1284,7 @@ export function AudioUpload({
         <input
           type="file"
           multiple
-          accept="audio/*,.mp3,.wav,.ogg,.m4a,.flac,.aac"
+          accept={AUDIO_ACCEPT}
           onChange={handleFileSelect}
           disabled={disabled}
           className="absolute inset-0 w-full h-full opacity-0 cursor-pointer z-10"
