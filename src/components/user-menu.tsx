@@ -148,7 +148,7 @@ export function UserMenu() {
          <button
            onMouseEnter={() => { cancelDelayedHide(); setIsOpen(true); }}
            className={cn(
-            "w-9 h-9 rounded-full overflow-hidden",
+            "w-9 h-9 rounded-md overflow-hidden",
            "border-2 border-[var(--brand-start)]/30",
            "transition-all duration-250",
            "hover:opacity-60 hover:shadow-lg hover:shadow-[var(--brand-start)]/25 hover:border-[var(--brand-start)]/60",
@@ -218,7 +218,7 @@ export function UserMenu() {
         title="登录"
         aria-label="登录"
         className={cn(
-          "flex size-9 items-center justify-center rounded-full md:hidden",
+          "flex size-9 items-center justify-center rounded-md md:hidden",
           "text-muted-foreground hover:text-foreground",
           "hover:bg-[var(--brand-start)]/5 active:bg-[var(--brand-start)]/10",
           "active:scale-95 transition-all duration-200"
