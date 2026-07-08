@@ -7,6 +7,7 @@ import { saveAudioBlob, deleteAudioBlob } from "@/lib/audio-db";
 import { TaskAudio } from "@/lib/task-types";
 import { cn } from "@/lib/utils";
 import { AUDIO_ACCEPT, AUDIO_EXTENSIONS } from "@/lib/audio-formats";
+import { MAX_FILES, formatFileSize, formatDuration, type AudioItemBase } from "@/lib/audio-utils";
 import { Spinner } from "@/components/ui/spinner";
 import {
   Upload,
@@ -23,32 +24,8 @@ import {
   VolumeX,
 } from "lucide-react";
 
-const MAX_FILES = 20;
-
-function formatFileSize(bytes: number): string {
-  if (bytes < 1024) return bytes + " B";
-  if (bytes < 1024 * 1024) return (bytes / 1024).toFixed(1) + " KB";
-  return (bytes / (1024 * 1024)).toFixed(1) + " MB";
-}
-
-function formatDuration(seconds: number): string {
-  const m = Math.floor(seconds / 60);
-  const s = Math.floor(seconds % 60);
-  return `${m}:${s.toString().padStart(2, "0")}`;
-}
-
-interface AudioSectionItem {
-  id: string;
-  name: string;
+interface AudioSectionItem extends AudioItemBase {
   file: File;
-  url: string;
-  duration: number;
-  fileKey?: string;
-  serverUrl?: string;
-  dbKey?: string;
-  uploading?: boolean;
-  uploadProgress?: number;
-  uploadError?: string | null;
 }
 
 interface AudioSectionProps {
@@ -183,7 +160,7 @@ export function AudioSection({
           });
 
           xhr.addEventListener("error", () => reject(new Error("网络错误")));
-          xhr.open("POST", "/api/audio/upload?save_to_files=false");
+          xhr.open("POST", "/api/audio/upload?save_to_files=true");
           xhr.send(formData);
         });
 
@@ -197,6 +174,7 @@ export function AudioSection({
               a.id === id
                 ? {
                     ...a,
+                    url: response.audio_url,
                     serverUrl: response.audio_url,
                     fileKey: response.file_key,
                     uploading: false,
@@ -455,34 +433,26 @@ export function AudioSection({
 
   return (
     <div className="space-y-4">
-      <div
-        onDragOver={(e) => {
-          e.preventDefault();
-          setDragOver(true);
-        }}
+      <label
+        htmlFor="audio-file-input-section"
+        onDragOver={(e) => { e.preventDefault(); setDragOver(true); }}
         onDragLeave={() => setDragOver(false)}
-        onDrop={(e) => {
-          e.preventDefault();
-          setDragOver(false);
-          processFiles(e.dataTransfer.files);
-        }}
+        onDrop={(e) => { e.preventDefault(); setDragOver(false); processFiles(e.dataTransfer.files); }}
         className={cn(
-          "relative p-6 transition-all duration-300 cursor-pointer",
+          "relative block p-6 transition-all duration-300 cursor-pointer rounded-2xl select-none touch-manipulation active:scale-[0.98]",
           dragOver && "scale-[1.02]"
         )}
       >
         <input
+          id="audio-file-input-section"
           type="file"
           multiple
           accept={AUDIO_ACCEPT}
-          onChange={(e) => {
-            e.stopPropagation();
-            if (e.target.files) processFiles(e.target.files);
-            e.currentTarget.value = "";
-          }}
-          className="absolute inset-0 w-full h-full opacity-0 cursor-pointer z-10"
+          onChange={(e) => { e.stopPropagation(); if (e.target.files) processFiles(e.target.files); e.currentTarget.value = ""; }}
+          className="sr-only"
+          tabIndex={-1}
         />
-        <div className="flex flex-col items-center gap-2.5">
+        <div className="flex flex-col items-center gap-2.5 pointer-events-none">
           <div
             className={cn(
               "p-2.5 rounded-full bg-[var(--brand-glow)]/10 transition-transform duration-300",
@@ -502,7 +472,7 @@ export function AudioSection({
             )}
           </div>
         </div>
-      </div>
+      </label>
 
       {showGuestTip && (
         <div className="flex items-center justify-between gap-3 p-3 rounded-xl bg-amber-100/60 dark:bg-amber-950/20 border border-amber-500/30 dark:border-amber-900/30 animate-in fade-in slide-in-from-top-2 duration-200">

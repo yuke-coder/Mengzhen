@@ -14,6 +14,7 @@ import { toast } from "@/components/sonner";
 import { ModeSwitch } from "@/components/mode-switch";
 import { PlayMode } from "@/lib/task-types";
 import { AUDIO_ACCEPT, AUDIO_EXTENSIONS } from "@/lib/audio-formats";
+import { MAX_FILES, formatFileSize, formatDuration, type AudioItemBase } from "@/lib/audio-utils";
 import {
   Upload,
   Music2,
@@ -46,23 +47,10 @@ const dragStyles = `
     cursor: grabbing !important;
   }
 
-  .audio-list-container [data-audio-item].dragging-item:active {
-    cursor: grabbing !important;
-  }
-
   @keyframes dragFeedback {
-    0% {
-      transform: scale(1);
-      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-    }
-    50% {
-      transform: scale(1.02);
-      box-shadow: 0 12px 28px rgba(0, 0, 0, 0.15);
-    }
-    100% {
-      transform: scale(1.02);
-      box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
-    }
+    0% { transform: scale(1); box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1); }
+    50% { transform: scale(1.02); box-shadow: 0 12px 28px rgba(0, 0, 0, 0.15); }
+    100% { transform: scale(1.02); box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15); }
   }
 
   .audio-list-container [data-audio-item]:active:not(.dragging-item) {
@@ -70,32 +58,8 @@ const dragStyles = `
   }
 `;
 
-const MAX_FILES = 20;
-
-function formatFileSize(bytes: number): string {
-  if (bytes < 1024) return bytes + " B";
-  if (bytes < 1024 * 1024) return (bytes / 1024).toFixed(1) + " KB";
-  return (bytes / (1024 * 1024)).toFixed(1) + " MB";
-}
-
-function formatDuration(seconds: number): string {
-  const m = Math.floor(seconds / 60);
-  const s = Math.floor(seconds % 60);
-  return `${m}:${s.toString().padStart(2, "0")}`;
-}
-
-interface AudioItem {
-  id: string;
-  name: string;
+interface AudioItem extends AudioItemBase {
   file: File;
-  url: string;
-  duration: number;
-  fileKey?: string;
-  serverUrl?: string;
-  dbKey?: string; // IndexedDB key，游客也能跨页面播放
-  uploading?: boolean;
-  uploadProgress?: number;
-  uploadError?: string | null;
 }
 
 interface AudioUploadProps {
@@ -629,7 +593,7 @@ export function AudioUpload({
         });
 
         xhr.addEventListener("error", () => reject(new Error("网络错误")));
-        xhr.open("POST", "/api/audio/upload?save_to_files=false");
+        xhr.open("POST", "/api/audio/upload?save_to_files=true");
         xhr.send(formData);
       });
 
@@ -640,7 +604,14 @@ export function AudioUpload({
         setAudios((prev) => {
           const updated = prev.map((a) =>
             a.id === id
-              ? { ...a, serverUrl: response.audio_url, fileKey: response.file_key, uploading: false, uploadProgress: 100 }
+              ? {
+                  ...a,
+                  url: response.audio_url,
+                  serverUrl: response.audio_url,
+                  fileKey: response.file_key,
+                  uploading: false,
+                  uploadProgress: 100,
+                }
               : a
           );
           onAudioUploaded?.(updated);
@@ -885,7 +856,17 @@ export function AudioUpload({
       if (response.success) {
         setAudios((prev) => {
           const updated = prev.map((a) =>
-            a.id === id ? { ...a, serverUrl: response.audio_url, fileKey: response.file_key, uploading: false, uploadProgress: 100, savedToFiles: true } : a
+            a.id === id
+              ? {
+                  ...a,
+                  url: response.audio_url,
+                  serverUrl: response.audio_url,
+                  fileKey: response.file_key,
+                  uploading: false,
+                  uploadProgress: 100,
+                  savedToFiles: true,
+                }
+              : a
           );
           onAudioUploaded?.(updated);
           return updated;
@@ -1264,32 +1245,28 @@ export function AudioUpload({
       {mode === "default" && (
       <>
       {/* 上传区域 - 设置页最上层独立展示 */}
-      <div
-        onDragOver={(e) => {
-          e.preventDefault();
-          if (!disabled) setDragOver(true);
-        }}
+      <label
+        htmlFor="audio-file-input-main"
+        onDragOver={(e) => { e.preventDefault(); !disabled && setDragOver(true); }}
         onDragLeave={() => setDragOver(false)}
-        onDrop={(e) => {
-          if (disabled) return;
-          e.preventDefault();
-          processFiles(e.dataTransfer.files);
-        }}
+        onDrop={(e) => { e.preventDefault(); if (!disabled) { setDragOver(false); processFiles(e.dataTransfer.files); } }}
         className={cn(
-          "relative p-4 sm:p-8 transition-all duration-300 cursor-pointer",
+          "relative block p-4 sm:p-8 transition-all duration-300 cursor-pointer rounded-2xl select-none touch-manipulation active:scale-[0.98]",
           dragOver && !disabled && "scale-[1.02]",
-          disabled && "opacity-50 cursor-not-allowed"
+          disabled && "opacity-50 cursor-not-allowed pointer-events-none"
         )}
       >
         <input
+          id="audio-file-input-main"
           type="file"
           multiple
           accept={AUDIO_ACCEPT}
           onChange={handleFileSelect}
           disabled={disabled}
-          className="absolute inset-0 w-full h-full opacity-0 cursor-pointer z-10"
+          className="sr-only"
+          tabIndex={-1}
         />
-        <div className="flex flex-col items-center gap-3 sm:gap-3 py-2 sm:py-0">
+        <div className="flex flex-col items-center gap-3 sm:gap-3 py-2 sm:py-0 pointer-events-none">
           <div className={cn(
             "p-3 sm:p-3 rounded-full bg-[var(--brand-glow)]/10 transition-transform duration-300",
             dragOver && !disabled && "scale-110"
@@ -1307,7 +1284,7 @@ export function AudioUpload({
             )}
           </div>
         </div>
-      </div>
+      </label>
 
       {/* 游客提示 */}
       {showGuestTip && (
@@ -1701,7 +1678,7 @@ export function AudioUpload({
         {/* 播放时段设置 - 仅默认模式显示 */}
         {mode === "default" && (
         <div>
-          <div className="p-3 sm:p-5 space-y-4">
+          <div className="p-3 sm:p-5 space-y-3 sm:space-y-4">
             <div className="flex items-center justify-between">
               <label className="text-xs font-medium text-muted-foreground flex items-center gap-1.5">
                 <Timer className="w-3.5 h-3.5" />
@@ -1724,72 +1701,82 @@ export function AudioUpload({
               })()}
             </div>
 
-              <WheelDateTimePicker
-                label="开始时间"
-                value={startTime}
-                onChange={(v) => {
-                  setStartTime(v);
-                  validateStartTime(v);
-                }}
-              />
+              <div className="space-y-2 sm:space-y-3">
+                <WheelDateTimePicker
+                  label="开始时间"
+                  value={startTime}
+                  onChange={(v) => {
+                    setStartTime(v);
+                    validateStartTime(v);
+                  }}
+                />
 
-              <WheelDateTimePicker
-                label="结束时间"
-                value={endTime}
-                onChange={(v) => {
-                  setEndTime(v);
-                  validateEndTime(v, startTime);
-                }}
-              />
+                <WheelDateTimePicker
+                  label="结束时间"
+                  value={endTime}
+                  onChange={(v) => {
+                    setEndTime(v);
+                    validateEndTime(v, startTime);
+                  }}
+                />
+              </div>
 
               {!isStartTimeValid && (
-                <div className="px-3 py-1.5 bg-red-500/10 border border-red-500/30 rounded-lg flex items-center gap-2">
+                <div className="mt-1 px-3 py-1.5 bg-red-500/10 border border-red-500/30 rounded-lg flex items-center gap-2">
                   <AlertCircle className="w-3.5 h-3.5 text-red-400" />
                   <span className="text-xs text-red-400">{startTimeError}</span>
                 </div>
               )}
 
               {!isEndTimeValid && (
-                <div className="px-3 py-1.5 bg-red-500/10 border border-red-500/30 rounded-lg flex items-center gap-2">
+                <div className="mt-1 px-3 py-1.5 bg-red-500/10 border border-red-500/30 rounded-lg flex items-center gap-2">
                   <AlertCircle className="w-3.5 h-3.5 text-red-400" />
                   <span className="text-xs text-red-400">{endTimeError}</span>
                 </div>
               )}
 
-              <div className="pt-2 space-y-4">
-                <div className="flex items-center justify-between">
-                  <span className="text-xs text-muted-foreground/60 font-medium uppercase tracking-wider">音量渐入</span>
-                  <span className="text-sm font-mono text-foreground tabular-nums">{fadeInDuration}s</span>
+              <div className="pt-3 space-y-4">
+                <div className="space-y-1.5">
+                  <div className="flex items-center justify-between">
+                    <span className="text-xs text-muted-foreground/60 font-medium uppercase tracking-wider">音量渐入</span>
+                    <span className="text-sm font-mono text-foreground tabular-nums">{fadeInDuration}s</span>
+                  </div>
+                  <div className="py-0.5">
+                    <input
+                      type="range"
+                      min={0}
+                      max={120}
+                      value={fadeInDuration}
+                      onChange={(e) => setFadeInDuration(parseInt(e.target.value))}
+                      className="w-full h-2 rounded-full appearance-none bg-border/30 cursor-pointer [&::-webkit-slider-thumb]:appearance-none [&::-webkit-slider-thumb]:w-5 [&::-webkit-slider-thumb]:h-5 [&::-webkit-slider-thumb]:rounded-full [&::-webkit-slider-thumb]:bg-white [&::-webkit-slider-thumb]:shadow-md [&::-webkit-slider-thumb]:cursor-pointer [&::-webkit-slider-thumb]:transition-transform [&::-webkit-slider-thumb]:hover:scale-125"
+                      style={{
+                        background: `linear-gradient(to right, var(--brand-start) ${(fadeInDuration / 120) * 100}%, rgba(128,128,128,0.2) ${(fadeInDuration / 120) * 100}%)`,
+                      }}
+                    />
+                  </div>
                 </div>
-                <input
-                  type="range"
-                  min={0}
-                  max={120}
-                  value={fadeInDuration}
-                  onChange={(e) => setFadeInDuration(parseInt(e.target.value))}
-                  className="w-full h-2 rounded-full appearance-none bg-border/30 cursor-pointer [&::-webkit-slider-thumb]:appearance-none [&::-webkit-slider-thumb]:w-5 [&::-webkit-slider-thumb]:h-5 [&::-webkit-slider-thumb]:rounded-full [&::-webkit-slider-thumb]:bg-white [&::-webkit-slider-thumb]:shadow-md [&::-webkit-slider-thumb]:cursor-pointer [&::-webkit-slider-thumb]:transition-transform [&::-webkit-slider-thumb]:hover:scale-125"
-                  style={{
-                    background: `linear-gradient(to right, var(--brand-start) ${(fadeInDuration / 120) * 100}%, rgba(128,128,128,0.2) ${(fadeInDuration / 120) * 100}%)`,
-                  }}
-                />
 
-                <div className="flex items-center justify-between">
-                  <span className="text-xs text-muted-foreground/60 font-medium uppercase tracking-wider">音量渐出</span>
-                  <span className="text-sm font-mono text-foreground tabular-nums">{fadeOutDuration}s</span>
+                <div className="space-y-1.5">
+                  <div className="flex items-center justify-between">
+                    <span className="text-xs text-muted-foreground/60 font-medium uppercase tracking-wider">音量渐出</span>
+                    <span className="text-sm font-mono text-foreground tabular-nums">{fadeOutDuration}s</span>
+                  </div>
+                  <div className="py-0.5">
+                    <input
+                      type="range"
+                      min={0}
+                      max={120}
+                      value={fadeOutDuration}
+                      onChange={(e) => setFadeOutDuration(parseInt(e.target.value))}
+                      className="w-full h-2 rounded-full appearance-none bg-border/30 cursor-pointer [&::-webkit-slider-thumb]:appearance-none [&::-webkit-slider-thumb]:w-5 [&::-webkit-slider-thumb]:h-5 [&::-webkit-slider-thumb]:rounded-full [&::-webkit-slider-thumb]:bg-white [&::-webkit-slider-thumb]:shadow-md [&::-webkit-slider-thumb]:cursor-pointer [&::-webkit-slider-thumb]:transition-transform [&::-webkit-slider-thumb]:hover:scale-125"
+                      style={{
+                        background: `linear-gradient(to right, var(--brand-start) ${(fadeOutDuration / 120) * 100}%, rgba(128,128,128,0.2) ${(fadeOutDuration / 120) * 100}%)`,
+                      }}
+                    />
+                  </div>
                 </div>
-                <input
-                  type="range"
-                  min={0}
-                  max={120}
-                  value={fadeOutDuration}
-                  onChange={(e) => setFadeOutDuration(parseInt(e.target.value))}
-                  className="w-full h-2 rounded-full appearance-none bg-border/30 cursor-pointer [&::-webkit-slider-thumb]:appearance-none [&::-webkit-slider-thumb]:w-5 [&::-webkit-slider-thumb]:h-5 [&::-webkit-slider-thumb]:rounded-full [&::-webkit-slider-thumb]:bg-white [&::-webkit-slider-thumb]:shadow-md [&::-webkit-slider-thumb]:cursor-pointer [&::-webkit-slider-thumb]:transition-transform [&::-webkit-slider-thumb]:hover:scale-125"
-                  style={{
-                    background: `linear-gradient(to right, var(--brand-start) ${(fadeOutDuration / 120) * 100}%, rgba(128,128,128,0.2) ${(fadeOutDuration / 120) * 100}%)`,
-                  }}
-                />
 
-                <div className="mt-2 p-2.5">
+                <div className="p-2.5 bg-muted/20 rounded-lg">
                   <p className="text-xs text-muted-foreground leading-relaxed">
                     💡 渐入将在开始时间前开始播放，渐出将在结束时间后完成。实际播放时段 = 目标音量时段。
                   </p>

@@ -20,7 +20,7 @@ export interface WheelDateTimePickerProps {
   label: string;
 }
 
-const ITEM_HEIGHT = 40;
+const ITEM_HEIGHT = 36;
 const VISIBLE_COUNT = 5;
 const centerOffset = (VISIBLE_COUNT * ITEM_HEIGHT) / 2 - ITEM_HEIGHT / 2;
 
@@ -30,6 +30,7 @@ interface WheelPickerColumnProps {
   onChange: (value: number) => void;
   label: string;
   isDark?: boolean;
+  loop?: boolean;
 }
 
 const formatDateTime = (v: DateTimeValue) =>
@@ -39,32 +40,88 @@ const makeOptions = (count: number, start = 0, pad = 2) =>
   Array.from({ length: count }, (_, i) => ({ value: start + i, label: String(start + i).padStart(pad, "0") }));
 const clampIndex = (index: number, length: number) => Math.max(0, Math.min(length - 1, index));
 
-function WheelPickerColumn({ items, value, onChange, label, isDark = false }: WheelPickerColumnProps) {
+function WheelPickerColumn({ items, value, onChange, label, isDark = false, loop = false }: WheelPickerColumnProps) {
   const scrollerRef = useRef<HTMLDivElement>(null);
   const commitTimerRef = useRef<ReturnType<typeof setTimeout> | null>(null);
+  const isResettingRef = useRef(false);
+  const baseLen = items.length;
+
+  const displayItems = useMemo(() => {
+    if (!loop || baseLen === 0) return items;
+    return [...items, ...items, ...items];
+  }, [items, loop, baseLen]);
+
   const selectedIndex = items.findIndex(item => item.value === value);
-  const currentIndex = selectedIndex >= 0 ? selectedIndex : Math.floor(items.length / 2);
+  const currentIndex = selectedIndex >= 0 ? selectedIndex : Math.floor(baseLen / 2);
+  const initialScrollIndex = loop ? currentIndex + baseLen : currentIndex;
+
+  const getRealIndex = useCallback((scrollPos: number) => {
+    const rawIdx = Math.round(scrollPos / ITEM_HEIGHT);
+    if (!loop) return clampIndex(rawIdx, baseLen);
+    return ((rawIdx % baseLen) + baseLen) % baseLen;
+  }, [loop, baseLen]);
+
+  const checkAndResetLoop = useCallback(() => {
+    if (!loop) return;
+    const el = scrollerRef.current;
+    if (!el) return;
+    const scrollTop = el.scrollTop;
+    const singleLen = baseLen * ITEM_HEIGHT;
+    let newTop = scrollTop;
+    if (scrollTop < singleLen * 0.5) {
+      newTop = scrollTop + singleLen;
+    } else if (scrollTop > singleLen * 2.5) {
+      newTop = scrollTop - singleLen;
+    }
+    if (newTop !== scrollTop) {
+      isResettingRef.current = true;
+      el.scrollTop = newTop;
+      requestAnimationFrame(() => {
+        isResettingRef.current = false;
+      });
+    }
+  }, [loop, baseLen]);
 
   useEffect(() => {
     const el = scrollerRef.current;
-    if (el && Math.round(el.scrollTop / ITEM_HEIGHT) !== currentIndex) {
-      el.scrollTop = currentIndex * ITEM_HEIGHT;
+    if (!el) return;
+    const targetTop = initialScrollIndex * ITEM_HEIGHT;
+    if (Math.abs(el.scrollTop - targetTop) > 1) {
+      isResettingRef.current = true;
+      el.scrollTop = targetTop;
+      requestAnimationFrame(() => {
+        isResettingRef.current = false;
+      });
     }
-  }, [currentIndex]);
+  }, [initialScrollIndex]);
 
   const commitIndex = useCallback((index: number) => {
-    const item = items[index];
+    const realIdx = loop ? ((index % baseLen) + baseLen) % baseLen : clampIndex(index, baseLen);
+    const item = items[realIdx];
     if (!item) return;
     const el = scrollerRef.current;
-    if (el) el.scrollTop = index * ITEM_HEIGHT;
+    if (el) {
+      const targetIdx = loop ? realIdx + baseLen : realIdx;
+      isResettingRef.current = true;
+      el.scrollTop = targetIdx * ITEM_HEIGHT;
+      requestAnimationFrame(() => {
+        isResettingRef.current = false;
+      });
+    }
     if (item.value !== value) onChange(item.value);
-  }, [items, onChange, value]);
+  }, [items, onChange, value, loop, baseLen]);
 
   const handleScroll = useCallback((e: React.UIEvent<HTMLDivElement>) => {
-    const index = clampIndex(Math.round(e.currentTarget.scrollTop / ITEM_HEIGHT), items.length);
+    if (isResettingRef.current) return;
+    checkAndResetLoop();
+    const el = e.currentTarget;
+    const index = getRealIndex(el.scrollTop);
     if (commitTimerRef.current) clearTimeout(commitTimerRef.current);
-    commitTimerRef.current = setTimeout(() => commitIndex(index), 90);
-  }, [commitIndex, items.length]);
+    commitTimerRef.current = setTimeout(() => {
+      const realIdx = loop ? ((index % baseLen) + baseLen) % baseLen : index;
+      commitIndex(loop ? realIdx + baseLen : realIdx);
+    }, 90);
+  }, [checkAndResetLoop, getRealIndex, commitIndex, loop, baseLen]);
 
   useEffect(() => {
     return () => {
@@ -107,11 +164,12 @@ function WheelPickerColumn({ items, value, onChange, label, isDark = false }: Wh
           }}
           suppressHydrationWarning
         >
-          {items.map((item, index) => {
+          {displayItems.map((item, displayIndex) => {
+            const realIdx = loop ? displayIndex - baseLen : displayIndex;
             const isSelected = item.value === value;
             return (
               <div
-                key={item.value}
+                key={`${item.value}-${displayIndex}`}
                 className={cn(
                   "flex w-full snap-center items-center justify-center",
                   isSelected
@@ -121,7 +179,12 @@ function WheelPickerColumn({ items, value, onChange, label, isDark = false }: Wh
                 style={{
                   height: ITEM_HEIGHT,
                 }}
-                onClick={() => commitIndex(index)}
+                onClick={() => {
+                  const targetIdx = loop
+                    ? (realIdx < 0 ? displayIndex + baseLen : realIdx >= baseLen ? displayIndex - baseLen : displayIndex)
+                    : displayIndex;
+                  commitIndex(targetIdx);
+                }}
                 suppressHydrationWarning
               >
                 {item.label}
@@ -165,20 +228,19 @@ export const WheelDateTimePicker = React.memo(function WheelDateTimePicker({ val
   const minuteOptions = useMemo(() => makeOptions(60), []);
   const secondOptions = useMemo(() => makeOptions(60), []);
 
-  // 桌面端：年、月、日、时、分、秒
   const desktopColumns = [
-    { options: yearOptions, key: 'year' as const, label: '年' },
-    { options: monthOptions, key: 'month' as const, label: '月' },
-    { options: dayOptions, key: 'day' as const, label: '日' },
-    { options: hourOptions, key: 'hour' as const, label: '时' },
-    { options: minuteOptions, key: 'minute' as const, label: '分' },
-    { options: secondOptions, key: 'second' as const, label: '秒' },
+    { options: yearOptions, key: 'year' as const, label: '年', loop: false },
+    { options: monthOptions, key: 'month' as const, label: '月', loop: true },
+    { options: dayOptions, key: 'day' as const, label: '日', loop: false },
+    { options: hourOptions, key: 'hour' as const, label: '时', loop: true },
+    { options: minuteOptions, key: 'minute' as const, label: '分', loop: true },
+    { options: secondOptions, key: 'second' as const, label: '秒', loop: true },
   ];
 
   const mobileColumns = [
-    { options: dayOptions, key: 'day' as const, label: '日' },
-    { options: hourOptions, key: 'hour' as const, label: '时' },
-    { options: minuteOptions, key: 'minute' as const, label: '分' },
+    { options: dayOptions, key: 'day' as const, label: '日', loop: false },
+    { options: hourOptions, key: 'hour' as const, label: '时', loop: true },
+    { options: minuteOptions, key: 'minute' as const, label: '分', loop: true },
   ];
   const columns = isMobile ? mobileColumns : desktopColumns;
   const displayValue = formatDateTime(safeValue);
@@ -189,7 +251,7 @@ export const WheelDateTimePicker = React.memo(function WheelDateTimePicker({ val
         <span>{label}</span>
         <span className="font-mono text-xs tabular-nums opacity-70" suppressHydrationWarning>{displayValue}</span>
       </div>
-      <div className="flex items-center gap-1">
+      <div className="flex items-center gap-0.5 sm:gap-1">
         {columns.map(col => (
           <WheelPickerColumn
             key={col.key}
@@ -198,6 +260,7 @@ export const WheelDateTimePicker = React.memo(function WheelDateTimePicker({ val
             onChange={handleChange(col.key)}
             label={col.label}
             isDark={isDark}
+            loop={col.loop}
           />
         ))}
       </div>

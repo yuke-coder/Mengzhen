@@ -127,10 +127,15 @@ export async function POST(request: NextRequest) {
         name: filename,
         size: fileSize,
         mime_type: fileType || `audio/${fileExt.slice(1)}`,
+        metadata: { duration: 0 },
       });
 
       if (fileError) {
-        console.error("[Audio Upload] audio_files 表写入失败:", fileError);
+        if (fileError.code === "23505") {
+          console.log("[Audio Upload] audio_files 记录已存在，跳过");
+        } else {
+          console.error("[Audio Upload] audio_files 表写入失败:", fileError);
+        }
       }
     }
 

@@ -28,9 +28,9 @@ function ProfileCard({ user, onEditProfile }: { user: NonNullable<ReturnType<typ
   const hasCustomAvatar = !!user.avatar_url;
 
   return (
-    <div className="px-4 py-3 border-b border-border/50">
+    <div className="px-4 py-3 border-b border-black/[0.06] dark:border-white/[0.08]">
       <div className="flex items-center gap-3">
-        <div className="w-12 h-12 rounded-full overflow-hidden border-2 border-[var(--brand-start)]/30 shadow-md flex-shrink-0">
+        <div className="w-12 h-12 rounded-full overflow-hidden border-2 border-[var(--brand-start)]/30 flex-shrink-0">
           {hasCustomAvatar && user.avatar_url ? (
             <img src={user.avatar_url} alt="头像" className="w-full h-full object-cover" />
           ) : (
@@ -57,7 +57,7 @@ function ProfileCard({ user, onEditProfile }: { user: NonNullable<ReturnType<typ
 
       <button
         onClick={onEditProfile}
-        className="mt-2 w-full px-3 py-1.5 rounded-lg text-xs font-medium text-center transition-all border border-border text-muted-foreground hover:text-foreground hover:border-[var(--brand-start)]/50 bg-white/[0.06] dark:bg-white/[0.04] hover:bg-[var(--brand-start)]/10"
+        className="mt-2 w-full px-3 py-1.5 rounded-lg text-xs font-medium text-center transition-all border border-black/[0.08] dark:border-white/[0.1] text-muted-foreground hover:text-foreground hover:border-[var(--brand-start)]/40 bg-black/[0.02] dark:bg-white/[0.04] hover:bg-black/[0.04] dark:hover:bg-white/[0.06]"
       >
         编辑个人资料
       </button>
@@ -134,7 +134,7 @@ export function UserMenu() {
 
   if (loading) {
     return (
-      <div className="flex items-center gap-2 px-4 py-2">
+      <div className="shrink-0 w-9 h-9 flex items-center justify-center">
         <Spinner size="sm" className="h-4 w-4 text-muted-foreground" />
       </div>
     );
@@ -147,11 +147,12 @@ export function UserMenu() {
       <div className="relative" ref={menuRef}>
         <button
           onMouseEnter={() => { cancelDelayedHide(); setIsOpen(true); }}
+          onClick={() => setIsOpen(!isOpen)}
           className={cn(
-            "w-9 h-9 rounded-full overflow-hidden",
+            "shrink-0 w-9 h-9 rounded-full overflow-hidden",
             "border-2 border-[var(--brand-start)]/30",
-            "transition-all duration-200",
-            "hover:opacity-60 hover:shadow-lg hover:shadow-[var(--brand-start)]/25 hover:border-[var(--brand-start)]/60",
+            "transition-all duration-200 active:scale-95",
+            "hover:border-[var(--brand-start)]/60 hover:shadow-lg hover:shadow-[var(--brand-start)]/25",
             "focus:outline-none focus:ring-2 focus:ring-[var(--brand-start)]/40 focus:ring-offset-2 focus:ring-offset-background"
           )}
         >
@@ -176,8 +177,11 @@ export function UserMenu() {
             data-user-menu-dropdown
             className={cn(
               "py-2 min-w-[240px] max-w-[300px]",
-              "rounded-xl bg-background/95 backdrop-blur-xl",
-              "border border-border/50 shadow-xl shadow-black/10",
+              "rounded-xl bg-white/60 dark:bg-black/40",
+              "backdrop-blur-[8px] backdrop-saturate-115",
+              "-webkit-backdrop-blur-[8px] -webkit-backdrop-saturate-115",
+              "border border-white/20 dark:border-white/10",
+              "shadow-lg shadow-black/[0.08]",
               "transition-all duration-200 ease-out origin-top-right will-change-[transform,opacity]",
               isOpen
                 ? "opacity-100 scale-100 translate-y-0"
@@ -186,14 +190,14 @@ export function UserMenu() {
           >
           <ProfileCard user={user} onEditProfile={() => { setIsOpen(false); router.push('/profile'); }} />
 
-          <div className="py-1">
+          <div className="py-1 px-2">
             <Link
               href="/history"
               onClick={() => setIsOpen(false)}
               className={cn(
-                "flex items-center gap-3 w-full px-4 py-2.5 text-left",
+                "flex items-center gap-3 w-full px-3 py-2 text-left rounded-lg",
                 "text-sm text-muted-foreground hover:text-foreground",
-                "hover:bg-muted/50 transition-colors duration-150"
+                "hover:bg-black/[0.04] dark:hover:bg-white/[0.06] transition-colors duration-150"
               )}
             >
               <History className="w-4 h-4" />
@@ -201,11 +205,11 @@ export function UserMenu() {
             </Link>
           </div>
 
-          <div className="border-t border-border/50 pt-1">
+          <div className="border-t border-black/[0.06] dark:border-white/[0.08] pt-1 pb-1 px-2">
             <button
               onClick={handleLogout}
               className={cn(
-                "flex items-center gap-3 w-full px-4 py-2.5 text-left",
+                "flex items-center gap-3 w-full px-3 py-2 text-left rounded-lg",
                 "text-sm text-destructive hover:text-destructive",
                 "hover:bg-destructive/10 transition-colors duration-150"
               )}
@@ -227,37 +231,33 @@ export function UserMenu() {
         title="登录"
         aria-label="登录"
         className={cn(
-          "flex size-9 items-center justify-center rounded-full md:hidden",
+          "md:hidden flex shrink-0 w-9 h-9 items-center justify-center rounded-full",
           "text-muted-foreground hover:text-foreground",
-          "hover:bg-[var(--brand-start)]/5 active:bg-[var(--brand-start)]/10",
+          "hover:bg-black/[0.05] dark:hover:bg-white/[0.08] active:bg-black/[0.09] dark:active:bg-white/[0.12]",
           "active:scale-95 transition-all duration-200"
         )}
       >
-        <LogIn className="w-4 h-4" />
+        <LogIn className="w-[18px] h-[18px]" />
       </Link>
       <Link
         href="/auth/login"
-        title="登录"
         className={cn(
           "hidden md:flex items-center gap-2 px-4 py-2 rounded-full",
           "text-sm text-muted-foreground hover:text-foreground",
-          "hover:bg-[var(--brand-start)]/5 transition-all duration-200"
+          "hover:bg-black/[0.05] dark:hover:bg-white/[0.05] transition-all duration-200"
         )}
       >
         <LogIn className="w-4 h-4" />
-        <span className="max-[430px]:hidden">登录</span>
+        <span>登录</span>
       </Link>
       <Link
         href="/auth/register"
-        title="注册"
         className={cn(
           "hidden md:flex items-center gap-2 px-4 py-2 rounded-full",
           "text-sm font-medium text-white",
           "bg-gradient-to-r from-[var(--brand-start)] to-[var(--brand-end)]",
           "hover:shadow-lg hover:shadow-[var(--brand-start)]/30",
-          "hover:from-[var(--brand-start)]/90 hover:to-[var(--brand-end)]/90",
-          "hover:-translate-y-0.5 hover:scale-105",
-          "active:scale-95",
+          "hover:-translate-y-0.5 active:scale-95",
           "transition-all duration-200"
         )}
       >

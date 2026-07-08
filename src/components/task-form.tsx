@@ -265,61 +265,65 @@ export function TaskForm({ editTask, onSave, onCancel }: TaskFormProps) {
           </div>
         </div>
 
-        <div className="space-y-1.5">
-          <label className="text-xs font-medium text-muted-foreground">开始时间</label>
+        <div className="space-y-2 sm:space-y-3">
           <WheelDateTimePicker
             label="开始时间"
             value={startTime}
             onChange={setStartTime}
           />
-          {timeError && (
-            <div className="px-3 py-2 bg-red-100/60 dark:bg-red-500/10 border border-red-500/30 dark:border-red-500/30 rounded-lg flex items-center gap-2">
-              <AlertCircle className="w-3.5 h-3.5 text-red-500 dark:text-red-400 flex-shrink-0" />
-              <span className="text-xs text-red-600 dark:text-red-400">{timeError}</span>
-            </div>
-          )}
+
+          <DurationSetter
+            value={playDurationMinutes}
+            onChange={setPlayDurationMinutes}
+          />
         </div>
 
-        <DurationSetter
-          value={playDurationMinutes}
-          onChange={setPlayDurationMinutes}
-        />
+        {timeError && (
+          <div className="mt-1 px-3 py-1.5 bg-red-100/60 dark:bg-red-500/10 border border-red-500/30 dark:border-red-500/30 rounded-lg flex items-center gap-2">
+            <AlertCircle className="w-3.5 h-3.5 text-red-500 dark:text-red-400 flex-shrink-0" />
+            <span className="text-xs text-red-600 dark:text-red-400">{timeError}</span>
+          </div>
+        )}
 
-        <div className="space-y-3 pt-2">
-          <div className="flex items-center justify-between">
-            <span className="text-xs text-muted-foreground/60 font-medium uppercase tracking-wider">音量渐入</span>
-            <span className="text-sm font-mono text-foreground tabular-nums">{fadeInDuration}s</span>
-          </div>
-          <div className="py-1">
-            <input
-              type="range"
-              min={0}
-              max={120}
-              value={fadeInDuration}
-              onChange={(e) => setFadeInDuration(parseInt(e.target.value))}
-              className="w-full h-2 rounded-full appearance-none bg-border/30 cursor-pointer [&::-webkit-slider-thumb]:appearance-none [&::-webkit-slider-thumb]:w-6 [&::-webkit-slider-thumb]:h-6 [&::-webkit-slider-thumb]:rounded-full [&::-webkit-slider-thumb]:bg-white [&::-webkit-slider-thumb]:shadow-md [&::-webkit-slider-thumb]:cursor-pointer [&::-webkit-slider-thumb]:transition-transform [&::-webkit-slider-thumb]:hover:scale-110 [&::-webkit-slider-thumb]:active:scale-95 [&::-webkit-slider-thumb]:border-2 [&::-webkit-slider-thumb]:border-[var(--brand-start)] sm:[&::-webkit-slider-thumb]:w-5 sm:[&::-webkit-slider-thumb]:h-5 sm:[&::-webkit-slider-thumb]:hover:scale-125"
-              style={{
-                background: `linear-gradient(to right, var(--brand-start) ${(fadeInDuration / 120) * 100}%, rgba(128,128,128,0.2) ${(fadeInDuration / 120) * 100}%)`,
-              }}
-            />
+        <div className="space-y-4 pt-2">
+          <div className="space-y-1.5">
+            <div className="flex items-center justify-between">
+              <span className="text-xs text-muted-foreground/60 font-medium uppercase tracking-wider">音量渐入</span>
+              <span className="text-sm font-mono text-foreground tabular-nums">{fadeInDuration}s</span>
+            </div>
+            <div className="py-0.5">
+              <input
+                type="range"
+                min={0}
+                max={120}
+                value={fadeInDuration}
+                onChange={(e) => setFadeInDuration(parseInt(e.target.value))}
+                className="w-full h-2 rounded-full appearance-none bg-border/30 cursor-pointer [&::-webkit-slider-thumb]:appearance-none [&::-webkit-slider-thumb]:w-6 [&::-webkit-slider-thumb]:h-6 [&::-webkit-slider-thumb]:rounded-full [&::-webkit-slider-thumb]:bg-white [&::-webkit-slider-thumb]:shadow-md [&::-webkit-slider-thumb]:cursor-pointer [&::-webkit-slider-thumb]:transition-transform [&::-webkit-slider-thumb]:hover:scale-110 [&::-webkit-slider-thumb]:active:scale-95 [&::-webkit-slider-thumb]:border-2 [&::-webkit-slider-thumb]:border-[var(--brand-start)] sm:[&::-webkit-slider-thumb]:w-5 sm:[&::-webkit-slider-thumb]:h-5 sm:[&::-webkit-slider-thumb]:hover:scale-125"
+                style={{
+                  background: `linear-gradient(to right, var(--brand-start) ${(fadeInDuration / 120) * 100}%, rgba(128,128,128,0.2) ${(fadeInDuration / 120) * 100}%)`,
+                }}
+              />
+            </div>
           </div>
 
-          <div className="flex items-center justify-between">
-            <span className="text-xs text-muted-foreground/60 font-medium uppercase tracking-wider">音量渐出</span>
-            <span className="text-sm font-mono text-foreground tabular-nums">{fadeOutDuration}s</span>
-          </div>
-          <div className="py-1">
-            <input
-              type="range"
-              min={0}
-              max={120}
-              value={fadeOutDuration}
-              onChange={(e) => setFadeOutDuration(parseInt(e.target.value))}
-              className="w-full h-2 rounded-full appearance-none bg-border/30 cursor-pointer [&::-webkit-slider-thumb]:appearance-none [&::-webkit-slider-thumb]:w-6 [&::-webkit-slider-thumb]:h-6 [&::-webkit-slider-thumb]:rounded-full [&::-webkit-slider-thumb]:bg-white [&::-webkit-slider-thumb]:shadow-md [&::-webkit-slider-thumb]:cursor-pointer [&::-webkit-slider-thumb]:transition-transform [&::-webkit-slider-thumb]:hover:scale-110 [&::-webkit-slider-thumb]:active:scale-95 [&::-webkit-slider-thumb]:border-2 [&::-webkit-slider-thumb]:border-[var(--brand-start)] sm:[&::-webkit-slider-thumb]:w-5 sm:[&::-webkit-slider-thumb]:h-5 sm:[&::-webkit-slider-thumb]:hover:scale-125"
-              style={{
-                background: `linear-gradient(to right, var(--brand-start) ${(fadeOutDuration / 120) * 100}%, rgba(128,128,128,0.2) ${(fadeOutDuration / 120) * 100}%)`,
-              }}
-            />
+          <div className="space-y-1.5">
+            <div className="flex items-center justify-between">
+              <span className="text-xs text-muted-foreground/60 font-medium uppercase tracking-wider">音量渐出</span>
+              <span className="text-sm font-mono text-foreground tabular-nums">{fadeOutDuration}s</span>
+            </div>
+            <div className="py-0.5">
+              <input
+                type="range"
+                min={0}
+                max={120}
+                value={fadeOutDuration}
+                onChange={(e) => setFadeOutDuration(parseInt(e.target.value))}
+                className="w-full h-2 rounded-full appearance-none bg-border/30 cursor-pointer [&::-webkit-slider-thumb]:appearance-none [&::-webkit-slider-thumb]:w-6 [&::-webkit-slider-thumb]:h-6 [&::-webkit-slider-thumb]:rounded-full [&::-webkit-slider-thumb]:bg-white [&::-webkit-slider-thumb]:shadow-md [&::-webkit-slider-thumb]:cursor-pointer [&::-webkit-slider-thumb]:transition-transform [&::-webkit-slider-thumb]:hover:scale-110 [&::-webkit-slider-thumb]:active:scale-95 [&::-webkit-slider-thumb]:border-2 [&::-webkit-slider-thumb]:border-[var(--brand-start)] sm:[&::-webkit-slider-thumb]:w-5 sm:[&::-webkit-slider-thumb]:h-5 sm:[&::-webkit-slider-thumb]:hover:scale-125"
+                style={{
+                  background: `linear-gradient(to right, var(--brand-start) ${(fadeOutDuration / 120) * 100}%, rgba(128,128,128,0.2) ${(fadeOutDuration / 120) * 100}%)`,
+                }}
+              />
+            </div>
           </div>
         </div>
       </div>

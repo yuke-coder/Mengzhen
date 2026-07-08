@@ -346,6 +346,19 @@
     min-height: 44px;
   }
 
+  /* 固定尺寸圆形图标按钮保持正圆，不被最小触控高度拉伸 */
+  button.rounded-full[class*=" w-"],
+  button.rounded-full[class^="w-"],
+  a.rounded-full[class*=" w-"],
+  a.rounded-full[class^="w-"] {
+    min-height: auto;
+  }
+
+  /* Duration setter 加减按钮保持正方形，不被最小触控高度拉伸 */
+  button.duration-btn {
+    min-height: auto !important;
+  }
+
   /* 小型图标按钮保持视觉尺寸但扩大触控区域 */
   button[class*="p-1"],
   button[class*="p-1.5"] {
@@ -1045,13 +1058,13 @@ button:disabled,
 }
 
 .nav-fade-edge {
-  background: rgb(255 255 255 / 0.1);
-  -webkit-backdrop-filter: blur(8px) saturate(125%);
-  backdrop-filter: blur(8px) saturate(125%);
+  background: rgb(255 255 255 / 0.08);
+  -webkit-backdrop-filter: blur(6px) saturate(115%);
+  backdrop-filter: blur(6px) saturate(115%);
 }
 
 .dark .nav-fade-edge {
-  background: rgb(0 0 0 / 0.16);
+  background: rgb(0 0 0 / 0.12);
 }
 
 .nav-fade-edge::after {
@@ -1077,28 +1090,11 @@ button:disabled,
   opacity: 0.5;
 }
 
-.mobile-task-sheet-fullscreen {
-  animation: mobile-sheet-fullscreen 220ms cubic-bezier(0.22, 1, 0.36, 1);
-  transform-origin: top center;
+.ease-smooth {
+  transition-timing-function: cubic-bezier(0.22, 1, 0.36, 1);
 }
 
-@keyframes mobile-sheet-fullscreen {
-  from {
-    filter: blur(0.4px);
-    transform: scale(0.985);
-  }
-  70% {
-    filter: blur(0);
-    transform: scale(1.003);
-  }
-  to {
-    filter: blur(0);
-    transform: scale(1);
-  }
-}
-
-@media (prefers-reduced-motion: reduce) {
-  .mobile-task-sheet-fullscreen {
-    animation: none;
-  }
+[data-fullscreen="true"] > div:first-child {
+  opacity: 0;
+  pointer-events: none;
 }

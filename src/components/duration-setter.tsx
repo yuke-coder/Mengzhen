@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useCallback, useMemo } from "react";
+import React, { useState, useRef, useEffect } from "react";
 import { cn } from "@/lib/utils";
 import { Minus, Plus, Clock } from "lucide-react";
 import { useIsMobile } from "@/hooks/use-mobile";
@@ -10,203 +10,145 @@ interface DurationSetterProps {
   onChange: (minutes: number) => void;
   min?: number;
   max?: number;
-  step?: number;
+}
+
+type Unit = "min" | "hour";
+
+interface State {
+  clamped: number;
+  step: number;
+  min: number;
+  max: number;
+}
+
+interface ButtonProps {
+  direction: -1 | 1;
+  disabled: boolean;
 }
 
 export function DurationSetter({
   value,
   onChange,
   min = 0,
-  max = 240,
+  max = 300,
 }: DurationSetterProps) {
   const isMobile = useIsMobile();
-  const buttonStep = 1;
+  const [unit, setUnit] = useState<Unit>("min");
+  const clamped = Math.min(max, Math.max(min, value));
+  const pct = ((clamped - min) / (max - min)) * 100;
+  const step = unit === "hour" ? 60 : 1;
 
-  const clampedValue = useMemo(
-    () => Math.min(max, Math.max(min, value)),
-    [value, min, max]
-  );
+  const stateRef = useRef<State>({ clamped, step, min, max });
+  useEffect(() => { stateRef.current = { clamped, step, min, max }; }, [clamped, step, min, max]);
 
-  const handleSliderInput = useCallback(
-    (e: React.FormEvent<HTMLInputElement>) => {
-      const v = parseInt((e.target as HTMLInputElement).value, 10);
-      onChange(Math.min(max, Math.max(min, v)));
-    },
-    [onChange, min, max]
-  );
+  const delayTimerRef = useRef<NodeJS.Timeout | null>(null);
+  const repeatTimerRef = useRef<NodeJS.Timeout | null>(null);
+  const isLongPressRef = useRef(false);
 
-  const handleInputChange = useCallback(
-    (e: React.ChangeEvent<HTMLInputElement>) => {
-      const raw = e.target.value;
-      if (raw === "" || raw === "-") {
-        onChange(min);
-        return;
-      }
-      const v = parseInt(raw, 10);
-      if (!isNaN(v)) {
-        onChange(Math.min(max, Math.max(min, v)));
-      }
-    },
-    [onChange, min, max]
-  );
-
-  const handleDecrement = useCallback(() => {
-    const next = Math.max(min, clampedValue - buttonStep);
-    onChange(next);
-  }, [clampedValue, min, onChange]);
-
-  const handleIncrement = useCallback(() => {
-    const next = Math.min(max, clampedValue + buttonStep);
-    onChange(next);
-  }, [clampedValue, max, onChange]);
-
-  const sliderPercent = ((clampedValue - min) / (max - min)) * 100;
-
-  const formatDisplay = (mins: number) => {
-    if (mins < 60) return `${mins}分钟`;
-    const h = Math.floor(mins / 60);
-    const m = mins % 60;
-    return m > 0 ? `${h}小时${m}分钟` : `${h}小时`;
+  const executeStep = (direction: -1 | 1) => {
+    const { clamped, step, min, max } = stateRef.current;
+    if (direction === -1 && clamped > min) onChange(clamped - step);
+    if (direction === 1 && clamped < max) onChange(clamped + step);
   };
 
-  const inputGroup = (
-    <div className="flex items-center gap-1.5">
-      <button
-        onClick={handleDecrement}
-        disabled={clampedValue <= min}
-        className={cn(
-          "flex-shrink-0 w-8 h-8 rounded-lg border border-border/60 flex items-center justify-center transition-all cursor-pointer",
-          clampedValue <= min
-            ? "opacity-40 cursor-not-allowed"
-            : "hover:bg-[var(--brand-start)]/10 hover:border-[var(--brand-start)]/40 active:scale-95"
-        )}
-      >
-        <Minus className="w-3.5 h-3.5" />
-      </button>
+  const handlePressStart = (direction: -1 | 1) => {
+    isLongPressRef.current = false;
+    delayTimerRef.current = setTimeout(() => {
+      isLongPressRef.current = true;
+      executeStep(direction);
+      repeatTimerRef.current = setInterval(() => executeStep(direction), 150);
+    }, 300);
+  };
 
-      <div className="relative w-20">
-        <input
-          type="number"
-          min={min}
-          max={max}
-          value={clampedValue}
-          onChange={handleInputChange}
-          className="w-full h-8 rounded-lg border border-border/60 bg-muted/30 text-center text-sm font-mono font-medium tabular-nums focus:outline-none focus:border-[var(--brand-start)]/60 focus:ring-1 focus:ring-[var(--brand-start)]/30 transition-all [appearance:textfield] [&::-webkit-outer-spin-button]:appearance-none [&::-webkit-inner-spin-button]:appearance-none"
-        />
-        <span className="absolute right-2 top-1/2 -translate-y-1/2 text-[10px] text-muted-foreground pointer-events-none">
-          分
-        </span>
-      </div>
+  const handlePressEnd = (direction: -1 | 1) => {
+    if (delayTimerRef.current) clearTimeout(delayTimerRef.current);
+    if (repeatTimerRef.current) clearInterval(repeatTimerRef.current);
+    if (!isLongPressRef.current) executeStep(direction);
+  };
 
-      <button
-        onClick={handleIncrement}
-        disabled={clampedValue >= max}
-        className={cn(
-          "flex-shrink-0 w-8 h-8 rounded-lg border border-border/60 flex items-center justify-center transition-all cursor-pointer",
-          clampedValue >= max
-            ? "opacity-40 cursor-not-allowed"
-            : "hover:bg-[var(--brand-start)]/10 hover:border-[var(--brand-start)]/40 active:scale-95"
-        )}
-      >
-        <Plus className="w-3.5 h-3.5" />
-      </button>
-    </div>
+  useEffect(() => () => {
+    if (delayTimerRef.current) clearTimeout(delayTimerRef.current);
+    if (repeatTimerRef.current) clearInterval(repeatTimerRef.current);
+  }, []);
+
+  const handleNumberChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const raw = e.target.value;
+    if (raw === "" || raw === "-") return onChange(min);
+    const v = unit === "hour" ? parseFloat(raw) * 60 : parseInt(raw, 10);
+    if (!isNaN(v)) onChange(Math.min(max, Math.max(min, Math.round(v))));
+  };
+
+  const fmt = (m: number): string => m < 60 ? `${m}分钟` : `${Math.floor(m / 60)}小时${m % 60 ? `${m % 60}分钟` : ''}`;
+
+  const btnSize = isMobile ? { width: '24px', height: '24px' } : { width: '28px', height: '28px' };
+  const displayVal = unit === "hour" ? clamped / 60 : clamped;
+  const inputMax = unit === "hour" ? max / 60 : max;
+  const unitText = unit === "min" ? "分" : "时";
+
+  const Button = ({ direction, disabled }: ButtonProps) => (
+    <button
+      onMouseDown={() => !disabled && handlePressStart(direction)}
+      onMouseUp={() => handlePressEnd(direction)}
+      onMouseLeave={() => handlePressEnd(direction)}
+      onTouchStart={() => !disabled && handlePressStart(direction)}
+      onTouchEnd={() => handlePressEnd(direction)}
+      disabled={disabled}
+      style={btnSize}
+      className={cn(
+        "duration-btn flex items-center justify-center border transition-all select-none",
+        isMobile ? "rounded-sm border-border/50 text-muted-foreground" : "rounded-sm border-border/60",
+        disabled ? (isMobile ? "opacity-35 cursor-not-allowed" : "opacity-40 cursor-not-allowed") :
+          isMobile ? "hover:bg-[var(--brand-start)]/8 hover:text-[var(--brand-start)] active:scale-95" :
+            "hover:bg-[var(--brand-start)]/10 hover:border-[var(--brand-start)]/40 active:scale-95"
+      )}>
+      {direction === -1 ? <Minus className={isMobile ? "w-2.5 h-2.5" : "w-3 h-3"} /> :
+        <Plus className={isMobile ? "w-2.5 h-2.5" : "w-3 h-3"} />}
+    </button>
   );
-
-  const sliderElement = (
-    <input
-      type="range"
-      min={min}
-      max={max}
-      value={clampedValue}
-      step={1}
-      onInput={handleSliderInput}
-      className="w-full h-2.5 rounded-full appearance-none bg-border/30 cursor-pointer [&::-webkit-slider-thumb]:appearance-none [&::-webkit-slider-thumb]:w-6 [&::-webkit-slider-thumb]:h-6 [&::-webkit-slider-thumb]:rounded-full [&::-webkit-slider-thumb]:bg-white [&::-webkit-slider-thumb]:shadow-md [&::-webkit-slider-thumb]:cursor-pointer [&::-webkit-slider-thumb]:border-2 [&::-webkit-slider-thumb]:border-[var(--brand-start)] [&::-webkit-slider-thumb]:active:scale-95 sm:[&::-webkit-slider-thumb]:w-5 sm:[&::-webkit-slider-thumb]:h-5"
-      style={{
-        background: `linear-gradient(to right, var(--brand-start) ${sliderPercent}%, rgba(128,128,128,0.2) ${sliderPercent}%)`,
-      }}
-    />
-  );
-
-  if (isMobile) {
-    return (
-      <div className="space-y-3">
-        <div className="flex items-center justify-between">
-          <label className="text-xs font-medium text-muted-foreground flex items-center gap-1.5">
-            <Clock className="w-3.5 h-3.5" />
-            播放时长
-          </label>
-          <span className="text-sm font-mono font-semibold tabular-nums text-foreground">
-            {formatDisplay(clampedValue)}
-          </span>
-        </div>
-
-        <div className="relative pt-1 pb-1">
-          {sliderElement}
-        </div>
-
-        <div className="flex items-center gap-2">
-          <button
-            onClick={handleDecrement}
-            disabled={clampedValue <= min}
-            className={cn(
-              "flex-shrink-0 w-10 h-10 rounded-lg border border-border/60 flex items-center justify-center transition-all cursor-pointer",
-              clampedValue <= min
-                ? "opacity-40 cursor-not-allowed"
-                : "hover:bg-[var(--brand-start)]/10 hover:border-[var(--brand-start)]/40 active:scale-95 active:bg-[var(--brand-start)]/15"
-            )}
-          >
-            <Minus className="w-4 h-4" />
-          </button>
-
-          <div className="flex-1 relative">
-            <input
-              type="number"
-              min={min}
-              max={max}
-              value={clampedValue}
-              onChange={handleInputChange}
-              className="w-full h-10 rounded-lg border border-border/60 bg-muted/30 text-center text-sm font-mono font-medium tabular-nums focus:outline-none focus:border-[var(--brand-start)]/60 focus:ring-1 focus:ring-[var(--brand-start)]/30 transition-all [appearance:textfield] [&::-webkit-outer-spin-button]:appearance-none [&::-webkit-inner-spin-button]:appearance-none"
-            />
-            <span className="absolute right-3 top-1/2 -translate-y-1/2 text-xs text-muted-foreground pointer-events-none">
-              分钟
-            </span>
-          </div>
-
-          <button
-            onClick={handleIncrement}
-            disabled={clampedValue >= max}
-            className={cn(
-              "flex-shrink-0 w-10 h-10 rounded-lg border border-border/60 flex items-center justify-center transition-all cursor-pointer",
-              clampedValue >= max
-                ? "opacity-40 cursor-not-allowed"
-                : "hover:bg-[var(--brand-start)]/10 hover:border-[var(--brand-start)]/40 active:scale-95 active:bg-[var(--brand-start)]/15"
-            )}
-          >
-            <Plus className="w-4 h-4" />
-          </button>
-        </div>
-      </div>
-    );
-  }
 
   return (
     <div className="space-y-2">
       <div className="flex items-center justify-between">
         <label className="text-xs font-medium text-muted-foreground flex items-center gap-1.5">
-          <Clock className="w-3.5 h-3.5" />
-          播放时长
+          <Clock className="w-3.5 h-3.5" />播放时长
         </label>
-        <span className="text-sm font-mono font-semibold tabular-nums text-foreground">
-          {formatDisplay(clampedValue)}
-        </span>
+        <span className="text-sm font-mono font-semibold tabular-nums text-foreground">{fmt(clamped)}</span>
       </div>
-
-      <div className="flex items-center gap-3">
-        <div className="flex-1 pt-0.5 pb-0.5">
-          {sliderElement}
+      <div className={cn("flex items-center", isMobile ? "gap-2.5" : "gap-3")}>
+        <div className={cn("flex-1", isMobile ? "py-1" : "py-0.5")}>
+          <input type="range" min={min} max={max} value={clamped} step={1}
+            onInput={(e: React.FormEvent<HTMLInputElement>) => onChange(parseInt(e.currentTarget.value, 10))}
+            className={cn(
+              "w-full rounded-full appearance-none bg-border/30 cursor-pointer",
+              "[&::-webkit-slider-thumb]:appearance-none [&::-webkit-slider-thumb]:w-5 [&::-webkit-slider-thumb]:h-5 [&::-webkit-slider-thumb]:rounded-full [&::-webkit-slider-thumb]:bg-white [&::-webkit-slider-thumb]:shadow-md [&::-webkit-slider-thumb]:border-2 [&::-webkit-slider-thumb]:border-[var(--brand-start)] [&::-webkit-slider-thumb]:cursor-pointer [&::-webkit-slider-thumb]:active:scale-95 [&::-webkit-slider-thumb]:transition-transform",
+              isMobile ? "h-2" : "h-2.5"
+            )}
+            style={{ background: `linear-gradient(to right,var(--brand-start) ${pct}%,rgba(128,128,128,0.2) ${pct}%)` }} />
         </div>
-        {inputGroup}
+
+        {isMobile ? (
+          <div className="flex items-center shrink-0">
+            <Button direction={-1} disabled={clamped <= min} />
+            <div className="flex items-center border-y border-border/50 bg-muted/20 w-[52px] h-6">
+              <input type="number" min={0} max={inputMax} step={1} value={displayVal} onChange={handleNumberChange}
+                className="flex-1 h-full bg-transparent text-center font-mono font-medium tabular-nums focus:outline-none focus:bg-[var(--brand-start)]/5 appearance:textfield [&::-webkit-outer-spin-button]:appearance-none [&::-webkit-inner-spin-button]:appearance-none text-[13px] pl-1" />
+              <button type="button" onClick={() => setUnit(u => u === "min" ? "hour" : "min")}
+                className="shrink-0 text-muted-foreground/70 hover:text-[var(--brand-start)] cursor-pointer transition-colors select-none font-medium leading-none text-[9px] pr-1.5">{unitText}</button>
+            </div>
+            <Button direction={1} disabled={clamped >= max} />
+          </div>
+        ) : (
+          <div className="flex items-center gap-1.5">
+            <Button direction={-1} disabled={clamped <= min} />
+            <div className="relative w-24 h-7 flex items-center rounded-lg border border-border/60 bg-muted/30 focus-within:border-[var(--brand-start)]/60 focus-within:ring-1 focus-within:ring-[var(--brand-start)]/30 transition-all overflow-hidden">
+              <input type="number" min={0} max={inputMax} step={1} value={displayVal} onChange={handleNumberChange}
+                className="flex-1 h-full bg-transparent text-center text-sm font-mono font-medium tabular-nums focus:outline-none appearance:textfield [&::-webkit-outer-spin-button]:appearance-none [&::-webkit-inner-spin-button]:appearance-none px-2" />
+              <button type="button" onClick={() => setUnit(u => u === "min" ? "hour" : "min")}
+                className="shrink-0 text-muted-foreground/70 hover:text-[var(--brand-start)] cursor-pointer transition-colors select-none font-medium leading-none text-[10px] pr-2">{unitText}</button>
+            </div>
+            <Button direction={1} disabled={clamped >= max} />
+          </div>
+        )}
       </div>
     </div>
   );

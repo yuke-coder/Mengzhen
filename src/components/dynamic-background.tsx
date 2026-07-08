@@ -1,17 +1,11 @@
 'use client';
 
-import { useMemo, useState, useEffect } from 'react';
+import { useMemo } from 'react';
 import { useTheme } from '@/lib/theme-context';
 
 export default function DynamicBackground() {
   const { resolvedTheme } = useTheme();
-  const [mounted, setMounted] = useState(false);
-
-  useEffect(() => {
-    setMounted(true);
-  }, []);
-
-  const isDark = mounted ? resolvedTheme === 'dark' : true;
+  const isDark = resolvedTheme === 'dark';
 
   const generateStars = (count: number, seed: number) => {
     const stars = [];
@@ -39,23 +33,20 @@ export default function DynamicBackground() {
             height: 100%;
             background: radial-gradient(ellipse at bottom, #1B2735 0%, #090A0F 100%);
             z-index: -1;
-            contain: layout style paint;
           }
-          
+
           .stars {
             position: absolute;
             background: transparent;
-            will-change: transform;
-            contain: layout style paint;
           }
-          
+
           .stars-1 {
             width: 1px;
             height: 1px;
             box-shadow: ${stars1};
             animation: animStar 50s linear infinite;
           }
-          
+
           .stars-1::after {
             content: " ";
             position: absolute;
@@ -65,14 +56,14 @@ export default function DynamicBackground() {
             background: transparent;
             box-shadow: ${stars1};
           }
-          
+
           .stars-2 {
             width: 2px;
             height: 2px;
             box-shadow: ${stars2};
             animation: animStar 100s linear infinite;
           }
-          
+
           .stars-2::after {
             content: " ";
             position: absolute;
@@ -82,14 +73,14 @@ export default function DynamicBackground() {
             background: transparent;
             box-shadow: ${stars2};
           }
-          
+
           .stars-3 {
             width: 3px;
             height: 3px;
             box-shadow: ${stars3};
             animation: animStar 150s linear infinite;
           }
-          
+
           .stars-3::after {
             content: " ";
             position: absolute;
@@ -99,14 +90,10 @@ export default function DynamicBackground() {
             background: transparent;
             box-shadow: ${stars3};
           }
-          
+
           @keyframes animStar {
-            from {
-              transform: translate3d(0, 0, 0);
-            }
-            to {
-              transform: translate3d(0, -2000px, 0);
-            }
+            from { transform: translate3d(0, 0, 0); }
+            to { transform: translate3d(0, -2000px, 0); }
           }
         `}</style>
         <div className="star-container">
@@ -131,16 +118,11 @@ export default function DynamicBackground() {
           background: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADIAAAAyCAIAAACRXR/mAAAACXBIWXMAAAsTAAALEwEAmpwYAAAAIGNIUk0AAHolAACAgwAA+f8AAIDpAAB1MAAA6mAAADqYAAAXb5JfxUYAAABnSURBVHja7M5RDYAwDEXRDgmvEocnlrQS2SwUFST9uEfBGWs9c97nbGtDcquqiKhOImLs/UpuzVzWEi1atGjRokWLFi1atGjRokWLFi1atGjRokWLFi1af7Ukz8xWp8z8AAAA//8DAJ4LoEAAlL1nAAAAAElFTkSuQmCC") repeat 0 0;
           background-color: #ffffff;
           animation: bg-scrolling-reverse 0.92s infinite linear;
-          contain: layout style paint;
         }
-        
+
         @keyframes bg-scrolling-reverse {
-          0% {
-            background-position: 50px 50px;
-          }
-          100% {
-            background-position: 0 0;
-          }
+          0% { background-position: 50px 50px; }
+          100% { background-position: 0 0; }
         }
       `}</style>
       <div className="grid-container" />

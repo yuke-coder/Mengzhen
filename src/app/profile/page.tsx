@@ -338,28 +338,29 @@ export default function ProfilePage() {
         <form id="profile-form" onSubmit={handleSubmit} className="space-y-6">
           {/* Avatar & Gender Section */}
           <section className="flex items-center gap-6">
-            <div
-              className="relative cursor-pointer group shrink-0"
-              onClick={() => fileInputRef.current?.click()}
+            <label
+              htmlFor="avatar-file-input"
+              className="relative cursor-pointer group shrink-0 block"
             >
               <div className="w-24 h-24 rounded-full overflow-hidden border-2 transition-all group-hover:border-[var(--brand-end)]" style={{ borderColor: "var(--brand-start)" }}>
                 {user.avatar_url ? (
-                    <img src={user.avatar_url} alt="头像" className="w-full h-full object-cover" />
+                    <img src={user.avatar_url} alt="头像" className="w-full h-full object-cover pointer-events-none" />
                 ) : (
-                  <div className="w-full h-full flex items-center justify-center" style={{ background: "var(--muted)/30" }}>
+                  <div className="w-full h-full flex items-center justify-center pointer-events-none" style={{ background: "var(--muted)/30" }}>
                     <User className="w-12 h-12" style={{ color: "var(--muted-foreground)" }} />
                   </div>
                 )}
               </div>
               {uploadingAvatar && (
-                <div className="absolute inset-0 flex items-center justify-center rounded-full" style={{ background: "rgba(0,0,0,0.5)" }}>
+                <div className="absolute inset-0 flex items-center justify-center rounded-full pointer-events-none" style={{ background: "rgba(0,0,0,0.5)" }}>
                   <Spinner size="sm" className="h-6 w-6 text-white" />
                 </div>
               )}
-              <div className="absolute inset-0 flex items-center justify-center rounded-full bg-black/50 opacity-0 group-hover:opacity-100 transition-opacity">
+              <div className="absolute inset-0 flex items-center justify-center rounded-full bg-black/50 opacity-0 group-hover:opacity-100 sm:group-active:opacity-100 transition-opacity pointer-events-none">
                 <Camera className="w-8 h-8 text-white" />
               </div>
-            </div>
+            </label>
+            <input id="avatar-file-input" ref={fileInputRef} type="file" accept="image/*" onChange={handleAvatarUpload} className="sr-only" tabIndex={-1} />
 
             <div className="flex-1">
               <label className="flex items-center gap-2 text-sm font-medium mb-3" style={{ color: "var(--muted-foreground)" }}>
@@ -399,7 +400,6 @@ export default function ProfilePage() {
                 </button>
               )}
             </div>
-            <input ref={fileInputRef} type="file" accept="image/*" onChange={handleAvatarUpload} className="hidden" />
           </section>
 
           {/* Username Section */}

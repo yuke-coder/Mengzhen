@@ -6,17 +6,18 @@ import { useAuth } from '@/lib/auth-context';
 import Navbar from '@/components/navbar';
 import { Button } from '@/components/ui/button';
 import { Spinner } from '@/components/ui/spinner';
-import { 
-  Music, 
-  Play, 
-  Clock, 
-  FileText, 
+import {
+  Music,
+  Play,
+  Clock,
+  FileText,
   Download,
   RefreshCw,
   Calendar
 } from 'lucide-react';
 import Link from 'next/link';
 import { cn } from '@/lib/utils';
+import { formatFileSize, formatDuration } from '@/lib/audio-utils';
 
 interface AudioRecord {
   id: string;
@@ -30,70 +31,7 @@ interface AudioRecord {
   created_at: string;
 }
 
-function formatFileSize(bytes: number): string {
-  if (bytes < 1024) return bytes + ' B';
-  if (bytes < 1024 * 1024) return (bytes / 1024).toFixed(1) + ' KB';
-  return (bytes / (1024 * 1024)).toFixed(1) + ' MB';
-}
 
-function formatDuration(seconds: number): string {
-  const h = Math.floor(seconds / 3600);
-  const m = Math.floor((seconds % 3600) / 60);
-  const s = Math.floor(seconds % 60);
-  if (h > 0) return `${h}:${m.toString().padStart(2, '0')}:${s.toString().padStart(2, '0')}`;
-  return `${m}:${s.toString().padStart(2, '0')}`;
-}
-
-function EmptyAudioTip() {
-  const [shown, setShown] = useState(true);
-  const [open, setOpen] = useState(false);
-  const [paused, setPaused] = useState(false);
-  const [progress, setProgress] = useState(100);
-
-  useEffect(() => {
-    const frame = requestAnimationFrame(() => setOpen(true));
-    return () => cancelAnimationFrame(frame);
-  }, []);
-
-  useEffect(() => {
-    if (paused || !shown || progress === 0) return;
-    const timer = setTimeout(() => setProgress((value) => Math.max(0, value - 1)), 90);
-    return () => clearTimeout(timer);
-  }, [paused, shown, progress]);
-
-  useEffect(() => {
-    if (progress > 0) return;
-    setOpen(false);
-    const timer = setTimeout(() => setShown(false), 260);
-    return () => clearTimeout(timer);
-  }, [progress]);
-
-  if (!shown) return null;
-
-  return (
-    <div
-      onMouseEnter={() => setPaused(true)}
-      onMouseLeave={() => setPaused(false)}
-      className={cn(
-        "fixed bottom-6 left-1/2 z-50 w-[calc(100%-2rem)] max-w-sm -translate-x-1/2 overflow-hidden rounded-2xl",
-        "border border-[var(--brand-start)]/25 bg-background/90 px-4 py-3 text-left shadow-2xl shadow-[var(--brand-start)]/20 backdrop-blur",
-        "transition-all duration-300",
-        open ? "translate-y-0 opacity-100" : "translate-y-4 opacity-0"
-      )}
-    >
-      <p className="text-sm font-medium text-foreground">我的音频需要手动保存</p>
-      <p className="mt-1 text-xs leading-relaxed text-muted-foreground">
-        在设置页点击音频旁的上传按钮后，音频才会进入这里。
-      </p>
-      <div className="mt-3 h-1 overflow-hidden rounded-full bg-border/50">
-        <div
-          className="h-full rounded-full bg-gradient-to-r from-[var(--brand-start)] to-[var(--brand-end)] transition-[width] duration-100"
-          style={{ width: `${progress}%` }}
-        />
-      </div>
-    </div>
-  );
-}
 
 export default function HistoryPage() {
   const { user, loading: authLoading } = useAuth();
@@ -274,9 +212,8 @@ export default function HistoryPage() {
             </div>
             <div className="text-center">
               <p className="text-foreground font-medium">暂无音频记录</p>
-              <p className="text-sm text-muted-foreground mt-1">在设置页点击音频旁的上传按钮后将在这里显示</p>
+              <p className="text-sm text-muted-foreground mt-1">在设置页上传音频后将自动保存在这里</p>
             </div>
-            <EmptyAudioTip />
             <Link href="/settings">
               <Button className="mt-2 gap-2 bg-gradient-to-r from-pink-500 to-purple-500">
                 去设置

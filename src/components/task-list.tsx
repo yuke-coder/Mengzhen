@@ -15,6 +15,7 @@ import { getTaskScheduler, type SchedulerEvent } from "@/lib/task-scheduler";
 import { FeedbackModal } from "@/components/feedback-modal";
 import { cn } from "@/lib/utils";
 import { toast } from "@/components/sonner";
+import { formatFileSize, formatDuration } from "@/lib/audio-utils";
 import {
   Trash2,
   Edit3,
@@ -42,19 +43,6 @@ interface TaskListProps {
   onEdit: (task: ScheduledTask) => void;
   onCreate?: () => void;
   onRefresh: () => void;
-}
-
-function formatFileSize(bytes: number): string {
-  if (!bytes || bytes < 1024) return "0 B";
-  if (bytes < 1024 * 1024) return (bytes / 1024).toFixed(1) + " KB";
-  return (bytes / (1024 * 1024)).toFixed(1) + " MB";
-}
-
-function formatDuration(seconds: number): string {
-  if (!seconds) return "0:00";
-  const m = Math.floor(seconds / 60);
-  const s = Math.floor(seconds % 60);
-  return `${m}:${s.toString().padStart(2, "0")}`;
 }
 
 function formatCountdownTime(ms: number): string {
