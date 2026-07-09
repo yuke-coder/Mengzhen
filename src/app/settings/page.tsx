@@ -12,7 +12,12 @@ import { PlayMode, ScheduledTask } from "@/lib/task-types";
 import { getPlayMode, setPlayMode as savePlayMode, getAllTasks, cleanupCompletedOnceTasks, cleanupCancelledTasks } from "@/lib/task-store";
 import { startTaskScheduler, stopTaskScheduler, getTaskScheduler } from "@/lib/task-scheduler";
 import DynamicBackground from "@/components/dynamic-background";
-import { SchedulerDebugPanel } from "@/components/scheduler-debug-panel";
+
+function useClientOnly() {
+    const [mounted, setMounted] = useState(false);
+    useEffect(() => setMounted(true), []);
+    return mounted;
+}
 
 export default function CreatePage() {
     return (
@@ -24,9 +29,7 @@ export default function CreatePage() {
 
 function LoadingFallback() {
     return (
-        <div
-            className="min-h-screen flex items-center justify-center bg-background"
-            suppressHydrationWarning>
+        <div className="min-h-screen flex items-center justify-center bg-background">
             <div className="flex flex-col items-center gap-4">
                 <Spinner className="text-foreground" />
                 <p className="text-base text-muted-foreground">Loading...</p>
@@ -42,39 +45,74 @@ function CreatePageContent() {
     const [editingTask, setEditingTask] = useState<ScheduledTask | null>(null);
     const [tasks, setTasks] = useState<ScheduledTask[]>([]);
     const [tasksVersion, setTasksVersion] = useState(0);
+    const [audioUnlocked, setAudioUnlocked] = useState(false);
+    const mounted = useClientOnly();
+
+    // 检查是否已经解锁过音频
+    useEffect(() => {
+        if (!mounted) return;
+        try {
+            const alreadyUnlocked = localStorage.getItem('audio_unlocked') === 'true';
+            if (alreadyUnlocked) setAudioUnlocked(true);
+        } catch {}
+    }, [mounted]);
 
     useEffect(() => {
+        if (!mounted) return;
         setPlayMode(getPlayMode());
-        const completedResult = cleanupCompletedOnceTasks();
-        const cancelledResult = cleanupCancelledTasks();
-        if (completedResult.removedCount > 0) toast.info(`已自动清理 ${completedResult.removedCount} 个已完成的一次性任务`, { duration: 3000 });
-        if (cancelledResult.removedCount > 0) toast.info(`已自动清理 ${cancelledResult.removedCount} 个已取消的一次性任务`, { duration: 3000 });
+        const completed = cleanupCompletedOnceTasks();
+        const cancelled = cleanupCancelledTasks();
+        if (completed.removedCount > 0) toast.info(`已自动清理 ${completed.removedCount} 个已完成的一次性任务`, { duration: 3000 });
+        if (cancelled.removedCount > 0) toast.info(`已自动清理 ${cancelled.removedCount} 个已取消的一次性任务`, { duration: 3000 });
         setTasks(getAllTasks());
-    }, []);
+    }, [mounted]);
 
     useEffect(() => {
-        const executingTasks = getAllTasks().filter(t => t.status === "executing");
+        if (!mounted) return;
+
+        // 启动调度器
+        const executing = getAllTasks().filter(t => t.status === "executing");
         startTaskScheduler().then(() => {
-            const resumedNames = executingTasks.filter(t => getTaskScheduler().getTaskPhase(t.id) !== "idle").map(t => t.name);
-            if (resumedNames.length > 0) toast.success(`${resumedNames.length} 个任务已恢复执行`, { duration: 3000 });
+            const resumed = executing.filter(t => getTaskScheduler().getTaskPhase(t.id) !== "idle").map(t => t.name);
+            if (resumed.length > 0) toast.success(`${resumed.length} 个任务已恢复执行`, { duration: 3000 });
         });
-        return () => { stopTaskScheduler(); };
+
+        return () => {
+            stopTaskScheduler();
+        };
+    }, [mounted]);
+
+    // 用户点击解锁音频
+    const handleUnlockAudio = useCallback(() => {
+        try {
+            const scheduler = getTaskScheduler();
+            scheduler.tryUnlockAudio();
+            setAudioUnlocked(true);
+            localStorage.setItem('audio_unlocked', 'true');
+            toast.success('音频已解锁！任务现在可以自动播放了');
+        } catch {
+            toast.error('解锁失败，请再试一次');
+        }
     }, []);
 
-    useEffect(() => { setTasks(getAllTasks()); }, [tasksVersion]);
+    useEffect(() => {
+        if (!mounted) return;
+        setTasks(getAllTasks());
+    }, [tasksVersion, mounted]);
 
     useEffect(() => {
+        if (!mounted) return;
         const handleVisibilityChange = () => {
             if (document.visibilityState !== "visible") return;
-            const completedResult = cleanupCompletedOnceTasks();
-            const cancelledResult = cleanupCancelledTasks();
-            if (completedResult.removedCount > 0) toast.info(`已自动清理 ${completedResult.removedCount} 个已完成的一次性任务`, { duration: 3000 });
-            if (cancelledResult.removedCount > 0) toast.info(`已自动清理 ${cancelledResult.removedCount} 个已取消的一次性任务`, { duration: 3000 });
+            const completed = cleanupCompletedOnceTasks();
+            const cancelled = cleanupCancelledTasks();
+            if (completed.removedCount > 0) toast.info(`已自动清理 ${completed.removedCount} 个已完成的一次性任务`, { duration: 3000 });
+            if (cancelled.removedCount > 0) toast.info(`已自动清理 ${cancelled.removedCount} 个已取消的一次性任务`, { duration: 3000 });
             setTasks(getAllTasks());
         };
         document.addEventListener("visibilitychange", handleVisibilityChange);
         return () => document.removeEventListener("visibilitychange", handleVisibilityChange);
-    }, []);
+    }, [mounted]);
 
     const handleModeChange = useCallback((mode: PlayMode) => {
         setPlayMode(mode);
@@ -97,7 +135,38 @@ function CreatePageContent() {
     }, []);
 
     return (
-        <div className="min-h-screen text-foreground overflow-x-hidden relative z-10" suppressHydrationWarning>
+        <div className="min-h-screen text-foreground overflow-x-hidden relative z-10">
+            {/* 音频解锁引导层 */}
+            {!audioUnlocked && mounted && (
+                <div
+                    onClick={handleUnlockAudio}
+                    className="fixed inset-0 z-50 flex flex-col items-center justify-center bg-black/85 cursor-pointer backdrop-blur-sm animate-in fade-in duration-300"
+                >
+                    <div className="text-center space-y-6 px-4 max-w-md">
+                        <div className="w-24 h-24 mx-auto mb-4 relative">
+                            <div className="absolute inset-0 bg-gradient-to-r from-[var(--brand-start)] to-[var(--brand-end)] rounded-full animate-pulse opacity-30"></div>
+                            <div className="relative w-full h-full bg-gradient-to-r from-[var(--brand-start)] to-[var(--brand-end)] rounded-full flex items-center justify-center">
+                                <svg className="w-12 h-12 text-white" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+                                    <path d="M9 18V6L3 12V18H9Z" />
+                                    <path d="M15 6L18 12L15 18" />
+                                    <path d="M21 18V6L18 12" />
+                                </svg>
+                            </div>
+                        </div>
+                        <h2 className="text-2xl font-bold text-white">点击开始使用</h2>
+                        <p className="text-white/70 text-base leading-relaxed">
+                            点击屏幕任意位置，解锁音频自动播放功能。<br/>
+                            解锁后，你的定时任务就能在设定时间自动播放了。
+                        </p>
+                        <div className="flex justify-center pt-4">
+                            <svg className="w-8 h-8 text-[var(--brand-start)] animate-bounce" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+                                <path d="M12 5V19M5 12L12 5L19 12" />
+                            </svg>
+                        </div>
+                    </div>
+                </div>
+            )}
+
             <DynamicBackground />
             <main className="pt-0 sm:pt-14 relative">
                 <section className="relative min-h-[85vh] flex flex-col items-center justify-center px-4 sm:px-6 overflow-hidden">
@@ -127,31 +196,27 @@ function CreatePageContent() {
                             importFileKey={searchParams.get("fileKey") || undefined}
                             mode={playMode}
                             onModeChange={handleModeChange}
-                            onAudioUploaded={(audioList) => {
+                            onAudioUploaded={audioList => {
                                 const last = audioList[audioList.length - 1];
                                 if (last) toast.success(`「${last.file.name}」上传成功`);
                             }}
-                            onAudioRemoved={() => {}}
+                            onAudioRemoved={() => { }}
                         >
                             <div className="space-y-5 sm:space-y-6">
-                                <TaskList tasks={tasks} onEdit={handleEditTask} onCreate={() => {
-                                    setEditingTask(null);
-                                    setShowTaskForm(true);
-                                }} onRefresh={() => setTasksVersion(v => v + 1)} />
+                                <TaskList
+                                    tasks={tasks}
+                                    onEdit={handleEditTask}
+                                    onCreate={() => { setEditingTask(null); setShowTaskForm(true); }}
+                                    onRefresh={() => setTasksVersion(v => v + 1)}
+                                />
                             </div>
                         </AudioUpload>
                     </div>
                 </section>
             </main>
 
-            <TaskModal visible={showTaskForm} onClose={() => {
-                setShowTaskForm(false);
-                setEditingTask(null);
-            }}>
-                <TaskForm editTask={editingTask} onSave={handleTaskSaved} onCancel={() => {
-                    setShowTaskForm(false);
-                    setEditingTask(null);
-                }} />
+            <TaskModal visible={showTaskForm} onClose={() => { setShowTaskForm(false); setEditingTask(null); }}>
+                <TaskForm editTask={editingTask} onSave={handleTaskSaved} onCancel={() => { setShowTaskForm(false); setEditingTask(null); }} />
             </TaskModal>
 
             <footer className="hidden sm:block border-t border-border py-8 px-6 bg-muted/20 relative z-20">
@@ -163,7 +228,6 @@ function CreatePageContent() {
                     <p className="text-xs text-muted-foreground">深夜助眠播放器 · PWA渐进式网页应用 · 自定义音频</p>
                 </div>
             </footer>
-            <SchedulerDebugPanel />
         </div>
     );
 }

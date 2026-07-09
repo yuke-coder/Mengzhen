@@ -11,6 +11,11 @@ const TASKS_KEY = 'dream_pillow_tasks';
 const MODE_KEY = 'dream_pillow_mode';
 const DEFAULT_CONFIG_KEY = 'dream_default_play_config';
 
+// 内存缓存层
+let tasksCache: ScheduledTask[] | null = null;
+let cacheValidUntil = 0;
+const CACHE_TTL = 500; // 0.5秒缓存，减少 localStorage 读取
+
 export function getPlayMode(): PlayMode {
   if (typeof window === 'undefined') return 'default';
   return (localStorage.getItem(MODE_KEY) as PlayMode) || 'default';
@@ -32,6 +37,7 @@ export interface DefaultPlayConfig {
   playDurationMinutes: number;
   fadeInDuration: number;
   fadeOutDuration: number;
+  enableFade: boolean;
   volume: number;
 }
 
@@ -50,19 +56,39 @@ export function setDefaultPlayConfig(config: DefaultPlayConfig): void {
   localStorage.setItem(DEFAULT_CONFIG_KEY, JSON.stringify(config));
 }
 
+// 优化后的 getAllTasks，带缓存
 export function getAllTasks(): ScheduledTask[] {
   if (typeof window === 'undefined') return [];
+
+  const now = Date.now();
+  if (tasksCache && now < cacheValidUntil) {
+    return tasksCache;
+  }
+
   const raw = localStorage.getItem(TASKS_KEY);
-  if (!raw) return [];
+  if (!raw) {
+    tasksCache = [];
+    cacheValidUntil = now + CACHE_TTL;
+    return [];
+  }
+
   try {
-    return JSON.parse(raw);
+    const parsed = JSON.parse(raw);
+    tasksCache = Array.isArray(parsed) ? parsed : [];
+    cacheValidUntil = now + CACHE_TTL;
+    return tasksCache;
   } catch {
+    tasksCache = [];
+    cacheValidUntil = now + CACHE_TTL;
     return [];
   }
 }
 
+// 保存时清除缓存
 export function saveAllTasks(tasks: ScheduledTask[]): void {
   localStorage.setItem(TASKS_KEY, JSON.stringify(tasks));
+  tasksCache = tasks;
+  cacheValidUntil = Date.now() + CACHE_TTL;
 }
 
 export function getTaskById(id: string): ScheduledTask | null {
@@ -70,11 +96,13 @@ export function getTaskById(id: string): ScheduledTask | null {
   return tasks.find(t => t.id === id) || null;
 }
 
-export function createTask(data: Omit<ScheduledTask, 'id' | 'createdAt' | 'status'>): ScheduledTask {
+export function createTask(data: Omit<ScheduledTask, 'id' | 'createdAt' | 'status' | 'updatedAt'>): ScheduledTask {
+  const now = Date.now();
   const task: ScheduledTask = {
     ...data,
     id: generateTaskId(),
-    createdAt: Date.now(),
+    createdAt: now,
+    updatedAt: now,
     status: 'pending',
   };
 
@@ -94,8 +122,20 @@ export function updateTask(id: string, updates: Partial<ScheduledTask>): Schedul
   const index = tasks.findIndex(t => t.id === id);
   if (index === -1) return null;
 
-  tasks[index] = { ...tasks[index], ...updates };
+  // 只在真正改变时更新
+  const needsUpdate = Object.keys(updates).some(key =>
+    tasks[index][key as keyof ScheduledTask] !== updates[key as keyof ScheduledTask]
+  );
 
+  if (!needsUpdate) return tasks[index];
+
+  tasks[index] = {
+    ...tasks[index],
+    ...updates,
+    updatedAt: Date.now(), // 自动更新时间戳
+  };
+
+  // 只在必要时重新计算下次执行时间
   if (updates.startTime || updates.repeatType) {
     const nextExec = getNextExecuteDate(tasks[index]);
     tasks[index].nextExecuteAt = nextExec?.getTime();
@@ -122,17 +162,25 @@ export interface CleanupResult {
   removedNames: string[];
 }
 
+// 优化的批量清理函数，一次遍历完成两种清理
 export function cleanupCompletedOnceTasks(): CleanupResult {
   const tasks = getAllTasks();
   const removedNames: string[] = [];
-  const remaining = tasks.filter(t => {
-    if (t.repeatType !== 'once') return true;
-    if (t.status === 'completed') {
-      removedNames.push(t.name);
-      return false;
+  const remaining: ScheduledTask[] = [];
+  const now = Date.now();
+
+  for (const task of tasks) {
+    if (task.repeatType !== 'once') {
+      remaining.push(task);
+      continue;
     }
-    return true;
-  });
+    if (task.status === 'completed') {
+      removedNames.push(task.name);
+    } else {
+      remaining.push(task);
+    }
+  }
+
   const removed = tasks.length - remaining.length;
   if (removed > 0) saveAllTasks(remaining);
   return { removedCount: removed, removedNames };
@@ -141,18 +189,40 @@ export function cleanupCompletedOnceTasks(): CleanupResult {
 export function cleanupCancelledTasks(): CleanupResult {
   const tasks = getAllTasks();
   const removedNames: string[] = [];
-  const remaining = tasks.filter(t => {
-    if (t.status === 'cancelled') {
-      removedNames.push(t.name);
-      return false;
+  const remaining: ScheduledTask[] = [];
+  const now = Date.now();
+  const needsUpdate: Array<{ id: string; skipUntil: undefined }> = [];
+
+  for (const task of tasks) {
+    if (task.status === 'cancelled') {
+      removedNames.push(task.name);
+      continue;
     }
-    if (t.skipUntil && Date.now() >= t.skipUntil) {
-      updateTask(t.id, { skipUntil: undefined });
+    if (task.skipUntil && now >= task.skipUntil) {
+      needsUpdate.push({ id: task.id, skipUntil: undefined });
     }
-    return true;
-  });
+    remaining.push(task);
+  }
+
   const removed = tasks.length - remaining.length;
-  if (removed > 0) saveAllTasks(remaining);
+  if (removed > 0 || needsUpdate.length > 0) {
+    if (removed > 0) {
+      saveAllTasks(remaining);
+    }
+    // 批量更新
+    if (needsUpdate.length > 0) {
+      const currentTasks = removed > 0 ? remaining : tasks;
+      for (const update of needsUpdate) {
+        const idx = currentTasks.findIndex(t => t.id === update.id);
+        if (idx !== -1) {
+          currentTasks[idx] = { ...currentTasks[idx], skipUntil: undefined, updatedAt: Date.now() };
+        }
+      }
+      if (needsUpdate.length > 0) {
+        saveAllTasks(currentTasks);
+      }
+    }
+  }
   return { removedCount: removed, removedNames };
 }
 
@@ -198,6 +268,7 @@ export function resolvePlayConfig(): PlayConfig | null {
       playDurationMinutes: nextTask.playDurationMinutes,
       fadeInDuration: nextTask.fadeInDuration,
       fadeOutDuration: nextTask.fadeOutDuration,
+      enableFade: nextTask.enableFade ?? false, // 兼容旧数据
       volume: nextTask.volume,
       audios: nextTask.audios,
       taskId: nextTask.id,
@@ -232,7 +303,9 @@ export function resolvePlayConfig(): PlayConfig | null {
     playDurationMinutes: defaultConfig.playDurationMinutes,
     fadeInDuration: defaultConfig.fadeInDuration,
     fadeOutDuration: defaultConfig.fadeOutDuration,
+    enableFade: defaultConfig.enableFade ?? false, // 兼容旧数据
     volume: defaultConfig.volume,
     audios,
   };
 }
+

@@ -57,89 +57,7 @@ function formatCountdownTime(ms: number): string {
   return `${m}:${s.toString().padStart(2, "0")}`;
 }
 
-function StatusBadge({ task, status, phase }: { task: ScheduledTask; status: TaskStatus; phase: TaskExecPhase | "idle" }) {
-  const scheduler = useMemo(() => getTaskScheduler(), []);
-
-  const getTaskStartTimestamp = useCallback((t: ScheduledTask) => {
-    return new Date(
-      t.startTime.year, t.startTime.month - 1, t.startTime.day,
-      t.startTime.hour, t.startTime.minute, t.startTime.second
-    ).getTime();
-  }, []);
-
-  const computeRemaining = useCallback((s: TaskStatus, p: TaskExecPhase | "idle") => {
-    const now = Date.now();
-
-    if (s === "cancelled" && task.skipUntil && now < task.skipUntil) {
-      return Math.max(0, task.skipUntil - now);
-    }
-
-    if (s === "pending") {
-      const nextExec = getNextExecuteDate(task);
-      if (nextExec) {
-        const fadeInMs = (task.fadeInDuration || 0) * 1000;
-        const audioStartAt = nextExec.getTime() - fadeInMs;
-        return Math.max(0, audioStartAt - now);
-      }
-      return 0;
-    }
-
-    if (s === "executing") {
-      const actualStart = task.lastExecutedAt || getTaskStartTimestamp(task);
-      const endTime = actualStart + task.playDurationMinutes * 60 * 1000;
-      const fadeInMs = (task.fadeInDuration || 0) * 1000;
-      const fadeOutMs = (task.fadeOutDuration || 0) * 1000;
-
-      if (p === "fading-in") {
-        const fadeInEnd = actualStart + fadeInMs;
-        return Math.max(0, fadeInEnd - now);
-      }
-      if (p === "playing") {
-        return Math.max(0, endTime - now);
-      }
-      if (p === "fading-out") {
-        return Math.max(0, endTime + fadeOutMs - now);
-      }
-      return Math.max(0, endTime - now);
-    }
-
-    if (s === "completed" && task.repeatType !== "once") {
-      const nextExec = getNextExecuteDate(task);
-      if (nextExec) {
-        return Math.max(0, nextExec.getTime() - now);
-      }
-    }
-
-    return 0;
-  }, [task, getTaskStartTimestamp]);
-
-  const [remainingMs, setRemainingMs] = useState(() => computeRemaining(status, phase));
-
-  const isActive = status === "executing" || status === "pending" || (status === "completed" && task.repeatType !== "once") || (status === "cancelled" && !!task.skipUntil);
-
-  useEffect(() => {
-    if (!isActive) return;
-
-    const update = () => {
-      setRemainingMs(computeRemaining(status, phase));
-    };
-
-    update();
-    const interval = isActive && status === "executing" ? 1000 : 5000;
-    const timer = setInterval(update, interval);
-    return () => clearInterval(timer);
-  }, [status, phase, isActive, computeRemaining]);
-
-  useEffect(() => {
-    const handleEvent = (event: SchedulerEvent) => {
-      if (event.taskId !== task.id) return;
-      if (event.type === "tick" || event.type === "phase-change") {
-        setRemainingMs(computeRemaining(status, phase));
-      }
-    };
-    const unsub = scheduler.on(handleEvent);
-    return () => { unsub(); };
-  }, [task.id, status, phase, scheduler, computeRemaining]);
+function StatusBadge({ task, status, phase, remainingMs }: { task: ScheduledTask; status: TaskStatus; phase: TaskExecPhase | "idle"; remainingMs: number }) {
 
   const relativeTime = useMemo(() => {
     if (status === "pending") {
@@ -230,53 +148,120 @@ function audioInfoDisplay(audio: TaskAudio) {
 
 function useTaskState(task: ScheduledTask) {
   const scheduler = useMemo(() => getTaskScheduler(), []);
-  const [status, setStatus] = useState<TaskStatus>(() => {
+  const [state, setState] = useState<{ status: TaskStatus; phase: TaskExecPhase | "idle"; remainingMs: number }>(() => {
     const phase = scheduler.getTaskPhase(task.id);
-    if (phase === 'fading-in' || phase === 'playing' || phase === 'fading-out') return 'executing';
-    return getTaskStatus(task);
-  });
-  const [phase, setPhase] = useState<TaskExecPhase | "idle">(() => {
-    const p = scheduler.getTaskPhase(task.id);
-    if (p === 'fading-in' || p === 'playing' || p === 'fading-out') return p;
-    const s = getTaskStatus(task);
-    if (s === "pending") return "waiting";
-    return "idle";
+    let status: TaskStatus;
+    if (phase === 'fading-in' || phase === 'playing' || phase === 'fading-out') {
+      status = 'executing';
+    } else {
+      status = getTaskStatus(task);
+    }
+    return {
+      status,
+      phase: phase === 'waiting' ? 'waiting' : phase === 'idle' ? 'idle' : phase,
+      remainingMs: 0
+    };
   });
 
-  const statusRef = useRef(status);
+  // 使用 refs 避免闭包陷阱
+  const taskRef = useRef(task);
+
+  // 同步最新值到 ref
   useEffect(() => {
-    statusRef.current = status;
-  }, [status]);
+    taskRef.current = task;
+  }, [task]);
 
+  // 计算剩余时间
+  const calculateRemaining = useCallback((currentTask: ScheduledTask, currentStatus: TaskStatus, currentPhase: TaskExecPhase | "idle") => {
+    const now = Date.now();
+
+    if (currentStatus === "cancelled" && currentTask.skipUntil && now < currentTask.skipUntil) {
+      return Math.max(0, currentTask.skipUntil - now);
+    }
+
+    if (currentStatus === "pending") {
+      const nextExec = getNextExecuteDate(currentTask);
+      if (nextExec) {
+        // 仅在启用渐入渐出时才考虑渐入时长
+        const fadeInMs = (currentTask.enableFade ? (currentTask.fadeInDuration || 0) : 0) * 1000;
+        const audioStartAt = nextExec.getTime() - fadeInMs;
+        return Math.max(0, audioStartAt - now);
+      }
+      return 0;
+    }
+
+    if (currentStatus === "executing") {
+      // 优先从调度器获取最新信息
+      const schedulerRemaining = scheduler.getTaskRemainingMs(currentTask.id);
+      if (schedulerRemaining > 0) return schedulerRemaining;
+
+      // 备用计算
+      const getTaskStartTimestamp = (t: ScheduledTask) => {
+        return new Date(
+          t.startTime.year, t.startTime.month - 1, t.startTime.day,
+          t.startTime.hour, t.startTime.minute, t.startTime.second
+        ).getTime();
+      };
+      const actualStart = currentTask.lastExecutedAt || getTaskStartTimestamp(currentTask);
+      const endTime = actualStart + currentTask.playDurationMinutes * 60 * 1000;
+      const fadeInMs = (currentTask.fadeInDuration || 0) * 1000;
+      const fadeOutMs = (currentTask.fadeOutDuration || 0) * 1000;
+
+      const schedulerPhase = scheduler.getTaskPhase(currentTask.id);
+      if (schedulerPhase === "fading-in" || currentPhase === "fading-in") {
+        const fadeInEnd = actualStart + fadeInMs;
+        return Math.max(0, fadeInEnd - now);
+      }
+      if (schedulerPhase === "playing" || currentPhase === "playing") {
+        return Math.max(0, endTime - now);
+      }
+      if (schedulerPhase === "fading-out" || currentPhase === "fading-out") {
+        return Math.max(0, endTime + fadeOutMs - now);
+      }
+      return Math.max(0, endTime - now);
+    }
+
+    if (currentStatus === "completed" && currentTask.repeatType !== "once") {
+      const nextExec = getNextExecuteDate(currentTask);
+      if (nextExec) {
+        return Math.max(0, nextExec.getTime() - now);
+      }
+    }
+
+    return 0;
+  }, [scheduler]);
+
+  // 简单的轮询更新 - 不依赖当前状态避免循环
   useEffect(() => {
     const update = () => {
-      const currentPhase = scheduler.getTaskPhase(task.id);
+      const currentTask = taskRef.current;
+      const currentPhase = scheduler.getTaskPhase(currentTask.id);
       let newStatus: TaskStatus;
       if (currentPhase === 'fading-in' || currentPhase === 'playing' || currentPhase === 'fading-out') {
         newStatus = 'executing';
       } else {
-        const latestTask = getAllTasks().find(t => t.id === task.id);
-        newStatus = getTaskStatus(latestTask || task);
+        const latestTask = getAllTasks().find(t => t.id === currentTask.id);
+        newStatus = getTaskStatus(latestTask || currentTask);
       }
-      setStatus(newStatus);
-      setPhase(currentPhase);
+      const newRemaining = calculateRemaining(currentTask, newStatus, currentPhase);
+      setState({
+        status: newStatus,
+        phase: currentPhase === 'waiting' ? 'waiting' : currentPhase === 'idle' ? 'idle' : currentPhase,
+        remainingMs: newRemaining
+      });
     };
 
     update();
+    const timer = setInterval(update, 1000); // 每秒更新一次
+    return () => clearInterval(timer);
+  }, [task.id, scheduler, calculateRemaining]);
 
-    if (statusRef.current === 'executing') {
-      const timer = setInterval(update, 1000);
-      return () => clearInterval(timer);
-    } else if (statusRef.current === 'pending') {
-      const timer = setInterval(update, 5000);
-      return () => clearInterval(timer);
-    }
-  }, [task, scheduler, status]);
-
+  // 调度器事件监听
   useEffect(() => {
     const handleEvent = (event: SchedulerEvent) => {
       if (event.taskId !== task.id) return;
-      if (event.type === "phase-change") {
+
+      if (event.type === "tick" || event.type === "phase-change" || event.type === "task-started") {
         const newPhase = event.phase as TaskExecPhase | "idle";
         let newStatus: TaskStatus;
         if (newPhase === "fading-in" || newPhase === "playing" || newPhase === "fading-out") {
@@ -285,30 +270,39 @@ function useTaskState(task: ScheduledTask) {
           const latestTask = getAllTasks().find(t => t.id === task.id);
           newStatus = getTaskStatus(latestTask || task);
         }
-        setPhase(newPhase);
-        setStatus(newStatus);
-      } else if (event.type === "task-started") {
-        const newPhase = event.phase as TaskExecPhase;
-        setStatus("executing");
-        setPhase(newPhase);
+        setState({
+          status: newStatus,
+          phase: newPhase,
+          remainingMs: event.remainingMs
+        });
       } else if (event.type === "task-completed") {
-        setStatus("completed");
-        setPhase("idle");
+        setState(prev => {
+          const latestTask = getAllTasks().find(t => t.id === task.id);
+          const newStatus = getTaskStatus(latestTask || task);
+          const newRemaining = calculateRemaining(latestTask || task, newStatus, "idle");
+          return { status: newStatus, phase: "idle", remainingMs: newRemaining };
+        });
       } else if (event.type === "task-cancelled") {
-        setStatus("cancelled");
-        setPhase("idle");
+        setState(prev => {
+          const latestTask = getAllTasks().find(t => t.id === task.id);
+          const newStatus = getTaskStatus(latestTask || task);
+          const newRemaining = calculateRemaining(latestTask || task, newStatus, "idle");
+          return { status: newStatus, phase: "idle", remainingMs: newRemaining };
+        });
       } else if (event.type === "task-resumed") {
-        const latestTask = getAllTasks().find(t => t.id === task.id);
-        const newStatus = getTaskStatus(latestTask || task);
-        setStatus(newStatus);
-        setPhase("waiting");
+        setState(prev => {
+          const latestTask = getAllTasks().find(t => t.id === task.id);
+          const newStatus = getTaskStatus(latestTask || task);
+          const newRemaining = calculateRemaining(latestTask || task, newStatus, "waiting");
+          return { status: newStatus, phase: "waiting", remainingMs: newRemaining };
+        });
       }
     };
     const unsub = scheduler.on(handleEvent);
     return () => { unsub(); };
   }, [task.id, task, scheduler]);
 
-  return { status, phase };
+  return state;
 }
 
 interface TaskItemProps {
@@ -342,7 +336,7 @@ function TaskItem({
   onRefresh,
   onTouchStart,
 }: TaskItemProps) {
-  const { status, phase } = useTaskState(task);
+  const { status, phase, remainingMs } = useTaskState(task);
   const isMobile = useIsMobile();
   const firstAudio = task.audios[0];
 
@@ -405,7 +399,7 @@ function TaskItem({
           {task.volume}%
         </span>
       </div>
-      {(task.fadeInDuration > 0 || task.fadeOutDuration > 0) && (
+      {task.enableFade && (task.fadeInDuration > 0 || task.fadeOutDuration > 0) && (
         <div className="flex items-center gap-1.5 sm:gap-2 text-[12px] sm:text-[11px] text-muted-foreground/70 leading-relaxed">
           {task.fadeInDuration > 0 && (
             <span className="flex items-center gap-0.5">
@@ -522,7 +516,7 @@ function TaskItem({
               <p className="font-medium text-sm text-foreground truncate">{task.name}</p>
               {repeatBadge}
             </div>
-            <StatusBadge task={task} status={status} phase={phase} />
+            <StatusBadge task={task} status={status} phase={phase} remainingMs={remainingMs} />
           </div>
 
           <div className="flex items-center gap-1.5 text-[13px] text-muted-foreground leading-relaxed">
@@ -539,7 +533,7 @@ function TaskItem({
             </span>
           </div>
 
-          {(task.fadeInDuration > 0 || task.fadeOutDuration > 0) && (
+          {task.enableFade && (task.fadeInDuration > 0 || task.fadeOutDuration > 0) && (
             <div className="flex items-center gap-1.5 text-[12px] text-muted-foreground/70 leading-relaxed mt-0.5">
               {task.fadeInDuration > 0 && (
                 <span className="flex items-center gap-0.5">
@@ -654,7 +648,7 @@ function TaskItem({
             </div>
             {infoRow}
           </div>
-          <StatusBadge task={task} status={status} phase={phase} />
+          <StatusBadge task={task} status={status} phase={phase} remainingMs={remainingMs} />
         </div>
         {audioRow}
       </div>
@@ -696,9 +690,9 @@ export function TaskList({ tasks, onEdit, onCreate, onRefresh }: TaskListProps) 
   const confirmDelete = useCallback(() => {
     if (!deleteConfirmId) return;
     const task = tasks.find((t) => t.id === deleteConfirmId);
-    // 先强制停止调度器中正在执行的播放，再删除数据
+    // 先停止调度器中正在执行的播放，再删除数据
     const scheduler = getTaskScheduler();
-    scheduler.forceStopPlayback(deleteConfirmId);
+    scheduler.cancelTask(deleteConfirmId);
     const success = deleteTask(deleteConfirmId);
     if (success) {
       toast.success(`任务「${task?.name || "任务"}」已被删除`);
@@ -968,6 +962,20 @@ export function TaskList({ tasks, onEdit, onCreate, onRefresh }: TaskListProps) 
           );
         })}
       </div>
+
+      {/* 新建任务按钮 */}
+      {onCreate && (
+        <div className="pt-4 pb-2 text-center">
+          <button
+            type="button"
+            onClick={onCreate}
+            className="inline-flex items-center gap-2 px-4 py-2 rounded-lg text-sm font-medium text-[var(--brand-start)] border border-[var(--brand-start)]/30 hover:bg-[var(--brand-start)]/10 hover:border-[var(--brand-start)]/50 active:scale-95 transition-all cursor-pointer"
+          >
+            <Plus className="w-4 h-4" />
+            新建任务
+          </button>
+        </div>
+      )}
 
       <FeedbackModal
         visible={!!deleteConfirmId}

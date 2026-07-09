@@ -22,7 +22,7 @@ export function formatDuration(seconds: number | undefined | null, showHours: bo
 export interface AudioItemBase {
   id: string;
   name: string;
-  url: string;
+  url?: string;
   duration: number;
   fileKey?: string;
   serverUrl?: string;

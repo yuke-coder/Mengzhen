@@ -20,11 +20,12 @@ interface AudioItem {
 
 interface DreamConfig {
   audios: AudioItem[];
-  order: string[];
+  order?: string[];
   volume: number;
   fadeInDuration: number;
   fadeOutDuration: number;
-  playDuration: { hour: number; minute: number };
+  enableFade: boolean; // 是否启用渐入渐出
+  playDuration?: { hour: number; minute: number };
   startTime?: { hour: number; minute: number; second?: number; year?: number; month?: number; day?: number };
   endTime?: { hour: number; minute: number; second?: number; year?: number; month?: number; day?: number };
   createdAt: number;
@@ -124,8 +125,8 @@ export default function TemplatesPage() {
           setHasConfig(true);
           setIsConfigLoaded(true);
           setEndTime(parsedConfig.endTime || null);
-          
-          // 计算到实际播放开始时间的倒计时（开始时间 - 渐入时长，渐入在开始时间前完成）
+
+          // 计算到实际播放开始时间的倒计时（只有在启用渐入渐出时才考虑渐入时长）
           const now = new Date();
           const targetYear = parsedConfig.startTime.year ?? now.getFullYear();
           const targetMonth = parsedConfig.startTime.month ?? (now.getMonth() + 1);
@@ -133,20 +134,22 @@ export default function TemplatesPage() {
           const targetHour = parsedConfig.startTime.hour;
           const targetMinute = parsedConfig.startTime.minute;
           const targetSecond = parsedConfig.startTime.second ?? 0;
-          
-          // 渐入时长（秒）：渐入在开始时间之前完成，音频提前开始播放
-          const fadeInDuration = parsedConfig.fadeInDuration ?? 0;
-          
+
+          // 是否启用渐入渐出（默认 false）
+          const enableFade = parsedConfig.enableFade ?? false;
+          // 渐入时长（秒）：只有在启用时才会提前开始播放
+          const fadeInDuration = enableFade ? (parsedConfig.fadeInDuration ?? 0) : 0;
+
           // 使用完整日期创建目标时间（包含年、月、日）
           let targetTime = new Date(targetYear, targetMonth - 1, targetDay, targetHour, targetMinute, targetSecond, 0);
-          // 实际音频开始播放时间 = 开始时间 - 渐入时长
+          // 实际音频开始播放时间 = 开始时间 - 渐入时长（只有启用渐入渐出时才减去）
           targetTime = new Date(targetTime.getTime() - fadeInDuration * 1000);
-          
+
           const countdownMs = targetTime.getTime() - now.getTime();
           const countdownSec = Math.ceil(countdownMs / 1000);
-          
-          console.log('[梦枕] 目标开始时间:', `${targetYear}-${targetMonth}-${targetDay} ${targetHour}:${targetMinute}:${targetSecond}`, '渐入:', fadeInDuration + '秒', '实际播放时间:', targetTime.toLocaleString(), '倒计时:', countdownSec, '秒');
-          
+
+          console.log('[梦枕] 目标开始时间:', `${targetYear}-${targetMonth}-${targetDay} ${targetHour}:${targetMinute}:${targetSecond}`, '启用渐入渐出:', enableFade, '渐入时长:', fadeInDuration + '秒', '实际播放时间:', targetTime.toLocaleString(), '倒计时:', countdownSec, '秒');
+
           // ★ 倒计时为负时的处理（页面刷新时可能发生）
           if (countdownSec < 0) {
             // 计算到真正开始时间的秒数（不含渐入偏移）
@@ -365,7 +368,9 @@ export default function TemplatesPage() {
   const playAudioHelper = useCallback(async (index: number, audio: HTMLAudioElement) => {
     if (!config) return;
 
-    const orderedAudios = config.order.map(id => config.audios.find(a => a.id === id)).filter(Boolean) as AudioItem[];
+    const orderedAudios = config.order
+      ? config.order.map(id => config.audios.find(a => a.id === id)).filter(Boolean) as AudioItem[]
+      : config.audios;
     const currentAudio = orderedAudios[index % orderedAudios.length];
 
     if (!currentAudio) return;
@@ -401,7 +406,7 @@ export default function TemplatesPage() {
 
     // 先设置错误和结束事件处理器，确保即使 URL 无效也能被捕获
     // orderedAudios 已在第 337 行声明
-    
+
     // 音频加载/播放错误
     audio.onerror = () => {
       console.error('[梦枕] 音频加载/播放错误:', audio.error?.code, audio.error?.message, 'URL:', audioUrl);
@@ -440,41 +445,68 @@ export default function TemplatesPage() {
       return;
     }
 
-    console.log('[梦枕] 准备播放音频:', currentAudio.name, '来源:', currentAudio.fileKey ? '代理' : currentAudio.serverUrl ? '直连' : currentAudio.dbKey ? 'IndexedDB' : 'blob');
+    console.log('[梦枕] 准备播放音频:', currentAudio.name, '来源:', currentAudio.fileKey ? '代理' : currentAudio.serverUrl ? '直连' : currentAudio.dbKey ? 'IndexedDB' : 'blob', '启用渐入渐出:', config.enableFade);
     audio.src = audioUrl;
+    audio.loop = true; // 循环播放单个音频直到停止
     audio.load();
-    audio.volume = 0;
+
+    // 计算目标音量
+    const targetVolume = Math.max(0, Math.min(1, (config.volume ?? 70) / 100));
+    console.log('[梦枕] 目标音量:', targetVolume);
+
     setCurrentAudioIndex(index);
     setCurrentAudioName(currentAudio.name);
 
-    // 渐入
-    setIsFadingIn(true);
-    const targetVolume = volume / 100;
-    const fadeInStep = targetVolume / (config.fadeInDuration * 10);
-    let vol = 0;
-    let fadeInTicks = 0;
-    const totalFadeInTicks = config.fadeInDuration * 10; // 总tick数
-    setFadeInRemaining(config.fadeInDuration);
+    // 先停止之前的渐入定时器
+    if (fadeTimerRef.current) {
+      clearInterval(fadeTimerRef.current);
+      fadeTimerRef.current = null;
+    }
 
-    fadeTimerRef.current = setInterval(() => {
-      fadeInTicks++;
-      vol = Math.min(vol + fadeInStep, targetVolume);
-      audio.volume = vol;
-      const remainingSecs = Math.max(0, Math.ceil((totalFadeInTicks - fadeInTicks) / 10));
-      setFadeInRemaining(remainingSecs);
-      if (vol >= targetVolume) {
-        if (fadeTimerRef.current) {
-          clearInterval(fadeTimerRef.current);
-          fadeTimerRef.current = null;
+    // 是否启用渐入渐出
+    if (config.enableFade && config.fadeInDuration && config.fadeInDuration > 0) {
+      console.log('[梦枕] 启用渐入，时长:', config.fadeInDuration, '秒');
+      // 渐入：从 0 开始
+      audio.volume = 0;
+      setIsFadingIn(true);
+      const fadeInTicks = config.fadeInDuration * 10; // 每10ms一次，共 fadeInDuration*10 次
+      let tickCount = 0;
+      setFadeInRemaining(config.fadeInDuration);
+
+      fadeTimerRef.current = setInterval(() => {
+        tickCount++;
+        const progress = Math.min(1, tickCount / fadeInTicks);
+        const currentVol = targetVolume * progress;
+        audio.volume = currentVol;
+        const remainingSecs = Math.max(0, Math.ceil((fadeInTicks - tickCount) / 10));
+        setFadeInRemaining(remainingSecs);
+
+        if (progress >= 1) {
+          if (fadeTimerRef.current) {
+            clearInterval(fadeTimerRef.current);
+            fadeTimerRef.current = null;
+          }
+          setIsFadingIn(false);
+          setFadeInRemaining(0);
+          audio.volume = targetVolume; // 确保最终音量精确
+          // 渐入完成，标记正在播放
+          isPlayingRef.current = true;
+          console.log('[梦枕] 渐入完成，音量:', audio.volume);
         }
-        setIsFadingIn(false);
-        setFadeInRemaining(0);
-        // 渐入完成，标记正在播放
-        isPlayingRef.current = true;
-      }
-    }, 100);
+      }, 100);
+    } else {
+      console.log('[梦枕] 不启用渐入，直接设置音量:', targetVolume);
+      // 不启用渐入渐出，直接设置音量并播放
+      audio.volume = targetVolume;
+      setIsFadingIn(false);
+      setFadeInRemaining(0);
+      isPlayingRef.current = true;
+    }
 
-    audio.play().catch(console.error);
+    // 开始播放
+    audio.play().catch(err => {
+      console.error('[梦枕] 播放失败:', err);
+    });
 
     // PWA: 注册 Media Session API（锁屏/通知栏播放控制）
     if ('mediaSession' in navigator) {
@@ -571,7 +603,7 @@ export default function TemplatesPage() {
     console.log('[梦枕] 开始播放音频');
     playStartTimestampRef.current = Date.now();
 
-    // 计算从当前时间到结束时间的实际剩余秒数（不含渐出时长）
+    // 计算从当前时间到结束时间的实际剩余秒数
     if (endTime) {
       const now = new Date();
       let endDateTime: Date;
@@ -581,8 +613,9 @@ export default function TemplatesPage() {
         endDateTime = new Date(now);
         endDateTime.setHours(endTime.hour, endTime.minute, endTime.second ?? 0, 0);
       }
-      // 真正的播放结束时间（不含渐出时长）
-      const fadeOutSec = config.fadeOutDuration ?? 0;
+      // 真正的播放结束时间：如果启用渐出则为结束时间 - 渐出时长，否则直接为结束时间
+      const enableFade = config.enableFade ?? false;
+      const fadeOutSec = enableFade ? (config.fadeOutDuration ?? 0) : 0;
       const playEndTimestamp = endDateTime.getTime() - fadeOutSec * 1000;
       const actualRemaining = Math.max(0, Math.ceil((playEndTimestamp - Date.now()) / 1000));
       console.log('[梦枕] 设置播放剩余时间:', actualRemaining, '秒 (基于结束时间计算)');
@@ -591,19 +624,20 @@ export default function TemplatesPage() {
 
     // PWA: 确保 AudioContext 活跃（解决自动播放限制）
     ensureAudioContext();
-    
+
     // 开始播放第一个音频（空 Audio，由 playAudioHelper 设置真实 URL）
-    const orderedAudios = config.order.map(id => config.audios.find(a => a.id === id)).filter(Boolean) as AudioItem[];
+    const orderedAudios = config.order
+      ? config.order.map(id => config.audios.find(a => a.id === id)).filter(Boolean) as AudioItem[]
+      : config.audios;
     const firstAudio = orderedAudios[0];
-    
+
     if (!firstAudio) {
       console.error('[梦枕] 播放列表为空，无法开始播放');
       return;
     }
-    
-    console.log('[梦枕] 即将播放首个音频:', firstAudio.name, 'fileKey:', firstAudio.fileKey?.substring(0,30), 'serverUrl:', !!firstAudio.serverUrl);
+
+    console.log('[梦枕] 即将播放首个音频:', firstAudio.name, 'fileKey:', firstAudio.fileKey?.substring(0, 30), 'serverUrl:', !!firstAudio.serverUrl);
     const audio = new Audio();
-    audio.volume = 0;
     audioRef.current = audio;
     playAudioHelper(0, audio);
   }, [isPlaying, config, playAudioHelper, ensureAudioContext]);
@@ -615,22 +649,23 @@ export default function TemplatesPage() {
     }
   }, [isFadingIn, isPlaying, playStarted]);
   
-  // 播放期间持续更新剩余时间（基于结束时间，不含渐出时长）
+  // 播放期间持续更新剩余时间（基于结束时间）
   useEffect(() => {
     if (!isPlaying || !isStartedRef.current || !endTime) {
       console.log('[梦枕] 播放更新useEffect: 条件不满足, isPlaying:', isPlaying, 'isStarted:', isStartedRef.current, 'endTime:', !!endTime);
       return;
     }
-    
+
     // 如果渐出已经开始，不更新（由渐出定时器负责）
     if (isFadingOutRef.current) {
       console.log('[梦枕] 播放更新useEffect: 渐出已开始，停止更新');
       return;
     }
-    
+
     console.log('[梦枕] 播放更新useEffect: 开始每秒更新剩余时间');
-    const fadeOutSec = config?.fadeOutDuration ?? 0;
-    
+    const enableFade = config?.enableFade ?? false;
+    const fadeOutSec = enableFade ? (config?.fadeOutDuration ?? 0) : 0;
+
     // 构造结束时间戳
     const now = new Date();
     let endDateTime: Date;
@@ -640,8 +675,8 @@ export default function TemplatesPage() {
       endDateTime = new Date(now);
       endDateTime.setHours(endTime.hour, endTime.minute, endTime.second ?? 0, 0);
     }
-    
-    // 真正的播放结束时间（不含渐出时长）
+
+    // 真正的播放结束时间：如果启用渐出则为结束时间 - 渐出时长，否则直接为结束时间
     const playEndTimestamp = endDateTime.getTime() - fadeOutSec * 1000;
     
     const updateRemaining = () => {
@@ -671,9 +706,11 @@ export default function TemplatesPage() {
     // 或者播放已经开始但还未启动过渐出定时器
     if (isFadingIn || !isPlaying || !isStartedRef.current || !endTime || !config) return;
     if (playStarted && isFadingOutRef.current) return; // 渐出定时器已启动
-    
-    const fadeOutSec = config.fadeOutDuration ?? 0;
-    if (fadeOutSec <= 0) return; // 没有设置渐出时长，不启动
+
+    // 如果没有启用渐入渐出，或者渐出时长为0，直接在结束时间停止
+    const enableFade = config.enableFade ?? false;
+    const fadeOutSec = enableFade ? (config.fadeOutDuration ?? 0) : 0;
+    const targetVolume = Math.max(0, Math.min(1, (config.volume ?? 70) / 100));
 
     // 构造结束时间戳
     const now = new Date();
@@ -685,67 +722,93 @@ export default function TemplatesPage() {
       endDateTime.setHours(endTime.hour, endTime.minute, endTime.second ?? 0, 0);
     }
 
-    // 真正的停止时间 = 结束时间 + 渐出时长
-    const stopTimestamp = endDateTime.getTime() + fadeOutSec * 1000;
+    console.log('[梦枕] 结束时间:', endDateTime.toLocaleString(), '启用渐出:', enableFade, '渐出时长:', fadeOutSec, '秒');
+
+    // 如果没有启用渐入渐出或渐出时长为0，设置一个简单的定时器在结束时间停止
+    if (!enableFade || fadeOutSec <= 0) {
+      console.log('[梦枕] 未启用渐入渐出，在结束时间直接停止');
+      const delay = Math.max(100, endDateTime.getTime() - Date.now());
+      const timer = setTimeout(() => {
+        console.log('[梦枕] 结束时间已到，停止播放');
+        handleEnd();
+      }, delay);
+
+      return () => clearTimeout(timer);
+    }
+
+    // 启用渐入渐出的情况
+    // 渐出开始时间 = 结束时间 - 渐出时长
+    // 完全停止时间 = 结束时间
+    const fadeOutStartTimestamp = endDateTime.getTime() - fadeOutSec * 1000;
     const totalFadeOutMs = fadeOutSec * 1000;
 
-    // 如果停止时间已过，立即停止
-    if (stopTimestamp <= Date.now()) {
-      console.log('[梦枕] 结束时间+渐出时长已过，立即停止播放');
+    // 如果已经过了完全停止时间，立即停止
+    if (endDateTime.getTime() <= Date.now()) {
+      console.log('[梦枕] 结束时间已过，立即停止播放');
       handleEnd();
       return;
     }
 
-    console.log('[梦枕] 启动渐出定时器. 结束时间:', `${endTime.hour}:${endTime.minute}`, '渐出:', fadeOutSec + '秒', '停止时间:', new Date(stopTimestamp).toLocaleTimeString());
+    console.log('[梦枕] 启动渐出逻辑. 结束时间:', endDateTime.toLocaleTimeString(), '渐出开始时间:', new Date(fadeOutStartTimestamp).toLocaleTimeString(), '渐出时长:', fadeOutSec + '秒');
 
-    // 启动独立的渐出 Worker
-    const worker = getTimerWorker();
+    // 如果还没到渐出开始时间，先设置定时器等待
+    const timeUntilFadeStart = Math.max(0, fadeOutStartTimestamp - Date.now());
 
-    const handleMessage = (e: MessageEvent) => {
-      if (e.data.type === 'tick') {
-        const remainingMs = e.data.remainingMs;
-        const remainingSec = Math.ceil(remainingMs / 1000);
-        
-        // 渐出阶段只由 Worker 更新 remainingSeconds
-        // 在渐出阶段，remainingSec 代表渐出剩余时间
-        console.log('[梦枕] 渐出Worker tick: remainingSec=', remainingSec, 'fadeOutMs=', totalFadeOutMs);
-        setRemainingSeconds(Math.max(0, remainingSec));
+    // 先停止之前的渐出定时器
+    if (fadeTimerRef.current) {
+      clearInterval(fadeTimerRef.current);
+      fadeTimerRef.current = null;
+    }
 
-        // 渐出逻辑：当剩余时间 <= 渐出时长时，逐渐降低音量
-        if (remainingMs <= totalFadeOutMs) {
-          if (!isFadingOutRef.current) {
-            isFadingOutRef.current = true;
-            setIsFadingOut(true);
-            setInitialFadeOutSeconds(Math.ceil(totalFadeOutMs / 1000)); // 记录渐出开始时的初始剩余秒数
-            console.log('[梦枕] 开始渐出, fadeRatio开始从1降');
-          }
-          // 渐出比例：remainingMs 从 totalFadeOutMs 降到 0，比值从 1 降到 0
-          const fadeRatio = Math.max(0, remainingMs / totalFadeOutMs);
-          console.log('[梦枕] 渐出中: fadeRatio=', fadeRatio.toFixed(3));
-          const targetVol = config.volume / 100;
-          const newVolume = targetVol * fadeRatio;
-          if (audioRef.current) {
-            audioRef.current.volume = Math.max(0, Math.min(targetVol, newVolume));
-          }
-          setFadeOutRemaining(Math.ceil(remainingMs / 1000));
+    // 等待到渐出开始时间
+    const startFadeTimer = setTimeout(() => {
+      console.log('[梦枕] 开始渐出');
+      isFadingOutRef.current = true;
+      setIsFadingOut(true);
+      setInitialFadeOutSeconds(fadeOutSec);
+
+      const fadeOutStartAt = Date.now();
+      const fadeOutIntervalMs = 50; // 每50ms更新一次
+
+      fadeTimerRef.current = setInterval(() => {
+        const elapsedMs = Date.now() - fadeOutStartAt;
+        const remainingMs = Math.max(0, totalFadeOutMs - elapsedMs);
+        const progress = Math.min(1, elapsedMs / totalFadeOutMs);
+
+        // 计算渐出音量：从 targetVolume 降到 0
+        const newVolume = targetVolume * (1 - progress);
+
+        if (audioRef.current) {
+          audioRef.current.volume = Math.max(0, Math.min(targetVolume, newVolume));
         }
-      } else if (e.data.type === 'ended') {
-        console.log('[梦枕] 渐出完毕(Worker发送ended)，停止播放');
-        setIsFadingOut(false);
-        isFadingOutRef.current = false;
-        setInitialFadeOutSeconds(0);
-        handleEnd();
-      }
-    };
 
-    worker.addEventListener('message', handleMessage);
-    worker.postMessage({ type: 'start', endTime: stopTimestamp });
+        setFadeOutRemaining(Math.ceil(remainingMs / 1000));
+        setRemainingSeconds(Math.ceil(remainingMs / 1000));
+        console.log('[梦枕] 渐出中:', 'progress=', progress.toFixed(2), 'volume=', newVolume.toFixed(2), 'remaining=', Math.ceil(remainingMs / 1000) + 's');
+
+        if (progress >= 1) {
+          // 渐出完成
+          console.log('[梦枕] 渐出完成，停止播放');
+          if (fadeTimerRef.current) {
+            clearInterval(fadeTimerRef.current);
+            fadeTimerRef.current = null;
+          }
+          setIsFadingOut(false);
+          isFadingOutRef.current = false;
+          setInitialFadeOutSeconds(0);
+          handleEnd();
+        }
+      }, fadeOutIntervalMs);
+    }, timeUntilFadeStart);
 
     return () => {
-      worker.removeEventListener('message', handleMessage);
-      worker.postMessage({ type: 'stopEndTimer' });
+      clearTimeout(startFadeTimer);
+      if (fadeTimerRef.current) {
+        clearInterval(fadeTimerRef.current);
+        fadeTimerRef.current = null;
+      }
     };
-  }, [isFadingIn, isPlaying, endTime, config, handleEnd, getTimerWorker]);
+  }, [isFadingIn, isPlaying, endTime, config, handleEnd]);
 
   // 格式化时间 - 只显示时分秒
   const formatTime = (date: Date) => {
@@ -794,16 +857,20 @@ export default function TemplatesPage() {
 
   // 获取下一个播放音频名称
   const getNextAudioName = () => {
-    if (!config || config.order.length <= 1) return '';
-    const orderedAudios = config.order.map(id => config.audios.find(a => a.id === id)).filter(Boolean) as AudioItem[];
+    if (!config || config.audios.length <= 1) return '';
+    const orderedAudios = config.order
+      ? config.order.map(id => config.audios.find(a => a.id === id)).filter(Boolean) as AudioItem[]
+      : config.audios;
     const nextIndex = (currentAudioIndex + 1) % orderedAudios.length;
     return orderedAudios[nextIndex]?.name || '';
   };
 
   // 当前音频时长
   const currentAudioDuration = (() => {
-    if (!config || !config.order.length) return 0;
-    const orderedAudios = config.order.map(id => config.audios.find(a => a.id === id)).filter(Boolean) as AudioItem[];
+    if (!config || !config.audios.length) return 0;
+    const orderedAudios = config.order
+      ? config.order.map(id => config.audios.find(a => a.id === id)).filter(Boolean) as AudioItem[]
+      : config.audios;
     return orderedAudios[currentAudioIndex % orderedAudios.length]?.duration || 0;
   })();
 
@@ -931,7 +998,9 @@ export default function TemplatesPage() {
                       <>
                         {/* 获取当前播放音频的完整信息 */}
                         {(() => {
-                          const orderedAudios = config?.order?.map((id: string) => config?.audios?.find((a: AudioItem) => a.id === id)).filter(Boolean) as AudioItem[] || [];
+                          const orderedAudios = config?.order
+                            ? config.order.map((id: string) => config.audios.find((a: AudioItem) => a.id === id)).filter(Boolean) as AudioItem[]
+                            : config?.audios || [];
                           const currentAudio = orderedAudios[currentAudioIndex % orderedAudios.length];
                           return (
                           <>
@@ -1007,13 +1076,12 @@ export default function TemplatesPage() {
                         })()}
 
                         {/* 下部分：下一个即将播放的音频 */}
-                        {getNextAudioName() && config && config.order.length > 1 && (() => {
+                        {getNextAudioName() && config && config.audios.length > 1 && (() => {
+                          const orderedAudios = config.order
+                            ? config.order.map((id: string) => config.audios.find((a: AudioItem) => a.id === id)).filter(Boolean) as AudioItem[]
+                            : config.audios;
                           const nextIdx = currentAudioIndex + 1;
-                          const nextAudio = nextIdx < config.audios.length
-                            ? (config.order.length > 0
-                              ? config.audios.find(a => a.id === config.order[nextIdx])
-                              : config.audios[nextIdx])
-                            : null;
+                          const nextAudio = nextIdx < orderedAudios.length ? orderedAudios[nextIdx] : null;
                           return (
                             <div className="pt-3 space-y-2">
                               <div className="flex items-center gap-2 text-xs text-muted-foreground">
@@ -1053,8 +1121,9 @@ export default function TemplatesPage() {
 
                         {/* 第一个音频详情 - 完全同设置页列表样式 */}
                         {config?.audios && config.audios.length > 0 ? (() => {
-                          const firstAudio = config.order.length > 0
-                            ? (config.audios.find(a => a.id === config.order[0]) || config.audios[0])
+                          const order = config.order;
+                          const firstAudio = order && order.length > 0
+                            ? (config.audios.find(a => a.id === order[0]) || config.audios[0])
                             : config.audios[0];
                           return (
                             <div className="space-y-2.5">
@@ -1210,90 +1279,131 @@ export default function TemplatesPage() {
                       )}
                     </>
                   ) : (
-                    /* 等待中：显示渐入开始时间和预设开始时间 */
-                    <div className="space-y-4">
-                      {/* 状态标签 */}
-                      <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-lg bg-blue-500/10 border border-blue-500/20">
-                        <Volume2 className="w-4 h-4 text-blue-500" />
-                        <span className="text-sm text-blue-500 font-medium">等待渐入</span>
-                      </div>
-
-                      {/* 渐入开始时间 */}
-                      <div className="space-y-2">
-                        <div className="text-xs text-white/40 uppercase tracking-wider">渐入开始时间</div>
-                        <div 
-                          className="text-2xl font-bold text-blue-500 tracking-wider"
-                          style={{ fontFamily: 'monospace', letterSpacing: '0.05em' }}
-                        >
-                          {config?.startTime && config?.fadeInDuration !== undefined ? (() => {
-                            const startYear = config.startTime.year ?? new Date().getFullYear();
-                            const startMonth = config.startTime.month ?? 1;
-                            const startDay = config.startTime.day ?? 1;
-                            const startHour = config.startTime.hour;
-                            const startMinute = config.startTime.minute;
-                            const startSecond = config.startTime.second ?? 0;
-                            const fadeIn = config.fadeInDuration;
-                            
-                            // 创建开始时间的 Date 对象
-                            const startDate = new Date(startYear, startMonth - 1, startDay, startHour, startMinute, startSecond, 0);
-                            
-                            // 计算渐入开始时间 = 开始时间 - 渐入时长
-                            const fadeDate = new Date(startDate.getTime() - fadeIn * 1000);
-                            
-                            const fadeMonth = fadeDate.getMonth() + 1;
-                            const fadeDay = fadeDate.getDate();
-                            const fadeHour = fadeDate.getHours();
-                            const fadeMinute = fadeDate.getMinutes();
-                            const fadeSecond = fadeDate.getSeconds();
-                            
-                            return `${String(fadeMonth).padStart(2, '0')}/${String(fadeDay).padStart(2, '0')} ${String(fadeHour).padStart(2, '0')}:${String(fadeMinute).padStart(2, '0')}:${String(fadeSecond).padStart(2, '0')}`;
-                          })() : '--/-- --:--:--'}
+                    /* 等待中：根据 enableFade 决定是否显示渐入相关信息 */
+                    config?.enableFade ? (
+                      /* 启用渐入渐出时：显示渐入开始时间和预设开始时间 */
+                      <div className="space-y-4">
+                        {/* 状态标签 */}
+                        <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-lg bg-blue-500/10 border border-blue-500/20">
+                          <Volume2 className="w-4 h-4 text-blue-500" />
+                          <span className="text-sm text-blue-500 font-medium">等待渐入</span>
                         </div>
-                      </div>
 
-                      {/* 距离倒计时 */}
-                      <div className="space-y-2 pt-3 border-t border-white/10">
-                        <div className="flex gap-6">
-                          <div className="flex-1">
-                            <div className="text-xs text-white/40 uppercase tracking-wider">距离渐入开始还有</div>
-                            <div 
-                              className="text-lg font-bold text-cyan-400 tracking-wider"
-                              style={{ fontFamily: 'monospace', letterSpacing: '0.05em' }}
-                            >
-                              {fadeCountdown ?? '--:--'}
-                            </div>
-                          </div>
-                          
-                          <div className="flex-1">
-                            <div className="text-xs text-white/40 uppercase tracking-wider">距离真正播放还有</div>
-                            <div 
-                              className="text-lg font-bold text-purple-400 tracking-wider"
-                              style={{ fontFamily: 'monospace', letterSpacing: '0.05em' }}
-                            >
-                              {startCountdown ?? '--:--'}
-                            </div>
+                        {/* 渐入开始时间 */}
+                        <div className="space-y-2">
+                          <div className="text-xs text-white/40 uppercase tracking-wider">渐入开始时间</div>
+                          <div
+                            className="text-2xl font-bold text-blue-500 tracking-wider"
+                            style={{ fontFamily: 'monospace', letterSpacing: '0.05em' }}
+                          >
+                            {config?.startTime && config?.fadeInDuration !== undefined ? (() => {
+                              const startYear = config.startTime.year ?? new Date().getFullYear();
+                              const startMonth = config.startTime.month ?? 1;
+                              const startDay = config.startTime.day ?? 1;
+                              const startHour = config.startTime.hour;
+                              const startMinute = config.startTime.minute;
+                              const startSecond = config.startTime.second ?? 0;
+                              const fadeIn = config.fadeInDuration;
+
+                              // 创建开始时间的 Date 对象
+                              const startDate = new Date(startYear, startMonth - 1, startDay, startHour, startMinute, startSecond, 0);
+
+                              // 计算渐入开始时间 = 开始时间 - 渐入时长
+                              const fadeDate = new Date(startDate.getTime() - fadeIn * 1000);
+
+                              const fadeMonth = fadeDate.getMonth() + 1;
+                              const fadeDay = fadeDate.getDate();
+                              const fadeHour = fadeDate.getHours();
+                              const fadeMinute = fadeDate.getMinutes();
+                              const fadeSecond = fadeDate.getSeconds();
+
+                              return `${String(fadeMonth).padStart(2, '0')}/${String(fadeDay).padStart(2, '0')} ${String(fadeHour).padStart(2, '0')}:${String(fadeMinute).padStart(2, '0')}:${String(fadeSecond).padStart(2, '0')}`;
+                            })() : '--/-- --:--:--'}
                           </div>
                         </div>
-                      </div>
 
-                      {/* 预设开始播放时间 */}
-                      <div className="space-y-2 pt-3 border-t border-white/10">
-                        <div className="text-xs text-white/40 uppercase tracking-wider">预设开始播放时间</div>
-                        <div 
-                          className="text-2xl font-bold text-[#CC28FB] tracking-wider"
-                          style={{ fontFamily: 'monospace', letterSpacing: '0.05em' }}
-                        >
-                          {config?.startTime ? `${config.startTime.month}/${config.startTime.day} ${String(config.startTime.hour).padStart(2, '0')}:${String(config.startTime.minute).padStart(2, '0')}:${String(config.startTime.second ?? 0).padStart(2, '0')}` : '--/-- --:--:--'}
-                        </div>
-                      </div>
+                        {/* 距离倒计时 */}
+                        <div className="space-y-2 pt-3 border-t border-white/10">
+                          <div className="flex gap-6">
+                            <div className="flex-1">
+                              <div className="text-xs text-white/40 uppercase tracking-wider">距离渐入开始还有</div>
+                              <div
+                                className="text-lg font-bold text-cyan-400 tracking-wider"
+                                style={{ fontFamily: 'monospace', letterSpacing: '0.05em' }}
+                              >
+                                {fadeCountdown ?? '--:--'}
+                              </div>
+                            </div>
 
-                      {/* 渐入时长提示 */}
-                      {config && config.fadeInDuration > 0 && (
-                        <div className="text-xs text-white/30">
-                          渐入时长 {config.fadeInDuration} 秒 · 目标音量 {config.volume}%
+                            <div className="flex-1">
+                              <div className="text-xs text-white/40 uppercase tracking-wider">距离真正播放还有</div>
+                              <div
+                                className="text-lg font-bold text-purple-400 tracking-wider"
+                                style={{ fontFamily: 'monospace', letterSpacing: '0.05em' }}
+                              >
+                                {startCountdown ?? '--:--'}
+                              </div>
+                            </div>
+                          </div>
                         </div>
-                      )}
-                    </div>
+
+                        {/* 预设开始播放时间 */}
+                        <div className="space-y-2 pt-3 border-t border-white/10">
+                          <div className="text-xs text-white/40 uppercase tracking-wider">预设开始播放时间</div>
+                          <div
+                            className="text-2xl font-bold text-[#CC28FB] tracking-wider"
+                            style={{ fontFamily: 'monospace', letterSpacing: '0.05em' }}
+                          >
+                            {config?.startTime ? `${config.startTime.month}/${config.startTime.day} ${String(config.startTime.hour).padStart(2, '0')}:${String(config.startTime.minute).padStart(2, '0')}:${String(config.startTime.second ?? 0).padStart(2, '0')}` : '--/-- --:--:--'}
+                          </div>
+                        </div>
+
+                        {/* 渐入时长提示 */}
+                        {config && config.fadeInDuration > 0 && (
+                          <div className="text-xs text-white/30">
+                            渐入时长 {config.fadeInDuration} 秒 · 目标音量 {config.volume}%
+                          </div>
+                        )}
+                      </div>
+                    ) : (
+                      /* 未启用渐入渐出时：直接显示等待播放 */
+                      <div className="space-y-4">
+                        {/* 状态标签 */}
+                        <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-lg bg-[#CC28FB]/10 border border-[#CC28FB]/20">
+                          <Clock className="w-4 h-4 text-[#CC28FB]" />
+                          <span className="text-sm text-[#CC28FB] font-medium">等待播放</span>
+                        </div>
+
+                        {/* 距离倒计时 */}
+                        <div className="space-y-2 pt-3 border-t border-white/10">
+                          <div className="text-xs text-white/40 uppercase tracking-wider">距离开始还有</div>
+                          <div
+                            className="text-2xl font-bold text-[#CC28FB] tracking-wider"
+                            style={{ fontFamily: 'monospace', letterSpacing: '0.05em' }}
+                          >
+                            {startCountdown ?? '--:--'}
+                          </div>
+                        </div>
+
+                        {/* 预设开始播放时间 */}
+                        <div className="space-y-2 pt-3 border-t border-white/10">
+                          <div className="text-xs text-white/40 uppercase tracking-wider">预设开始播放时间</div>
+                          <div
+                            className="text-2xl font-bold text-cyan-400 tracking-wider"
+                            style={{ fontFamily: 'monospace', letterSpacing: '0.05em' }}
+                          >
+                            {config?.startTime ? `${config.startTime.month}/${config.startTime.day} ${String(config.startTime.hour).padStart(2, '0')}:${String(config.startTime.minute).padStart(2, '0')}:${String(config.startTime.second ?? 0).padStart(2, '0')}` : '--/-- --:--:--'}
+                          </div>
+                        </div>
+
+                        {/* 目标音量提示 */}
+                        {config && (
+                          <div className="text-xs text-white/30">
+                            目标音量 {config.volume}%
+                          </div>
+                        )}
+                      </div>
+                    )
                   )}
                   </div>
                 </div>

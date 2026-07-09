@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useState, useCallback, useEffect, useMemo } from "react";
+import React, { useState, useCallback, useEffect, useMemo, useRef } from "react";
 import {
   ScheduledTask,
   TaskRepeatType,
@@ -10,6 +10,7 @@ import { createTask, updateTask } from "@/lib/task-store";
 import { WheelDateTimePicker, type DateTimeValue } from "@/components/wheel-date-time-picker";
 import { DurationSetter } from "@/components/duration-setter";
 import { AudioSection } from "@/components/audio-section";
+import { NumberStepperButton } from "@/components/number-stepper";
 import { toast } from "@/components/sonner";
 import { cn } from "@/lib/utils";
 import {
@@ -57,10 +58,12 @@ export function TaskForm({ editTask, onSave, onCancel }: TaskFormProps) {
     };
   });
   const [playDurationMinutes, setPlayDurationMinutes] = useState(
-    editTask?.playDurationMinutes || 30
+    Math.max(1, editTask?.playDurationMinutes || 30)
   );
   const [fadeInDuration, setFadeInDuration] = useState(editTask?.fadeInDuration || 60);
   const [fadeOutDuration, setFadeOutDuration] = useState(editTask?.fadeOutDuration || 60);
+  // 默认隐藏/关闭渐入渐出，兼容旧数据（editTask?.enableFade ?? false）
+  const [enableFade, setEnableFade] = useState(editTask?.enableFade ?? false);
   const [repeatType, setRepeatType] = useState<TaskRepeatType>(editTask?.repeatType || "once");
 
   const [taskAudios, setTaskAudios] = useState<TaskAudio[]>(editTask?.audios || []);
@@ -85,17 +88,18 @@ export function TaskForm({ editTask, onSave, onCancel }: TaskFormProps) {
       startTime.second
     ).getTime();
 
-    const fadeInMs = fadeInDuration * 1000;
+    // 仅在启用渐入渐出时才考虑渐入时长
+    const fadeInMs = enableFade ? fadeInDuration * 1000 : 0;
     const audioStartAt = target - fadeInMs;
 
     if (audioStartAt < nowMs - 2000) {
-      if (fadeInDuration > 0) {
+      if (enableFade && fadeInDuration > 0) {
         return "开始时间不足以完成渐入效果，请选择稍后的时间点";
       }
       return "开始时间不能早于当前时间";
     }
     return null;
-  }, [startTime, repeatType, fadeInDuration, nowMs]);
+  }, [startTime, repeatType, fadeInDuration, enableFade, nowMs]);
 
   const validateTime = useCallback((): { valid: boolean; error: string | null } => {
     if (repeatType !== "once") {
@@ -111,17 +115,18 @@ export function TaskForm({ editTask, onSave, onCancel }: TaskFormProps) {
       startTime.second
     ).getTime();
 
-    const fadeInMs = fadeInDuration * 1000;
+    // 仅在启用渐入渐出时才考虑渐入时长
+    const fadeInMs = enableFade ? fadeInDuration * 1000 : 0;
     const audioStartAt = target - fadeInMs;
 
     if (audioStartAt < now - 2000) {
-      if (fadeInDuration > 0) {
+      if (enableFade && fadeInDuration > 0) {
         return { valid: false, error: "开始时间不足以完成渐入效果，请选择稍后的时间点" };
       }
       return { valid: false, error: "开始时间不能早于当前时间" };
     }
     return { valid: true, error: null };
-  }, [startTime, repeatType, fadeInDuration]);
+  }, [startTime, repeatType, fadeInDuration, enableFade]);
 
   const handleAudiosChange = useCallback((audios: TaskAudio[]) => {
     setTaskAudios(audios);
@@ -138,6 +143,17 @@ export function TaskForm({ editTask, onSave, onCancel }: TaskFormProps) {
       repeatType,
       startTime,
     });
+
+    for (let i = 0; i < taskAudios.length; i++) {
+      const audio = taskAudios[i];
+      console.log(`[TaskForm] Audio ${i}:`, {
+        name: audio.name,
+        hasServerUrl: !!audio.serverUrl,
+        hasFileKey: !!audio.fileKey,
+        hasDbKey: !!audio.dbKey,
+        size: audio.size,
+      });
+    }
 
     if (!taskName.trim()) {
       console.log("[TaskForm] Validation failed: empty task name");
@@ -176,6 +192,7 @@ export function TaskForm({ editTask, onSave, onCancel }: TaskFormProps) {
       playDurationMinutes,
       fadeInDuration,
       fadeOutDuration,
+      enableFade,
       volume: taskVolume,
       repeatType,
       audios: taskAudios,
@@ -207,12 +224,12 @@ export function TaskForm({ editTask, onSave, onCancel }: TaskFormProps) {
     }
   }, [
     taskName, validateTime, startTime,
-    playDurationMinutes, fadeInDuration, fadeOutDuration,
+    playDurationMinutes, fadeInDuration, fadeOutDuration, enableFade,
     repeatType, isEditing, editTask, onSave,
     taskAudios, taskVolume,
   ]);
 
-  const isSaveDisabled = taskAudios.length === 0 || !!timeError || playDurationMinutes <= 0;
+  const isSaveDisabled = !taskName.trim() || taskAudios.length === 0 || !!timeError || playDurationMinutes <= 0;
 
   return (
     <div className="space-y-5 sm:space-y-6">
@@ -275,6 +292,7 @@ export function TaskForm({ editTask, onSave, onCancel }: TaskFormProps) {
           <DurationSetter
             value={playDurationMinutes}
             onChange={setPlayDurationMinutes}
+            min={1}
           />
         </div>
 
@@ -286,45 +304,115 @@ export function TaskForm({ editTask, onSave, onCancel }: TaskFormProps) {
         )}
 
         <div className="space-y-4 pt-2">
-          <div className="space-y-1.5">
-            <div className="flex items-center justify-between">
-              <span className="text-xs text-muted-foreground/60 font-medium uppercase tracking-wider">音量渐入</span>
-              <span className="text-sm font-mono text-foreground tabular-nums">{fadeInDuration}s</span>
-            </div>
-            <div className="py-0.5">
-              <input
-                type="range"
-                min={0}
-                max={120}
-                value={fadeInDuration}
-                onChange={(e) => setFadeInDuration(parseInt(e.target.value))}
-                className="w-full h-2 rounded-full appearance-none bg-border/30 cursor-pointer [&::-webkit-slider-thumb]:appearance-none [&::-webkit-slider-thumb]:w-6 [&::-webkit-slider-thumb]:h-6 [&::-webkit-slider-thumb]:rounded-full [&::-webkit-slider-thumb]:bg-white [&::-webkit-slider-thumb]:shadow-md [&::-webkit-slider-thumb]:cursor-pointer [&::-webkit-slider-thumb]:transition-transform [&::-webkit-slider-thumb]:hover:scale-110 [&::-webkit-slider-thumb]:active:scale-95 [&::-webkit-slider-thumb]:border-2 [&::-webkit-slider-thumb]:border-[var(--brand-start)] sm:[&::-webkit-slider-thumb]:w-5 sm:[&::-webkit-slider-thumb]:h-5 sm:[&::-webkit-slider-thumb]:hover:scale-125"
-                style={{
-                  background: `linear-gradient(to right, var(--brand-start) ${(fadeInDuration / 120) * 100}%, rgba(128,128,128,0.2) ${(fadeInDuration / 120) * 100}%)`,
-                }}
-              />
+          {/* 音量渐入渐出开关 - 默认隐藏/关闭，用户手动启用 */}
+          <div className="flex items-center justify-between p-3 rounded-lg bg-muted/20 border border-border/30">
+            <div className="flex items-center gap-2">
+              <button
+                type="button"
+                role="switch"
+                aria-checked={enableFade}
+                onClick={() => setEnableFade(!enableFade)}
+                className={cn(
+                  "relative inline-flex h-5 w-9 flex-shrink-0 rounded-full border-2 border-transparent transition-colors duration-200 ease-in-out focus:outline-none",
+                  enableFade ? "bg-[var(--brand-start)]" : "bg-muted"
+                )}
+              >
+                <span
+                  aria-hidden="true"
+                  className={cn(
+                    "pointer-events-none inline-block h-4 w-4 rounded-full bg-white shadow-sm ring-0 transition duration-200 ease-in-out",
+                    enableFade ? "translate-x-4" : "translate-x-0"
+                  )}
+                />
+              </button>
+              <span className="text-sm font-medium text-foreground">启用音量渐入渐出</span>
             </div>
           </div>
 
-          <div className="space-y-1.5">
-            <div className="flex items-center justify-between">
-              <span className="text-xs text-muted-foreground/60 font-medium uppercase tracking-wider">音量渐出</span>
-              <span className="text-sm font-mono text-foreground tabular-nums">{fadeOutDuration}s</span>
-            </div>
-            <div className="py-0.5">
-              <input
-                type="range"
-                min={0}
-                max={120}
-                value={fadeOutDuration}
-                onChange={(e) => setFadeOutDuration(parseInt(e.target.value))}
-                className="w-full h-2 rounded-full appearance-none bg-border/30 cursor-pointer [&::-webkit-slider-thumb]:appearance-none [&::-webkit-slider-thumb]:w-6 [&::-webkit-slider-thumb]:h-6 [&::-webkit-slider-thumb]:rounded-full [&::-webkit-slider-thumb]:bg-white [&::-webkit-slider-thumb]:shadow-md [&::-webkit-slider-thumb]:cursor-pointer [&::-webkit-slider-thumb]:transition-transform [&::-webkit-slider-thumb]:hover:scale-110 [&::-webkit-slider-thumb]:active:scale-95 [&::-webkit-slider-thumb]:border-2 [&::-webkit-slider-thumb]:border-[var(--brand-start)] sm:[&::-webkit-slider-thumb]:w-5 sm:[&::-webkit-slider-thumb]:h-5 sm:[&::-webkit-slider-thumb]:hover:scale-125"
-                style={{
-                  background: `linear-gradient(to right, var(--brand-start) ${(fadeOutDuration / 120) * 100}%, rgba(128,128,128,0.2) ${(fadeOutDuration / 120) * 100}%)`,
-                }}
-              />
-            </div>
-          </div>
+          {/* 仅在启用渐入渐出时显示以下滑块 */}
+          {enableFade && (
+            <>
+              <div className="space-y-1.5">
+                <div className="flex items-center justify-between">
+                  <span className="text-xs text-muted-foreground/60 font-medium uppercase tracking-wider">音量渐入</span>
+                  <span className="text-sm font-mono text-foreground tabular-nums">{fadeInDuration}s</span>
+                </div>
+                <div className="py-0.5 flex items-center gap-3">
+                  <NumberStepperButton
+                    dir={-1}
+                    disabled={fadeInDuration <= 0}
+                    value={fadeInDuration}
+                    onChange={setFadeInDuration}
+                    min={0}
+                    max={120}
+                    step={1}
+                    className="w-8 h-8"
+                  />
+                  <input
+                    type="range"
+                    min={0}
+                    max={120}
+                    value={fadeInDuration}
+                    onChange={(e) => setFadeInDuration(parseInt(e.target.value))}
+                    className="flex-1 h-2 rounded-full appearance-none bg-border/30 cursor-pointer [&::-webkit-slider-thumb]:appearance-none [&::-webkit-slider-thumb]:w-6 [&::-webkit-slider-thumb]:h-6 [&::-webkit-slider-thumb]:rounded-full [&::-webkit-slider-thumb]:bg-white [&::-webkit-slider-thumb]:shadow-md [&::-webkit-slider-thumb]:cursor-pointer [&::-webkit-slider-thumb]:transition-transform [&::-webkit-slider-thumb]:hover:scale-110 [&::-webkit-slider-thumb]:active:scale-95 [&::-webkit-slider-thumb]:border-2 [&::-webkit-slider-thumb]:border-[var(--brand-start)] sm:[&::-webkit-slider-thumb]:w-5 sm:[&::-webkit-slider-thumb]:h-5 sm:[&::-webkit-slider-thumb]:hover:scale-125"
+                    style={{
+                      background: `linear-gradient(to right, var(--brand-start) ${(fadeInDuration / 120) * 100}%, rgba(128,128,128,0.2) ${(fadeInDuration / 120) * 100}%)`,
+                    }}
+                  />
+                  <NumberStepperButton
+                    dir={1}
+                    disabled={fadeInDuration >= 120}
+                    value={fadeInDuration}
+                    onChange={setFadeInDuration}
+                    min={0}
+                    max={120}
+                    step={1}
+                    className="w-8 h-8"
+                  />
+                </div>
+              </div>
+
+              <div className="space-y-1.5">
+                <div className="flex items-center justify-between">
+                  <span className="text-xs text-muted-foreground/60 font-medium uppercase tracking-wider">音量渐出</span>
+                  <span className="text-sm font-mono text-foreground tabular-nums">{fadeOutDuration}s</span>
+                </div>
+                <div className="py-0.5 flex items-center gap-3">
+                  <NumberStepperButton
+                    dir={-1}
+                    disabled={fadeOutDuration <= 0}
+                    value={fadeOutDuration}
+                    onChange={setFadeOutDuration}
+                    min={0}
+                    max={120}
+                    step={1}
+                    className="w-8 h-8"
+                  />
+                  <input
+                    type="range"
+                    min={0}
+                    max={120}
+                    value={fadeOutDuration}
+                    onChange={(e) => setFadeOutDuration(parseInt(e.target.value))}
+                    className="flex-1 h-2 rounded-full appearance-none bg-border/30 cursor-pointer [&::-webkit-slider-thumb]:appearance-none [&::-webkit-slider-thumb]:w-6 [&::-webkit-slider-thumb]:h-6 [&::-webkit-slider-thumb]:rounded-full [&::-webkit-slider-thumb]:bg-white [&::-webkit-slider-thumb]:shadow-md [&::-webkit-slider-thumb]:cursor-pointer [&::-webkit-slider-thumb]:transition-transform [&::-webkit-slider-thumb]:hover:scale-110 [&::-webkit-slider-thumb]:active:scale-95 [&::-webkit-slider-thumb]:border-2 [&::-webkit-slider-thumb]:border-[var(--brand-start)] sm:[&::-webkit-slider-thumb]:w-5 sm:[&::-webkit-slider-thumb]:h-5 sm:[&::-webkit-slider-thumb]:hover:scale-125"
+                    style={{
+                      background: `linear-gradient(to right, var(--brand-start) ${(fadeOutDuration / 120) * 100}%, rgba(128,128,128,0.2) ${(fadeOutDuration / 120) * 100}%)`,
+                    }}
+                  />
+                  <NumberStepperButton
+                    dir={1}
+                    disabled={fadeOutDuration >= 120}
+                    value={fadeOutDuration}
+                    onChange={setFadeOutDuration}
+                    min={0}
+                    max={120}
+                    step={1}
+                    className="w-8 h-8"
+                  />
+                </div>
+              </div>
+            </>
+          )}
         </div>
       </div>
 
@@ -346,7 +434,11 @@ export function TaskForm({ editTask, onSave, onCancel }: TaskFormProps) {
           )}
         >
           <Save className="w-4 h-4" />
-          {isSaveDisabled ? (taskAudios.length === 0 ? "请先上传音频" : timeError || "时间无效") : "保存任务"}
+          {isSaveDisabled ? (
+            !taskName.trim() ? "请输入任务名称" :
+            taskAudios.length === 0 ? "请先上传音频" :
+            timeError || "时间无效"
+          ) : "保存任务"}
         </button>
       </div>
     </div>
