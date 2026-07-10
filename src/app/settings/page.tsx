@@ -12,6 +12,9 @@ import { PlayMode, ScheduledTask } from "@/lib/task-types";
 import { getPlayMode, setPlayMode as savePlayMode, getAllTasks, cleanupCompletedOnceTasks, cleanupCancelledTasks } from "@/lib/task-store";
 import { startTaskScheduler, stopTaskScheduler, getTaskScheduler } from "@/lib/task-scheduler";
 import DynamicBackground from "@/components/dynamic-background";
+import BackgroundAudioService from "@/lib/background-audio";
+import EnhancedTaskScheduler from "@/lib/background-scheduler";
+import { setupAutoUnlock, unlockAudio } from "@/lib/audio-unlock";
 
 function useClientOnly() {
     const [mounted, setMounted] = useState(false);
@@ -48,12 +51,57 @@ function CreatePageContent() {
     const [audioUnlocked, setAudioUnlocked] = useState(false);
     const mounted = useClientOnly();
 
+    // 初始化增强版调度器
+    useEffect(() => {
+        if (!mounted) return;
+
+        const initScheduler = async () => {
+            try {
+                await EnhancedTaskScheduler.getInstance().initialize();
+            } catch (error) {
+                console.error('[App] 调度器初始化失败:', error);
+            }
+        };
+
+        initScheduler();
+
+        return () => EnhancedTaskScheduler.getInstance().destroy();
+    }, [mounted]);
+
+    // 页面重新可见时恢复播放状态
+    useEffect(() => {
+        if (!mounted) return;
+
+        const handleVisibilityChange = () => {
+            if (document.visibilityState === 'visible') {
+                // 恢复所有保存的播放状态
+                EnhancedTaskScheduler.getInstance().restoreAllSavedTasks();
+            }
+        };
+
+        document.addEventListener('visibilitychange', handleVisibilityChange);
+        return () => document.removeEventListener('visibilitychange', handleVisibilityChange);
+    }, [mounted]);
+
+    // 设置自动音频解锁（用户交互时触发）
+    useEffect(() => {
+        if (!mounted) return;
+
+        const cleanup = setupAutoUnlock();
+        return cleanup;
+    }, [mounted]);
+
     // 检查是否已经解锁过音频
     useEffect(() => {
         if (!mounted) return;
         try {
             const alreadyUnlocked = localStorage.getItem('audio_unlocked') === 'true';
-            if (alreadyUnlocked) setAudioUnlocked(true);
+            if (alreadyUnlocked) {
+                setAudioUnlocked(true);
+                if (BackgroundAudioService.isAndroidDevice()) {
+                    EnhancedTaskScheduler.getInstance().requestWakeLock?.();
+                }
+            }
         } catch {}
     }, [mounted]);
 
@@ -70,30 +118,49 @@ function CreatePageContent() {
     useEffect(() => {
         if (!mounted) return;
 
-        // 启动调度器
         const executing = getAllTasks().filter(t => t.status === "executing");
         startTaskScheduler().then(() => {
             const resumed = executing.filter(t => getTaskScheduler().getTaskPhase(t.id) !== "idle").map(t => t.name);
             if (resumed.length > 0) toast.success(`${resumed.length} 个任务已恢复执行`, { duration: 3000 });
         });
 
-        return () => {
-            stopTaskScheduler();
-        };
+        return () => stopTaskScheduler();
     }, [mounted]);
 
     // 用户点击解锁音频
-    const handleUnlockAudio = useCallback(() => {
+    const handleUnlockAudio = useCallback(async () => {
         try {
-            const scheduler = getTaskScheduler();
-            scheduler.tryUnlockAudio();
+            const scheduler = EnhancedTaskScheduler.getInstance();
+
+            // 先尝试初始化AudioContext
+            const initialized = await scheduler.initializeAudioContext();
+
+            // 尝试获取唤醒锁
+            if (BackgroundAudioService.isAndroidDevice()) {
+                await scheduler.requestWakeLock();
+                toast.success('音频已解锁，设备将保持亮屏播放');
+            } else {
+                toast.success('音频已解锁');
+            }
+
             setAudioUnlocked(true);
             localStorage.setItem('audio_unlocked', 'true');
-            toast.success('音频已解锁！任务现在可以自动播放了');
-        } catch {
+
+        } catch (error) {
+            console.error('解锁音频失败:', error);
             toast.error('解锁失败，请再试一次');
         }
     }, []);
+
+    // 暴露全局解锁方法，方便其他地方调用
+    useEffect(() => {
+        (window as any).unlockAudio = async () => {
+            await handleUnlockAudio();
+        };
+        return () => {
+            delete (window as any).unlockAudio;
+        };
+    }, [handleUnlockAudio]);
 
     useEffect(() => {
         if (!mounted) return;
@@ -136,13 +203,10 @@ function CreatePageContent() {
 
     return (
         <div className="min-h-screen text-foreground overflow-x-hidden relative z-10">
-            {/* 音频解锁引导层 */}
+            {/* 音频解锁引导层 - 必须用户点击按钮后才消失 */}
             {!audioUnlocked && mounted && (
-                <div
-                    onClick={handleUnlockAudio}
-                    className="fixed inset-0 z-50 flex flex-col items-center justify-center bg-black/85 cursor-pointer backdrop-blur-sm animate-in fade-in duration-300"
-                >
-                    <div className="text-center space-y-6 px-4 max-w-md">
+                <div className="fixed inset-0 z-50 flex flex-col items-center justify-center bg-black/85 backdrop-blur-sm animate-in fade-in duration-300">
+                    <div className="text-center space-y-8 px-4 max-w-md">
                         <div className="w-24 h-24 mx-auto mb-4 relative">
                             <div className="absolute inset-0 bg-gradient-to-r from-[var(--brand-start)] to-[var(--brand-end)] rounded-full animate-pulse opacity-30"></div>
                             <div className="relative w-full h-full bg-gradient-to-r from-[var(--brand-start)] to-[var(--brand-end)] rounded-full flex items-center justify-center">
@@ -153,17 +217,32 @@ function CreatePageContent() {
                                 </svg>
                             </div>
                         </div>
-                        <h2 className="text-2xl font-bold text-white">点击开始使用</h2>
+                        <h2 className="text-2xl font-bold text-white">解锁音频播放</h2>
                         <p className="text-white/70 text-base leading-relaxed">
-                            点击屏幕任意位置，解锁音频自动播放功能。<br/>
-                            解锁后，你的定时任务就能在设定时间自动播放了。
+                            为了确保定时任务能正常自动播放，请点击下方按钮解锁音频权限。<br/>
+                            解锁后，你的定时任务将在设定时间自动播放音频。
                         </p>
+                        <div className="flex justify-center pt-6">
+                            <button
+                                onClick={handleUnlockAudio}
+                                className="px-10 py-4 bg-gradient-to-r from-[var(--brand-start)] to-[var(--brand-end)] rounded-lg text-white font-bold text-lg hover:opacity-90 active:opacity-80 transition-all shadow-lg hover:shadow-xl active:scale-95"
+                            >
+                                立即解锁
+                            </button>
+                        </div>
                         <div className="flex justify-center pt-4">
                             <svg className="w-8 h-8 text-[var(--brand-start)] animate-bounce" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
                                 <path d="M12 5V19M5 12L12 5L19 12" />
                             </svg>
                         </div>
                     </div>
+                </div>
+            )}
+
+            {/* 调试用：显示音频状态 */}
+            {process.env.NODE_ENV === 'development' && mounted && (
+                <div className="fixed bottom-4 right-4 z-40 bg-black/70 text-white p-2 rounded text-xs">
+                    Audio State: {EnhancedTaskScheduler.getInstance().getAudioState() || 'uninitialized'}
                 </div>
             )}
 
