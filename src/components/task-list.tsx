@@ -15,7 +15,7 @@ import { getTaskScheduler, type SchedulerEvent } from "@/lib/task-scheduler";
 import { FeedbackModal } from "@/components/feedback-modal";
 import { cn } from "@/lib/utils";
 import { toast } from "@/components/sonner";
-import { formatFileSize, formatDuration } from "@/lib/audio-utils";
+import { formatFileSize, formatDuration } from "@/lib/audio";
 import {
   Trash2,
   Edit3,

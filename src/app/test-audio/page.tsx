@@ -1,7 +1,7 @@
 "use client";
 import { useState, useCallback } from "react";
 import EnhancedTaskScheduler from "@/lib/background-scheduler";
-import AudioDebug from "@/lib/audio-debug";
+import { AudioDebug } from "@/lib/audio";
 
 export default function TestAudioPage() {
   const [status, setStatus] = useState("就绪");

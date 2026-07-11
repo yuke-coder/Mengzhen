@@ -283,4 +283,9 @@ export * from './fader';
 export * from './state';
 export * from './mediasession';
 export * from './player';
+export * from './utils';
+export * from './formats';
+export * from './db';
+export * from './unlock';
+export * from './debug';
 

@@ -17,7 +17,7 @@ import {
 } from 'lucide-react';
 import Link from 'next/link';
 import { cn } from '@/lib/utils';
-import { formatFileSize, formatDuration } from '@/lib/audio-utils';
+import { formatFileSize, formatDuration } from '@/lib/audio';
 
 interface AudioRecord {
   id: string;

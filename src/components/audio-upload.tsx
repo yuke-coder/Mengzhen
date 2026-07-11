@@ -3,7 +3,7 @@
 import React, { useState, useCallback, useRef, useEffect } from "react";
 import Image from "next/image";
 import { useAuth } from "@/lib/auth-context";
-import { saveAudioBlob, deleteAudioBlob } from "@/lib/audio-db";
+import { saveAudioBlob, deleteAudioBlob } from "@/lib/audio/db";
 import { cn } from "@/lib/utils";
 import { Button } from "@/components/ui/button";
 import { Spinner } from "@/components/ui/spinner";
@@ -14,8 +14,7 @@ import { useRouter } from "next/navigation";
 import { toast } from "@/components/sonner";
 import { ModeSwitch } from "@/components/mode-switch";
 import { PlayMode, TaskAudio } from "@/lib/task-types";
-import { AUDIO_ACCEPT, AUDIO_EXTENSIONS } from "@/lib/audio-formats";
-import { MAX_FILES, formatFileSize, formatDuration, type AudioItemBase } from "@/lib/audio-utils";
+import { AUDIO_ACCEPT, AUDIO_EXTENSIONS, MAX_FILES, formatFileSize, formatDuration, type AudioItemBase } from "@/lib/audio";
 import {
   Upload,
   Music2,

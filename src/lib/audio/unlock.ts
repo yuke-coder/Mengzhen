@@ -1,6 +1,6 @@
 "use client";
 
-import { initializeAudioContext, tryUnlockAudio } from "./audio";
+import { initializeAudioContext, tryUnlockAudio } from './';
 
 export async function unlockAudio(): Promise<boolean> {
   tryUnlockAudio();
@@ -18,4 +18,3 @@ export function setupAutoUnlock(): () => void {
     document.removeEventListener('keydown', handler);
   };
 }
-

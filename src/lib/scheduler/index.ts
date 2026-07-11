@@ -9,8 +9,8 @@ import { getAllTasks, updateTask } from "@/lib/task-store";
 import { PriorityQueue } from "./queue";
 import { EventEmitter } from "./events";
 import { PlayPhase, SchedulerEvent, PlaybackState, FadeOptions } from "./core";
-import { getAudioBlob } from "@/lib/audio-db";
 import UnifiedAudioManager, {
+  getAudioBlob,
   initializeAudioContext,
   resumeAudioContext,
   tryUnlockAudio,

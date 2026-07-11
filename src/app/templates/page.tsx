@@ -4,7 +4,7 @@ import { useState, useEffect, useCallback, useRef, useMemo } from 'react';
 import { useRouter } from 'next/navigation';
 import { Volume2, VolumeX, Clock, Music2, Play, Pause, CheckCircle2, HardDrive } from 'lucide-react';
 import DynamicBackground from '@/components/dynamic-background';
-import { getAudioBlob } from '@/lib/audio-db';
+import { getAudioBlob } from '@/lib/audio';
 
 // 类型定义
 interface AudioItem {

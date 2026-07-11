@@ -1,7 +1,8 @@
 import { NextRequest, NextResponse } from "next/server";
 import { getSupabaseClient } from "@/lib/supabase-client";
 import { getAuthUser } from "@/lib/auth";
-import { AUDIO_EXTENSIONS } from "@/lib/audio-formats";
+
+const AUDIO_EXTENSIONS = [".mp3", ".wav", ".ogg", ".m4a", ".flac", ".aac"];
 
 export const runtime = "nodejs";
 export const dynamic = "force-dynamic";

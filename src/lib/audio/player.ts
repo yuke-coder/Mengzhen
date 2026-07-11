@@ -1,6 +1,6 @@
 "use client";
 
-import { getAudioBlob } from "../audio-db";
+import { getAudioBlob } from "./db";
 import { getAudioContext } from "./context";
 import { setVolume, fadeIn, fadeOut, stopFade } from "./fader";
 import type { ScheduledTask } from "@/lib/task-types";

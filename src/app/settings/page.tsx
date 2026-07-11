@@ -12,9 +12,8 @@ import { PlayMode, ScheduledTask } from "@/lib/task-types";
 import { getPlayMode, setPlayMode as savePlayMode, getAllTasks, cleanupCompletedOnceTasks, cleanupCancelledTasks } from "@/lib/task-store";
 import { startTaskScheduler, stopTaskScheduler, getTaskScheduler } from "@/lib/task-scheduler";
 import DynamicBackground from "@/components/dynamic-background";
-import UnifiedAudioManager from "@/lib/audio";
+import UnifiedAudioManager, { setupAutoUnlock, unlockAudio } from "@/lib/audio";
 import EnhancedTaskScheduler from "@/lib/background-scheduler";
-import { setupAutoUnlock, unlockAudio } from "@/lib/audio-unlock";
 
 function useClientOnly() {
     const [mounted, setMounted] = useState(false);
