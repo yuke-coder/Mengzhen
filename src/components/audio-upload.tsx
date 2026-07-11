@@ -1243,29 +1243,31 @@ export function AudioUpload({
           </p>
         </div>
 
+        {/* 两种模式都需要的基础内容 */}
+        {renderUploadArea()}
+
+        {showGuestTip && (
+          <div className="flex items-center justify-between gap-3 p-3 rounded-xl bg-amber-950/20 border border-amber-900/30 animate-in fade-in slide-in-from-top-2 duration-200">
+            <p className="text-sm text-amber-400">请先登录后再上传音频文件</p>
+            <button onClick={() => setShowGuestTip(false)} className="text-amber-400/60 hover:text-amber-400 transition-colors"><X className="w-4 h-4" /></button>
+          </div>
+        )}
+
+        {uploadError && (
+          <div className="flex items-center gap-2 p-3 rounded-xl bg-red-950/20 border border-red-900/30">
+            <AlertCircle className="w-4 h-4 text-red-400 flex-shrink-0" />
+            <span className="text-sm text-red-400">{uploadError}</span>
+            <button onClick={() => setUploadError(null)} className="ml-auto text-red-400/60 hover:text-red-400"><X className="w-4 h-4" /></button>
+          </div>
+        )}
+
+        {renderAudioList()}
+
+        {renderVolumeControl()}
+
+        {/* 默认模式才有的内容 */}
         {mode === "default" && (
           <>
-            {renderUploadArea()}
-
-            {showGuestTip && (
-              <div className="flex items-center justify-between gap-3 p-3 rounded-xl bg-amber-950/20 border border-amber-900/30 animate-in fade-in slide-in-from-top-2 duration-200">
-                <p className="text-sm text-amber-400">请先登录后再上传音频文件</p>
-                <button onClick={() => setShowGuestTip(false)} className="text-amber-400/60 hover:text-amber-400 transition-colors"><X className="w-4 h-4" /></button>
-              </div>
-            )}
-
-            {uploadError && (
-              <div className="flex items-center gap-2 p-3 rounded-xl bg-red-950/20 border border-red-900/30">
-                <AlertCircle className="w-4 h-4 text-red-400 flex-shrink-0" />
-                <span className="text-sm text-red-400">{uploadError}</span>
-                <button onClick={() => setUploadError(null)} className="ml-auto text-red-400/60 hover:text-red-400"><X className="w-4 h-4" /></button>
-              </div>
-            )}
-
-            {renderAudioList()}
-
-            {renderVolumeControl()}
-
             <div>
               <div className="p-3 sm:p-5 space-y-3 sm:space-y-4">
                 <div className="flex items-center justify-between">
@@ -1352,8 +1354,6 @@ export function AudioUpload({
               </div>
             </div>
 
-            {children}
-
             <button onClick={handleDreamPillow} disabled={audios.length === 0 || !isStartTimeValid || !isEndTimeValid} className={cn(
               "w-full mt-4 relative overflow-hidden px-6 py-4 rounded-xl font-bold text-lg transition-all duration-300 transform",
               (audios.length === 0 || !isStartTimeValid || !isEndTimeValid)
@@ -1374,6 +1374,9 @@ export function AudioUpload({
             </button>
           </>
         )}
+
+        {/* 自定义任务模式才有的 children */}
+        {mode === "custom" && children}
       </>
     );
   };
