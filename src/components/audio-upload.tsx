@@ -967,10 +967,17 @@ export function AudioUpload({
   const allUploaded = audios.length > 0 && audios.every(a => a.serverUrl);
   const anyUploading = audios.some(a => a.uploading);
 
+  // 上传文件 input 的 ref
+  const fileInputRef = useRef<HTMLInputElement>(null);
+
   // 渲染上传区域
   const renderUploadArea = () => (
-    <label
-      htmlFor="audio-file-input-main"
+    <div
+      onClick={() => {
+        if (!disabled && fileInputRef.current) {
+          fileInputRef.current.click();
+        }
+      }}
       onDragOver={(e) => { e.preventDefault(); !disabled && setDragOver(true); }}
       onDragLeave={() => setDragOver(false)}
       onDrop={(e) => { e.preventDefault(); if (!disabled) { setDragOver(false); processFiles(e.dataTransfer.files); } }}
@@ -981,16 +988,15 @@ export function AudioUpload({
       )}
     >
       <input
-        id="audio-file-input-main"
+        ref={fileInputRef}
         type="file"
         multiple
         {...(AUDIO_ACCEPT ? { accept: AUDIO_ACCEPT } : {})}
         onChange={handleFileSelect}
         disabled={disabled}
         className="sr-only"
-        tabIndex={-1}
       />
-      <div className="flex flex-col items-center gap-2 sm:gap-3 pointer-events-none">
+      <div className="flex flex-col items-center gap-2 sm:gap-3">
         <div className={cn("p-2.5 sm:p-3 rounded-full bg-[var(--brand-glow)]/10 transition-transform duration-300", dragOver && !disabled && "scale-110")}>
           <Upload className="w-5 h-5 sm:w-6 sm:h-6 text-[var(--brand-glow)]" />
         </div>
@@ -1003,7 +1009,7 @@ export function AudioUpload({
           )}
         </div>
       </div>
-    </label>
+    </div>
   );
 
   // 渲染音频列表
