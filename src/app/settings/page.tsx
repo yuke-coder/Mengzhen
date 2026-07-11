@@ -247,6 +247,16 @@ function CreatePageContent() {
 
             <DynamicBackground />
             <main className="pt-0 sm:pt-14 relative">
+                {/* 测试用：最简单的文件选择按钮 */}
+                <div className="fixed top-4 left-4 z-[9999] bg-white p-4 rounded-lg shadow-lg">
+                    <p className="text-sm mb-2 text-black">测试按钮:</p>
+                    <input
+                        type="file"
+                        multiple
+                        className="block w-full text-sm"
+                    />
+                </div>
+
                 <section className="relative min-h-[85vh] flex flex-col items-center justify-center px-4 sm:px-6 overflow-hidden">
                     <div className="relative z-20 max-w-4xl mx-auto w-full space-y-6 px-2 sm:px-4 md:px-0">
                         <div className="text-center space-y-4 mt-8">
