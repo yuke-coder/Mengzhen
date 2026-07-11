@@ -9,7 +9,7 @@ import {
 import { createTask, updateTask } from "@/lib/task-store";
 import { WheelDateTimePicker, type DateTimeValue } from "@/components/wheel-date-time-picker";
 import { DurationSetter } from "@/components/duration-setter";
-import { AudioSection } from "@/components/audio-section";
+import { AudioUpload } from "@/components/audio-upload";
 import { NumberStepperButton } from "@/components/number-stepper";
 import { toast } from "@/components/sonner";
 import { cn } from "@/lib/utils";
@@ -233,7 +233,7 @@ export function TaskForm({ editTask, onSave, onCancel }: TaskFormProps) {
 
   return (
     <div className="space-y-5 sm:space-y-6">
-      <AudioSection
+      <AudioUpload
         initialAudios={editTask?.audios || []}
         onAudiosChange={handleAudiosChange}
         onVolumeChange={handleVolumeChange}

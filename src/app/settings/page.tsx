@@ -12,7 +12,7 @@ import { PlayMode, ScheduledTask } from "@/lib/task-types";
 import { getPlayMode, setPlayMode as savePlayMode, getAllTasks, cleanupCompletedOnceTasks, cleanupCancelledTasks } from "@/lib/task-store";
 import { startTaskScheduler, stopTaskScheduler, getTaskScheduler } from "@/lib/task-scheduler";
 import DynamicBackground from "@/components/dynamic-background";
-import BackgroundAudioService from "@/lib/background-audio";
+import UnifiedAudioManager from "@/lib/audio";
 import EnhancedTaskScheduler from "@/lib/background-scheduler";
 import { setupAutoUnlock, unlockAudio } from "@/lib/audio-unlock";
 
@@ -98,7 +98,7 @@ function CreatePageContent() {
             const alreadyUnlocked = localStorage.getItem('audio_unlocked') === 'true';
             if (alreadyUnlocked) {
                 setAudioUnlocked(true);
-                if (BackgroundAudioService.isAndroidDevice()) {
+                if (UnifiedAudioManager.isAndroidDevice()) {
                     EnhancedTaskScheduler.getInstance().requestWakeLock?.();
                 }
             }
@@ -136,7 +136,7 @@ function CreatePageContent() {
             const initialized = await scheduler.initializeAudioContext();
 
             // 尝试获取唤醒锁
-            if (BackgroundAudioService.isAndroidDevice()) {
+            if (UnifiedAudioManager.isAndroidDevice()) {
                 await scheduler.requestWakeLock();
                 toast.success('音频已解锁，设备将保持亮屏播放');
             } else {
