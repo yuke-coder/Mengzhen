@@ -984,7 +984,7 @@ export function AudioUpload({
         id="audio-file-input-main"
         type="file"
         multiple
-        accept={AUDIO_ACCEPT}
+        {...(AUDIO_ACCEPT ? { accept: AUDIO_ACCEPT } : {})}
         onChange={handleFileSelect}
         disabled={disabled}
         className="sr-only"
