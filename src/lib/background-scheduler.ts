@@ -65,7 +65,7 @@ export class EnhancedTaskScheduler {
       return;
     }
     const timerId = window.setTimeout(() => this.executeTask(task.id), delay);
-    this.timers.set(taskId, timerId);
+    this.timers.set(task.id, timerId);
   }
 
   private getTaskExecutionDelay(task: ScheduledTask): number {
@@ -105,7 +105,7 @@ export class EnhancedTaskScheduler {
 
     } catch (error) {
       console.error('[Scheduler] 执行任务失败:', error);
-      this.updateTaskStatus(taskId, 'failed');
+      this.updateTaskStatus(taskId, 'cancelled');
     }
   }
 

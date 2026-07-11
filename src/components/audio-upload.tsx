@@ -105,6 +105,10 @@ export function AudioUpload({
   const router = useRouter();
   const mounted = useClientOnly();
 
+  useEffect(() => {
+    isMountedRef.current = mounted;
+  }, [mounted]);
+
   // 音频数据
   const [audios, setAudios] = useState<AudioItem[]>(() => {
     if (initialAudios) {
@@ -137,6 +141,7 @@ export function AudioUpload({
   const [volume, setVolume] = useState(initialVolume);
   const audioRefs = useRef<Record<string, HTMLAudioElement>>({});
   const isClearingRef = useRef(false);
+  const isMountedRef = useRef(false);
 
   // 仅完整模式需要的状态
   const [dragIndex, setDragIndex] = useState<number | null>(null);
@@ -236,7 +241,7 @@ export function AudioUpload({
     }
 
     importAudio();
-  }, [mounted, importFileKey, user, onAudioUploaded, onAudioCountChange, variant]);
+  }, [mounted, importFileKey, user, onAudioUploaded, onAudioCountChange]);
 
   // 通知父组件音频变化
   useEffect(() => {
@@ -310,7 +315,7 @@ export function AudioUpload({
         console.error("[梦枕] 恢复缓存配置失败:", e);
       }
     }
-  }, [mounted, variant, initialAudios]);
+  }, [mounted, initialAudios]);
 
   // 纯验证函数（返回布尔值，不设状态）- 用于 handleDreamPillow
   const isStartTimeValidFn = useCallback((time: DateTimeValue, fadeInSec?: number, useFade?: boolean): boolean => {
@@ -611,7 +616,7 @@ export function AudioUpload({
     } catch (err) {
       console.warn("[梦枕] 配置保存失败:", err);
     }
-  }, [mounted, audios, volume, fadeInDuration, fadeOutDuration, enableFade, variant]);
+  }, [mounted, audios, volume, fadeInDuration, fadeOutDuration, enableFade]);
 
   // 清理相关逻辑
   useEffect(() => { isClearingRef.current = false; }, []);

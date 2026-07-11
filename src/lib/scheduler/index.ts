@@ -793,8 +793,8 @@ class HighPerformanceScheduler {
   private emitPhaseChange(taskId: string, phase: PlayPhase): void {
     const playback = activePlaybacks.get(taskId);
     if (playback) {
-      playback.phase = phase;
-      this.emit('phase-change', taskId, phase, this.computeRemaining(playback));
+      playback.phase = phase as any;
+      this.emit('phase-change', taskId, phase as any, this.computeRemaining(playback));
     }
   }
 

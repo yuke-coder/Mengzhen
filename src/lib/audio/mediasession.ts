@@ -111,9 +111,9 @@ export function releaseMediaSession(): void {
     navigator.mediaSession.metadata = null;
     navigator.mediaSession.playbackState = 'none';
 
-    const handlers = ['play', 'pause', 'previoustrack', 'nexttrack', 'seekforward', 'seekbackward'];
+    const handlers = ['play', 'pause', 'previoustrack', 'nexttrack', 'seekforward', 'seekbackward'] as const;
     handlers.forEach(handler => {
-      navigator.mediaSession.setActionHandler(handler, null);
+      navigator.mediaSession.setActionHandler(handler as MediaSessionAction, null);
     });
 
     currentTask = null;
