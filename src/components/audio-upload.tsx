@@ -972,9 +972,11 @@ export function AudioUpload({
 
   // 渲染上传区域
   const renderUploadArea = () => (
-    <div
-      onClick={() => {
+    <label
+      onClick={(e) => {
+        // 双重保障：label 标准行为 + 手动触发 click() 兼容小米浏览器
         if (!disabled && fileInputRef.current) {
+          e.preventDefault();
           fileInputRef.current.click();
         }
       }}
@@ -991,7 +993,7 @@ export function AudioUpload({
         ref={fileInputRef}
         type="file"
         multiple
-        {...(AUDIO_ACCEPT ? { accept: AUDIO_ACCEPT } : {})}
+        accept="audio/*"
         onChange={handleFileSelect}
         disabled={disabled}
         className="sr-only"
@@ -1009,7 +1011,7 @@ export function AudioUpload({
           )}
         </div>
       </div>
-    </div>
+    </label>
   );
 
   // 渲染音频列表
