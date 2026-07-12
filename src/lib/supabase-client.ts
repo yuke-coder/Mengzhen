@@ -11,19 +11,25 @@ export function getSupabaseClient(): SupabaseClient | null {
   const key = process.env.SUPABASE_SERVICE_ROLE_KEY;
 
   if (!url || !key) {
-    console.warn("[Supabase] 缺少环境变量: SUPABASE_URL 或 SUPABASE_SERVICE_ROLE_KEY");
-    console.warn("[Supabase] 当前 NODE_ENV:", process.env.NODE_ENV);
-    console.warn("[Supabase] 已配置的 env 键:", Object.keys(process.env).filter(k => k.includes('SUPABASE') || k.includes('DATABASE') || k.includes('NEXT_PUBLIC_SUPABASE')).join(', '));
+    console.error("========================================");
+    console.error("[Supabase] 缺少必要的环境变量！");
+    console.error("[Supabase] SUPABASE_URL:", url ? "✅ 已设置" : "❌ 未设置");
+    console.error("[Supabase] SUPABASE_SERVICE_ROLE_KEY:", key ? "✅ 已设置" : "❌ 未设置");
+    console.error("[Supabase] 当前 NODE_ENV:", process.env.NODE_ENV);
+    console.error("[Supabase] 所有环境变量键:", Object.keys(process.env).sort().join(', '));
+    console.error("========================================");
     return null;
   }
 
   if (!supabaseInstance) {
     try {
+      console.log("[Supabase] 正在初始化客户端...");
       supabaseInstance = createClient(url, key, {
         auth: { autoRefreshToken: false, persistSession: false },
       });
+      console.log("[Supabase] ✅ 客户端初始化成功");
     } catch (error) {
-      console.error("[Supabase] 初始化失败:", error);
+      console.error("[Supabase] ❌ 初始化失败:", error);
       return null;
     }
   }
@@ -35,5 +41,9 @@ export function getSupabaseClient(): SupabaseClient | null {
  * 检查 Supabase 是否已正确配置
  */
 export function isSupabaseConfigured(): boolean {
-  return !!(process.env.SUPABASE_URL && process.env.SUPABASE_SERVICE_ROLE_KEY);
+  const configured = !!(process.env.SUPABASE_URL && process.env.SUPABASE_SERVICE_ROLE_KEY);
+  if (!configured) {
+    console.error("[Supabase] isSupabaseConfigured: ❌ 未配置");
+  }
+  return configured;
 }

@@ -3,7 +3,6 @@ import { useState, useCallback, useEffect, Suspense } from "react";
 import Image from "next/image";
 import { useSearchParams } from "next/navigation";
 import { toast } from "@/components/sonner";
-import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogDescription } from "@/components/ui/dialog";
 import { AudioUpload } from "@/components/audio-upload";
 import { TaskForm } from "@/components/task-form";
 import { TaskList } from "@/components/task-list";
@@ -319,48 +318,52 @@ function CreatePageContent() {
 
             {/* PWA */}
             {showPwaPrompt && mounted && !isPwa && (
-                <div className="fixed inset-0 z-50 flex flex-col items-center justify-center bg-black/85 backdrop-blur-sm animate-in fade-in duration-300">
-                    <div className="text-center space-y-6 px-4 max-w-md w-full">
-                        <div className="w-24 h-24 mx-auto mb-4 relative">
-                            <div className="absolute inset-0 bg-gradient-to-r from-[var(--brand-start)] to-[var(--brand-end)] rounded-2xl animate-pulse opacity-30"></div>
-                            <div className="relative w-full h-full bg-gradient-to-r from-[var(--brand-start)] to-[var(--brand-end)] rounded-2xl flex items-center justify-center shadow-2xl">
-                                <Image src="/logo.png" alt="梦枕" width={64} height={64} className="rounded-2xl" />
+                <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/50 backdrop-blur-sm animate-in fade-in duration-300">
+                    <div role="dialog" aria-modal="true" aria-labelledby="pwa-title" aria-describedby="pwa-desc" className="bg-background border border-border/60 rounded-2xl shadow-2xl p-6 max-w-md w-[calc(100%-2rem)] space-y-4" onClick={e => e.stopPropagation()}>
+                        <div className="flex flex-col items-center gap-3 text-center">
+                            <div className="w-20 h-20 relative mb-2">
+                                <div className="absolute inset-0 bg-gradient-to-r from-[var(--brand-start)] to-[var(--brand-end)] rounded-2xl animate-pulse opacity-30"></div>
+                                <div className="relative w-full h-full bg-gradient-to-r from-[var(--brand-start)] to-[var(--brand-end)] rounded-2xl flex items-center justify-center shadow-lg">
+                                    <Image src="/logo.png" alt="梦枕" width={48} height={48} className="rounded-xl" />
+                                </div>
+                            </div>
+                            <div>
+                                <h3 id="pwa-title" className="text-xl font-bold text-foreground">安装到桌面</h3>
+                                <p id="pwa-desc" className="text-sm text-muted-foreground mt-1.5">
+                                    把梦枕安装到手机桌面，就像原生 APP 一样！<br />更稳定，体验更好～
+                                </p>
                             </div>
                         </div>
-                        <h2 className="text-2xl font-bold text-white">安装到桌面</h2>
-                        <p className="text-white/70 text-base leading-relaxed">
-                            把梦枕安装到手机桌面，就像原生 APP 一样！<br />更稳定，体验更好～
-                        </p>
-                        <div className="bg-white/5 rounded-xl p-4 space-y-2 text-left">
-                            <div className="flex items-center gap-3 text-white/80 text-sm">
+                        <div className="bg-muted/20 rounded-xl p-4 space-y-3">
+                            <div className="flex items-center gap-3 text-sm text-foreground">
                                 <svg className="w-5 h-5 text-[var(--brand-start)] flex-shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
                                     <path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z" />
                                 </svg>
                                 <span>更快的启动速度</span>
                             </div>
-                            <div className="flex items-center gap-3 text-white/80 text-sm">
+                            <div className="flex items-center gap-3 text-sm text-foreground">
                                 <svg className="w-5 h-5 text-[var(--brand-start)] flex-shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-                                    <path d="M5 12h14M5 12a2 2 0 01-2-2V6a2 2 0 012-2h14a2 2 0 012 2v4a2 2 0 01-2 2M5 12a2 2 0 00-2 2v4a2 2 0 002 2h14a2 2 0 002-2v-4a2 2 0 00-2-2" />
+                                    <path d="M5 12h14M5 12a2 2 a01-2-2V6a2 2 a012-2h14a2 2 a012 2v4a2 2 a01-2 2M5 12a2 2 a00-2 2v4a2 2 a002 2h14a2 2 a002-2v-4a2 2 a00-2-2" />
                                 </svg>
                                 <span>像普通 APP 一样使用</span>
                             </div>
-                            <div className="flex items-center gap-3 text-white/80 text-sm">
+                            <div className="flex items-center gap-3 text-sm text-foreground">
                                 <svg className="w-5 h-5 text-[var(--brand-start)] flex-shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
                                     <path d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" />
                                 </svg>
                                 <span>更好的后台播放支持</span>
                             </div>
                         </div>
-                        <div className="flex justify-center gap-4 pt-2">
+                        <div className="flex gap-3 pt-2">
                             <button
                                 onClick={handleLaterPwa}
-                                className="px-6 py-3 bg-white/10 rounded-lg text-white/70 font-medium hover:bg-white/20 transition-all"
+                                className="flex-1 h-12 rounded-xl border border-border/60 text-sm font-medium text-muted-foreground hover:text-foreground hover:bg-muted/80 active:bg-muted transition-all cursor-pointer"
                             >
                                 稍后再说
                             </button>
                             <button
                                 onClick={handleInstallPwa}
-                                className="px-8 py-3 bg-gradient-to-r from-[var(--brand-start)] to-[var(--brand-end)] rounded-lg text-white font-bold hover:opacity-90 active:opacity-80 transition-all shadow-lg"
+                                className="flex-1 h-12 rounded-xl bg-gradient-to-r from-[var(--brand-start)] to-[var(--brand-end)] text-white font-bold hover:opacity-90 active:opacity-80 transition-all shadow-md shadow-[var(--brand-start)]/20 cursor-pointer"
                             >
                                 安装到桌面
                             </button>
