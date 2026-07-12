@@ -6,22 +6,21 @@ import { useRouter } from "next/navigation";
 import { Eye, EyeOff, LogIn } from "lucide-react";
 import { Spinner } from "@/components/ui/spinner";
 import { useAuth } from "@/lib/auth-context";
+import { toast } from "@/components/sonner";
 
 export function MobileAuthPanel() {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
   const [showPassword, setShowPassword] = useState(false);
-  const [error, setError] = useState("");
   const [loading, setLoading] = useState(false);
   const router = useRouter();
   const auth = useAuth();
 
   const submit = async (event: FormEvent) => {
     event.preventDefault();
-    setError("");
 
     if (!username.trim() || !password) {
-      setError("请填写用户名和密码");
+      toast.error("请填写用户名和密码");
       return;
     }
 
@@ -30,7 +29,7 @@ export function MobileAuthPanel() {
     setLoading(false);
 
     if (result.success) router.push("/");
-    else setError(result.message);
+    else toast.error(result.message);
   };
 
   return (
@@ -68,12 +67,6 @@ export function MobileAuthPanel() {
                 disabled={loading}
               />
             </Field>
-
-            {error && (
-              <p className="rounded-xl border border-red-300/30 bg-red-950/20 p-3 text-sm text-red-100">
-                {error}
-              </p>
-            )}
 
             <button
               type="submit"

@@ -7,6 +7,7 @@ import { MobileAuthPanel } from "@/components/mobile-auth-panel";
 import { useAuth } from "@/lib/auth-context";
 import { Spinner } from "@/components/ui/spinner";
 import { useIsMobile } from "@/hooks/use-mobile";
+import { toast } from "@/components/sonner";
 import { Eye, EyeOff, LogIn } from "lucide-react";
 
 interface PupilProps {
@@ -151,7 +152,6 @@ function DesktopLoginPage() {
   const [showPassword, setShowPassword] = useState(false);
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
-  const [error, setError] = useState("");
   const [isLoading, setIsLoading] = useState(false);
   const [mouseX, setMouseX] = useState<number>(0);
   const [mouseY, setMouseY] = useState<number>(0);
@@ -280,7 +280,6 @@ function DesktopLoginPage() {
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    setError("");
     setIsLoading(true);
 
     const result = await login(username, password);
@@ -290,7 +289,7 @@ function DesktopLoginPage() {
       // login 函数已自动刷新用户状态
       router.push('/');
     } else {
-      setError(result.message);
+      toast.error(result.message);
     }
   };
 
@@ -543,11 +542,6 @@ function DesktopLoginPage() {
               </div>
 
 
-            {error && (
-              <div className="p-3 text-sm text-red-400 bg-red-950/20 border border-red-900/30 rounded-xl">
-                {error}
-              </div>
-            )}
 
             <button 
               type="submit" 

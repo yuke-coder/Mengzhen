@@ -8,6 +8,7 @@ import { useAuth } from "@/lib/auth-context";
 import { Spinner } from "@/components/ui/spinner";
 import { cn } from "@/lib/utils";
 import { useIsMobile } from "@/hooks/use-mobile";
+import { toast } from "@/components/sonner";
 import { Eye, EyeOff, UserPlus, Check, X } from "lucide-react";
 
 interface PupilProps {
@@ -154,7 +155,6 @@ function DesktopRegisterPage() {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
   const [confirmPassword, setConfirmPassword] = useState("");
-  const [error, setError] = useState("");
   const [isLoading, setIsLoading] = useState(false);
   const [mouseX, setMouseX] = useState<number>(0);
   const [mouseY, setMouseY] = useState<number>(0);
@@ -293,25 +293,24 @@ function DesktopRegisterPage() {
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    setError("");
-    
+
     if (!username.trim()) {
-      setError('请输入用户名');
+      toast.error('请输入用户名');
       return;
     }
-    
+
     if (!password) {
-      setError('请输入密码');
+      toast.error('请输入密码');
       return;
     }
-    
+
     if (password.length < 6) {
-      setError('密码长度不能少于6个字符');
+      toast.error('密码长度不能少于6个字符');
       return;
     }
-    
+
     if (password !== confirmPassword) {
-      setError('两次输入的密码不一致');
+      toast.error('两次输入的密码不一致');
       return;
     }
 
@@ -323,7 +322,7 @@ function DesktopRegisterPage() {
     if (result.success) {
       router.push('/');
     } else {
-      setError(result.message);
+      toast.error(result.message);
     }
   };
 
@@ -671,11 +670,6 @@ function DesktopRegisterPage() {
               )}
             </div>
 
-            {error && (
-              <div className="p-3 text-sm text-red-400 bg-red-950/20 border border-red-900/30 rounded-xl">
-                {error}
-              </div>
-            )}
 
             <button 
               type="submit" 
