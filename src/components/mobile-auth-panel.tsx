@@ -34,8 +34,8 @@ export function MobileAuthPanel() {
   };
 
   return (
-    <main className="relative min-h-screen overflow-hidden bg-gradient-to-r from-[#ee7752] via-[#e73c7e] to-[#23a6d5] bg-[length:400%_400%] animate-gradient px-4 py-6">
-      <div className="mx-auto flex min-h-[calc(100vh-3rem)] w-full max-w-[420px] items-center">
+    <main className="relative min-h-[calc(100vh-3rem)] sm:min-h-[calc(100vh-3.5rem)] overflow-hidden bg-gradient-to-r from-[#ee7752] via-[#e73c7e] to-[#23a6d5] bg-[length:400%_400%] animate-gradient px-4 py-6">
+      <div className="mx-auto flex min-h-full w-full max-w-[420px] items-center">
         <section className="w-full rounded-2xl bg-black/10 p-5 text-white backdrop-blur-sm">
           <div className="mb-7 text-center">
             <h1 className="mb-2 text-3xl font-bold tracking-tight">登录梦枕</h1>

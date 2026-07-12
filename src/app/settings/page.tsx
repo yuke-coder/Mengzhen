@@ -3,6 +3,7 @@ import { useState, useCallback, useEffect, Suspense } from "react";
 import Image from "next/image";
 import { useSearchParams } from "next/navigation";
 import { toast } from "@/components/sonner";
+import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogDescription } from "@/components/ui/dialog";
 import { AudioUpload } from "@/components/audio-upload";
 import { TaskForm } from "@/components/task-form";
 import { TaskList } from "@/components/task-list";
@@ -232,24 +233,25 @@ function CreatePageContent() {
         <div className="min-h-screen text-foreground overflow-x-hidden relative z-10">
             {/* 只显示一个开始按钮 */}
             {!audioUnlocked && mounted && (
-                <div className="fixed inset-0 z-50 flex flex-col items-center justify-center bg-black/85 backdrop-blur-sm animate-in fade-in duration-300">
-                    <div className="text-center space-y-6 px-4 max-w-md w-full">
-                        <div className="w-24 h-24 mx-auto mb-4 relative">
-                            <div className="absolute inset-0 bg-gradient-to-r from-[var(--brand-start)] to-[var(--brand-end)] rounded-full animate-pulse opacity-30" />
-                            <div className="relative w-full h-full rounded-full flex items-center justify-center bg-gradient-to-r from-[var(--brand-start)] to-[var(--brand-end)]">
-                                <svg className="w-12 h-12 text-white" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-                                    <path d="M9 18V6L3 12V18H9Z" />
-                                    <path d="M15 6L18 12L15 18" />
-                                    <path d="M21 18V6L18 12" />
-                                </svg>
+                <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/50 backdrop-blur-sm animate-in fade-in duration-300">
+                    <div role="dialog" aria-modal="true" aria-labelledby="welcome-title" aria-describedby="welcome-desc" className="bg-background border border-border/60 rounded-2xl shadow-2xl p-6 max-w-sm w-[calc(100%-2rem)] space-y-4" onClick={e => e.stopPropagation()}>
+                        <div className="flex flex-col items-center gap-3 text-center">
+                            <div className="w-16 h-16 relative mb-2">
+                                <div className="absolute inset-0 bg-gradient-to-r from-[var(--brand-start)] to-[var(--brand-end)] rounded-full animate-pulse opacity-30"></div>
+                                <div className="relative w-full h-full bg-gradient-to-r from-[var(--brand-start)] to-[var(--brand-end)] rounded-full flex items-center justify-center">
+                                    <svg className="w-8 h-8 text-white" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+                                        <path d="M9 18V6L3 12V18H9Z" />
+                                        <path d="M15 6L18 12L15 18" />
+                                        <path d="M21 18V6L18 12" />
+                                    </svg>
+                                </div>
+                            </div>
+                            <div>
+                                <h3 id="welcome-title" className="text-xl font-bold text-foreground">欢迎使用梦枕</h3>
+                                <p id="welcome-desc" className="text-sm text-muted-foreground mt-1.5">点击开始使用</p>
                             </div>
                         </div>
-                        <h2 className="text-2xl font-bold text-white">欢迎使用梦枕</h2>
-                        <p className="text-white/70 text-base leading-relaxed">点击开始使用</p>
-                        <button
-                            onClick={handleStart}
-                            className="px-10 py-4 text-lg bg-gradient-to-r from-[var(--brand-start)] to-[var(--brand-end)] rounded-lg text-white font-bold hover:opacity-90 active:opacity-80 transition-all shadow-lg hover:shadow-xl active:scale-95"
-                        >
+                        <button onClick={handleStart} className="w-full h-12 rounded-xl bg-gradient-to-r from-[var(--brand-start)] to-[var(--brand-end)] text-white font-bold hover:opacity-90 active:opacity-80 transition-all shadow-lg hover:shadow-xl active:scale-95">
                             开始使用
                         </button>
                     </div>
