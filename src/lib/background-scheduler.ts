@@ -63,7 +63,7 @@ export class EnhancedTaskScheduler {
       return;
     }
     const timerId = window.setTimeout(() => this.executeTask(task.id), delay);
-    this.timers.set(taskId, timerId);
+    this.timers.set(task.id, timerId);
   }
 
   private getTaskExecutionDelay(task: ScheduledTask): number {
