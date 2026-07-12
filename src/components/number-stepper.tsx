@@ -57,14 +57,12 @@ export function NumberStepperButton({
   }, [doStep]);
 
   const handlePressStart = useCallback((e: React.MouseEvent | React.TouchEvent) => {
-    e.preventDefault();
     if (disabled) return;
     isRepeatingRef.current = false;
     timeoutRef.current = setTimeout(startRepeating, 250);
   }, [disabled, startRepeating]);
 
   const handlePressEnd = useCallback((e: React.MouseEvent | React.TouchEvent) => {
-    e.preventDefault();
     if (disabled) return;
     const wasRepeating = isRepeatingRef.current;
     clearTimers();

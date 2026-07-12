@@ -19,13 +19,20 @@ export function DurationSetter({
 }) {
   const isMobile = useIsMobile();
   const [unit, setUnit] = useState<"min" | "hour">("min");
+  const [tempValue, setTempValue] = useState<string | null>(null);
   const clamped = Math.min(max, Math.max(min, value));
   const pct = ((clamped - min) / (max - min)) * 100;
   const step = unit === "hour" ? 60 : 1;
 
+  const displayVal = unit === "hour" ? clamped / 60 : clamped;
+  const inputValue = tempValue !== null ? tempValue : String(displayVal);
+
   const handleNumberChange = useCallback((e: React.ChangeEvent<HTMLInputElement>) => {
     const raw = e.target.value;
+    setTempValue(raw);
+
     if (raw === "" || raw === "-") return;
+
     let v = unit === "hour" ? parseFloat(raw) * 60 : parseInt(raw, 10);
     if (!isNaN(v)) {
       v = Math.min(max, Math.max(min, Math.round(v)));
@@ -34,8 +41,11 @@ export function DurationSetter({
     }
   }, [unit, min, max, onChange]);
 
+  const handleBlur = useCallback(() => {
+    setTempValue(null);
+  }, []);
+
   const fmt = (m: number) => m < 60 ? `${m}分钟` : `${Math.floor(m / 60)}小时${m % 60 ? `${m % 60}分钟` : ""}`;
-  const displayVal = unit === "hour" ? clamped / 60 : clamped;
   const unitText = unit === "min" ? "分" : "时";
 
   return (
@@ -73,7 +83,7 @@ export function DurationSetter({
               iconSize="w-2.5 h-2.5"
             />
             <div className="flex items-center border-y border-border/50 bg-muted/20 h-6">
-              <input type="number" min={unit === "hour" ? min / 60 : min} max={unit === "hour" ? max / 60 : max} step={1} value={displayVal} onChange={handleNumberChange}
+              <input type="number" min={unit === "hour" ? min / 60 : min} max={unit === "hour" ? max / 60 : max} step={1} value={inputValue} onChange={handleNumberChange} onBlur={handleBlur}
                 className="w-[40px] h-full bg-transparent text-center font-mono font-medium tabular-nums focus:outline-none focus:bg-[var(--brand-start)]/5 appearance:textfield [&::-webkit-outer-spin-button]:appearance-none [&::-webkit-inner-spin-button]:appearance-none text-[13px] px-1" />
               <button type="button" onClick={() => setUnit(u => u === "min" ? "hour" : "min")}
                 className="shrink-0 text-muted-foreground/70 hover:text-[var(--brand-start)] cursor-pointer transition-colors select-none font-medium leading-none text-[9px] pr-1.5">{unitText}</button>
@@ -103,7 +113,7 @@ export function DurationSetter({
               className="w-7 h-7"
             />
             <div className="relative w-24 h-7 flex items-center rounded-lg border border-border/60 bg-muted/30 focus-within:border-[var(--brand-start)]/60 focus-within:ring-1 focus-within:ring-[var(--brand-start)]/30 transition-all overflow-hidden">
-              <input type="number" min={unit === "hour" ? min / 60 : min} max={unit === "hour" ? max / 60 : max} step={1} value={displayVal} onChange={handleNumberChange}
+              <input type="number" min={unit === "hour" ? min / 60 : min} max={unit === "hour" ? max / 60 : max} step={1} value={inputValue} onChange={handleNumberChange} onBlur={handleBlur}
                 className="flex-1 h-full bg-transparent text-center text-sm font-mono font-medium tabular-nums focus:outline-none appearance:textfield [&::-webkit-outer-spin-button]:appearance-none [&::-webkit-inner-spin-button]:appearance-none px-2" />
               <button type="button" onClick={() => setUnit(u => u === "min" ? "hour" : "min")}
                 className="shrink-0 text-muted-foreground/70 hover:text-[var(--brand-start)] cursor-pointer transition-colors select-none font-medium leading-none text-[10px] pr-2">{unitText}</button>

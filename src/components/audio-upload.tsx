@@ -411,99 +411,78 @@ export function AudioUpload({
 
   const validateFile = useCallback((file: File): string | null => {
     const ext = "." + file.name.split(".").pop()?.toLowerCase();
-    const typeOk = file.type.startsWith('audio/') || file.type === '';
-    const extOk = AUDIO_EXTENSIONS.includes(ext);
-    if (!typeOk && !extOk) return `不支持的音频格式，请上传 ${AUDIO_EXTENSIONS.join(", ")} 文件`;
-    if (audios.some(a => a.file.name === file.name)) return `文件「${file.name}」已存在`;
+    if (!AUDIO_EXTENSIONS.includes(ext) && !file.type.startsWith('audio/'))
+      return `不支持的音频格式，请上传 ${AUDIO_EXTENSIONS.join(", ")} 文件`;
+    if (audios.some(a => a.file.name === file.name))
+      return `文件「${file.name}」已存在`;
     return null;
   }, [audios]);
 
-  const autoUploadToServer = useCallback(async (id: string, file: File) => {
+  const uploadFile = useCallback(async (id: string, file: File) => {
     if (!user) return;
+
+    const updateAudio = (updates: Partial<AudioItem>) =>
+      setAudios(prev => prev.map(a => a.id === id ? { ...a, ...updates } : a));
+
+    updateAudio({ uploading: true, uploadProgress: 0, uploadError: null });
+
+    const formData = new FormData();
+    formData.append("audio", file);
+
     try {
-      setAudios(prev => prev.map(a => a.id === id ? { ...a, uploading: true, uploadProgress: 0, uploadError: null } : a));
-      const formData = new FormData();
-      formData.append("audio", file);
       const xhr = new XMLHttpRequest();
 
-      const uploadPromise = new Promise<void>((resolve, reject) => {
-        xhr.upload.addEventListener("progress", (e) => {
-          if (e.lengthComputable) {
-            const pct = Math.round((e.loaded / e.total) * 100);
-            setAudios(prev => prev.map(a => a.id === id ? { ...a, uploadProgress: pct } : a));
-          }
-        });
-
-        xhr.addEventListener("load", () => {
-          if (xhr.status >= 200 && xhr.status < 300) resolve();
-          else {
-            try {
-              const data = JSON.parse(xhr.responseText);
-              reject(new Error(data.error || `上传失败 (${xhr.status})`));
-            } catch {
-              reject(new Error(`上传失败 (${xhr.status})`));
-            }
-          }
-        });
-
-        xhr.addEventListener("error", () => reject(new Error("网络错误")));
+      await new Promise<void>((resolve, reject) => {
+        xhr.upload.onprogress = (e) => e.lengthComputable &&
+          updateAudio({ uploadProgress: Math.round((e.loaded / e.total) * 100) });
+        xhr.onload = () => xhr.status >= 200 && xhr.status < 300 ? resolve() : reject();
+        xhr.onerror = () => reject();
         xhr.open("POST", "/api/audio/upload?save_to_files=true");
         xhr.send(formData);
       });
 
-      await uploadPromise;
-
-      const response = JSON.parse(xhr.responseText);
-      if (response.success) {
-        setAudios(prev => {
-          const updated = prev.map(a =>
-            a.id === id
-              ? { ...a, url: response.audio_url, serverUrl: response.audio_url, fileKey: response.file_key, uploading: false, uploadProgress: 100 }
-              : a
-          );
-          onAudioUploaded?.(updated);
-          onAudioCountChange?.(updated.length);
-          return updated;
+      const resp = JSON.parse(xhr.responseText);
+      if (resp.success) {
+        updateAudio({
+          url: resp.audio_url,
+          serverUrl: resp.audio_url,
+          fileKey: resp.file_key,
+          uploading: false,
+          uploadProgress: 100
         });
+        setAudios(prev => { onAudioUploaded?.(prev); onAudioCountChange?.(prev.length); return prev; });
       } else {
-        setAudios(prev => prev.map(a => a.id === id ? { ...a, uploading: false, uploadError: response.error || "上传失败" } : a));
-        console.warn(`[自动上传] ${file.name} 上传失败:`, response.error);
+        updateAudio({ uploading: false, uploadError: resp.error || "上传失败" });
       }
-    } catch (err) {
-      setAudios(prev => prev.map(a => a.id === id ? { ...a, uploading: false, uploadError: err instanceof Error ? err.message : "上传失败" } : a));
-      console.warn(`[自动上传] ${file.name} 异常:`, err);
+    } catch {
+      updateAudio({ uploading: false, uploadError: "上传失败" });
     }
   }, [user, onAudioUploaded, onAudioCountChange]);
 
   const processFiles = useCallback(async (files: FileList | File[]) => {
     setUploadError(null);
-    const fileArray = Array.from(files).slice(0, MAX_FILES - audios.length);
     const newAudios: AudioItem[] = [];
 
-    for (const file of fileArray) {
+    for (const file of Array.from(files).slice(0, MAX_FILES - audios.length)) {
       const error = validateFile(file);
       if (error) { setUploadError(error); continue; }
-      const url = URL.createObjectURL(file);
-      const id = `audio-${++globalIdCounter}-${Date.now()}`;
 
+      const id = `audio-${++globalIdCounter}-${Date.now()}`;
+      const url = URL.createObjectURL(file);
       let dbKey: string | undefined;
+
       try { await saveAudioBlob(id, file); dbKey = id; } catch {}
 
       newAudios.push({ id, file, name: file.name, url, duration: 0, dbKey });
-
-      if (user) autoUploadToServer(id, file);
+      if (user) uploadFile(id, file);
     }
 
-    if (newAudios.length > 0) {
-      setAudios(prev => [...prev, ...newAudios]);
-    }
-  }, [audios, validateFile, user, autoUploadToServer]);
+    if (newAudios.length) setAudios(prev => [...prev, ...newAudios]);
+  }, [audios, validateFile, user, uploadFile]);
 
   const handleFileSelect = useCallback((e: React.ChangeEvent<HTMLInputElement>) => {
-    e.stopPropagation();
-    const files = e.target.files;
-    if (files && files.length > 0) processFiles(files);
-    e.currentTarget.value = "";
+    e.target.files && processFiles(e.target.files);
+    e.target.value = "";
   }, [processFiles]);
 
   const handleRemove = useCallback((id: string) => {
@@ -865,32 +844,41 @@ export function AudioUpload({
     const audio = audios.find(a => a.id === id);
     if (!audio || !user) return;
 
+    const updateAudio = (updates: Partial<AudioItem>) =>
+      setAudios(prev => prev.map(a => a.id === id ? { ...a, ...updates } : a));
+
     if (audio.serverUrl && audio.fileKey) {
       try {
-        setAudios(prev => prev.map(a => a.id === id ? { ...a, uploading: true, uploadProgress: 0 } : a));
+        updateAudio({ uploading: true, uploadProgress: 0 });
         const res = await fetch("/api/audio/save-to-files", {
           method: "POST",
           headers: { "Content-Type": "application/json" },
-          body: JSON.stringify({ fileKey: audio.fileKey, name: audio.name, size: audio.file?.size || 0, mime_type: audio.file?.type || "audio/mpeg", duration: audio.duration || 0 }),
+          body: JSON.stringify({
+            fileKey: audio.fileKey,
+            name: audio.name,
+            size: audio.file?.size || 0,
+            mime_type: audio.file?.type || "audio/mpeg",
+            duration: audio.duration || 0
+          }),
         });
         const data = await res.json();
-        if (data.success) {
-          setAudios(prev => prev.map(a => a.id === id ? { ...a, uploading: false, uploadProgress: 100, savedToFiles: true } : a));
-        } else {
-          setAudios(prev => prev.map(a => a.id === id ? { ...a, uploading: false, uploadError: data.error || "保存失败" } : a));
-        }
-      } catch (err) {
-        setAudios(prev => prev.map(a => a.id === id ? { ...a, uploading: false, uploadError: err instanceof Error ? err.message : "保存失败" } : a));
+        updateAudio(data.success
+          ? { uploading: false, uploadProgress: 100, savedToFiles: true }
+          : { uploading: false, uploadError: data.error || "保存失败" }
+        );
+      } catch {
+        updateAudio({ uploading: false, uploadError: "保存失败" });
       }
       return;
     }
 
-    await autoUploadToServer(id, audio.file);
-  }, [audios, user, autoUploadToServer]);
+    await uploadFile(id, audio.file);
+  }, [audios, user, uploadFile]);
 
   const handleUploadAll = useCallback(async () => {
-    const pending = audios.filter(a => !a.serverUrl && !a.uploading);
-    for (const audio of pending) await handleUploadSingle(audio.id);
+    for (const audio of audios.filter(a => !a.serverUrl && !a.uploading)) {
+      await handleUploadSingle(audio.id);
+    }
   }, [audios, handleUploadSingle]);
 
   useEffect(() => { if (!mounted) return; onAudioCountChange?.(audios.length); }, [mounted, audios.length, onAudioCountChange]);
