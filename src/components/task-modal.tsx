@@ -75,7 +75,7 @@ export function TaskModal({ visible, onClose, children }: TaskModalProps) {
           >
             <X className="w-5 h-5" />
           </button>
-          <div className={cn("flex-1 overflow-y-auto overscroll-contain px-4 pb-6 pt-4 -webkit-overflow-scrolling-touch transition-[padding-top] duration-300 ease-smooth", full && "pt-[max(1rem,calc(env(safe-area-inset-top)+0.75rem))]")}>
+          <div className={cn("flex-1 overflow-y-auto overflow-x-hidden overscroll-contain px-4 pb-[max(1.5rem,calc(env(safe-area-inset-bottom)+0.75rem))] pt-4 -webkit-overflow-scrolling-touch transition-[padding-top] duration-300 ease-smooth", full && "pt-[max(1rem,calc(env(safe-area-inset-top)+0.75rem))]")} style={{ maxHeight: "100%", height: 0 }}>
             {children}
           </div>
         </DrawerContent>

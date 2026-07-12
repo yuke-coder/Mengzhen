@@ -28,7 +28,7 @@ export function NumberStepperButton({
   const intervalRef = useRef<NodeJS.Timeout | null>(null);
   const timeoutRef = useRef<NodeJS.Timeout | null>(null);
   const valueRef = useRef(value);
-  const isRepeatingRef = useRef(false);
+  const hasFiredRef = useRef(false);
 
   useEffect(() => {
     valueRef.current = value;
@@ -51,22 +51,23 @@ export function NumberStepperButton({
   }, []);
 
   const startRepeating = useCallback(() => {
-    isRepeatingRef.current = true;
     doStep();
     intervalRef.current = setInterval(doStep, 100);
   }, [doStep]);
 
   const handlePressStart = useCallback((e: React.MouseEvent | React.TouchEvent) => {
     if (disabled) return;
-    isRepeatingRef.current = false;
+    e.preventDefault();
+    hasFiredRef.current = false;
     timeoutRef.current = setTimeout(startRepeating, 250);
   }, [disabled, startRepeating]);
 
   const handlePressEnd = useCallback((e: React.MouseEvent | React.TouchEvent) => {
     if (disabled) return;
-    const wasRepeating = isRepeatingRef.current;
+    e.preventDefault();
+    const hadInterval = intervalRef.current !== null;
     clearTimers();
-    if (!wasRepeating) {
+    if (!hadInterval) {
       doStep();
     }
   }, [disabled, doStep, clearTimers]);
@@ -75,7 +76,9 @@ export function NumberStepperButton({
     clearTimers();
   }, [clearTimers]);
 
-  useEffect(() => clearTimers, [clearTimers]);
+  useEffect(() => {
+    return clearTimers;
+  }, [clearTimers]);
 
   return (
     <button
@@ -85,6 +88,7 @@ export function NumberStepperButton({
       onMouseLeave={handleMouseLeave}
       onTouchStart={handlePressStart}
       onTouchEnd={handlePressEnd}
+      onTouchCancel={handleMouseLeave}
       disabled={disabled}
       className={cn(
         "flex items-center justify-center border border-border/60 rounded-sm transition-all select-none hover:bg-[var(--brand-start)]/10 hover:border-[var(--brand-start)]/40 active:scale-95 disabled:opacity-40 disabled:cursor-not-allowed",
