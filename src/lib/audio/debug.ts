@@ -1,14 +1,20 @@
 "use client";
 
 // 音频调试工具
+function getAudioContextConstructor(): typeof AudioContext | undefined {
+  return window.AudioContext || (window as typeof window & {
+    webkitAudioContext?: typeof AudioContext;
+  }).webkitAudioContext;
+}
+
 export class AudioDebug {
-  static log(...args: any[]) {
+  static log(...args: unknown[]) {
     if (process.env.NODE_ENV === 'development') {
       console.log('[🎵 Audio Debug]', ...args);
     }
   }
 
-  static error(...args: any[]) {
+  static error(...args: unknown[]) {
     console.error('[🎵 Audio Error]', ...args);
   }
 
@@ -22,10 +28,10 @@ export class AudioDebug {
   // 检查AudioContext状态
   static async checkAudioContextState(): Promise<string | undefined> {
     try {
-      const AudioContext = window.AudioContext || (window as any).webkitAudioContext;
-      if (!AudioContext) return undefined;
+      const AudioContextConstructor = getAudioContextConstructor();
+      if (!AudioContextConstructor) return undefined;
 
-      const context = new AudioContext();
+      const context = new AudioContextConstructor();
       const state = context.state;
       await context.close();
       this.log('AudioContext状态:', state);
@@ -42,9 +48,9 @@ export class AudioDebug {
 
     try {
       // 方法1: AudioContext
-      const AudioContext = window.AudioContext || (window as any).webkitAudioContext;
-      if (AudioContext) {
-        const context = new AudioContext();
+      const AudioContextConstructor = getAudioContextConstructor();
+      if (AudioContextConstructor) {
+        const context = new AudioContextConstructor();
         if (context.state === 'suspended') {
           await context.resume();
           this.log('AudioContext恢复成功');
@@ -108,7 +114,7 @@ export class AudioDebug {
 
 // 全局调试函数
 if (typeof window !== 'undefined') {
-  (window as any).audioDebug = AudioDebug;
+  (window as typeof window & { audioDebug?: typeof AudioDebug }).audioDebug = AudioDebug;
 }
 
 export default AudioDebug;

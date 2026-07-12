@@ -1,8 +1,7 @@
 "use client";
 
 import { getAudioBlob } from "./db";
-import { getAudioContext } from "./context";
-import { setVolume, fadeIn, fadeOut, stopFade } from "./fader";
+import { stopFade } from "./fader";
 import { savePlaybackState, getPlaybackState } from "./state";
 import type { ScheduledTask } from "@/lib/task-types";
 
@@ -16,8 +15,6 @@ interface PlaybackState {
   playedDuration: number;
   retryCount: number;
   currentBlobUrl: string | null;
-  gainNode: any;
-  sourceNode: any;
   saveProgress?: () => void;
 }
 
@@ -127,8 +124,6 @@ export class UnifiedAudioPlayer {
       playedDuration: 0,
       retryCount: 0,
       currentBlobUrl: isBlobUrl ? audioUrl : null,
-      gainNode: null,
-      sourceNode: null,
       saveProgress
     };
 
@@ -200,4 +195,3 @@ export class UnifiedAudioPlayer {
 }
 
 export const unifiedAudioPlayer = new UnifiedAudioPlayer();
-

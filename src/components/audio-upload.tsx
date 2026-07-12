@@ -178,9 +178,9 @@ export function AudioUpload({
   // 在用户交互时激活音频上下文
   useEffect(() => {
     if (!mounted) return;
-    const resumeAudioOnInteraction = () => {
+    const resumeAudioOnInteraction = async () => {
       try {
-        const { getTaskScheduler } = require("@/lib/task-scheduler");
+        const { getTaskScheduler } = await import("@/lib/task-scheduler");
         const scheduler = getTaskScheduler();
         if (scheduler && scheduler.resumeAudioContext) {
           scheduler.resumeAudioContext();

@@ -1,6 +1,6 @@
 'use client';
 
-import { useState, useRef, useCallback, useEffect } from 'react';
+import { useState, useRef, useEffect } from 'react';
 import Link from 'next/link';
 import { useRouter } from 'next/navigation';
 import { useAuth } from '@/lib/auth-context';
@@ -47,28 +47,6 @@ export default function FeedbackPage() {
     setContact(e.target.value);
   };
 
-  const handlePaste = useCallback(
-    async (e: React.ClipboardEvent) => {
-      const items = e.clipboardData.items;
-      for (const item of Array.from(items)) {
-        if (item.type.startsWith('image/')) {
-          const file = item.getAsFile();
-          if (file) await addImage(file);
-        }
-      }
-    },
-    [images]
-  );
-
-  const handleFileChange = async (e: React.ChangeEvent<HTMLInputElement>) => {
-    const files = e.target.files;
-    if (!files) return;
-    for (const file of Array.from(files)) {
-      await addImage(file);
-    }
-    e.target.value = '';
-  };
-
   const addImage = (file: File): Promise<void> => {
     return new Promise((resolve) => {
       const reader = new FileReader();
@@ -79,6 +57,25 @@ export default function FeedbackPage() {
       };
       reader.readAsDataURL(file);
     });
+  };
+
+  const handlePaste = async (e: React.ClipboardEvent) => {
+    const items = e.clipboardData.items;
+    for (const item of Array.from(items)) {
+      if (item.type.startsWith('image/')) {
+        const file = item.getAsFile();
+        if (file) await addImage(file);
+      }
+    }
+  };
+
+  const handleFileChange = async (e: React.ChangeEvent<HTMLInputElement>) => {
+    const files = e.target.files;
+    if (!files) return;
+    for (const file of Array.from(files)) {
+      await addImage(file);
+    }
+    e.target.value = '';
   };
 
   const removeImage = (index: number) => {

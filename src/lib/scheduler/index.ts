@@ -782,16 +782,16 @@ class HighPerformanceScheduler {
     return 0;
   }
 
-  private emitPhaseChange(taskId: string, phase: PlayPhase): void {
+  private emitPhaseChange(taskId: string, phase: LocalPlaybackState['phase']): void {
     const playback = activePlaybacks.get(taskId);
     if (playback) {
-      playback.phase = phase as any;
-      this.emit('phase-change', taskId, phase as any, this.computeRemaining(playback));
+      playback.phase = phase;
+      this.emit('phase-change', taskId, phase, this.computeRemaining(playback));
     }
   }
 
-  private emit(type: string, taskId: string, phase: PlayPhase, remainingMs: number, taskName?: string): void {
-    this.eventEmitter.emit({ type: type as any, taskId, phase, remainingMs, taskName });
+  private emit(type: SchedulerEvent['type'], taskId: string, phase: PlayPhase, remainingMs: number, taskName?: string): void {
+    this.eventEmitter.emit({ type, taskId, phase, remainingMs, taskName });
   }
 }
 
@@ -824,4 +824,3 @@ export function getPlaybackLogs(): PlaybackLog[] {
 }
 
 export type { SchedulerEvent, PlayPhase, HighPerformanceScheduler };
-

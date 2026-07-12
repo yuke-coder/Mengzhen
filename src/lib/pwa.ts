@@ -22,7 +22,7 @@ export function isPwaInstalled(): boolean {
   if (typeof window !== 'undefined') {
     const isStandalone = window.matchMedia('(display-mode: standalone)').matches;
     // 或者检查 iOS 的 navigator.standalone
-    const isIosStandalone = (navigator as any).standalone === true;
+    const isIosStandalone = (navigator as Navigator & { standalone?: boolean }).standalone === true;
     return isStandalone || isIosStandalone;
   }
   return false;

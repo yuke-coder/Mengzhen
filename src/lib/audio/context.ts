@@ -14,7 +14,9 @@ let initializationPromise: Promise<boolean> | null = null;
 export function getAudioContext(): AudioContext | null {
   if (!audioContext) {
     try {
-      const Context = window.AudioContext || (window as any).webkitAudioContext;
+      const Context = window.AudioContext || (window as typeof window & {
+        webkitAudioContext?: typeof AudioContext;
+      }).webkitAudioContext;
       if (Context) {
         audioContext = new Context();
         console.log('[AudioContext] 创建成功');
@@ -123,4 +125,3 @@ export function tryUnlockAudio(): void {
     });
   } catch {}
 }
-
