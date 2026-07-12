@@ -987,7 +987,6 @@ export function AudioUpload({
         disabled && "opacity-50 cursor-not-allowed pointer-events-none"
       )}
     >
-      {/* 暂时可见，测试用 */}
       <input
         ref={fileInputRef}
         type="file"
@@ -995,7 +994,7 @@ export function AudioUpload({
         {...(AUDIO_ACCEPT ? { accept: AUDIO_ACCEPT } : {})}
         onChange={handleFileSelect}
         disabled={disabled}
-        className="mb-4 block w-full text-sm text-gray-500 file:mr-4 file:py-2 file:px-4 file:rounded-full file:border-0 file:text-sm file:font-semibold file:bg-[var(--brand-start)] file:text-white hover:file:bg-[var(--brand-end)]"
+        className="sr-only"
       />
       <div className="flex flex-col items-center gap-2 sm:gap-3">
         <div className={cn("p-2.5 sm:p-3 rounded-full bg-[var(--brand-glow)]/10 transition-transform duration-300", dragOver && !disabled && "scale-110")}>
