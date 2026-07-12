@@ -178,11 +178,11 @@ export function UserMenu() {
             data-user-menu-dropdown
             className={cn(
               "py-2 min-w-[240px] max-w-[300px]",
-              "rounded-xl bg-white/60 dark:bg-black/40",
-              "backdrop-blur-[8px] backdrop-saturate-115",
-              "-webkit-backdrop-blur-[8px] -webkit-backdrop-saturate-115",
-              "border border-white/20 dark:border-white/10",
-              "shadow-lg shadow-black/[0.08]",
+              "rounded-2xl bg-white/70 dark:bg-black/60",
+              "backdrop-blur-2xl backdrop-saturate-180",
+              "-webkit-backdrop-blur-2xl -webkit-backdrop-saturate-180",
+              "border border-white/40 dark:border-white/25",
+              "shadow-2xl shadow-black/[0.12]",
               "transition-all duration-200 ease-out origin-top-right will-change-[transform,opacity]",
               isOpen
                 ? "opacity-100 scale-100 translate-y-0"

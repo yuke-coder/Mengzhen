@@ -6,6 +6,7 @@ import { TemplateSelector } from "@/components/template-selector";
 import RippleButton from "@/components/RippleButton";
 import LazySection from "@/components/lazy-section";
 import { useTheme } from "@/lib/theme-context";
+import { HeroTitle } from "@/components/hero-title";
 
 import {
     Brain,
@@ -316,7 +317,7 @@ const heroNodes = [
 
 const heroVariants = {
     mobile: {
-        section: "relative sm:hidden min-h-[calc(100svh-56px)] flex flex-col items-center justify-start px-4 pt-4 pb-20 overflow-hidden",
+        section: "relative sm:hidden min-h-[calc(100svh-56px)] flex flex-col items-center justify-start px-1 pt-4 pb-20 overflow-hidden",
         content: "relative z-10 w-full max-w-[23rem] mx-auto text-center space-y-4",
         title: "w-[22rem] max-w-full",
         subtitle: "PWA构建·云端同步·本地持久化",
@@ -375,35 +376,6 @@ function HeroBackdrop({ id }: { id: string }) {
     );
 }
 
-function HeroTitle({ className, fontSize, gradientId }: {
-    className?: string;
-    fontSize: string;
-    gradientId: string;
-}) {
-    return (
-        <svg className={cn("w-full mx-auto", className)} viewBox="0 0 600 300" preserveAspectRatio="xMidYMid meet">
-            <defs>
-                <linearGradient id={gradientId} x1="0%" y1="0%" x2="100%" y2="100%">
-                    <stop offset="0%" stopColor="#5EEDA0" />
-                    <stop offset="35%" stopColor="#40C78A" />
-                    <stop offset="50%" stopColor="#60C4A0" />
-                    <stop offset="65%" stopColor="#9055E0" />
-                    <stop offset="100%" stopColor="#A855F7" />
-                </linearGradient>
-            </defs>
-            <text x="50%" y="150" textAnchor="middle" dominantBaseline="middle" fontSize={fontSize} fontWeight="bold" fontFamily="system-ui, -apple-system, sans-serif" fill={`url(#${gradientId})`} style={{ boxShadow: "rgba(0, 0, 0, 0.15) 0px 0px 30px 0px" }}>
-                <tspan x="50%" dy="-0.5em" className="svg-char" style={{ ["--char-delay" as string]: "200ms" }}>星</tspan>
-                <tspan className="svg-char" style={{ ["--char-delay" as string]: "260ms" }}>河</tspan>
-                <tspan className="svg-char" style={{ ["--char-delay" as string]: "320ms" }}>入</tspan>
-                <tspan className="svg-char" style={{ ["--char-delay" as string]: "380ms" }}>眠</tspan>
-                <tspan x="50%" dy="1.2em" className="svg-char" style={{ ["--char-delay" as string]: "500ms" }}>伴</tspan>
-                <tspan className="svg-char" style={{ ["--char-delay" as string]: "560ms" }}>你</tspan>
-                <tspan className="svg-char" style={{ ["--char-delay" as string]: "620ms" }}>梦</tspan>
-                <tspan className="svg-char" style={{ ["--char-delay" as string]: "680ms" }}>枕</tspan>
-            </text>
-        </svg>
-    );
-}
 
 function HeroBadge({ mobile = false }: { mobile?: boolean }) {
     return (
@@ -484,7 +456,7 @@ function HeroView({ mode, buttonRef, onStart }: HeroProps & { mode: HeroMode }) 
         <section className={variant.section}>
             <HeroBackdrop id={`${mode}Hero`} />
             <div className={variant.content}>
-                <HeroTitle gradientId={`${mode}HeroTitle`} className={variant.title} fontSize={mobile ? "76px" : "74px"} />
+                <HeroTitle gradientId={`${mode}HeroTitle`} className={variant.title} fontSize={mobile ? "76px" : "74px"} animated />
                 <WordReveal text={variant.subtitle} className={variant.subtitleClass} delayBase={1200} wordDelay={200} />
                 <RevealGroup delayBase={300}>
                     <div className="inline-flex flex-col items-center gap-4">

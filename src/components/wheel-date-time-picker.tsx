@@ -49,9 +49,7 @@ function useClientOnly() {
 function WheelPickerColumn({ items, value, onChange, label, isDark = false, loop = false }: WheelPickerColumnProps) {
     const scrollerRef = useRef<HTMLDivElement>(null);
     const commitTimerRef = useRef<NodeJS.Timeout | null>(null);
-    const isResettingRef = useRef(false);
-    const ignoreNextScrollRef = useRef(false);
-    const lastScrollTopRef = useRef(0);
+    const animationFrameRef = useRef<number | null>(null);
     const mounted = useClientOnly();
     const baseLen = items.length;
 
@@ -76,13 +74,7 @@ function WheelPickerColumn({ items, value, onChange, label, isDark = false, loop
         if (scrollTop < singleLen * 0.5) newTop = scrollTop + singleLen;
         else if (scrollTop > singleLen * 2.5) newTop = scrollTop - singleLen;
         if (newTop !== scrollTop) {
-            isResettingRef.current = true;
-            ignoreNextScrollRef.current = true;
             el.scrollTop = newTop;
-            requestAnimationFrame(() => {
-                isResettingRef.current = false;
-                ignoreNextScrollRef.current = false;
-            });
         }
     }, [loop, baseLen]);
 
@@ -92,52 +84,31 @@ function WheelPickerColumn({ items, value, onChange, label, isDark = false, loop
         if (!el) return;
         const targetTop = initialScrollIndex * ITEM_HEIGHT;
         if (Math.abs(el.scrollTop - targetTop) > 1) {
-            isResettingRef.current = true;
-            ignoreNextScrollRef.current = true;
             el.scrollTop = targetTop;
-            requestAnimationFrame(() => {
-                isResettingRef.current = false;
-                ignoreNextScrollRef.current = false;
-            });
         }
     }, [initialScrollIndex, mounted]);
 
-    // 检查滚动是否停止（用于惯性滚动）
-    const checkScrollEnd = useCallback(() => {
-        const el = scrollerRef.current;
-        if (!el) return;
+    const handleScroll = useCallback((e: React.UIEvent<HTMLDivElement>) => {
+        if (animationFrameRef.current) cancelAnimationFrame(animationFrameRef.current);
+        if (commitTimerRef.current) clearTimeout(commitTimerRef.current);
 
-        if (Math.abs(el.scrollTop - lastScrollTopRef.current) < 1) {
-            // 滚动停止
+        checkAndResetLoop();
+
+        commitTimerRef.current = setTimeout(() => {
+            const el = scrollerRef.current;
+            if (!el) return;
             const index = getRealIndex(el.scrollTop);
             const realIdx = loop ? ((index % baseLen) + baseLen) % baseLen : index;
             const item = items[realIdx];
             if (item && item.value !== value) {
                 onChange(item.value);
             }
-        } else {
-            // 还在滚动，继续检查
-            lastScrollTopRef.current = el.scrollTop;
-            commitTimerRef.current = setTimeout(checkScrollEnd, 100);
-        }
-    }, [getRealIndex, items, value, onChange, loop, baseLen]);
-
-    const handleScroll = useCallback((e: React.UIEvent<HTMLDivElement>) => {
-        if (isResettingRef.current || ignoreNextScrollRef.current) {
-            ignoreNextScrollRef.current = false;
-            return;
-        }
-        checkAndResetLoop();
-
-        lastScrollTopRef.current = e.currentTarget.scrollTop;
-
-        // 每次滚动都重置计时器，等滚动完全停止后再提交
-        if (commitTimerRef.current) clearTimeout(commitTimerRef.current);
-        commitTimerRef.current = setTimeout(checkScrollEnd, 150);
-    }, [checkAndResetLoop, checkScrollEnd]);
+        }, 100);
+    }, [checkAndResetLoop, getRealIndex, items, value, onChange, loop, baseLen]);
 
     useEffect(() => () => {
         if (commitTimerRef.current) clearTimeout(commitTimerRef.current);
+        if (animationFrameRef.current) cancelAnimationFrame(animationFrameRef.current);
     }, []);
 
     return (
@@ -230,7 +201,6 @@ export const WheelDateTimePicker = React.memo(function WheelDateTimePicker({ val
     const minuteOptions = useMemo(() => makeOptions(60), []);
     const secondOptions = useMemo(() => makeOptions(60), []);
 
-    // mounted 之前用桌面端列，确保服务端和客户端一致
     const actualIsMobile = mounted ? isMobile : false;
 
     const columns = useMemo(() => actualIsMobile ? [

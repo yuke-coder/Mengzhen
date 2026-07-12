@@ -15,6 +15,9 @@ import DynamicBackground from "@/components/dynamic-background";
 import UnifiedAudioManager, { setupAutoUnlock } from "@/lib/audio";
 import EnhancedTaskScheduler from "@/lib/background-scheduler";
 import { initPwaInstallListener, promptInstall, isPwaInstalled, hasPromptedInstall } from "@/lib/pwa";
+import { useIsMobile } from "@/hooks/use-mobile";
+import { cn } from "@/lib/utils";
+import { HeroTitle } from "@/components/hero-title";
 
 function useClientOnly() {
     const [mounted, setMounted] = useState(false);
@@ -43,6 +46,7 @@ function LoadingFallback() {
 
 function CreatePageContent() {
     const searchParams = useSearchParams();
+    const isMobile = useIsMobile();
     const [playMode, setPlayMode] = useState<PlayMode>("default");
     const [showTaskForm, setShowTaskForm] = useState(false);
     const [editingTask, setEditingTask] = useState<ScheduledTask | null>(null);
@@ -266,26 +270,10 @@ function CreatePageContent() {
 
             <DynamicBackground />
             <main className="pt-0 sm:pt-14 relative">
-                <section className="relative min-h-[85vh] flex flex-col items-center justify-center px-4 sm:px-6 overflow-hidden">
-                    <div className="relative z-20 max-w-4xl mx-auto w-full space-y-6 px-2 sm:px-4 md:px-0">
+                <section className="relative min-h-[85vh] flex flex-col items-center justify-center px-1 sm:px-6 overflow-hidden">
+                    <div className="relative z-20 max-w-4xl mx-auto w-full space-y-6 px-0 sm:px-4 md:px-0">
                         <div className="text-center space-y-4 mt-8">
-                            <div className="relative inline-block text-center">
-                                <svg className="w-full max-w-4xl mx-auto" viewBox="0 0 1100 700" preserveAspectRatio="xMidYMid meet">
-                                    <defs>
-                                        <linearGradient id="createTitleGradient" x1="0%" y1="0%" x2="100%" y2="100%">
-                                            <stop offset="0%" stopColor="#5EEDA0" />
-                                            <stop offset="35%" stopColor="#40C78A" />
-                                            <stop offset="50%" stopColor="#60C4A0" />
-                                            <stop offset="65%" stopColor="#9055E0" />
-                                            <stop offset="100%" stopColor="#A855F7" />
-                                        </linearGradient>
-                                    </defs>
-                                    <text x="50%" y="320" textAnchor="middle" dominantBaseline="middle" fontSize="clamp(100px, 28vw, 280px)" fontWeight="bold" fontFamily="system-ui, -apple-system, sans-serif" fill="url(#createTitleGradient)">
-                                        <tspan x="50%" dy="-0.5em">星河入眠</tspan>
-                                        <tspan x="50%" dy="1.2em">伴你梦枕</tspan>
-                                    </text>
-                                </svg>
-                            </div>
+                            <HeroTitle className="w-[22rem] sm:w-[31rem] max-w-full" fontSize={isMobile ? "76px" : "74px"} />
                             <p className="text-lg text-muted-foreground/70">上传音频 · 自定义定时 · 自动助眠播放</p>
                         </div>
 
