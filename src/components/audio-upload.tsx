@@ -863,7 +863,7 @@ export function AudioUpload({
         });
         const data = await res.json();
         updateAudio(data.success
-          ? { uploading: false, uploadProgress: 100, savedToFiles: true }
+          ? { uploading: false, uploadProgress: 100 }
           : { uploading: false, uploadError: data.error || "保存失败" }
         );
       } catch {
