@@ -2,7 +2,7 @@
 
 /**
  * 统一音频管理器
- * 将所有音频相关功能整合在一起
+ * 将所有音频相关功能整合在一起，支持 WakeLock 和 MediaSession
  */
 
 import {
@@ -68,6 +68,7 @@ class UnifiedAudioManager {
   private static instance: UnifiedAudioManager;
   private initialized = false;
   private callbacks = new Map<string, PlayState>();
+  private keepScreenOn = false;
 
   private constructor() {}
 
@@ -84,9 +85,14 @@ class UnifiedAudioManager {
     if (this.initialized) return true;
 
     try {
+      // 从 localStorage 读取用户偏好设置
+      if (typeof window !== 'undefined') {
+        this.keepScreenOn = localStorage.getItem('keep_screen_on') === 'true';
+      }
+
       setupMediaSession();
       this.initialized = true;
-      console.log('[AudioManager] 初始化成功');
+      console.log('[AudioManager] 初始化成功, keepScreenOn:', this.keepScreenOn);
       return true;
     } catch (error) {
       console.error('[AudioManager] 初始化失败:', error);
@@ -117,10 +123,12 @@ class UnifiedAudioManager {
   // ========== WakeLock ==========
 
   async requestWakeLock(): Promise<boolean> {
+    this.keepScreenOn = true;
     return requestWakeLock();
   }
 
   releaseWakeLock(): void {
+    this.keepScreenOn = false;
     releaseWakeLock();
   }
 
@@ -132,6 +140,19 @@ class UnifiedAudioManager {
     return isAndroidDevice();
   }
 
+  shouldKeepScreenOn(): boolean {
+    return this.keepScreenOn;
+  }
+
+  // 设置是否保持屏幕常亮
+  setKeepScreenOn(value: boolean): void {
+    this.keepScreenOn = value;
+    if (typeof window !== 'undefined') {
+      localStorage.setItem('keep_screen_on', value ? 'true' : 'false');
+    }
+    console.log('[AudioManager] setKeepScreenOn:', value);
+  }
+
   // ========== 播放控制 ==========
 
   async playAudio(task: ScheduledTask, scheduledStartAt: number): Promise<void> {
@@ -140,6 +161,10 @@ class UnifiedAudioManager {
 
     updateMediaSessionMetadata(task);
     updateMediaSessionPlaybackState(true);
+
+    if (this.keepScreenOn) {
+      await requestWakeLock();
+    }
 
     const fadeInMs = task.enableFade ? (task.fadeInDuration || 0) * 1000 : 0;
     const audioStartAt = scheduledStartAt - fadeInMs;
@@ -167,6 +192,9 @@ class UnifiedAudioManager {
     const playbacks = unifiedAudioPlayer.getActiveTaskIds();
     if (playbacks.length === 0) {
       updateMediaSessionPlaybackState(false);
+      if (this.keepScreenOn) {
+        releaseWakeLock();
+      }
     }
   }
 
@@ -174,6 +202,9 @@ class UnifiedAudioManager {
     unifiedAudioPlayer.stopAll();
     clearAllStates();
     updateMediaSessionPlaybackState(false);
+    if (this.keepScreenOn) {
+      releaseWakeLock();
+    }
   }
 
   hasActivePlayback(taskId: string): boolean {
@@ -270,13 +301,13 @@ class UnifiedAudioManager {
     releaseMediaSession();
     destroyAudioContext();
     this.initialized = false;
+    this.keepScreenOn = false;
     this.callbacks.clear();
   }
 }
 
 export default UnifiedAudioManager;
 
-// 导出所有模块
 export * from './context';
 export * from './wakelock';
 export * from './fader';
@@ -288,4 +319,3 @@ export * from './formats';
 export * from './db';
 export * from './unlock';
 export * from './debug';
-

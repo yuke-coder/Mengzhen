@@ -72,8 +72,6 @@ export default function TemplatesPage() {
   const [initialFadeOutSeconds, setInitialFadeOutSeconds] = useState(0); // 渐出开始时的初始剩余秒数（用于计算稳定的进度条）
   const [playStarted, setPlayStarted] = useState(false);
 
-  // PWA: Wake Lock（防止屏幕熄灭）
-  const wakeLockRef = useRef<WakeLockSentinel | null>(null);
 
   // PWA: AudioContext（保持音频上下文活跃，解决自动播放限制）
   const audioContextRef = useRef<AudioContext | null>(null);
@@ -135,8 +133,8 @@ export default function TemplatesPage() {
           const targetMinute = parsedConfig.startTime.minute;
           const targetSecond = parsedConfig.startTime.second ?? 0;
 
-          // 是否启用渐入渐出（默认 false）
-          const enableFade = parsedConfig.enableFade ?? false;
+          // 是否启用渐入渐出（默认 true）
+          const enableFade = parsedConfig.enableFade ?? true;
           // 渐入时长（秒）：只有在启用时才会提前开始播放
           const fadeInDuration = enableFade ? (parsedConfig.fadeInDuration ?? 0) : 0;
 
@@ -257,46 +255,6 @@ export default function TemplatesPage() {
     setInitialFadeOutSeconds(0);
   }, []);
 
-  // PWA: 请求屏幕唤醒锁
-  const requestWakeLock = useCallback(async () => {
-    try {
-      if ('wakeLock' in navigator) {
-        const wakeLock = await navigator.wakeLock.request('screen');
-        wakeLockRef.current = wakeLock;
-        console.log('[梦枕] Wake Lock 已获取');
-
-        // Wake Lock 可能在页面可见性变化时释放，重新获取
-        const handleVisibilityChange = async () => {
-          if (document.visibilityState === 'visible' && isStartedRef.current) {
-            try {
-              const newLock = await navigator.wakeLock.request('screen');
-              wakeLockRef.current = newLock;
-              console.log('[梦枕] Wake Lock 重新获取');
-            } catch {
-              // 忽略获取失败
-            }
-          }
-        };
-        document.addEventListener('visibilitychange', handleVisibilityChange);
-        // 清理在组件卸载时处理
-      }
-    } catch (err) {
-      console.warn('[梦枕] Wake Lock 获取失败:', err);
-    }
-  }, []);
-
-  // PWA: 释放屏幕唤醒锁
-  const releaseWakeLock = useCallback(async () => {
-    if (wakeLockRef.current) {
-      try {
-        await wakeLockRef.current.release();
-        wakeLockRef.current = null;
-        console.log('[梦枕] Wake Lock 已释放');
-      } catch {
-        // 忽略释放失败
-      }
-    }
-  }, []);
 
   // PWA: 初始化 AudioContext（在用户交互上下文中调用，保持音频播放权限）
   const ensureAudioContext = useCallback(() => {
@@ -327,9 +285,15 @@ export default function TemplatesPage() {
     if (audioRef.current.paused) {
       audioRef.current.play().catch(() => {});
       setIsPlaying(true);
+      if ('mediaSession' in navigator) {
+        navigator.mediaSession.playbackState = 'playing';
+      }
     } else {
       audioRef.current.pause();
       setIsPlaying(false);
+      if ('mediaSession' in navigator) {
+        navigator.mediaSession.playbackState = 'paused';
+      }
     }
   }, []);
 
@@ -341,8 +305,6 @@ export default function TemplatesPage() {
     if (timerWorkerRef.current) {
       timerWorkerRef.current.postMessage({ type: 'stop' });
     }
-
-    releaseWakeLock();
 
     if (audioRef.current) {
       audioRef.current.pause();
@@ -360,7 +322,7 @@ export default function TemplatesPage() {
     setIsCompleted(true);
 
     localStorage.removeItem('dream_config');
-  }, [releaseWakeLock]);
+  }, []);
 
   const playAudioHelperRef = useRef<((index: number, audio: HTMLAudioElement) => Promise<void>) | null>(null);
 
@@ -513,17 +475,30 @@ export default function TemplatesPage() {
       navigator.mediaSession.metadata = new MediaMetadata({
         title: currentAudio.name || '梦枕音频',
         artist: '梦枕',
-        album: '定时播放'
+        album: '助眠播放',
+        artwork: [
+          { src: '/logo-96.png', sizes: '96x96', type: 'image/png' },
+          { src: '/logo-128.png', sizes: '128x128', type: 'image/png' },
+          { src: '/logo-192.png', sizes: '192x192', type: 'image/png' },
+          { src: '/logo-256.png', sizes: '256x256', type: 'image/png' },
+          { src: '/logo-384.png', sizes: '384x384', type: 'image/png' },
+          { src: '/logo-512.png', sizes: '512x512', type: 'image/png' },
+        ]
       });
       navigator.mediaSession.setActionHandler('play', () => {
         audio.play().catch(() => {});
+        navigator.mediaSession.playbackState = 'playing';
       });
       navigator.mediaSession.setActionHandler('pause', () => {
         audio.pause();
+        navigator.mediaSession.playbackState = 'paused';
       });
       navigator.mediaSession.setActionHandler('stop', () => {
         handleEnd();
+        navigator.mediaSession.playbackState = 'none';
       });
+      // 设置初始播放状态
+      navigator.mediaSession.playbackState = 'playing';
     }
 
     // 音频时间更新
@@ -550,8 +525,6 @@ export default function TemplatesPage() {
 
     console.log(`[梦枕] 自动开始倒计时: ${countdownSeconds} 秒`);
 
-    // PWA: 获取屏幕唤醒锁，防止倒计时期间屏幕熄灭
-    requestWakeLock();
     // PWA: 初始化 AudioContext（利用用户跳转页面的交互上下文）
     ensureAudioContext();
 
@@ -584,7 +557,7 @@ export default function TemplatesPage() {
       worker.removeEventListener('message', handleMessage);
       worker.postMessage({ type: 'stopCountdown' });
     };
-  }, [config, countdownSeconds, getTimerWorker, requestWakeLock, ensureAudioContext]);
+  }, [config, countdownSeconds, getTimerWorker, ensureAudioContext]);
 
   // 无配置时自动返回设置页（等配置读取完成后再判断）
   // 播放完毕后保持完成页面，不自动返回，用户手动点击返回按钮

@@ -14,8 +14,6 @@ import UnifiedAudioManager, {
   initializeAudioContext,
   resumeAudioContext,
   tryUnlockAudio,
-  requestWakeLock,
-  releaseWakeLock,
   getAudioState,
   setVolume,
   fadeIn,
@@ -312,7 +310,6 @@ class HighPerformanceScheduler {
     this.rebuildQueue();
     this.scheduleNextCheck();
     this.startTickLoop();
-    await requestWakeLock();
   }
 
   tryUnlockAudio(): void {
@@ -325,7 +322,6 @@ class HighPerformanceScheduler {
     if (this.nextTimer) clearTimeout(this.nextTimer);
     if (this.tickTimer) clearTimeout(this.tickTimer);
     activePlaybacks.forEach((_, id) => this.stopPlayback(id));
-    releaseWakeLock();
     releaseMediaSession();
   }
 
@@ -345,7 +341,6 @@ class HighPerformanceScheduler {
     const task = getAllTasks().find(t => t.id === taskId);
     if (!task) return;
     this.stopPlayback(taskId);
-    if (activePlaybacks.size === 0) releaseWakeLock();
     updateTask(taskId, task.repeatType === 'once' ? { status: 'cancelled' } : { skipUntil: Date.now() + task.playDurationMinutes * 60000 });
     this.taskCache.invalidate(taskId);
     this.rebuildQueue();
@@ -497,7 +492,6 @@ class HighPerformanceScheduler {
     }
 
     log(task.id, 'info', `播放已启动，目标音量: ${playback.targetVolume}, 启用渐入渐出: ${task.enableFade}`);
-    await requestWakeLock();
     updateMediaSessionMetadata(task);
     updateMediaSessionPlaybackState(true);
 
@@ -562,7 +556,6 @@ class HighPerformanceScheduler {
     updateTask(task.id, task.repeatType === 'once' ? { status: 'completed', completedAt: Date.now() } : { status: 'pending', lastExecutedAt: Date.now() });
     this.emit('task-completed', task.id, 'idle', 0, task.name);
     if (activePlaybacks.size === 0) {
-      releaseWakeLock();
       updateMediaSessionPlaybackState(false);
     }
     this.taskCache.invalidate(task.id);
@@ -741,7 +734,6 @@ class HighPerformanceScheduler {
         this.taskCache.sync();
         this.rebuildQueue();
         this.scheduleNextCheck();
-        requestWakeLock().catch(() => {});
         resumeAudioContext().catch(() => {});
         updateMediaSessionPlaybackState(activePlaybacks.size > 0);
 

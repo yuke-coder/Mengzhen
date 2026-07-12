@@ -3,8 +3,8 @@
 import type { ScheduledTask, TaskAudio } from "@/lib/task-types";
 
 /**
- * 媒体会话管理器
- * 处理锁屏和通知中心显示
+ * MediaSession Manager - 优化版
+ * 处理锁屏和通知中心显示，支持后台播放
  */
 
 let currentTask: ScheduledTask | null = null;
@@ -13,15 +13,16 @@ let isPlaying = false;
 let setup = false;
 
 /**
- * 设置媒体会话
+ * 设置 MediaSession
  */
 export function setupMediaSession(): void {
   if (setup) return;
   if (!('mediaSession' in navigator)) {
-    console.log('[MediaSession] 不支持');
+    console.log('[MediaSession] 不支持 MediaSession API');
     return;
   }
 
+  // 设置播放状态处理器
   navigator.mediaSession.setActionHandler('play', () => {
     console.log('[MediaSession] 播放');
     window.dispatchEvent(new CustomEvent('mediasession-play'));
@@ -48,12 +49,18 @@ export function setupMediaSession(): void {
     console.log('[MediaSession] 快退', details.seekTime);
   });
 
+  // 停止/关闭处理
+  navigator.mediaSession.setActionHandler('stop', () => {
+    console.log('[MediaSession] 停止');
+    window.dispatchEvent(new CustomEvent('mediasession-stop'));
+  });
+
   setup = true;
   console.log('[MediaSession] 设置完成');
 }
 
 /**
- * 更新媒体会话元数据
+ * 更新 MediaSession 元数据
  */
 export function updateMediaSessionMetadata(
   task: ScheduledTask,
@@ -69,7 +76,7 @@ export function updateMediaSessionMetadata(
 
   try {
     navigator.mediaSession.metadata = new MediaMetadata({
-      title: audioInfo.name || '梦枕助眠',
+      title: audioInfo.name || task.name || '梦枕助眠',
       artist: '梦枕',
       album: '助眠音乐',
       artwork: [
@@ -96,13 +103,14 @@ export function updateMediaSessionPlaybackState(playing: boolean): void {
   isPlaying = playing;
   try {
     navigator.mediaSession.playbackState = playing ? 'playing' : 'paused';
+    console.log('[MediaSession] 播放状态已更新:', playing ? 'playing' : 'paused');
   } catch (error) {
     console.error('[MediaSession] 更新状态失败:', error);
   }
 }
 
 /**
- * 释放媒体会话
+ * 释放 MediaSession
  */
 export function releaseMediaSession(): void {
   if (!('mediaSession' in navigator)) return;
@@ -111,9 +119,11 @@ export function releaseMediaSession(): void {
     navigator.mediaSession.metadata = null;
     navigator.mediaSession.playbackState = 'none';
 
-    const handlers = ['play', 'pause', 'previoustrack', 'nexttrack', 'seekforward', 'seekbackward'] as const;
+    const handlers = ['play', 'pause', 'previoustrack', 'nexttrack', 'seekforward', 'seekbackward', 'stop'] as const;
     handlers.forEach(handler => {
-      navigator.mediaSession.setActionHandler(handler as MediaSessionAction, null);
+      try {
+        navigator.mediaSession.setActionHandler(handler as MediaSessionAction, null);
+      } catch {}
     });
 
     currentTask = null;
@@ -132,4 +142,3 @@ export function releaseMediaSession(): void {
 export function getCurrentTask(): ScheduledTask | null {
   return currentTask;
 }
-

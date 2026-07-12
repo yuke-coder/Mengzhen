@@ -268,7 +268,7 @@ export function resolvePlayConfig(): PlayConfig | null {
       playDurationMinutes: nextTask.playDurationMinutes,
       fadeInDuration: nextTask.fadeInDuration,
       fadeOutDuration: nextTask.fadeOutDuration,
-      enableFade: nextTask.enableFade ?? false, // 兼容旧数据
+      enableFade: nextTask.enableFade ?? true, // 兼容旧数据
       volume: nextTask.volume,
       audios: nextTask.audios,
       taskId: nextTask.id,
@@ -303,7 +303,7 @@ export function resolvePlayConfig(): PlayConfig | null {
     playDurationMinutes: defaultConfig.playDurationMinutes,
     fadeInDuration: defaultConfig.fadeInDuration,
     fadeOutDuration: defaultConfig.fadeOutDuration,
-    enableFade: defaultConfig.enableFade ?? false, // 兼容旧数据
+    enableFade: defaultConfig.enableFade ?? true, // 兼容旧数据
     volume: defaultConfig.volume,
     audios,
   };

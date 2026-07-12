@@ -167,7 +167,7 @@ export function AudioUpload({
   });
   const [fadeInDuration, setFadeInDuration] = useState(60);
   const [fadeOutDuration, setFadeOutDuration] = useState(60);
-  const [enableFade, setEnableFade] = useState(false);
+  const [enableFade, setEnableFade] = useState(true);
   const [isStartTimeValid, setIsStartTimeValid] = useState(true);
   const [startTimeError, setStartTimeError] = useState<string | null>(null);
   const [isEndTimeValid, setIsEndTimeValid] = useState(true);

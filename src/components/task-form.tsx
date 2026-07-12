@@ -62,8 +62,8 @@ export function TaskForm({ editTask, onSave, onCancel }: TaskFormProps) {
   );
   const [fadeInDuration, setFadeInDuration] = useState(editTask?.fadeInDuration || 60);
   const [fadeOutDuration, setFadeOutDuration] = useState(editTask?.fadeOutDuration || 60);
-  // 默认隐藏/关闭渐入渐出，兼容旧数据（editTask?.enableFade ?? false）
-  const [enableFade, setEnableFade] = useState(editTask?.enableFade ?? false);
+  // 默认启用渐入渐出，兼容旧数据（editTask?.enableFade ?? true）
+  const [enableFade, setEnableFade] = useState(editTask?.enableFade ?? true);
   const [repeatType, setRepeatType] = useState<TaskRepeatType>(editTask?.repeatType || "once");
 
   const [taskAudios, setTaskAudios] = useState<TaskAudio[]>(editTask?.audios || []);

@@ -90,6 +90,19 @@ export interface AudioFile {
   created_at: string;
 }
 
+// ============================================================
+// 6. feedbacks — 用户反馈表
+// ============================================================
+export interface Feedback {
+  id: string; // UUID 主键
+  user_id: string | null; // 关联 users.id（可选）
+  type: "bug" | "suggestion"; // 反馈类型
+  content: string; // 反馈内容
+  contact: string | null; // 联系方式
+  images: string[] | null; // 图片 URL 列表
+  created_at: string;
+}
+
 export const CREATE_USERS_TABLE_SQL = `
 CREATE TABLE IF NOT EXISTS public.users (
   id UUID PRIMARY KEY DEFAULT gen_random_uuid(),
@@ -185,6 +198,23 @@ CREATE INDEX IF NOT EXISTS idx_audio_files_user_id ON public.audio_files(user_id
 CREATE UNIQUE INDEX IF NOT EXISTS idx_audio_files_user_path ON public.audio_files(user_id, path);
 `;
 
+export const CREATE_FEEDBACKS_TABLE_SQL = `
+CREATE TABLE IF NOT EXISTS public.feedbacks (
+  id UUID PRIMARY KEY DEFAULT gen_random_uuid(),
+  user_id UUID REFERENCES public.users(id) ON DELETE SET NULL,
+  type VARCHAR(20) NOT NULL CHECK (type IN ('bug', 'suggestion')),
+  content TEXT NOT NULL,
+  contact TEXT,
+  images TEXT[],
+  created_at TIMESTAMPTZ NOT NULL DEFAULT now()
+);
+
+-- 索引：按用户查询反馈记录
+CREATE INDEX IF NOT EXISTS idx_feedbacks_user_id ON public.feedbacks(user_id);
+-- 索引：按时间倒序查询
+CREATE INDEX IF NOT EXISTS idx_feedbacks_created_at ON public.feedbacks(created_at DESC);
+`;
+
 /**
  * 启用 RLS（行级安全策略）
  * 所有表仅允许用户操作自己的数据
@@ -195,6 +225,7 @@ ALTER TABLE public.users ENABLE ROW LEVEL SECURITY;
 ALTER TABLE public.sessions ENABLE ROW LEVEL SECURITY;
 ALTER TABLE public.user_profiles ENABLE ROW LEVEL SECURITY;
 ALTER TABLE public.audios ENABLE ROW LEVEL SECURITY;
+ALTER TABLE public.feedbacks ENABLE ROW LEVEL SECURITY;
 
 -- users 表：所有人可注册（INSERT），仅自己可读写
 CREATE POLICY "Users can view own data" ON public.users FOR SELECT USING (true);
@@ -214,4 +245,8 @@ CREATE POLICY "Audios can view own" ON public.audios FOR SELECT USING (true);
 CREATE POLICY "Audios can insert own" ON public.audios FOR INSERT WITH CHECK (true);
 CREATE POLICY "Audios can update own" ON public.audios FOR UPDATE USING (true);
 CREATE POLICY "Audios can delete own" ON public.audios FOR DELETE USING (true);
+
+-- feedbacks 表：登录用户可提交和查看自己的反馈
+CREATE POLICY "Feedbacks can view own" ON public.feedbacks FOR SELECT USING (auth.uid() = user_id);
+CREATE POLICY "Feedbacks can insert own" ON public.feedbacks FOR INSERT WITH CHECK (auth.uid() = user_id);
 `;

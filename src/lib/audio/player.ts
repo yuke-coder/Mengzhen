@@ -3,16 +3,8 @@
 import { getAudioBlob } from "./db";
 import { getAudioContext } from "./context";
 import { setVolume, fadeIn, fadeOut, stopFade } from "./fader";
+import { savePlaybackState, getPlaybackState } from "./state";
 import type { ScheduledTask } from "@/lib/task-types";
-
-interface AudioTaskConfig {
-  id: string;
-  url: string;
-  volume: number;
-  fadeInDuration: number;
-  fadeOutDuration: number;
-  playDurationMinutes: number;
-}
 
 interface PlaybackState {
   taskId: string;
@@ -26,9 +18,35 @@ interface PlaybackState {
   currentBlobUrl: string | null;
   gainNode: any;
   sourceNode: any;
+  saveProgress?: () => void;
 }
 
 const activePlaybacks = new Map<string, PlaybackState>();
+
+/**
+ * 获取有效的音频URL
+ */
+async function getAudioUrl(task: ScheduledTask): Promise<{ url: string; isBlobUrl: boolean } | null> {
+  for (const audio of task.audios) {
+    if (audio.serverUrl && audio.serverUrl.trim() !== '') {
+      return { url: audio.serverUrl, isBlobUrl: false };
+    }
+    if (audio.fileKey && audio.fileKey.trim() !== '') {
+      return { url: `/api/audio/proxy?key=${encodeURIComponent(audio.fileKey)}`, isBlobUrl: false };
+    }
+    if (audio.dbKey && audio.dbKey.trim() !== '') {
+      try {
+        const blob = await getAudioBlob(audio.dbKey);
+        if (blob) {
+          return { url: URL.createObjectURL(blob), isBlobUrl: true };
+        }
+      } catch (error) {
+        console.warn('[Player] IndexedDB读取失败:', error);
+      }
+    }
+  }
+  return null;
+}
 
 /**
  * 音频播放器
@@ -41,7 +59,6 @@ export class UnifiedAudioPlayer {
     task: ScheduledTask,
     scheduledStartAt: number
   ): Promise<PlaybackState | null> {
-    const startTime = Date.now();
     console.log('[Player] 开始播放...');
 
     if (task.audios.length === 0) {
@@ -49,45 +66,33 @@ export class UnifiedAudioPlayer {
       return null;
     }
 
-    let audioUrl: string | null = null;
-    let isBlobUrl = false;
-
-    for (const audio of task.audios) {
-      if (audio.serverUrl && audio.serverUrl.trim() !== '') {
-        audioUrl = audio.serverUrl;
-        console.log('[Player] 使用服务器URL:', audio.name);
-        break;
-      }
-      if (audio.fileKey && audio.fileKey.trim() !== '') {
-        audioUrl = `/api/audio/proxy?key=${encodeURIComponent(audio.fileKey)}`;
-        console.log('[Player] 使用文件密钥:', audio.name);
-        break;
-      }
-      if (audio.dbKey && audio.dbKey.trim() !== '') {
-        try {
-          const blob = await getAudioBlob(audio.dbKey);
-          if (blob) {
-            audioUrl = URL.createObjectURL(blob);
-            isBlobUrl = true;
-            console.log('[Player] 使用IndexedDB:', audio.name);
-            break;
-          }
-        } catch (error) {
-          console.warn('[Player] IndexedDB读取失败:', error);
-        }
-      }
-    }
-
-    if (!audioUrl || audioUrl.trim() === '') {
+    const audioResult = await getAudioUrl(task);
+    if (!audioResult) {
       console.error('[Player] 无法找到有效的音频源');
       return null;
     }
+    const { url: audioUrl, isBlobUrl } = audioResult;
 
     const audioElement = new Audio();
     audioElement.src = audioUrl;
     audioElement.loop = true;
     audioElement.volume = 0;
     audioElement.preload = 'auto';
+
+    // 尝试恢复播放进度
+    const savedState = getPlaybackState(task.id);
+    if (savedState) {
+      audioElement.currentTime = savedState.currentTime;
+      audioElement.volume = savedState.volume;
+    }
+
+    // 实时保存播放进度
+    const saveProgress = () => {
+      savePlaybackState(task.id, audioElement.currentTime, audioElement.volume, !audioElement.paused);
+    };
+    audioElement.addEventListener('timeupdate', saveProgress);
+    audioElement.addEventListener('play', saveProgress);
+    audioElement.addEventListener('pause', saveProgress);
 
     await new Promise<void>((resolve) => {
       const onCanPlay = () => {
@@ -123,29 +128,13 @@ export class UnifiedAudioPlayer {
       retryCount: 0,
       currentBlobUrl: isBlobUrl ? audioUrl : null,
       gainNode: null,
-      sourceNode: null
+      sourceNode: null,
+      saveProgress
     };
 
     activePlaybacks.set(task.id, playback);
     console.log('[Player] 播放已启动，目标音量:', playback.targetVolume);
     return playback;
-  }
-
-  /**
-   * 获取有效的音频URL
-   */
-  async getAudioUrl(task: ScheduledTask): Promise<string | null> {
-    for (const audio of task.audios) {
-      if (audio.serverUrl) return audio.serverUrl;
-      if (audio.fileKey) {
-        return `/api/audio/proxy?key=${encodeURIComponent(audio.fileKey)}`;
-      }
-      if (audio.dbKey) {
-        const blob = await getAudioBlob(audio.dbKey);
-        if (blob) return URL.createObjectURL(blob);
-      }
-    }
-    return null;
   }
 
   /**
@@ -158,6 +147,13 @@ export class UnifiedAudioPlayer {
     stopFade();
 
     try {
+      // 清理事件监听器
+      if (playback.saveProgress) {
+        playback.audio.removeEventListener('timeupdate', playback.saveProgress);
+        playback.audio.removeEventListener('play', playback.saveProgress);
+        playback.audio.removeEventListener('pause', playback.saveProgress);
+      }
+
       playback.audio.volume = 0;
       playback.audio.pause();
       playback.audio.removeAttribute('src');

@@ -2,6 +2,7 @@
 
 import { ScheduledTask, TaskStatus } from "@/lib/task-types";
 import UnifiedAudioManager from "./audio";
+import { getAllTasks } from "@/lib/task-store";
 
 export class EnhancedTaskScheduler {
   private static instance: EnhancedTaskScheduler;
@@ -24,9 +25,6 @@ export class EnhancedTaskScheduler {
 
   async initialize() {
     await this.audioManager.initialize();
-    if (UnifiedAudioManager.isAndroidDevice()) {
-      await this.audioManager.requestWakeLock();
-    }
   }
 
   destroy() {
@@ -65,7 +63,7 @@ export class EnhancedTaskScheduler {
       return;
     }
     const timerId = window.setTimeout(() => this.executeTask(task.id), delay);
-    this.timers.set(task.id, timerId);
+    this.timers.set(taskId, timerId);
   }
 
   private getTaskExecutionDelay(task: ScheduledTask): number {
@@ -125,16 +123,34 @@ export class EnhancedTaskScheduler {
     }
   }
 
-  restoreAllSavedTasks() {}
+  restoreAllSavedTasks() {
+    const tasks = getAllTasks();
+    const now = Date.now();
+
+    tasks.forEach(task => {
+      // 检查是否是正在执行的任务（在播放时间范围内）
+      if (task.status === 'pending') {
+        const startDate = new Date(
+          task.startTime.year,
+          task.startTime.month - 1,
+          task.startTime.day,
+          task.startTime.hour,
+          task.startTime.minute,
+          task.startTime.second
+        );
+        const endDate = new Date(startDate.getTime() + task.playDurationMinutes * 60 * 1000);
+
+        // 如果当前时间在播放时间范围内，恢复播放
+        if (now >= startDate.getTime() && now <= endDate.getTime()) {
+          this.executeTask(task.id);
+        }
+      }
+    });
+  }
 
   getAudioState(): string | undefined {
     return this.audioManager.getAudioState();
   }
-
-  async requestWakeLock(): Promise<boolean> {
-    return this.audioManager.requestWakeLock();
-  }
 }
 
 export default EnhancedTaskScheduler;
-

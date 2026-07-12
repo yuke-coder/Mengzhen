@@ -15,7 +15,8 @@ import {
   MapPin,
   Calendar,
   FileText,
-  Heart
+  Heart,
+  SquarePen
 } from 'lucide-react';
 
 const GENDER_MAP: Record<string, string> = {
@@ -202,6 +203,14 @@ export function UserMenu() {
             >
               <History className="w-4 h-4" />
               <span>我的音频</span>
+            </Link>
+            <Link
+              href="/feedback"
+              onClick={() => setIsOpen(false)}
+              className="flex items-center gap-2.5 px-3 py-2 text-sm font-medium text-slate-600 dark:text-slate-300 hover:bg-slate-50 dark:hover:bg-slate-800 hover:text-primary-600 dark:hover:text-primary-400 rounded-lg transition-colors"
+            >
+              <SquarePen className="w-[14px] h-[14px]" />
+              <span>建议反馈</span>
             </Link>
           </div>
 
