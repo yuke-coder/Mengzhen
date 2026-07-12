@@ -1,3 +1,3 @@
 export const AUDIO_EXTENSIONS = [".mp3", ".wav", ".ogg", ".m4a", ".flac", ".aac"];
-// 使用标准 audio/* 类型过滤，代码里做二次验证
-export const AUDIO_ACCEPT = "audio/*";
+// 不设置 accept，让用户选择任意文件，代码里验证过滤
+export const AUDIO_ACCEPT = "";

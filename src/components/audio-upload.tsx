@@ -972,14 +972,8 @@ export function AudioUpload({
 
   // 渲染上传区域
   const renderUploadArea = () => (
-    <label
-      onClick={(e) => {
-        // 双重保障：label 标准行为 + 手动触发 click() 兼容小米浏览器
-        if (!disabled && fileInputRef.current) {
-          e.preventDefault();
-          fileInputRef.current.click();
-        }
-      }}
+    <div
+      onClick={() => !disabled && fileInputRef.current?.click()}
       onDragOver={(e) => { e.preventDefault(); !disabled && setDragOver(true); }}
       onDragLeave={() => setDragOver(false)}
       onDrop={(e) => { e.preventDefault(); if (!disabled) { setDragOver(false); processFiles(e.dataTransfer.files); } }}
@@ -993,7 +987,6 @@ export function AudioUpload({
         ref={fileInputRef}
         type="file"
         multiple
-        accept="audio/*"
         onChange={handleFileSelect}
         disabled={disabled}
         className="sr-only"
@@ -1011,7 +1004,7 @@ export function AudioUpload({
           )}
         </div>
       </div>
-    </label>
+    </div>
   );
 
   // 渲染音频列表
