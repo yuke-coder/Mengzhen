@@ -1,11 +1,14 @@
 'use client';
 
-import { useMemo } from 'react';
+import { useEffect, useMemo, useState } from 'react';
 import { useTheme } from '@/lib/theme-context';
 
 export default function DynamicBackground() {
   const { resolvedTheme } = useTheme();
+  const [mounted, setMounted] = useState(false);
   const isDark = resolvedTheme === 'dark';
+
+  useEffect(() => setMounted(true), []);
 
   const generateStars = (count: number, seed: number) => {
     const stars = [];
@@ -20,6 +23,8 @@ export default function DynamicBackground() {
   const stars1 = useMemo(() => generateStars(700, 1), []);
   const stars2 = useMemo(() => generateStars(200, 2), []);
   const stars3 = useMemo(() => generateStars(100, 3), []);
+
+  if (!mounted) return null;
 
   if (isDark) {
     return (

@@ -13,15 +13,14 @@ interface BeforeInstallPromptEvent extends Event {
 let deferredPrompt: BeforeInstallPromptEvent | null = null;
 let installPromptListener: ((e: Event) => void) | null = null;
 let appInstalledListener: (() => void) | null = null;
+let hasPromptedThisSession = false;
 
 /**
  * 检查是否是 PWA 模式（已经安装到桌面）
  */
 export function isPwaInstalled(): boolean {
-  // 检查 display-mode 是否为 standalone
   if (typeof window !== 'undefined') {
     const isStandalone = window.matchMedia('(display-mode: standalone)').matches;
-    // 或者检查 iOS 的 navigator.standalone
     const isIosStandalone = (navigator as Navigator & { standalone?: boolean }).standalone === true;
     return isStandalone || isIosStandalone;
   }
@@ -29,20 +28,19 @@ export function isPwaInstalled(): boolean {
 }
 
 /**
- * 检查是否已经提示过安装
+ * 检查是否已经提示过安装（同一会话只提示一次）
  */
 export function hasPromptedInstall(): boolean {
   if (typeof window === 'undefined') return false;
-  return localStorage.getItem('pwa_prompted') === 'true';
+  return sessionStorage.getItem('pwa_prompted_session') === 'true';
 }
 
 /**
  * 标记已提示过安装
  */
 export function markPromptedInstall(): void {
-  if (typeof window !== 'undefined') {
-    localStorage.setItem('pwa_prompted', 'true');
-  }
+  if (typeof window === 'undefined') return;
+  sessionStorage.setItem('pwa_prompted_session', 'true');
 }
 
 /**
@@ -50,17 +48,10 @@ export function markPromptedInstall(): void {
  */
 export function canInstallPwa(): boolean {
   if (typeof window === 'undefined') return false;
-
-  // 检查是否已经是 PWA
   if (isPwaInstalled()) return false;
-
-  // 检查是否在 HTTPS 或 localhost（PWA 要求）
   const isHttps = window.location.protocol === 'https:';
   const isLocalhost = window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1';
-
-  // 检查浏览器是否支持 service worker
   const hasServiceWorker = 'serviceWorker' in navigator;
-
   return (isHttps || isLocalhost) && hasServiceWorker;
 }
 
@@ -69,34 +60,31 @@ export function canInstallPwa(): boolean {
  */
 export function initPwaInstallListener(onPromptAvailable?: () => void): () => void {
   if (typeof window === 'undefined') return () => {};
-
-  // 如果已经是 PWA，不需要监听
   if (isPwaInstalled()) return () => {};
+  if (hasPromptedThisSession || hasPromptedInstall()) return () => {};
 
   // 监听 beforeinstallprompt 事件
   installPromptListener = (e: Event) => {
     console.log('[PWA] beforeinstallprompt event received');
-    // 阻止默认的提示
+    // 阻止默认提示，由我们主动调用prompt()来确保每次都能触发
     e.preventDefault();
-    // 保存事件以便稍后触发
     deferredPrompt = e as BeforeInstallPromptEvent;
-    // 通知调用者可以显示提示了
-    onPromptAvailable?.();
+    if (!hasPromptedThisSession && !hasPromptedInstall()) {
+      hasPromptedThisSession = true;
+      onPromptAvailable?.();
+    }
   };
 
   window.addEventListener('beforeinstallprompt', installPromptListener);
 
-  // 监听 appinstalled 事件
   appInstalledListener = () => {
     console.log('[PWA] App installed to home screen!');
     deferredPrompt = null;
     markPromptedInstall();
-    // 可以在这里触发庆祝动画等
   };
 
   window.addEventListener('appinstalled', appInstalledListener);
 
-  // 返回清理函数
   return () => {
     if (installPromptListener) {
       window.removeEventListener('beforeinstallprompt', installPromptListener);

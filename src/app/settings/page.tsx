@@ -8,15 +8,15 @@ import { TaskForm } from "@/components/task-form";
 import { TaskList } from "@/components/task-list";
 import { TaskModal } from "@/components/task-modal";
 import { Spinner } from "@/components/ui/spinner";
-import { PlayMode, ScheduledTask } from "@/lib/task-types";
+import { PlayMode, ScheduledTask, type PlaybackDraft } from "@/lib/task-types";
 import { getPlayMode, setPlayMode as savePlayMode, getAllTasks, cleanupCompletedOnceTasks, cleanupCancelledTasks } from "@/lib/task-store";
+import { EMPTY_PLAYBACK_DRAFT, getDefaultPlaybackDraft, saveDefaultPlaybackDraft } from "@/lib/playback-draft";
 import { startTaskScheduler, stopTaskScheduler, getTaskScheduler } from "@/lib/task-scheduler";
 import DynamicBackground from "@/components/dynamic-background";
-import UnifiedAudioManager, { setupAutoUnlock } from "@/lib/audio";
+import { setupAutoUnlock } from "@/lib/audio";
 import EnhancedTaskScheduler from "@/lib/background-scheduler";
 import { initPwaInstallListener, promptInstall, isPwaInstalled, hasPromptedInstall } from "@/lib/pwa";
 import { useIsMobile } from "@/hooks/use-mobile";
-import { cn } from "@/lib/utils";
 import { HeroTitle } from "@/components/hero-title";
 
 function useClientOnly() {
@@ -50,12 +50,30 @@ function CreatePageContent() {
     const [playMode, setPlayMode] = useState<PlayMode>("default");
     const [showTaskForm, setShowTaskForm] = useState(false);
     const [editingTask, setEditingTask] = useState<ScheduledTask | null>(null);
+    const [taskFormSession, setTaskFormSession] = useState(0);
+    const [sharedPlaybackDraft, setSharedPlaybackDraft] = useState<PlaybackDraft>(() => ({
+        ...EMPTY_PLAYBACK_DRAFT,
+        audios: [],
+    }));
+    const [playbackDraftLoaded, setPlaybackDraftLoaded] = useState(false);
     const [tasks, setTasks] = useState<ScheduledTask[]>([]);
     const [tasksVersion, setTasksVersion] = useState(0);
     const [audioUnlocked, setAudioUnlocked] = useState(false);
-    const [showPwaPrompt, setShowPwaPrompt] = useState(false);
+    const [showScreenChoice, setShowScreenChoice] = useState(false);
     const [isPwa, setIsPwa] = useState(false);
     const mounted = useClientOnly();
+
+    useEffect(() => {
+        if (!mounted) return;
+        setPlayMode(getPlayMode());
+        setSharedPlaybackDraft(getDefaultPlaybackDraft());
+        setPlaybackDraftLoaded(true);
+    }, [mounted]);
+
+    useEffect(() => {
+        if (!mounted || !playbackDraftLoaded) return;
+        saveDefaultPlaybackDraft(sharedPlaybackDraft);
+    }, [mounted, playbackDraftLoaded, sharedPlaybackDraft]);
 
     // 初始化
     useEffect(() => {
@@ -99,34 +117,8 @@ function CreatePageContent() {
         return cleanup;
     }, [mounted]);
 
-    // 检查权限状态
-    useEffect(() => {
-        if (!mounted || !audioUnlocked) return;
 
-        const permissionsDone = localStorage.getItem('permissions_done') === 'true';
-        if (permissionsDone) return;
-
-        // 直接请求浏览器原生权限
-        const requestPermissions = async () => {
-            try {
-                // 通知权限
-                if ('Notification' in window && Notification.permission !== 'granted') {
-                    await Notification.requestPermission();
-                }
-                // 存储权限
-                if (navigator.storage && navigator.storage.persist) {
-                    await navigator.storage.persist();
-                }
-                localStorage.setItem('permissions_done', 'true');
-            } catch (e) {
-                console.error('[Permission]', e);
-            }
-        };
-
-        requestPermissions();
-    }, [mounted, audioUnlocked]);
-
-    // PWA
+    // PWA - 只提示一次浏览器原生安装
     useEffect(() => {
         if (!mounted) return;
         setIsPwa(isPwaInstalled());
@@ -134,74 +126,116 @@ function CreatePageContent() {
 
     useEffect(() => {
         if (!mounted || !audioUnlocked || isPwa || hasPromptedInstall()) return;
+
+        // 只在第一次初始化监听器，并主动触发浏览器原生安装提示
         const cleanup = initPwaInstallListener(() => {
-            setTimeout(() => setShowPwaPrompt(true), 2000);
+            setTimeout(async () => {
+                try {
+                    if (!hasPromptedInstall()) {
+                        await promptInstall();
+                    }
+                } catch (e) {
+                    console.error('[PWA]', e);
+                }
+            }, 2000);
         });
         return cleanup;
     }, [mounted, audioUnlocked, isPwa]);
+
+
+    const requestPermissions = useCallback(async () => {
+        // 只在没有权限时才请求浏览器原生权限弹窗
+        try {
+            if ('Notification' in window && Notification.permission === 'default') {
+                await Notification.requestPermission();
+            }
+        } catch (e) {
+            console.error('[Notification]', e);
+        }
+
+        try {
+            if (navigator.storage && navigator.storage.persisted) {
+                const alreadyPersisted = await navigator.storage.persisted();
+                if (!alreadyPersisted && navigator.storage.persist) {
+                    await navigator.storage.persist();
+                }
+            }
+        } catch (e) {
+            console.error('[Storage]', e);
+        }
+    }, []);
 
     const handleStart = useCallback(async () => {
         try {
             await EnhancedTaskScheduler.getInstance().initializeAudioContext();
             setAudioUnlocked(true);
             localStorage.setItem('audio_unlocked', 'true');
-            localStorage.setItem('keep_screen_on', 'false');
-            toast.success('✓ 开始使用');
 
-            // 直接请求浏览器原生权限弹窗
-            if ('Notification' in window && Notification.permission !== 'granted') {
-                await Notification.requestPermission();
+            // 检查是否已经选过屏幕选项
+            const screenChoiceMade = localStorage.getItem('keep_screen_on') !== null;
+            if (!screenChoiceMade) {
+                setShowScreenChoice(true);
+            } else {
+                // 已经选过了，直接请求权限
+                toast.success('✓ 开始使用');
+                await requestPermissions();
             }
-            if (navigator.storage && navigator.storage.persist) {
-                await navigator.storage.persist();
-            }
-            localStorage.setItem('permissions_done', 'true');
         } catch (error) {
             console.error('解锁失败:', error);
             toast.error('解锁失败，请再试一次');
         }
-    }, []);
+    }, [requestPermissions]);
+
+    const handleKeepScreenOn = useCallback(async () => {
+        localStorage.setItem('keep_screen_on', 'true');
+        toast.success('✓ 已选择保持亮屏');
+        setShowScreenChoice(false);
+        await requestPermissions();
+    }, [requestPermissions]);
+
+    const handleAllowLockScreen = useCallback(async () => {
+        localStorage.setItem('keep_screen_on', 'false');
+        toast.success('✓ 已选择允许锁屏');
+        setShowScreenChoice(false);
+        await requestPermissions();
+    }, [requestPermissions]);
+
+    const handleSkipScreenChoice = useCallback(async () => {
+        // 默认允许锁屏
+        localStorage.setItem('keep_screen_on', 'false');
+        setShowScreenChoice(false);
+        await requestPermissions();
+    }, [requestPermissions]);
 
     const handleModeChange = useCallback((mode: PlayMode) => {
         setPlayMode(mode);
         savePlayMode(mode);
         if (mode === "default") {
             setShowTaskForm(false);
-            setEditingTask(null);
         }
     }, []);
 
     const handleTaskSaved = useCallback(() => {
         setShowTaskForm(false);
-        setEditingTask(null);
         setTasksVersion(v => v + 1);
     }, []);
 
     const handleEditTask = useCallback((task: ScheduledTask) => {
         setEditingTask(task);
+        setTaskFormSession(session => session + 1);
         setShowTaskForm(true);
     }, []);
 
-    const handleInstallPwa = useCallback(async () => {
-        try {
-            const success = await promptInstall();
-            if (success) {
-                toast.success('🎉 太棒了！梦枕已安装到桌面');
-                setShowPwaPrompt(false);
-            } else {
-                toast.info('下次再说也可以～');
-                setShowPwaPrompt(false);
-            }
-        } catch (error) {
-            console.error('PWA 安装失败:', error);
-            toast.error('安装失败，请稍后再试');
-        }
+    const handleCreateTask = useCallback(() => {
+        setEditingTask(null);
+        setTaskFormSession(session => session + 1);
+        setShowTaskForm(true);
     }, []);
 
-    const handleLaterPwa = useCallback(() => {
-        setShowPwaPrompt(false);
-        toast.info('好的，下次再提示你～');
+    const handleCloseTaskForm = useCallback(() => {
+        setShowTaskForm(false);
     }, []);
+
 
     useEffect(() => {
         if (!mounted) return;
@@ -234,141 +268,99 @@ function CreatePageContent() {
 
     return (
         <div className="min-h-screen text-foreground overflow-x-hidden relative z-10">
-            {/* 只显示一个开始按钮 */}
+            {/* 点击页面任意位置解锁音频 */}
             {!audioUnlocked && mounted && (
-                <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/50 backdrop-blur-sm animate-in fade-in duration-300">
-                    <div role="dialog" aria-modal="true" aria-labelledby="welcome-title" aria-describedby="welcome-desc" className="bg-background border border-border/60 rounded-2xl shadow-2xl p-6 max-w-sm w-[calc(100%-2rem)] space-y-4" onClick={e => e.stopPropagation()}>
-                        <div className="flex flex-col items-center gap-3 text-center">
-                            <div className="w-16 h-16 relative mb-2">
-                                <div className="absolute inset-0 bg-gradient-to-r from-[var(--brand-start)] to-[var(--brand-end)] rounded-full animate-pulse opacity-30"></div>
-                                <div className="relative w-full h-full bg-gradient-to-r from-[var(--brand-start)] to-[var(--brand-end)] rounded-full flex items-center justify-center">
-                                    <svg className="w-8 h-8 text-white" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-                                        <path d="M9 18V6L3 12V18H9Z" />
-                                        <path d="M15 6L18 12L15 18" />
-                                        <path d="M21 18V6L18 12" />
-                                    </svg>
-                                </div>
-                            </div>
-                            <div>
-                                <h3 id="welcome-title" className="text-xl font-bold text-foreground">欢迎使用梦枕</h3>
-                                <p id="welcome-desc" className="text-sm text-muted-foreground mt-1.5">点击开始使用</p>
-                            </div>
+                <div
+                    className="fixed inset-0 z-50 cursor-pointer"
+                    onClick={handleStart}
+                />
+            )}
+
+            {/* 屏幕选项弹窗 - 极简 */}
+            {showScreenChoice && mounted && (
+                <div className="fixed inset-0 z-50 flex items-center justify-center p-6" onClick={handleSkipScreenChoice}>
+                    <div className="fixed inset-0 bg-black/50" />
+                    <div
+                        role="dialog"
+                        aria-modal="true"
+                        className="relative w-full max-w-sm bg-background rounded-xl"
+                        onClick={e => e.stopPropagation()}
+                    >
+                        <div className="p-6 space-y-4">
+                            <h3 className="text-lg font-medium text-center">屏幕设置</h3>
+
+                            <button
+                                onClick={handleAllowLockScreen}
+                                className="w-full py-3 text-center bg-foreground text-background rounded-lg hover:opacity-90 transition-opacity"
+                            >
+                                允许锁屏
+                            </button>
+
+                            <button
+                                onClick={handleKeepScreenOn}
+                                className="w-full py-3 text-center border border-border rounded-lg hover:bg-muted/50 transition-colors"
+                            >
+                                保持亮屏
+                            </button>
+
+                            <button
+                                onClick={handleSkipScreenChoice}
+                                className="w-full py-2 text-center text-muted-foreground text-sm"
+                            >
+                                稍后
+                            </button>
                         </div>
-                        <button onClick={handleStart} className="w-full h-12 rounded-xl bg-gradient-to-r from-[var(--brand-start)] to-[var(--brand-end)] text-white font-bold hover:opacity-90 active:opacity-80 transition-all shadow-lg hover:shadow-xl active:scale-95">
-                            开始使用
-                        </button>
                     </div>
                 </div>
             )}
 
-            {/* 调试 */}
-            {process.env.NODE_ENV === 'development' && mounted && (
-                <div className="fixed bottom-4 right-4 z-40 bg-black/70 text-white p-2 rounded text-xs">
-                    Audio State: {EnhancedTaskScheduler.getInstance().getAudioState() || 'uninitialized'}
-                </div>
-            )}
-
-            <DynamicBackground />
-            <main className="pt-0 sm:pt-14 relative">
-                <section className="relative min-h-[85vh] flex flex-col items-center justify-center px-1 sm:px-6 overflow-hidden">
-                    <div className="relative z-20 max-w-4xl mx-auto w-full space-y-6 px-0 sm:px-4 md:px-0">
-                        <div className="text-center space-y-4 mt-8">
-                            <HeroTitle className="w-[22rem] sm:w-[31rem] max-w-full" fontSize={isMobile ? "76px" : "74px"} />
-                            <p className="text-lg text-muted-foreground/70">上传音频 · 自定义定时 · 自动助眠播放</p>
+            <main className="pt-14">
+                <section className="min-h-[80vh] flex flex-col items-center justify-center px-4">
+                    <div className="max-w-2xl w-full space-y-8">
+                        <div className="text-center space-y-2">
+                            <HeroTitle className="w-64 sm:w-80 max-w-full mx-auto" fontSize={isMobile ? "64px" : "64px"} />
+                            <p className="text-muted-foreground">助眠音频播放器</p>
                         </div>
 
-                        <AudioUpload
-                            importFileKey={searchParams.get("fileKey") || undefined}
-                            mode={playMode}
-                            onModeChange={handleModeChange}
-                            onAudioUploaded={audioList => {
-                                const last = audioList[audioList.length - 1];
-                                if (last) toast.success(`「${last.file.name}」上传成功`);
-                            }}
-                            onAudioRemoved={() => { }}
-                        >
-                            <div className="space-y-5 sm:space-y-6">
-                                <TaskList
-                                    tasks={tasks}
-                                    onEdit={handleEditTask}
-                                    onCreate={() => { setEditingTask(null); setShowTaskForm(true); }}
-                                    onRefresh={() => setTasksVersion(v => v + 1)}
-                                />
-                            </div>
-                        </AudioUpload>
+                        {playbackDraftLoaded ? (
+                            <AudioUpload
+                                playbackDraft={sharedPlaybackDraft}
+                                onPlaybackDraftChange={setSharedPlaybackDraft}
+                                importFileKey={searchParams.get("fileKey") || undefined}
+                                mode={playMode}
+                                onModeChange={handleModeChange}
+                                onAudioUploaded={audioList => {
+                                    const last = audioList[audioList.length - 1];
+                                    if (last) toast.success(`「${last.name}」上传成功`);
+                                }}
+                                onAudioRemoved={() => { }}
+                            >
+                                <div className="space-y-4">
+                                    <TaskList
+                                        tasks={tasks}
+                                        onEdit={handleEditTask}
+                                        onCreate={handleCreateTask}
+                                        onRefresh={() => setTasksVersion(v => v + 1)}
+                                    />
+                                </div>
+                            </AudioUpload>
+                        ) : (
+                            <div className="flex justify-center py-8"><Spinner /></div>
+                        )}
                     </div>
                 </section>
             </main>
 
-            <TaskModal visible={showTaskForm} onClose={() => { setShowTaskForm(false); setEditingTask(null); }}>
-                <TaskForm editTask={editingTask} onSave={handleTaskSaved} onCancel={() => { setShowTaskForm(false); setEditingTask(null); }} />
+            <TaskModal visible={showTaskForm} onClose={handleCloseTaskForm}>
+                <TaskForm
+                    key={taskFormSession}
+                    editTask={editingTask}
+                    sharedPlaybackDraft={sharedPlaybackDraft}
+                    onSharedPlaybackDraftChange={setSharedPlaybackDraft}
+                    onSave={handleTaskSaved}
+                    onCancel={handleCloseTaskForm}
+                />
             </TaskModal>
-
-            {/* PWA */}
-            {showPwaPrompt && mounted && !isPwa && (
-                <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/50 backdrop-blur-sm animate-in fade-in duration-300">
-                    <div role="dialog" aria-modal="true" aria-labelledby="pwa-title" aria-describedby="pwa-desc" className="bg-background border border-border/60 rounded-2xl shadow-2xl p-6 max-w-md w-[calc(100%-2rem)] space-y-4" onClick={e => e.stopPropagation()}>
-                        <div className="flex flex-col items-center gap-3 text-center">
-                            <div className="w-20 h-20 relative mb-2">
-                                <div className="absolute inset-0 bg-gradient-to-r from-[var(--brand-start)] to-[var(--brand-end)] rounded-2xl animate-pulse opacity-30"></div>
-                                <div className="relative w-full h-full bg-gradient-to-r from-[var(--brand-start)] to-[var(--brand-end)] rounded-2xl flex items-center justify-center shadow-lg">
-                                    <Image src="/logo.png" alt="梦枕" width={48} height={48} className="rounded-xl" />
-                                </div>
-                            </div>
-                            <div>
-                                <h3 id="pwa-title" className="text-xl font-bold text-foreground">安装到桌面</h3>
-                                <p id="pwa-desc" className="text-sm text-muted-foreground mt-1.5">
-                                    把梦枕安装到手机桌面，就像原生 APP 一样！<br />更稳定，体验更好～
-                                </p>
-                            </div>
-                        </div>
-                        <div className="bg-muted/20 rounded-xl p-4 space-y-3">
-                            <div className="flex items-center gap-3 text-sm text-foreground">
-                                <svg className="w-5 h-5 text-[var(--brand-start)] flex-shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-                                    <path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z" />
-                                </svg>
-                                <span>更快的启动速度</span>
-                            </div>
-                            <div className="flex items-center gap-3 text-sm text-foreground">
-                                <svg className="w-5 h-5 text-[var(--brand-start)] flex-shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-                                    <path d="M5 12h14M5 12a2 2 a01-2-2V6a2 2 a012-2h14a2 2 a012 2v4a2 2 a01-2 2M5 12a2 2 a00-2 2v4a2 2 a002 2h14a2 2 a002-2v-4a2 2 a00-2-2" />
-                                </svg>
-                                <span>像普通 APP 一样使用</span>
-                            </div>
-                            <div className="flex items-center gap-3 text-sm text-foreground">
-                                <svg className="w-5 h-5 text-[var(--brand-start)] flex-shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-                                    <path d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" />
-                                </svg>
-                                <span>更好的后台播放支持</span>
-                            </div>
-                        </div>
-                        <div className="flex gap-3 pt-2">
-                            <button
-                                onClick={handleLaterPwa}
-                                className="flex-1 h-12 rounded-xl border border-border/60 text-sm font-medium text-muted-foreground hover:text-foreground hover:bg-muted/80 active:bg-muted transition-all cursor-pointer"
-                            >
-                                稍后再说
-                            </button>
-                            <button
-                                onClick={handleInstallPwa}
-                                className="flex-1 h-12 rounded-xl bg-gradient-to-r from-[var(--brand-start)] to-[var(--brand-end)] text-white font-bold hover:opacity-90 active:opacity-80 transition-all shadow-md shadow-[var(--brand-start)]/20 cursor-pointer"
-                            >
-                                安装到桌面
-                            </button>
-                        </div>
-                    </div>
-                </div>
-            )}
-
-            <footer className="hidden sm:block border-t border-border py-8 px-6 bg-muted/20 relative z-20">
-                <div className="max-w-5xl mx-auto text-center">
-                    <div className="flex items-center justify-center gap-2 mb-3">
-                        <Image src="/logo.png" alt="梦枕" width={20} height={20} className="rounded-md shadow-[inset_0_1px_4px_rgba(0,0,0,0.35)]" />
-                        <span className="font-bold text-lg bg-gradient-to-r from-[var(--brand-start)] to-[var(--brand-end)] bg-clip-text text-transparent">梦枕</span>
-                    </div>
-                    <p className="text-xs text-muted-foreground">深夜助眠播放器 · PWA渐进式网页应用 · 自定义音频</p>
-                </div>
-            </footer>
         </div>
     );
 }

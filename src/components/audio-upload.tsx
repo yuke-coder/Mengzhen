@@ -1,20 +1,20 @@
 "use client";
 
-import React, { useState, useCallback, useRef, useEffect } from "react";
+import React, { useState, useCallback, useRef, useEffect, type Dispatch, type SetStateAction } from "react";
 import Image from "next/image";
 import { useAuth } from "@/lib/auth-context";
-import { saveAudioBlob, deleteAudioBlob } from "@/lib/audio/db";
+import { getAudioBlob, saveAudioBlob } from "@/lib/audio/db";
 import { cn } from "@/lib/utils";
 import { Button } from "@/components/ui/button";
 import { Spinner } from "@/components/ui/spinner";
 import { WheelDateTimePicker, type DateTimeValue } from "@/components/wheel-date-time-picker";
-import { NumberStepperButton } from "@/components/number-stepper";
+import { FadeControls } from "@/components/fade-controls";
 
 import { useRouter } from "next/navigation";
 import { toast } from "@/components/sonner";
 import { ModeSwitch } from "@/components/mode-switch";
-import { PlayMode, TaskAudio } from "@/lib/task-types";
-import { AUDIO_ACCEPT, AUDIO_EXTENSIONS, MAX_FILES, formatFileSize, formatDuration, type AudioItemBase } from "@/lib/audio";
+import { PlayMode, type PlaybackDraft, type TaskAudio } from "@/lib/task-types";
+import { AUDIO_ACCEPT, AUDIO_EXTENSIONS, MAX_FILES, formatFileSize, formatDuration } from "@/lib/audio";
 import {
   Upload,
   Music2,
@@ -58,16 +58,16 @@ const dragStyles = `
   }
 `;
 
-interface AudioItem extends AudioItemBase {
-  file: File;
+interface UploadState {
+  uploading: boolean;
+  uploadProgress: number;
+  uploadError: string | null;
 }
 
 interface AudioUploadProps {
-  initialAudios?: TaskAudio[];
-  onAudiosChange?: (audios: TaskAudio[]) => void;
-  onVolumeChange?: (volume: number) => void;
-  initialVolume?: number;
-  onAudioUploaded?: (audios: AudioItem[]) => void;
+  playbackDraft: PlaybackDraft;
+  onPlaybackDraftChange: Dispatch<SetStateAction<PlaybackDraft>>;
+  onAudioUploaded?: (audios: TaskAudio[]) => void;
   onAudioRemoved?: (id: string) => void;
   onOrderChange?: (orderedIds: string[]) => void;
   onAudioCountChange?: (count: number) => void;
@@ -82,15 +82,13 @@ let globalIdCounter = 0;
 
 function useClientOnly() {
   const [mounted, setMounted] = useState(false);
-  useEffect(() => setMounted(true));
+  useEffect(() => setMounted(true), []);
   return mounted;
 }
 
 export function AudioUpload({
-  initialAudios,
-  onAudiosChange,
-  onVolumeChange,
-  initialVolume = 50,
+  playbackDraft,
+  onPlaybackDraftChange,
   onAudioUploaded,
   onAudioRemoved,
   onOrderChange,
@@ -105,31 +103,34 @@ export function AudioUpload({
   const router = useRouter();
   const mounted = useClientOnly();
 
+  const { audios, volume, fadeInDuration, fadeOutDuration, enableFade } = playbackDraft;
+
+  const setAudios = useCallback((update: SetStateAction<TaskAudio[]>) => {
+    onPlaybackDraftChange(previous => ({
+      ...previous,
+      audios: typeof update === "function" ? update(previous.audios) : update,
+    }));
+  }, [onPlaybackDraftChange]);
+
+  const setVolume = useCallback((nextVolume: number) => {
+    onPlaybackDraftChange(previous => ({ ...previous, volume: nextVolume }));
+  }, [onPlaybackDraftChange]);
+
+  const setFadeInDuration = useCallback((duration: number) => {
+    onPlaybackDraftChange(previous => ({ ...previous, fadeInDuration: duration }));
+  }, [onPlaybackDraftChange]);
+
+  const setFadeOutDuration = useCallback((duration: number) => {
+    onPlaybackDraftChange(previous => ({ ...previous, fadeOutDuration: duration }));
+  }, [onPlaybackDraftChange]);
+
+  const setEnableFade = useCallback((enabled: boolean) => {
+    onPlaybackDraftChange(previous => ({ ...previous, enableFade: enabled }));
+  }, [onPlaybackDraftChange]);
+
   useEffect(() => {
     isMountedRef.current = mounted;
   }, [mounted]);
-
-  // 音频数据
-  const [audios, setAudios] = useState<AudioItem[]>(() => {
-    if (initialAudios) {
-      return initialAudios.map(a => {
-        let url: string | undefined;
-        if (a.serverUrl) url = a.serverUrl;
-        else if (a.fileKey) url = `/api/audio/proxy?key=${encodeURIComponent(a.fileKey)}`;
-        return {
-          id: a.id,
-          name: a.name,
-          file: new File([], a.name, { type: 'audio/mpeg' }),
-          url,
-          duration: a.duration,
-          fileKey: a.fileKey,
-          serverUrl: a.serverUrl,
-          dbKey: a.dbKey,
-        };
-      });
-    }
-    return [];
-  });
 
   const [playingId, setPlayingId] = useState<string | null>(null);
   const [currentTimes, setCurrentTimes] = useState<Record<string, number>>({});
@@ -138,10 +139,13 @@ export function AudioUpload({
   const [showGuestTip, setShowGuestTip] = useState(false);
   const [showClearConfirm, setShowClearConfirm] = useState(false);
   const [portalReady, setPortalReady] = useState(false);
-  const [volume, setVolume] = useState(initialVolume);
   const audioRefs = useRef<Record<string, HTMLAudioElement>>({});
-  const isClearingRef = useRef(false);
   const isMountedRef = useRef(false);
+  const fileRefs = useRef<Record<string, File>>({});
+  const objectUrlRefs = useRef<Record<string, string>>({});
+  const [localUrls, setLocalUrls] = useState<Record<string, string>>({});
+  const uploadStatesRef = useRef<Record<string, UploadState>>({});
+  const [uploadStates, setUploadStates] = useState<Record<string, UploadState>>({});
 
   // 仅完整模式需要的状态
   const [dragIndex, setDragIndex] = useState<number | null>(null);
@@ -165,9 +169,6 @@ export function AudioUpload({
     const now = new Date();
     return { year: now.getFullYear(), month: now.getMonth() + 1, day: now.getDate(), hour: now.getHours(), minute: now.getMinutes(), second: now.getSeconds() };
   });
-  const [fadeInDuration, setFadeInDuration] = useState(60);
-  const [fadeOutDuration, setFadeOutDuration] = useState(60);
-  const [enableFade, setEnableFade] = useState(true);
   const [isStartTimeValid, setIsStartTimeValid] = useState(true);
   const [startTimeError, setStartTimeError] = useState<string | null>(null);
   const [isEndTimeValid, setIsEndTimeValid] = useState(true);
@@ -218,104 +219,52 @@ export function AudioUpload({
         const audioInfo = data.audio;
         const id = `imported-${Date.now()}-${Math.random().toString(36).slice(2)}`;
 
-        const newAudio: AudioItem = {
+        const newAudio: TaskAudio = {
           id,
           name: audioInfo.name,
-          file: new File([], audioInfo.name, { type: audioInfo.mime_type }),
-          url: audioInfo.serverUrl || (importFileKey ? `/api/audio/proxy?key=${encodeURIComponent(importFileKey)}` : undefined),
           duration: audioInfo.metadata?.duration || 0,
+          size: audioInfo.size || 0,
           fileKey: importFileKey,
           serverUrl: audioInfo.serverUrl,
         };
 
-        setAudios(prev => {
-          if (prev.some(a => a.fileKey === newAudio.fileKey)) return prev;
-          const updated = [...prev, newAudio];
-          onAudioUploaded?.(updated);
-          onAudioCountChange?.(updated.length);
-          return updated;
-        });
+        if (audios.some(audio => audio.fileKey === newAudio.fileKey)) return;
+        const updated = [...audios, newAudio];
+        setAudios(updated);
+        onAudioUploaded?.(updated);
+        onAudioCountChange?.(updated.length);
       } catch (err) {
         console.error("导入音频异常:", err);
       }
     }
 
     importAudio();
-  }, [mounted, importFileKey, user, onAudioUploaded, onAudioCountChange]);
-
-  // 通知父组件音频变化
-  useEffect(() => {
-    if (onAudiosChange) {
-      const taskAudios: TaskAudio[] = audios.map(a => ({
-        id: a.id,
-        name: a.name,
-        duration: a.duration,
-        size: a.file.size || 0,
-        fileKey: a.fileKey,
-        serverUrl: a.serverUrl,
-        dbKey: a.dbKey,
-      }));
-      onAudiosChange(taskAudios);
-    }
-  }, [audios, onAudiosChange]);
-
-  // 通知父组件音量变化
-  useEffect(() => {
-    if (onVolumeChange) {
-      onVolumeChange(volume);
-    }
-  }, [volume, onVolumeChange]);
+  }, [audios, importFileKey, mounted, onAudioCountChange, onAudioUploaded, setAudios, user]);
 
   useEffect(() => setPortalReady(true), []);
 
-  // 页面加载时恢复缓存的配置
+  // 本地音频只恢复预览 URL；业务配置始终由父组件提供。
   useEffect(() => {
     if (!mounted) return;
+    let cancelled = false;
 
-    const savedConfig = localStorage.getItem("dream_config");
-    const now = new Date();
-    setStartTime({ year: now.getFullYear(), month: now.getMonth() + 1, day: now.getDate(), hour: now.getHours(), minute: now.getMinutes(), second: now.getSeconds() });
-    setEndTime({ year: now.getFullYear(), month: now.getMonth() + 1, day: now.getDate(), hour: now.getHours(), minute: now.getMinutes(), second: now.getSeconds() });
-
-    if (savedConfig) {
-      try {
-        const parsedConfig = JSON.parse(savedConfig);
-        if (typeof parsedConfig.volume === "number") setVolume(parsedConfig.volume);
-        if (typeof parsedConfig.fadeInDuration === "number") setFadeInDuration(parsedConfig.fadeInDuration);
-        if (typeof parsedConfig.fadeOutDuration === "number") setFadeOutDuration(parsedConfig.fadeOutDuration);
-        if (typeof parsedConfig.enableFade === "boolean") setEnableFade(parsedConfig.enableFade);
-        if (parsedConfig.audios && Array.isArray(parsedConfig.audios) && !initialAudios) {
-          const validAudios = parsedConfig.audios.filter((a: Record<string, unknown>) => {
-            if (!a.name || String(a.name).trim() === "") return false;
-            const hasPersistentAccess = !!(a.fileKey || a.serverUrl || a.dbKey);
-            if (!hasPersistentAccess) return false;
-            if (!a.duration || Number(a.duration) <= 0) return false;
-            return true;
-          });
-          if (validAudios.length > 0) {
-            setAudios(validAudios.map((a: Record<string, unknown>) => {
-              const dummyFile = { name: (a.name as string) || "", size: (a.size as number) || 0 } as unknown as File;
-              let url: string | null = null;
-              if (a.serverUrl) url = a.serverUrl as string;
-              else if (a.fileKey) url = `/api/audio/proxy?key=${encodeURIComponent(a.fileKey as string)}`;
-              return {
-                id: a.id as string,
-                name: a.name as string,
-                file: dummyFile,
-                url,
-                duration: (a.duration as number) || 0,
-                fileKey: a.fileKey as string | undefined,
-                serverUrl: a.serverUrl as string | undefined,
-                dbKey: a.dbKey as string | undefined,
-              };
-            }));
-          }
-        }
-      } catch (e) {
-        console.error("[梦枕] 恢复缓存配置失败:", e);
-      }
+    for (const audio of audios) {
+      if (!audio.dbKey || audio.serverUrl || audio.fileKey || objectUrlRefs.current[audio.id]) continue;
+      void getAudioBlob(audio.dbKey).then(blob => {
+        if (!blob || cancelled || objectUrlRefs.current[audio.id]) return;
+        const url = URL.createObjectURL(blob);
+        objectUrlRefs.current[audio.id] = url;
+        setLocalUrls(previous => ({ ...previous, [audio.id]: url }));
+      }).catch(() => {});
     }
-  }, [mounted, initialAudios]);
+
+    return () => { cancelled = true; };
+  }, [mounted, audios]);
+
+  useEffect(() => () => {
+    Object.values(audioRefs.current).forEach(audio => audio.pause());
+    Object.values(objectUrlRefs.current).forEach(url => URL.revokeObjectURL(url));
+  }, []);
 
   // 纯验证函数（返回布尔值，不设状态）- 用于 handleDreamPillow
   const isStartTimeValidFn = useCallback((time: DateTimeValue, fadeInSec?: number, useFade?: boolean): boolean => {
@@ -413,18 +362,28 @@ export function AudioUpload({
     const ext = "." + file.name.split(".").pop()?.toLowerCase();
     if (!AUDIO_EXTENSIONS.includes(ext) && !file.type.startsWith('audio/'))
       return `不支持的音频格式，请上传 ${AUDIO_EXTENSIONS.join(", ")} 文件`;
-    if (audios.some(a => a.file.name === file.name))
+    if (audios.some(a => a.name === file.name))
       return `文件「${file.name}」已存在`;
     return null;
   }, [audios]);
 
+  const updateUploadState = useCallback((id: string, updates: Partial<UploadState>) => {
+    const current = uploadStatesRef.current[id];
+    const nextState: UploadState = {
+      uploading: updates.uploading ?? current?.uploading ?? false,
+      uploadProgress: updates.uploadProgress ?? current?.uploadProgress ?? 0,
+      uploadError: updates.uploadError !== undefined
+        ? updates.uploadError
+        : current?.uploadError ?? null,
+    };
+    uploadStatesRef.current = { ...uploadStatesRef.current, [id]: nextState };
+    setUploadStates(uploadStatesRef.current);
+  }, []);
+
   const uploadFile = useCallback(async (id: string, file: File) => {
     if (!user) return;
 
-    const updateAudio = (updates: Partial<AudioItem>) =>
-      setAudios(prev => prev.map(a => a.id === id ? { ...a, ...updates } : a));
-
-    updateAudio({ uploading: true, uploadProgress: 0, uploadError: null });
+    updateUploadState(id, { uploading: true, uploadProgress: 0, uploadError: null });
 
     const formData = new FormData();
     formData.append("audio", file);
@@ -434,7 +393,7 @@ export function AudioUpload({
 
       await new Promise<void>((resolve, reject) => {
         xhr.upload.onprogress = (e) => e.lengthComputable &&
-          updateAudio({ uploadProgress: Math.round((e.loaded / e.total) * 100) });
+          updateUploadState(id, { uploadProgress: Math.round((e.loaded / e.total) * 100) });
         xhr.onload = () => xhr.status >= 200 && xhr.status < 300 ? resolve() : reject();
         xhr.onerror = () => reject();
         xhr.open("POST", "/api/audio/upload?save_to_files=true");
@@ -443,25 +402,23 @@ export function AudioUpload({
 
       const resp = JSON.parse(xhr.responseText);
       if (resp.success) {
-        updateAudio({
-          url: resp.audio_url,
+        setAudios(previous => previous.map(audio => audio.id === id ? {
+          ...audio,
           serverUrl: resp.audio_url,
           fileKey: resp.file_key,
-          uploading: false,
-          uploadProgress: 100
-        });
-        setAudios(prev => { onAudioUploaded?.(prev); onAudioCountChange?.(prev.length); return prev; });
+        } : audio));
+        updateUploadState(id, { uploading: false, uploadProgress: 100, uploadError: null });
       } else {
-        updateAudio({ uploading: false, uploadError: resp.error || "上传失败" });
+        updateUploadState(id, { uploading: false, uploadError: resp.error || "上传失败" });
       }
     } catch {
-      updateAudio({ uploading: false, uploadError: "上传失败" });
+      updateUploadState(id, { uploading: false, uploadError: "上传失败" });
     }
-  }, [user, onAudioUploaded, onAudioCountChange]);
+  }, [setAudios, updateUploadState, user]);
 
   const processFiles = useCallback(async (files: FileList | File[]) => {
     setUploadError(null);
-    const newAudios: AudioItem[] = [];
+    const newAudios: TaskAudio[] = [];
 
     for (const file of Array.from(files).slice(0, MAX_FILES - audios.length)) {
       const error = validateFile(file);
@@ -473,15 +430,23 @@ export function AudioUpload({
 
       try { await saveAudioBlob(id, file); dbKey = id; } catch {}
 
-      newAudios.push({ id, file, name: file.name, url, duration: 0, dbKey });
-      if (user) uploadFile(id, file);
+      fileRefs.current[id] = file;
+      objectUrlRefs.current[id] = url;
+      setLocalUrls(previous => ({ ...previous, [id]: url }));
+      newAudios.push({ id, name: file.name, size: file.size, duration: 0, dbKey });
+      if (user) void uploadFile(id, file);
     }
 
-    if (newAudios.length) setAudios(prev => [...prev, ...newAudios]);
-  }, [audios, validateFile, user, uploadFile]);
+    if (newAudios.length) {
+      const updated = [...audios, ...newAudios];
+      setAudios(updated);
+      onAudioUploaded?.(updated);
+      onAudioCountChange?.(updated.length);
+    }
+  }, [audios, onAudioCountChange, onAudioUploaded, setAudios, uploadFile, user, validateFile]);
 
   const handleFileSelect = useCallback((e: React.ChangeEvent<HTMLInputElement>) => {
-    e.target.files && processFiles(e.target.files);
+    if (e.target.files) void processFiles(e.target.files);
     e.target.value = "";
   }, [processFiles]);
 
@@ -494,14 +459,25 @@ export function AudioUpload({
         audioRefs.current[id].load();
         delete audioRefs.current[id];
       }
-      if (audio.url && audio.url.startsWith("blob:")) URL.revokeObjectURL(audio.url);
-      if (audio.dbKey) deleteAudioBlob(audio.dbKey).catch(() => {});
+      const objectUrl = objectUrlRefs.current[id];
+      if (objectUrl) {
+        URL.revokeObjectURL(objectUrl);
+        delete objectUrlRefs.current[id];
+        setLocalUrls(previous => {
+          const next = { ...previous };
+          delete next[id];
+          return next;
+        });
+      }
+      delete fileRefs.current[id];
+      delete uploadStatesRef.current[id];
+      setUploadStates({ ...uploadStatesRef.current });
     }
     setAudios(prev => prev.filter(a => a.id !== id));
     setCurrentTimes(prev => { const next = { ...prev }; delete next[id]; return next; });
     if (playingId === id) setPlayingId(null);
     onAudioRemoved?.(id);
-  }, [audios, playingId, onAudioRemoved]);
+  }, [audios, onAudioRemoved, playingId, setAudios]);
 
   const togglePlay = useCallback((id: string) => {
     const el = audioRefs.current[id];
@@ -534,7 +510,7 @@ export function AudioUpload({
         setCurrentTimes(prev => ({ ...prev, [id]: el.currentTime }));
       };
       const handleEnded = () => {
-        if (!isMountedRef.current) setPlayingId(null);
+        if (isMountedRef.current) setPlayingId(null);
       };
       const handleLoadedMetadata = () => {
         if (!isMountedRef.current) return;
@@ -555,7 +531,7 @@ export function AudioUpload({
     return () => {
       cleanupFunctions.forEach(cleanup => cleanup());
     };
-  }, [audios]);
+  }, [audios, setAudios]);
 
   // 音量变化时同步到所有音频播放器
   useEffect(() => {
@@ -565,52 +541,21 @@ export function AudioUpload({
     });
   }, [mounted, volume]);
 
-  // 自动保存配置到 localStorage
-  const prevAudiosRef = useRef<string>("");
-  useEffect(() => {
-    if (!mounted || isClearingRef.current) return;
-
-    const audiosJson = JSON.stringify(audios);
-    if (audiosJson === prevAudiosRef.current) return;
-    prevAudiosRef.current = audiosJson;
-
-    const config = {
-      audios: audios.map(a => ({
-        id: a.id,
-        name: a.name,
-        duration: a.duration,
-        size: a.file?.size || 0,
-        fileKey: a.fileKey,
-        serverUrl: a.serverUrl,
-        dbKey: a.dbKey,
-      })),
-      volume,
-      fadeInDuration,
-      fadeOutDuration,
-      enableFade,
-    };
-
-    try {
-      localStorage.setItem("dream_config", JSON.stringify(config));
-    } catch (err) {
-      console.warn("[梦枕] 配置保存失败:", err);
-    }
-  }, [mounted, audios, volume, fadeInDuration, fadeOutDuration, enableFade]);
-
-  // 清理相关逻辑
-  useEffect(() => { isClearingRef.current = false; }, []);
-
   const handleClearAll = useCallback(() => {
-    isClearingRef.current = true;
     Object.entries(audioRefs.current).forEach(([id, el]) => {
       if (el) { try { el.pause(); el.src = ''; } catch {} delete audioRefs.current[id]; }
     });
-    audios.forEach(a => {
-      if (a.url?.startsWith("blob:")) URL.revokeObjectURL(a.url);
-      if (a.dbKey) deleteAudioBlob(a.dbKey).catch(() => {});
-    });
-    setAudios([]); setCurrentTimes({}); setPlayingId(null); setShowClearConfirm(false); isClearingRef.current = false;
-  }, [audios]);
+    Object.values(objectUrlRefs.current).forEach(url => URL.revokeObjectURL(url));
+    objectUrlRefs.current = {};
+    fileRefs.current = {};
+    uploadStatesRef.current = {};
+    setLocalUrls({});
+    setUploadStates({});
+    setAudios([]);
+    setCurrentTimes({});
+    setPlayingId(null);
+    setShowClearConfirm(false);
+  }, [setAudios]);
 
   // 拖拽排序相关（仅完整模式）
   const handleDragStart = useCallback((index: number) => {
@@ -627,7 +572,7 @@ export function AudioUpload({
       return next;
     });
     setDragIndex(index);
-  }, [dragIndex]);
+  }, [dragIndex, setAudios]);
 
   const handleDragEnd = useCallback(() => {
     setIsSwapAnimating(true);
@@ -725,7 +670,7 @@ export function AudioUpload({
       });
       setDragStartIndex(targetIndex);
     }
-  }, [isDragging, draggingId, dragStartIndex, dragOffsetY, audios]);
+  }, [isDragging, draggingId, dragStartIndex, dragOffsetY, audios, setAudios]);
 
   const handleTouchEndDrag = useCallback(() => {
     if (!isDragging || !draggingId) return;
@@ -817,7 +762,7 @@ export function AudioUpload({
 
     document.addEventListener("mousemove", handleMouseMove);
     document.addEventListener("mouseup", handleMouseUp);
-  }, [disabled, isDragging, dragStartIndex, audios, onOrderChange]);
+  }, [disabled, isDragging, dragStartIndex, audios, onOrderChange, setAudios]);
 
   // 全局触摸移动事件监听（用于拖拽过程中的移动）
   useEffect(() => {
@@ -844,47 +789,30 @@ export function AudioUpload({
     const audio = audios.find(a => a.id === id);
     if (!audio || !user) return;
 
-    const updateAudio = (updates: Partial<AudioItem>) =>
-      setAudios(prev => prev.map(a => a.id === id ? { ...a, ...updates } : a));
+    let file = fileRefs.current[id];
+    if (!file && audio.dbKey) {
+      const blob = await getAudioBlob(audio.dbKey).catch(() => null);
+      if (blob) file = new File([blob], audio.name, { type: blob.type || "audio/mpeg" });
+    }
 
-    if (audio.serverUrl && audio.fileKey) {
-      try {
-        updateAudio({ uploading: true, uploadProgress: 0 });
-        const res = await fetch("/api/audio/save-to-files", {
-          method: "POST",
-          headers: { "Content-Type": "application/json" },
-          body: JSON.stringify({
-            fileKey: audio.fileKey,
-            name: audio.name,
-            size: audio.file?.size || 0,
-            mime_type: audio.file?.type || "audio/mpeg",
-            duration: audio.duration || 0
-          }),
-        });
-        const data = await res.json();
-        updateAudio(data.success
-          ? { uploading: false, uploadProgress: 100 }
-          : { uploading: false, uploadError: data.error || "保存失败" }
-        );
-      } catch {
-        updateAudio({ uploading: false, uploadError: "保存失败" });
-      }
+    if (!file) {
+      updateUploadState(id, { uploading: false, uploadError: "找不到本地音频，请重新选择文件" });
       return;
     }
 
-    await uploadFile(id, audio.file);
-  }, [audios, user, uploadFile]);
+    await uploadFile(id, file);
+  }, [audios, updateUploadState, uploadFile, user]);
 
   const handleUploadAll = useCallback(async () => {
-    for (const audio of audios.filter(a => !a.serverUrl && !a.uploading)) {
+    for (const audio of audios.filter(a => !a.serverUrl && !uploadStates[a.id]?.uploading)) {
       await handleUploadSingle(audio.id);
     }
-  }, [audios, handleUploadSingle]);
+  }, [audios, handleUploadSingle, uploadStates]);
 
   useEffect(() => { if (!mounted) return; onAudioCountChange?.(audios.length); }, [mounted, audios.length, onAudioCountChange]);
 
   const handleDreamPillow = async () => {
-    const fadeInSec = fadeInDuration || 0;
+    const fadeInSec = fadeInDuration ?? 0;
     const startValid = isStartTimeValidFn(startTime, fadeInSec, enableFade);
     const endValid = isEndTimeValidFn(endTime, startTime);
 
@@ -900,29 +828,24 @@ export function AudioUpload({
       toast.error("请先上传音频");
       return;
     }
+    if (audios.some(audio => !audio.fileKey && !audio.serverUrl && !audio.dbKey)) {
+      toast.error("有音频尚未保存完成，请重新上传后再试");
+      return;
+    }
 
-    let currentAudios = audios;
-    const uploading = currentAudios.filter(a => a.uploading);
+    const uploading = audios.filter(audio => uploadStatesRef.current[audio.id]?.uploading);
     if (uploading.length > 0) {
       toast.loading(`等待 ${uploading.length} 个音频上传完成...`, { id: "dream-upload" });
       for (let i = 0; i < 60; i++) {
         await new Promise(r => setTimeout(r, 500));
-        let stillUploading = false;
-        setAudios(prev => {
-          stillUploading = prev.some(a => a.uploading);
-          currentAudios = prev;
-          return prev;
-        });
+        const stillUploading = Object.values(uploadStatesRef.current).some(state => state.uploading);
         if (!stillUploading) break;
       }
       toast.dismiss("dream-upload");
     }
 
-    let latestAudios = currentAudios;
-    setAudios(prev => { latestAudios = prev; return prev; });
-
     if (user) {
-      const failedAudios = latestAudios.filter(a => a.uploadError);
+      const failedAudios = audios.filter(audio => uploadStatesRef.current[audio.id]?.uploadError);
       if (failedAudios.length > 0) {
         toast.error(`有 ${failedAudios.length} 个音频上传失败，请移除后重试`);
         return;
@@ -930,7 +853,7 @@ export function AudioUpload({
     }
 
     const config = {
-      audios: latestAudios.map(a => ({
+      audios: audios.map(a => ({
         id: a.id,
         name: a.name,
         url: a.serverUrl || (a.fileKey ? `/api/audio/proxy?key=${encodeURIComponent(a.fileKey)}` : undefined),
@@ -938,7 +861,7 @@ export function AudioUpload({
         serverUrl: a.serverUrl,
         dbKey: a.dbKey,
         duration: a.duration,
-        size: a.file?.size || 0,
+        size: a.size,
       })),
       volume,
       fadeInDuration,
@@ -952,8 +875,8 @@ export function AudioUpload({
     router.push("/templates");
   };
 
-  const allUploaded = audios.length > 0 && audios.every(a => a.serverUrl);
-  const anyUploading = audios.some(a => a.uploading);
+  const allUploaded = audios.length > 0 && audios.every(a => a.serverUrl || a.fileKey);
+  const anyUploading = Object.values(uploadStates).some(state => state.uploading);
 
   // 上传文件 input 的 ref
   const fileInputRef = useRef<HTMLInputElement>(null);
@@ -961,8 +884,8 @@ export function AudioUpload({
   // 渲染上传区域
   const renderUploadArea = () => (
     <div
-      onClick={() => !disabled && fileInputRef.current?.click()}
-      onDragOver={(e) => { e.preventDefault(); !disabled && setDragOver(true); }}
+      onClick={() => { if (!disabled) fileInputRef.current?.click(); }}
+      onDragOver={(e) => { e.preventDefault(); if (!disabled) setDragOver(true); }}
       onDragLeave={() => setDragOver(false)}
       onDrop={(e) => { e.preventDefault(); if (!disabled) { setDragOver(false); processFiles(e.dataTransfer.files); } }}
       className={cn(
@@ -975,6 +898,7 @@ export function AudioUpload({
         ref={fileInputRef}
         type="file"
         multiple
+        accept={AUDIO_ACCEPT}
         onChange={handleFileSelect}
         disabled={disabled}
         className="sr-only"
@@ -1029,6 +953,10 @@ export function AudioUpload({
             const currentTime = currentTimes[audio.id] || 0;
             const isDraggingThis = dragIndex === index;
             const isCurrentlyDragging = isDraggingThis && draggingId === audio.id;
+            const uploadState = uploadStates[audio.id];
+            const audioSource = audio.serverUrl
+              || (audio.fileKey ? `/api/audio/proxy?key=${encodeURIComponent(audio.fileKey)}` : undefined)
+              || localUrls[audio.id];
 
             return (
               <div
@@ -1084,18 +1012,18 @@ export function AudioUpload({
                         isPlaying && "text-[var(--brand-start)]",
                         !isPlaying && "text-foreground group-hover/audio:text-[var(--brand-start)]"
                       )}>
-                        {audio.file.name}
+                        {audio.name}
                       </p>
                       <div className="flex items-center gap-2 mt-0.5 text-[11px] text-muted-foreground">
-                        <span className="flex items-center gap-1"><VolumeIcon className="w-3 h-3" />{formatFileSize(audio.file.size)}</span>
+                        <span className="flex items-center gap-1"><VolumeIcon className="w-3 h-3" />{formatFileSize(audio.size)}</span>
                         {audio.duration > 0 && <span className="flex items-center gap-1"><Clock className="w-3 h-3" />{formatDuration(audio.duration)}</span>}
                         {audio.serverUrl && <span className="flex items-center gap-1 text-green-500"><CheckCircle2 className="w-3 h-3" />已上传</span>}
-                        {audio.uploading && <span className="flex items-center gap-1 text-[var(--brand-start)]"><Spinner size="sm" className="h-3 w-3" />{audio.uploadProgress || 0}%</span>}
+                        {uploadState?.uploading && <span className="flex items-center gap-1 text-[var(--brand-start)]"><Spinner size="sm" className="h-3 w-3" />{uploadState.uploadProgress}%</span>}
                       </div>
                     </div>
 
                     <div className="flex items-center gap-1 flex-shrink-0 opacity-0 group-hover/audio:opacity-100 focus-within:opacity-100 transition-opacity">
-                      {!audio.serverUrl && !audio.uploading && user && <Button variant="ghost" size="icon" onClick={e => { e.stopPropagation(); if (!user) { setShowGuestTip(true); return; } handleUploadSingle(audio.id); }} className="w-8 h-8 text-muted-foreground hover:text-[var(--brand-start)]" title="上传此文件"><Upload className="w-3.5 h-3.5" /></Button>}
+                      {!audio.serverUrl && !uploadState?.uploading && user && <Button variant="ghost" size="icon" onClick={e => { e.stopPropagation(); handleUploadSingle(audio.id); }} className="w-8 h-8 text-muted-foreground hover:text-[var(--brand-start)]" title="上传此文件"><Upload className="w-3.5 h-3.5" /></Button>}
                       <Button variant="ghost" size="icon" onClick={e => { e.stopPropagation(); handleRemove(audio.id); }} className="w-8 h-8 text-muted-foreground hover:text-red-500" title="移除"><Trash2 className="w-3.5 h-3.5" /></Button>
                     </div>
 
@@ -1123,25 +1051,25 @@ export function AudioUpload({
                     </div>
                   )}
 
-                  {audio.uploading && (
+                  {uploadState?.uploading && (
                     <div className="space-y-1">
                       <div className="w-full h-1.5 rounded-full bg-border/40 overflow-hidden">
-                        <div className="h-full rounded-full bg-gradient-to-r from-[var(--brand-start)] to-[var(--brand-end)] transition-all duration-200" style={{ width: `${audio.uploadProgress || 0}%` }} />
+                        <div className="h-full rounded-full bg-gradient-to-r from-[var(--brand-start)] to-[var(--brand-end)] transition-all duration-200" style={{ width: `${uploadState.uploadProgress}%` }} />
                       </div>
                     </div>
                   )}
 
-                  {audio.uploadError && (
+                  {uploadState?.uploadError && (
                     <div className="flex items-center gap-2 p-2 rounded-lg bg-red-950/15 border border-red-900/30">
                       <AlertCircle className="w-3.5 h-3.5 text-red-400 flex-shrink-0" />
-                      <span className="text-xs text-red-400">{audio.uploadError}</span>
+                      <span className="text-xs text-red-400">{uploadState.uploadError}</span>
                     </div>
                   )}
                 </div>
 
                 <audio
                   ref={el => { if (el) audioRefs.current[audio.id] = el; }}
-                  {...(audio.url ? { src: audio.url } : {})}
+                  {...(audioSource ? { src: audioSource } : {})}
                   preload="metadata"
                   onLoadedMetadata={() => {
                     const el = audioRefs.current[audio.id];
@@ -1232,31 +1160,30 @@ export function AudioUpload({
           </p>
         </div>
 
-        {/* 两种模式都需要的基础内容 */}
-        {renderUploadArea()}
-
-        {showGuestTip && (
-          <div className="flex items-center justify-between gap-3 p-3 rounded-xl bg-amber-950/20 border border-amber-900/30 animate-in fade-in slide-in-from-top-2 duration-200">
-            <p className="text-sm text-amber-400">请先登录后再上传音频文件</p>
-            <button onClick={() => setShowGuestTip(false)} className="text-amber-400/60 hover:text-amber-400 transition-colors"><X className="w-4 h-4" /></button>
-          </div>
-        )}
-
-        {uploadError && (
-          <div className="flex items-center gap-2 p-3 rounded-xl bg-red-950/20 border border-red-900/30">
-            <AlertCircle className="w-4 h-4 text-red-400 flex-shrink-0" />
-            <span className="text-sm text-red-400">{uploadError}</span>
-            <button onClick={() => setUploadError(null)} className="ml-auto text-red-400/60 hover:text-red-400"><X className="w-4 h-4" /></button>
-          </div>
-        )}
-
-        {renderAudioList()}
-
-        {renderVolumeControl()}
-
-        {/* 默认模式才有的内容 */}
+        {/* 默认模式内容 */}
         {mode === "default" && (
           <>
+            {renderUploadArea()}
+
+            {showGuestTip && (
+              <div className="flex items-center justify-between gap-3 p-3 rounded-xl bg-amber-950/20 border border-amber-900/30 animate-in fade-in slide-in-from-top-2 duration-200">
+                <p className="text-sm text-amber-400">请先登录后再上传音频文件</p>
+                <button onClick={() => setShowGuestTip(false)} className="text-amber-400/60 hover:text-amber-400 transition-colors"><X className="w-4 h-4" /></button>
+              </div>
+            )}
+
+            {uploadError && (
+              <div className="flex items-center gap-2 p-3 rounded-xl bg-red-950/20 border border-red-900/30">
+                <AlertCircle className="w-4 h-4 text-red-400 flex-shrink-0" />
+                <span className="text-sm text-red-400">{uploadError}</span>
+                <button onClick={() => setUploadError(null)} className="ml-auto text-red-400/60 hover:text-red-400"><X className="w-4 h-4" /></button>
+              </div>
+            )}
+
+            {renderAudioList()}
+
+            {renderVolumeControl()}
+
             <div>
               <div className="p-3 sm:p-5 space-y-3 sm:space-y-4">
                 <div className="flex items-center justify-between">
@@ -1292,54 +1219,16 @@ export function AudioUpload({
                   </div>
                 )}
 
-                <div className="pt-3 space-y-4">
-                  <div className="flex items-center justify-between p-3 rounded-lg bg-muted/20 border border-border/30">
-                    <div className="flex items-center gap-2">
-                      <button type="button" role="switch" aria-checked={enableFade} onClick={() => setEnableFade(!enableFade)} className={cn(
-                        "relative inline-flex h-5 w-9 flex-shrink-0 rounded-full border-2 border-transparent transition-colors duration-200 ease-in-out focus:outline-none",
-                        enableFade ? "bg-[var(--brand-start)]" : "bg-muted"
-                      )}>
-                        <span aria-hidden="true" className={cn(
-                          "pointer-events-none inline-block h-4 w-4 rounded-full bg-white shadow-sm ring-0 transition duration-200 ease-in-out",
-                          enableFade ? "translate-x-4" : "translate-x-0"
-                        )} />
-                      </button>
-                      <span className="text-sm font-medium text-foreground">启用音量渐入渐出</span>
-                    </div>
-                  </div>
-
-                  {enableFade && (
-                    <>
-                      <div className="space-y-1.5">
-                        <div className="flex items-center justify-between">
-                          <span className="text-xs text-muted-foreground/60 font-medium uppercase tracking-wider">音量渐入</span>
-                          <span className="text-sm font-mono text-foreground tabular-nums">{fadeInDuration}s</span>
-                        </div>
-                        <div className="py-0.5 flex items-center gap-3">
-                          <NumberStepperButton dir={-1} disabled={fadeInDuration <= 0} value={fadeInDuration} onChange={setFadeInDuration} min={0} max={120} step={1} className="w-8 h-8" />
-                          <input type="range" min={0} max={120} value={fadeInDuration} onChange={e => setFadeInDuration(parseInt(e.target.value))} className="flex-1 h-2 rounded-full appearance-none bg-border/30 cursor-pointer [&::-webkit-slider-thumb]:appearance-none [&::-webkit-slider-thumb]:w-6 [&::-webkit-slider-thumb]:h-6 [&::-webkit-slider-thumb]:rounded-full [&::-webkit-slider-thumb]:bg-white [&::-webkit-slider-thumb]:shadow-md [&::-webkit-slider-thumb]:cursor-pointer [&::-webkit-slider-thumb]:transition-transform [&::-webkit-slider-thumb]:hover:scale-110 [&::-webkit-slider-thumb]:active:scale-95 [&::-webkit-slider-thumb]:border-2 [&::-webkit-slider-thumb]:border-[var(--brand-start)] sm:[&::-webkit-slider-thumb]:w-5 sm:[&::-webkit-slider-thumb]:h-5 sm:[&::-webkit-slider-thumb]:hover:scale-125" style={{ background: `linear-gradient(to right, var(--brand-start) ${(fadeInDuration / 120) * 100}%, rgba(128,128,128,0.2) ${(fadeInDuration / 120) * 100}%)` }} />
-                          <NumberStepperButton dir={1} disabled={fadeInDuration >= 120} value={fadeInDuration} onChange={setFadeInDuration} min={0} max={120} step={1} className="w-8 h-8" />
-                        </div>
-                      </div>
-
-                      <div className="space-y-1.5">
-                        <div className="flex items-center justify-between">
-                          <span className="text-xs text-muted-foreground/60 font-medium uppercase tracking-wider">音量渐出</span>
-                          <span className="text-sm font-mono text-foreground tabular-nums">{fadeOutDuration}s</span>
-                        </div>
-                        <div className="py-0.5 flex items-center gap-3">
-                          <NumberStepperButton dir={-1} disabled={fadeOutDuration <= 0} value={fadeOutDuration} onChange={setFadeOutDuration} min={0} max={120} step={1} className="w-8 h-8" />
-                          <input type="range" min={0} max={120} value={fadeOutDuration} onChange={e => setFadeOutDuration(parseInt(e.target.value))} className="flex-1 h-2 rounded-full appearance-none bg-border/30 cursor-pointer [&::-webkit-slider-thumb]:appearance-none [&::-webkit-slider-thumb]:w-6 [&::-webkit-slider-thumb]:h-6 [&::-webkit-slider-thumb]:rounded-full [&::-webkit-slider-thumb]:bg-white [&::-webkit-slider-thumb]:shadow-md [&::-webkit-slider-thumb]:cursor-pointer [&::-webkit-slider-thumb]:transition-transform [&::-webkit-slider-thumb]:hover:scale-110 [&::-webkit-slider-thumb]:active:scale-95 [&::-webkit-slider-thumb]:border-2 [&::-webkit-slider-thumb]:border-[var(--brand-start)] sm:[&::-webkit-slider-thumb]:w-5 sm:[&::-webkit-slider-thumb]:h-5 sm:[&::-webkit-slider-thumb]:hover:scale-125" style={{ background: `linear-gradient(to right, var(--brand-start) ${(fadeOutDuration / 120) * 100}%, rgba(128,128,128,0.2) ${(fadeOutDuration / 120) * 100}%)` }} />
-                          <NumberStepperButton dir={1} disabled={fadeOutDuration >= 120} value={fadeOutDuration} onChange={setFadeOutDuration} min={0} max={120} step={1} className="w-8 h-8" />
-                        </div>
-                      </div>
-
-                      <div className="p-2.5 bg-muted/20 rounded-lg">
-                        <p className="text-xs text-muted-foreground leading-relaxed">💡 渐入将在开始时间前开始播放，渐出将在结束时间后完成。实际播放时段 = 目标音量时段。</p>
-                      </div>
-                    </>
-                  )}
-                </div>
+                <FadeControls
+                  className="pt-3"
+                  enabled={enableFade}
+                  fadeInDuration={fadeInDuration}
+                  fadeOutDuration={fadeOutDuration}
+                  onEnabledChange={setEnableFade}
+                  onFadeInDurationChange={setFadeInDuration}
+                  onFadeOutDurationChange={setFadeOutDuration}
+                  showHint
+                />
               </div>
             </div>
 
@@ -1382,7 +1271,7 @@ export function AudioUpload({
           <div role="dialog" aria-modal="true" aria-labelledby="clear-confirm-title" aria-describedby="clear-confirm-desc" className="bg-background border border-border/60 rounded-2xl shadow-2xl p-6 max-w-sm w-[calc(100%-2rem)] space-y-4" onClick={e => e.stopPropagation()}>
             <div className="flex flex-col items-center gap-3 text-center">
               <div className="w-12 h-12 rounded-full bg-red-500/10 flex items-center justify-center"><Trash2 className="w-6 h-6 text-red-500" /></div>
-              <div><h3 id="clear-confirm-title" className="text-base font-semibold text-foreground">确认清空全部音频？</h3><p id="clear-confirm-desc" className="text-sm text-muted-foreground mt-1.5">此操作将删除所有已上传的音频文件，且无法恢复。</p></div>
+              <div><h3 id="clear-confirm-title" className="text-base font-semibold text-foreground">确认清空当前音频列表？</h3><p id="clear-confirm-desc" className="text-sm text-muted-foreground mt-1.5">只会移除当前配置中的引用，已经保存的任务不会受到影响。</p></div>
             </div>
             <div className="flex gap-3">
               <button onClick={() => setShowClearConfirm(false)} className="flex-1 h-10 rounded-xl border border-border/60 text-sm font-medium text-muted-foreground hover:text-foreground hover:bg-muted/80 active:bg-muted transition-all cursor-pointer">取消</button>

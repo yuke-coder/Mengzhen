@@ -1,16 +1,17 @@
 "use client";
 
-import React, { useState, useCallback, useEffect, useMemo, useRef } from "react";
+import React, { useState, useCallback, useEffect, useMemo, type Dispatch, type SetStateAction } from "react";
 import {
   ScheduledTask,
   TaskRepeatType,
-  TaskAudio,
+  type PlaybackDraft,
 } from "@/lib/task-types";
 import { createTask, updateTask } from "@/lib/task-store";
+import { clonePlaybackDraft, playbackDraftFromTask } from "@/lib/playback-draft";
 import { WheelDateTimePicker, type DateTimeValue } from "@/components/wheel-date-time-picker";
 import { DurationSetter } from "@/components/duration-setter";
 import { AudioUpload } from "@/components/audio-upload";
-import { NumberStepperButton } from "@/components/number-stepper";
+import { FadeControls } from "@/components/fade-controls";
 import { toast } from "@/components/sonner";
 import { cn } from "@/lib/utils";
 import {
@@ -21,6 +22,8 @@ import {
 
 interface TaskFormProps {
   editTask?: ScheduledTask | null;
+  sharedPlaybackDraft: PlaybackDraft;
+  onSharedPlaybackDraftChange: Dispatch<SetStateAction<PlaybackDraft>>;
   onSave?: (task: ScheduledTask) => void;
   onCancel?: () => void;
 }
@@ -32,8 +35,28 @@ const REPEAT_OPTIONS: { value: TaskRepeatType; label: string; desc: string }[] =
   { value: "holiday", label: "法定节假日", desc: "国家法定节假日" },
 ];
 
-export function TaskForm({ editTask, onSave, onCancel }: TaskFormProps) {
+export function TaskForm({
+  editTask,
+  sharedPlaybackDraft,
+  onSharedPlaybackDraftChange,
+  onSave,
+  onCancel,
+}: TaskFormProps) {
   const isEditing = !!editTask;
+  const [editPlaybackDraft, setEditPlaybackDraft] = useState<PlaybackDraft | null>(() =>
+    editTask ? playbackDraftFromTask(editTask) : null
+  );
+  const playbackDraft = isEditing && editPlaybackDraft ? editPlaybackDraft : sharedPlaybackDraft;
+  const onPlaybackDraftChange = useCallback<Dispatch<SetStateAction<PlaybackDraft>>>((update) => {
+    if (!editTask) {
+      onSharedPlaybackDraftChange(update);
+      return;
+    }
+    setEditPlaybackDraft(previous => {
+      const current = previous ?? playbackDraftFromTask(editTask);
+      return typeof update === "function" ? update(current) : update;
+    });
+  }, [editTask, onSharedPlaybackDraftChange]);
 
   const [taskName, setTaskName] = useState(editTask?.name || "");
   const [startTime, setStartTime] = useState<DateTimeValue>(() => {
@@ -58,17 +81,20 @@ export function TaskForm({ editTask, onSave, onCancel }: TaskFormProps) {
     };
   });
   const [playDurationMinutes, setPlayDurationMinutes] = useState(
-    Math.max(1, editTask?.playDurationMinutes || 30)
+    Math.max(1, editTask?.playDurationMinutes ?? 30)
   );
-  const [fadeInDuration, setFadeInDuration] = useState(editTask?.fadeInDuration || 60);
-  const [fadeOutDuration, setFadeOutDuration] = useState(editTask?.fadeOutDuration || 60);
-  // 默认启用渐入渐出，兼容旧数据（editTask?.enableFade ?? true）
-  const [enableFade, setEnableFade] = useState(editTask?.enableFade ?? true);
   const [repeatType, setRepeatType] = useState<TaskRepeatType>(editTask?.repeatType || "once");
-
-  const [taskAudios, setTaskAudios] = useState<TaskAudio[]>(editTask?.audios || []);
-  const [taskVolume, setTaskVolume] = useState(editTask?.volume || 50);
   const [nowMs, setNowMs] = useState(() => Date.now());
+
+  const { audios, fadeInDuration, fadeOutDuration, enableFade } = playbackDraft;
+  const hasUnavailableAudio = audios.some(audio => !audio.fileKey && !audio.serverUrl && !audio.dbKey);
+
+  const updatePlaybackField = useCallback(<Key extends keyof PlaybackDraft>(
+    key: Key,
+    value: PlaybackDraft[Key],
+  ) => {
+    onPlaybackDraftChange(previous => ({ ...previous, [key]: value }));
+  }, [onPlaybackDraftChange]);
 
   useEffect(() => {
     const timer = setInterval(() => setNowMs(Date.now()), 1000);
@@ -128,24 +154,16 @@ export function TaskForm({ editTask, onSave, onCancel }: TaskFormProps) {
     return { valid: true, error: null };
   }, [startTime, repeatType, fadeInDuration, enableFade]);
 
-  const handleAudiosChange = useCallback((audios: TaskAudio[]) => {
-    setTaskAudios(audios);
-  }, []);
-
-  const handleVolumeChange = useCallback((volume: number) => {
-    setTaskVolume(volume);
-  }, []);
-
   const handleSave = useCallback(() => {
     console.log("[TaskForm] handleSave called", {
       taskName: taskName.trim(),
-      taskAudiosLength: taskAudios.length,
+      taskAudiosLength: audios.length,
       repeatType,
       startTime,
     });
 
-    for (let i = 0; i < taskAudios.length; i++) {
-      const audio = taskAudios[i];
+    for (let i = 0; i < audios.length; i++) {
+      const audio = audios[i];
       console.log(`[TaskForm] Audio ${i}:`, {
         name: audio.name,
         hasServerUrl: !!audio.serverUrl,
@@ -161,9 +179,14 @@ export function TaskForm({ editTask, onSave, onCancel }: TaskFormProps) {
       return;
     }
 
-    if (taskAudios.length === 0) {
+    if (audios.length === 0) {
       console.log("[TaskForm] Validation failed: no audios");
       toast.error("请先上传音频");
+      return;
+    }
+
+    if (hasUnavailableAudio) {
+      toast.error("有音频尚未保存完成，请重新上传后再保存任务");
       return;
     }
 
@@ -179,6 +202,7 @@ export function TaskForm({ editTask, onSave, onCancel }: TaskFormProps) {
       return;
     }
 
+    const playbackSnapshot = clonePlaybackDraft(playbackDraft);
     const taskData = {
       name: taskName.trim(),
       startTime: {
@@ -190,12 +214,12 @@ export function TaskForm({ editTask, onSave, onCancel }: TaskFormProps) {
         second: startTime.second,
       },
       playDurationMinutes,
-      fadeInDuration,
-      fadeOutDuration,
-      enableFade,
-      volume: taskVolume,
+      fadeInDuration: playbackSnapshot.fadeInDuration,
+      fadeOutDuration: playbackSnapshot.fadeOutDuration,
+      enableFade: playbackSnapshot.enableFade,
+      volume: playbackSnapshot.volume,
       repeatType,
-      audios: taskAudios,
+      audios: playbackSnapshot.audios,
     };
 
     console.log("[TaskForm] Saving task with data:", taskData);
@@ -224,20 +248,18 @@ export function TaskForm({ editTask, onSave, onCancel }: TaskFormProps) {
     }
   }, [
     taskName, validateTime, startTime,
-    playDurationMinutes, fadeInDuration, fadeOutDuration, enableFade,
+    playDurationMinutes,
     repeatType, isEditing, editTask, onSave,
-    taskAudios, taskVolume,
+    audios, hasUnavailableAudio, playbackDraft,
   ]);
 
-  const isSaveDisabled = !taskName.trim() || taskAudios.length === 0 || !!timeError || playDurationMinutes <= 0;
+  const isSaveDisabled = !taskName.trim() || audios.length === 0 || hasUnavailableAudio || !!timeError || playDurationMinutes <= 0;
 
   return (
     <div className="space-y-5 sm:space-y-6">
       <AudioUpload
-        initialAudios={editTask?.audios || []}
-        onAudiosChange={handleAudiosChange}
-        onVolumeChange={handleVolumeChange}
-        initialVolume={editTask?.volume || 50}
+        playbackDraft={playbackDraft}
+        onPlaybackDraftChange={onPlaybackDraftChange}
       />
 
       <div className="space-y-4">
@@ -303,117 +325,15 @@ export function TaskForm({ editTask, onSave, onCancel }: TaskFormProps) {
           </div>
         )}
 
-        <div className="space-y-4 pt-2">
-          {/* 音量渐入渐出开关 - 默认隐藏/关闭，用户手动启用 */}
-          <div className="flex items-center justify-between p-3 rounded-lg bg-muted/20 border border-border/30">
-            <div className="flex items-center gap-2">
-              <button
-                type="button"
-                role="switch"
-                aria-checked={enableFade}
-                onClick={() => setEnableFade(!enableFade)}
-                className={cn(
-                  "relative inline-flex h-5 w-9 flex-shrink-0 rounded-full border-2 border-transparent transition-colors duration-200 ease-in-out focus:outline-none",
-                  enableFade ? "bg-[var(--brand-start)]" : "bg-muted"
-                )}
-              >
-                <span
-                  aria-hidden="true"
-                  className={cn(
-                    "pointer-events-none inline-block h-4 w-4 rounded-full bg-white shadow-sm ring-0 transition duration-200 ease-in-out",
-                    enableFade ? "translate-x-4" : "translate-x-0"
-                  )}
-                />
-              </button>
-              <span className="text-sm font-medium text-foreground">启用音量渐入渐出</span>
-            </div>
-          </div>
-
-          {/* 仅在启用渐入渐出时显示以下滑块 */}
-          {enableFade && (
-            <>
-              <div className="space-y-1.5">
-                <div className="flex items-center justify-between">
-                  <span className="text-xs text-muted-foreground/60 font-medium uppercase tracking-wider">音量渐入</span>
-                  <span className="text-sm font-mono text-foreground tabular-nums">{fadeInDuration}s</span>
-                </div>
-                <div className="py-0.5 flex items-center gap-3">
-                  <NumberStepperButton
-                    dir={-1}
-                    disabled={fadeInDuration <= 0}
-                    value={fadeInDuration}
-                    onChange={setFadeInDuration}
-                    min={0}
-                    max={120}
-                    step={1}
-                    className="w-8 h-8"
-                  />
-                  <input
-                    type="range"
-                    min={0}
-                    max={120}
-                    value={fadeInDuration}
-                    onChange={(e) => setFadeInDuration(parseInt(e.target.value))}
-                    className="flex-1 h-2 rounded-full appearance-none bg-border/30 cursor-pointer [&::-webkit-slider-thumb]:appearance-none [&::-webkit-slider-thumb]:w-6 [&::-webkit-slider-thumb]:h-6 [&::-webkit-slider-thumb]:rounded-full [&::-webkit-slider-thumb]:bg-white [&::-webkit-slider-thumb]:shadow-md [&::-webkit-slider-thumb]:cursor-pointer [&::-webkit-slider-thumb]:transition-transform [&::-webkit-slider-thumb]:hover:scale-110 [&::-webkit-slider-thumb]:active:scale-95 [&::-webkit-slider-thumb]:border-2 [&::-webkit-slider-thumb]:border-[var(--brand-start)] sm:[&::-webkit-slider-thumb]:w-5 sm:[&::-webkit-slider-thumb]:h-5 sm:[&::-webkit-slider-thumb]:hover:scale-125"
-                    style={{
-                      background: `linear-gradient(to right, var(--brand-start) ${(fadeInDuration / 120) * 100}%, rgba(128,128,128,0.2) ${(fadeInDuration / 120) * 100}%)`,
-                    }}
-                  />
-                  <NumberStepperButton
-                    dir={1}
-                    disabled={fadeInDuration >= 120}
-                    value={fadeInDuration}
-                    onChange={setFadeInDuration}
-                    min={0}
-                    max={120}
-                    step={1}
-                    className="w-8 h-8"
-                  />
-                </div>
-              </div>
-
-              <div className="space-y-1.5">
-                <div className="flex items-center justify-between">
-                  <span className="text-xs text-muted-foreground/60 font-medium uppercase tracking-wider">音量渐出</span>
-                  <span className="text-sm font-mono text-foreground tabular-nums">{fadeOutDuration}s</span>
-                </div>
-                <div className="py-0.5 flex items-center gap-3">
-                  <NumberStepperButton
-                    dir={-1}
-                    disabled={fadeOutDuration <= 0}
-                    value={fadeOutDuration}
-                    onChange={setFadeOutDuration}
-                    min={0}
-                    max={120}
-                    step={1}
-                    className="w-8 h-8"
-                  />
-                  <input
-                    type="range"
-                    min={0}
-                    max={120}
-                    value={fadeOutDuration}
-                    onChange={(e) => setFadeOutDuration(parseInt(e.target.value))}
-                    className="flex-1 h-2 rounded-full appearance-none bg-border/30 cursor-pointer [&::-webkit-slider-thumb]:appearance-none [&::-webkit-slider-thumb]:w-6 [&::-webkit-slider-thumb]:h-6 [&::-webkit-slider-thumb]:rounded-full [&::-webkit-slider-thumb]:bg-white [&::-webkit-slider-thumb]:shadow-md [&::-webkit-slider-thumb]:cursor-pointer [&::-webkit-slider-thumb]:transition-transform [&::-webkit-slider-thumb]:hover:scale-110 [&::-webkit-slider-thumb]:active:scale-95 [&::-webkit-slider-thumb]:border-2 [&::-webkit-slider-thumb]:border-[var(--brand-start)] sm:[&::-webkit-slider-thumb]:w-5 sm:[&::-webkit-slider-thumb]:h-5 sm:[&::-webkit-slider-thumb]:hover:scale-125"
-                    style={{
-                      background: `linear-gradient(to right, var(--brand-start) ${(fadeOutDuration / 120) * 100}%, rgba(128,128,128,0.2) ${(fadeOutDuration / 120) * 100}%)`,
-                    }}
-                  />
-                  <NumberStepperButton
-                    dir={1}
-                    disabled={fadeOutDuration >= 120}
-                    value={fadeOutDuration}
-                    onChange={setFadeOutDuration}
-                    min={0}
-                    max={120}
-                    step={1}
-                    className="w-8 h-8"
-                  />
-                </div>
-              </div>
-            </>
-          )}
-        </div>
+        <FadeControls
+          className="pt-2"
+          enabled={enableFade}
+          fadeInDuration={fadeInDuration}
+          fadeOutDuration={fadeOutDuration}
+          onEnabledChange={enabled => updatePlaybackField("enableFade", enabled)}
+          onFadeInDurationChange={duration => updatePlaybackField("fadeInDuration", duration)}
+          onFadeOutDurationChange={duration => updatePlaybackField("fadeOutDuration", duration)}
+        />
       </div>
 
       <div className="flex items-center gap-3 pt-2">
@@ -421,7 +341,7 @@ export function TaskForm({ editTask, onSave, onCancel }: TaskFormProps) {
           onClick={onCancel}
           className="flex-1 h-12 rounded-xl border border-border/60 text-sm font-medium text-muted-foreground hover:text-foreground hover:bg-muted/80 active:bg-muted transition-all cursor-pointer min-h-[44px]"
         >
-          取消设置
+          {isEditing ? "取消修改" : "暂不创建"}
         </button>
         <button
           onClick={handleSave}
@@ -436,7 +356,8 @@ export function TaskForm({ editTask, onSave, onCancel }: TaskFormProps) {
           <Save className="w-4 h-4" />
           {isSaveDisabled ? (
             !taskName.trim() ? "请输入任务名称" :
-            taskAudios.length === 0 ? "请先上传音频" :
+            audios.length === 0 ? "请先上传音频" :
+            hasUnavailableAudio ? "音频尚未保存完成" :
             timeError || "时间无效"
           ) : "保存任务"}
         </button>

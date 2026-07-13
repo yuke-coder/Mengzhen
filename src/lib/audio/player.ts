@@ -117,7 +117,7 @@ export class UnifiedAudioPlayer {
     const playback: PlaybackState = {
       taskId: task.id,
       audio: audioElement,
-      targetVolume: (task.volume || 70) / 100,
+      targetVolume: (task.volume ?? 70) / 100,
       phase: 'fading-in',
       startedAt: Date.now(),
       scheduledStartAt,

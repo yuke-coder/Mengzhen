@@ -192,7 +192,7 @@ async function playAudio(task: ScheduledTask, scheduledStartAt: number): Promise
   const playback: LocalPlaybackState = {
     taskId: task.id,
     audio: audioElement,
-    targetVolume: (task.volume || 70) / 100,
+    targetVolume: (task.volume ?? 70) / 100,
     phase: 'fading-in',
     startedAt: Date.now(),
     scheduledStartAt,

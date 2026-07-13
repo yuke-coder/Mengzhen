@@ -1,15 +1,12 @@
 import {
   ScheduledTask,
   PlayMode,
-  PlayConfig,
   generateTaskId,
   getNextExecuteDate,
-  TaskAudio,
 } from './task-types';
 
 const TASKS_KEY = 'dream_pillow_tasks';
 const MODE_KEY = 'dream_pillow_mode';
-const DEFAULT_CONFIG_KEY = 'dream_default_play_config';
 
 // 内存缓存层
 let tasksCache: ScheduledTask[] | null = null;
@@ -23,37 +20,6 @@ export function getPlayMode(): PlayMode {
 
 export function setPlayMode(mode: PlayMode): void {
   localStorage.setItem(MODE_KEY, mode);
-}
-
-export interface DefaultPlayConfig {
-  startTime: {
-    year: number;
-    month: number;
-    day: number;
-    hour: number;
-    minute: number;
-    second: number;
-  };
-  playDurationMinutes: number;
-  fadeInDuration: number;
-  fadeOutDuration: number;
-  enableFade: boolean;
-  volume: number;
-}
-
-export function getDefaultPlayConfig(): DefaultPlayConfig | null {
-  if (typeof window === 'undefined') return null;
-  const raw = localStorage.getItem(DEFAULT_CONFIG_KEY);
-  if (!raw) return null;
-  try {
-    return JSON.parse(raw);
-  } catch {
-    return null;
-  }
-}
-
-export function setDefaultPlayConfig(config: DefaultPlayConfig): void {
-  localStorage.setItem(DEFAULT_CONFIG_KEY, JSON.stringify(config));
 }
 
 // 优化后的 getAllTasks，带缓存
@@ -224,88 +190,5 @@ export function cleanupCancelledTasks(): CleanupResult {
     }
   }
   return { removedCount: removed, removedNames };
-}
-
-export function getActiveTasks(): ScheduledTask[] {
-  const now = Date.now();
-  return getAllTasks().filter(t => t.status !== 'cancelled' && !(t.skipUntil && now < t.skipUntil));
-}
-
-export function resolvePlayConfig(): PlayConfig | null {
-  const mode = getPlayMode();
-
-  if (mode === 'custom') {
-    const tasks = getActiveTasks();
-    const now = Date.now();
-
-    let nextTask: ScheduledTask | null = null;
-    let earliestTime = Infinity;
-
-    for (const task of tasks) {
-      const nextExec = getNextExecuteDate(task);
-      if (nextExec) {
-        const execTime = nextExec.getTime();
-        if (execTime < earliestTime && execTime >= now - 60000) {
-          earliestTime = execTime;
-          nextTask = task;
-        }
-      }
-    }
-
-    if (!nextTask) return null;
-
-    const nextExec = getNextExecuteDate(nextTask)!;
-    return {
-      mode: 'custom',
-      startTime: {
-        year: nextExec.getFullYear(),
-        month: nextExec.getMonth() + 1,
-        day: nextExec.getDate(),
-        hour: nextExec.getHours(),
-        minute: nextExec.getMinutes(),
-        second: nextExec.getSeconds(),
-      },
-      playDurationMinutes: nextTask.playDurationMinutes,
-      fadeInDuration: nextTask.fadeInDuration,
-      fadeOutDuration: nextTask.fadeOutDuration,
-      enableFade: nextTask.enableFade ?? true, // 兼容旧数据
-      volume: nextTask.volume,
-      audios: nextTask.audios,
-      taskId: nextTask.id,
-    };
-  }
-
-  const defaultConfig = getDefaultPlayConfig();
-  if (!defaultConfig) return null;
-
-  const savedConfig = localStorage.getItem('dream_config');
-  let audios: TaskAudio[] = [];
-  if (savedConfig) {
-    try {
-      const parsed = JSON.parse(savedConfig);
-      if (parsed.audios && Array.isArray(parsed.audios)) {
-        audios = parsed.audios.map((a: Record<string, unknown>) => ({
-          id: a.id as string,
-          name: a.name as string,
-          duration: (a.duration as number) || 0,
-          size: (a.size as number) || ((a.file as Record<string, unknown>)?.size as number) || 0,
-          fileKey: a.fileKey as string | undefined,
-          serverUrl: a.serverUrl as string | undefined,
-          dbKey: a.dbKey as string | undefined,
-        }));
-      }
-    } catch {}
-  }
-
-  return {
-    mode: 'default',
-    startTime: defaultConfig.startTime,
-    playDurationMinutes: defaultConfig.playDurationMinutes,
-    fadeInDuration: defaultConfig.fadeInDuration,
-    fadeOutDuration: defaultConfig.fadeOutDuration,
-    enableFade: defaultConfig.enableFade ?? true, // 兼容旧数据
-    volume: defaultConfig.volume,
-    audios,
-  };
 }
 

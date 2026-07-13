@@ -41,26 +41,13 @@ export interface ScheduledTask {
   updatedAt: number; // 添加更新时间戳用于缓存失效
 }
 
-export type PlayMode = 'default' | 'custom';
+/** 默认设置与新建任务共同编辑的播放配置。 */
+export type PlaybackDraft = Pick<
+  ScheduledTask,
+  'audios' | 'volume' | 'fadeInDuration' | 'fadeOutDuration' | 'enableFade'
+>;
 
-export interface PlayConfig {
-  mode: PlayMode;
-  startTime: {
-    year: number;
-    month: number;
-    day: number;
-    hour: number;
-    minute: number;
-    second: number;
-  };
-  playDurationMinutes: number;
-  fadeInDuration: number;
-  fadeOutDuration: number;
-  enableFade: boolean; // 新增：是否启用音量渐入渐出
-  volume: number;
-  audios: TaskAudio[];
-  taskId?: string;
-}
+export type PlayMode = 'default' | 'custom';
 
 // 播放配置接口
 export interface AudioPlayConfig {
