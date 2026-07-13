@@ -1,20 +1,9 @@
 import { expect, test, type Locator, type Page } from "@playwright/test";
+import { openNewTask, openSettings } from "./helpers";
 
 async function openDurationSetter(page: Page) {
-  const pageErrors: string[] = [];
-  page.on("pageerror", error => pageErrors.push(error.message));
-  await page.addInitScript(() => {
-    localStorage.clear();
-    sessionStorage.clear();
-    localStorage.setItem("audio_unlocked", "true");
-    localStorage.setItem("keep_screen_on", "false");
-    sessionStorage.setItem("pwa_prompted_session", "true");
-  });
-
-  await page.goto("/settings");
-  await page.getByRole("button", { name: "自定义任务", exact: true }).click();
-  await page.getByRole("button", { name: "新建任务", exact: true }).click();
-  await expect(page.getByRole("button", { name: "暂不创建", exact: true })).toBeVisible();
+  const pageErrors = await openSettings(page);
+  await openNewTask(page);
 
   const duration = page.getByRole("group", { name: "播放时长" });
   await expect(duration).toBeVisible();

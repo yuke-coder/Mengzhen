@@ -1,4 +1,5 @@
 import { expect, test, type BrowserContext, type Locator, type Page } from "@playwright/test";
+import { dragTouchVertically, openNewTask, openSettings } from "./helpers";
 
 async function swipeVertically(context: BrowserContext, target: Locator, distance: number) {
   await target.evaluate(element => element.scrollIntoView({ block: "center" }));
@@ -6,45 +7,15 @@ async function swipeVertically(context: BrowserContext, target: Locator, distanc
   expect(box).not.toBeNull();
   if (!box) return;
 
-  const cdp = await context.newCDPSession(target.page());
   const x = box.x + box.width / 2;
   const startY = box.y + box.height / 2;
-  await cdp.send("Input.dispatchTouchEvent", {
-    type: "touchStart",
-    touchPoints: [{ x, y: startY, id: 1, radiusX: 1, radiusY: 1, force: 1 }],
-  });
-  for (let step = 1; step <= 12; step += 1) {
-    await cdp.send("Input.dispatchTouchEvent", {
-      type: "touchMove",
-      touchPoints: [{
-        x,
-        y: startY + (distance * step) / 12,
-        id: 1,
-        radiusX: 1,
-        radiusY: 1,
-        force: 1,
-      }],
-    });
-  }
-  await cdp.send("Input.dispatchTouchEvent", { type: "touchEnd", touchPoints: [] });
+  await dragTouchVertically(context, target.page(), x, startY, startY + distance);
 }
 
-async function openNewTask(page: Page) {
-  const pageErrors: string[] = [];
-  page.on("pageerror", error => pageErrors.push(error.message));
-  await page.addInitScript(() => {
-    localStorage.clear();
-    sessionStorage.clear();
-    localStorage.setItem("audio_unlocked", "true");
-    localStorage.setItem("keep_screen_on", "false");
-    sessionStorage.setItem("pwa_prompted_session", "true");
-  });
-
-  await page.goto("/settings");
+async function openPickerTask(page: Page) {
+  const pageErrors = await openSettings(page);
   await expect(page.getByRole("group", { name: "开始时间滚轮选择器" })).toBeVisible();
-  await page.getByRole("button", { name: "自定义任务", exact: true }).click();
-  await page.getByRole("button", { name: "新建任务", exact: true }).click();
-  await expect(page.getByRole("button", { name: "暂不创建", exact: true })).toBeVisible();
+  await openNewTask(page);
   return pageErrors;
 }
 
@@ -53,7 +24,7 @@ for (const width of [390, 711]) {
     test.use({ viewport: { width, height: 844 }, hasTouch: true, isMobile: true });
 
     test("时间滚轮默认收起，且摘要区域仍能滚动整体 Sheet", async ({ context, page }) => {
-      const pageErrors = await openNewTask(page);
+      const pageErrors = await openPickerTask(page);
       const picker = page.getByRole("group", { name: "开始时间滚轮选择器", includeHidden: true });
       const expandButton = page.getByRole("button", { name: /^展开开始时间选择器/ });
 
@@ -109,7 +80,7 @@ for (const width of [390, 711]) {
     });
 
     test("半屏 Sheet 滚到底后底部操作区仍完整可见", async ({ context, page }) => {
-      const pageErrors = await openNewTask(page);
+      const pageErrors = await openPickerTask(page);
       const sheet = page.locator("[data-vaul-drawer]");
       const sheetScroller = page.locator("[data-vaul-no-drag]");
       const cancelButton = page.getByRole("button", { name: "暂不创建", exact: true });
@@ -181,7 +152,7 @@ for (const width of [390, 711]) {
 }
 
 test("桌面端新建任务仍直接显示时间滚轮", async ({ page }) => {
-  const pageErrors = await openNewTask(page);
+  const pageErrors = await openPickerTask(page);
   await expect(page.getByRole("button", { name: /开始时间选择器/ })).toHaveCount(0);
   await expect(page.getByRole("group", { name: "开始时间滚轮选择器" })).toBeVisible();
   expect(pageErrors).toEqual([]);

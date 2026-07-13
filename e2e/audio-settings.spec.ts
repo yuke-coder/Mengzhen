@@ -1,4 +1,5 @@
 import { expect, test, type BrowserContext, type Page } from "@playwright/test";
+import { dragTouchVertically, openSettings } from "./helpers";
 
 const AUDIO_HANDLE_NAME = /^调整「(.+)」的播放顺序$/;
 
@@ -41,16 +42,8 @@ async function audioOrder(page: Page) {
   return labels.map(label => label.match(AUDIO_HANDLE_NAME)?.[1] ?? label);
 }
 
-async function openSettings(page: Page) {
-  const pageErrors: string[] = [];
-  page.on("pageerror", error => pageErrors.push(error.message));
+async function openAudioSettings(page: Page) {
   await page.addInitScript(() => {
-    localStorage.clear();
-    sessionStorage.clear();
-    localStorage.setItem("audio_unlocked", "true");
-    localStorage.setItem("keep_screen_on", "false");
-    sessionStorage.setItem("pwa_prompted_session", "true");
-
     const testWindow = window as typeof window & { __previewPlayCalls: number };
     testWindow.__previewPlayCalls = 0;
     HTMLMediaElement.prototype.play = function play() {
@@ -58,7 +51,7 @@ async function openSettings(page: Page) {
       return Promise.resolve();
     };
   });
-  await page.goto("/settings");
+  const pageErrors = await openSettings(page);
   await expect(page.getByLabel("选择音频文件")).toBeAttached();
   return pageErrors;
 }
@@ -111,32 +104,14 @@ async function dragWithTouch(context: BrowserContext, page: Page, sourceName: st
   expect(targetBox).not.toBeNull();
   if (!sourceBox || !targetBox) return;
 
-  const cdp = await context.newCDPSession(page);
   const x = sourceBox.x + sourceBox.width / 2;
   const startY = sourceBox.y + sourceBox.height / 2;
   const endY = targetBox.y + targetBox.height / 2 + 8;
-  await cdp.send("Input.dispatchTouchEvent", {
-    type: "touchStart",
-    touchPoints: [{ x, y: startY, id: 1, radiusX: 1, radiusY: 1, force: 1 }],
-  });
-  for (let step = 1; step <= 12; step += 1) {
-    await cdp.send("Input.dispatchTouchEvent", {
-      type: "touchMove",
-      touchPoints: [{
-        x,
-        y: startY + ((endY - startY) * step) / 12,
-        id: 1,
-        radiusX: 1,
-        radiusY: 1,
-        force: 1,
-      }],
-    });
-  }
-  await cdp.send("Input.dispatchTouchEvent", { type: "touchEnd", touchPoints: [] });
+  await dragTouchVertically(context, page, x, startY, endY);
 }
 
 test("超过 20 个音频仍全部添加，默认设置与新建任务继续共享", async ({ page }) => {
-  const pageErrors = await openSettings(page);
+  const pageErrors = await openAudioSettings(page);
   await uploadAudios(page, 25);
   await expect(page.getByText("已添加 25 个音频", { exact: true })).toBeVisible();
   expect(await audioOrder(page)).toEqual(audioFiles(25).map(file => file.name));
@@ -163,7 +138,7 @@ test("超过 20 个音频仍全部添加，默认设置与新建任务继续共�
 });
 
 test("鼠标和键盘排序不会误触试听", async ({ page }) => {
-  const pageErrors = await openSettings(page);
+  const pageErrors = await openAudioSettings(page);
   await uploadAudios(page, 3);
   const playCallsBeforeDrag = await previewPlayCalls(page);
   const orderBeforeDrag = await audioOrder(page);
@@ -187,7 +162,7 @@ test.describe("触摸排序", () => {
   test.use({ viewport: { width: 390, height: 844 }, hasTouch: true, isMobile: true });
 
   test("真实触摸拖动使用同一条排序路径且不会误触试听", async ({ context, page }) => {
-    const pageErrors = await openSettings(page);
+    const pageErrors = await openAudioSettings(page);
     await uploadAudios(page, 3);
     const playCallsBeforeDrag = await previewPlayCalls(page);
     const orderBeforeDrag = await audioOrder(page);
