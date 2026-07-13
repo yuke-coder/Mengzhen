@@ -61,6 +61,7 @@ export function TaskModal({ visible, onClose, children }: TaskModalProps) {
         <DrawerContent
           data-fullscreen={full}
           overlayClassName="z-[10000]"
+          style={{ paddingBottom: "var(--snap-point-height)" }}
           className={cn(
             "h-[100dvh] max-h-none z-[10000] bg-background/70 dark:bg-background/35 backdrop-blur-xl border-t border-border/60 rounded-t-2xl shadow-[0_-18px_48px_rgba(0,0,0,0.14)] dark:shadow-[0_-18px_54px_rgba(0,0,0,0.35)]",
             "transition-[border-radius,border-color,box-shadow] duration-300 ease-smooth",

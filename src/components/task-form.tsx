@@ -334,6 +334,7 @@ function TaskFormContent({ editTask, controller, active, onSave, onCancel }: Tas
             label="开始时间"
             value={startTime}
             onChange={setStartTime}
+            collapseOnMobile
           />
 
           <DurationSetter

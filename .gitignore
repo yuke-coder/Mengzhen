@@ -24,6 +24,8 @@ __pycache__/
 .cache
 coverage
 storybook-static
+test-results
+playwright-report
 *.tsbuildinfo
 
 # Package manager artifacts

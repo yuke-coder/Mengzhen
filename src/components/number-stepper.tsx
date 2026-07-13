@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useState, useCallback, useEffect, useRef } from "react";
+import React, { useCallback, useEffect, useRef } from "react";
 import { Minus, Plus } from "lucide-react";
 import { cn } from "@/lib/utils";
 
@@ -12,6 +12,7 @@ export function NumberStepperButton({
   min = 0,
   max = 120,
   step = 1,
+  ariaLabel,
   className,
   iconSize = "w-3 h-3",
 }: {
@@ -22,13 +23,15 @@ export function NumberStepperButton({
   min?: number;
   max?: number;
   step?: number;
+  ariaLabel: string;
   className?: string;
   iconSize?: string;
 }) {
   const intervalRef = useRef<NodeJS.Timeout | null>(null);
   const timeoutRef = useRef<NodeJS.Timeout | null>(null);
   const valueRef = useRef(value);
-  const hasFiredRef = useRef(false);
+  const activePointerRef = useRef<number | null>(null);
+  const didRepeatRef = useRef(false);
 
   useEffect(() => {
     valueRef.current = value;
@@ -36,6 +39,7 @@ export function NumberStepperButton({
 
   const doStep = useCallback(() => {
     const newValue = Math.min(max, Math.max(min, valueRef.current + dir * step));
+    valueRef.current = newValue;
     onChange(newValue);
   }, [dir, min, max, step, onChange]);
 
@@ -51,29 +55,27 @@ export function NumberStepperButton({
   }, []);
 
   const startRepeating = useCallback(() => {
+    didRepeatRef.current = true;
     doStep();
     intervalRef.current = setInterval(doStep, 100);
   }, [doStep]);
 
-  const handlePressStart = useCallback((e: React.MouseEvent | React.TouchEvent) => {
-    if (disabled) return;
-    e.preventDefault();
-    hasFiredRef.current = false;
+  const handlePointerDown = useCallback((event: React.PointerEvent<HTMLButtonElement>) => {
+    if (disabled || !event.isPrimary || (event.pointerType === "mouse" && event.button !== 0)) return;
+    activePointerRef.current = event.pointerId;
+    didRepeatRef.current = false;
+    event.currentTarget.setPointerCapture(event.pointerId);
     timeoutRef.current = setTimeout(startRepeating, 250);
   }, [disabled, startRepeating]);
 
-  const handlePressEnd = useCallback((e: React.MouseEvent | React.TouchEvent) => {
-    if (disabled) return;
-    e.preventDefault();
-    const hadInterval = intervalRef.current !== null;
+  const finishPointer = useCallback((event: React.PointerEvent<HTMLButtonElement>, cancelled: boolean) => {
+    if (activePointerRef.current !== event.pointerId) return;
+    activePointerRef.current = null;
     clearTimers();
-    if (!hadInterval) {
-      doStep();
+    if (cancelled) didRepeatRef.current = false;
+    if (event.currentTarget.hasPointerCapture(event.pointerId)) {
+      event.currentTarget.releasePointerCapture(event.pointerId);
     }
-  }, [disabled, doStep, clearTimers]);
-
-  const handleMouseLeave = useCallback(() => {
-    clearTimers();
   }, [clearTimers]);
 
   useEffect(() => {
@@ -84,15 +86,23 @@ export function NumberStepperButton({
     e.preventDefault();
   }, []);
 
+  const handleClick = useCallback(() => {
+    if (didRepeatRef.current) {
+      didRepeatRef.current = false;
+      return;
+    }
+    doStep();
+  }, [doStep]);
+
   return (
     <button
       type="button"
-      onMouseDown={handlePressStart}
-      onMouseUp={handlePressEnd}
-      onMouseLeave={handleMouseLeave}
-      onTouchStart={handlePressStart}
-      onTouchEnd={handlePressEnd}
-      onTouchCancel={handleMouseLeave}
+      aria-label={ariaLabel}
+      onPointerDown={handlePointerDown}
+      onPointerUp={event => finishPointer(event, false)}
+      onPointerCancel={event => finishPointer(event, true)}
+      onLostPointerCapture={clearTimers}
+      onClick={handleClick}
       onContextMenu={handleContextMenu}
       disabled={disabled}
       className={cn(

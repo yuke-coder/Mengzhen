@@ -5,7 +5,7 @@ import { cn } from "@/lib/utils";
 import { Button } from "@/components/ui/button";
 import { Spinner } from "@/components/ui/spinner";
 import type { TaskAudio } from "@/lib/task-types";
-import { AUDIO_ACCEPT, MAX_FILES, formatFileSize, formatDuration } from "@/lib/audio";
+import { AUDIO_ACCEPT, formatFileSize, formatDuration } from "@/lib/audio";
 import type { PlaybackController } from "@/hooks/use-playback-controller";
 import {
   Upload,
@@ -23,37 +23,10 @@ import {
   VolumeX,
 } from "lucide-react";
 
-// 拖拽功能的样式
-const dragStyles = `
-  .audio-list-container [data-audio-item] {
-    touch-action: pan-y;
-    -webkit-user-select: none;
-    user-select: none;
-  }
-
-  .audio-list-container [data-audio-item].dragging-item {
-    touch-action: none;
-    -webkit-user-select: none;
-    user-select: none;
-    cursor: grabbing !important;
-  }
-
-  @keyframes dragFeedback {
-    0% { transform: scale(1); box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1); }
-    50% { transform: scale(1.02); box-shadow: 0 12px 28px rgba(0, 0, 0, 0.15); }
-    100% { transform: scale(1.02); box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2); }
-  }
-
-  .audio-list-container [data-audio-item]:active:not(.dragging-item) {
-    animation: dragFeedback 0.15s ease-out;
-  }
-`;
-
 interface AudioUploadProps {
   controller: PlaybackController;
   onAudioUploaded?: (audios: TaskAudio[]) => void;
   onAudioRemoved?: (id: string) => void;
-  onOrderChange?: (orderedIds: string[]) => void;
   onAudioCountChange?: (count: number) => void;
   disabled?: boolean;
 }
@@ -81,6 +54,7 @@ function PreviewAudio({
   return (
     <audio
       ref={bindElement}
+      data-preview-audio={audio.id}
       {...(source ? { src: source } : {})}
       preload="metadata"
       onTimeUpdate={event => updateTime(audio.id, event.currentTarget.currentTime)}
@@ -95,7 +69,6 @@ export function AudioUpload({
   controller,
   onAudioUploaded,
   onAudioRemoved,
-  onOrderChange,
   onAudioCountChange,
   disabled = false,
 }: AudioUploadProps) {
@@ -129,26 +102,12 @@ export function AudioUpload({
   const [showClearConfirm, setShowClearConfirm] = useState(false);
   const [portalReady, setPortalReady] = useState(false);
 
-  // 仅完整模式需要的状态
-  const [dragIndex, setDragIndex] = useState<number | null>(null);
-  const [isSwapAnimating, setIsSwapAnimating] = useState(false);
-  const [isDragging, setIsDragging] = useState(false);
   const [draggingId, setDraggingId] = useState<string | null>(null);
-  const [draggingY, setDraggingY] = useState(0);
-  const [dragOffsetY, setDragOffsetY] = useState(0);
-  const [dragStartIndex, setDragStartIndex] = useState<number | null>(null);
-  const longPressTimerRef = useRef<ReturnType<typeof setTimeout> | null>(null);
-  const gestureCleanupRef = useRef<(() => void) | null>(null);
-  const swapAnimationTimerRef = useRef<ReturnType<typeof setTimeout> | null>(null);
+  const activeDragRef = useRef<{ pointerId: number; audioId: string } | null>(null);
+  const suppressNextClickRef = useRef(false);
+  const listRef = useRef<HTMLDivElement>(null);
   const itemRefs = useRef<Record<string, HTMLDivElement | null>>({});
-  const lastMoveYRef = useRef(0);
   const lastMoveTimeRef = useRef(0);
-
-  useEffect(() => () => {
-    gestureCleanupRef.current?.();
-    if (longPressTimerRef.current) clearTimeout(longPressTimerRef.current);
-    if (swapAnimationTimerRef.current) clearTimeout(swapAnimationTimerRef.current);
-  }, []);
 
   const VolumeIcon = volume === 0 ? VolumeX : volume < 50 ? Volume1 : Volume2;
 
@@ -179,234 +138,82 @@ export function AudioUpload({
     setShowClearConfirm(false);
   }, [clearAudios]);
 
-  // 拖拽排序相关（仅完整模式）
-  const handleDragStart = useCallback((index: number) => {
-    setDragIndex(index);
+  const finishReorder = useCallback((event: React.PointerEvent<HTMLDivElement>) => {
+    const activeDrag = activeDragRef.current;
+    if (!activeDrag || activeDrag.pointerId !== event.pointerId) return;
+
+    event.stopPropagation();
+    activeDragRef.current = null;
+    if (event.type === "pointercancel") suppressNextClickRef.current = false;
+    if (event.currentTarget.hasPointerCapture(event.pointerId)) {
+      event.currentTarget.releasePointerCapture(event.pointerId);
+    }
+
+    lastMoveTimeRef.current = 0;
+    setDraggingId(null);
   }, []);
 
-  const handleDragOver = useCallback((e: React.DragEvent, index: number) => {
-    e.preventDefault();
-    if (dragIndex === null || dragIndex === index) return;
-    moveAudio(dragIndex, index);
-    setDragIndex(index);
-  }, [dragIndex, moveAudio]);
+  const handlePointerDown = useCallback((event: React.PointerEvent<HTMLButtonElement>, audioId: string) => {
+    if (disabled || !event.isPrimary || (event.pointerType === "mouse" && event.button !== 0)) return;
 
-  const handleDragEnd = useCallback(() => {
-    setIsSwapAnimating(true);
-    setDragIndex(null);
-    onOrderChange?.(audios.map(a => a.id));
-    if (swapAnimationTimerRef.current) clearTimeout(swapAnimationTimerRef.current);
-    swapAnimationTimerRef.current = setTimeout(() => {
-      setIsSwapAnimating(false);
-      swapAnimationTimerRef.current = null;
-    }, 700);
-  }, [onOrderChange, audios]);
-
-  // 移动端触摸拖拽排序
-  const LONG_PRESS_DURATION = 500;
-
-  const handleTouchStart = useCallback((e: React.TouchEvent, audioId: string, index: number) => {
-    if (disabled) return;
-    gestureCleanupRef.current?.();
-
-    if (longPressTimerRef.current) {
-      clearTimeout(longPressTimerRef.current);
-      longPressTimerRef.current = null;
-    }
-
-    const touch = e.touches[0];
-    const startY = touch.clientY;
-    setDragOffsetY(startY);
-    setDragStartIndex(index);
-
-    longPressTimerRef.current = setTimeout(() => {
-      const item = itemRefs.current[audioId];
-      if (item) {
-        const rect = item.getBoundingClientRect();
-        setDraggingY(rect.top);
-        setDragOffsetY(touch.clientY - rect.top);
-        setIsDragging(true);
-        setDraggingId(audioId);
-        setDragStartIndex(index);
-        item.classList.add("dragging-item");
-        if (navigator.vibrate) navigator.vibrate(50);
-      }
-    }, LONG_PRESS_DURATION);
-
-    const handleTouchMove = (moveEvent: TouchEvent) => {
-      const moveTouch = moveEvent.touches[0];
-      const deltaY = Math.abs(moveTouch.clientY - startY);
-      if (deltaY > 10) {
-        if (longPressTimerRef.current) {
-          clearTimeout(longPressTimerRef.current);
-          longPressTimerRef.current = null;
-        }
-      }
-    };
-
-    const cleanupTouchListeners = () => {
-      document.removeEventListener("touchmove", handleTouchMove);
-      document.removeEventListener("touchend", handleTouchEnd);
-      if (longPressTimerRef.current) {
-        clearTimeout(longPressTimerRef.current);
-        longPressTimerRef.current = null;
-      }
-      if (gestureCleanupRef.current === cleanupTouchListeners) gestureCleanupRef.current = null;
-    };
-
-    const handleTouchEnd = () => cleanupTouchListeners();
-
-    document.addEventListener("touchmove", handleTouchMove, { passive: true });
-    document.addEventListener("touchend", handleTouchEnd, { passive: true });
-    gestureCleanupRef.current = cleanupTouchListeners;
+    event.preventDefault();
+    event.stopPropagation();
+    const list = listRef.current;
+    if (!list) return;
+    activeDragRef.current = { pointerId: event.pointerId, audioId };
+    suppressNextClickRef.current = true;
+    lastMoveTimeRef.current = 0;
+    setDraggingId(audioId);
+    list.setPointerCapture(event.pointerId);
   }, [disabled]);
 
-  const handleTouchMoveDrag = useCallback((e: TouchEvent) => {
-    if (!isDragging || !draggingId || dragStartIndex === null) return;
-    e.preventDefault(); e.stopPropagation();
+  const handlePointerMove = useCallback((event: React.PointerEvent<HTMLDivElement>) => {
+    const activeDrag = activeDragRef.current;
+    if (!activeDrag || activeDrag.pointerId !== event.pointerId) return;
 
-    const touch = e.touches[0];
-    const currentTime = Date.now();
-    if (currentTime - lastMoveTimeRef.current < 16) return;
-    lastMoveTimeRef.current = currentTime;
+    event.preventDefault();
+    event.stopPropagation();
+    const now = performance.now();
+    if (now - lastMoveTimeRef.current < 16) return;
+    lastMoveTimeRef.current = now;
 
-    const newY = touch.clientY - dragOffsetY;
-    setDraggingY(newY);
+    const currentAudios = controller.getDraft().audios;
+    const currentIndex = currentAudios.findIndex(audio => audio.id === activeDrag.audioId);
+    if (currentIndex === -1) return;
 
-    const container = document.querySelector(".audio-list-container");
-    if (!container) return;
-
-    const items = container.querySelectorAll("[data-audio-item]");
-    let targetIndex = dragStartIndex;
-
-    items.forEach((item, index) => {
+    let targetIndex = currentIndex;
+    for (let index = 0; index < currentAudios.length; index += 1) {
+      if (index === currentIndex) continue;
+      const item = itemRefs.current[currentAudios[index].id];
+      if (!item) continue;
       const rect = item.getBoundingClientRect();
-      const itemCenterY = rect.top + rect.height / 2;
-      if (touch.clientY > itemCenterY && index > dragStartIndex) targetIndex = index;
-      else if (touch.clientY < itemCenterY && index < dragStartIndex) targetIndex = index;
-    });
-
-    const audioIndex = audios.findIndex(a => a.id === draggingId);
-    if (audioIndex !== -1 && audioIndex !== targetIndex) {
-      moveAudio(audioIndex, targetIndex);
-      setDragStartIndex(targetIndex);
+      const centerY = rect.top + rect.height / 2;
+      if (index < currentIndex && event.clientY < centerY) {
+        targetIndex = index;
+        break;
+      }
+      if (index > currentIndex && event.clientY > centerY) targetIndex = index;
     }
-  }, [isDragging, draggingId, dragStartIndex, dragOffsetY, audios, moveAudio]);
 
-  const handleTouchEndDrag = useCallback(() => {
-    if (!isDragging || !draggingId) return;
+    if (targetIndex !== currentIndex) moveAudio(currentIndex, targetIndex);
+  }, [controller, moveAudio]);
 
-    const item = itemRefs.current[draggingId];
-    if (item) item.classList.remove("dragging-item");
+  const handleReorderKeyDown = useCallback((event: React.KeyboardEvent<HTMLButtonElement>, index: number) => {
+    if (disabled || (event.key !== "ArrowUp" && event.key !== "ArrowDown")) return;
+    const targetIndex = event.key === "ArrowUp" ? index - 1 : index + 1;
+    if (targetIndex < 0 || targetIndex >= audios.length) return;
 
-    setIsDragging(false);
-    setDraggingId(null);
-    setDraggingY(0);
-    setDragOffsetY(0);
-    setDragStartIndex(null);
-    lastMoveYRef.current = 0;
-    lastMoveTimeRef.current = 0;
+    event.preventDefault();
+    event.stopPropagation();
+    moveAudio(index, targetIndex);
+  }, [audios.length, disabled, moveAudio]);
 
-    onOrderChange?.(audios.map(a => a.id));
-  }, [isDragging, draggingId, onOrderChange, audios]);
-
-  // 鼠标拖拽支持（桌面端）
-  const handleMouseDown = useCallback((e: React.MouseEvent, audioId: string, index: number) => {
-    if (disabled) return;
-    if (e.button !== 0) return;
-
-    const item = itemRefs.current[audioId];
-    if (!item) return;
-
-    const rect = item.getBoundingClientRect();
-    const offsetY = e.clientY - rect.top;
-    setDragOffsetY(offsetY);
-    setDragStartIndex(index);
-
-    const handleMouseMove = (moveEvent: MouseEvent) => {
-      const currentY = moveEvent.clientY;
-      const currentTime = Date.now();
-
-      if (!isDragging) {
-        setIsDragging(true);
-        setDraggingId(audioId);
-        setDraggingY(rect.top);
-      }
-
-      if (currentTime - lastMoveTimeRef.current < 16) return;
-      lastMoveTimeRef.current = currentTime;
-
-      setDraggingY(currentY - offsetY);
-
-      const container = document.querySelector(".audio-list-container");
-      if (!container) return;
-
-      const items = container.querySelectorAll("[data-audio-item]");
-      let targetIndex = dragStartIndex || index;
-
-      items.forEach((item, idx) => {
-        const itemRect = item.getBoundingClientRect();
-        const itemCenterY = itemRect.top + itemRect.height / 2;
-        if (currentY > itemCenterY && idx > (dragStartIndex || index)) targetIndex = idx;
-        else if (currentY < itemCenterY && idx < (dragStartIndex || index)) targetIndex = idx;
-      });
-
-      const audioIndex = audios.findIndex(a => a.id === audioId);
-      if (audioIndex !== -1 && audioIndex !== targetIndex) {
-        moveAudio(audioIndex, targetIndex);
-        setDragStartIndex(targetIndex);
-      }
-    };
-
-    const cleanupMouseListeners = () => {
-      document.removeEventListener("mousemove", handleMouseMove);
-      document.removeEventListener("mouseup", handleMouseUp);
-      if (gestureCleanupRef.current === cleanupMouseListeners) gestureCleanupRef.current = null;
-    };
-
-    const handleMouseUp = () => {
-      cleanupMouseListeners();
-
-      const item = itemRefs.current[audioId];
-      if (item) item.classList.remove("dragging-item");
-
-      setIsDragging(false);
-      setDraggingId(null);
-      setDraggingY(0);
-      setDragOffsetY(0);
-      setDragStartIndex(null);
-      lastMoveYRef.current = 0;
-      lastMoveTimeRef.current = 0;
-
-      onOrderChange?.(audios.map(a => a.id));
-    };
-
-    gestureCleanupRef.current?.();
-    document.addEventListener("mousemove", handleMouseMove);
-    document.addEventListener("mouseup", handleMouseUp);
-    gestureCleanupRef.current = cleanupMouseListeners;
-  }, [disabled, isDragging, dragStartIndex, audios, moveAudio, onOrderChange]);
-
-  // 全局触摸移动事件监听（用于拖拽过程中的移动）
-  useEffect(() => {
-    if (!mounted || !isDragging) return;
-
-    const handleTouchMove = (e: TouchEvent) => {
-      handleTouchMoveDrag(e);
-    };
-
-    const handleTouchEnd = () => {
-      handleTouchEndDrag();
-    };
-
-    document.addEventListener("touchmove", handleTouchMove, { passive: false });
-    document.addEventListener("touchend", handleTouchEnd);
-
-    return () => {
-      document.removeEventListener("touchmove", handleTouchMove);
-      document.removeEventListener("touchend", handleTouchEnd);
-    };
-  }, [mounted, isDragging, handleTouchMoveDrag, handleTouchEndDrag]);
+  const suppressReorderClick = useCallback((event: React.MouseEvent<HTMLDivElement>) => {
+    if (!suppressNextClickRef.current) return;
+    suppressNextClickRef.current = false;
+    event.preventDefault();
+    event.stopPropagation();
+  }, []);
 
   useEffect(() => { if (!mounted) return; onAudioCountChange?.(audios.length); }, [mounted, audios.length, onAudioCountChange]);
 
@@ -430,6 +237,7 @@ export function AudioUpload({
         ref={fileInputRef}
         type="file"
         multiple
+        aria-label="选择音频文件"
         accept={AUDIO_ACCEPT}
         onChange={handleFileSelect}
         disabled={disabled}
@@ -444,7 +252,7 @@ export function AudioUpload({
             {disabled ? "请先登录" : dragOver ? "松开以上传" : "点击或拖拽音频文件到此处"}
           </p>
           {audios.length > 0 && (
-            <p className="text-xs text-[var(--brand-start)] font-medium">已添加 {audios.length}/{MAX_FILES} 个音频</p>
+            <p className="text-xs text-[var(--brand-start)] font-medium">已添加 {audios.length} 个音频</p>
           )}
         </div>
       </div>
@@ -459,7 +267,7 @@ export function AudioUpload({
           <h3 className="text-sm font-medium text-foreground flex items-center gap-2">
             <Music2 className="w-4 h-4 text-[var(--brand-start)]" />
             音频列表（{audios.length}）
-            <span className="text-xs font-normal text-muted-foreground">· 拖拽调整播放顺序</span>
+            <span className="text-xs font-normal text-muted-foreground">· 拖动左侧手柄调整顺序</span>
           </h3>
           {!allUploaded && user && (
             <Button
@@ -479,12 +287,20 @@ export function AudioUpload({
           )}
         </div>
 
-        <div className="space-y-2 audio-list-container">
+        <div
+          ref={listRef}
+          className="space-y-2 audio-list-container"
+          onPointerMove={handlePointerMove}
+          onPointerUp={finishReorder}
+          onPointerCancel={finishReorder}
+          onLostPointerCapture={finishReorder}
+          onPointerDownCapture={() => { suppressNextClickRef.current = false; }}
+          onClickCapture={suppressReorderClick}
+        >
           {audios.map((audio, index) => {
             const isPlaying = playingId === audio.id;
             const currentTime = currentTimes[audio.id] || 0;
-            const isDraggingThis = dragIndex === index;
-            const isCurrentlyDragging = isDraggingThis && draggingId === audio.id;
+            const isDraggingThis = draggingId === audio.id;
             const uploadState = uploadStates[audio.id];
             const audioSource = sourceFor(audio);
 
@@ -493,46 +309,42 @@ export function AudioUpload({
                 key={audio.id}
                 data-audio-item={audio.id}
                 ref={el => { itemRefs.current[audio.id] = el; }}
-                draggable={!disabled}
-                onDragStart={() => handleDragStart(index)}
-                onDragOver={(e) => handleDragOver(e, index)}
-                onDragEnd={handleDragEnd}
-                onTouchStart={(e) => handleTouchStart(e, audio.id, index)}
-                onMouseDown={(e) => handleMouseDown(e, audio.id, index)}
                 onClick={() => togglePlay(audio.id)}
                 className={cn(
                   "group/audio relative cursor-pointer select-none transition-all duration-200",
-                  isSwapAnimating && "transition-all duration-[700ms] ease-[cubic-bezier(0.22,1,0.36,1)]",
                   isDraggingThis && "scale-[1.02] opacity-80 z-10",
                   disabled && "opacity-50 pointer-events-none"
                 )}
                 style={{
-                  ...(isPlaying && isCurrentlyDragging && {
+                  ...(isPlaying && isDraggingThis && {
                     background: "radial-gradient(ellipse at 20% 50%, color-mix(in srgb, var(--brand-start)) 12%, transparent) 40%, color-mix(in srgb, var(--brand-end)) 6% transparent 70%, transparent 100%"
-                  }),
-                  ...(isCurrentlyDragging && {
-                    position: "fixed",
-                    top: draggingY,
-                    left: 0,
-                    right: 0,
-                    zIndex: 9999,
-                    transform: "scale(1.02)",
-                    boxShadow: "0 20px 40px rgba(0, 0, 0, 0.15)",
-                    opacity: 0.95,
                   }),
                 }}
               >
                 <div className="p-3 sm:p-3 space-y-2">
                   <div className="flex items-center gap-3">
-                    <div draggable={!disabled} onDragStart={() => handleDragStart(index)} onDragOver={(e) => handleDragOver(e, index)} onDragEnd={handleDragEnd} className="flex-shrink-0 w-5 cursor-grab active:cursor-grabbing touch-none">
+                    <button
+                      type="button"
+                      aria-label={`调整「${audio.name}」的播放顺序`}
+                      onClick={event => event.stopPropagation()}
+                      onPointerDown={event => handlePointerDown(event, audio.id)}
+                      onKeyDown={event => handleReorderKeyDown(event, index)}
+                      disabled={disabled}
+                      className="flex flex-shrink-0 w-5 cursor-grab items-center justify-center touch-none active:cursor-grabbing disabled:cursor-not-allowed"
+                    >
                       <GripVertical className="w-4 h-4 text-muted-foreground/30 group-hover/audio:text-muted-foreground transition-colors" />
-                    </div>
+                    </button>
 
-                    <button onClick={e => { e.stopPropagation(); togglePlay(audio.id); }} className={cn(
+                    <button
+                      type="button"
+                      aria-label={`${isPlaying ? "暂停" : "试听"}「${audio.name}」`}
+                      onClick={e => { e.stopPropagation(); togglePlay(audio.id); }}
+                      className={cn(
                       "flex-shrink-0 w-9 h-9 sm:w-8 sm:h-8 rounded-lg bg-muted/80 border border-border/40 flex items-center justify-center active:scale-95 transition-all",
                       isPlaying && "text-[var(--brand-start)] border-[var(--brand-start)]/30",
                       !isPlaying && "text-foreground hover:text-[var(--brand-start)] hover:border-[var(--brand-start)]/30"
-                    )}>
+                    )}
+                    >
                       {isPlaying ? <Pause className="w-3.5 h-3.5 sm:w-3 sm:h-3" fill="currentColor" /> : <Play className="w-3.5 h-3.5 sm:w-3 sm:h-3 ml-0.5" fill="currentColor" />}
                     </button>
 
@@ -603,7 +415,7 @@ export function AudioUpload({
         </div>
 
         <div className="flex items-center justify-between pt-2 px-1">
-          <p className="text-xs text-muted-foreground">共 {audios.length} 个音频{audios.length > 1 && " · 拖拽调整播放顺序"}{allUploaded && user && " · 全部已上传"}</p>
+          <p className="text-xs text-muted-foreground">共 {audios.length} 个音频{audios.length > 1 && " · 拖动手柄调整顺序"}{allUploaded && user && " · 全部已上传"}</p>
           {audios.length > 1 && <button onClick={() => setShowClearConfirm(true)} className="text-xs text-muted-foreground hover:text-red-500 transition-colors">清空全部</button>}
         </div>
       </div>
@@ -623,6 +435,7 @@ export function AudioUpload({
         <div className="relative pt-1 pb-1">
           <input
             type="range"
+            aria-label="音量控制"
             min={0} max={100}
             value={volume} step={1}
             onInput={e => setVolume(parseInt((e.target as HTMLInputElement).value, 10))}
@@ -638,7 +451,6 @@ export function AudioUpload({
 
   return (
     <>
-      <style dangerouslySetInnerHTML={{ __html: dragStyles }} />
       <div className="space-y-3 sm:space-y-6">
         {renderUploadArea()}
         {uploadError && (

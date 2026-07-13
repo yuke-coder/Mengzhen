@@ -3,6 +3,7 @@ import React, { useEffect, useCallback, useRef, useMemo, useState } from "react"
 import { cn } from "@/lib/utils";
 import { useIsMobile } from "@/hooks/use-mobile";
 import { useTheme } from "@/lib/theme-context";
+import { ChevronRight } from "lucide-react";
 
 export interface DateTimeValue {
     year: number;
@@ -17,6 +18,7 @@ export interface WheelDateTimePickerProps {
     value: DateTimeValue;
     onChange: (value: DateTimeValue) => void;
     label: string;
+    collapseOnMobile?: boolean;
 }
 
 const ITEM_HEIGHT = 36;
@@ -30,10 +32,13 @@ interface WheelPickerColumnProps {
     label: string;
     isDark?: boolean;
     loop?: boolean;
+    active?: boolean;
 }
 
 const formatDateTime = (v: DateTimeValue) =>
     `${v.year}-${String(v.month).padStart(2, "0")}-${String(v.day).padStart(2, "0")} ${String(v.hour).padStart(2, "0")}:${String(v.minute).padStart(2, "0")}:${String(v.second).padStart(2, "0")}`;
+const formatCompactDateTime = (v: DateTimeValue) =>
+    `${v.month}月${v.day}日 ${String(v.hour).padStart(2, "0")}:${String(v.minute).padStart(2, "0")}`;
 
 const daysInMonth = (year: number, month: number) => new Date(year, month, 0).getDate();
 const makeOptions = (count: number, start = 0, pad = 2) =>
@@ -46,10 +51,11 @@ function useClientOnly() {
     return mounted;
 }
 
-function WheelPickerColumn({ items, value, onChange, label, isDark = false, loop = false }: WheelPickerColumnProps) {
+function WheelPickerColumn({ items, value, onChange, label, isDark = false, loop = false, active = true }: WheelPickerColumnProps) {
     const scrollerRef = useRef<HTMLDivElement>(null);
     const commitTimerRef = useRef<NodeJS.Timeout | null>(null);
     const animationFrameRef = useRef<number | null>(null);
+    const positioningRef = useRef(true);
     const mounted = useClientOnly();
     const baseLen = items.length;
 
@@ -79,16 +85,23 @@ function WheelPickerColumn({ items, value, onChange, label, isDark = false, loop
     }, [loop, baseLen]);
 
     useEffect(() => {
-        if (!mounted) return;
+        if (animationFrameRef.current) cancelAnimationFrame(animationFrameRef.current);
+        positioningRef.current = true;
+        if (!mounted || !active) return;
         const el = scrollerRef.current;
         if (!el) return;
         const targetTop = initialScrollIndex * ITEM_HEIGHT;
-        if (Math.abs(el.scrollTop - targetTop) > 1) {
-            el.scrollTop = targetTop;
-        }
-    }, [initialScrollIndex, mounted]);
+        animationFrameRef.current = requestAnimationFrame(() => {
+            if (Math.abs(el.scrollTop - targetTop) > 1) el.scrollTop = targetTop;
+            animationFrameRef.current = requestAnimationFrame(() => {
+                positioningRef.current = false;
+                animationFrameRef.current = null;
+            });
+        });
+    }, [active, initialScrollIndex, mounted]);
 
-    const handleScroll = useCallback((e: React.UIEvent<HTMLDivElement>) => {
+    const handleScroll = useCallback(() => {
+        if (positioningRef.current) return;
         if (animationFrameRef.current) cancelAnimationFrame(animationFrameRef.current);
         if (commitTimerRef.current) clearTimeout(commitTimerRef.current);
 
@@ -128,7 +141,7 @@ function WheelPickerColumn({ items, value, onChange, label, isDark = false, loop
                 <div
                     ref={scrollerRef}
                     className="h-full overflow-y-auto snap-y snap-mandatory"
-                    onScroll={mounted ? handleScroll : undefined}
+                    onScroll={mounted && active ? handleScroll : undefined}
                     style={{
                         paddingTop: centerOffset,
                         paddingBottom: centerOffset,
@@ -168,11 +181,13 @@ function WheelPickerColumn({ items, value, onChange, label, isDark = false, loop
     );
 }
 
-export const WheelDateTimePicker = React.memo(function WheelDateTimePicker({ value, onChange, label }: WheelDateTimePickerProps) {
+export const WheelDateTimePicker = React.memo(function WheelDateTimePicker({ value, onChange, label, collapseOnMobile = false }: WheelDateTimePickerProps) {
     const mounted = useClientOnly();
     const isMobile = useIsMobile();
     const { resolvedTheme } = useTheme();
     const isDark = resolvedTheme === "dark";
+    const pickerId = React.useId();
+    const [mobileExpanded, setMobileExpanded] = useState(false);
 
     const now = mounted ? new Date() : new Date("2025-01-01T00:00:00Z");
     const currentYear = now.getFullYear();
@@ -202,6 +217,7 @@ export const WheelDateTimePicker = React.memo(function WheelDateTimePicker({ val
     const secondOptions = useMemo(() => makeOptions(60), []);
 
     const actualIsMobile = mounted ? isMobile : false;
+    const wheelActive = !collapseOnMobile || !actualIsMobile || mobileExpanded;
 
     const columns = useMemo(() => actualIsMobile ? [
         { options: dayOptions, key: 'day' as const, label: '日', loop: false },
@@ -216,13 +232,58 @@ export const WheelDateTimePicker = React.memo(function WheelDateTimePicker({ val
         { options: secondOptions, key: 'second' as const, label: '秒', loop: true },
     ], [actualIsMobile, yearOptions, monthOptions, dayOptions, hourOptions, minuteOptions, secondOptions]);
 
+    const formattedValue = mounted ? formatDateTime(safeValue) : "";
+    const compactFormattedValue = mounted ? formatCompactDateTime(safeValue) : "";
+
     return (
         <div className="w-full">
-            <div className={cn("text-sm mb-2 flex justify-between items-center", isDark ? "text-zinc-400" : "text-zinc-500")}>
+            {collapseOnMobile && (
+                <button
+                    type="button"
+                    aria-expanded={mobileExpanded}
+                    aria-controls={pickerId}
+                    aria-label={`${mobileExpanded ? "收起" : "展开"}${label}选择器${compactFormattedValue ? `，当前值 ${compactFormattedValue}` : ""}`}
+                    onClick={() => setMobileExpanded(expanded => !expanded)}
+                    className={cn(
+                        "flex min-h-11 w-full items-center gap-2 rounded-lg border px-3 text-left transition-[background-color,border-color] duration-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--brand-start)]/40 md:hidden motion-reduce:transition-none",
+                        mobileExpanded
+                            ? "border-[var(--brand-start)]/50 bg-[var(--brand-start)]/5"
+                            : "border-border/60 bg-muted/20 hover:bg-muted/35",
+                    )}
+                >
+                    <span className="shrink-0 text-sm font-medium text-foreground">{label}</span>
+                    <span className="min-w-0 flex-1 truncate text-right font-mono text-xs tabular-nums text-muted-foreground">
+                        {compactFormattedValue}
+                    </span>
+                    <ChevronRight
+                        aria-hidden="true"
+                        className={cn(
+                            "h-4 w-4 shrink-0 text-muted-foreground transition-transform duration-200 motion-reduce:transition-none",
+                            mobileExpanded && "rotate-90",
+                        )}
+                    />
+                </button>
+            )}
+
+            <div className={cn(
+                "mb-2 items-center justify-between text-sm",
+                collapseOnMobile ? "hidden md:flex" : "flex",
+                isDark ? "text-zinc-400" : "text-zinc-500",
+            )}>
                 <span>{label}</span>
-                <span className="font-mono text-xs tabular-nums opacity-70">{mounted ? formatDateTime(safeValue) : ""}</span>
+                <span className="font-mono text-xs tabular-nums opacity-70">{formattedValue}</span>
             </div>
-            <div className="flex items-center gap-0.5 sm:gap-1">
+
+            <div
+                id={pickerId}
+                role="group"
+                aria-label={`${label}滚轮选择器`}
+                className={cn(
+                    "items-center gap-0.5 sm:gap-1",
+                    collapseOnMobile && !mobileExpanded ? "hidden md:flex" : "flex",
+                    collapseOnMobile && mobileExpanded && "mt-2",
+                )}
+            >
                 {columns.map(col => (
                     <WheelPickerColumn
                         key={col.key}
@@ -232,6 +293,7 @@ export const WheelDateTimePicker = React.memo(function WheelDateTimePicker({ val
                         label={col.label}
                         isDark={isDark}
                         loop={col.loop}
+                        active={wheelActive}
                     />
                 ))}
             </div>

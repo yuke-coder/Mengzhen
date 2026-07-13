@@ -30,6 +30,7 @@ function DurationControl({ label, value, onChange }: DurationControlProps) {
       <div className="py-0.5 flex items-center gap-3">
         <NumberStepperButton
           dir={-1}
+          ariaLabel={`减少${label}时长（每次1秒）`}
           disabled={value <= 0}
           value={value}
           onChange={onChange}
@@ -51,6 +52,7 @@ function DurationControl({ label, value, onChange }: DurationControlProps) {
         />
         <NumberStepperButton
           dir={1}
+          ariaLabel={`增加${label}时长（每次1秒）`}
           disabled={value >= 120}
           value={value}
           onChange={onChange}

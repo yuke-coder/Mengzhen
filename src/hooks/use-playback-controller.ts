@@ -3,7 +3,7 @@
 import { useCallback, useEffect, useMemo, useRef, useState, type Dispatch, type SetStateAction } from "react";
 import { useAuth } from "@/lib/auth-context";
 import { deleteAudioBlob, getAudioBlob, saveAudioBlob } from "@/lib/audio/db";
-import { AUDIO_EXTENSIONS, MAX_FILES } from "@/lib/audio";
+import { AUDIO_EXTENSIONS } from "@/lib/audio";
 import type { PlaybackDraft, TaskAudio } from "@/lib/task-types";
 
 export interface UploadState {
@@ -80,7 +80,6 @@ function mergeAudios(current: TaskAudio[], additions: TaskAudio[]): TaskAudio[] 
     ids.add(audio.id);
     names.add(audio.name);
     if (audio.fileKey) fileKeys.add(audio.fileKey);
-    if (merged.length >= MAX_FILES) break;
   }
 
   return merged;
@@ -346,11 +345,10 @@ export function usePlaybackController({ value, onChange }: UsePlaybackController
     setError(null);
     const currentAudios = valueRef.current.audios;
     const knownNames = new Set(currentAudios.map(audio => audio.name));
-    const available = Math.max(0, MAX_FILES - currentAudios.length);
     const additions: TaskAudio[] = [];
     const errors: string[] = [];
 
-    for (const file of Array.from(files).slice(0, available)) {
+    for (const file of Array.from(files)) {
       const validationError = validateFile(file, knownNames);
       if (validationError) {
         errors.push(validationError);
