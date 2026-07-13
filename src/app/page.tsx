@@ -232,7 +232,7 @@ function FloatingBar(
                 "fixed bottom-0 left-0 right-0 z-[500]",
                 visible ? "translate-y-0 opacity-100" : "translate-y-4 opacity-0 pointer-events-none"
             )}
-                style={{
+            style={{
                 transition: visible ? "transform 0.3s ease-out, opacity 0.3s ease-out" : "transform 0.5s cubic-bezier(0.4, 0, 0.2, 1), opacity 0.5s ease-out"
             }}>
             <div className="mx-auto max-w-md px-5 pb-5">
@@ -248,7 +248,7 @@ function FloatingBar(
                         <span className="font-bold text-base tracking-tight">
                             <span
                                 className="bg-gradient-to-r from-[var(--brand-start)] via-[var(--brand-mid)] to-[var(--brand-end)] bg-clip-text text-transparent">梦枕
-                                                                                                                            </span>
+                            </span>
                         </span>
                     </div>
                     <RippleButton
@@ -325,7 +325,7 @@ const heroVariants = {
         explore: false
     },
     desktop: {
-        section: "relative hidden sm:flex min-h-[85vh] flex-col items-center justify-center px-6 overflow-hidden",
+        section: "relative hidden sm:flex min-h-[85vh] flex flex-col items-center justify-center px-6 overflow-hidden",
         content: "relative z-10 w-full max-w-3xl mx-auto text-center space-y-10",
         title: "w-[31rem] max-w-full",
         subtitle: "PWA渐进式网页应用构建·云端数据库数据持久化·Cookie客户端本地持久化存储",
@@ -482,7 +482,7 @@ function DesktopHero(props: HeroProps) {
 export default function HomePage() {
     const router = useRouter();
     const { setTheme } = useTheme();
-    
+
     const mobileHeroButtonRef = useRef<HTMLButtonElement>(null);
     const desktopHeroButtonRef = useRef<HTMLButtonElement>(null);
     const bottomCtaRef = useRef<HTMLButtonElement>(null);
@@ -618,30 +618,30 @@ export default function HomePage() {
                                 </div>
                                 <h3 className="text-2xl font-bold text-foreground/90 mb-2">后台稳定播放</h3>
                                 <p className="text-muted-foreground/60">夜间锁屏休眠持续播放，不中断接续睡眠</p>
-                                </div>
-                                <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-4">
-                                    {[
-                                        { icon: Zap, title: "后台唤醒", desc: "锁屏休眠仍可定时唤醒正常播放" },
-                                        { icon: Battery, title: "电池优化", desc: "忽略电池优化引导，提升休眠稳定性" },
-                                        { icon: RefreshCw, title: "异常兜底", desc: "系统杀进程后可自动重试唤醒" },
-                                        { icon: WifiOff, title: "离线模式", desc: "断网网络不佳时定时播放正常" }
-                                    ].map((item, idx) => (
-                                        <div key={idx} className={cn(homeCardClass, "p-4 rounded-xl text-center hover:-translate-y-0.5")} style={cardDiffuse(13 + idx)}>
-                                            <div className="relative w-10 h-10 rounded-lg bg-[var(--brand-glow)]/10 flex items-center justify-center mx-auto mb-3 group-hover:scale-110 transition-transform duration-300">
-                                                <item.icon className="w-5 h-5 text-[var(--brand-glow)]" />
-                                            </div>
-                                            <h4 className="relative font-medium text-foreground/90 text-sm mb-1 group-hover:text-[var(--brand-glow)] transition-colors duration-300">{item.title}</h4>
-                                            <p className="relative text-xs text-muted-foreground/60 group-hover:text-muted-foreground/80 transition-colors duration-300">{item.desc}</p>
+                            </div>
+                            <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-4">
+                                {[
+                                    { icon: Zap, title: "后台唤醒", desc: "锁屏休眠仍可定时唤醒正常播放" },
+                                    { icon: Battery, title: "电池优化", desc: "忽略电池优化引导，提升休眠稳定性" },
+                                    { icon: RefreshCw, title: "异常兜底", desc: "系统杀进程后可自动重试唤醒" },
+                                    { icon: WifiOff, title: "离线模式", desc: "断网网络不佳时定时播放正常" }
+                                ].map((item, idx) => (
+                                    <div key={idx} className={cn(homeCardClass, "p-4 rounded-xl text-center hover:-translate-y-0.5")} style={cardDiffuse(13 + idx)}>
+                                        <div className="relative w-10 h-10 rounded-lg bg-[var(--brand-glow)]/10 flex items-center justify-center mx-auto mb-3 group-hover:scale-110 transition-transform duration-300">
+                                            <item.icon className="w-5 h-5 text-[var(--brand-glow)]" />
                                         </div>
-                                    ))}
-                                </div>
-                                <div className="mt-6 text-center">
-                                    <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-[var(--brand-glow)]/10 text-sm">
-                                        <Monitor className="w-4 h-4 text-[var(--brand-glow)]" />
-                                        <span className="text-muted-foreground/80">可添加至手机桌面，像原生 App 一样使用</span>
+                                        <h4 className="relative font-medium text-foreground/90 text-sm mb-1 group-hover:text-[var(--brand-glow)] transition-colors duration-300">{item.title}</h4>
+                                        <p className="relative text-xs text-muted-foreground/60 group-hover:text-muted-foreground/80 transition-colors duration-300">{item.desc}</p>
                                     </div>
+                                ))}
+                            </div>
+                            <div className="mt-6 text-center">
+                                <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-[var(--brand-glow)]/10 text-sm">
+                                    <Monitor className="w-4 h-4 text-[var(--brand-glow)]" />
+                                    <span className="text-muted-foreground/80">可添加至手机桌面，像原生 App 一样使用</span>
                                 </div>
                             </div>
+                        </div>
 
                         {/* 第四板块：数据安全 */}
                         <div className="text-center mb-8">
@@ -774,114 +774,114 @@ export default function HomePage() {
                             </div>
                         </div>
                     </div>
-                    </section>
+                </section>
 
-                        {/* 第七板块：精准用户群体 */}
-                        <section className="py-20 px-6 relative overflow-hidden">
-                            <div className="max-w-4xl mx-auto relative z-10">
-                                <div className="text-center mb-12">
-                                    <h2 className="text-3xl md:text-4xl font-bold tracking-tight">
-                                        <span suppressHydrationWarning className="text-foreground/80">专为浅眠人群设计</span>
-                                        <span className="bg-gradient-to-r from-[var(--brand-start)] to-[var(--brand-end)] bg-clip-text text-transparent" suppressHydrationWarning>接续睡眠</span>
-                                    </h2>
-                                </div>
-                                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-                                {/* 1. 浅眠 / 神经衰弱人群 */}
-                                <div className={cn(homeStrongLiftCardClass, "p-6 rounded-2xl")} style={cardDiffuse(28)}>
-                                    <div className="relative">
-                                        <div className="w-14 h-14 rounded-xl flex items-center justify-center mb-4 group-hover:scale-110 transition-transform duration-300">
-                                            <Moon className="w-8 h-8 text-[var(--brand-glow)]" />
-                                        </div>
-                                        <div className="flex items-center gap-2 mb-2">
-                                            <span className="px-2 py-0.5 rounded-full bg-[var(--brand-glow)]/20 text-[var(--brand-glow)] text-xs font-medium">核心用户</span>
-                                        </div>
-                                        <h3 className="text-lg font-bold text-foreground/90 mb-2">浅眠 / 神经衰弱人群</h3>
-                                        <p className="text-sm text-muted-foreground/70 leading-relaxed">
-                                            长期睡眠浅、半夜频繁惊醒、对音量突变极度敏感，需要柔和渐变音量 + 全自动定时 + 后台稳定播放
-                                        </p>
+                {/* 第七板块：精准用户群体 */}
+                <section className="py-20 px-6 relative overflow-hidden">
+                    <div className="max-w-4xl mx-auto relative z-10">
+                        <div className="text-center mb-12">
+                            <h2 className="text-3xl md:text-4xl font-bold tracking-tight">
+                                <span suppressHydrationWarning className="text-foreground/80">专为浅眠人群设计</span>
+                                <span className="bg-gradient-to-r from-[var(--brand-start)] to-[var(--brand-end)] bg-clip-text text-transparent" suppressHydrationWarning>接续睡眠</span>
+                            </h2>
+                        </div>
+                        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                            {/* 1. 浅眠 / 神经衰弱人群 */}
+                            <div className={cn(homeStrongLiftCardClass, "p-6 rounded-2xl")} style={cardDiffuse(28)}>
+                                <div className="relative">
+                                    <div className="w-14 h-14 rounded-xl flex items-center justify-center mb-4 group-hover:scale-110 transition-transform duration-300">
+                                        <Moon className="w-8 h-8 text-[var(--brand-glow)]" />
                                     </div>
-                                </div>
-
-                                {/* 2. 高压都市上班族 */}
-                                <div className={cn(homeStrongLiftCardClass, "p-6 rounded-2xl")} style={cardDiffuse(29)}>
-                                    <div className="relative">
-                                        <div className="w-14 h-14 rounded-xl flex items-center justify-center mb-4 group-hover:scale-110 transition-transform duration-300">
-                                            <Briefcase className="w-8 h-8 text-amber-500" />
-                                        </div>
-                                        <div className="flex items-center gap-2 mb-2">
-                                            <span className="px-2 py-0.5 rounded-full bg-amber-500/20 text-amber-500 text-xs font-medium">职场首选</span>
-                                        </div>
-                                        <h3 className="text-lg font-bold text-foreground/90 mb-2">高压都市上班族</h3>
-                                        <p className="text-sm text-muted-foreground/70 leading-relaxed">
-                                            职场压力大、入睡困难，PWA免安装即用，全自动定时关闭，厌恶广告付费与臃肿APP
-                                        </p>
+                                    <div className="flex items-center gap-2 mb-2">
+                                        <span className="px-2 py-0.5 rounded-full bg-[var(--brand-glow)]/20 text-[var(--brand-glow)] text-xs font-medium">核心用户</span>
                                     </div>
-                                </div>
-
-                                {/* 3. 住校学生群体 */}
-                                <div className={cn(homeStrongLiftCardClass, "p-6 rounded-2xl")} style={cardDiffuse(30)}>
-                                    <div className="relative">
-                                        <div className="w-14 h-14 rounded-xl flex items-center justify-center mb-4 group-hover:scale-110 transition-transform duration-300">
-                                            <GraduationCap className="w-8 h-8 text-purple-500" />
-                                        </div>
-                                        <div className="flex items-center gap-2 mb-2">
-                                            <span className="px-2 py-0.5 rounded-full bg-purple-500/20 text-purple-500 text-xs font-medium">校园适配</span>
-                                        </div>
-                                        <h3 className="text-lg font-bold text-foreground/90 mb-2">住校学生群体</h3>
-                                        <p className="text-sm text-muted-foreground/70 leading-relaxed">
-                                            宿舍环境嘈杂、集体作息受限，自定义专属助眠音频、音量柔和不吵室友，无冗余社交广告
-                                        </p>
-                                    </div>
-                                </div>
-
-                                {/* 4. 产后宝妈 / 新手父母 */}
-                                <div className={cn(homeStrongLiftCardClass, "p-6 rounded-2xl")} style={cardDiffuse(31)}>
-                                    <div className="relative">
-                                        <div className="w-14 h-14 rounded-xl flex items-center justify-center mb-4 group-hover:scale-110 transition-transform duration-300">
-                                            <Heart className="w-8 h-8 text-pink-500" />
-                                        </div>
-                                        <div className="flex items-center gap-2 mb-2">
-                                            <span className="px-2 py-0.5 rounded-full bg-pink-500/20 text-pink-500 text-xs font-medium">新手爸妈</span>
-                                        </div>
-                                        <h3 className="text-lg font-bold text-foreground/90 mb-2">产后宝妈 / 新手父母</h3>
-                                        <p className="text-sm text-muted-foreground/70 leading-relaxed">
-                                            睡眠碎片化、夜间频繁惊醒，没有精力手动开关，全自动预设播放、后台静默运行、解放双手
-                                        </p>
-                                    </div>
-                                </div>
-
-                                {/* 5. 情绪性失眠 / 焦虑人群 */}
-                                <div className={cn(homeStrongLiftCardClass, "p-6 rounded-2xl")} style={cardDiffuse(32)}>
-                                    <div className="relative">
-                                        <div className="w-14 h-14 rounded-xl flex items-center justify-center mb-4 group-hover:scale-110 transition-transform duration-300">
-                                            <Brain className="w-8 h-8 text-sky-500" />
-                                        </div>
-                                        <div className="flex items-center gap-2 mb-2">
-                                            <span className="px-2 py-0.5 rounded-full bg-sky-500/20 text-sky-500 text-xs font-medium">个性化</span>
-                                        </div>
-                                        <h3 className="text-lg font-bold text-foreground/90 mb-2">情绪性失眠 / 焦虑人群</h3>
-                                        <p className="text-sm text-muted-foreground/70 leading-relaxed">
-                                            依赖个人专属音频助眠（冥想音、雨声、私人歌单），拒绝平台推送、商业化干扰
-                                        </p>
-                                    </div>
-                                </div>
-
-                                {/* 6. 中老年浅眠用户 */}
-                                <div className={cn(homeStrongLiftCardClass, "p-6 rounded-2xl")} style={cardDiffuse(33)}>
-                                    <div className="relative">
-                                        <div className="w-14 h-14 rounded-xl flex items-center justify-center mb-4 group-hover:scale-110 transition-transform duration-300">
-                                            <Users className="w-8 h-8 text-emerald-500" />
-                                        </div>
-                                        <div className="flex items-center gap-2 mb-2">
-                                            <span className="px-2 py-0.5 rounded-full bg-emerald-500/20 text-emerald-500 text-xs font-medium">易上手</span>
-                                        </div>
-                                        <h3 className="text-lg font-bold text-foreground/90 mb-2">中老年浅眠用户</h3>
-                                        <p className="text-sm text-muted-foreground/70 leading-relaxed">
-                                            睡眠周期短、半夜易醒，产品操作极简、全自动定时、无复杂功能，适配低门槛使用习惯
-                                        </p>
-                                    </div>
+                                    <h3 className="text-lg font-bold text-foreground/90 mb-2">浅眠 / 神经衰弱人群</h3>
+                                    <p className="text-sm text-muted-foreground/70 leading-relaxed">
+                                        长期睡眠浅、半夜频繁惊醒、对音量突变极度敏感，需要柔和渐变音量 + 全自动定时 + 后台稳定播放
+                                    </p>
                                 </div>
                             </div>
+
+                            {/* 2. 高压都市上班族 */}
+                            <div className={cn(homeStrongLiftCardClass, "p-6 rounded-2xl")} style={cardDiffuse(29)}>
+                                <div className="relative">
+                                    <div className="w-14 h-14 rounded-xl flex items-center justify-center mb-4 group-hover:scale-110 transition-transform duration-300">
+                                        <Briefcase className="w-8 h-8 text-amber-500" />
+                                    </div>
+                                    <div className="flex items-center gap-2 mb-2">
+                                        <span className="px-2 py-0.5 rounded-full bg-amber-500/20 text-amber-500 text-xs font-medium">职场首选</span>
+                                    </div>
+                                    <h3 className="text-lg font-bold text-foreground/90 mb-2">高压都市上班族</h3>
+                                    <p className="text-sm text-muted-foreground/70 leading-relaxed">
+                                        职场压力大、入睡困难，PWA免安装即用，全自动定时关闭，厌恶广告付费与臃肿APP
+                                    </p>
+                                </div>
+                            </div>
+
+                            {/* 3. 住校学生群体 */}
+                            <div className={cn(homeStrongLiftCardClass, "p-6 rounded-2xl")} style={cardDiffuse(30)}>
+                                <div className="relative">
+                                    <div className="w-14 h-14 rounded-xl flex items-center justify-center mb-4 group-hover:scale-110 transition-transform duration-300">
+                                        <GraduationCap className="w-8 h-8 text-purple-500" />
+                                    </div>
+                                    <div className="flex items-center gap-2 mb-2">
+                                        <span className="px-2 py-0.5 rounded-full bg-purple-500/20 text-purple-500 text-xs font-medium">校园适配</span>
+                                    </div>
+                                    <h3 className="text-lg font-bold text-foreground/90 mb-2">住校学生群体</h3>
+                                    <p className="text-sm text-muted-foreground/70 leading-relaxed">
+                                        宿舍环境嘈杂、集体作息受限，自定义专属助眠音频、音量柔和不吵室友，无冗余社交广告
+                                    </p>
+                                </div>
+                            </div>
+
+                            {/* 4. 产后宝妈 / 新手父母 */}
+                            <div className={cn(homeStrongLiftCardClass, "p-6 rounded-2xl")} style={cardDiffuse(31)}>
+                                <div className="relative">
+                                    <div className="w-14 h-14 rounded-xl flex items-center justify-center mb-4 group-hover:scale-110 transition-transform duration-300">
+                                        <Heart className="w-8 h-8 text-pink-500" />
+                                    </div>
+                                    <div className="flex items-center gap-2 mb-2">
+                                        <span className="px-2 py-0.5 rounded-full bg-pink-500/20 text-pink-500 text-xs font-medium">新手爸妈</span>
+                                    </div>
+                                    <h3 className="text-lg font-bold text-foreground/90 mb-2">产后宝妈 / 新手父母</h3>
+                                    <p className="text-sm text-muted-foreground/70 leading-relaxed">
+                                        睡眠碎片化、夜间频繁惊醒，没有精力手动开关，全自动预设播放、后台静默运行、解放双手
+                                    </p>
+                                </div>
+                            </div>
+
+                            {/* 5. 情绪性失眠 / 焦虑人群 */}
+                            <div className={cn(homeStrongLiftCardClass, "p-6 rounded-2xl")} style={cardDiffuse(32)}>
+                                <div className="relative">
+                                    <div className="w-14 h-14 rounded-xl flex items-center justify-center mb-4 group-hover:scale-110 transition-transform duration-300">
+                                        <Brain className="w-8 h-8 text-sky-500" />
+                                    </div>
+                                    <div className="flex items-center gap-2 mb-2">
+                                        <span className="px-2 py-0.5 rounded-full bg-sky-500/20 text-sky-500 text-xs font-medium">个性化</span>
+                                    </div>
+                                    <h3 className="text-lg font-bold text-foreground/90 mb-2">情绪性失眠 / 焦虑人群</h3>
+                                    <p className="text-sm text-muted-foreground/70 leading-relaxed">
+                                        依赖个人专属音频助眠（冥想音、雨声、私人歌单），拒绝平台推送、商业化干扰
+                                    </p>
+                                </div>
+                            </div>
+
+                            {/* 6. 中老年浅眠用户 */}
+                            <div className={cn(homeStrongLiftCardClass, "p-6 rounded-2xl")} style={cardDiffuse(33)}>
+                                <div className="relative">
+                                    <div className="w-14 h-14 rounded-xl flex items-center justify-center mb-4 group-hover:scale-110 transition-transform duration-300">
+                                        <Users className="w-8 h-8 text-emerald-500" />
+                                    </div>
+                                    <div className="flex items-center gap-2 mb-2">
+                                        <span className="px-2 py-0.5 rounded-full bg-emerald-500/20 text-emerald-500 text-xs font-medium">易上手</span>
+                                    </div>
+                                    <h3 className="text-lg font-bold text-foreground/90 mb-2">中老年浅眠用户</h3>
+                                    <p className="text-sm text-muted-foreground/70 leading-relaxed">
+                                        睡眠周期短、半夜易醒，产品操作极简、全自动定时、无复杂功能，适配低门槛使用习惯
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
 
                     </div>
                 </section>
@@ -913,8 +913,7 @@ export default function HomePage() {
                                     }}
                                     type="button"
                                     className={cn(homeStrongLiftCardClass, "p-8 rounded-3xl border-2 border-amber-500/40 hover:border-amber-500 text-left cursor-pointer w-full active:scale-95")}
-                                    style={cardDiffuse(34)}
-                                >
+                                    style={cardDiffuse(34)}>
                                     <div className="absolute top-4 right-4 w-16 h-16 rounded-2xl bg-gradient-to-br from-amber-200 to-amber-300 flex items-center justify-center group-hover:scale-110 transition-transform duration-300">
                                         <Sun className="w-8 h-8 text-amber-700" />
                                     </div>
@@ -935,8 +934,7 @@ export default function HomePage() {
                                     }}
                                     type="button"
                                     className={cn(homeStrongLiftCardClass, "p-8 rounded-3xl border-2 border-indigo-500/40 hover:border-indigo-500 text-left cursor-pointer w-full active:scale-95")}
-                                    style={cardDiffuse(35)}
-                                >
+                                    style={cardDiffuse(35)}>
                                     <div className="absolute top-4 right-4 w-16 h-16 rounded-2xl bg-gradient-to-br from-indigo-500 to-purple-600 flex items-center justify-center group-hover:scale-110 transition-transform duration-300">
                                         <Moon className="w-8 h-8 text-white" />
                                     </div>
@@ -961,8 +959,7 @@ export default function HomePage() {
                             <div className="grid grid-cols-2 md:grid-cols-4 gap-4 max-w-4xl mx-auto">
 
                                 {/* 免费权益卡片1 */}
-                                <div className={cn(homeLiftCardClass, "p-5 rounded-2xl text-center")} style={cardDiffuse(36)}
-                                >
+                                <div className={cn(homeLiftCardClass, "p-5 rounded-2xl text-center")} style={cardDiffuse(36)}>
                                     <div className="relative">
                                         <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-green-500/30 to-green-600/15 flex items-center justify-center mx-auto mb-3 group-hover:scale-110 transition-transform duration-300">
                                             <Gift className="w-6 h-6 text-green-500" />
@@ -973,8 +970,7 @@ export default function HomePage() {
                                 </div>
 
                                 {/* 免费权益卡片2 */}
-                                <div className={cn(homeLiftCardClass, "p-5 rounded-2xl text-center")} style={cardDiffuse(37)}
-                                >
+                                <div className={cn(homeLiftCardClass, "p-5 rounded-2xl text-center")} style={cardDiffuse(37)}>
                                     <div className="relative">
                                         <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-blue-500/30 to-blue-600/15 flex items-center justify-center mx-auto mb-3 group-hover:scale-110 transition-transform duration-300">
                                             <Clock className="w-6 h-6 text-blue-500" />
@@ -985,8 +981,7 @@ export default function HomePage() {
                                 </div>
 
                                 {/* 免费权益卡片3 */}
-                                <div className={cn(homeLiftCardClass, "p-5 rounded-2xl text-center")} style={cardDiffuse(38)}
-                                >
+                                <div className={cn(homeLiftCardClass, "p-5 rounded-2xl text-center")} style={cardDiffuse(38)}>
                                     <div className="relative">
                                         <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-purple-500/30 to-purple-600/15 flex items-center justify-center mx-auto mb-3 group-hover:scale-110 transition-transform duration-300">
                                             <Zap className="w-6 h-6 text-purple-500" />
@@ -997,8 +992,7 @@ export default function HomePage() {
                                 </div>
 
                                 {/* 免费权益卡片4 */}
-                                <div className={cn(homeLiftCardClass, "p-5 rounded-2xl text-center")} style={cardDiffuse(39)}
-                                >
+                                <div className={cn(homeLiftCardClass, "p-5 rounded-2xl text-center")} style={cardDiffuse(39)}>
                                     <div className="relative">
                                         <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-amber-500/30 to-amber-600/15 flex items-center justify-center mx-auto mb-3 group-hover:scale-110 transition-transform duration-300">
                                             <Shield className="w-6 h-6 text-amber-500" />
@@ -1009,8 +1003,7 @@ export default function HomePage() {
                                 </div>
 
                                 {/* 免费权益卡片5 */}
-                                <div className={cn(homeLiftCardClass, "p-5 rounded-2xl text-center")} style={cardDiffuse(40)}
-                                >
+                                <div className={cn(homeLiftCardClass, "p-5 rounded-2xl text-center")} style={cardDiffuse(40)}>
                                     <div className="relative">
                                         <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-cyan-500/30 to-cyan-600/15 flex items-center justify-center mx-auto mb-3 group-hover:scale-110 transition-transform duration-300">
                                             <Smartphone className="w-6 h-6 text-cyan-500" />
@@ -1021,11 +1014,10 @@ export default function HomePage() {
                                 </div>
 
                                 {/* 免费权益卡片6 */}
-                                <div className={cn(homeLiftCardClass, "p-5 rounded-2xl text-center")} style={cardDiffuse(41)}
-                                >
+                                <div className={cn(homeLiftCardClass, "p-5 rounded-2xl text-center")} style={cardDiffuse(41)}>
                                     <div className="relative">
                                         <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-pink-500/30 to-pink-600/15 flex items-center justify-center mx-auto mb-3 group-hover:scale-110 transition-transform duration-300">
-                                            <Shield className="w-6 h-6 text-pink-500" />
+                                            <Lock className="w-6 h-6 text-pink-500" />
                                         </div>
                                         <h4 className="text-sm font-bold text-foreground/90 mb-1">密码安全加密</h4>
                                         <p className="text-xs text-muted-foreground/60">银行级保障</p>
@@ -1033,8 +1025,7 @@ export default function HomePage() {
                                 </div>
 
                                 {/* 免费权益卡片7 */}
-                                <div className={cn(homeLiftCardClass, "p-5 rounded-2xl text-center")} style={cardDiffuse(42)}
-                                >
+                                <div className={cn(homeLiftCardClass, "p-5 rounded-2xl text-center")} style={cardDiffuse(42)}>
                                     <div className="relative">
                                         <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-emerald-500/30 to-emerald-600/15 flex items-center justify-center mx-auto mb-3 group-hover:scale-110 transition-transform duration-300">
                                             <Zap className="w-6 h-6 text-emerald-500" />
@@ -1083,7 +1074,7 @@ export default function HomePage() {
                                 <div
                                     className="inline-flex items-center gap-3 px-6 py-3 rounded-full bg-gradient-to-r from-[var(--brand-start)]/10 to-[var(--brand-end)]/10 border border-[var(--brand-start)]/20">
                                     <Sparkles className="w-4 h-4 text-[var(--brand-glow)]" />
-                                    <span suppressHydrationWarning className="text-sm text-muted-foreground">上传音频 · 自定义定时 · 淡入淡出 · 全自动运行</span>
+                                    <span suppressHydrationWarning className="text-sm text-muted-foreground">上传音频·自定义定时·淡入淡出·全自动运行</span>
                                 </div>
                             </div>
                         </RevealGroup>
@@ -1112,28 +1103,32 @@ export default function HomePage() {
                             <p className="text-base text-muted-foreground/70">从音频到任务，几步完成夜间自动播放</p>
                         </RevealGroup>
                         <div className="grid md:grid-cols-3 gap-6 relative">
-                            {[{
-                                num: "01",
-                                icon: Upload,
-                                title: "上传音频",
-                                desc: "导入助眠音乐、白噪音或自己的录音文件",
-                                color: "from-[var(--brand-start)]"
-                            }, {
-                                num: "02",
-                                icon: Clock,
-                                title: "设置任务",
-                                desc: "选择开始时间、播放时长、音量和淡入淡出",
-                                color: "from-[var(--brand-mid)]"
-                            }, {
-                                num: "03",
-                                icon: Headphones,
-                                title: "自动播放",
-                                desc: "让任务在夜间按计划执行，减少手动操作",
-                                color: "from-[var(--brand-end)]"
-                            }].map((item, idx) => <RevealGroup key={idx} delayBase={idx * 120}>
+                            {[
+                                {
+                                    num: "01",
+                                    icon: Upload,
+                                    title: "上传音频",
+                                    desc: "导入助眠音乐、白噪音或自己的录音文件",
+                                    color: "from-[var(--brand-start)]"
+                                },
+                                {
+                                    num: "02",
+                                    icon: Clock,
+                                    title: "设置任务",
+                                    desc: "选择开始时间、播放时长、音量和淡入淡出",
+                                    color: "from-[var(--brand-mid)]"
+                                },
+                                {
+                                    num: "03",
+                                    icon: Headphones,
+                                    title: "自动播放",
+                                    desc: "让任务在夜里按计划执行，减少手动操作",
+                                    color: "from-[var(--brand-end)]"
+                                }
+                            ].map((item, idx) => <RevealGroup key={idx} delayBase={idx * 120}>
                                 <div className="relative group">
                                     <div
-                                        className={cn(homeLiftCardClass, "h-[200px] p-8 rounded-2xl flex flex-col duration-400")}
+                                        className={cn(homeLiftCardClass, "h-[200px] p-6 rounded-2xl flex flex-col duration-400")}
                                         style={cardDiffuse(48 + idx)}>
                                         <div
                                             className={`absolute top-0 left-0 right-0 h-1 bg-gradient-to-r ${item.color} to-transparent opacity-60`} />
@@ -1165,7 +1160,7 @@ export default function HomePage() {
                                 <div
                                     className="flex items-center gap-2 px-4 py-2 rounded-full bg-gradient-to-r from-[var(--brand-start)]/15 to-[var(--brand-end)]/10 border border-[var(--brand-start)]/20">
                                     <div className="w-2 h-2 rounded-full bg-[var(--brand-start)] animate-pulse" />
-                                    <span suppressHydrationWarning className="text-[var(--brand-start)] text-sm font-medium">无需登录 · 开箱即用</span>
+                                    <span suppressHydrationWarning className="text-[var(--brand-start)] text-sm font-medium">无需登录·开箱即用</span>
                                 </div>
                             </div>
                             <RippleButton
@@ -1174,12 +1169,11 @@ export default function HomePage() {
                                 className="group relative inline-flex items-center gap-3 px-8 py-4 rounded-2xl bg-gradient-to-r from-[var(--brand-start)] to-[var(--brand-end)] text-white font-semibold text-xl shadow-xl shadow-[var(--brand-start)]/25 hover:shadow-2xl hover:shadow-[var(--brand-start)]/35 hover:scale-105 active:scale-95 transition-all duration-300">
                                 <div className="relative flex items-center gap-3">
                                     <Image
-                                        src="/logo.png" 
-                                        alt="梦枕" 
+                                        src="/logo.png"
+                                        alt="梦枕"
                                         width={28}
                                         height={28}
-                                        className="w-7 h-7 group-hover:scale-110 transition-transform duration-300 rounded shadow-md" 
-                                    />
+                                        className="w-7 h-7 group-hover:scale-110 transition-transform duration-300 rounded shadow-md" />
                                     <span suppressHydrationWarning>开始设置</span>
                                     <ChevronRight
                                         className="w-6 h-6 group-hover:translate-x-1 transition-transform duration-300" />
@@ -1198,12 +1192,11 @@ export default function HomePage() {
                             alt="梦枕"
                             width={20}
                             height={20}
-                            className="rounded-md shadow-[inset_0_1px_4px_rgba(0,0,0,0.35)]"
-                        />
+                            className="rounded-md shadow-[inset_0_1px_4px_rgba(0,0,0,0.35)]" />
                         <span
                             className="font-bold text-lg bg-gradient-to-r from-[var(--brand-start)] to-[var(--brand-end)] bg-clip-text text-transparent" suppressHydrationWarning>梦枕</span>
                     </div>
-                    <p className="text-xs text-muted-foreground">深夜助眠播放器 · PWA渐进式网页应用 · 自定义音频</p>
+                    <p className="text-xs text-muted-foreground">深夜助眠播放器·PWA渐进式网页应用·自定义音频</p>
                 </div>
             </footer>
             <FloatingBar visible={showFloatingBar} />

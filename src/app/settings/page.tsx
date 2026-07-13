@@ -3,7 +3,7 @@ import { useState, useCallback, useEffect, Suspense } from "react";
 import Image from "next/image";
 import { useSearchParams } from "next/navigation";
 import { toast } from "@/components/sonner";
-import { AudioUpload } from "@/components/audio-upload";
+import { PlaybackSettingsPanel } from "@/components/playback-settings-panel";
 import { TaskForm } from "@/components/task-form";
 import { TaskList } from "@/components/task-list";
 import { TaskModal } from "@/components/task-modal";
@@ -17,6 +17,7 @@ import { setupAutoUnlock } from "@/lib/audio";
 import EnhancedTaskScheduler from "@/lib/background-scheduler";
 import { initPwaInstallListener, promptInstall, isPwaInstalled, hasPromptedInstall } from "@/lib/pwa";
 import { useIsMobile } from "@/hooks/use-mobile";
+import { usePlaybackController } from "@/hooks/use-playback-controller";
 import { HeroTitle } from "@/components/hero-title";
 
 function useClientOnly() {
@@ -62,6 +63,11 @@ function CreatePageContent() {
     const [showScreenChoice, setShowScreenChoice] = useState(false);
     const [isPwa, setIsPwa] = useState(false);
     const mounted = useClientOnly();
+    const sharedPlaybackController = usePlaybackController({
+        value: sharedPlaybackDraft,
+        onChange: setSharedPlaybackDraft,
+    });
+    const stopSharedPreview = sharedPlaybackController.preview.stop;
 
     useEffect(() => {
         if (!mounted) return;
@@ -208,23 +214,26 @@ function CreatePageContent() {
     }, [requestPermissions]);
 
     const handleModeChange = useCallback((mode: PlayMode) => {
+        stopSharedPreview();
         setPlayMode(mode);
         savePlayMode(mode);
         if (mode === "default") {
             setShowTaskForm(false);
         }
-    }, []);
+    }, [stopSharedPreview]);
 
     const handleTaskSaved = useCallback(() => {
+        stopSharedPreview();
         setShowTaskForm(false);
         setTasksVersion(v => v + 1);
-    }, []);
+    }, [stopSharedPreview]);
 
     const handleEditTask = useCallback((task: ScheduledTask) => {
+        stopSharedPreview();
         setEditingTask(task);
         setTaskFormSession(session => session + 1);
         setShowTaskForm(true);
-    }, []);
+    }, [stopSharedPreview]);
 
     const handleCreateTask = useCallback(() => {
         setEditingTask(null);
@@ -233,8 +242,9 @@ function CreatePageContent() {
     }, []);
 
     const handleCloseTaskForm = useCallback(() => {
+        stopSharedPreview();
         setShowTaskForm(false);
-    }, []);
+    }, [stopSharedPreview]);
 
 
     useEffect(() => {
@@ -276,56 +286,112 @@ function CreatePageContent() {
                 />
             )}
 
-            {/* 屏幕选项弹窗 - 极简 */}
+            {/* 屏幕选项弹窗 */}
             {showScreenChoice && mounted && (
-                <div className="fixed inset-0 z-50 flex items-center justify-center p-6" onClick={handleSkipScreenChoice}>
-                    <div className="fixed inset-0 bg-black/50" />
+                <div className="fixed inset-0 z-50 flex items-end sm:items-center justify-center" onClick={handleSkipScreenChoice}>
+                    <div
+                        className="fixed inset-0 bg-black/60 backdrop-blur-md animate-in fade-in duration-200"
+                    />
                     <div
                         role="dialog"
                         aria-modal="true"
-                        className="relative w-full max-w-sm bg-background rounded-xl"
+                        className="relative w-full max-w-md bg-background rounded-t-3xl sm:rounded-3xl shadow-2xl overflow-hidden animate-in slide-in-from-bottom duration-300 sm:zoom-in-90"
                         onClick={e => e.stopPropagation()}
                     >
-                        <div className="p-6 space-y-4">
-                            <h3 className="text-lg font-medium text-center">屏幕设置</h3>
+                        {/* Header */}
+                        <div className="relative overflow-hidden">
+                            <div className="absolute inset-0 bg-gradient-to-br from-[var(--brand-start)]/20 to-[var(--brand-end)]/20" />
+                            <div className="relative px-6 pt-8 pb-6 text-center">
+                                <div className="w-20 h-20 mx-auto mb-4 relative">
+                                    <div className="absolute inset-0 bg-gradient-to-r from-[var(--brand-start)] to-[var(--brand-end)] rounded-full animate-pulse opacity-20 scale-150" />
+                                    <div className="relative w-full h-full bg-gradient-to-r from-[var(--brand-start)] to-[var(--brand-end)] rounded-2xl flex items-center justify-center shadow-lg">
+                                        <svg className="w-10 h-10 text-white" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+                                            <path d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0a4 4 0 018 0z" />
+                                        </svg>
+                                    </div>
+                                </div>
+                                <h3 className="text-2xl font-bold text-foreground">选择播放模式</h3>
+                                <p className="text-muted-foreground mt-2">选择助眠音频播放时的屏幕状态</p>
+                            </div>
+                        </div>
 
-                            <button
-                                onClick={handleAllowLockScreen}
-                                className="w-full py-3 text-center bg-foreground text-background rounded-lg hover:opacity-90 transition-opacity"
-                            >
-                                允许锁屏
-                            </button>
-
+                        {/* Options */}
+                        <div className="px-6 pb-2 space-y-3">
+                            {/* Keep Screen On */}
                             <button
                                 onClick={handleKeepScreenOn}
-                                className="w-full py-3 text-center border border-border rounded-lg hover:bg-muted/50 transition-colors"
+                                className="w-full group p-4 rounded-2xl border-2 border-border hover:border-[var(--brand-start)]/50 hover:bg-muted/50 transition-all duration-200 text-left"
                             >
-                                保持亮屏
+                                <div className="flex items-center gap-4">
+                                    <div className="w-12 h-12 rounded-xl bg-muted flex items-center justify-center group-hover:bg-[var(--brand-start)]/10 transition-colors">
+                                        <svg className="w-6 h-6 text-muted-foreground group-hover:text-[var(--brand-start)] transition-colors" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+                                            <path d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0a4 4 0 018 0z" />
+                                        </svg>
+                                    </div>
+                                    <div className="flex-1">
+                                        <div className="font-semibold text-foreground">保持亮屏</div>
+                                        <div className="text-sm text-muted-foreground mt-0.5">播放时屏幕一直亮着，最稳定</div>
+                                    </div>
+                                    <svg className="w-5 h-5 text-muted-foreground group-hover:text-[var(--brand-start)] transition-colors" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+                                        <path d="M9 18l6-6-6-6" />
+                                    </svg>
+                                </div>
                             </button>
 
+                            {/* Allow Lock Screen */}
+                            <button
+                                onClick={handleAllowLockScreen}
+                                className="w-full group p-4 rounded-2xl bg-gradient-to-r from-[var(--brand-start)] to-[var(--brand-end)] text-white shadow-lg shadow-[var(--brand-start)]/25 hover:shadow-xl hover:shadow-[var(--brand-start)]/30 transition-all duration-200 text-left"
+                            >
+                                <div className="flex items-center gap-4">
+                                    <div className="w-12 h-12 rounded-xl bg-white/20 flex items-center justify-center">
+                                        <svg className="w-6 h-6 text-white" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+                                            <path d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z" />
+                                        </svg>
+                                    </div>
+                                    <div className="flex-1">
+                                        <div className="font-semibold">允许锁屏（省电）</div>
+                                        <div className="text-sm opacity-90 mt-0.5">通过锁屏通知控制播放，更省电</div>
+                                    </div>
+                                    <svg className="w-5 h-5 text-white opacity-90" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+                                        <path d="M9 18l6-6-6-6" />
+                                    </svg>
+                                </div>
+                            </button>
+                        </div>
+
+                        {/* Skip button */}
+                        <div className="px-6 pb-8 pt-2">
                             <button
                                 onClick={handleSkipScreenChoice}
-                                className="w-full py-2 text-center text-muted-foreground text-sm"
+                                className="w-full py-3 text-muted-foreground hover:text-foreground transition-colors text-sm"
                             >
-                                稍后
+                                稍后再说（默认省电）
                             </button>
                         </div>
                     </div>
                 </div>
             )}
 
-            <main className="pt-14">
-                <section className="min-h-[80vh] flex flex-col items-center justify-center px-4">
-                    <div className="max-w-2xl w-full space-y-8">
-                        <div className="text-center space-y-2">
-                            <HeroTitle className="w-64 sm:w-80 max-w-full mx-auto" fontSize={isMobile ? "64px" : "64px"} />
-                            <p className="text-muted-foreground">助眠音频播放器</p>
+            {/* 调试 */}
+            {process.env.NODE_ENV === 'development' && mounted && (
+                <div className="fixed bottom-4 right-4 z-40 bg-black/70 text-white p-2 rounded text-xs">
+                    Audio State: {EnhancedTaskScheduler.getInstance().getAudioState() || 'uninitialized'}
+                </div>
+            )}
+
+            <DynamicBackground />
+            <main className="pt-0 sm:pt-14 relative">
+                <section className="relative min-h-[85vh] flex flex-col items-center justify-center px-1 sm:px-6 overflow-hidden">
+                    <div className="relative z-20 max-w-4xl mx-auto w-full space-y-6 px-0 sm:px-4 md:px-0">
+                        <div className="text-center space-y-4 mt-8">
+                            <HeroTitle className="w-[22rem] sm:w-[31rem] max-w-full" fontSize={isMobile ? "76px" : "74px"} />
+                            <p className="text-lg text-muted-foreground/70">上传音频 · 自定义定时 · 自动助眠播放</p>
                         </div>
 
                         {playbackDraftLoaded ? (
-                            <AudioUpload
-                                playbackDraft={sharedPlaybackDraft}
-                                onPlaybackDraftChange={setSharedPlaybackDraft}
+                            <PlaybackSettingsPanel
+                                controller={sharedPlaybackController}
                                 importFileKey={searchParams.get("fileKey") || undefined}
                                 mode={playMode}
                                 onModeChange={handleModeChange}
@@ -335,7 +401,7 @@ function CreatePageContent() {
                                 }}
                                 onAudioRemoved={() => { }}
                             >
-                                <div className="space-y-4">
+                                <div className="space-y-5 sm:space-y-6">
                                     <TaskList
                                         tasks={tasks}
                                         onEdit={handleEditTask}
@@ -343,9 +409,9 @@ function CreatePageContent() {
                                         onRefresh={() => setTasksVersion(v => v + 1)}
                                     />
                                 </div>
-                            </AudioUpload>
+                            </PlaybackSettingsPanel>
                         ) : (
-                            <div className="flex justify-center py-8"><Spinner /></div>
+                            <div className="flex justify-center py-12"><Spinner /></div>
                         )}
                     </div>
                 </section>
@@ -355,12 +421,22 @@ function CreatePageContent() {
                 <TaskForm
                     key={taskFormSession}
                     editTask={editingTask}
-                    sharedPlaybackDraft={sharedPlaybackDraft}
-                    onSharedPlaybackDraftChange={setSharedPlaybackDraft}
+                    sharedPlaybackController={sharedPlaybackController}
+                    active={showTaskForm}
                     onSave={handleTaskSaved}
                     onCancel={handleCloseTaskForm}
                 />
             </TaskModal>
+
+            <footer className="hidden sm:block border-t border-border py-8 px-6 bg-muted/20 relative z-20">
+                <div className="max-w-5xl mx-auto text-center">
+                    <div className="flex items-center justify-center gap-2 mb-3">
+                        <Image src="/logo.png" alt="梦枕" width={20} height={20} className="rounded-md shadow-[inset_0_1px_4px_rgba(0,0,0,0.35)]" />
+                        <span className="font-bold text-lg bg-gradient-to-r from-[var(--brand-start)] to-[var(--brand-end)] bg-clip-text text-transparent">梦枕</span>
+                    </div>
+                    <p className="text-xs text-muted-foreground">深夜助眠播放器 · PWA渐进式网页应用 · 自定义音频</p>
+                </div>
+            </footer>
         </div>
     );
 }

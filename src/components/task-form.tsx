@@ -1,13 +1,13 @@
 "use client";
 
-import React, { useState, useCallback, useEffect, useMemo, type Dispatch, type SetStateAction } from "react";
+import React, { useState, useCallback, useEffect, useMemo } from "react";
 import {
   ScheduledTask,
   TaskRepeatType,
-  type PlaybackDraft,
 } from "@/lib/task-types";
 import { createTask, updateTask } from "@/lib/task-store";
 import { clonePlaybackDraft, playbackDraftFromTask } from "@/lib/playback-draft";
+import { usePlaybackController, type CommitBlocker, type PlaybackController } from "@/hooks/use-playback-controller";
 import { WheelDateTimePicker, type DateTimeValue } from "@/components/wheel-date-time-picker";
 import { DurationSetter } from "@/components/duration-setter";
 import { AudioUpload } from "@/components/audio-upload";
@@ -22,8 +22,8 @@ import {
 
 interface TaskFormProps {
   editTask?: ScheduledTask | null;
-  sharedPlaybackDraft: PlaybackDraft;
-  onSharedPlaybackDraftChange: Dispatch<SetStateAction<PlaybackDraft>>;
+  sharedPlaybackController: PlaybackController;
+  active?: boolean;
   onSave?: (task: ScheduledTask) => void;
   onCancel?: () => void;
 }
@@ -35,28 +35,85 @@ const REPEAT_OPTIONS: { value: TaskRepeatType; label: string; desc: string }[] =
   { value: "holiday", label: "法定节假日", desc: "国家法定节假日" },
 ];
 
+const COMMIT_BLOCKER_MESSAGES: Record<Exclude<CommitBlocker, null>, string> = {
+  "no-audio": "请先上传音频",
+  uploading: "音频正在上传，请稍候",
+  "upload-failed": "有音频上传失败，请移除或重试",
+  "unavailable-audio": "有音频尚未保存完成，请重新上传后再保存任务",
+};
+
+const COMMIT_BLOCKER_LABELS: Record<Exclude<CommitBlocker, null>, string> = {
+  "no-audio": "请先上传音频",
+  uploading: "音频上传中",
+  "upload-failed": "音频上传失败",
+  "unavailable-audio": "音频尚未保存完成",
+};
+
 export function TaskForm({
   editTask,
-  sharedPlaybackDraft,
-  onSharedPlaybackDraftChange,
+  sharedPlaybackController,
+  active = true,
   onSave,
   onCancel,
 }: TaskFormProps) {
-  const isEditing = !!editTask;
-  const [editPlaybackDraft, setEditPlaybackDraft] = useState<PlaybackDraft | null>(() =>
-    editTask ? playbackDraftFromTask(editTask) : null
+  if (editTask) {
+    return (
+      <EditTaskForm
+        key={editTask.id}
+        editTask={editTask}
+        active={active}
+        onSave={onSave}
+        onCancel={onCancel}
+      />
+    );
+  }
+
+  return (
+    <TaskFormContent
+      controller={sharedPlaybackController}
+      active={active}
+      onSave={onSave}
+      onCancel={onCancel}
+    />
   );
-  const playbackDraft = isEditing && editPlaybackDraft ? editPlaybackDraft : sharedPlaybackDraft;
-  const onPlaybackDraftChange = useCallback<Dispatch<SetStateAction<PlaybackDraft>>>((update) => {
-    if (!editTask) {
-      onSharedPlaybackDraftChange(update);
-      return;
-    }
-    setEditPlaybackDraft(previous => {
-      const current = previous ?? playbackDraftFromTask(editTask);
-      return typeof update === "function" ? update(current) : update;
-    });
-  }, [editTask, onSharedPlaybackDraftChange]);
+}
+
+interface EditTaskFormProps {
+  editTask: ScheduledTask;
+  active: boolean;
+  onSave?: (task: ScheduledTask) => void;
+  onCancel?: () => void;
+}
+
+function EditTaskForm({ editTask, active, onSave, onCancel }: EditTaskFormProps) {
+  const [editPlaybackDraft, setEditPlaybackDraft] = useState(() => playbackDraftFromTask(editTask));
+  const editPlaybackController = usePlaybackController({
+    value: editPlaybackDraft,
+    onChange: setEditPlaybackDraft,
+  });
+
+  return (
+    <TaskFormContent
+      editTask={editTask}
+      controller={editPlaybackController}
+      active={active}
+      onSave={onSave}
+      onCancel={onCancel}
+    />
+  );
+}
+
+interface TaskFormContentProps {
+  editTask?: ScheduledTask | null;
+  controller: PlaybackController;
+  active: boolean;
+  onSave?: (task: ScheduledTask) => void;
+  onCancel?: () => void;
+}
+
+function TaskFormContent({ editTask, controller, active, onSave, onCancel }: TaskFormContentProps) {
+  const isEditing = !!editTask;
+  const playbackDraft = controller.draft;
 
   const [taskName, setTaskName] = useState(editTask?.name || "");
   const [startTime, setStartTime] = useState<DateTimeValue>(() => {
@@ -86,20 +143,18 @@ export function TaskForm({
   const [repeatType, setRepeatType] = useState<TaskRepeatType>(editTask?.repeatType || "once");
   const [nowMs, setNowMs] = useState(() => Date.now());
 
-  const { audios, fadeInDuration, fadeOutDuration, enableFade } = playbackDraft;
-  const hasUnavailableAudio = audios.some(audio => !audio.fileKey && !audio.serverUrl && !audio.dbKey);
-
-  const updatePlaybackField = useCallback(<Key extends keyof PlaybackDraft>(
-    key: Key,
-    value: PlaybackDraft[Key],
-  ) => {
-    onPlaybackDraftChange(previous => ({ ...previous, [key]: value }));
-  }, [onPlaybackDraftChange]);
+  const { fadeInDuration, fadeOutDuration, enableFade } = playbackDraft;
+  const { commitBlocker } = controller.assets;
+  const stopPreview = controller.preview.stop;
 
   useEffect(() => {
     const timer = setInterval(() => setNowMs(Date.now()), 1000);
     return () => clearInterval(timer);
   }, []);
+
+  useEffect(() => {
+    if (!active) stopPreview();
+  }, [active, stopPreview]);
 
   const timeError = useMemo<string | null>(() => {
     if (repeatType !== "once") {
@@ -155,38 +210,15 @@ export function TaskForm({
   }, [startTime, repeatType, fadeInDuration, enableFade]);
 
   const handleSave = useCallback(() => {
-    console.log("[TaskForm] handleSave called", {
-      taskName: taskName.trim(),
-      taskAudiosLength: audios.length,
-      repeatType,
-      startTime,
-    });
-
-    for (let i = 0; i < audios.length; i++) {
-      const audio = audios[i];
-      console.log(`[TaskForm] Audio ${i}:`, {
-        name: audio.name,
-        hasServerUrl: !!audio.serverUrl,
-        hasFileKey: !!audio.fileKey,
-        hasDbKey: !!audio.dbKey,
-        size: audio.size,
-      });
-    }
+    const playbackSnapshot = clonePlaybackDraft(controller.getDraft());
 
     if (!taskName.trim()) {
-      console.log("[TaskForm] Validation failed: empty task name");
       toast.error("请输入任务名称");
       return;
     }
 
-    if (audios.length === 0) {
-      console.log("[TaskForm] Validation failed: no audios");
-      toast.error("请先上传音频");
-      return;
-    }
-
-    if (hasUnavailableAudio) {
-      toast.error("有音频尚未保存完成，请重新上传后再保存任务");
+    if (commitBlocker) {
+      toast.error(COMMIT_BLOCKER_MESSAGES[commitBlocker]);
       return;
     }
 
@@ -197,12 +229,10 @@ export function TaskForm({
 
     const timeResult = validateTime();
     if (!timeResult.valid) {
-      console.log("[TaskForm] Validation failed: invalid time", { timeError: timeResult.error });
       toast.error(timeResult.error || "时间设置无效");
       return;
     }
 
-    const playbackSnapshot = clonePlaybackDraft(playbackDraft);
     const taskData = {
       name: taskName.trim(),
       startTime: {
@@ -222,8 +252,6 @@ export function TaskForm({
       audios: playbackSnapshot.audios,
     };
 
-    console.log("[TaskForm] Saving task with data:", taskData);
-
     try {
       let savedTask: ScheduledTask;
       if (isEditing && editTask) {
@@ -234,11 +262,9 @@ export function TaskForm({
           completedAt: undefined,
         };
         savedTask = updateTask(editTask.id, updateData) || editTask;
-        console.log("[TaskForm] Task updated:", savedTask.id);
         toast.success(`任务「${taskName}」已成功更新`);
       } else {
         savedTask = createTask(taskData);
-        console.log("[TaskForm] Task created:", savedTask.id);
         toast.success(`任务「${taskName}」已成功创建`);
       }
       onSave?.(savedTask);
@@ -250,16 +276,15 @@ export function TaskForm({
     taskName, validateTime, startTime,
     playDurationMinutes,
     repeatType, isEditing, editTask, onSave,
-    audios, hasUnavailableAudio, playbackDraft,
+    controller, commitBlocker,
   ]);
 
-  const isSaveDisabled = !taskName.trim() || audios.length === 0 || hasUnavailableAudio || !!timeError || playDurationMinutes <= 0;
+  const isSaveDisabled = !taskName.trim() || commitBlocker !== null || !!timeError || playDurationMinutes <= 0;
 
   return (
     <div className="space-y-5 sm:space-y-6">
       <AudioUpload
-        playbackDraft={playbackDraft}
-        onPlaybackDraftChange={onPlaybackDraftChange}
+        controller={controller}
       />
 
       <div className="space-y-4">
@@ -330,9 +355,9 @@ export function TaskForm({
           enabled={enableFade}
           fadeInDuration={fadeInDuration}
           fadeOutDuration={fadeOutDuration}
-          onEnabledChange={enabled => updatePlaybackField("enableFade", enabled)}
-          onFadeInDurationChange={duration => updatePlaybackField("fadeInDuration", duration)}
-          onFadeOutDurationChange={duration => updatePlaybackField("fadeOutDuration", duration)}
+          onEnabledChange={enabled => controller.setFade({ enableFade: enabled })}
+          onFadeInDurationChange={duration => controller.setFade({ fadeInDuration: duration })}
+          onFadeOutDurationChange={duration => controller.setFade({ fadeOutDuration: duration })}
         />
       </div>
 
@@ -356,8 +381,7 @@ export function TaskForm({
           <Save className="w-4 h-4" />
           {isSaveDisabled ? (
             !taskName.trim() ? "请输入任务名称" :
-            audios.length === 0 ? "请先上传音频" :
-            hasUnavailableAudio ? "音频尚未保存完成" :
+            commitBlocker ? COMMIT_BLOCKER_LABELS[commitBlocker] :
             timeError || "时间无效"
           ) : "保存任务"}
         </button>
