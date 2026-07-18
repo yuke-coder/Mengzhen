@@ -56,6 +56,25 @@ async function openAudioSettings(page: Page) {
   return pageErrors;
 }
 
+async function openPersistentAudioSettings(page: Page) {
+  const pageErrors: string[] = [];
+  page.on("pageerror", error => pageErrors.push(error.message));
+  await page.addInitScript(() => {
+    const initializedKey = "__e2e_audio_resume_initialized";
+    if (sessionStorage.getItem(initializedKey) !== "true") {
+      localStorage.clear();
+      sessionStorage.clear();
+      sessionStorage.setItem(initializedKey, "true");
+    }
+    localStorage.setItem("audio_unlocked", "true");
+    localStorage.setItem("keep_screen_on", "false");
+    sessionStorage.setItem("pwa_prompted_session", "true");
+  });
+  await page.goto("/settings");
+  await expect(page.getByLabel("选择音频文件")).toBeAttached();
+  return pageErrors;
+}
+
 async function uploadAudios(page: Page, count: number) {
   await page.getByLabel("选择音频文件").setInputFiles(audioFiles(count));
   await expect(audioHandles(page)).toHaveCount(count, { timeout: 30_000 });
@@ -249,6 +268,111 @@ test("选择音频只准备任务资源，手动点击后才存入音频库", as
   await page.goto("/history");
   await expect(page.getByText("clip-01.wav", { exact: true })).toBeVisible();
   await expect(page.getByText("共 1 个已保存音频", { exact: true })).toBeVisible();
+  expect(pageErrors).toEqual([]);
+});
+
+test("刷新后沿用同一对象继续传输，不重新创建或重复上传", async ({ page }) => {
+  const userId = "00000000-0000-0000-0000-000000000003";
+  const fileKey = `audios/${userId}/resumable-resource.wav`;
+  const uploadSize = silentWav("clip-01.wav").buffer.length;
+  const ticketBodies: Array<{ resumeFileKey?: string }> = [];
+  let ticketRequests = 0;
+  let createRequests = 0;
+  let sessionHeads = 0;
+  let sessionPatches = 0;
+  let completionRequests = 0;
+  let firstPatchFails = true;
+
+  await page.route("**/api/auth/me", route => route.fulfill({
+    status: 200,
+    contentType: "application/json",
+    body: JSON.stringify({
+      success: true,
+      user: { id: userId, username: "resume-user", createdAt: new Date(0).toISOString() },
+    }),
+  }));
+  await page.route("**/api/audio/upload-ticket", async route => {
+    ticketRequests += 1;
+    ticketBodies.push(route.request().postDataJSON() as { resumeFileKey?: string });
+    const requestUrl = new URL(route.request().url());
+    await route.fulfill({
+      status: 200,
+      contentType: "application/json",
+      body: JSON.stringify({
+        success: true,
+        fileKey,
+        uploadToken: "resume-token",
+        tusEndpoint: `${requestUrl.origin}/api/resume-test-tus`,
+        bucket: "audios",
+      }),
+    });
+  });
+  await page.route("**/api/resume-test-tus**", async route => {
+    const request = route.request();
+    const pathname = new URL(request.url()).pathname;
+    if (request.method() === "POST") {
+      createRequests += 1;
+      await route.fulfill({
+        status: 201,
+        headers: {
+          "Tus-Resumable": "1.0.0",
+          "Upload-Offset": "0",
+          Location: `${new URL(request.url()).origin}/api/resume-test-tus/session-1`,
+        },
+      });
+      return;
+    }
+    if (request.method() === "HEAD" && pathname.endsWith("/session-1")) {
+      sessionHeads += 1;
+      await route.fulfill({
+        status: 200,
+        headers: {
+          "Tus-Resumable": "1.0.0",
+          "Upload-Offset": "0",
+          "Upload-Length": String(uploadSize),
+        },
+      });
+      return;
+    }
+    if (request.method() === "PATCH" && pathname.endsWith("/session-1")) {
+      sessionPatches += 1;
+      if (firstPatchFails) {
+        firstPatchFails = false;
+        await route.fulfill({ status: 400, headers: { "Tus-Resumable": "1.0.0", "Upload-Offset": "0" } });
+        return;
+      }
+      await route.fulfill({ status: 204, headers: { "Tus-Resumable": "1.0.0", "Upload-Offset": String(uploadSize) } });
+      return;
+    }
+    await route.fallback();
+  });
+  await page.route("**/api/audio/upload-complete", async route => {
+    completionRequests += 1;
+    await route.fulfill({
+      status: completionRequests === 1 ? 404 : 200,
+      contentType: "application/json",
+      body: completionRequests === 1
+        ? JSON.stringify({ success: false, error: "未找到已上传的音频，请重新上传" })
+        : JSON.stringify({ success: true, audio_url: `https://example.test/${fileKey}`, file_key: fileKey }),
+    });
+  });
+
+  const pageErrors = await openPersistentAudioSettings(page);
+  await uploadAudios(page, 1);
+  await expect.poll(() => sessionPatches).toBe(1);
+  await expect.poll(() => page.evaluate(() => {
+    const raw = localStorage.getItem("dream_default_play_config");
+    return raw ? (JSON.parse(raw) as { playback?: { audios?: Array<{ pendingUploadKey?: string }> } }).playback?.audios?.[0]?.pendingUploadKey : null;
+  })).toBe(fileKey);
+
+  await page.reload();
+  await expect(page.getByLabel("选择音频文件")).toBeAttached();
+  await expect.poll(() => sessionHeads).toBe(1);
+  await expect.poll(() => sessionPatches).toBe(2);
+  await expect.poll(() => completionRequests).toBe(2);
+  expect(ticketRequests).toBe(2);
+  expect(ticketBodies.map(body => body.resumeFileKey)).toEqual([undefined, fileKey]);
+  expect(createRequests).toBe(1);
   expect(pageErrors).toEqual([]);
 });
 

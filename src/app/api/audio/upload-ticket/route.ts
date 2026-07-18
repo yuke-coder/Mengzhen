@@ -5,7 +5,9 @@ import {
   AUDIO_BUCKET,
   createAudioObjectKey,
   formatByteSize,
+  getAudioExtension,
   isSupportedAudio,
+  isUserAudioObjectKey,
   normalizeAudioFileName,
   toDirectTusEndpoint,
 } from "@/lib/audio-upload";
@@ -17,6 +19,7 @@ interface UploadTicketRequest {
   fileName?: unknown;
   fileSize?: unknown;
   mimeType?: unknown;
+  resumeFileKey?: unknown;
 }
 
 const BUCKET_LIMIT_CACHE_TTL = 5 * 60 * 1000;
@@ -73,7 +76,19 @@ export async function POST(request: NextRequest) {
       }, { status: 413 });
     }
 
-    const fileKey = createAudioObjectKey(user.id, fileName);
+    let fileKey: string;
+    if (body.resumeFileKey === undefined) {
+      fileKey = createAudioObjectKey(user.id, fileName);
+    } else {
+      if (!isUserAudioObjectKey(body.resumeFileKey, user.id)) {
+        return NextResponse.json({ success: false, error: "无法继续这份音频，请重新选择文件" }, { status: 400 });
+      }
+      const selectedExtension = getAudioExtension(fileName);
+      if (selectedExtension && getAudioExtension(body.resumeFileKey) !== selectedExtension) {
+        return NextResponse.json({ success: false, error: "继续上传的音频格式不匹配，请重新选择文件" }, { status: 400 });
+      }
+      fileKey = body.resumeFileKey;
+    }
     const { data: signedUpload, error: signError } = await supabase.storage
       .from(AUDIO_BUCKET)
       .createSignedUploadUrl(fileKey);

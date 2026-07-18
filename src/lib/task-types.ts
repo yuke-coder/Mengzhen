@@ -6,6 +6,8 @@ export interface TaskAudio {
   duration: number;
   size: number;
   fileKey?: string;
+  /** 刷新页面后用于继续未完成直传的目标对象，不代表任务资源已可用。 */
+  pendingUploadKey?: string;
   serverUrl?: string;
   dbKey?: string;
   savedToLibrary?: boolean;

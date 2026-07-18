@@ -9,6 +9,7 @@ import type { PlaybackDraft, TaskAudio } from "@/lib/task-types";
 
 export interface UploadState {
   uploading: boolean;
+  queued: boolean;
   uploadProgress: number;
   processing: boolean;
   uploadError: string | null;
@@ -99,7 +100,28 @@ export interface PlaybackController {
 }
 
 let audioIdCounter = 0;
-const MAX_PARALLEL_UPLOADS = 3;
+const TUS_CHUNK_SIZE = 6 * 1024 * 1024;
+const TUS_RESUME_WINDOW_MS = 23 * 60 * 60 * 1000;
+
+interface NetworkInformationLike {
+  effectiveType?: "slow-2g" | "2g" | "3g" | "4g";
+  saveData?: boolean;
+}
+
+function getMaxParallelUploads(): number {
+  const browserNavigator = navigator as Navigator & {
+    connection?: NetworkInformationLike;
+    mozConnection?: NetworkInformationLike;
+    webkitConnection?: NetworkInformationLike;
+  };
+  const connection = browserNavigator.connection
+    ?? browserNavigator.mozConnection
+    ?? browserNavigator.webkitConnection;
+
+  if (connection?.saveData || connection?.effectiveType === "slow-2g" || connection?.effectiveType === "2g") return 1;
+  if (connection?.effectiveType === "3g") return 2;
+  return 3;
+}
 
 function errorMessage(error: unknown, fallback: string): string {
   if (error instanceof Error && error.message) return error.message;
@@ -152,6 +174,8 @@ export function usePlaybackController({ value, onChange }: UsePlaybackController
   const uploadAbortRefs = useRef<Record<string, UploadAbortHandle>>({});
   const uploadTicketsRef = useRef<Record<string, UploadTicket>>({});
   const completedDirectUploadsRef = useRef(new Set<string>());
+  const registeringUploadsRef = useRef(new Set<string>());
+  const registeredUploadsRef = useRef(new Set<string>());
   const uploadPromisesRef = useRef<Record<string, Promise<void>>>({});
   const queuedUploadsRef = useRef<QueuedUpload[]>([]);
   const activeUploadCountRef = useRef(0);
@@ -182,6 +206,7 @@ export function usePlaybackController({ value, onChange }: UsePlaybackController
     const current = uploadStatesRef.current[audioId];
     const next: UploadState = {
       uploading: patch.uploading ?? current?.uploading ?? false,
+      queued: patch.queued ?? current?.queued ?? false,
       uploadProgress: patch.uploadProgress ?? current?.uploadProgress ?? 0,
       processing: patch.processing ?? current?.processing ?? false,
       uploadError: patch.uploadError !== undefined ? patch.uploadError : current?.uploadError ?? null,
@@ -210,6 +235,8 @@ export function usePlaybackController({ value, onChange }: UsePlaybackController
     delete uploadAbortRefs.current[audioId];
     delete uploadTicketsRef.current[audioId];
     completedDirectUploadsRef.current.delete(audioId);
+    registeringUploadsRef.current.delete(audioId);
+    registeredUploadsRef.current.delete(audioId);
     delete uploadPromisesRef.current[audioId];
     delete fileRefs.current[audioId];
     delete uploadStatesRef.current[audioId];
@@ -308,6 +335,7 @@ export function usePlaybackController({ value, onChange }: UsePlaybackController
       void getAudioBlob(audio.dbKey).then(blob => {
         if (!blob || cancelled || !mountedRef.current || objectUrlRefs.current[audio.id]) return;
         if (!valueRef.current.audios.some(current => current.id === audio.id)) return;
+        fileRefs.current[audio.id] = new File([blob], audio.name, { type: blob.type || "audio/mpeg" });
         const url = URL.createObjectURL(blob);
         objectUrlRefs.current[audio.id] = url;
         setSources(previous => ({ ...previous, [audio.id]: url }));
@@ -351,11 +379,11 @@ export function usePlaybackController({ value, onChange }: UsePlaybackController
     }));
   }, [updateDraft]);
 
-  const requestUploadTicket = useCallback(async (file: File): Promise<UploadTicket> => {
+  const requestUploadTicket = useCallback(async (file: File, resumeFileKey?: string): Promise<UploadTicket> => {
     const response = await fetch("/api/audio/upload-ticket", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({ fileName: file.name, fileSize: file.size, mimeType: file.type }),
+      body: JSON.stringify({ fileName: file.name, fileSize: file.size, mimeType: file.type, resumeFileKey }),
     });
     const payload = await response.json().catch(() => null) as Partial<UploadTicketResponse> & { error?: string } | null;
     if (!response.ok || !payload?.success || !payload.fileKey || !payload.uploadToken || !payload.tusEndpoint || !payload.bucket) {
@@ -369,12 +397,17 @@ export function usePlaybackController({ value, onChange }: UsePlaybackController
     };
   }, []);
 
-  const completeUpload = useCallback(async (ticket: UploadTicket, file: File): Promise<UploadCompleteResponse> => {
+  const completeUpload = useCallback(async (
+    fileKey: string,
+    file: File,
+    allowMissing = false,
+  ): Promise<UploadCompleteResponse | null> => {
     const response = await fetch("/api/audio/upload-complete", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({ fileKey: ticket.fileKey, fileName: file.name, mimeType: file.type }),
+      body: JSON.stringify({ fileKey, fileName: file.name, mimeType: file.type }),
     });
+    if (allowMissing && response.status === 404) return null;
     const payload = await response.json().catch(() => null) as Partial<UploadCompleteResponse> & { error?: string } | null;
     if (!response.ok || !payload?.success || !payload.audio_url || !payload.file_key) {
       throw new Error(payload?.error || "音频登记失败，请重试");
@@ -397,10 +430,18 @@ export function usePlaybackController({ value, onChange }: UsePlaybackController
       };
       const upload = new TusUpload(file, {
         endpoint: ticket.tusEndpoint,
-        chunkSize: 6 * 1024 * 1024,
+        chunkSize: TUS_CHUNK_SIZE,
         retryDelays: [0, 1_000, 3_000, 5_000, 10_000],
         uploadDataDuringCreation: true,
         removeFingerprintOnSuccess: true,
+        // 同一份本地文件必须只恢复到它自己的目标对象，不能按文件名串到另一份上传。
+        fingerprint: () => Promise.resolve([
+          "dream-pillow-tus",
+          ticket.fileKey,
+          file.name,
+          file.type,
+          file.size,
+        ].join(":")),
         headers: {
           "x-signature": ticket.uploadToken,
           "x-upsert": "false",
@@ -414,6 +455,7 @@ export function usePlaybackController({ value, onChange }: UsePlaybackController
         onProgress: (uploaded, total) => {
           if (!mountedRef.current || total <= 0) return;
           updateUploadState(audioId, {
+            queued: false,
             uploadProgress: Math.min(100, Math.round((uploaded / total) * 100)),
             processing: false,
           });
@@ -431,7 +473,12 @@ export function usePlaybackController({ value, onChange }: UsePlaybackController
 
       void upload.findPreviousUploads()
         .then(previousUploads => {
-          if (previousUploads.length > 0) upload.resumeFromPreviousUpload(previousUploads[0]);
+          const minCreationTime = Date.now() - TUS_RESUME_WINDOW_MS;
+          const previousUpload = previousUploads.find(item => (
+            Number.isFinite(Date.parse(item.creationTime))
+            && Date.parse(item.creationTime) >= minCreationTime
+          ));
+          if (previousUpload) upload.resumeFromPreviousUpload(previousUpload);
           upload.start();
         })
         .catch(error => rejectOnce(error instanceof Error ? error : new Error("无法继续上传")));
@@ -440,16 +487,46 @@ export function usePlaybackController({ value, onChange }: UsePlaybackController
 
   const executeUpload = useCallback(async (audioId: string, file: File) => {
     if (!user || !mountedRef.current) return;
+    const currentAudio = valueRef.current.audios.find(audio => audio.id === audioId);
+    if (currentAudio?.fileKey || currentAudio?.serverUrl || registeredUploadsRef.current.has(audioId)) return;
     const isActiveAudio = () => (
       mountedRef.current && valueRef.current.audios.some(audio => audio.id === audioId)
     );
+    if (registeringUploadsRef.current.has(audioId)) return;
+    registeringUploadsRef.current.add(audioId);
 
     try {
+      updateUploadState(audioId, { uploading: true, queued: false, uploadError: null });
       let ticket = uploadTicketsRef.current[audioId];
       if (!ticket) {
-        ticket = await requestUploadTicket(file);
+        const audio = valueRef.current.audios.find(item => item.id === audioId);
+        const pendingUploadKey = audio?.pendingUploadKey;
+
+        if (pendingUploadKey) {
+          const completed = await completeUpload(pendingUploadKey, file, true);
+          if (completed) {
+            if (!isActiveAudio()) return;
+            patchAudio(audioId, {
+              serverUrl: completed.audio_url,
+              fileKey: completed.file_key,
+              pendingUploadKey: undefined,
+            });
+            registeredUploadsRef.current.add(audioId);
+            updateUploadState(audioId, {
+              uploading: false,
+              queued: false,
+              uploadProgress: 100,
+              processing: false,
+              uploadError: null,
+            });
+            return;
+          }
+        }
+
+        ticket = await requestUploadTicket(file, pendingUploadKey);
         if (!isActiveAudio()) return;
         uploadTicketsRef.current[audioId] = ticket;
+        if (!pendingUploadKey) patchAudio(audioId, { pendingUploadKey: ticket.fileKey });
       }
 
       if (!completedDirectUploadsRef.current.has(audioId)) {
@@ -459,33 +536,44 @@ export function usePlaybackController({ value, onChange }: UsePlaybackController
       }
 
       if (!isActiveAudio()) return;
-      updateUploadState(audioId, { uploadProgress: 100, processing: true });
-      const completed = await completeUpload(ticket, file);
+      updateUploadState(audioId, { queued: false, uploadProgress: 100, processing: true });
+      const completed = await completeUpload(ticket.fileKey, file);
+      if (!completed) throw new Error("音频登记失败，请重试");
       if (!isActiveAudio()) return;
-      patchAudio(audioId, { serverUrl: completed.audio_url, fileKey: completed.file_key });
+      patchAudio(audioId, {
+        serverUrl: completed.audio_url,
+        fileKey: completed.file_key,
+        pendingUploadKey: undefined,
+      });
       delete uploadTicketsRef.current[audioId];
       completedDirectUploadsRef.current.delete(audioId);
+      registeredUploadsRef.current.add(audioId);
       updateUploadState(audioId, {
         uploading: false,
+        queued: false,
         uploadProgress: 100,
         processing: false,
         uploadError: null,
       });
     } catch (uploadError) {
+      registeringUploadsRef.current.delete(audioId);
       if (isActiveAudio()) {
         updateUploadState(audioId, {
           uploading: false,
+          queued: false,
           processing: false,
           uploadError: translateUploadError(uploadError),
         });
       }
     } finally {
       delete uploadAbortRefs.current[audioId];
+      if (!registeredUploadsRef.current.has(audioId)) registeringUploadsRef.current.delete(audioId);
     }
   }, [completeUpload, patchAudio, requestUploadTicket, updateUploadState, uploadDirectly, user]);
 
   const drainUploadQueue = useCallback(() => {
-    while (activeUploadCountRef.current < MAX_PARALLEL_UPLOADS && queuedUploadsRef.current.length > 0) {
+    const maxParallelUploads = getMaxParallelUploads();
+    while (activeUploadCountRef.current < maxParallelUploads && queuedUploadsRef.current.length > 0) {
       const queued = queuedUploadsRef.current.shift();
       if (!queued) return;
       if (!mountedRef.current || !valueRef.current.audios.some(audio => audio.id === queued.audioId)) {
@@ -509,11 +597,14 @@ export function usePlaybackController({ value, onChange }: UsePlaybackController
 
   const performUpload = useCallback(async (audioId: string, file: File) => {
     if (!user || !mountedRef.current) return;
+    const currentAudio = valueRef.current.audios.find(audio => audio.id === audioId);
+    if (currentAudio?.fileKey || currentAudio?.serverUrl || registeredUploadsRef.current.has(audioId)) return;
     const activeUpload = uploadPromisesRef.current[audioId];
     if (activeUpload) return activeUpload;
 
     updateUploadState(audioId, {
       uploading: true,
+      queued: true,
       uploadProgress: completedDirectUploadsRef.current.has(audioId) ? 100 : 0,
       processing: completedDirectUploadsRef.current.has(audioId),
       uploadError: null,
@@ -635,11 +726,14 @@ export function usePlaybackController({ value, onChange }: UsePlaybackController
 
   const retryUpload = useCallback(async (audioId: string) => {
     const audio = valueRef.current.audios.find(item => item.id === audioId);
-    if (!audio || !user) return;
+    if (!audio || !user || audio.fileKey || audio.serverUrl) return;
     let file = fileRefs.current[audioId];
     if (!file && audio.dbKey) {
       const blob = await getAudioBlob(audio.dbKey).catch(() => null);
-      if (blob) file = new File([blob], audio.name, { type: blob.type || "audio/mpeg" });
+      if (blob) {
+        file = new File([blob], audio.name, { type: blob.type || "audio/mpeg" });
+        fileRefs.current[audioId] = file;
+      }
     }
     if (!file) {
       updateUploadState(audioId, {
@@ -651,6 +745,24 @@ export function usePlaybackController({ value, onChange }: UsePlaybackController
     }
     await performUpload(audioId, file);
   }, [performUpload, updateUploadState, user]);
+
+  useEffect(() => {
+    if (!user) return;
+    for (const audio of value.audios) {
+      const currentAudio = valueRef.current.audios.find(item => item.id === audio.id);
+      const uploadState = uploadStatesRef.current[audio.id];
+      if (
+        audio.pendingUploadKey
+        && currentAudio?.pendingUploadKey === audio.pendingUploadKey
+        && !currentAudio.fileKey
+        && !currentAudio.serverUrl
+        && !uploadPromisesRef.current[audio.id]
+        && !uploadState?.uploading
+      ) {
+        void retryUpload(audio.id);
+      }
+    }
+  }, [retryUpload, user, value.audios]);
 
   const saveToLibrary = useCallback(async (audioId: string) => {
     let audio = valueRef.current.audios.find(item => item.id === audioId);

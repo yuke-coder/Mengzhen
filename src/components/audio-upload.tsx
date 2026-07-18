@@ -384,7 +384,9 @@ export function AudioUpload({
                         {uploadState?.uploading && (
                           <span className="flex items-center gap-1 text-[var(--brand-start)]">
                             <Spinner size="sm" className="h-3 w-3" />
-                            {uploadState.processing
+                            {uploadState.queued
+                              ? "等待上传"
+                              : uploadState.processing
                               ? "正在确认任务资源"
                               : uploadState.uploadProgress > 0
                                 ? `传输任务资源 ${uploadState.uploadProgress}%`
@@ -423,7 +425,7 @@ export function AudioUpload({
                     </div>
                   )}
 
-                  {uploadState?.uploading && !uploadState.processing && (
+                  {uploadState?.uploading && !uploadState.processing && !uploadState.queued && (
                     <div className="space-y-1">
                       <div className="w-full h-1.5 rounded-full bg-border/40 overflow-hidden">
                         <div className="h-full rounded-full bg-gradient-to-r from-[var(--brand-start)] to-[var(--brand-end)] transition-all duration-200" style={{ width: `${uploadState.uploadProgress}%` }} />

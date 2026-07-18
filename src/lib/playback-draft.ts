@@ -29,6 +29,7 @@ function normalizeAudio(value: unknown): TaskAudio | null {
     duration: clamp(audio.duration, 0, 0, Number.MAX_SAFE_INTEGER),
     size: clamp(audio.size, 0, 0, Number.MAX_SAFE_INTEGER),
     fileKey: typeof audio.fileKey === 'string' ? audio.fileKey : undefined,
+    pendingUploadKey: typeof audio.pendingUploadKey === 'string' ? audio.pendingUploadKey : undefined,
     serverUrl: typeof audio.serverUrl === 'string' ? audio.serverUrl : undefined,
     dbKey: typeof audio.dbKey === 'string' ? audio.dbKey : undefined,
     savedToLibrary: audio.savedToLibrary === true,
