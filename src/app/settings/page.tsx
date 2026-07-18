@@ -131,10 +131,16 @@ function CreatePageContent() {
 
     // ========== Service Worker 后台调度 ==========
 
-    // 任务变更时同步到 SW
+    // 任务变更时同步到 SW 并刷新调度器
     useEffect(() => {
         if (!mounted) return;
         syncTasksToSW();
+        // 通知调度器有新任务
+        try {
+            getTaskScheduler().refreshSchedule();
+        } catch {
+            // 调度器可能尚未初始化，忽略
+        }
     }, [mounted, tasksVersion]);
 
     // 启动临近保活 + 监听 SW 消息

@@ -593,11 +593,28 @@ class HighPerformanceScheduler {
     }
   }
 
+  /** 强制刷新调度队列，用于新任务创建/修改后 */
+  refreshSchedule(): void {
+    if (!this.isRunning) return;
+    this.taskCache.sync();
+    this.rebuildQueue();
+    this.scheduleNextCheck();
+  }
+
   private startTickLoop(): void {
+    let tickCount = 0;
     const tick = () => {
       if (!this.isRunning) return;
       const now = Date.now();
       const interval = this.isBackground ? 3000 : 500;
+      tickCount++;
+
+      // 每 10 个 tick（约 5 秒）检查一次是否有新任务
+      if (tickCount % 10 === 0) {
+        this.taskCache.sync();
+        this.rebuildQueue();
+        this.scheduleNextCheck();
+      }
 
       activePlaybacks.forEach((playback, taskId) => {
         const task = getAllTasks().find(t => t.id === taskId);
