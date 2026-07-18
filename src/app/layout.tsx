@@ -9,6 +9,9 @@ import ClientProviders from "@/components/client-providers";
 import { ProfileToastListener } from "@/components/profile-toast-listener";
 
 export const viewport: Viewport = {
+  width: "device-width",
+  initialScale: 1,
+  viewportFit: "cover",
   themeColor: [
     { media: '(prefers-color-scheme: light)', color: '#ffffff' },
     { media: '(prefers-color-scheme: dark)', color: '#0a0f1a' },
@@ -70,7 +73,14 @@ export default function RootLayout({
                 <ProfileToastListener />
               </div>
             </ClientProviders>
-            <Toaster position="top-right" />
+            <Toaster
+              position="top-center"
+              closeButton
+              richColors
+              duration={5000}
+              offset={{ top: 72, left: 16, right: 16 }}
+              mobileOffset={{ top: "calc(max(12px, env(safe-area-inset-top)) + 48px)", left: 12, right: 12 }}
+            />
           </AuthProvider>
         </ThemeProvider>
 

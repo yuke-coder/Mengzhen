@@ -101,7 +101,7 @@ export function PlaybackSettingsPanel({
     <div className="space-y-3 sm:space-y-6">
       <div className="flex flex-col items-center gap-2.5 pb-4 sm:pb-0">
         <ModeSwitch mode={mode} onModeChange={onModeChange} />
-        <p className="text-xs text-muted-foreground/60 text-center leading-relaxed px-4">
+        <p className="px-4 text-center text-xs leading-relaxed text-muted-foreground">
           {mode === "default" ? "设置开始和结束时间，快速启动播放" : "创建定时任务，支持重复执行和任务管理"}
         </p>
       </div>

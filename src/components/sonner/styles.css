@@ -47,7 +47,7 @@ html[dir='rtl'],
   margin: 0;
   list-style: none;
   outline: none;
-  z-index: 999999999;
+  z-index: 300;
   transition: transform 400ms ease;
 }
 
@@ -471,6 +471,34 @@ html[dir='rtl'],
     left: 0;
     right: 0;
     width: calc(100% - var(--mobile-offset-left) * 2);
+    max-height: min(10rem, 30vh);
+    overflow: hidden;
+    border: 0;
+    padding: 12px 40px 12px 14px;
+    border-radius: 12px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.14);
+    font-size: 14px;
+    align-items: flex-start;
+  }
+
+  [data-sonner-toaster] [data-content] {
+    max-width: 100%;
+  }
+
+  [data-sonner-toaster] [data-title],
+  [data-sonner-toaster] [data-description] {
+    display: -webkit-box;
+    overflow: hidden;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 3;
+  }
+
+  [data-sonner-toaster] [data-close-button] {
+    top: 8px;
+    right: 8px;
+    left: auto;
+    transform: none;
+    border: 0;
   }
 
   [data-sonner-toaster][data-x-position='left'] {

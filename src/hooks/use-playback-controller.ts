@@ -81,6 +81,7 @@ export interface PlaybackController {
     importByFileKey: (fileKey: string) => Promise<TaskAudio | null>;
     saveToLibrary: (audioId: string) => Promise<void>;
     saveAllToLibrary: () => Promise<void>;
+    retryUpload: (audioId: string) => Promise<void>;
     waitForUploads: () => Promise<number>;
     removeAudio: (audioId: string) => void;
     clearAudios: () => void;
@@ -140,7 +141,23 @@ function translateUploadError(error: unknown): string {
   if (normalized.includes("network") || normalized.includes("failed to fetch") || normalized.includes("timeout")) {
     return "网络连接异常，请检查网络后重试";
   }
-  return message;
+  if (
+    normalized.includes("accessdenied")
+    || normalized.includes("unauthorized")
+    || normalized.includes("invalid compact jws")
+    || normalized.includes("statuscode\":\"403")
+    || normalized.includes("response code: 403")
+  ) {
+    return "上传凭证已失效，请点击重试";
+  }
+  if (
+    normalized.startsWith("tus:")
+    || normalized.includes("/storage/v1/upload/resumable")
+    || normalized.includes("unexpected response while")
+  ) {
+    return "音频上传失败，请点击重试";
+  }
+  return message.length > 120 ? "音频上传失败，请稍后重试" : message;
 }
 
 function mergeAudios(current: TaskAudio[], additions: TaskAudio[]): TaskAudio[] {
@@ -557,6 +574,8 @@ export function usePlaybackController({ value, onChange }: UsePlaybackController
       });
     } catch (uploadError) {
       registeringUploadsRef.current.delete(audioId);
+      // TUS 凭证可能已过期或被存储服务拒绝；重试时必须重新签发。
+      delete uploadTicketsRef.current[audioId];
       if (isActiveAudio()) {
         updateUploadState(audioId, {
           uploading: false,
@@ -921,6 +940,7 @@ export function usePlaybackController({ value, onChange }: UsePlaybackController
       importByFileKey,
       saveToLibrary,
       saveAllToLibrary,
+      retryUpload,
       waitForUploads,
       removeAudio,
       clearAudios,
