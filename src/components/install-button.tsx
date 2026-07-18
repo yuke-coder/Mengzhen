@@ -1,89 +1,246 @@
 "use client";
 
-import { useEffect, useState, useCallback } from "react";
+import { useCallback, useEffect, useState, useSyncExternalStore } from "react";
 import Image from "next/image";
 import { cn } from "@/lib/utils";
-import { initPwaInstallListener, promptInstall, getPwaStatus } from "@/lib/pwa";
-import { toast } from "@/components/sonner";
+import {
+  getPwaInstallServerStatus,
+  getPwaInstallStatus,
+  promptInstall,
+  subscribePwaInstallStatus,
+} from "@/lib/pwa";
+import {
+  Drawer,
+  DrawerClose,
+  DrawerContent,
+  DrawerDescription,
+  DrawerFooter,
+  DrawerHeader,
+  DrawerTitle,
+} from "@/components/ui/drawer";
 import "./install-button.css";
 
 interface InstallButtonProps {
   className?: string;
 }
 
+type InstallPlatform = "android" | "ios" | "desktop";
+
+const installGuides: Record<
+  InstallPlatform,
+  {
+    description: string;
+    steps: Array<{ title: string; detail: string }>;
+    note: string;
+  }
+> = {
+  android: {
+    description: "当前浏览器没有向网页提供一键安装入口，请从浏览器菜单完成安装。",
+    steps: [
+      {
+        title: "打开浏览器菜单",
+        detail: "点击页面底部或右上角的菜单按钮，图标通常是“⋮”或“≡”。",
+      },
+      {
+        title: "选择安装选项",
+        detail: "点击“安装应用”“添加到主屏幕”或“添加至桌面”。",
+      },
+      {
+        title: "确认安装",
+        detail: "完成后即可从手机桌面直接打开梦枕。",
+      },
+    ],
+    note: "如果菜单中没有安装选项，请刷新一次；仍未出现时，可用 Chrome、Edge 或系统浏览器重新打开。",
+  },
+  ios: {
+    description: "iPhone 和 iPad 需要通过 Safari 的分享菜单添加到主屏幕。",
+    steps: [
+      {
+        title: "使用 Safari 打开",
+        detail: "复制当前网址，并在 Safari 中访问梦枕。",
+      },
+      {
+        title: "打开分享菜单",
+        detail: "点击 Safari 工具栏中的分享按钮。",
+      },
+      {
+        title: "添加到主屏幕",
+        detail: "选择“添加到主屏幕”，然后点击“添加”。",
+      },
+    ],
+    note: "安装后请从主屏幕图标进入，梦枕会以独立应用方式运行。",
+  },
+  desktop: {
+    description: "当前浏览器没有向网页提供一键安装入口，可以从浏览器界面完成安装。",
+    steps: [
+      {
+        title: "查看地址栏或菜单",
+        detail: "寻找地址栏右侧的安装图标，或打开浏览器主菜单。",
+      },
+      {
+        title: "选择安装应用",
+        detail: "点击“安装梦枕”“安装应用”或“创建快捷方式”。",
+      },
+      {
+        title: "确认安装",
+        detail: "安装完成后可从桌面或应用列表启动梦枕。",
+      },
+    ],
+    note: "如果没有安装选项，请使用最新版 Chrome 或 Edge 打开。",
+  },
+};
+
+function InstallGuide({
+  open,
+  onOpenChange,
+  platform,
+}: {
+  open: boolean;
+  onOpenChange: (open: boolean) => void;
+  platform: InstallPlatform;
+}) {
+  const guide = installGuides[platform];
+
+  return (
+    <Drawer open={open} onOpenChange={onOpenChange}>
+      <DrawerContent
+        className="!border-0 rounded-t-2xl bg-background text-foreground shadow-[0_-8px_24px_rgba(0,0,0,0.22)]"
+        overlayClassName="!bg-black/55 backdrop-blur-[2px]"
+      >
+        <div className="mx-auto w-full max-w-lg px-2 pb-[env(safe-area-inset-bottom)]">
+          <DrawerHeader className="px-5 pb-3 pt-5 text-left">
+            <DrawerTitle className="text-xl font-semibold">将梦枕安装到桌面</DrawerTitle>
+            <DrawerDescription className="mt-2 text-left text-sm leading-6 text-muted-foreground">
+              {guide.description}
+            </DrawerDescription>
+          </DrawerHeader>
+
+          <ol className="space-y-4 px-5 py-2">
+            {guide.steps.map((step, index) => (
+              <li key={step.title} className="flex gap-3">
+                <span
+                  className="flex size-7 shrink-0 items-center justify-center rounded-full bg-[rgb(40,184,148)] text-sm font-bold text-black"
+                  aria-hidden="true"
+                >
+                  {index + 1}
+                </span>
+                <div className="min-w-0 pt-0.5">
+                  <p className="text-sm font-semibold text-foreground">{step.title}</p>
+                  <p className="mt-1 text-sm leading-6 text-muted-foreground">{step.detail}</p>
+                </div>
+              </li>
+            ))}
+          </ol>
+
+          <p className="mx-5 mt-5 rounded-xl bg-muted/60 px-4 py-3 text-xs leading-5 text-muted-foreground">
+            {guide.note}
+          </p>
+
+          <DrawerFooter className="px-5 pb-5 pt-4">
+            <DrawerClose asChild>
+              <button
+                type="button"
+                className="h-12 rounded-lg bg-[rgb(40,184,148)] px-5 text-sm font-bold text-black transition-colors hover:bg-[rgb(54,204,166)] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[rgb(40,184,148)]"
+              >
+                知道了
+              </button>
+            </DrawerClose>
+          </DrawerFooter>
+        </div>
+      </DrawerContent>
+    </Drawer>
+  );
+}
+
+function detectInstallPlatform(): InstallPlatform {
+  if (typeof navigator === "undefined") return "desktop";
+  if (/iPad|iPhone|iPod/.test(navigator.userAgent)) return "ios";
+  if (/Android/i.test(navigator.userAgent)) return "android";
+  return "desktop";
+}
+
 export function InstallButton({ className }: InstallButtonProps) {
-  const [canInstall, setCanInstall] = useState(false);
-  const [isInstalled, setIsInstalled] = useState(false);
+  const installStatus = useSyncExternalStore(
+    subscribePwaInstallStatus,
+    getPwaInstallStatus,
+    getPwaInstallServerStatus,
+  );
+  const [platform, setPlatform] = useState<InstallPlatform>("desktop");
+  const [guideOpen, setGuideOpen] = useState(false);
+  const [isPrompting, setIsPrompting] = useState(false);
 
   useEffect(() => {
-    getPwaStatus().then((status) => {
-      setIsInstalled(status.isInstalled);
-      setCanInstall(status.canInstall && !status.isInstalled && !status.hasPrompted);
-    });
-
-    const cleanup = initPwaInstallListener(() => {
-      getPwaStatus().then((status) => {
-        setCanInstall(status.canInstall && !status.isInstalled && !status.hasPrompted);
-      });
-    });
-
-    return cleanup;
+    setPlatform(detectInstallPlatform());
   }, []);
 
   const handleClick = useCallback(async () => {
+    if (installStatus.mode === "manual") {
+      setGuideOpen(true);
+      return;
+    }
+
+    if (installStatus.mode !== "native") return;
+
+    setIsPrompting(true);
     const result = await promptInstall();
-    if (result === "accepted") {
-      setCanInstall(false);
-      setIsInstalled(true);
-      return;
+    setIsPrompting(false);
+
+    if (result === "unavailable") {
+      setGuideOpen(true);
     }
+  }, [installStatus.mode]);
 
-    if (result === "dismissed") {
-      setCanInstall(false);
-      return;
-    }
-
-    const isIos = /iPad|iPhone|iPod/.test(navigator.userAgent);
-    toast.message(
-      isIos
-        ? "请在 Safari 的分享菜单中选择“添加到主屏幕”"
-        : "请在浏览器菜单中选择“安装应用”或“添加到主屏幕”"
-    );
-  }, []);
-
-  if (isInstalled) {
+  if (installStatus.mode === "installed") {
     return (
-      <div className={cn(
-        "inline-flex items-center gap-2 rounded border border-white/20 bg-white/5 px-4 py-2 text-sm text-white/70 backdrop-blur-sm",
-        className
-      )}>
+      <div
+        className={cn(
+          "inline-flex h-10 items-center gap-2 rounded bg-white/10 px-4 text-sm text-white/80",
+          className,
+        )}
+        role="status"
+      >
+        <span className="size-2 rounded-full bg-[rgb(40,184,148)]" aria-hidden="true" />
         <span>已安装</span>
       </div>
     );
   }
 
-  if (!canInstall) {
-    return null;
-  }
+  const isChecking = installStatus.mode === "checking";
+  const isWaiting = installStatus.mode === "waiting";
+  const isDisabled = isChecking || isWaiting || isPrompting;
+  const buttonText = isPrompting
+    ? "正在打开"
+    : isChecking
+      ? "正在检测"
+      : isWaiting
+        ? "稍后再安装"
+        : "安装梦枕";
 
   return (
-    <div className={cn("install-button-root inline-block relative", className)}>
-      <button
-        type="button"
-        onClick={handleClick}
-        className="special-button arrow-hover-container color-#000 p-1px primary medium"
-      >
+    <>
+      <div className={cn("install-button-root inline-block relative", className)}>
+        <button
+          type="button"
+          onClick={handleClick}
+          disabled={isDisabled}
+          aria-busy={isChecking || isPrompting}
+          title={isWaiting ? "已取消本次安装，浏览器重新提供安装入口后可再次尝试" : undefined}
+          className={cn(
+            "special-button arrow-hover-container color-#000 p-1px primary medium",
+            isDisabled && "disabled",
+          )}
+        >
           <div className="prefix-container">
             <Image
               src="/logo.png"
-              alt="梦枕"
+              alt=""
               width={48}
               height={48}
               className="rounded object-contain"
             />
           </div>
           <div className="text-lg ShuHeiTi button-content font-700">
-            <span className="button-text">安装梦枕</span>
+            <span className="button-text" aria-live="polite">{buttonText}</span>
           </div>
           <div className="arrow-hover medium default" aria-hidden="true">
             <div className="arrow-icon">
@@ -100,6 +257,9 @@ export function InstallButton({ className }: InstallButtonProps) {
             </div>
           </div>
         </button>
-    </div>
+      </div>
+
+      <InstallGuide open={guideOpen} onOpenChange={setGuideOpen} platform={platform} />
+    </>
   );
 }

@@ -47,6 +47,11 @@
   box-shadow: rgba(108, 77, 255, 0.3) 0px 4px 12px;
 }
 
+.install-button-root .special-button:focus-visible {
+  outline: 3px solid rgba(40, 184, 148, 0.55);
+  outline-offset: 3px;
+}
+
 .install-button-root .special-button.disabled {
   opacity: 0.5;
   cursor: not-allowed;
@@ -378,5 +383,17 @@
     height: 40px;
     padding: 0px 16px;
     font-size: 14px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .install-button-root .special-button,
+  .install-button-root .special-button::before,
+  .install-button-root .arrow-hover .arrow-icon,
+  .install-button-root .arrow-hover .arrow-icon::before,
+  .install-button-root .arrow-hover .arrow-icon::after,
+  .install-button-root .arrow-hover .arrow-icon .arrow-icon-white,
+  .install-button-root .arrow-hover .arrow-icon .arrow-icon-black {
+    transition: none;
   }
 }

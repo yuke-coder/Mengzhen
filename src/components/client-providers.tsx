@@ -2,6 +2,7 @@
 
 import { useEffect } from 'react';
 import dynamic from 'next/dynamic';
+import { initializePwaInstallManager } from '@/lib/pwa';
 
 const DynamicBackground = dynamic(() => import('@/components/dynamic-background'), {
     ssr: false,
@@ -9,6 +10,10 @@ const DynamicBackground = dynamic(() => import('@/components/dynamic-background'
 });
 
 export default function ClientProviders({ children }: { children: React.ReactNode }) {
+    useEffect(() => {
+        initializePwaInstallManager();
+    }, []);
+
     useEffect(() => {
         const handler = (e: Event) => {
             const t = e.target as HTMLElement;

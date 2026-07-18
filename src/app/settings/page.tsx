@@ -15,7 +15,6 @@ import { startTaskScheduler, stopTaskScheduler, getTaskScheduler } from "@/lib/t
 import DynamicBackground from "@/components/dynamic-background";
 import { setupAutoUnlock } from "@/lib/audio";
 import EnhancedTaskScheduler from "@/lib/background-scheduler";
-import { initPwaInstallListener, isPwaInstalled, hasPromptedInstall } from "@/lib/pwa";
 import { useIsMobile } from "@/hooks/use-mobile";
 import { usePlaybackController } from "@/hooks/use-playback-controller";
 import { HeroTitle } from "@/components/hero-title";
@@ -61,7 +60,6 @@ function CreatePageContent() {
     const [tasksVersion, setTasksVersion] = useState(0);
     const [audioUnlocked, setAudioUnlocked] = useState(false);
     const [showScreenChoice, setShowScreenChoice] = useState(false);
-    const [isPwa, setIsPwa] = useState(false);
     const mounted = useClientOnly();
     const sharedPlaybackController = usePlaybackController({
         value: sharedPlaybackDraft,
@@ -122,21 +120,6 @@ function CreatePageContent() {
         const cleanup = setupAutoUnlock();
         return cleanup;
     }, [mounted]);
-
-
-    // PWA - 只提示一次浏览器原生安装
-    useEffect(() => {
-        if (!mounted) return;
-        setIsPwa(isPwaInstalled());
-    }, [mounted]);
-
-    useEffect(() => {
-        if (!mounted || !audioUnlocked || isPwa || hasPromptedInstall()) return;
-
-        // 仅捕获 deferredPrompt，不自动弹出；安装提示由首页 CTA 按钮触发
-        const cleanup = initPwaInstallListener();
-        return cleanup;
-    }, [mounted, audioUnlocked, isPwa]);
 
 
     const requestPermissions = useCallback(async () => {
