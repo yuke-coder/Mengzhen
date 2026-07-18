@@ -6,16 +6,15 @@ import { Button } from "@/components/ui/button";
 import { Spinner } from "@/components/ui/spinner";
 import type { TaskAudio } from "@/lib/task-types";
 import { AUDIO_ACCEPT, formatFileSize, formatDuration } from "@/lib/audio";
+import { toast } from "@/components/sonner";
 import type { PlaybackController } from "@/hooks/use-playback-controller";
 import {
   Upload,
   Music2,
-  X,
   Play,
   Pause,
   Trash2,
   CheckCircle2,
-  AlertCircle,
   Volume2,
   Clock,
   GripVertical,
@@ -65,6 +64,21 @@ function PreviewAudio({
   );
 }
 
+function AudioItemErrors({ uploadState }: { uploadState?: { uploadError?: string | null; libraryError?: string | null } }) {
+  const shown = useRef<Set<string>>(new Set());
+  useEffect(() => {
+    if (uploadState?.uploadError && !shown.current.has(uploadState.uploadError)) {
+      shown.current.add(uploadState.uploadError);
+      toast.error(uploadState.uploadError);
+    }
+    if (uploadState?.libraryError && !shown.current.has(uploadState.libraryError)) {
+      shown.current.add(uploadState.libraryError);
+      toast.error(uploadState.libraryError);
+    }
+  }, [uploadState?.uploadError, uploadState?.libraryError]);
+  return null;
+}
+
 export function AudioUpload({
   controller,
   onAudioUploaded,
@@ -79,13 +93,13 @@ export function AudioUpload({
   const {
     uploads: uploadStates,
     error: uploadError,
-    isUploading: anyUploading,
-    allUploaded,
+    isSavingToLibrary: anySavingToLibrary,
+    allSavedToLibrary,
     isAuthenticated: user,
     sourceFor,
     addFiles,
-    retryUpload,
-    uploadAll,
+    saveToLibrary,
+    saveAllToLibrary,
     removeAudio,
     clearAudios,
     clearError,
@@ -112,6 +126,13 @@ export function AudioUpload({
   const VolumeIcon = volume === 0 ? VolumeX : volume < 50 ? Volume1 : Volume2;
 
   useEffect(() => setPortalReady(true), []);
+
+  useEffect(() => {
+    if (uploadError) {
+      toast.error(uploadError);
+      clearError();
+    }
+  }, [uploadError, clearError]);
 
   const processFiles = useCallback(async (files: FileList | File[]) => {
     const result = await addFiles(files);
@@ -249,7 +270,7 @@ export function AudioUpload({
         </div>
         <div className="text-center">
           <p className="text-sm font-medium text-foreground leading-relaxed px-2">
-            {disabled ? "请先登录" : dragOver ? "松开以上传" : "点击或拖拽音频文件到此处"}
+            {disabled ? "请先登录" : dragOver ? "松开以添加" : "点击或拖拽添加音频文件"}
           </p>
           {audios.length > 0 && (
             <p className="text-xs text-[var(--brand-start)] font-medium">已添加 {audios.length} 个音频</p>
@@ -269,19 +290,19 @@ export function AudioUpload({
             音频列表（{audios.length}）
             <span className="text-xs font-normal text-muted-foreground">· 拖动左侧手柄调整顺序</span>
           </h3>
-          {!allUploaded && user && (
+          {!allSavedToLibrary && user && (
             <Button
               type="button"
               size="sm"
               variant="outline"
-              onClick={() => void uploadAll()}
-              disabled={anyUploading}
+              onClick={() => void saveAllToLibrary()}
+              disabled={anySavingToLibrary}
               className="rounded-lg text-xs h-8"
             >
-              {anyUploading ? (
-                <><Spinner size="sm" className="mr-1 h-3 w-3" />上传中...</>
+              {anySavingToLibrary ? (
+                <><Spinner size="sm" className="mr-1 h-3 w-3" />保存中...</>
               ) : (
-                <><Upload className="w-3 h-3 mr-1" />全部上传</>
+                <><Upload className="w-3 h-3 mr-1" />全部存入音频库</>
               )}
             </Button>
           )}
@@ -359,13 +380,23 @@ export function AudioUpload({
                       <div className="flex items-center gap-2 mt-0.5 text-[11px] text-muted-foreground">
                         <span className="flex items-center gap-1"><VolumeIcon className="w-3 h-3" />{formatFileSize(audio.size)}</span>
                         {audio.duration > 0 && <span className="flex items-center gap-1"><Clock className="w-3 h-3" />{formatDuration(audio.duration)}</span>}
-                        {audio.serverUrl && <span className="flex items-center gap-1 text-green-500"><CheckCircle2 className="w-3 h-3" />已上传</span>}
-                        {uploadState?.uploading && <span className="flex items-center gap-1 text-[var(--brand-start)]"><Spinner size="sm" className="h-3 w-3" />{uploadState.uploadProgress}%</span>}
+                        {audio.savedToLibrary && <span className="flex items-center gap-1 text-green-500"><CheckCircle2 className="w-3 h-3" />已存音频库</span>}
+                        {uploadState?.uploading && (
+                          <span className="flex items-center gap-1 text-[var(--brand-start)]">
+                            <Spinner size="sm" className="h-3 w-3" />
+                            {uploadState.processing
+                              ? "正在确认任务资源"
+                              : uploadState.uploadProgress > 0
+                                ? `传输任务资源 ${uploadState.uploadProgress}%`
+                                : "正在传输任务资源"}
+                          </span>
+                        )}
+                        {uploadState?.savingToLibrary && <span className="flex items-center gap-1 text-[var(--brand-start)]"><Spinner size="sm" className="h-3 w-3" />正在存入音频库</span>}
                       </div>
                     </div>
 
                     <div className="flex items-center gap-1 flex-shrink-0 opacity-0 group-hover/audio:opacity-100 focus-within:opacity-100 transition-opacity">
-                      {!audio.serverUrl && !uploadState?.uploading && user && <Button variant="ghost" size="icon" onClick={e => { e.stopPropagation(); void retryUpload(audio.id); }} className="w-8 h-8 text-muted-foreground hover:text-[var(--brand-start)]" title="上传此文件"><Upload className="w-3.5 h-3.5" /></Button>}
+                      {!audio.savedToLibrary && !uploadState?.savingToLibrary && user && <Button variant="ghost" size="icon" onClick={e => { e.stopPropagation(); void saveToLibrary(audio.id); }} className="w-8 h-8 text-muted-foreground hover:text-[var(--brand-start)]" title="存入音频库"><Upload className="w-3.5 h-3.5" /></Button>}
                       <Button variant="ghost" size="icon" onClick={e => { e.stopPropagation(); handleRemove(audio.id); }} className="w-8 h-8 text-muted-foreground hover:text-red-500" title="移除"><Trash2 className="w-3.5 h-3.5" /></Button>
                     </div>
 
@@ -383,7 +414,7 @@ export function AudioUpload({
                         "w-full h-1.5 rounded-full appearance-none bg-border/40 cursor-pointer [&::-webkit-slider-thumb]:appearance-none [&::-webkit-slider-thumb]:w-3 [&::-webkit-slider-thumb]:h-3 [&::-webkit-slider-thumb]:rounded-full [&::-webkit-slider-thumb]:shadow-md [&::-webkit-slider-thumb]:cursor-pointer [&::-webkit-slider-thumb]:transition-transform [&::-webkit-slider-thumb]:hover:scale-125",
                         isPlaying ? "[&::-webkit-slider-thumb]:bg-[var(--brand-start)]" : "[&::-webkit-slider-thumb]:bg-[var(--brand-start)]"
                       )} style={{
-                        background: `linear-gradient(to right, var(--brand-start) ${(currentTime / audio.duration) * 100}%, rgba(128,128,128,0.25) ${(currentTime / audio.duration) * 100}%)`
+                        background: `linear-gradient(to right, var(--brand-start) ${(currentTime / audio.duration) * 100}%, rgba(128,128,128,0.25) ${(currentTime / audio.duration) * 100}%)`,
                       }} />
                       <div className="flex justify-between text-[10px] text-muted-foreground font-mono">
                         <span>{formatDuration(currentTime)}</span>
@@ -392,7 +423,7 @@ export function AudioUpload({
                     </div>
                   )}
 
-                  {uploadState?.uploading && (
+                  {uploadState?.uploading && !uploadState.processing && (
                     <div className="space-y-1">
                       <div className="w-full h-1.5 rounded-full bg-border/40 overflow-hidden">
                         <div className="h-full rounded-full bg-gradient-to-r from-[var(--brand-start)] to-[var(--brand-end)] transition-all duration-200" style={{ width: `${uploadState.uploadProgress}%` }} />
@@ -400,12 +431,7 @@ export function AudioUpload({
                     </div>
                   )}
 
-                  {uploadState?.uploadError && (
-                    <div className="flex items-center gap-2 p-2 rounded-lg bg-red-950/15 border border-red-900/30">
-                      <AlertCircle className="w-3.5 h-3.5 text-red-400 flex-shrink-0" />
-                      <span className="text-xs text-red-400">{uploadState.uploadError}</span>
-                    </div>
-                  )}
+                  <AudioItemErrors uploadState={uploadState} />
                 </div>
 
                 <PreviewAudio audio={audio} source={audioSource} preview={preview} />
@@ -415,7 +441,7 @@ export function AudioUpload({
         </div>
 
         <div className="flex items-center justify-between pt-2 px-1">
-          <p className="text-xs text-muted-foreground">共 {audios.length} 个音频{audios.length > 1 && " · 拖动手柄调整顺序"}{allUploaded && user && " · 全部已上传"}</p>
+          <p className="text-xs text-muted-foreground">共 {audios.length} 个音频{audios.length > 1 && " · 拖动手柄调整顺序"}{allSavedToLibrary && user && " · 已全部存入音频库"}</p>
           {audios.length > 1 && <button onClick={() => setShowClearConfirm(true)} className="text-xs text-muted-foreground hover:text-red-500 transition-colors">清空全部</button>}
         </div>
       </div>
@@ -441,7 +467,7 @@ export function AudioUpload({
             onInput={e => setVolume(parseInt((e.target as HTMLInputElement).value, 10))}
             className="w-full h-2.5 rounded-full appearance-none bg-border/30 cursor-pointer [&::-webkit-slider-thumb]:appearance-none [&::-webkit-slider-thumb]:w-6 [&::-webkit-slider-thumb]:h-6 [&::-webkit-slider-thumb]:rounded-full [&::-webkit-slider-thumb]:bg-white [&::-webkit-slider-thumb]:shadow-md [&::-webkit-slider-thumb]:cursor-pointer [&::-webkit-slider-thumb]:border-2 [&::-webkit-slider-thumb]:border-[var(--brand-start)] sm:[&::-webkit-slider-thumb]:w-5 sm:[&::-webkit-slider-thumb]:h-5"
             style={{
-              background: `linear-gradient(to right, var(--brand-start) ${volume}%, rgba(128,128,128,0.2) ${volume}%)`
+              background: `linear-gradient(to right, var(--brand-start) ${volume}%, rgba(128,128,128,0.2) ${volume}%)`,
             }}
           />
         </div>
@@ -453,13 +479,6 @@ export function AudioUpload({
     <>
       <div className="space-y-3 sm:space-y-6">
         {renderUploadArea()}
-        {uploadError && (
-          <div className="flex items-center gap-2 p-3 rounded-xl bg-red-950/20 border border-red-900/30">
-            <AlertCircle className="w-4 h-4 text-red-400 flex-shrink-0" />
-            <span className="text-sm text-red-400">{uploadError}</span>
-            <button onClick={clearError} className="ml-auto text-red-400/60 hover:text-red-400"><X className="w-4 h-4" /></button>
-          </div>
-        )}
         {renderAudioList()}
         {renderVolumeControl()}
       </div>

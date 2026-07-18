@@ -13,7 +13,8 @@ import {
   FileText,
   Download,
   RefreshCw,
-  Calendar
+  Calendar,
+  AlertCircle,
 } from 'lucide-react';
 import Link from 'next/link';
 import { cn } from '@/lib/utils';
@@ -38,6 +39,7 @@ export default function HistoryPage() {
   const router = useRouter();
   const [audios, setAudios] = useState<AudioRecord[]>([]);
   const [loading, setLoading] = useState(true);
+  const [loadError, setLoadError] = useState<string | null>(null);
   const [playingId, setPlayingId] = useState<string | null>(null);
   const currentAudioRef = useRef<HTMLAudioElement | null>(null);
 
@@ -62,16 +64,19 @@ export default function HistoryPage() {
   const fetchAudios = useCallback(async () => {
     if (!user) return;
     setLoading(true);
+    setLoadError(null);
     try {
       const res = await fetch('/api/audio/my-list', { cache: 'no-store' });
       const data = await res.json();
-      if (data.success) {
-        setAudios(data.audios || []);
-      } else {
-        console.error('获取音频列表失败:', data.error);
+      if (!res.ok || !data.success) {
+        throw new Error(data.error || '获取我的音频失败');
       }
-    } catch (err) {
-      console.error('获取音频列表失败:', err);
+      setAudios(data.audios || []);
+    } catch (error) {
+      console.error('获取音频列表失败:', error);
+      setLoadError(error instanceof Error && /[\u4e00-\u9fff]/.test(error.message)
+        ? error.message
+        : '音频库加载失败，请重试');
     } finally {
       setLoading(false);
     }
@@ -201,22 +206,34 @@ export default function HistoryPage() {
 
         {/* 列表 */}
         {loading ? (
-          <div className="flex flex-col items-center justify-center py-20 gap-4">
+          <div className="flex items-center justify-center py-20">
             <Spinner className="text-muted-foreground" />
-            <p className="text-sm text-muted-foreground">Loading...</p>
+          </div>
+        ) : loadError ? (
+          <div className="flex flex-col items-center justify-center py-20 gap-4">
+            <AlertCircle className="w-8 h-8 text-red-400" />
+            <p className="text-sm text-red-400">{loadError}</p>
+            <Button variant="ghost" onClick={() => void fetchAudios()}>
+              重新加载
+            </Button>
           </div>
         ) : audios.length === 0 ? (
-          <div className="flex flex-col items-center justify-center py-20 gap-4">
-            <div className="w-16 h-16 rounded-2xl bg-muted flex items-center justify-center">
-              <Music className="w-8 h-8 text-muted-foreground" />
+          <div
+            className="flex flex-col items-center justify-center py-20 px-4 text-center"
+            aria-live="polite"
+          >
+            <div className="w-14 h-14 rounded-2xl bg-[var(--brand-fill)] flex items-center justify-center">
+              <Music className="w-7 h-7 text-[var(--brand-deep)]" />
             </div>
-            <div className="text-center">
-              <p className="text-foreground font-medium">暂无音频记录</p>
-              <p className="text-sm text-muted-foreground mt-1">在设置页上传音频后将自动保存在这里</p>
-            </div>
-            <Link href="/settings">
-              <Button className="mt-2 gap-2 bg-gradient-to-r from-pink-500 to-purple-500">
-                去设置
+            <h2 className="mt-5 text-lg font-semibold text-foreground text-balance">
+              音频库还是空的
+            </h2>
+            <p className="mt-2 max-w-md text-sm leading-6 text-muted-foreground text-pretty">
+              选择音频只会为任务准备播放资源，不会自动保存到这里。请在设置页手动点击“存入音频库”。
+            </p>
+            <Link href="/settings" className="mt-6">
+              <Button className="bg-[var(--brand-deep)] text-white hover:bg-[var(--brand-deep)]/90">
+                返回设置
               </Button>
             </Link>
           </div>

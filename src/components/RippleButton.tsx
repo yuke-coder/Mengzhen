@@ -57,7 +57,7 @@ const RippleButton = forwardRef<HTMLButtonElement, RippleButtonProps>(
         onClick={handleClick}
         disabled={disabled}
         className={cn(
-          "relative overflow-hidden cursor-pointer disabled:opacity-50 disabled:cursor-not-allowed",
+          "relative overflow-hidden cursor-pointer disabled:opacity-50 disabled:cursor-not-allowed select-none",
           className
         )}
       >

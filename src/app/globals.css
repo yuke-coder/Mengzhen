@@ -1,4 +1,4 @@
-﻿@import 'tailwindcss';
+@import 'tailwindcss';
 @import 'tw-animate-css';
 
 /* 登录注册页渐变动画 */
@@ -264,6 +264,13 @@
 @layer base {
   * {
     @apply border-border;
+    -webkit-touch-callout: none;
+  }
+  /* 允许输入框和文本区域正常选择文字 */
+  input, textarea, [contenteditable="true"] {
+    -webkit-touch-callout: default;
+    user-select: text;
+    -webkit-user-select: text;
   }
   body {
     background: linear-gradient(135deg, oklch(0.97 0.025 350) 0%, oklch(0.99 0.002 85) 40%, oklch(0.92 0.04 185) 100%);
@@ -271,6 +278,8 @@
     font-family: "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
     /* 主题切换平滑过渡 */
     transition: background 0.3s ease, color 0.3s ease;
+    -webkit-user-select: none;
+    user-select: none;
   }
   /* 暗色模式 body 背景 */
   .dark body {

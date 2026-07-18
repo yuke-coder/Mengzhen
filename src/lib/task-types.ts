@@ -8,6 +8,7 @@ export interface TaskAudio {
   fileKey?: string;
   serverUrl?: string;
   dbKey?: string;
+  savedToLibrary?: boolean;
 }
 
 export type TaskStatus = 'pending' | 'executing' | 'completed' | 'cancelled';

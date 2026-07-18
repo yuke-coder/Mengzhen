@@ -82,10 +82,6 @@ export function NumberStepperButton({
     return clearTimers;
   }, [clearTimers]);
 
-  const handleContextMenu = useCallback((e: React.MouseEvent) => {
-    e.preventDefault();
-  }, []);
-
   const handleClick = useCallback(() => {
     if (didRepeatRef.current) {
       didRepeatRef.current = false;
@@ -93,6 +89,10 @@ export function NumberStepperButton({
     }
     doStep();
   }, [doStep]);
+
+  const handleContextMenu = useCallback((e: React.MouseEvent) => {
+    e.preventDefault();
+  }, []);
 
   return (
     <button
@@ -103,17 +103,11 @@ export function NumberStepperButton({
       onPointerCancel={event => finishPointer(event, true)}
       onLostPointerCapture={clearTimers}
       onClick={handleClick}
-      onContextMenu={handleContextMenu}
       disabled={disabled}
       className={cn(
         "flex items-center justify-center border border-border/60 rounded-sm transition-all select-none hover:bg-[var(--brand-start)]/10 hover:border-[var(--brand-start)]/40 active:scale-95 disabled:opacity-40 disabled:cursor-not-allowed",
         className
       )}
-      style={{
-        WebkitTouchCallout: "none",
-        WebkitUserSelect: "none",
-        touchAction: "manipulation",
-      }}
     >
       {dir === -1 ? (
         <Minus className={iconSize} />

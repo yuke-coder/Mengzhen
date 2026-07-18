@@ -15,9 +15,9 @@ import { FadeControls } from "@/components/fade-controls";
 import { toast } from "@/components/sonner";
 import { cn } from "@/lib/utils";
 import {
+  AlertCircle,
   Save,
   Repeat,
-  AlertCircle,
 } from "lucide-react";
 
 interface TaskFormProps {
@@ -345,9 +345,9 @@ function TaskFormContent({ editTask, controller, active, onSave, onCancel }: Tas
         </div>
 
         {timeError && (
-          <div className="mt-1 px-3 py-1.5 bg-red-100/60 dark:bg-red-500/10 border border-red-500/30 dark:border-red-500/30 rounded-lg flex items-center gap-2">
-            <AlertCircle className="w-3.5 h-3.5 text-red-500 dark:text-red-400 flex-shrink-0" />
-            <span className="text-xs text-red-600 dark:text-red-400">{timeError}</span>
+          <div className="flex items-center gap-1.5 px-2.5 py-1.5 rounded-lg border border-red-500/20 bg-red-500/[0.05] dark:bg-red-500/[0.08] backdrop-blur-sm text-xs text-red-500 dark:text-red-400 animate-in fade-in slide-in-from-top-1 duration-200">
+            <AlertCircle className="w-3.5 h-3.5 flex-shrink-0" />
+            <span className="leading-relaxed">{timeError}</span>
           </div>
         )}
 

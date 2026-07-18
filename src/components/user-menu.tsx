@@ -1,6 +1,6 @@
 'use client';
 
-import { useState, useRef, useEffect, useCallback } from 'react';
+import { useState, useRef, useEffect } from 'react';
 import Link from 'next/link';
 import { useRouter } from 'next/navigation';
 import { useAuth } from '@/lib/auth-context';
@@ -98,38 +98,44 @@ export function UserMenu() {
   const router = useRouter();
   const [isOpen, setIsOpen] = useState(false);
   const menuRef = useRef<HTMLDivElement>(null);
-  const hideTimeoutRef = useRef<NodeJS.Timeout | null>(null);
+  const hideTimeoutRef = useRef<ReturnType<typeof setTimeout> | null>(null);
 
-  const delayedHide = useCallback(() => {
-    hideTimeoutRef.current = setTimeout(() => setIsOpen(false), 300);
-  }, []);
-
-  const cancelDelayedHide = useCallback(() => {
+  const open = () => {
     if (hideTimeoutRef.current) {
       clearTimeout(hideTimeoutRef.current);
       hideTimeoutRef.current = null;
     }
-  }, []);
+    setIsOpen(true);
+  };
+
+  const close = () => setIsOpen(false);
+
+  const scheduleClose = () => {
+    hideTimeoutRef.current = setTimeout(close, 150);
+  };
 
   useEffect(() => {
     function handleClickOutside(event: MouseEvent) {
-      if (menuRef.current && !menuRef.current.contains(event.target as Node)) {
-        setIsOpen(false);
-      }
+      if (menuRef.current && !menuRef.current.contains(event.target as Node)) close();
+    }
+    function handleKeyDown(event: KeyboardEvent) {
+      if (event.key === 'Escape') close();
     }
     document.addEventListener('mousedown', handleClickOutside);
-    return () => document.removeEventListener('mousedown', handleClickOutside);
+    document.addEventListener('keydown', handleKeyDown);
+    return () => {
+      document.removeEventListener('mousedown', handleClickOutside);
+      document.removeEventListener('keydown', handleKeyDown);
+    };
   }, []);
 
-  useEffect(() => {
-    return () => {
-      if (hideTimeoutRef.current) clearTimeout(hideTimeoutRef.current);
-    };
+  useEffect(() => () => {
+    if (hideTimeoutRef.current) clearTimeout(hideTimeoutRef.current);
   }, []);
 
   const handleLogout = async () => {
     await logout();
-    setIsOpen(false);
+    close();
     router.push('/');
   };
 
@@ -145,10 +151,16 @@ export function UserMenu() {
     const hasCustomAvatar = !!user.avatar_url;
 
     return (
-      <div className="relative" ref={menuRef}>
+      <div
+        className="relative"
+        ref={menuRef}
+        onMouseEnter={open}
+        onMouseLeave={scheduleClose}
+      >
         <button
-          onMouseEnter={() => { cancelDelayedHide(); setIsOpen(true); }}
-          onClick={() => setIsOpen(!isOpen)}
+          onClick={() => setIsOpen((v) => !v)}
+          aria-expanded={isOpen}
+          aria-haspopup="menu"
           className={cn(
             "shrink-0 w-9 h-9 rounded-full overflow-hidden",
             "border-2 border-[var(--brand-start)]/30",
@@ -167,29 +179,28 @@ export function UserMenu() {
         </button>
 
         <div
+          role="menu"
+          aria-hidden={!isOpen}
           className={cn(
-            "absolute right-0 top-full pt-1.5 z-[10000] isolation-isolate",
+            "absolute right-0 top-full z-[10000] isolation-isolate",
             isOpen ? "pointer-events-auto" : "pointer-events-none"
           )}
-          onMouseEnter={cancelDelayedHide}
-          onMouseLeave={delayedHide}
         >
           <div
             data-user-menu-dropdown
             className={cn(
               "py-2 min-w-[240px] max-w-[300px]",
-              "rounded-2xl bg-white/70 dark:bg-black/60",
-              "backdrop-blur-2xl backdrop-saturate-180",
-              "-webkit-backdrop-blur-2xl -webkit-backdrop-saturate-180",
-              "border border-white/40 dark:border-white/25",
-              "shadow-2xl shadow-black/[0.12]",
+              "rounded-2xl bg-white/20 dark:bg-white/[0.02]",
+              "backdrop-blur-xl backdrop-saturate-105",
+              "-webkit-backdrop-blur-xl -webkit-backdrop-saturate-105",
+              "shadow-md shadow-black/[0.04] dark:shadow-black/[0.02]",
               "transition-all duration-200 ease-out origin-top-right will-change-[transform,opacity]",
               isOpen
                 ? "opacity-100 scale-100 translate-y-0"
                 : "opacity-0 scale-95 -translate-y-1"
             )}
           >
-          <ProfileCard user={user} onEditProfile={() => { setIsOpen(false); router.push('/profile'); }} />
+          <ProfileCard user={user} onEditProfile={() => { close(); router.push('/profile'); }} />
 
           <div className="py-1 px-2">
             <Link
@@ -207,7 +218,11 @@ export function UserMenu() {
             <Link
               href="/feedback"
               onClick={() => setIsOpen(false)}
-              className="flex items-center gap-2.5 px-3 py-2 text-sm font-medium text-slate-600 dark:text-slate-300 hover:bg-slate-50 dark:hover:bg-slate-800 hover:text-primary-600 dark:hover:text-primary-400 rounded-lg transition-colors"
+              className={cn(
+                "flex items-center gap-3 w-full px-3 py-2 text-left rounded-lg",
+                "text-sm text-muted-foreground hover:text-foreground",
+                "hover:bg-black/[0.04] dark:hover:bg-white/[0.06] transition-colors duration-150"
+              )}
             >
               <SquarePen className="w-[14px] h-[14px]" />
               <span>建议反馈</span>

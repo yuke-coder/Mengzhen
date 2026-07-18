@@ -1,5 +1,6 @@
 "use client";
 
+import { Activity } from "lucide-react";
 import { NumberStepperButton } from "@/components/number-stepper";
 import { cn } from "@/lib/utils";
 
@@ -27,7 +28,7 @@ function DurationControl({ label, value, onChange }: DurationControlProps) {
         <span className="text-xs text-muted-foreground/60 font-medium uppercase tracking-wider">{label}</span>
         <span className="text-sm font-mono text-foreground tabular-nums">{value}s</span>
       </div>
-      <div className="py-0.5 flex items-center gap-3">
+      <div className="py-0.5 flex items-center gap-1 sm:gap-2.5">
         <NumberStepperButton
           dir={-1}
           ariaLabel={`减少${label}时长（每次1秒）`}
@@ -37,7 +38,8 @@ function DurationControl({ label, value, onChange }: DurationControlProps) {
           min={0}
           max={120}
           step={1}
-          className="w-8 h-8"
+          className="w-7 h-7 sm:w-8 sm:h-8"
+          iconSize="w-2.5 h-2.5 sm:w-3 sm:h-3"
         />
         <input
           type="range"
@@ -59,7 +61,8 @@ function DurationControl({ label, value, onChange }: DurationControlProps) {
           min={0}
           max={120}
           step={1}
-          className="w-8 h-8"
+          className="w-7 h-7 sm:w-8 sm:h-8"
+          iconSize="w-2.5 h-2.5 sm:w-3 sm:h-3"
         />
       </div>
     </div>
@@ -78,28 +81,24 @@ export function FadeControls({
 }: FadeControlsProps) {
   return (
     <div className={cn("space-y-4", className)}>
-      <div className="flex items-center justify-between p-3 rounded-lg bg-muted/20 border border-border/30">
-        <div className="flex items-center gap-2">
-          <button
-            type="button"
-            role="switch"
-            aria-checked={enabled}
-            onClick={() => onEnabledChange(!enabled)}
-            className={cn(
-              "relative inline-flex h-5 w-9 flex-shrink-0 rounded-full border-2 border-transparent transition-colors duration-200 ease-in-out focus:outline-none",
-              enabled ? "bg-[var(--brand-start)]" : "bg-muted",
-            )}
-          >
-            <span
-              aria-hidden="true"
-              className={cn(
-                "pointer-events-none inline-block h-4 w-4 rounded-full bg-white shadow-sm ring-0 transition duration-200 ease-in-out",
-                enabled ? "translate-x-4" : "translate-x-0",
-              )}
-            />
-          </button>
-          <span className="text-sm font-medium text-foreground">启用音量渐入渐出</span>
-        </div>
+      <div className="flex items-center justify-between gap-3">
+        <span className="text-sm font-medium text-foreground">音量渐入渐出</span>
+        <button
+          type="button"
+          role="switch"
+          aria-checked={enabled}
+          aria-label="音量渐入渐出"
+          onClick={() => onEnabledChange(!enabled)}
+          className={cn(
+            "inline-flex items-center gap-1.5 px-2.5 py-1.5 rounded-md text-xs font-semibold transition-colors shrink-0",
+            enabled
+              ? "bg-emerald-500/15 text-emerald-700 dark:text-emerald-300 border border-emerald-500/30"
+              : "bg-emerald-500/15 text-emerald-700 dark:text-emerald-300 border border-emerald-500/30 opacity-50",
+          )}
+        >
+          <Activity className="w-3.5 h-3.5" strokeWidth={2.5} />
+          <span>{enabled ? "启用" : "已禁用"}</span>
+        </button>
       </div>
 
       {enabled && (

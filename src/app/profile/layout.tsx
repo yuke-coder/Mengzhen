@@ -1,7 +1,7 @@
 "use client";
 
 import Link from "next/link";
-import { Brain, Save, X } from "lucide-react";
+import { Save, X } from "lucide-react";
 import { UserMenu } from "@/components/user-menu";
 import { ThemeToggle } from "@/components/theme-toggle";
 import { Spinner } from "@/components/ui/spinner";
@@ -58,12 +58,15 @@ function ProfileLayoutInner({ children }: { children: React.ReactNode }) {
         <div className="max-w-5xl mx-auto px-6 h-14 flex items-center justify-between relative">
           <div className="flex items-center gap-4 z-30">
             <Link href="/" className="flex items-center gap-3 group">
-              <div className="relative w-9 h-9 rounded-lg flex items-center justify-center border border-[var(--brand-start)]/30">
-                <Brain className="w-5 h-5 text-[var(--brand-end)] transition-transform duration-300 group-hover:scale-110" />
-              </div>
+              <img
+                src="/logo.png"
+                alt="梦枕"
+                className="w-9 h-9 rounded-lg shadow-lg shadow-[inset_0_2px_6px_rgba(0,0,0,0.35)] transition-transform duration-300 group-hover:scale-110 z-30"
+              />
               <span className="font-bold text-xl tracking-tight">
-                <span className="bg-gradient-to-r from-[var(--brand-start)] via-[var(--brand-mid)] to-[var(--brand-end)] bg-clip-text text-transparent">梦</span>
-                <span className="bg-gradient-to-r from-[var(--brand-mid)] to-[var(--brand-end)] bg-clip-text text-transparent">枕</span>
+                <span className="bg-gradient-to-r from-purple-500 via-purple-600 to-fuchsia-500 bg-clip-text text-transparent" suppressHydrationWarning>
+                  梦枕
+                </span>
               </span>
             </Link>
             <div className="hidden md:block w-px h-6 bg-gradient-to-b from-transparent via-[var(--brand-start)]/30 to-transparent" />

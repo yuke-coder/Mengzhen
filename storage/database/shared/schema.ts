@@ -6,7 +6,6 @@
  * - sessions: 登录会话表
  * - user_profiles: 用户资料扩展表
  * - audios: 音频资源表
- * - audio_files: 音频文件表（我的音频）
  */
 
 // ============================================================
@@ -67,6 +66,7 @@ export interface Audio {
   mime_type: string; // MIME 类型（audio/mp3, audio/wav 等）
   sort_order: number; // 播放排序（越小越靠前）
   is_active: boolean; // 是否启用（软删除用）
+  library_saved_at: string | null; // 用户手动存入音频库的时间，null 表示仅供任务使用
   created_at: string;
   updated_at: string;
 }
@@ -76,22 +76,7 @@ export interface Audio {
 // ============================================================
 
 // ============================================================
-// 5. audio_files — 音频文件表（我的音频）
-// ============================================================
-export interface AudioFile {
-  id: string; // UUID 主键
-  user_id: string; // 关联 users.id
-  bucket_id: string; // Supabase Storage bucket ID
-  path: string; // 存储路径（如 audios/userId/xxx.mp3）
-  name: string; // 文件名
-  size: number; // 文件大小（字节）
-  mime_type: string; // MIME 类型
-  metadata: Record<string, unknown> | null; // 元数据（如 duration 等）
-  created_at: string;
-}
-
-// ============================================================
-// 6. feedbacks — 用户反馈表
+// 5. feedbacks — 用户反馈表
 // ============================================================
 export interface Feedback {
   id: string; // UUID 主键
@@ -167,35 +152,27 @@ CREATE TABLE IF NOT EXISTS public.audios (
   mime_type VARCHAR(50) NOT NULL DEFAULT 'audio/mpeg',
   sort_order INTEGER NOT NULL DEFAULT 0,
   is_active BOOLEAN NOT NULL DEFAULT true,
+  library_saved_at TIMESTAMPTZ,
   created_at TIMESTAMPTZ NOT NULL DEFAULT now(),
   updated_at TIMESTAMPTZ NOT NULL DEFAULT now()
 );
+
+ALTER TABLE public.audios
+  ADD COLUMN IF NOT EXISTS library_saved_at TIMESTAMPTZ;
 
 -- 索引：按用户查询自己的音频
 CREATE INDEX IF NOT EXISTS idx_audios_user_id ON public.audios(user_id);
 -- 索引：按排序查询
 CREATE INDEX IF NOT EXISTS idx_audios_sort_order ON public.audios(user_id, sort_order);
--- 索引：按 file_key 查询
-CREATE INDEX IF NOT EXISTS idx_audios_file_key ON public.audios(file_key);
-`;
-
-export const CREATE_AUDIO_FILES_TABLE_SQL = `
-CREATE TABLE IF NOT EXISTS public.audio_files (
-  id UUID PRIMARY KEY DEFAULT gen_random_uuid(),
-  user_id UUID NOT NULL REFERENCES public.users(id) ON DELETE CASCADE,
-  bucket_id UUID,
-  path TEXT NOT NULL,
-  name VARCHAR(255) NOT NULL,
-  size INTEGER NOT NULL DEFAULT 0,
-  mime_type VARCHAR(50) NOT NULL DEFAULT 'audio/mpeg',
-  metadata JSONB,
-  created_at TIMESTAMPTZ NOT NULL DEFAULT now()
-);
-
--- 索引：按用户查询
-CREATE INDEX IF NOT EXISTS idx_audio_files_user_id ON public.audio_files(user_id);
--- 唯一约束：同一用户同一路径不重复
-CREATE UNIQUE INDEX IF NOT EXISTS idx_audio_files_user_path ON public.audio_files(user_id, path);
+-- 唯一约束：同一用户的任务资源路径不重复
+DROP INDEX IF EXISTS public.idx_audios_file_key;
+CREATE UNIQUE INDEX IF NOT EXISTS idx_audios_user_file_key
+  ON public.audios(user_id, file_key)
+  WHERE file_key IS NOT NULL;
+-- 索引：只扫描已存入音频库的资源
+CREATE INDEX IF NOT EXISTS idx_audios_library
+  ON public.audios(user_id, library_saved_at DESC)
+  WHERE library_saved_at IS NOT NULL;
 `;
 
 export const CREATE_FEEDBACKS_TABLE_SQL = `

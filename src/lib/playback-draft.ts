@@ -31,6 +31,7 @@ function normalizeAudio(value: unknown): TaskAudio | null {
     fileKey: typeof audio.fileKey === 'string' ? audio.fileKey : undefined,
     serverUrl: typeof audio.serverUrl === 'string' ? audio.serverUrl : undefined,
     dbKey: typeof audio.dbKey === 'string' ? audio.dbKey : undefined,
+    savedToLibrary: audio.savedToLibrary === true,
   };
 }
 

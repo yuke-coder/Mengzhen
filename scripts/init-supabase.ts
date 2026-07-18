@@ -1,6 +1,7 @@
 /**
  * 一键初始化 Supabase 数据库与 Storage
- *  - 创建所有缺失的表（users / sessions / user_profiles / audios / audio_files）
+ *  - 创建所有缺失的表（users / sessions / user_profiles / audios）
+ *  - 将旧 audio_files 音频库标记迁移后删除旧表
  *  - 启用 RLS 与策略
  *  - 创建公开的 avatars Storage bucket
  */
@@ -77,28 +78,39 @@ CREATE TABLE IF NOT EXISTS public.audios (
   mime_type VARCHAR(50) NOT NULL DEFAULT 'audio/mpeg',
   sort_order INTEGER NOT NULL DEFAULT 0,
   is_active BOOLEAN NOT NULL DEFAULT true,
+  library_saved_at TIMESTAMPTZ,
   created_at TIMESTAMPTZ NOT NULL DEFAULT now(),
   updated_at TIMESTAMPTZ NOT NULL DEFAULT now()
 );
+ALTER TABLE public.audios
+  ADD COLUMN IF NOT EXISTS library_saved_at TIMESTAMPTZ;
 CREATE INDEX IF NOT EXISTS idx_audios_user_id ON public.audios(user_id);
 CREATE INDEX IF NOT EXISTS idx_audios_sort_order ON public.audios(user_id, sort_order);
-CREATE INDEX IF NOT EXISTS idx_audios_file_key ON public.audios(file_key);
+DROP INDEX IF EXISTS public.idx_audios_file_key;
+CREATE UNIQUE INDEX IF NOT EXISTS idx_audios_user_file_key
+  ON public.audios(user_id, file_key)
+  WHERE file_key IS NOT NULL;
+CREATE INDEX IF NOT EXISTS idx_audios_library
+  ON public.audios(user_id, library_saved_at DESC)
+  WHERE library_saved_at IS NOT NULL;
 `;
 
-const CREATE_AUDIO_FILES_TABLE_SQL = `
-CREATE TABLE IF NOT EXISTS public.audio_files (
-  id UUID PRIMARY KEY DEFAULT gen_random_uuid(),
-  user_id UUID NOT NULL REFERENCES public.users(id) ON DELETE CASCADE,
-  bucket_id UUID,
-  path TEXT NOT NULL,
-  name VARCHAR(255) NOT NULL,
-  size INTEGER NOT NULL DEFAULT 0,
-  mime_type VARCHAR(50) NOT NULL DEFAULT 'audio/mpeg',
-  metadata JSONB,
-  created_at TIMESTAMPTZ NOT NULL DEFAULT now()
-);
-CREATE INDEX IF NOT EXISTS idx_audio_files_user_id ON public.audio_files(user_id);
-CREATE UNIQUE INDEX IF NOT EXISTS idx_audio_files_user_path ON public.audio_files(user_id, path);
+const MIGRATE_AUDIO_LIBRARY_SQL = `
+DO $migration$
+BEGIN
+  IF to_regclass('public.audio_files') IS NOT NULL THEN
+    EXECUTE $backfill$
+      UPDATE public.audios AS audio
+      SET library_saved_at = COALESCE(audio.library_saved_at, legacy.created_at)
+      FROM public.audio_files AS legacy
+      WHERE audio.user_id = legacy.user_id
+        AND audio.file_key = legacy.path
+        AND audio.library_saved_at IS NULL
+    $backfill$;
+    EXECUTE 'DROP TABLE public.audio_files';
+  END IF;
+END
+$migration$;
 `;
 
 const ENABLE_RLS_SQL = `
@@ -134,7 +146,6 @@ CREATE POLICY "Audios can delete own" ON public.audios FOR DELETE USING (true);
 async function main() {
   console.log('🚀 初始化 Supabase 数据库与 Storage...');
   console.log('📡 SUPABASE_URL:', SUPABASE_URL);
-  console.log('🔑 SERVICE_ROLE_KEY: ***' + SERVICE_ROLE_KEY.slice(-8));
 
   // 1. 初始化数据库表
   const sql = postgres(DATABASE_URL);
@@ -148,8 +159,8 @@ async function main() {
     console.log('  ✅ user_profiles');
     await sql.unsafe(CREATE_AUDIOS_TABLE_SQL);
     console.log('  ✅ audios');
-    await sql.unsafe(CREATE_AUDIO_FILES_TABLE_SQL);
-    console.log('  ✅ audio_files');
+    await sql.unsafe(MIGRATE_AUDIO_LIBRARY_SQL);
+    console.log('  ✅ 音频库已收拢到 audios');
 
     console.log('\n🔒 2) 启用 RLS 与策略...');
     await sql.unsafe(ENABLE_RLS_SQL);
@@ -213,7 +224,7 @@ async function main() {
     }
   }
 
-  console.log('\n🎉 初始化完成！请重新尝试上传头像。');
+  console.log('\n🎉 数据库与存储初始化完成！');
 }
 
 main().catch((err) => {

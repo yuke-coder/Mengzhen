@@ -129,12 +129,246 @@ test("超过 20 个音频仍全部添加，默认设置与新建任务继续共�
   expect(await audioOrder(page)).toEqual(audioFiles(25).map(file => file.name));
 
   await setRangeValue(page, 37);
-  await page.getByRole("button", { name: "暂不创建", exact: true }).click();
+  await page.keyboard.press("Escape");
   await expect(page.getByRole("button", { name: "暂不创建", exact: true })).toBeHidden();
   await page.getByRole("button", { name: "默认设置", exact: true }).click();
   await expect(page.getByLabel("音量控制")).toHaveValue("37");
   await expect(audioHandles(page)).toHaveCount(25);
   expect(pageErrors).toEqual([]);
+});
+
+test("选择音频只准备任务资源，手动点击后才存入音频库", async ({ page }) => {
+  const userId = "00000000-0000-0000-0000-000000000001";
+  let uploadTickets = 0;
+  let directStorageUploads = 0;
+  let completionRequests = 0;
+  let librarySaves = 0;
+  let savedFileKey: string | undefined;
+  let releaseCompletion!: () => void;
+  const completionResponse = new Promise<void>(resolve => {
+    releaseCompletion = resolve;
+  });
+
+  await page.route("**/api/auth/me", route => route.fulfill({
+    status: 200,
+    contentType: "application/json",
+    body: JSON.stringify({
+      success: true,
+      user: { id: userId, username: "e2e-user", createdAt: new Date(0).toISOString() },
+    }),
+  }));
+  await page.route("**/api/audio/upload-ticket", async route => {
+    uploadTickets += 1;
+    const requestUrl = new URL(route.request().url());
+    const fileKey = `audios/${userId}/task-resource-${uploadTickets}.wav`;
+    await route.fulfill({
+      status: 200,
+      contentType: "application/json",
+      body: JSON.stringify({
+        success: true,
+        fileKey,
+        uploadToken: "test-upload-token",
+        tusEndpoint: `${requestUrl.origin}/api/test-tus`,
+        bucket: "audios",
+      }),
+    });
+  });
+  await page.route("**/api/test-tus**", async route => {
+    directStorageUploads += 1;
+    const request = route.request();
+    const uploadLength = request.headers()["upload-length"] || "0";
+    await route.fulfill({
+      status: 201,
+      headers: {
+        "Tus-Resumable": "1.0.0",
+        "Upload-Offset": uploadLength,
+        Location: `${new URL(request.url()).origin}/api/test-tus/session-1`,
+      },
+    });
+  });
+  await page.route("**/api/audio/upload-complete", async route => {
+    completionRequests += 1;
+    const { fileKey } = route.request().postDataJSON() as { fileKey?: string };
+    await completionResponse;
+    await route.fulfill({
+      status: 200,
+      contentType: "application/json",
+      body: JSON.stringify({
+        success: true,
+        audio_url: `https://example.test/${fileKey}`,
+        file_key: fileKey,
+      }),
+    });
+  });
+  await page.route("**/api/audio/save-to-library", async route => {
+    librarySaves += 1;
+    savedFileKey = (route.request().postDataJSON() as { fileKey?: string }).fileKey;
+    await route.fulfill({
+      status: 200,
+      contentType: "application/json",
+      body: JSON.stringify({ success: true }),
+    });
+  });
+  await page.route("**/api/audio/my-list", route => route.fulfill({
+    status: 200,
+    contentType: "application/json",
+    body: JSON.stringify({
+      success: true,
+      audios: savedFileKey ? [{
+        id: "library-audio-1",
+        title: "clip-01.wav",
+        file_url: `https://example.test/${savedFileKey}`,
+        file_key: savedFileKey,
+        file_name: "clip-01.wav",
+        file_size: silentWav("clip-01.wav").buffer.length,
+        duration: 0,
+        mime_type: "audio/wav",
+        created_at: new Date(0).toISOString(),
+      }] : [],
+    }),
+  }));
+
+  const pageErrors = await openAudioSettings(page);
+  await expect(page.locator("[data-user-menu-dropdown]")).toBeAttached();
+  await uploadAudios(page, 1);
+
+  await expect.poll(() => completionRequests).toBe(1);
+  expect(uploadTickets).toBe(1);
+  expect(directStorageUploads).toBeGreaterThan(0);
+  expect(librarySaves).toBe(0);
+  await expect(page.getByText("正在确认任务资源", { exact: true })).toBeVisible();
+  await expect(page.getByText("已存音频库", { exact: true })).toHaveCount(0);
+
+  releaseCompletion();
+  await expect(page.getByText("正在确认任务资源", { exact: true })).toHaveCount(0);
+  await page.getByRole("button", { name: "全部存入音频库", exact: true }).click();
+  await expect.poll(() => librarySaves).toBe(1);
+  expect(savedFileKey).toBe(`audios/${userId}/task-resource-1.wav`);
+  await expect(page.getByText("已存音频库", { exact: true })).toBeVisible();
+
+  await page.goto("/history");
+  await expect(page.getByText("clip-01.wav", { exact: true })).toBeVisible();
+  await expect(page.getByText("共 1 个已保存音频", { exact: true })).toBeVisible();
+  expect(pageErrors).toEqual([]);
+});
+
+test("音频直传最多同时处理三份任务资源", async ({ page }) => {
+  const userId = "00000000-0000-0000-0000-000000000002";
+  let ticketRequests = 0;
+  let directStarts = 0;
+  let completionRequests = 0;
+  const releaseDirectUploads: Array<() => void> = [];
+
+  await page.route("**/api/auth/me", route => route.fulfill({
+    status: 200,
+    contentType: "application/json",
+    body: JSON.stringify({
+      success: true,
+      user: { id: userId, username: "queue-user", createdAt: new Date(0).toISOString() },
+    }),
+  }));
+  await page.route("**/api/audio/upload-ticket", async route => {
+    ticketRequests += 1;
+    const requestUrl = new URL(route.request().url());
+    await route.fulfill({
+      status: 200,
+      contentType: "application/json",
+      body: JSON.stringify({
+        success: true,
+        fileKey: `audios/${userId}/queued-${ticketRequests}.wav`,
+        uploadToken: "queue-token",
+        tusEndpoint: `${requestUrl.origin}/api/queued-test-tus`,
+        bucket: "audios",
+      }),
+    });
+  });
+  await page.route("**/api/queued-test-tus**", async route => {
+    directStarts += 1;
+    await new Promise<void>(resolve => releaseDirectUploads.push(resolve));
+    const request = route.request();
+    await route.fulfill({
+      status: 201,
+      headers: {
+        "Tus-Resumable": "1.0.0",
+        "Upload-Offset": request.headers()["upload-length"] || "0",
+        Location: `${new URL(request.url()).origin}/api/queued-test-tus/session-${directStarts}`,
+      },
+    });
+  });
+  await page.route("**/api/audio/upload-complete", async route => {
+    completionRequests += 1;
+    const { fileKey } = route.request().postDataJSON() as { fileKey?: string };
+    await route.fulfill({
+      status: 200,
+      contentType: "application/json",
+      body: JSON.stringify({ success: true, audio_url: `https://example.test/${fileKey}`, file_key: fileKey }),
+    });
+  });
+
+  const pageErrors = await openAudioSettings(page);
+  await uploadAudios(page, 4);
+  await expect.poll(() => directStarts).toBe(3);
+  expect(ticketRequests).toBe(3);
+
+  releaseDirectUploads[0]();
+  await expect.poll(() => directStarts).toBe(4);
+  expect(ticketRequests).toBe(4);
+
+  for (const release of releaseDirectUploads) release();
+  await expect.poll(() => completionRequests).toBe(4);
+  await expect(page.getByText("正在传输任务资源", { exact: true })).toHaveCount(0);
+  expect(pageErrors).toEqual([]);
+});
+
+test("音频库请求失败时显示中文错误，不伪装成空库", async ({ page }) => {
+  await page.route("**/api/auth/me", route => route.fulfill({
+    status: 200,
+    contentType: "application/json",
+    body: JSON.stringify({
+      success: true,
+      user: {
+        id: "00000000-0000-0000-0000-000000000001",
+        username: "e2e-user",
+        createdAt: new Date(0).toISOString(),
+      },
+    }),
+  }));
+  await page.route("**/api/audio/my-list", route => route.fulfill({
+    status: 500,
+    contentType: "application/json",
+    body: JSON.stringify({ success: false, error: "upstream query failed" }),
+  }));
+
+  await page.goto("/history");
+  await expect(page.getByText("音频库加载失败，请重试", { exact: true })).toBeVisible();
+  await expect(page.getByText("暂无音频记录", { exact: true })).toHaveCount(0);
+  await expect(page.getByRole("button", { name: "重新加载", exact: true })).toBeVisible();
+});
+
+test("音频库记录为 0 时显示可操作的正常空状态", async ({ page }) => {
+  await page.route("**/api/auth/me", route => route.fulfill({
+    status: 200,
+    contentType: "application/json",
+    body: JSON.stringify({
+      success: true,
+      user: {
+        id: "00000000-0000-0000-0000-000000000001",
+        username: "e2e-user",
+        createdAt: new Date(0).toISOString(),
+      },
+    }),
+  }));
+  await page.route("**/api/audio/my-list", route => route.fulfill({
+    status: 200,
+    contentType: "application/json",
+    body: JSON.stringify({ success: true, audios: [] }),
+  }));
+
+  await page.goto("/history");
+  await expect(page.getByText("音频库还是空的", { exact: true })).toBeVisible();
+  await expect(page.getByText(/选择音频只会为任务准备播放资源/)).toBeVisible();
+  await expect(page.getByRole("link", { name: "返回设置", exact: true })).toHaveAttribute("href", "/settings");
+  await expect(page.getByText("音频库加载失败，请重试", { exact: true })).toHaveCount(0);
 });
 
 test("鼠标和键盘排序不会误触试听", async ({ page }) => {

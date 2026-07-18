@@ -7,6 +7,7 @@ import RippleButton from "@/components/RippleButton";
 import LazySection from "@/components/lazy-section";
 import { useTheme } from "@/lib/theme-context";
 import { HeroTitle } from "@/components/hero-title";
+import { InstallButton } from "@/components/install-button";
 
 import {
     Brain,
@@ -399,25 +400,18 @@ function HeroBadge({ mobile = false }: { mobile?: boolean }) {
     );
 }
 
-function HeroCta({ buttonRef, onClick, mobile = false }: {
+function HeroCta({ buttonRef, onClick, mobile = false, className }: {
     buttonRef: React.RefObject<HTMLButtonElement | null>;
     onClick: () => void;
     mobile?: boolean;
+    className?: string;
 }) {
     return (
         <RippleButton
             ref={buttonRef}
             onClick={onClick}
-            className={cn(
-                "group relative inline-flex items-center bg-gradient-to-r from-[var(--brand-start)] to-[var(--brand-end)] text-white font-semibold text-lg shadow-xl shadow-[var(--brand-start)]/25 z-10",
-                "hover:z-20 transition-[transform,box-shadow,z-index] duration-300 hover:shadow-2xl hover:shadow-[var(--brand-start)]/35 hover:scale-105 active:scale-95",
-                mobile ? "gap-2.5 px-5 py-2.5 rounded-xl" : "gap-3 px-6 py-3 rounded-2xl"
-            )}>
-            <div className="relative flex items-center gap-3">
-                <Image src="/logo.png" alt="梦枕" width={24} height={24} className={cn("group-hover:scale-110 transition-transform duration-300 rounded shadow-md", mobile ? "w-5 h-5" : "w-6 h-6")} />
-                <span className={mobile ? "text-xl" : "text-2xl"} style={{ fontFamily: "DOUYINSANSBOLD-GB", filter: "drop-shadow(rgb(161, 161, 170) 0px 0px 10px)" }} suppressHydrationWarning>免费体验</span>
-                <ChevronRight className="w-5 h-5 group-hover:translate-x-1 transition-transform duration-300" />
-            </div>
+            className={cn("outline-button", className)}>
+            免费体验
         </RippleButton>
     );
 }
@@ -461,7 +455,10 @@ function HeroView({ mode, buttonRef, onStart }: HeroProps & { mode: HeroMode }) 
                 <RevealGroup delayBase={300}>
                     <div className="inline-flex flex-col items-center gap-4">
                         <HeroBadge mobile={mobile} />
-                        <HeroCta mobile={mobile} buttonRef={buttonRef} onClick={onStart} />
+                        <div className="flex items-center gap-2 sm:gap-3 flex-nowrap justify-center">
+                            <InstallButton />
+                            <HeroCta mobile={mobile} buttonRef={buttonRef} onClick={onStart} />
+                        </div>
                     </div>
                     <HeroChips mobile={mobile} />
                 </RevealGroup>
@@ -503,7 +500,7 @@ export default function HomePage() {
                 <MobileHero buttonRef={mobileHeroButtonRef} onStart={startExperience} />
                 <DesktopHero buttonRef={desktopHeroButtonRef} onStart={startExperience} />
                 <LazySection>
-                <section id="features" className="py-32 px-6 relative overflow-hidden">
+                <section id="features" className="py-32 px-3 sm:px-6 relative overflow-hidden">
                     <div className="max-w-6xl mx-auto relative z-10">
                         <RevealGroup className="text-center mb-20" delayBase={0}>
                             <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-[var(--brand-glow)]/10 border border-[var(--brand-glow)]/20 mb-6">
@@ -777,7 +774,7 @@ export default function HomePage() {
                 </section>
 
                 {/* 第七板块：精准用户群体 */}
-                <section className="py-20 px-6 relative overflow-hidden">
+                <section className="py-20 px-3 sm:px-6 relative overflow-hidden">
                     <div className="max-w-4xl mx-auto relative z-10">
                         <div className="text-center mb-12">
                             <h2 className="text-3xl md:text-4xl font-bold tracking-tight">
@@ -887,7 +884,7 @@ export default function HomePage() {
                 </section>
 
                 {/* 展示模式切换 & 全功能免费 */}
-                <section id="display-mode" className="py-20 px-6 relative overflow-hidden scroll-mt-20">
+                <section id="display-mode" className="py-20 px-1.5 sm:px-6 relative overflow-hidden scroll-mt-20">
                     <div className="max-w-5xl mx-auto relative z-10">
 
                         {/* 1. 展示模式切换 */}
@@ -900,47 +897,37 @@ export default function HomePage() {
                         </RevealGroup>
 
                         <RevealGroup delayBase={100}>
-                            <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-20 max-w-4xl mx-auto">
+                            <div className="grid grid-cols-2 gap-1.5 sm:gap-3 mb-20 max-w-4xl mx-auto">
 
                                 {/* 日间模式 */}
                                 <button
-                                    onClick={() => {
-                                        setTheme("light");
-                                    }}
-                                    onMouseDown={(e) => {
-                                        e.preventDefault();
-                                        setTheme("light");
-                                    }}
+                                    onClick={() => setTheme("light")}
+                                    onMouseDown={(e) => { e.preventDefault(); setTheme("light"); }}
                                     type="button"
-                                    className={cn(homeStrongLiftCardClass, "p-8 rounded-3xl border-2 border-amber-500/40 hover:border-amber-500 text-left cursor-pointer w-full active:scale-95")}
+                                    className={cn(homeStrongLiftCardClass, "relative p-4 sm:p-8 rounded-xl sm:rounded-2xl border-2 border-amber-500/40 hover:border-amber-500 text-left cursor-pointer w-full active:scale-95 touch-manipulation")}
                                     style={cardDiffuse(34)}>
-                                    <div className="absolute top-4 right-4 w-16 h-16 rounded-2xl bg-gradient-to-br from-amber-200 to-amber-300 flex items-center justify-center group-hover:scale-110 transition-transform duration-300">
-                                        <Sun className="w-8 h-8 text-amber-700" />
+                                    <div className="absolute top-3 right-3 sm:top-4 sm:right-4 w-10 h-10 sm:w-14 sm:h-14 rounded-lg sm:rounded-xl bg-gradient-to-br from-amber-200 to-amber-300 flex items-center justify-center group-hover:scale-110 transition-transform duration-300">
+                                        <Sun className="w-5 h-5 sm:w-7 sm:h-7 text-amber-700" />
                                     </div>
-                                    <div className="text-left">
-                                        <h3 className="text-xl font-bold text-amber-700 mb-2">日间模式</h3>
-                                        <p className="text-sm text-amber-600/80">明亮清晰的视觉体验，适合白天使用</p>
+                                    <div className="text-left pr-12 sm:pr-16">
+                                        <h3 className="text-base sm:text-xl font-bold text-amber-700 mb-1 sm:mb-2 whitespace-nowrap">日间模式</h3>
+                                        <p className="text-xs sm:text-sm text-amber-600/80 leading-snug sm:leading-relaxed whitespace-nowrap">明亮清晰，适合白天</p>
                                     </div>
                                 </button>
 
                                 {/* 夜间模式 */}
                                 <button
-                                    onClick={() => {
-                                        setTheme("dark");
-                                    }}
-                                    onMouseDown={(e) => {
-                                        e.preventDefault();
-                                        setTheme("dark");
-                                    }}
+                                    onClick={() => setTheme("dark")}
+                                    onMouseDown={(e) => { e.preventDefault(); setTheme("dark"); }}
                                     type="button"
-                                    className={cn(homeStrongLiftCardClass, "p-8 rounded-3xl border-2 border-indigo-500/40 hover:border-indigo-500 text-left cursor-pointer w-full active:scale-95")}
+                                    className={cn(homeStrongLiftCardClass, "relative p-4 sm:p-8 rounded-xl sm:rounded-2xl border-2 border-indigo-500/40 hover:border-indigo-500 text-left cursor-pointer w-full active:scale-95 touch-manipulation")}
                                     style={cardDiffuse(35)}>
-                                    <div className="absolute top-4 right-4 w-16 h-16 rounded-2xl bg-gradient-to-br from-indigo-500 to-purple-600 flex items-center justify-center group-hover:scale-110 transition-transform duration-300">
-                                        <Moon className="w-8 h-8 text-white" />
+                                    <div className="absolute top-3 right-3 sm:top-4 sm:right-4 w-10 h-10 sm:w-14 sm:h-14 rounded-lg sm:rounded-xl bg-gradient-to-br from-indigo-500 to-purple-600 flex items-center justify-center group-hover:scale-110 transition-transform duration-300">
+                                        <Moon className="w-5 h-5 sm:w-7 sm:h-7 text-white" />
                                     </div>
-                                    <div className="text-left">
-                                        <h3 className="text-xl font-bold text-indigo-400 mb-2">夜间模式</h3>
-                                        <p className="text-sm text-indigo-300/80">柔和护眼的深色界面，适合夜晚使用</p>
+                                    <div className="text-left pr-12 sm:pr-16">
+                                        <h3 className="text-base sm:text-xl font-bold text-indigo-400 mb-1 sm:mb-2 whitespace-nowrap">夜间模式</h3>
+                                        <p className="text-xs sm:text-sm text-indigo-300/80 leading-snug sm:leading-relaxed whitespace-nowrap">柔和护眼，适合夜晚</p>
                                     </div>
                                 </button>
                             </div>
@@ -1051,7 +1038,7 @@ export default function HomePage() {
                     </div>
                 </section>
 
-                <section className="py-16 px-6 relative overflow-hidden">
+                <section className="py-16 px-3 sm:px-6 relative overflow-hidden">
                     <div className="max-w-5xl mx-auto relative z-10">
                         <RevealGroup className="text-center mb-12" delayBase={0}>
                             <h2 className="text-2xl md:text-3xl font-bold tracking-tight mb-4">
@@ -1080,7 +1067,7 @@ export default function HomePage() {
                         </RevealGroup>
                     </div>
                 </section>
-                <section id="templates" className="py-20 px-6">
+                <section id="templates" className="py-20 px-3 sm:px-6">
                     <div className="max-w-5xl mx-auto">
                         <RevealGroup className="text-center mb-10" delayBase={0}>
                             <h2
@@ -1092,7 +1079,7 @@ export default function HomePage() {
                         </RevealGroup>
                     </div>
                 </section>
-                <section className="py-28 px-6 relative">
+                <section className="py-28 px-3 sm:px-6 relative">
                     <div className="max-w-4xl mx-auto relative z-10">
                         <RevealGroup className="text-center mb-16" delayBase={0}>
                             <h2 className="text-4xl md:text-5xl font-bold tracking-tight mb-4">
@@ -1147,7 +1134,7 @@ export default function HomePage() {
                         </div>
                     </div>
                 </section>
-                <section id="start" className="py-24 px-6 relative">
+                <section id="start" className="py-24 px-3 sm:px-6 relative">
                     <div className="max-w-2xl mx-auto relative z-10 text-center">
                         <RevealGroup delayBase={0}>
                             <h2 className="text-3xl md:text-4xl font-bold tracking-tight mb-4">
@@ -1184,7 +1171,7 @@ export default function HomePage() {
                 </section>
                 </LazySection>
             </main>
-            <footer className="border-t border-border py-8 px-6 bg-muted/20 relative z-20">
+            <footer className="border-t border-border py-8 px-3 sm:px-6 bg-muted/20 relative z-20">
                 <div className="max-w-5xl mx-auto text-center">
                     <div className="flex items-center justify-center gap-2 mb-3">
                         <Image

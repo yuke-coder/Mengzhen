@@ -1,0 +1,382 @@
+.install-button-root {
+  position: relative;
+  display: inline-block;
+  font-size: 0px;
+  line-height: 0px;
+  z-index: 10;
+}
+
+.install-button-root .special-button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: space-between;
+  text-decoration: none;
+  border-width: medium;
+  border-style: none;
+  border-color: currentcolor;
+  border-image: initial;
+  cursor: pointer;
+  transition: 0.3s;
+  font-weight: 500;
+  font-size: clamp(12px, 1.5vw, 14px);
+  position: relative;
+  overflow: hidden;
+  gap: 12px;
+  flex-shrink: 0;
+  border-radius: clamp(3px, 0.5vw, 4px);
+  background: rgb(40, 184, 148);
+}
+
+.install-button-root .special-button::before {
+  content: "";
+  position: absolute;
+  top: 0px;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+  transition: left 0.5s;
+}
+
+.install-button-root .special-button:hover::before {
+  left: 100%;
+}
+
+.install-button-root .special-button:active {
+  transform: translateY(0px);
+  box-shadow: rgba(108, 77, 255, 0.3) 0px 4px 12px;
+}
+
+.install-button-root .special-button.disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+  pointer-events: none;
+}
+
+.install-button-root .special-button.disabled:hover {
+  transform: none;
+  box-shadow: none;
+}
+
+.install-button-root .special-button.secondary {
+  background: rgba(255, 255, 255, 0.1);
+  border: 1px solid rgba(108, 77, 255, 0.3);
+  color: rgb(108, 77, 255);
+}
+
+.install-button-root .special-button.secondary:hover {
+  background: rgba(108, 77, 255, 0.1);
+  border-color: rgba(108, 77, 255, 0.5);
+}
+
+.install-button-root .special-button .prefix-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  min-width: 1px;
+  height: clamp(20px, 3vw, 24px);
+}
+
+.install-button-root .special-button .prefix-container img,
+.install-button-root .special-button .prefix-container svg {
+  width: 48px;
+  height: 48px;
+}
+
+.install-button-root .special-button .button-content {
+  display: flex;
+  align-items: center;
+  gap: clamp(6px, 1vw, 8px);
+  flex: 1 1 0%;
+}
+
+.install-button-root .special-button .button-text {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  color: rgb(0, 0, 0);
+  font-family: "Alimama ShuHeiTi";
+  font-size: clamp(14px, 2.5vw, 18px);
+  font-style: normal;
+  font-weight: 700;
+  line-height: clamp(28px, 5vw, 36px);
+  letter-spacing: clamp(0.8px, 0.15vw, 1.08px);
+}
+
+.install-button-root .arrow-hover {
+  display: inline-block;
+  cursor: pointer;
+}
+
+.install-button-root .arrow-hover .arrow-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 48px;
+  height: 48px;
+  transition: transform 0.3s;
+  border-radius: 4px;
+  background: rgb(25, 26, 35);
+  flex: 0 0 48px;
+  position: relative;
+  overflow: hidden;
+}
+
+.install-button-root .arrow-hover .arrow-icon::before {
+  content: "";
+  position: absolute;
+  bottom: 4px;
+  left: 4px;
+  width: 0px;
+  height: 0px;
+  background: rgb(40, 184, 148);
+  border-radius: 50%;
+  transition: 0.3s;
+  z-index: 1;
+}
+
+.install-button-root .arrow-hover .arrow-icon::after {
+  content: "";
+  position: absolute;
+  bottom: 4px;
+  left: 4px;
+  width: 0px;
+  height: 0px;
+  background: rgb(40, 184, 148);
+  border-radius: 50%;
+  transition: 0.3s;
+  z-index: 2;
+  opacity: 0;
+}
+
+.install-button-root .arrow-hover .arrow-icon .arrow-icon-white {
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  width: 100%;
+  height: 100%;
+  z-index: 4;
+  opacity: 1;
+  transition: 0.3s;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transform: translate(0px);
+}
+
+.install-button-root .arrow-hover .arrow-icon .arrow-icon-white svg {
+  width: 24px;
+  height: 24px;
+  filter: brightness(0) invert(1);
+}
+
+.install-button-root .arrow-hover .arrow-icon .arrow-icon-black {
+  position: absolute;
+  bottom: -100%;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  transition: 0.3s ease-in-out;
+  z-index: 3;
+}
+
+.install-button-root .arrow-hover .arrow-icon .arrow-icon-black svg {
+  width: 24px;
+  height: 24px;
+  filter: brightness(0);
+}
+
+.install-button-root .arrow-hover.default .arrow-icon {
+  background: rgb(25, 26, 35);
+}
+
+.install-button-root .arrow-hover.default .arrow-icon::before,
+.install-button-root .arrow-hover.default .arrow-icon::after {
+  background: rgb(40, 184, 148);
+}
+
+.install-button-root .arrow-hover.default .arrow-icon .arrow-icon-white svg {
+  filter: brightness(0) invert(1);
+}
+
+.install-button-root .arrow-hover.default .arrow-icon .arrow-icon-black svg {
+  filter: brightness(0);
+}
+
+.install-button-root .arrow-hover.medium .arrow-icon {
+  width: 48px;
+  height: 48px;
+  flex: 0 0 48px;
+}
+
+.install-button-root .arrow-hover.medium .arrow-icon .arrow-icon-white svg,
+.install-button-root .arrow-hover.medium .arrow-icon .arrow-icon-black svg {
+  width: 24px;
+  height: 24px;
+}
+
+.install-button-root .arrow-hover.small .arrow-icon {
+  width: 32px;
+  height: 32px;
+  flex: 0 0 32px;
+}
+
+.install-button-root .arrow-hover.small .arrow-icon .arrow-icon-white svg,
+.install-button-root .arrow-hover.small .arrow-icon .arrow-icon-black svg {
+  width: 16px;
+  height: 16px;
+}
+
+.install-button-root .arrow-hover.large .arrow-icon {
+  width: 64px;
+  height: 64px;
+  flex: 0 0 64px;
+}
+
+.install-button-root .arrow-hover.large .arrow-icon .arrow-icon-white svg,
+.install-button-root .arrow-hover.large .arrow-icon .arrow-icon-black svg {
+  width: 32px;
+  height: 32px;
+}
+
+.install-button-root .arrow-hover-container:hover .arrow-hover .arrow-icon .arrow-icon-white {
+  opacity: 1;
+  transform: translate(48px, -48px);
+}
+
+.install-button-root .arrow-hover-container:hover .arrow-hover .arrow-icon::before {
+  width: 100%;
+  height: 100%;
+  bottom: 0px;
+  left: 0px;
+  border-radius: 0px;
+}
+
+.install-button-root .arrow-hover-container:hover .arrow-hover .arrow-icon::after {
+  width: 100%;
+  height: 100%;
+  bottom: 0px;
+  left: 0px;
+  border-radius: 0px;
+  opacity: 1;
+}
+
+.install-button-root .arrow-hover-container:hover .arrow-hover .arrow-icon .arrow-icon-black {
+  opacity: 1;
+  bottom: 0px;
+  left: 0px;
+}
+
+.install-button-root .ShuHeiTi {
+  font-family: "Alimama ShuHeiTi";
+}
+
+.install-button-root .text-lg {
+  font-size: 18px;
+  line-height: 28px;
+}
+
+.install-button-root .color-\#000,
+.install-button-root .text-black {
+  --un-text-opacity: 1;
+  color: rgb(0 0 0 / var(--un-text-opacity));
+}
+
+.install-button-root .font-700,
+.install-button-root .font-bold {
+  font-weight: 700;
+}
+
+.install-button-root .p-1px {
+  padding: 1px;
+}
+
+.outline-button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0px 32px;
+  height: 50px;
+  color: rgb(40, 184, 148);
+  font-family: "Alimama ShuHeiTi", sans-serif;
+  font-size: clamp(14px, 2.5vw, 18px);
+  font-weight: 700;
+  line-height: 1;
+  letter-spacing: clamp(0.8px, 0.15vw, 1.08px);
+  border: 2px solid rgb(40, 184, 148);
+  border-radius: 4px;
+  background: transparent;
+  cursor: pointer;
+  transition: 0.3s;
+  text-decoration: none;
+  white-space: nowrap;
+  flex-shrink: 0;
+}
+
+.outline-button:hover {
+  background: rgba(40, 184, 148, 0.1);
+  box-shadow: rgba(40, 184, 148, 0.3) 0px 0px 20px;
+}
+
+.outline-button:disabled,
+.outline-button.disabled {
+  opacity: 0.5;
+  pointer-events: none;
+  cursor: not-allowed;
+}
+
+@media (max-width: 768px) {
+  .install-button-root .special-button {
+    height: 40px;
+    padding: 1px 8px 1px 2px;
+    font-size: 13px;
+    border-radius: 4px;
+    gap: 6px;
+    width: auto;
+  }
+  .install-button-root .special-button .prefix-container {
+    height: auto;
+    min-height: 0;
+  }
+  .install-button-root .special-button .prefix-container img,
+  .install-button-root .special-button .prefix-container svg {
+    width: 36px !important;
+    height: 36px !important;
+  }
+  .install-button-root .special-button .button-content {
+    gap: 4px;
+    justify-content: center;
+  }
+  .install-button-root .special-button .button-text {
+    font-size: 13px;
+    line-height: 38px;
+    letter-spacing: 0.6px;
+  }
+  .install-button-root .special-button .arrow-hover .arrow-icon {
+    width: 28px;
+    height: 28px;
+    flex: 0 0 28px;
+    border-radius: 3px;
+  }
+  .install-button-root .special-button .arrow-hover .arrow-icon .arrow-icon-white svg,
+  .install-button-root .special-button .arrow-hover .arrow-icon .arrow-icon-black svg {
+    width: 14px;
+    height: 14px;
+  }
+  .install-button-root .arrow-hover-container:hover .arrow-hover .arrow-icon .arrow-icon-white {
+    transform: translate(28px, -28px);
+  }
+  .install-button-root .special-button.p-1px {
+    padding: 2px 8px 2px 2px;
+  }
+  .outline-button {
+    height: 40px;
+    padding: 0px 16px;
+    font-size: 14px;
+  }
+}

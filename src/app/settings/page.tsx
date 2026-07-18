@@ -15,7 +15,7 @@ import { startTaskScheduler, stopTaskScheduler, getTaskScheduler } from "@/lib/t
 import DynamicBackground from "@/components/dynamic-background";
 import { setupAutoUnlock } from "@/lib/audio";
 import EnhancedTaskScheduler from "@/lib/background-scheduler";
-import { initPwaInstallListener, promptInstall, isPwaInstalled, hasPromptedInstall } from "@/lib/pwa";
+import { initPwaInstallListener, isPwaInstalled, hasPromptedInstall } from "@/lib/pwa";
 import { useIsMobile } from "@/hooks/use-mobile";
 import { usePlaybackController } from "@/hooks/use-playback-controller";
 import { HeroTitle } from "@/components/hero-title";
@@ -133,18 +133,8 @@ function CreatePageContent() {
     useEffect(() => {
         if (!mounted || !audioUnlocked || isPwa || hasPromptedInstall()) return;
 
-        // 只在第一次初始化监听器，并主动触发浏览器原生安装提示
-        const cleanup = initPwaInstallListener(() => {
-            setTimeout(async () => {
-                try {
-                    if (!hasPromptedInstall()) {
-                        await promptInstall();
-                    }
-                } catch (e) {
-                    console.error('[PWA]', e);
-                }
-            }, 2000);
-        });
+        // 仅捕获 deferredPrompt，不自动弹出；安装提示由首页 CTA 按钮触发
+        const cleanup = initPwaInstallListener();
         return cleanup;
     }, [mounted, audioUnlocked, isPwa]);
 
@@ -373,13 +363,6 @@ function CreatePageContent() {
                 </div>
             )}
 
-            {/* 调试 */}
-            {process.env.NODE_ENV === 'development' && mounted && (
-                <div className="fixed bottom-4 right-4 z-40 bg-black/70 text-white p-2 rounded text-xs">
-                    Audio State: {EnhancedTaskScheduler.getInstance().getAudioState() || 'uninitialized'}
-                </div>
-            )}
-
             <DynamicBackground />
             <main className="pt-0 sm:pt-14 relative">
                 <section className="relative min-h-[85vh] flex flex-col items-center justify-center px-1 sm:px-6 overflow-hidden">
@@ -397,7 +380,7 @@ function CreatePageContent() {
                                 onModeChange={handleModeChange}
                                 onAudioUploaded={audioList => {
                                     const last = audioList[audioList.length - 1];
-                                    if (last) toast.success(`「${last.name}」上传成功`);
+                                    if (last) toast.success(`已添加「${last.name}」`);
                                 }}
                                 onAudioRemoved={() => { }}
                             >
