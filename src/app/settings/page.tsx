@@ -364,12 +364,12 @@ function CreatePageContent() {
             )}
 
             <DynamicBackground />
-            <main className="relative pt-0 sm:pt-14">
-                <section className="relative flex min-h-[85vh] flex-col items-center justify-start overflow-hidden px-4 pb-[max(2rem,env(safe-area-inset-bottom))] sm:justify-center sm:px-6">
-                    <div className="relative z-20 mx-auto w-full max-w-4xl space-y-5 sm:space-y-6 sm:px-4 md:px-0">
-                        <div className="mt-3 space-y-1 text-center sm:mt-8 sm:space-y-4">
-                            <HeroTitle className="h-auto w-[16rem] max-w-full sm:w-[31rem]" fontSize={isMobile ? "56px" : "74px"} />
-                            <p className="text-sm text-muted-foreground/85 sm:text-lg">上传音频 · 设置时间 · 安心入睡</p>
+            <main className="pt-0 sm:pt-14 relative">
+                <section className="relative min-h-[85vh] flex flex-col items-center justify-center px-1 sm:px-6 overflow-hidden">
+                    <div className="relative z-20 max-w-4xl mx-auto w-full space-y-6 px-0 sm:px-4 md:px-0">
+                        <div className="text-center space-y-4 mt-8">
+                            <HeroTitle className="w-[22rem] sm:w-[31rem] max-w-full" fontSize={isMobile ? "76px" : "74px"} />
+                            <p className="text-lg text-muted-foreground/70">上传音频 · 自定义定时 · 自动助眠播放</p>
                         </div>
 
                         {playbackDraftLoaded ? (
