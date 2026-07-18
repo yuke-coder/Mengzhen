@@ -8,7 +8,7 @@ import { TaskForm } from "@/components/task-form";
 import { TaskList } from "@/components/task-list";
 import { TaskModal } from "@/components/task-modal";
 import { Spinner } from "@/components/ui/spinner";
-import { PlayMode, ScheduledTask, type PlaybackDraft } from "@/lib/task-types";
+import { PlayMode, ScheduledTask, getNextExecuteDate, type PlaybackDraft } from "@/lib/task-types";
 import { getPlayMode, setPlayMode as savePlayMode, getAllTasks, cleanupCompletedOnceTasks, cleanupCancelledTasks } from "@/lib/task-store";
 import { EMPTY_PLAYBACK_DRAFT, getDefaultPlaybackDraft, saveDefaultPlaybackDraft } from "@/lib/playback-draft";
 import { startTaskScheduler, stopTaskScheduler, getTaskScheduler } from "@/lib/task-scheduler";
@@ -18,6 +18,14 @@ import EnhancedTaskScheduler from "@/lib/background-scheduler";
 import { useIsMobile } from "@/hooks/use-mobile";
 import { usePlaybackController } from "@/hooks/use-playback-controller";
 import { HeroTitle } from "@/components/hero-title";
+import {
+    syncTasksToSW,
+    removeTaskFromSW,
+    startProximityKeepAlive,
+    listenSWMessages,
+    isSWSchedulerAvailable,
+    getKeepAliveStatus,
+} from "@/lib/sw-scheduler";
 
 function useClientOnly() {
     const [mounted, setMounted] = useState(false);
@@ -120,6 +128,71 @@ function CreatePageContent() {
         const cleanup = setupAutoUnlock();
         return cleanup;
     }, [mounted]);
+
+    // ========== Service Worker 后台调度 ==========
+
+    // 任务变更时同步到 SW
+    useEffect(() => {
+        if (!mounted) return;
+        syncTasksToSW();
+    }, [mounted, tasksVersion]);
+
+    // 启动临近保活 + 监听 SW 消息
+    useEffect(() => {
+        if (!mounted) return;
+
+        // 临近保活：当任务快到时间时保持设备唤醒
+        const cleanupKeepAlive = startProximityKeepAlive(() => {
+            // 强制恢复音频上下文
+            getTaskScheduler().tryUnlockAudio();
+            getTaskScheduler().resumeAudioContext().catch(() => {});
+            // 强制检查并执行所有到期任务
+            const allTasks = getAllTasks();
+            const now = Date.now();
+            for (const task of allTasks) {
+                if (task.status === 'cancelled' || task.status === 'completed') continue;
+                if (getTaskScheduler().getActiveTaskIds().includes(task.id)) continue;
+                const nextExec = getNextExecuteDate(task);
+                if (nextExec) {
+                    const fadeInMs = task.enableFade ? (task.fadeInDuration || 0) * 1000 : 0;
+                    const audioStart = nextExec.getTime() - fadeInMs;
+                    if (now >= audioStart) {
+                        getTaskScheduler().executeNow(task.id);
+                    }
+                }
+            }
+            setTasksVersion(v => v + 1);
+        });
+
+        // 监听 SW 消息（通知点击、SW 定时触发）
+        const cleanupSWMessages = listenSWMessages(async (taskId) => {
+            try {
+                await EnhancedTaskScheduler.getInstance().initializeAudioContext();
+                await getTaskScheduler().resumeAudioContext();
+                getTaskScheduler().executeNow(taskId);
+                setTasksVersion(v => v + 1);
+            } catch (e) {
+                console.error('[SW Message] 执行任务失败:', e);
+            }
+        });
+
+        // 处理 SW 通知点击带来的 URL 参数
+        const taskId = searchParams.get('taskId');
+        const action = searchParams.get('action');
+        if (taskId && action === 'play') {
+            (async () => {
+                await EnhancedTaskScheduler.getInstance().initializeAudioContext();
+                await getTaskScheduler().resumeAudioContext();
+                getTaskScheduler().executeNow(taskId);
+                setTasksVersion(v => v + 1);
+            })();
+        }
+
+        return () => {
+            cleanupKeepAlive();
+            cleanupSWMessages();
+        };
+    }, [mounted, searchParams]);
 
 
     const requestPermissions = useCallback(async () => {
