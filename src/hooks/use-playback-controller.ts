@@ -33,7 +33,9 @@ interface AddFilesResult {
 interface UploadTicket {
   fileKey: string;
   uploadToken: string;
+  signedUploadUrl: string;
   tusEndpoint: string;
+  tusEnabled: boolean;
   bucket: string;
 }
 
@@ -103,6 +105,8 @@ export interface PlaybackController {
 let audioIdCounter = 0;
 const TUS_CHUNK_SIZE = 6 * 1024 * 1024;
 const TUS_RESUME_WINDOW_MS = 23 * 60 * 60 * 1000;
+const TUS_CIRCUIT_TTL_MS = 30 * 60 * 1000;
+const SIGNED_UPLOAD_MAX_ATTEMPTS = 2;
 
 interface NetworkInformationLike {
   effectiveType?: "slow-2g" | "2g" | "3g" | "4g";
@@ -127,6 +131,97 @@ function getMaxParallelUploads(): number {
 function errorMessage(error: unknown, fallback: string): string {
   if (error instanceof Error && error.message) return error.message;
   return fallback;
+}
+
+class SignedUploadRequestError extends Error {
+  constructor(
+    message: string,
+    readonly status: number,
+  ) {
+    super(message);
+    this.name = "SignedUploadRequestError";
+  }
+}
+
+function tusCircuitStorageKey(endpoint: string): string {
+  try {
+    return `dream_pillow_tus_circuit:${new URL(endpoint).host}`;
+  } catch {
+    return "dream_pillow_tus_circuit:unknown";
+  }
+}
+
+function isTusCircuitOpen(endpoint: string): boolean {
+  if (typeof window === "undefined") return false;
+  try {
+    const key = tusCircuitStorageKey(endpoint);
+    const expiresAt = Number(window.localStorage.getItem(key));
+    if (Number.isFinite(expiresAt) && expiresAt > Date.now()) return true;
+    window.localStorage.removeItem(key);
+  } catch {
+    // Storage can be unavailable in private browsing; the upload still proceeds.
+  }
+  return false;
+}
+
+function openTusCircuit(endpoint: string) {
+  if (typeof window === "undefined") return;
+  try {
+    window.localStorage.setItem(
+      tusCircuitStorageKey(endpoint),
+      String(Date.now() + TUS_CIRCUIT_TTL_MS),
+    );
+  } catch {
+    // A failed circuit cache must not prevent the signed-upload fallback.
+  }
+}
+
+function isTusGatewayCompatibilityError(error: unknown): boolean {
+  const normalized = errorMessage(error, "").toLowerCase();
+  return normalized.includes("invalid compact jws")
+    || (
+      normalized.includes("tus:")
+      && (
+        normalized.includes("response code: 404")
+        || normalized.includes("response code: 405")
+        || normalized.includes("response code: 501")
+      )
+    );
+}
+
+function isUploadCredentialError(error: unknown): boolean {
+  const normalized = errorMessage(error, "").toLowerCase();
+  return normalized.includes("accessdenied")
+    || normalized.includes("unauthorized")
+    || normalized.includes("invalid compact jws")
+    || normalized.includes("statuscode\":\"403")
+    || normalized.includes("response code: 401")
+    || normalized.includes("response code: 403");
+}
+
+function isRetryableSignedUploadError(error: unknown): boolean {
+  if (!(error instanceof SignedUploadRequestError)) return false;
+  return error.status === 0
+    || error.status === 401
+    || error.status === 403
+    || error.status === 408
+    || error.status === 425
+    || error.status === 429
+    || error.status >= 500;
+}
+
+function signedUploadMayHaveCompleted(error: unknown): boolean {
+  if (!(error instanceof SignedUploadRequestError)) return false;
+  return error.status === 0
+    || error.status === 408
+    || error.status === 425
+    || error.status === 429
+    || error.status >= 500;
+}
+
+function retryDelay(attempt: number): Promise<void> {
+  const delay = 750 * (2 ** attempt) + Math.round(Math.random() * 250);
+  return new Promise(resolve => window.setTimeout(resolve, delay));
 }
 
 function translateUploadError(error: unknown): string {
@@ -403,13 +498,24 @@ export function usePlaybackController({ value, onChange }: UsePlaybackController
       body: JSON.stringify({ fileName: file.name, fileSize: file.size, mimeType: file.type, resumeFileKey }),
     });
     const payload = await response.json().catch(() => null) as Partial<UploadTicketResponse> & { error?: string } | null;
-    if (!response.ok || !payload?.success || !payload.fileKey || !payload.uploadToken || !payload.tusEndpoint || !payload.bucket) {
+    if (
+      !response.ok
+      || !payload?.success
+      || !payload.fileKey
+      || !payload.uploadToken
+      || !payload.signedUploadUrl
+      || !payload.tusEndpoint
+      || typeof payload.tusEnabled !== "boolean"
+      || !payload.bucket
+    ) {
       throw new Error(payload?.error || "无法准备音频上传，请稍后重试");
     }
     return {
       fileKey: payload.fileKey,
       uploadToken: payload.uploadToken,
+      signedUploadUrl: payload.signedUploadUrl,
       tusEndpoint: payload.tusEndpoint,
+      tusEnabled: payload.tusEnabled,
       bucket: payload.bucket,
     };
   }, []);
@@ -422,7 +528,7 @@ export function usePlaybackController({ value, onChange }: UsePlaybackController
     const response = await fetch("/api/audio/upload-complete", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({ fileKey, fileName: file.name, mimeType: file.type }),
+      body: JSON.stringify({ fileKey, fileName: file.name, fileSize: file.size, mimeType: file.type }),
     });
     if (allowMissing && response.status === 404) return null;
     const payload = await response.json().catch(() => null) as Partial<UploadCompleteResponse> & { error?: string } | null;
@@ -432,7 +538,7 @@ export function usePlaybackController({ value, onChange }: UsePlaybackController
     return { success: true, audio_url: payload.audio_url, file_key: payload.file_key };
   }, []);
 
-  const uploadDirectly = useCallback((audioId: string, file: File, ticket: UploadTicket): Promise<void> => (
+  const uploadWithTus = useCallback((audioId: string, file: File, ticket: UploadTicket): Promise<void> => (
     new Promise<void>((resolve, reject) => {
       let settled = false;
       const resolveOnce = () => {
@@ -502,6 +608,93 @@ export function usePlaybackController({ value, onChange }: UsePlaybackController
     })
   ), [updateUploadState]);
 
+  const uploadWithSignedUrl = useCallback((audioId: string, file: File, ticket: UploadTicket): Promise<void> => (
+    new Promise<void>((resolve, reject) => {
+      let settled = false;
+      const request = new XMLHttpRequest();
+      const resolveOnce = () => {
+        if (settled) return;
+        settled = true;
+        resolve();
+      };
+      const rejectOnce = (error: Error) => {
+        if (settled) return;
+        settled = true;
+        reject(error);
+      };
+
+      request.open("PUT", ticket.signedUploadUrl);
+      request.setRequestHeader("x-upsert", "false");
+      request.upload.onprogress = event => {
+        if (!mountedRef.current || !event.lengthComputable || event.total <= 0) return;
+        updateUploadState(audioId, {
+          queued: false,
+          uploadProgress: Math.min(100, Math.round((event.loaded / event.total) * 100)),
+          processing: false,
+        });
+      };
+      request.onload = () => {
+        if (request.status >= 200 && request.status < 300) {
+          resolveOnce();
+          return;
+        }
+        const responseText = request.responseText.trim().slice(0, 800);
+        rejectOnce(new SignedUploadRequestError(
+          `签名直传失败（HTTP ${request.status}）${responseText ? `：${responseText}` : ""}`,
+          request.status,
+        ));
+      };
+      request.onerror = () => rejectOnce(new SignedUploadRequestError("签名直传网络连接失败", 0));
+      request.onabort = () => rejectOnce(new Error("上传已取消"));
+      request.ontimeout = () => rejectOnce(new SignedUploadRequestError("签名直传超时", 408));
+
+      uploadAbortRefs.current[audioId] = {
+        abort: async () => {
+          request.abort();
+          rejectOnce(new Error("上传已取消"));
+        },
+      };
+
+      const body = new FormData();
+      body.append("cacheControl", "3600");
+      body.append("", file, file.name);
+      request.send(body);
+    })
+  ), [updateUploadState]);
+
+  const uploadWithSignedFallback = useCallback(async (
+    audioId: string,
+    file: File,
+    initialTicket: UploadTicket,
+  ): Promise<UploadCompleteResponse | null> => {
+    let ticket = initialTicket;
+    let lastError: unknown = null;
+
+    for (let attempt = 0; attempt < SIGNED_UPLOAD_MAX_ATTEMPTS; attempt += 1) {
+      try {
+        await uploadWithSignedUrl(audioId, file, ticket);
+        return null;
+      } catch (uploadError) {
+        lastError = uploadError;
+        if (!isRetryableSignedUploadError(uploadError)) throw uploadError;
+
+        if (signedUploadMayHaveCompleted(uploadError)) {
+          // A lost response can look like a failed upload even when the object was
+          // stored successfully. Confirm the exact object size before retrying.
+          const completed = await completeUpload(ticket.fileKey, file, true);
+          if (completed) return completed;
+        }
+        if (attempt + 1 >= SIGNED_UPLOAD_MAX_ATTEMPTS) throw uploadError;
+
+        await retryDelay(attempt);
+        ticket = await requestUploadTicket(file, ticket.fileKey);
+        uploadTicketsRef.current[audioId] = ticket;
+      }
+    }
+
+    throw lastError instanceof Error ? lastError : new Error("音频上传失败，请稍后重试");
+  }, [completeUpload, requestUploadTicket, uploadWithSignedUrl]);
+
   const executeUpload = useCallback(async (audioId: string, file: File) => {
     if (!user || !mountedRef.current) return;
     const currentAudio = valueRef.current.audios.find(audio => audio.id === audioId);
@@ -546,15 +739,55 @@ export function usePlaybackController({ value, onChange }: UsePlaybackController
         if (!pendingUploadKey) patchAudio(audioId, { pendingUploadKey: ticket.fileKey });
       }
 
+      let completedDuringUpload: UploadCompleteResponse | null = null;
       if (!completedDirectUploadsRef.current.has(audioId)) {
-        await uploadDirectly(audioId, file, ticket);
+        let shouldUseSignedUpload = !ticket.tusEnabled || isTusCircuitOpen(ticket.tusEndpoint);
+        let tusWasAttempted = false;
+
+        if (!shouldUseSignedUpload) {
+          for (let attempt = 0; attempt < 2; attempt += 1) {
+            tusWasAttempted = true;
+            try {
+              await uploadWithTus(audioId, file, ticket);
+              break;
+            } catch (tusError) {
+              if (isTusGatewayCompatibilityError(tusError)) {
+                openTusCircuit(ticket.tusEndpoint);
+                shouldUseSignedUpload = true;
+                break;
+              }
+              if (isUploadCredentialError(tusError) && attempt === 0) {
+                ticket = await requestUploadTicket(file, ticket.fileKey);
+                uploadTicketsRef.current[audioId] = ticket;
+                continue;
+              }
+              if (isUploadCredentialError(tusError)) {
+                openTusCircuit(ticket.tusEndpoint);
+                shouldUseSignedUpload = true;
+                break;
+              }
+              throw tusError;
+            }
+          }
+        }
+
+        if (shouldUseSignedUpload) {
+          // TUS may have consumed most of a short-lived token before failing.
+          // Start the fallback with a fresh URL for the same object key.
+          if (tusWasAttempted) {
+            ticket = await requestUploadTicket(file, ticket.fileKey);
+            uploadTicketsRef.current[audioId] = ticket;
+          }
+          completedDuringUpload = await uploadWithSignedFallback(audioId, file, ticket);
+        }
+
         if (!isActiveAudio()) return;
         completedDirectUploadsRef.current.add(audioId);
       }
 
       if (!isActiveAudio()) return;
       updateUploadState(audioId, { queued: false, uploadProgress: 100, processing: true });
-      const completed = await completeUpload(ticket.fileKey, file);
+      const completed = completedDuringUpload ?? await completeUpload(ticket.fileKey, file);
       if (!completed) throw new Error("音频登记失败，请重试");
       if (!isActiveAudio()) return;
       patchAudio(audioId, {
@@ -588,7 +821,15 @@ export function usePlaybackController({ value, onChange }: UsePlaybackController
       delete uploadAbortRefs.current[audioId];
       if (!registeredUploadsRef.current.has(audioId)) registeringUploadsRef.current.delete(audioId);
     }
-  }, [completeUpload, patchAudio, requestUploadTicket, updateUploadState, uploadDirectly, user]);
+  }, [
+    completeUpload,
+    patchAudio,
+    requestUploadTicket,
+    updateUploadState,
+    uploadWithSignedFallback,
+    uploadWithTus,
+    user,
+  ]);
 
   const drainUploadQueue = useCallback(() => {
     const maxParallelUploads = getMaxParallelUploads();

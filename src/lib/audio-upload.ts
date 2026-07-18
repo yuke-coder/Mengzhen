@@ -50,6 +50,16 @@ export function toDirectTusEndpoint(supabaseUrl: string): string {
   return url.toString();
 }
 
+export function isTusUploadEnabled(supabaseUrl: string, override = process.env.AUDIO_TUS_ENABLED): boolean {
+  const normalizedOverride = override?.trim().toLowerCase();
+  if (["1", "true", "yes", "on"].includes(normalizedOverride ?? "")) return true;
+  if (["0", "false", "no", "off"].includes(normalizedOverride ?? "")) return false;
+
+  // Supabase's official hosted domains support the documented TUS flow. Custom
+  // gateways must opt in after their signed-upload compatibility is verified.
+  return new URL(supabaseUrl).hostname.endsWith(".supabase.co");
+}
+
 export function formatByteSize(bytes: number): string {
   if (bytes < 1024 * 1024) return `${Math.max(1, Math.round(bytes / 1024))} KB`;
   return `${(bytes / (1024 * 1024)).toFixed(bytes >= 100 * 1024 * 1024 ? 0 : 1)} MB`;

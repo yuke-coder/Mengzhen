@@ -501,16 +501,16 @@ export function AudioUpload({
           </label>
           <span className="text-sm font-mono font-semibold tabular-nums text-foreground">{volume}%</span>
         </div>
-        <div className="relative pt-1 pb-1">
+        <div className="relative sm:py-1">
           <input
             type="range"
             aria-label="音量控制"
             min={0} max={100}
             value={volume} step={1}
             onInput={e => setVolume(parseInt((e.target as HTMLInputElement).value, 10))}
-            className="h-11 w-full cursor-pointer appearance-none rounded-full bg-transparent bg-[length:100%_10px] bg-center bg-no-repeat [&::-webkit-slider-thumb]:h-6 [&::-webkit-slider-thumb]:w-6 [&::-webkit-slider-thumb]:appearance-none [&::-webkit-slider-thumb]:cursor-pointer [&::-webkit-slider-thumb]:rounded-full [&::-webkit-slider-thumb]:bg-white [&::-webkit-slider-thumb]:shadow-md [&::-webkit-slider-thumb]:ring-2 [&::-webkit-slider-thumb]:ring-[var(--brand-start)] sm:h-8 sm:[&::-webkit-slider-thumb]:h-5 sm:[&::-webkit-slider-thumb]:w-5"
+            className="h-7 w-full cursor-pointer appearance-none rounded-full bg-transparent bg-[length:100%_6px] bg-center bg-no-repeat [&::-moz-range-thumb]:h-0 [&::-moz-range-thumb]:w-0 [&::-moz-range-thumb]:border-0 [&::-webkit-slider-thumb]:h-0 [&::-webkit-slider-thumb]:w-0 [&::-webkit-slider-thumb]:appearance-none sm:h-8 sm:bg-[length:100%_10px] sm:[&::-moz-range-thumb]:h-5 sm:[&::-moz-range-thumb]:w-5 sm:[&::-moz-range-thumb]:rounded-full sm:[&::-moz-range-thumb]:bg-white sm:[&::-webkit-slider-thumb]:h-5 sm:[&::-webkit-slider-thumb]:w-5 sm:[&::-webkit-slider-thumb]:cursor-pointer sm:[&::-webkit-slider-thumb]:rounded-full sm:[&::-webkit-slider-thumb]:bg-white sm:[&::-webkit-slider-thumb]:shadow-md sm:[&::-webkit-slider-thumb]:ring-2 sm:[&::-webkit-slider-thumb]:ring-[var(--brand-start)]"
             style={{
-              background: `linear-gradient(to right, var(--brand-start) ${volume}%, rgba(128,128,128,0.2) ${volume}%)`,
+              backgroundImage: `linear-gradient(to right, var(--brand-start) ${volume}%, rgba(128,128,128,0.2) ${volume}%)`,
             }}
           />
         </div>

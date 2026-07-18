@@ -15,6 +15,7 @@ export const dynamic = "force-dynamic";
 interface UploadCompleteRequest {
   fileKey?: unknown;
   fileName?: unknown;
+  fileSize?: unknown;
   mimeType?: unknown;
 }
 
@@ -32,9 +33,15 @@ export async function POST(request: NextRequest) {
 
     const body = await request.json() as UploadCompleteRequest;
     const fileName = normalizeAudioFileName(body.fileName);
+    const expectedFileSize = typeof body.fileSize === "number" && Number.isSafeInteger(body.fileSize)
+      ? body.fileSize
+      : 0;
     const requestedMimeType = typeof body.mimeType === "string" ? body.mimeType.slice(0, 100) : "";
     if (!fileName || !isUserAudioObjectKey(body.fileKey, user.id)) {
       return NextResponse.json({ success: false, error: "音频上传信息无效" }, { status: 400 });
+    }
+    if (expectedFileSize <= 0) {
+      return NextResponse.json({ success: false, error: "音频文件大小无效" }, { status: 400 });
     }
     if (!isSupportedAudio(fileName, requestedMimeType)) {
       return NextResponse.json({ success: false, error: "不支持的音频格式" }, { status: 400 });
@@ -54,6 +61,9 @@ export async function POST(request: NextRequest) {
     const fileSize = objectSize(objectInfo.metadata, objectInfo.size);
     if (!fileSize) {
       return NextResponse.json({ success: false, error: "无法读取已上传音频的大小，请重新上传" }, { status: 422 });
+    }
+    if (fileSize !== expectedFileSize) {
+      return NextResponse.json({ success: false, error: "已上传音频不完整，请重新上传" }, { status: 422 });
     }
     const mimeType = objectInfo.contentType || requestedMimeType || "audio/mpeg";
     if (!isSupportedAudio(fileName, mimeType)) {

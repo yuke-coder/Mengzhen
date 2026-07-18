@@ -77,7 +77,8 @@ async function openPersistentAudioSettings(page: Page) {
 
 async function uploadAudios(page: Page, count: number) {
   await page.getByLabel("选择音频文件").setInputFiles(audioFiles(count));
-  await expect(audioHandles(page)).toHaveCount(count, { timeout: 30_000 });
+  await expect(page.getByText(`已添加 ${count} 个音频`, { exact: true })).toBeVisible({ timeout: 30_000 });
+  if (count > 1) await expect(audioHandles(page)).toHaveCount(count, { timeout: 30_000 });
 }
 
 async function setRangeValue(page: Page, value: number) {
@@ -187,7 +188,9 @@ test("选择音频只准备任务资源，手动点击后才存入音频库", as
         success: true,
         fileKey,
         uploadToken: "test-upload-token",
+        signedUploadUrl: `${requestUrl.origin}/api/test-signed-upload`,
         tusEndpoint: `${requestUrl.origin}/api/test-tus`,
+        tusEnabled: true,
         bucket: "audios",
       }),
     });
@@ -207,7 +210,8 @@ test("选择音频只准备任务资源，手动点击后才存入音频库", as
   });
   await page.route("**/api/audio/upload-complete", async route => {
     completionRequests += 1;
-    const { fileKey } = route.request().postDataJSON() as { fileKey?: string };
+    const { fileKey, fileSize } = route.request().postDataJSON() as { fileKey?: string; fileSize?: number };
+    expect(fileSize).toBe(silentWav("clip-01.wav").buffer.length);
     await completionResponse;
     await route.fulfill({
       status: 200,
@@ -255,11 +259,11 @@ test("选择音频只准备任务资源，手动点击后才存入音频库", as
   expect(uploadTickets).toBe(1);
   expect(directStorageUploads).toBeGreaterThan(0);
   expect(librarySaves).toBe(0);
-  await expect(page.getByText("正在确认任务资源", { exact: true })).toBeVisible();
+  await expect(page.getByText("正在确认音频", { exact: true })).toBeVisible();
   await expect(page.getByText("已存音频库", { exact: true })).toHaveCount(0);
 
   releaseCompletion();
-  await expect(page.getByText("正在确认任务资源", { exact: true })).toHaveCount(0);
+  await expect(page.getByText("正在确认音频", { exact: true })).toHaveCount(0);
   await page.getByRole("button", { name: "全部存入音频库", exact: true }).click();
   await expect.poll(() => librarySaves).toBe(1);
   expect(savedFileKey).toBe(`audios/${userId}/task-resource-1.wav`);
@@ -268,6 +272,109 @@ test("选择音频只准备任务资源，手动点击后才存入音频库", as
   await page.goto("/history");
   await expect(page.getByText("clip-01.wav", { exact: true })).toBeVisible();
   await expect(page.getByText("共 1 个已保存音频", { exact: true })).toBeVisible();
+  expect(pageErrors).toEqual([]);
+});
+
+test("TUS 网关拒绝签名时自动改用普通直传并临时熔断", async ({ page }) => {
+  const userId = "00000000-0000-0000-0000-000000000004";
+  const ticketBodies: Array<{ resumeFileKey?: string }> = [];
+  let nextObject = 0;
+  let tusRequests = 0;
+  let signedUploads = 0;
+  let completionRequests = 0;
+
+  await page.route("**/api/auth/me", route => route.fulfill({
+    status: 200,
+    contentType: "application/json",
+    body: JSON.stringify({
+      success: true,
+      user: { id: userId, username: "fallback-user", createdAt: new Date(0).toISOString() },
+    }),
+  }));
+  await page.route("**/api/audio/upload-ticket", async route => {
+    const requestUrl = new URL(route.request().url());
+    const body = route.request().postDataJSON() as { resumeFileKey?: string };
+    ticketBodies.push(body);
+    const fileKey = body.resumeFileKey
+      ?? `audios/${userId}/fallback-${++nextObject}.wav`;
+    await route.fulfill({
+      status: 200,
+      contentType: "application/json",
+      body: JSON.stringify({
+        success: true,
+        fileKey,
+        uploadToken: `fallback-token-${ticketBodies.length}`,
+        signedUploadUrl: `${requestUrl.origin}/api/fallback-signed-upload?fileKey=${encodeURIComponent(fileKey)}`,
+        tusEndpoint: `${requestUrl.origin}/api/fallback-broken-tus`,
+        tusEnabled: true,
+        bucket: "audios",
+      }),
+    });
+  });
+  await page.route("**/api/fallback-broken-tus**", route => {
+    tusRequests += 1;
+    return route.fulfill({
+      status: 400,
+      contentType: "application/json",
+      body: JSON.stringify({
+        statusCode: "403",
+        code: "AccessDenied",
+        error: "Unauthorized",
+        message: "Invalid Compact JWS",
+      }),
+    });
+  });
+  await page.route("**/api/fallback-signed-upload**", route => {
+    signedUploads += 1;
+    expect(route.request().method()).toBe("PUT");
+    expect(route.request().headers()["x-upsert"]).toBe("false");
+    if (signedUploads === 1) {
+      return route.fulfill({
+        status: 403,
+        contentType: "application/json",
+        body: JSON.stringify({ statusCode: "403", code: "AccessDenied" }),
+      });
+    }
+    return route.fulfill({
+      status: 200,
+      contentType: "application/json",
+      body: JSON.stringify({ Key: new URL(route.request().url()).searchParams.get("fileKey") }),
+    });
+  });
+  await page.route("**/api/audio/upload-complete", async route => {
+    completionRequests += 1;
+    const { fileKey, fileSize } = route.request().postDataJSON() as { fileKey: string; fileSize: number };
+    expect(fileSize).toBeGreaterThan(0);
+    await route.fulfill({
+      status: 200,
+      contentType: "application/json",
+      body: JSON.stringify({
+        success: true,
+        audio_url: `https://example.test/${fileKey}`,
+        file_key: fileKey,
+      }),
+    });
+  });
+
+  const pageErrors = await openAudioSettings(page);
+  await page.getByLabel("选择音频文件").setInputFiles([silentWav("clip-01.wav")]);
+  await expect(page.getByText("clip-01.wav", { exact: true })).toBeVisible();
+  await expect.poll(() => completionRequests).toBe(1);
+  expect(tusRequests).toBe(1);
+  expect(signedUploads).toBe(2);
+
+  await page.getByLabel("选择音频文件").setInputFiles([silentWav("clip-02.wav")]);
+  await expect(audioHandles(page)).toHaveCount(2);
+  await expect.poll(() => completionRequests).toBe(2);
+
+  expect(ticketBodies.map(body => body.resumeFileKey)).toEqual([
+    undefined,
+    `audios/${userId}/fallback-1.wav`,
+    `audios/${userId}/fallback-1.wav`,
+    undefined,
+  ]);
+  expect(tusRequests).toBe(1);
+  expect(signedUploads).toBe(3);
   expect(pageErrors).toEqual([]);
 });
 
@@ -302,7 +409,9 @@ test("刷新后沿用同一对象继续传输，不重新创建或重复上传",
         success: true,
         fileKey,
         uploadToken: "resume-token",
+        signedUploadUrl: `${requestUrl.origin}/api/resume-test-signed-upload`,
         tusEndpoint: `${requestUrl.origin}/api/resume-test-tus`,
+        tusEnabled: true,
         bucket: "audios",
       }),
     });
@@ -401,7 +510,9 @@ test("音频直传最多同时处理三份任务资源", async ({ page }) => {
         success: true,
         fileKey: `audios/${userId}/queued-${ticketRequests}.wav`,
         uploadToken: "queue-token",
+        signedUploadUrl: `${requestUrl.origin}/api/queued-test-signed-upload`,
         tusEndpoint: `${requestUrl.origin}/api/queued-test-tus`,
+        tusEnabled: true,
         bucket: "audios",
       }),
     });

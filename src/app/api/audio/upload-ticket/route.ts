@@ -7,6 +7,7 @@ import {
   formatByteSize,
   getAudioExtension,
   isSupportedAudio,
+  isTusUploadEnabled,
   isUserAudioObjectKey,
   normalizeAudioFileName,
   toDirectTusEndpoint,
@@ -105,7 +106,9 @@ export async function POST(request: NextRequest) {
       success: true,
       fileKey,
       uploadToken: signedUpload.token,
+      signedUploadUrl: signedUpload.signedUrl,
       tusEndpoint: toDirectTusEndpoint(supabaseUrl),
+      tusEnabled: isTusUploadEnabled(supabaseUrl),
       bucket: AUDIO_BUCKET,
     });
   } catch (error) {
