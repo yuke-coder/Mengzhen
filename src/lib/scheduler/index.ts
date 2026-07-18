@@ -341,6 +341,8 @@ class HighPerformanceScheduler {
     const task = getAllTasks().find(t => t.id === taskId);
     if (!task) return;
     this.stopPlayback(taskId);
+    // 同时停止 UnifiedAudioManager 中可能存在的播放（双调度器防漏）
+    UnifiedAudioManager.getInstance().stopAudio(taskId);
     updateTask(taskId, task.repeatType === 'once' ? { status: 'cancelled' } : { skipUntil: Date.now() + task.playDurationMinutes * 60000 });
     this.taskCache.invalidate(taskId);
     this.rebuildQueue();
@@ -496,8 +498,10 @@ class HighPerformanceScheduler {
     updateMediaSessionPlaybackState(true);
 
     const fadeInMs = task.enableFade ? (task.fadeInDuration || 0) * 1000 : 0;
-    const audioStartAt = actualStartAt - fadeInMs;
-    const alreadyElapsed = Math.max(0, now - audioStartAt);
+    // 音频是刚创建的，渐入应从头开始
+    // 之前用 audioStartAt = actualStartAt - fadeInMs 计算已过时间，
+    // 对过期任务会得到 alreadyElapsed = fadeInMs，导致渐入被跳过
+    const alreadyElapsed = 0;
 
     addLog({ taskId: task.id, event: 'config_applied', timestamp: Date.now(), provider: task.enableFade ? 'fade-enabled' : 'fade-disabled', metadata: { volume: task.volume, targetVolume: playback.targetVolume, enableFade: task.enableFade } });
 
@@ -568,6 +572,8 @@ class HighPerformanceScheduler {
     if (!playback) return;
     stopFade();
     stopAudio(taskId);
+    // 同时清理 UnifiedAudioPlayer 中的残留播放
+    UnifiedAudioManager.getInstance().stopAudio(taskId);
     if (activePlaybacks.size === 0) {
       updateMediaSessionPlaybackState(false);
     }
