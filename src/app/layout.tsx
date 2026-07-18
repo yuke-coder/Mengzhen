@@ -41,7 +41,9 @@ export const metadata: Metadata = {
 };
 
 const THEME_INJECTION_SCRIPT = `(function(){try{var d=document.documentElement,b=document.body,t=localStorage.getItem('theme-mode')||'auto';if(t==='system')t='auto';var r=t==='auto'?(window.matchMedia('(prefers-color-scheme: dark)').matches?'dark':'light'):t;if(r==='dark'){d.classList.add('dark');if(b)b.setAttribute('theme-mode','dark')}}catch(e){}})()`;
-const CACHE_CLEANUP_SCRIPT = `window.addEventListener("load",function(){if("serviceWorker"in navigator){navigator.serviceWorker.getRegistrations().then(function(rs){rs.forEach(function(r){r.unregister()})})}if("caches"in window){caches.keys().then(function(keys){keys.forEach(function(key){caches.delete(key)})})}})`;
+const PWA_SCRIPT = process.env.NODE_ENV === "production"
+  ? `if("serviceWorker"in navigator){window.addEventListener("load",function(){navigator.serviceWorker.register("/sw.js",{updateViaCache:"none"}).catch(function(error){console.warn("PWA service worker registration failed:",error)})})}`
+  : `window.addEventListener("load",function(){if("serviceWorker"in navigator){navigator.serviceWorker.getRegistrations().then(function(registrations){registrations.forEach(function(registration){registration.unregister()})})}if("caches"in window){caches.keys().then(function(keys){keys.forEach(function(key){caches.delete(key)})})}})`;
 
 export default function RootLayout({
   children,
@@ -72,7 +74,7 @@ export default function RootLayout({
           </AuthProvider>
         </ThemeProvider>
 
-        <Script id="cache-cleanup" strategy="afterInteractive">{CACHE_CLEANUP_SCRIPT}</Script>
+        <Script id="pwa" strategy="afterInteractive">{PWA_SCRIPT}</Script>
 
       </body>
     </html>

@@ -4,6 +4,7 @@ import { useEffect, useState, useCallback } from "react";
 import Image from "next/image";
 import { cn } from "@/lib/utils";
 import { initPwaInstallListener, promptInstall, getPwaStatus } from "@/lib/pwa";
+import { toast } from "@/components/sonner";
 import "./install-button.css";
 
 interface InstallButtonProps {
@@ -34,7 +35,15 @@ export function InstallButton({ className }: InstallButtonProps) {
     if (ok) {
       setCanInstall(false);
       setIsInstalled(true);
+      return;
     }
+
+    const isIos = /iPad|iPhone|iPod/.test(navigator.userAgent);
+    toast.message(
+      isIos
+        ? "请在 Safari 的分享菜单中选择“添加到主屏幕”"
+        : "请在浏览器菜单中选择“安装应用”或“添加到主屏幕”"
+    );
   }, []);
 
   if (isInstalled) {
@@ -71,7 +80,7 @@ export function InstallButton({ className }: InstallButtonProps) {
           <div className="text-lg ShuHeiTi button-content font-700">
             <span className="button-text">安装梦枕</span>
           </div>
-          <div className="arrow-hover medium default" role="button" tabIndex={0}>
+          <div className="arrow-hover medium default" aria-hidden="true">
             <div className="arrow-icon">
               <div className="arrow-icon-white">
                 <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" viewBox="0 0 30 30" fill="currentColor">
