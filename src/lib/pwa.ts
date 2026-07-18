@@ -10,6 +10,8 @@ interface BeforeInstallPromptEvent extends Event {
   userChoice: Promise<{ outcome: 'accepted' | 'dismissed'; platform: string }>;
 }
 
+export type PwaInstallResult = 'accepted' | 'dismissed' | 'unavailable';
+
 let deferredPrompt: BeforeInstallPromptEvent | null = null;
 let installPromptListener: ((e: Event) => void) | null = null;
 let appInstalledListener: (() => void) | null = null;
@@ -100,10 +102,10 @@ export function initPwaInstallListener(onPromptAvailable?: () => void): () => vo
 /**
  * 触发 PWA 安装提示
  */
-export async function promptInstall(): Promise<boolean> {
+export async function promptInstall(): Promise<PwaInstallResult> {
   if (!deferredPrompt) {
     console.log('[PWA] No deferred prompt available');
-    return false;
+    return 'unavailable';
   }
 
   try {
@@ -117,15 +119,15 @@ export async function promptInstall(): Promise<boolean> {
       console.log('[PWA] User accepted the install prompt');
       markPromptedInstall();
       deferredPrompt = null;
-      return true;
+      return 'accepted';
     } else {
       console.log('[PWA] User dismissed the install prompt');
       deferredPrompt = null;
-      return false;
+      return 'dismissed';
     }
   } catch (error) {
     console.error('[PWA] Error prompting install:', error);
-    return false;
+    return 'unavailable';
   }
 }
 

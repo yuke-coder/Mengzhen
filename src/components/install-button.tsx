@@ -31,10 +31,15 @@ export function InstallButton({ className }: InstallButtonProps) {
   }, []);
 
   const handleClick = useCallback(async () => {
-    const ok = await promptInstall();
-    if (ok) {
+    const result = await promptInstall();
+    if (result === "accepted") {
       setCanInstall(false);
       setIsInstalled(true);
+      return;
+    }
+
+    if (result === "dismissed") {
+      setCanInstall(false);
       return;
     }
 
