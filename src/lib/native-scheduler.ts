@@ -49,20 +49,25 @@ function getAlarmScheduler(): AlarmSchedulerPlugin | null {
 }
 
 /**
- * 获取任务的实际音频 URL（转为绝对路径，供原生 MediaPlayer 使用）
+ * 获取音频的直链 URL
+ * 优先 serverUrl（Supabase 公开 URL），否则用 fileKey 生成签名 URL
  */
-function getAudioUrl(task: ScheduledTask): string {
-  const baseUrl = isNativeEnvironment()
-    ? (window as any).Capacitor?.getServerUrl?.() ?? 'https://mengzhen-chi.vercel.app'
-    : '';
+async function getAudioUrl(task: ScheduledTask): Promise<string> {
   for (const audio of task.audios) {
-    if (audio.serverUrl && audio.serverUrl.trim() !== '') {
-      return audio.serverUrl.startsWith('http')
-        ? audio.serverUrl
-        : `${baseUrl}${audio.serverUrl}`;
+    if (audio.serverUrl && audio.serverUrl.trim() !== '' && audio.serverUrl.startsWith('http')) {
+      return audio.serverUrl;
     }
     if (audio.fileKey && audio.fileKey.trim() !== '') {
-      return `${baseUrl}/api/audio/proxy?key=${encodeURIComponent(audio.fileKey)}`;
+      // 调用 API 获取签名 URL（带 cookie 认证）
+      try {
+        const res = await fetch(`/api/audio/signed-url?key=${encodeURIComponent(audio.fileKey)}`);
+        if (res.ok) {
+          const data = await res.json();
+          if (data.signedUrl) return data.signedUrl;
+        }
+      } catch (e) {
+        console.error('[NativeScheduler] 获取签名 URL 失败:', e);
+      }
     }
   }
   return '';
@@ -76,7 +81,6 @@ export async function syncTasksToNative(): Promise<void> {
   if (!plugin) return;
 
   try {
-    // 先清除所有旧的闹钟
     await plugin.cancelAllTasks();
 
     const tasks = getAllTasks();
@@ -90,9 +94,9 @@ export async function syncTasksToNative(): Promise<void> {
       if (!nextExec) continue;
 
       const triggerAt = nextExec.getTime();
-      if (triggerAt < now) continue; // 只同步未来任务
+      if (triggerAt < now) continue;
 
-      const audioUrl = getAudioUrl(task);
+      const audioUrl = await getAudioUrl(task);
       if (!audioUrl) continue;
 
       await plugin.scheduleTask({
