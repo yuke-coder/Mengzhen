@@ -28,6 +28,18 @@ interface AlarmSchedulerPlugin {
   stopPlayback(): Promise<void>;
 
   isPlaying(): Promise<{ playing: boolean }>;
+
+  playNow(options: {
+    taskId: string;
+    taskName: string;
+    playDurationMinutes: number;
+    volume: number;
+    enableFade: boolean;
+    fadeInDuration: number;
+    fadeOutDuration: number;
+    audioUrl: string;
+    audioName: string;
+  }): Promise<void>;
 }
 
 /**
@@ -144,10 +156,9 @@ export async function triggerNativePlayback(taskId: string): Promise<void> {
     return;
   }
   try {
-    await plugin.scheduleTask({
+    await plugin.playNow({
       taskId: task.id,
       taskName: task.name,
-      triggerAt: Date.now(),
       playDurationMinutes: task.playDurationMinutes,
       volume: task.volume ?? 70,
       enableFade: task.enableFade ?? false,

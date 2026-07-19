@@ -97,4 +97,46 @@ public class AlarmSchedulerPlugin extends Plugin {
         ret.put("playing", AudioPlaybackService.isCurrentlyPlaying());
         call.resolve(ret);
     }
+
+    @PluginMethod
+    public void playNow(PluginCall call) {
+        String taskId = call.getString("taskId");
+        String taskName = call.getString("taskName", "梦枕");
+        Integer playDurationMinutes = call.getInt("playDurationMinutes", 30);
+        Integer volume = call.getInt("volume", 70);
+        Boolean enableFade = call.getBoolean("enableFade", false);
+        Integer fadeInDuration = call.getInt("fadeInDuration", 0);
+        Integer fadeOutDuration = call.getInt("fadeOutDuration", 0);
+        String audioUrl = call.getString("audioUrl", "");
+        String audioName = call.getString("audioName", "");
+
+        if (taskId == null || audioUrl == null || audioUrl.isEmpty()) {
+            call.reject("taskId and audioUrl are required");
+            return;
+        }
+
+        try {
+            android.content.Intent intent = new android.content.Intent(getContext(), AudioPlaybackService.class);
+            intent.setAction(AudioPlaybackService.ACTION_START);
+            intent.putExtra("taskId", taskId);
+            intent.putExtra("taskName", taskName);
+            intent.putExtra("playDurationMinutes", playDurationMinutes);
+            intent.putExtra("volume", volume);
+            intent.putExtra("enableFade", enableFade);
+            intent.putExtra("fadeInDuration", fadeInDuration);
+            intent.putExtra("fadeOutDuration", fadeOutDuration);
+            intent.putExtra("audioUrl", audioUrl);
+
+            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
+                getContext().startForegroundService(intent);
+            } else {
+                getContext().startService(intent);
+            }
+            Log.i(TAG, "playNow: " + taskId + " url=" + audioUrl);
+            call.resolve();
+        } catch (Exception e) {
+            Log.e(TAG, "playNow failed", e);
+            call.reject("Failed to play: " + e.getMessage());
+        }
+    }
 }
