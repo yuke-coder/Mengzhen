@@ -305,6 +305,14 @@ class HighPerformanceScheduler {
     this.isRunning = true;
     addLog({ taskId: 'scheduler', event: 'start', timestamp: Date.now() });
     this.setupVisibilityHandler();
+    // 原生环境：跳过 JS 音频解锁和 tick 循环
+    if (isNativeEnvironment()) {
+      log('system', 'info', '原生环境，调度器启动但不启动 JS 播放');
+      this.taskCache.sync();
+      this.rebuildQueue();
+      this.scheduleNextCheck();
+      return;
+    }
     setupMediaSession();
     tryUnlockAudio();
     await this.resumeActiveTasks();
@@ -619,6 +627,11 @@ class HighPerformanceScheduler {
   }
 
   private startTickLoop(): void {
+    // 原生环境：不需要 JS tick 循环，播放由原生 MediaPlayer 处理
+    if (isNativeEnvironment()) {
+      log('system', 'info', '原生环境，跳过 JS tick 循环');
+      return;
+    }
     let tickCount = 0;
     const tick = () => {
       if (!this.isRunning) return;

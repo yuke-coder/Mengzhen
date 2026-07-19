@@ -86,9 +86,9 @@ function CreatePageContent() {
         return () => stopTaskScheduler();
     }, [mounted]);
 
-    // 自动解锁
+    // 自动解锁（原生环境不需要）
     useEffect(() => {
-        if (!mounted) return;
+        if (!mounted || isNativeEnvironment()) return;
         return setupAutoUnlock();
     }, [mounted]);
 
