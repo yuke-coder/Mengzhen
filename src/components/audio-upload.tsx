@@ -123,6 +123,27 @@ export function AudioUpload({
   const itemRefs = useRef<Record<string, HTMLDivElement | null>>({});
   const lastMoveTimeRef = useRef(0);
 
+  const setVolumeFromPointer = useCallback((event: React.PointerEvent<HTMLDivElement>) => {
+    const { left, width } = event.currentTarget.getBoundingClientRect();
+    if (!width) return;
+    setVolume(Math.round(Math.min(1, Math.max(0, (event.clientX - left) / width)) * 100));
+  }, [setVolume]);
+
+  const handleVolumeKeyDown = useCallback((event: React.KeyboardEvent<HTMLDivElement>) => {
+    let nextVolume = volume;
+    switch (event.key) {
+      case "Home": nextVolume = 0; break;
+      case "End": nextVolume = 100; break;
+      case "ArrowLeft":
+      case "ArrowDown": nextVolume -= 1; break;
+      case "ArrowRight":
+      case "ArrowUp": nextVolume += 1; break;
+      default: return;
+    }
+    event.preventDefault();
+    setVolume(Math.max(0, Math.min(100, nextVolume)));
+  }, [setVolume, volume]);
+
   const VolumeIcon = volume === 0 ? VolumeX : volume < 50 ? Volume1 : Volume2;
 
   useEffect(() => setPortalReady(true), []);
@@ -465,22 +486,42 @@ export function AudioUpload({
     <div>
       <div className="p-3 sm:p-4 space-y-2.5">
         <div className="flex items-center justify-between">
-          <label className="text-xs font-medium text-muted-foreground flex items-center gap-1.5">
+          <span className="text-xs font-medium text-muted-foreground flex items-center gap-1.5">
             <VolumeIcon className="w-3.5 h-3.5" />音量控制
-          </label>
+          </span>
           <span className="text-sm font-mono font-semibold tabular-nums text-foreground">{volume}%</span>
         </div>
-        <div className="relative pt-1 pb-1">
-          <input
-            type="range"
-            aria-label="音量控制"
-            min={0} max={100}
-            value={volume} step={1}
-            onInput={e => setVolume(parseInt((e.target as HTMLInputElement).value, 10))}
-            className="h-11 w-full cursor-pointer appearance-none rounded-full bg-transparent bg-[length:100%_10px] bg-center bg-no-repeat [&::-webkit-slider-thumb]:h-6 [&::-webkit-slider-thumb]:w-6 [&::-webkit-slider-thumb]:appearance-none [&::-webkit-slider-thumb]:cursor-pointer [&::-webkit-slider-thumb]:rounded-full [&::-webkit-slider-thumb]:bg-white [&::-webkit-slider-thumb]:shadow-md [&::-webkit-slider-thumb]:ring-2 [&::-webkit-slider-thumb]:ring-[var(--brand-start)] sm:h-8 sm:[&::-webkit-slider-thumb]:h-5 sm:[&::-webkit-slider-thumb]:w-5"
-            style={{
-              background: `linear-gradient(to right, var(--brand-start) ${volume}%, rgba(128,128,128,0.2) ${volume}%)`,
-            }}
+        <div
+          role="slider"
+          tabIndex={0}
+          aria-label="音量控制"
+          aria-valuemin={0}
+          aria-valuemax={100}
+          aria-valuenow={volume}
+          aria-valuetext={`${volume}%`}
+          onPointerDown={event => {
+            if (!event.isPrimary || (event.pointerType === "mouse" && event.button !== 0)) return;
+            event.currentTarget.setPointerCapture(event.pointerId);
+            setVolumeFromPointer(event);
+          }}
+          onPointerMove={event => {
+            if (event.currentTarget.hasPointerCapture(event.pointerId)) setVolumeFromPointer(event);
+          }}
+          onPointerUp={event => {
+            if (!event.currentTarget.hasPointerCapture(event.pointerId)) return;
+            setVolumeFromPointer(event);
+            event.currentTarget.releasePointerCapture(event.pointerId);
+          }}
+          onPointerCancel={event => {
+            if (event.currentTarget.hasPointerCapture(event.pointerId)) event.currentTarget.releasePointerCapture(event.pointerId);
+          }}
+          onKeyDown={handleVolumeKeyDown}
+          className="flex h-11 w-full cursor-pointer touch-none items-center rounded-full focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--brand-start)]/35"
+        >
+          <div
+            aria-hidden="true"
+            className="h-2 w-full rounded-full"
+            style={{ background: `linear-gradient(to right, var(--brand-start) ${volume}%, rgba(128,128,128,0.2) ${volume}%)` }}
           />
         </div>
       </div>

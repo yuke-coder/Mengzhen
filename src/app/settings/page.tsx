@@ -26,6 +26,12 @@ import {
     isSWSchedulerAvailable,
     getKeepAliveStatus,
 } from "@/lib/sw-scheduler";
+import {
+    syncTasksToNative,
+    removeNativeTask,
+    stopNativePlayback,
+    isNativeEnvironment,
+} from "@/lib/native-scheduler";
 
 function useClientOnly() {
     const [mounted, setMounted] = useState(false);
@@ -131,9 +137,14 @@ function CreatePageContent() {
 
     // ========== Service Worker 后台调度 ==========
 
-    // 任务变更时同步到 SW 并刷新调度器
+    // 任务变更时同步到 SW / 原生 AlarmScheduler 并刷新调度器
     useEffect(() => {
         if (!mounted) return;
+        // 原生环境优先，同步到 AlarmManager
+        if (isNativeEnvironment()) {
+            syncTasksToNative();
+        }
+        // SW 作为 fallback
         syncTasksToSW();
         // 通知调度器有新任务
         try {

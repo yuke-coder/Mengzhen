@@ -81,10 +81,12 @@ async function uploadAudios(page: Page, count: number) {
   if (count > 1) await expect(audioHandles(page)).toHaveCount(count, { timeout: 30_000 });
 }
 
-async function setRangeValue(page: Page, value: number) {
-  const slider = page.getByLabel("音量控制");
-  await slider.fill(String(value));
-  await expect(slider).toHaveValue(String(value));
+async function setVolumeValue(page: Page, value: number) {
+  const slider = page.getByRole("slider", { name: "音量控制" });
+  await slider.focus();
+  await slider.press("Home");
+  for (let step = 0; step < value; step += 1) await slider.press("ArrowRight");
+  await expect(slider).toHaveAttribute("aria-valuenow", String(value));
   await expect.poll(() => page.evaluate(() => {
     const raw = localStorage.getItem("dream_default_play_config");
     if (!raw) return null;
@@ -136,23 +138,23 @@ test("超过 20 个音频仍全部添加，默认设置与新建任务继续共�
   await expect(page.getByText("已添加 25 个音频", { exact: true })).toBeVisible();
   expect(await audioOrder(page)).toEqual(audioFiles(25).map(file => file.name));
 
-  await setRangeValue(page, 23);
+  await setVolumeValue(page, 23);
   await page.getByRole("button", { name: "自定义任务", exact: true }).click();
   await expect(page.getByLabel("选择音频文件")).toHaveCount(0);
-  await expect(page.getByLabel("音量控制")).toHaveCount(0);
+  await expect(page.getByRole("slider", { name: "音量控制" })).toHaveCount(0);
 
   await page.getByRole("button", { name: "新建任务", exact: true }).click();
   await expect(page.getByRole("button", { name: "暂不创建", exact: true })).toBeVisible();
   await expect(page.getByLabel("选择音频文件")).toHaveCount(1);
   await expect(audioHandles(page)).toHaveCount(25);
-  await expect(page.getByLabel("音量控制")).toHaveValue("23");
+  await expect(page.getByRole("slider", { name: "音量控制" })).toHaveAttribute("aria-valuenow", "23");
   expect(await audioOrder(page)).toEqual(audioFiles(25).map(file => file.name));
 
-  await setRangeValue(page, 37);
+  await setVolumeValue(page, 37);
   await page.keyboard.press("Escape");
   await expect(page.getByRole("button", { name: "暂不创建", exact: true })).toBeHidden();
   await page.getByRole("button", { name: "默认设置", exact: true }).click();
-  await expect(page.getByLabel("音量控制")).toHaveValue("37");
+  await expect(page.getByRole("slider", { name: "音量控制" })).toHaveAttribute("aria-valuenow", "37");
   await expect(audioHandles(page)).toHaveCount(25);
   expect(pageErrors).toEqual([]);
 });
