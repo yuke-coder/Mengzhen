@@ -305,12 +305,13 @@ class HighPerformanceScheduler {
     this.isRunning = true;
     addLog({ taskId: 'scheduler', event: 'start', timestamp: Date.now() });
     this.setupVisibilityHandler();
-    // 原生环境：跳过 JS 音频解锁和 tick 循环
+    // 原生环境：跳过 JS 音频解锁，但保留状态管理和调度
     if (isNativeEnvironment()) {
-      log('system', 'info', '原生环境，调度器启动但不启动 JS 播放');
+      log('system', 'info', '原生环境，跳过 JS 音频解锁');
       this.taskCache.sync();
       this.rebuildQueue();
       this.scheduleNextCheck();
+      this.startTickLoop();
       return;
     }
     setupMediaSession();
@@ -374,14 +375,18 @@ class HighPerformanceScheduler {
   }
 
   async executeNow(taskId: string): Promise<void> {
-    // 原生环境：通过原生插件立即播放
+    const task = getAllTasks().find(t => t.id === taskId);
+    if (!task) return;
+    if (activePlaybacks.has(taskId)) return;
+
     if (isNativeEnvironment()) {
-      log(taskId, 'info', '原生环境，调用原生插件立即播放');
+      log(taskId, 'info', '原生环境，调用原生插件播放');
+      updateTask(taskId, { status: 'executing', lastExecutedAt: Date.now() });
       await triggerNativePlayback(taskId);
+      this.startNativePlaybackState(task);
       return;
     }
-    const task = getAllTasks().find(t => t.id === taskId);
-    if (!task || activePlaybacks.has(taskId)) return;
+
     log(taskId, 'info', `立即执行任务，音频数: ${task.audios.length}`);
     for (const audio of task.audios) {
       log(taskId, 'info', `  - ${audio.name}: serverUrl=${!!audio.serverUrl}, fileKey=${!!audio.fileKey}, dbKey=${!!audio.dbKey}`);
@@ -500,8 +505,14 @@ class HighPerformanceScheduler {
   }
 
   private async startPlayback(task: ScheduledTask, scheduledStartAt: number): Promise<void> {
-    if (isNativeEnvironment()) return;
     if (activePlaybacks.has(task.id)) return;
+
+    // 原生环境：只管理状态，不创建 Audio
+    if (isNativeEnvironment()) {
+      this.startNativePlaybackState(task);
+      return;
+    }
+
     log(task.id, 'info', '开始播放...');
 
     const now = Date.now();
@@ -548,14 +559,25 @@ class HighPerformanceScheduler {
   }
 
   private schedulePlaybackEnd(task: ScheduledTask, scheduledStartAt: number): void {
+    // 原生环境也用这个方法定时结束
     const playback = activePlaybacks.get(task.id);
-    if (!playback) return;
+    if (!playback && !isNativeEnvironment()) return;
     const now = Date.now();
     const endTime = scheduledStartAt + task.playDurationMinutes * 60000;
     const remaining = Math.max(0, endTime - now);
     this.taskCache.invalidate(task.id);
 
     setTimeout(() => {
+      if (isNativeEnvironment()) {
+        // 原生环境：直接结束或渐出后结束
+        if (task.enableFade && task.fadeOutDuration > 0) {
+          this.emitPhaseChange(task.id, 'fading-out');
+          setTimeout(() => this.completeNativePlayback(task), task.fadeOutDuration * 1000);
+        } else {
+          this.completeNativePlayback(task);
+        }
+        return;
+      }
       const p = activePlaybacks.get(task.id);
       if (p) this.startFadeOut(task, p, scheduledStartAt);
     }, remaining);
@@ -627,12 +649,60 @@ class HighPerformanceScheduler {
     this.scheduleNextCheck();
   }
 
-  private startTickLoop(): void {
-    // 原生环境：不需要 JS tick 循环，播放由原生 MediaPlayer 处理
-    if (isNativeEnvironment()) {
-      log('system', 'info', '原生环境，跳过 JS tick 循环');
-      return;
+  /** 原生环境播放状态管理（不创建 Audio） */
+  private startNativePlaybackState(task: ScheduledTask): void {
+    log(task.id, 'info', '原生播放状态管理启动');
+    const actualStartAt = Date.now();
+
+    // 创建虚拟 playback 记录用于 UI 状态查询
+    activePlaybacks.set(task.id, {
+      taskId: task.id,
+      audio: { play: () => {}, pause: () => {}, volume: 0, currentTime: 0, duration: 0, loop: false, paused: true } as any,
+      targetVolume: (task.volume ?? 70) / 100,
+      phase: 'playing',
+      startedAt: actualStartAt,
+      scheduledStartAt: actualStartAt,
+      playedDuration: 0,
+      retryCount: 0,
+      currentBlobUrl: null,
+    });
+
+    // 渐入状态
+    if (task.enableFade && task.fadeInDuration && task.fadeInDuration > 0) {
+      (activePlaybacks.get(task.id)!).phase = 'fading-in';
+      log(task.id, 'info', `原生渐入开始: ${task.fadeInDuration}秒`);
+      this.emit('task-started', task.id, 'fading-in', this.computeRemaining(activePlaybacks.get(task.id)!), task.name);
+      setTimeout(() => {
+        if (activePlaybacks.has(task.id)) {
+          (activePlaybacks.get(task.id)!).phase = 'playing';
+          this.emitPhaseChange(task.id, 'playing');
+          log(task.id, 'info', '原生渐入完成');
+        }
+      }, task.fadeInDuration * 1000);
+    } else {
+      this.emit('task-started', task.id, 'playing', this.computeRemaining(activePlaybacks.get(task.id)!), task.name);
     }
+
+    // 定时结束
+    this.schedulePlaybackEnd(task, actualStartAt);
+  }
+
+  /** 原生环境播放完成 */
+  private completeNativePlayback(task: ScheduledTask): void {
+    log(task.id, 'info', '原生播放完成');
+    activePlaybacks.delete(task.id);
+    stopNativePlayback();
+    updateTask(task.id, task.repeatType === 'once'
+      ? { status: 'completed', completedAt: Date.now() }
+      : { status: 'pending', lastExecutedAt: Date.now() }
+    );
+    this.emit('task-completed', task.id, 'idle', 0, task.name);
+    this.taskCache.invalidate(task.id);
+    this.rebuildQueue();
+    this.scheduleNextCheck();
+  }
+
+  private startTickLoop(): void {
     let tickCount = 0;
     const tick = () => {
       if (!this.isRunning) return;
