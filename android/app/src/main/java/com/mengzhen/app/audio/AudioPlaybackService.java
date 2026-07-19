@@ -470,12 +470,20 @@ public class AudioPlaybackService extends Service {
     // === 静态方法供 JS 桥调用 ===
 
     public static void stopPlayback(Context context) {
+        // 先尝试直接停止现有实例
+        if (instance != null) {
+            instance.stopPlaybackInternal();
+            instance.stopForeground(true);
+            instance.stopSelf();
+            return;
+        }
+        // 没有活跃实例，用 startService（不用 startForegroundService 避免崩溃）
         Intent intent = new Intent(context, AudioPlaybackService.class);
         intent.setAction(ACTION_STOP);
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
-            context.startForegroundService(intent);
-        } else {
+        try {
             context.startService(intent);
+        } catch (Exception e) {
+            Log.w(TAG, "stopPlayback: service not running or cannot start");
         }
     }
 

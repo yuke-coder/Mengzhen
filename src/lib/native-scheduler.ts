@@ -72,6 +72,7 @@ const AUDIO_BUCKET = 'audios';
  */
 async function getAudioUrl(task: ScheduledTask): Promise<string> {
   for (const audio of task.audios) {
+    console.log('[NativeScheduler] audio:', JSON.stringify({ name: audio.name, fileKey: audio.fileKey, serverUrl: audio.serverUrl, dbKey: audio.dbKey, pendingUploadKey: audio.pendingUploadKey }));
     if (audio.serverUrl && audio.serverUrl.trim() !== '' && audio.serverUrl.startsWith('http')) {
       console.log('[NativeScheduler] Using serverUrl:', audio.serverUrl);
       return audio.serverUrl;
