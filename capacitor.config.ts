@@ -6,11 +6,8 @@ const config: CapacitorConfig = {
   webDir: 'out',
   server: {
     androidScheme: 'https',
-    // 使用部署的 URL，WebView 加载远程页面
-    // 原生插件接管定时播放
-    url: process.env.NODE_ENV === 'production'
-      ? 'https://mengzhen.vercel.app'
-      : 'http://10.0.2.2:5000',
+    // WebView 加载部署的 URL，原生插件接管定时播放
+    url: 'https://mengzhen-chi.vercel.app',
   },
 };
 
