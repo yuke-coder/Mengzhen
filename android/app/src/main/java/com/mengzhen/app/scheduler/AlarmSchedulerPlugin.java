@@ -9,6 +9,7 @@ import com.getcapacitor.Plugin;
 import com.getcapacitor.PluginCall;
 import com.getcapacitor.PluginMethod;
 import com.getcapacitor.annotation.CapacitorPlugin;
+import com.mengzhen.app.audio.AudioPlaybackService;
 
 import org.json.JSONArray;
 import org.json.JSONObject;
