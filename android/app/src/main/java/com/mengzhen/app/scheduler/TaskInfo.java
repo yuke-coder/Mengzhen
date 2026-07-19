@@ -11,8 +11,12 @@ public class TaskInfo {
     public boolean enableFade;
     public int fadeInDuration;
     public int fadeOutDuration;
-    public String audioUrl;
-    public String audioName;
+    public String audioUrl;   // 兼容旧接口
+    public String audioName;  // 兼容旧接口
+    // 新增：播放列表 JSON 和循环模式
+    public String tracksJson;
+    public boolean loopSingle;
+    public long endTime; // 0 = 使用 playDurationMinutes 计算
 
     public JSONObject toJson() {
         JSONObject obj = new JSONObject();
@@ -27,6 +31,9 @@ public class TaskInfo {
             obj.put("fadeOutDuration", fadeOutDuration);
             obj.put("audioUrl", audioUrl);
             obj.put("audioName", audioName);
+            obj.put("tracksJson", tracksJson != null ? tracksJson : "");
+            obj.put("loopSingle", loopSingle);
+            obj.put("endTime", endTime);
         } catch (Exception e) {
             e.printStackTrace();
         }
@@ -45,6 +52,9 @@ public class TaskInfo {
         task.fadeOutDuration = obj.optInt("fadeOutDuration", 0);
         task.audioUrl = obj.optString("audioUrl", "");
         task.audioName = obj.optString("audioName", "");
+        task.tracksJson = obj.optString("tracksJson", "");
+        task.loopSingle = obj.optBoolean("loopSingle", true);
+        task.endTime = obj.optLong("endTime", 0L);
         return task;
     }
 }

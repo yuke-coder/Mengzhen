@@ -33,6 +33,10 @@ public class AlarmSchedulerPlugin extends Plugin {
         Integer fadeOutDuration = call.getInt("fadeOutDuration", 0);
         String audioUrl = call.getString("audioUrl", "");
         String audioName = call.getString("audioName", "");
+        // 新增：播放列表 JSON 和单曲循环
+        String tracksJson = call.getString("tracksJson", "");
+        Boolean loopSingle = call.getBoolean("loopSingle", true);
+        Long endTime = call.getLong("endTime", 0L);
 
         if (taskId == null || triggerAt == null) {
             call.reject("taskId and triggerAt are required");
@@ -43,7 +47,7 @@ public class AlarmSchedulerPlugin extends Plugin {
             AlarmScheduler scheduler = AlarmScheduler.getInstance(getContext());
             scheduler.scheduleAlarm(taskId, taskName, triggerAt, playDurationMinutes,
                     volume, enableFade, fadeInDuration, fadeOutDuration,
-                    audioUrl, audioName);
+                    audioUrl, audioName, tracksJson, loopSingle, endTime);
             Log.i(TAG, "Scheduled task: " + taskId + " at " + triggerAt);
             call.resolve();
         } catch (Exception e) {
@@ -95,6 +99,7 @@ public class AlarmSchedulerPlugin extends Plugin {
     public void isPlaying(PluginCall call) {
         JSObject ret = new JSObject();
         ret.put("playing", AudioPlaybackService.isCurrentlyPlaying());
+        ret.put("trackIndex", AudioPlaybackService.getCurrentTrackIndex());
         call.resolve(ret);
     }
 
@@ -109,10 +114,28 @@ public class AlarmSchedulerPlugin extends Plugin {
         Integer fadeOutDuration = call.getInt("fadeOutDuration", 0);
         String audioUrl = call.getString("audioUrl", "");
         String audioName = call.getString("audioName", "");
+        // 新增：播放列表 JSON
+        String tracksJson = call.getString("tracksJson", "");
+        Boolean loopSingle = call.getBoolean("loopSingle", true);
+        Long endTime = call.getLong("endTime", 0L);
 
-        if (taskId == null || audioUrl == null || audioUrl.isEmpty()) {
-            call.reject("taskId and audioUrl are required");
+        if (taskId == null) {
+            call.reject("taskId is required");
             return;
+        }
+
+        // 兼容：如果没传 tracksJson 但有 audioUrl，构造单元素列表
+        if ((tracksJson == null || tracksJson.isEmpty()) && audioUrl != null && !audioUrl.isEmpty()) {
+            JSONArray arr = new JSONArray();
+            JSONObject obj = new JSONObject();
+            try {
+                obj.put("url", audioUrl);
+                obj.put("name", audioName != null ? audioName : "");
+                arr.put(obj);
+                tracksJson = arr.toString();
+            } catch (Exception e) {
+                Log.w(TAG, "Failed to construct tracksJson from audioUrl");
+            }
         }
 
         try {
@@ -125,14 +148,18 @@ public class AlarmSchedulerPlugin extends Plugin {
             intent.putExtra("enableFade", enableFade);
             intent.putExtra("fadeInDuration", fadeInDuration);
             intent.putExtra("fadeOutDuration", fadeOutDuration);
-            intent.putExtra("audioUrl", audioUrl);
+            intent.putExtra("audioUrl", audioUrl); // 兼容旧接口
+            intent.putExtra("audioName", audioName);
+            intent.putExtra("tracksJson", tracksJson != null ? tracksJson : "");
+            intent.putExtra("loopSingle", loopSingle != null ? loopSingle : true);
+            intent.putExtra("endTime", endTime != null ? endTime : 0L);
 
             if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
                 getContext().startForegroundService(intent);
             } else {
                 getContext().startService(intent);
             }
-            Log.i(TAG, "playNow: " + taskId + " url=" + audioUrl);
+            Log.i(TAG, "playNow: " + taskId + " tracks=" + (tracksJson != null ? tracksJson.length() : 0) + " chars");
             call.resolve();
         } catch (Exception e) {
             Log.e(TAG, "playNow failed", e);

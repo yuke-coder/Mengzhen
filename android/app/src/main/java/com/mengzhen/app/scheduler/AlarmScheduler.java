@@ -37,7 +37,8 @@ public class AlarmScheduler {
     public void scheduleAlarm(String taskId, String taskName, long triggerAt,
                               int playDurationMinutes, int volume,
                               boolean enableFade, int fadeInDuration, int fadeOutDuration,
-                              String audioUrl, String audioName) {
+                              String audioUrl, String audioName,
+                              String tracksJson, boolean loopSingle, long endTime) {
 
         TaskInfo task = new TaskInfo();
         task.taskId = taskId;
@@ -50,6 +51,9 @@ public class AlarmScheduler {
         task.fadeOutDuration = fadeOutDuration;
         task.audioUrl = audioUrl;
         task.audioName = audioName;
+        task.tracksJson = tracksJson;
+        task.loopSingle = loopSingle;
+        task.endTime = endTime;
 
         taskStorage.saveTask(task);
 
@@ -66,16 +70,13 @@ public class AlarmScheduler {
                 context, requestCode, intent,
                 PendingIntent.FLAG_UPDATE_CURRENT | PendingIntent.FLAG_IMMUTABLE);
 
-        // 使用 setExactAndAllowWhileIdle 保证息屏也能触发
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
-            // 检查是否能使用精确闹钟
             if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.S) {
                 if (alarmManager.canScheduleExactAlarms()) {
                     alarmManager.setExactAndAllowWhileIdle(
                             AlarmManager.RTC_WAKEUP, task.triggerAt, pendingIntent);
                     Log.i(TAG, "Set exact alarm for " + task.taskId + " at " + task.triggerAt);
                 } else {
-                    // 降级：用 inexact alarm
                     alarmManager.setAndAllowWhileIdle(
                             AlarmManager.RTC_WAKEUP, task.triggerAt, pendingIntent);
                     Log.w(TAG, "Exact alarm not permitted, using inexact for " + task.taskId);
@@ -91,7 +92,6 @@ public class AlarmScheduler {
     }
 
     public void cancelAlarm(String taskId) {
-        // 取消 AlarmManager 定时器
         Intent intent = new Intent(context, AlarmReceiver.class);
         intent.setAction("com.mengzhen.app.ALARM_TRIGGER");
         int requestCode = taskId.hashCode();
@@ -100,7 +100,6 @@ public class AlarmScheduler {
                 PendingIntent.FLAG_UPDATE_CURRENT | PendingIntent.FLAG_IMMUTABLE);
         alarmManager.cancel(pendingIntent);
 
-        // 从存储中删除
         taskStorage.removeTask(taskId);
 
         Log.i(TAG, "Cancelled alarm for " + taskId);
@@ -124,10 +123,8 @@ public class AlarmScheduler {
                 setAlarm(task);
                 Log.i(TAG, "Restored alarm for " + task.taskId);
             } else if (task.triggerAt > now - 60000) {
-                // 刚过期 1 分钟内，立即触发
                 triggerTaskNow(task);
             } else {
-                // 过期太久，删除
                 taskStorage.removeTask(task.taskId);
             }
         }
@@ -145,6 +142,9 @@ public class AlarmScheduler {
         serviceIntent.putExtra("fadeOutDuration", task.fadeOutDuration);
         serviceIntent.putExtra("audioUrl", task.audioUrl);
         serviceIntent.putExtra("audioName", task.audioName);
+        serviceIntent.putExtra("tracksJson", task.tracksJson != null ? task.tracksJson : "");
+        serviceIntent.putExtra("loopSingle", task.loopSingle);
+        serviceIntent.putExtra("endTime", task.endTime);
 
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
             context.startForegroundService(serviceIntent);

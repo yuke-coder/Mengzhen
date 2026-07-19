@@ -6,7 +6,6 @@ import android.content.Intent;
 import android.os.Build;
 import android.util.Log;
 
-import com.mengzhen.app.scheduler.AlarmScheduler;
 import com.mengzhen.app.scheduler.TaskInfo;
 import com.mengzhen.app.scheduler.TaskStorage;
 import com.mengzhen.app.audio.AudioPlaybackService;
@@ -47,6 +46,9 @@ public class AlarmReceiver extends BroadcastReceiver {
             serviceIntent.putExtra("fadeOutDuration", task.fadeOutDuration);
             serviceIntent.putExtra("audioUrl", task.audioUrl);
             serviceIntent.putExtra("audioName", task.audioName);
+            serviceIntent.putExtra("tracksJson", task.tracksJson != null ? task.tracksJson : "");
+            serviceIntent.putExtra("loopSingle", task.loopSingle);
+            serviceIntent.putExtra("endTime", task.endTime);
 
             if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
                 context.startForegroundService(serviceIntent);

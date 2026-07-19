@@ -1,12 +1,12 @@
 import type { ScheduledTask } from './task-types';
 import { getNextExecuteDate } from './task-types';
 import { getAllTasks } from './task-store';
-import { getAudioBlob } from './audio/db';
-import { Filesystem, Directory } from '@capacitor/filesystem';
+import { resolveTracksJsonFromTaskAudios } from './audio/resolve';
 
 /**
- * Capacitor 原生调度器接口
- * 仅在 Android 原生壳内可用，提供息屏定时启播能力
+ * Capacitor 原生调度器
+ * 仅在 Android 原生壳内可用
+ * 所有播放通过 AudioPlaybackService.java 处理
  */
 
 interface AlarmSchedulerPlugin {
@@ -21,16 +21,14 @@ interface AlarmSchedulerPlugin {
     fadeOutDuration: number;
     audioUrl: string;
     audioName: string;
+    tracksJson: string;
+    loopSingle: boolean;
+    endTime: number;
   }): Promise<void>;
-
   cancelTask(options: { taskId: string }): Promise<void>;
-
   cancelAllTasks(): Promise<void>;
-
   stopPlayback(): Promise<void>;
-
-  isPlaying(): Promise<{ playing: boolean }>;
-
+  isPlaying(): Promise<{ playing: boolean; trackIndex: number }>;
   playNow(options: {
     taskId: string;
     taskName: string;
@@ -41,94 +39,22 @@ interface AlarmSchedulerPlugin {
     fadeOutDuration: number;
     audioUrl: string;
     audioName: string;
+    tracksJson: string;
+    loopSingle: boolean;
+    endTime: number;
   }): Promise<void>;
 }
 
-/**
- * 检测是否在 Capacitor 原生环境中运行
- */
 export function isNativeEnvironment(): boolean {
   return typeof window !== 'undefined'
     && typeof (window as any).Capacitor !== 'undefined'
     && (window as any).Capacitor.isNativePlatform?.() === true;
 }
 
-/**
- * 获取 AlarmScheduler 插件实例
- */
 function getAlarmScheduler(): AlarmSchedulerPlugin | null {
   if (!isNativeEnvironment()) return null;
   const Capacitor = (window as any).Capacitor;
   return Capacitor.Plugins?.AlarmScheduler ?? null;
-}
-
-/**
- * Supabase 项目 URL
- */
-const SUPABASE_URL = 'https://br-epic-clam-5a2fd709.supabase2.aidap-global.cn-beijing.volces.com';
-const AUDIO_BUCKET = 'audios';
-
-/** blob -> base64 */
-function blobToBase64(blob: Blob): Promise<string> {
-  return new Promise((resolve, reject) => {
-    const reader = new FileReader();
-    reader.onloadend = () => {
-      const result = reader.result as string;
-      // 去掉 data:audio/...;base64, 前缀
-      const base64 = result.includes(',') ? result.split(',')[1] : result;
-      resolve(base64);
-    };
-    reader.onerror = reject;
-    reader.readAsDataURL(blob);
-  });
-}
-
-/**
- * 获取音频 URL
- * 优先 serverUrl / fileKey（网络直链），否则从 IndexedDB 读取并写入本地文件
- */
-async function getAudioUrl(task: ScheduledTask): Promise<string> {
-  for (const audio of task.audios) {
-    // 1. serverUrl 直链
-    if (audio.serverUrl && audio.serverUrl.startsWith('http')) {
-      console.log('[NativeScheduler] Using serverUrl:', audio.serverUrl);
-      return audio.serverUrl;
-    }
-    // 2. fileKey -> Supabase 公开 URL
-    if (audio.fileKey && audio.fileKey.trim() !== '') {
-      const url = `${SUPABASE_URL}/storage/v1/object/public/${AUDIO_BUCKET}/${audio.fileKey}`;
-      console.log('[NativeScheduler] Using public URL:', url);
-      return url;
-    }
-    // 3. dbKey -> IndexedDB blob -> 写入本地文件
-    if (audio.dbKey && audio.dbKey.trim() !== '') {
-      try {
-        const blob = await getAudioBlob(audio.dbKey);
-        if (!blob) {
-          console.warn('[NativeScheduler] IndexedDB blob not found:', audio.dbKey);
-          continue;
-        }
-        const base64 = await blobToBase64(blob);
-        const fileName = `audio_${audio.id}.mp3`;
-        await Filesystem.writeFile({
-          path: fileName,
-          data: base64,
-          directory: Directory.Cache,
-          recursive: false,
-        });
-        const uri = await Filesystem.getUri({
-          path: fileName,
-          directory: Directory.Cache,
-        });
-        console.log('[NativeScheduler] Using local file:', uri.uri);
-        return uri.uri;
-      } catch (e) {
-        console.error('[NativeScheduler] Failed to cache audio:', e);
-      }
-    }
-  }
-  console.warn('[NativeScheduler] No audio URL found for task', task.id);
-  return '';
 }
 
 /**
@@ -154,8 +80,10 @@ export async function syncTasksToNative(): Promise<void> {
       const triggerAt = nextExec.getTime();
       if (triggerAt < now) continue;
 
-      const audioUrl = await getAudioUrl(task);
-      if (!audioUrl) continue;
+      const { tracksJson, firstUrl, firstName } = await resolveTracksJsonFromTaskAudios(task.audios);
+      if (!tracksJson && !firstUrl) continue;
+
+      const endTime = triggerAt + task.playDurationMinutes * 60000;
 
       await plugin.scheduleTask({
         taskId: task.id,
@@ -166,10 +94,14 @@ export async function syncTasksToNative(): Promise<void> {
         enableFade: task.enableFade ?? false,
         fadeInDuration: task.fadeInDuration ?? 0,
         fadeOutDuration: task.fadeOutDuration ?? 0,
-        audioUrl,
-        audioName: task.audios[0]?.name ?? '',
+        audioUrl: firstUrl,
+        audioName: firstName,
+        tracksJson,
+        loopSingle: true,
+        endTime,
       });
     }
+    console.log('[NativeScheduler] 任务同步完成');
   } catch (e) {
     console.error('[NativeScheduler] sync failed:', e);
   }
@@ -181,13 +113,18 @@ export async function syncTasksToNative(): Promise<void> {
 export async function triggerNativePlayback(taskId: string): Promise<void> {
   const plugin = getAlarmScheduler();
   if (!plugin) return;
+
   const task = getAllTasks().find(t => t.id === taskId);
   if (!task) return;
-  const audioUrl = await getAudioUrl(task);
-  if (!audioUrl) {
-    console.error('[NativeScheduler] No audio URL for task', taskId);
+
+  const { tracksJson, firstUrl, firstName } = await resolveTracksJsonFromTaskAudios(task.audios);
+  if (!tracksJson && !firstUrl) {
+    console.error('[NativeScheduler] 无法解析音频 URL');
     return;
   }
+
+  const endTime = Date.now() + task.playDurationMinutes * 60000;
+
   try {
     await plugin.playNow({
       taskId: task.id,
@@ -197,17 +134,18 @@ export async function triggerNativePlayback(taskId: string): Promise<void> {
       enableFade: task.enableFade ?? false,
       fadeInDuration: task.fadeInDuration ?? 0,
       fadeOutDuration: task.fadeOutDuration ?? 0,
-      audioUrl,
-      audioName: task.audios[0]?.name ?? '',
+      audioUrl: firstUrl,
+      audioName: firstName,
+      tracksJson,
+      loopSingle: true,
+      endTime,
     });
+    console.log('[NativeScheduler] 原生播放已启动:', taskId);
   } catch (e) {
     console.error('[NativeScheduler] triggerPlayback failed:', e);
   }
 }
 
-/**
- * 从原生 AlarmScheduler 中移除单个任务
- */
 export async function removeNativeTask(taskId: string): Promise<void> {
   const plugin = getAlarmScheduler();
   if (!plugin) return;
@@ -218,9 +156,6 @@ export async function removeNativeTask(taskId: string): Promise<void> {
   }
 }
 
-/**
- * 停止原生播放
- */
 export async function stopNativePlayback(): Promise<void> {
   const plugin = getAlarmScheduler();
   if (!plugin) return;
@@ -231,9 +166,6 @@ export async function stopNativePlayback(): Promise<void> {
   }
 }
 
-/**
- * 检查原生是否正在播放
- */
 export async function isNativePlaying(): Promise<boolean> {
   const plugin = getAlarmScheduler();
   if (!plugin) return false;
