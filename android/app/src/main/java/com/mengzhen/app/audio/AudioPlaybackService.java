@@ -22,7 +22,12 @@ import androidx.core.app.NotificationCompat;
 
 import com.mengzhen.app.R;
 
+import java.io.File;
+import java.io.FileOutputStream;
 import java.io.IOException;
+import java.io.InputStream;
+import java.net.HttpURLConnection;
+import java.net.URL;
 
 /**
  * Foreground Service 负责音频播放
@@ -113,6 +118,81 @@ public class AudioPlaybackService extends Service {
         // 先释放旧的 MediaPlayer
         releaseMediaPlayer();
 
+        if (audioUrl == null || audioUrl.isEmpty()) {
+            Log.e(TAG, "No audio URL provided");
+            stopSelf();
+            return;
+        }
+
+        // 在后台线程下载音频到本地临时文件，然后播放
+        final String url = audioUrl;
+        new Thread(() -> {
+            File localFile = downloadToCache(url);
+            if (localFile == null) {
+                Log.e(TAG, "Download failed, falling back to streaming");
+                // fallback: 直接流式播放
+                handler.post(() -> streamPlay(url));
+                return;
+            }
+            Log.i(TAG, "Audio cached: " + localFile.getAbsolutePath() + " (" + localFile.length() + " bytes)");
+            handler.post(() -> playFromLocalFile(localFile));
+        }).start();
+    }
+
+    /** 从网络下载音频到缓存文件 */
+    private File downloadToCache(String audioUrl) {
+        HttpURLConnection conn = null;
+        InputStream input = null;
+        FileOutputStream output = null;
+        try {
+            URL url = new URL(audioUrl);
+            conn = (HttpURLConnection) url.openConnection();
+            conn.setConnectTimeout(15000);
+            conn.setReadTimeout(30000);
+            conn.connect();
+
+            int responseCode = conn.getResponseCode();
+            if (responseCode != 200) {
+                Log.e(TAG, "Download failed: HTTP " + responseCode + " for " + audioUrl);
+                return null;
+            }
+
+            int totalSize = conn.getContentLength();
+            Log.i(TAG, "Downloading audio: " + totalSize + " bytes from " + audioUrl);
+
+            File cacheDir = new File(getCacheDir(), "audio_cache");
+            if (!cacheDir.exists()) cacheDir.mkdirs();
+
+            // 用 URL 的 hash 作为文件名，避免重复下载
+            String fileName = "audio_" + Math.abs(audioUrl.hashCode()) + ".dat";
+            File cacheFile = new File(cacheDir, fileName);
+
+            input = conn.getInputStream();
+            output = new FileOutputStream(cacheFile);
+
+            byte[] buffer = new byte[8192];
+            int bytesRead;
+            long totalRead = 0;
+            while ((bytesRead = input.read(buffer)) != -1) {
+                output.write(buffer, 0, bytesRead);
+                totalRead += bytesRead;
+            }
+            output.flush();
+
+            Log.i(TAG, "Download complete: " + totalRead + " bytes");
+            return cacheFile;
+        } catch (Exception e) {
+            Log.e(TAG, "Download error", e);
+            return null;
+        } finally {
+            try { if (input != null) input.close(); } catch (Exception e) {}
+            try { if (output != null) output.close(); } catch (Exception e) {}
+            if (conn != null) conn.disconnect();
+        }
+    }
+
+    /** 从本地文件播放（无网络卡顿） */
+    private void playFromLocalFile(File audioFile) {
         try {
             mediaPlayer = new MediaPlayer();
             mediaPlayer.setAudioAttributes(
@@ -122,35 +202,9 @@ public class AudioPlaybackService extends Service {
                             .build());
             mediaPlayer.setLooping(true);
 
-            if (audioUrl != null && !audioUrl.isEmpty()) {
-                Log.i(TAG, "Playing audio: " + audioUrl);
-                mediaPlayer.setDataSource(audioUrl);
-                mediaPlayer.prepareAsync();
-            } else {
-                Log.e(TAG, "No audio URL provided");
-                stopSelf();
-                return;
-            }
-
-            mediaPlayer.setOnPreparedListener(mp -> {
-                Log.i(TAG, "MediaPlayer prepared, starting playback");
-
-                if (enableFade && fadeInDuration > 0) {
-                    // 渐入
-                    startFadeIn();
-                } else {
-                    // 直接设置音量
-                    setMediaPlayerVolume(targetVolume);
-                }
-
-                mp.start();
-                isPlaying = true;
-                setupMediaSession();
-                updateNotification("正在播放: " + taskName);
-
-                // 设置播放结束定时器
-                schedulePlaybackEnd();
-            });
+            Log.i(TAG, "Playing from local file: " + audioFile.getAbsolutePath());
+            mediaPlayer.setDataSource(audioFile.getAbsolutePath());
+            mediaPlayer.prepare(); // 本地文件用同步 prepare，更快
 
             mediaPlayer.setOnErrorListener((mp, what, extra) -> {
                 Log.e(TAG, "MediaPlayer error: what=" + what + " extra=" + extra);
@@ -160,10 +214,65 @@ public class AudioPlaybackService extends Service {
                 return true;
             });
 
+            onMediaPlayerReady();
+        } catch (Exception e) {
+            Log.e(TAG, "Local playback failed", e);
+            // fallback: 尝试流式播放
+            streamPlay(audioFile.getAbsolutePath().startsWith("http") ? audioFile.getAbsolutePath() : null);
+        }
+    }
+
+    /** 流式播放（fallback） */
+    private void streamPlay(String audioUrl) {
+        if (audioUrl == null || audioUrl.isEmpty()) {
+            Log.e(TAG, "No audio URL for streaming fallback");
+            stopSelf();
+            return;
+        }
+        try {
+            mediaPlayer = new MediaPlayer();
+            mediaPlayer.setAudioAttributes(
+                    new AudioAttributes.Builder()
+                            .setUsage(AudioAttributes.USAGE_MEDIA)
+                            .setContentType(AudioAttributes.CONTENT_TYPE_MUSIC)
+                            .build());
+            mediaPlayer.setLooping(true);
+
+            Log.i(TAG, "Streaming audio: " + audioUrl);
+            mediaPlayer.setDataSource(audioUrl);
+            mediaPlayer.prepareAsync();
+
+            mediaPlayer.setOnErrorListener((mp, what, extra) -> {
+                Log.e(TAG, "MediaPlayer stream error: what=" + what + " extra=" + extra);
+                stopPlaybackInternal();
+                stopForeground(true);
+                stopSelf();
+                return true;
+            });
+
+            // onPrepared 会在 streamPlay 中被设置
+            mediaPlayer.setOnPreparedListener(mp -> onMediaPlayerReady());
         } catch (IOException e) {
             Log.e(TAG, "Failed to set data source", e);
             stopSelf();
         }
+    }
+
+    /** MediaPlayer 准备好后的通用逻辑 */
+    private void onMediaPlayerReady() {
+        Log.i(TAG, "MediaPlayer ready, starting playback");
+
+        if (enableFade && fadeInDuration > 0) {
+            startFadeIn();
+        } else {
+            setMediaPlayerVolume(targetVolume);
+        }
+
+        mediaPlayer.start();
+        isPlaying = true;
+        setupMediaSession();
+        updateNotification("正在播放: " + taskName);
+        schedulePlaybackEnd();
     }
 
     private void startFadeIn() {

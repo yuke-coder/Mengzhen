@@ -36,7 +36,7 @@ interface AlarmSchedulerPlugin {
 export function isNativeEnvironment(): boolean {
   return typeof window !== 'undefined'
     && typeof (window as any).Capacitor !== 'undefined'
-    && (window as any).Capacitor.isNative === true;
+    && (window as any).Capacitor.isNativePlatform?.() === true;
 }
 
 /**
