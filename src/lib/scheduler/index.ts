@@ -110,6 +110,8 @@ interface LocalPlaybackState {
 const activePlaybacks = new Map<string, LocalPlaybackState>();
 const audioManager = UnifiedAudioManager.getInstance();
 
+// playAudio 已废弃：播放统一由原生 AudioPlaybackService 处理
+// 保留函数体避免类型错误，但不会被调用
 async function playAudio(task: ScheduledTask, scheduledStartAt: number): Promise<LocalPlaybackState | null> {
   const startTime = Date.now();
   addLog({ taskId: task.id, event: 'playback_start', timestamp: startTime, metadata: { audioCount: task.audios.length } });
@@ -387,12 +389,9 @@ class HighPerformanceScheduler {
       return;
     }
 
-    log(taskId, 'info', `立即执行任务，音频数: ${task.audios.length}`);
-    for (const audio of task.audios) {
-      log(taskId, 'info', `  - ${audio.name}: serverUrl=${!!audio.serverUrl}, fileKey=${!!audio.fileKey}, dbKey=${!!audio.dbKey}`);
-    }
-    updateTask(taskId, { status: 'executing', lastExecutedAt: Date.now() });
-    await this.startPlayback(task, Date.now());
+    // 非原生环境：不执行播放（已统一到原生 AudioPlaybackService）
+    log(taskId, 'warn', '非原生环境，播放不可用');
+    updateTask(taskId, { status: 'pending' });
   }
 
   forceStopPlayback(taskId: string): void {
@@ -513,49 +512,9 @@ class HighPerformanceScheduler {
       return;
     }
 
-    log(task.id, 'info', '开始播放...');
-
-    const now = Date.now();
-    const actualStartAt = (task.repeatType === 'once' && !task.lastExecutedAt && now > scheduledStartAt) ? now : scheduledStartAt;
-
-    const playback = await playAudio(task, actualStartAt);
-    if (!playback) {
-      log(task.id, 'error', '无法创建播放器');
-      return;
-    }
-
-    log(task.id, 'info', `播放已启动，目标音量: ${playback.targetVolume}, 启用渐入渐出: ${task.enableFade}`);
-    updateMediaSessionMetadata(task);
-    updateMediaSessionPlaybackState(true);
-
-    const fadeInMs = task.enableFade ? (task.fadeInDuration || 0) * 1000 : 0;
-    // 音频是刚创建的，渐入应从头开始
-    // 之前用 audioStartAt = actualStartAt - fadeInMs 计算已过时间，
-    // 对过期任务会得到 alreadyElapsed = fadeInMs，导致渐入被跳过
-    const alreadyElapsed = 0;
-
-    addLog({ taskId: task.id, event: 'config_applied', timestamp: Date.now(), provider: task.enableFade ? 'fade-enabled' : 'fade-disabled', metadata: { volume: task.volume, targetVolume: playback.targetVolume, enableFade: task.enableFade } });
-
-    if (task.enableFade && task.fadeInDuration && task.fadeInDuration > 0 && alreadyElapsed < fadeInMs) {
-      log(task.id, 'info', `开始渐入，时长: ${task.fadeInDuration}秒，已过: ${alreadyElapsed}ms`);
-      this.emit('task-started', task.id, 'fading-in', this.computeRemaining(playback), task.name);
-      fadeIn(playback.audio, {
-        duration: task.fadeInDuration,
-        targetVolume: playback.targetVolume,
-        onComplete: () => {
-          log(task.id, 'info', '渐入完成');
-          if (activePlaybacks.has(task.id)) this.emitPhaseChange(task.id, 'playing');
-        }
-      }, alreadyElapsed);
-    } else {
-      log(task.id, 'info', `直接设置音量: ${playback.targetVolume}`);
-      playback.audio.play().catch(() => {});
-      setVolume(playback.audio, playback.targetVolume);
-      this.emit('task-started', task.id, 'playing', this.computeRemaining(playback), task.name);
-      this.emitPhaseChange(task.id, 'playing');
-    }
-
-    this.schedulePlaybackEnd(task, actualStartAt);
+    // 非原生环境：不执行播放（已统一到原生 AudioPlaybackService）
+    log(task.id, 'warn', '非原生环境，播放不可用');
+    updateTask(task.id, { status: 'pending' });
   }
 
   private schedulePlaybackEnd(task: ScheduledTask, scheduledStartAt: number): void {

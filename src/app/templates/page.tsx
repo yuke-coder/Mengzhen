@@ -5,6 +5,7 @@ import { useRouter } from 'next/navigation';
 import { Volume2, VolumeX, Clock, Music2, Play, Pause, CheckCircle2, HardDrive } from 'lucide-react';
 import DynamicBackground from '@/components/dynamic-background';
 import { getAudioBlob } from '@/lib/audio';
+import { isNativeEnvironment, triggerNativePlayback, stopNativePlayback, isNativePlaying } from '@/lib/native-scheduler';
 
 // 类型定义
 interface AudioItem {
@@ -53,6 +54,7 @@ export default function TemplatesPage() {
   const audioRef = useRef<HTMLAudioElement | null>(null);
   const fadeTimerRef = useRef<ReturnType<typeof setInterval> | null>(null);
   const countdownTimerRef = useRef<ReturnType<typeof setInterval> | null>(null);
+  const nativeCheckRef = useRef<ReturnType<typeof setInterval> | null>(null);
   const isStartedRef = useRef(false); // 标记是否已开始播放
   const currentBlobUrlRef = useRef<string | null>(null); // 跟踪当前的 blob URL，用于清理
   const [endTime, setEndTime] = useState<{ hour: number; minute: number; second?: number; year?: number; month?: number; day?: number } | null>(null);
@@ -237,6 +239,10 @@ export default function TemplatesPage() {
       clearInterval(countdownTimerRef.current);
       countdownTimerRef.current = null;
     }
+    if (nativeCheckRef.current) {
+      clearInterval(nativeCheckRef.current);
+      nativeCheckRef.current = null;
+    }
     if (audioRef.current) {
       audioRef.current.pause();
       audioRef.current = null;
@@ -253,6 +259,9 @@ export default function TemplatesPage() {
     setIsFadingOut(false);
     isFadingOutRef.current = false;
     setInitialFadeOutSeconds(0);
+    if (isNativeEnvironment()) {
+      stopNativePlayback();
+    }
   }, []);
 
 
@@ -281,6 +290,13 @@ export default function TemplatesPage() {
 
   // 暂停/恢复播放
   const togglePause = useCallback(() => {
+    if (isNativeEnvironment()) {
+      if (isPlaying) {
+        stopNativePlayback();
+        setIsPlaying(false);
+      }
+      return;
+    }
     if (!audioRef.current) return;
     if (audioRef.current.paused) {
       audioRef.current.play().catch(() => {});
@@ -295,7 +311,7 @@ export default function TemplatesPage() {
         navigator.mediaSession.playbackState = 'paused';
       }
     }
-  }, []);
+  }, [isPlaying]);
 
   // 播放时长结束处理
   const handleEnd = useCallback(() => {
@@ -598,7 +614,44 @@ export default function TemplatesPage() {
     // PWA: 确保 AudioContext 活跃（解决自动播放限制）
     ensureAudioContext();
 
-    // 开始播放第一个音频（空 Audio，由 playAudioHelper 设置真实 URL）
+    // 原生环境：通过 Capacitor 调用 AudioPlaybackService
+    if (isNativeEnvironment()) {
+      console.log('[梦枕] 原生环境，调用原生播放服务');
+      const savedConfig = localStorage.getItem('dream_config');
+      if (savedConfig) {
+        const cfg = JSON.parse(savedConfig) as DreamConfig;
+        const pseudoTask = {
+          id: 'dream-config',
+          name: '一键梦枕',
+          audios: cfg.audios.map(a => ({
+            id: a.id,
+            name: a.name,
+            url: a.url,
+            fileKey: a.fileKey,
+            serverUrl: a.serverUrl,
+            dbKey: a.dbKey,
+          })),
+          playDurationMinutes: cfg.playDuration
+            ? Math.ceil((cfg.playDuration.hour * 60 + cfg.playDuration.minute))
+            : 30,
+          volume: cfg.volume,
+          enableFade: cfg.enableFade,
+          fadeInDuration: cfg.fadeInDuration,
+          fadeOutDuration: cfg.fadeOutDuration,
+        };
+        localStorage.setItem('temp_dream_task', JSON.stringify(pseudoTask));
+        triggerNativePlayback('dream-config').catch(e => console.error('[梦枕] 原生播放失败:', e));
+      }
+      nativeCheckRef.current = setInterval(async () => {
+        const playing = await isNativePlaying();
+        if (!playing && isPlayingRef.current) {
+          handleEnd();
+        }
+      }, 2000);
+      return;
+    }
+
+    // 非原生环境：保留原有 HTML5 Audio 降级
     const orderedAudios = config.order
       ? config.order.map(id => config.audios.find(a => a.id === id)).filter(Boolean) as AudioItem[]
       : config.audios;
