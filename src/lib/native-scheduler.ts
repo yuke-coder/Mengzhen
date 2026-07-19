@@ -131,6 +131,37 @@ export async function removeNativeTask(taskId: string): Promise<void> {
 }
 
 /**
+ * 立即触发原生播放（用于"立即执行"按钮）
+ */
+export async function triggerNativePlayback(taskId: string): Promise<void> {
+  const plugin = getAlarmScheduler();
+  if (!plugin) return;
+  const task = getAllTasks().find(t => t.id === taskId);
+  if (!task) return;
+  const audioUrl = await getAudioUrl(task);
+  if (!audioUrl) {
+    console.error('[NativeScheduler] No audio URL for task', taskId);
+    return;
+  }
+  try {
+    await plugin.scheduleTask({
+      taskId: task.id,
+      taskName: task.name,
+      triggerAt: Date.now(),
+      playDurationMinutes: task.playDurationMinutes,
+      volume: task.volume ?? 70,
+      enableFade: task.enableFade ?? false,
+      fadeInDuration: task.fadeInDuration ?? 0,
+      fadeOutDuration: task.fadeOutDuration ?? 0,
+      audioUrl,
+      audioName: task.audios[0]?.name ?? '',
+    });
+  } catch (e) {
+    console.error('[NativeScheduler] triggerPlayback failed:', e);
+  }
+}
+
+/**
  * 停止原生播放
  */
 export async function stopNativePlayback(): Promise<void> {

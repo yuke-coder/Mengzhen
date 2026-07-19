@@ -24,7 +24,7 @@ import UnifiedAudioManager, {
   updateMediaSessionPlaybackState,
   releaseMediaSession
 } from "@/lib/audio";
-import { isNativeEnvironment, stopNativePlayback } from "@/lib/native-scheduler";
+import { isNativeEnvironment, stopNativePlayback, triggerNativePlayback } from "@/lib/native-scheduler";
 
 type ErrorCode = 'UNAUTHORIZED' | 'FORBIDDEN' | 'TOO_MANY_REQUESTS' | 'SERVER_ERROR' | 'TIMEOUT' | 'UNKNOWN';
 
@@ -374,9 +374,10 @@ class HighPerformanceScheduler {
   }
 
   async executeNow(taskId: string): Promise<void> {
-    // 原生环境：播放由原生 MediaPlayer 处理，JS 层跳过
+    // 原生环境：通过原生插件立即播放
     if (isNativeEnvironment()) {
-      log(taskId, 'info', '原生环境，JS 跳过播放，由原生层处理');
+      log(taskId, 'info', '原生环境，调用原生插件立即播放');
+      await triggerNativePlayback(taskId);
       return;
     }
     const task = getAllTasks().find(t => t.id === taskId);
