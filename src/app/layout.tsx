@@ -42,9 +42,6 @@ export const metadata: Metadata = {
 
 const THEME_INJECTION_SCRIPT = `(function(){try{var d=document.documentElement,b=document.body,t=localStorage.getItem('theme-mode')||'auto';if(t==='system')t='auto';var r=t==='auto'?(window.matchMedia('(prefers-color-scheme: dark)').matches?'dark':'light'):t;if(r==='dark'){d.classList.add('dark');if(b)b.setAttribute('theme-mode','dark')}}catch(e){}})()`;
 const PWA_INSTALL_CAPTURE_SCRIPT = `(function(){if(window.__dreamPwaCaptureReady)return;window.__dreamPwaCaptureReady=true;window.addEventListener("beforeinstallprompt",function(event){event.preventDefault();window.__dreamPwaInstallPrompt=event;window.dispatchEvent(new Event("dream:pwa-install-prompt-available"))});window.addEventListener("appinstalled",function(){window.__dreamPwaInstallPrompt=null;window.__dreamPwaAppInstalled=true;window.dispatchEvent(new Event("dream:pwa-app-installed"))})})()`;
-const PWA_SCRIPT = process.env.NODE_ENV === "production"
-  ? `if("serviceWorker"in navigator){window.addEventListener("load",function(){navigator.serviceWorker.register("/sw.js",{updateViaCache:"none"}).catch(function(error){console.warn("PWA service worker registration failed:",error)})})}`
-  : `window.addEventListener("load",function(){if("serviceWorker"in navigator){navigator.serviceWorker.getRegistrations().then(function(registrations){registrations.forEach(function(registration){registration.unregister()})})}if("caches"in window){caches.keys().then(function(keys){keys.forEach(function(key){caches.delete(key)})})}})`;
 
 export default function RootLayout({
   children,
@@ -79,7 +76,7 @@ export default function RootLayout({
           </AuthProvider>
         </ThemeProvider>
 
-        <Script id="pwa" strategy="afterInteractive">{PWA_SCRIPT}</Script>
+        <Script id="pwa-install" strategy="afterInteractive">{PWA_INSTALL_CAPTURE_SCRIPT}</Script>
 
       </body>
     </html>

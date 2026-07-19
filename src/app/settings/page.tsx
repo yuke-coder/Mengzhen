@@ -8,28 +8,16 @@ import { TaskForm } from "@/components/task-form";
 import { TaskList } from "@/components/task-list";
 import { TaskModal } from "@/components/task-modal";
 import { Spinner } from "@/components/ui/spinner";
-import { PlayMode, ScheduledTask, getNextExecuteDate, type PlaybackDraft } from "@/lib/task-types";
+import { PlayMode, ScheduledTask, type PlaybackDraft } from "@/lib/task-types";
 import { getPlayMode, setPlayMode as savePlayMode, getAllTasks, cleanupCompletedOnceTasks, cleanupCancelledTasks } from "@/lib/task-store";
 import { EMPTY_PLAYBACK_DRAFT, getDefaultPlaybackDraft, saveDefaultPlaybackDraft } from "@/lib/playback-draft";
 import { startTaskScheduler, stopTaskScheduler, getTaskScheduler } from "@/lib/task-scheduler";
 import DynamicBackground from "@/components/dynamic-background";
 import { setupAutoUnlock } from "@/lib/audio";
-import EnhancedTaskScheduler from "@/lib/background-scheduler";
 import { useIsMobile } from "@/hooks/use-mobile";
 import { usePlaybackController } from "@/hooks/use-playback-controller";
 import { HeroTitle } from "@/components/hero-title";
-import {
-    syncTasksToSW,
-    removeTaskFromSW,
-    listenSWMessages,
-    isSWSchedulerAvailable,
-} from "@/lib/sw-scheduler";
-import {
-    syncTasksToNative,
-    removeNativeTask,
-    stopNativePlayback,
-    isNativeEnvironment,
-} from "@/lib/native-scheduler";
+import { syncTasksToNative, isNativeEnvironment } from "@/lib/native-scheduler";
 
 function useClientOnly() {
     const [mounted, setMounted] = useState(false);
@@ -93,171 +81,27 @@ function CreatePageContent() {
     // 初始化
     useEffect(() => {
         if (!mounted) return;
-
-        const init = async () => {
-            try {
-                await EnhancedTaskScheduler.getInstance().initialize();
-            } catch (error) {
-                console.error('[App] 初始化失败:', error);
-            }
-        };
-
-        init();
-
-        // 检查是否已解锁
         const alreadyUnlocked = localStorage.getItem('audio_unlocked') === 'true';
-        if (alreadyUnlocked) {
-            setAudioUnlocked(true);
-        }
-
-        return () => EnhancedTaskScheduler.getInstance().destroy();
-    }, [mounted]);
-
-    // 页面可见时恢复
-    useEffect(() => {
-        if (!mounted) return;
-        const handleVisibilityChange = () => {
-            if (document.visibilityState === 'visible') {
-                EnhancedTaskScheduler.getInstance().restoreAllSavedTasks();
-            }
-        };
-        document.addEventListener('visibilitychange', handleVisibilityChange);
-        return () => document.removeEventListener('visibilitychange', handleVisibilityChange);
+        if (alreadyUnlocked) setAudioUnlocked(true);
+        return () => stopTaskScheduler();
     }, [mounted]);
 
     // 自动解锁
     useEffect(() => {
         if (!mounted) return;
-        const cleanup = setupAutoUnlock();
-        return cleanup;
+        return setupAutoUnlock();
     }, [mounted]);
 
-    // ========== Service Worker 后台调度 ==========
-
-    // 任务变更时同步到 SW / 原生 AlarmScheduler 并刷新调度器
+    // 任务变更时同步到原生 AlarmScheduler
     useEffect(() => {
         if (!mounted) return;
-        // 原生环境优先，同步到 AlarmManager
         if (isNativeEnvironment()) {
             syncTasksToNative();
         }
-        // SW 作为 fallback
-        syncTasksToSW();
-        // 通知调度器有新任务
-        try {
-            getTaskScheduler().refreshSchedule();
-        } catch {
-            // 调度器可能尚未初始化，忽略
-        }
+        try { getTaskScheduler().refreshSchedule(); } catch {}
     }, [mounted, tasksVersion]);
 
-    // 监听 SW 消息（通知点击、SW 定时触发）
-    useEffect(() => {
-        if (!mounted) return;
-
-        const cleanupSWMessages = listenSWMessages(async (taskId) => {
-            try {
-                await EnhancedTaskScheduler.getInstance().initializeAudioContext();
-                await getTaskScheduler().resumeAudioContext();
-                getTaskScheduler().executeNow(taskId);
-                setTasksVersion(v => v + 1);
-            } catch (e) {
-                console.error('[SW Message] 执行任务失败:', e);
-            }
-        });
-
-        // 处理 SW 通知点击带来的 URL 参数
-        const taskId = searchParams.get('taskId');
-        const action = searchParams.get('action');
-        if (taskId && action === 'play') {
-            (async () => {
-                await EnhancedTaskScheduler.getInstance().initializeAudioContext();
-                await getTaskScheduler().resumeAudioContext();
-                getTaskScheduler().executeNow(taskId);
-                setTasksVersion(v => v + 1);
-            })();
-        }
-
-        return () => {
-            cleanupSWMessages();
-        };
-    }, [mounted, searchParams]);
-
-
-    const requestPermissions = useCallback(async () => {
-        // 只在没有权限时才请求浏览器原生权限弹窗
-        try {
-            if ('Notification' in window && Notification.permission === 'default') {
-                await Notification.requestPermission();
-            }
-        } catch (e) {
-            console.error('[Notification]', e);
-        }
-
-        try {
-            if (navigator.storage && navigator.storage.persisted) {
-                const alreadyPersisted = await navigator.storage.persisted();
-                if (!alreadyPersisted && navigator.storage.persist) {
-                    await navigator.storage.persist();
-                }
-            }
-        } catch (e) {
-            console.error('[Storage]', e);
-        }
-    }, []);
-
-    const handleStart = useCallback(async () => {
-        try {
-            await EnhancedTaskScheduler.getInstance().initializeAudioContext();
-            setAudioUnlocked(true);
-            localStorage.setItem('audio_unlocked', 'true');
-            await requestPermissions();
-            toast.success('✓ 开始使用');
-        } catch (error) {
-            console.error('解锁失败:', error);
-            toast.error('解锁失败，请再试一次');
-        }
-    }, [requestPermissions]);
-
-    const handleModeChange = useCallback((mode: PlayMode) => {
-        stopSharedPreview();
-        setPlayMode(mode);
-        savePlayMode(mode);
-        if (mode === "default") {
-            setShowTaskForm(false);
-        }
-    }, [stopSharedPreview]);
-
-    const handleTaskSaved = useCallback(() => {
-        stopSharedPreview();
-        setShowTaskForm(false);
-        setTasksVersion(v => v + 1);
-    }, [stopSharedPreview]);
-
-    const handleEditTask = useCallback((task: ScheduledTask) => {
-        stopSharedPreview();
-        setEditingTask(task);
-        setTaskFormSession(session => session + 1);
-        setShowTaskForm(true);
-    }, [stopSharedPreview]);
-
-    const handleCreateTask = useCallback(() => {
-        setEditingTask(null);
-        setTaskFormSession(session => session + 1);
-        setShowTaskForm(true);
-    }, []);
-
-    const handleCloseTaskForm = useCallback(() => {
-        stopSharedPreview();
-        setShowTaskForm(false);
-    }, [stopSharedPreview]);
-
-
-    useEffect(() => {
-        if (!mounted) return;
-        setTasks(getAllTasks());
-    }, [tasksVersion, mounted]);
-
+    // 页面可见时清理过期任务
     useEffect(() => {
         if (!mounted) return;
         const handleVisibilityChange = () => {
@@ -272,6 +116,7 @@ function CreatePageContent() {
         return () => document.removeEventListener("visibilitychange", handleVisibilityChange);
     }, [mounted]);
 
+    // 启动调度器
     useEffect(() => {
         if (!mounted) return;
         const executing = getAllTasks().filter(t => t.status === "executing");
@@ -282,14 +127,72 @@ function CreatePageContent() {
         return () => stopTaskScheduler();
     }, [mounted]);
 
+    useEffect(() => {
+        if (!mounted) return;
+        setTasks(getAllTasks());
+    }, [tasksVersion, mounted]);
+
+    const requestPermissions = useCallback(async () => {
+        try {
+            if ('Notification' in window && Notification.permission === 'default') {
+                await Notification.requestPermission();
+            }
+        } catch {}
+        try {
+            if (navigator.storage?.persisted) {
+                const ok = await navigator.storage.persisted();
+                if (!ok && navigator.storage.persist) await navigator.storage.persist();
+            }
+        } catch {}
+    }, []);
+
+    const handleStart = useCallback(async () => {
+        try {
+            setAudioUnlocked(true);
+            localStorage.setItem('audio_unlocked', 'true');
+            await requestPermissions();
+            toast.success('✓ 开始使用');
+        } catch (error) {
+            console.error('解锁失败:', error);
+            toast.error('解锁失败，请再试一次');
+        }
+    }, [requestPermissions]);
+
+    const handleModeChange = useCallback((mode: PlayMode) => {
+        stopSharedPreview();
+        setPlayMode(mode);
+        savePlayMode(mode);
+        if (mode === "default") setShowTaskForm(false);
+    }, [stopSharedPreview]);
+
+    const handleTaskSaved = useCallback(() => {
+        stopSharedPreview();
+        setShowTaskForm(false);
+        setTasksVersion(v => v + 1);
+    }, [stopSharedPreview]);
+
+    const handleEditTask = useCallback((task: ScheduledTask) => {
+        stopSharedPreview();
+        setEditingTask(task);
+        setTaskFormSession(s => s + 1);
+        setShowTaskForm(true);
+    }, [stopSharedPreview]);
+
+    const handleCreateTask = useCallback(() => {
+        setEditingTask(null);
+        setTaskFormSession(s => s + 1);
+        setShowTaskForm(true);
+    }, []);
+
+    const handleCloseTaskForm = useCallback(() => {
+        stopSharedPreview();
+        setShowTaskForm(false);
+    }, [stopSharedPreview]);
+
     return (
         <div className="min-h-screen text-foreground overflow-x-hidden relative z-10">
-            {/* 点击页面任意位置解锁音频 */}
             {!audioUnlocked && mounted && (
-                <div
-                    className="fixed inset-0 z-50 cursor-pointer"
-                    onClick={handleStart}
-                />
+                <div className="fixed inset-0 z-50 cursor-pointer" onClick={handleStart} />
             )}
 
             <DynamicBackground />
@@ -311,7 +214,7 @@ function CreatePageContent() {
                                     const last = audioList[audioList.length - 1];
                                     if (last) toast.success(`已添加「${last.name}」`);
                                 }}
-                                onAudioRemoved={() => { }}
+                                onAudioRemoved={() => {}}
                             >
                                 <div className="space-y-5 sm:space-y-6">
                                     <TaskList
@@ -346,7 +249,7 @@ function CreatePageContent() {
                         <Image src="/logo.png" alt="梦枕" width={20} height={20} className="rounded-md shadow-[inset_0_1px_4px_rgba(0,0,0,0.35)]" />
                         <span className="font-bold text-lg bg-gradient-to-r from-[var(--brand-start)] to-[var(--brand-end)] bg-clip-text text-transparent">梦枕</span>
                     </div>
-                    <p className="text-xs text-muted-foreground">深夜助眠播放器 · PWA渐进式网页应用 · 自定义音频</p>
+                    <p className="text-xs text-muted-foreground">深夜助眠播放器 · 自定义音频</p>
                 </div>
             </footer>
         </div>
