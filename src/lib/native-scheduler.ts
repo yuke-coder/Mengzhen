@@ -48,15 +48,20 @@ function getAlarmScheduler(): AlarmSchedulerPlugin | null {
 }
 
 /**
- * 获取任务的实际音频 URL
+ * 获取任务的实际音频 URL（转为绝对路径，供原生 MediaPlayer 使用）
  */
 function getAudioUrl(task: ScheduledTask): string {
+  const baseUrl = isNativeEnvironment()
+    ? (window as any).Capacitor?.getServerUrl?.() ?? 'https://mengzhen-chi.vercel.app'
+    : '';
   for (const audio of task.audios) {
     if (audio.serverUrl && audio.serverUrl.trim() !== '') {
-      return audio.serverUrl;
+      return audio.serverUrl.startsWith('http')
+        ? audio.serverUrl
+        : `${baseUrl}${audio.serverUrl}`;
     }
     if (audio.fileKey && audio.fileKey.trim() !== '') {
-      return `/api/audio/proxy?key=${encodeURIComponent(audio.fileKey)}`;
+      return `${baseUrl}/api/audio/proxy?key=${encodeURIComponent(audio.fileKey)}`;
     }
   }
   return '';
