@@ -124,18 +124,32 @@ public class AudioPlaybackService extends Service {
             return;
         }
 
-        // 在后台线程下载音频到本地临时文件，然后播放
+        // 本地文件路径（file:// 开头或 / 开头），直接播放
+        if (audioUrl.startsWith("file://") || audioUrl.startsWith("/")) {
+            Log.i(TAG, "Local file, playing directly: " + audioUrl);
+            handler.post(() -> {
+                try {
+                    String path = audioUrl.startsWith("file://") ? audioUrl.substring(7) : audioUrl;
+                    playFromLocalPath(path);
+                } catch (Exception e) {
+                    Log.e(TAG, "Local playback failed", e);
+                    stopSelf();
+                }
+            });
+            return;
+        }
+
+        // 网络URL：在后台线程下载到本地缓存文件，然后播放
         final String url = audioUrl;
         new Thread(() -> {
             File localFile = downloadToCache(url);
             if (localFile == null) {
                 Log.e(TAG, "Download failed, falling back to streaming");
-                // fallback: 直接流式播放
                 handler.post(() -> streamPlay(url));
                 return;
             }
             Log.i(TAG, "Audio cached: " + localFile.getAbsolutePath() + " (" + localFile.length() + " bytes)");
-            handler.post(() -> playFromLocalFile(localFile));
+            handler.post(() -> playFromLocalPath(localFile.getAbsolutePath()));
         }).start();
     }
 
@@ -191,8 +205,8 @@ public class AudioPlaybackService extends Service {
         }
     }
 
-    /** 从本地文件播放（无网络卡顿） */
-    private void playFromLocalFile(File audioFile) {
+    /** 从本地路径播放 */
+    private void playFromLocalPath(String path) {
         try {
             mediaPlayer = new MediaPlayer();
             mediaPlayer.setAudioAttributes(
@@ -202,9 +216,9 @@ public class AudioPlaybackService extends Service {
                             .build());
             mediaPlayer.setLooping(true);
 
-            Log.i(TAG, "Playing from local file: " + audioFile.getAbsolutePath());
-            mediaPlayer.setDataSource(audioFile.getAbsolutePath());
-            mediaPlayer.prepare(); // 本地文件用同步 prepare，更快
+            Log.i(TAG, "Playing from local path: " + path);
+            mediaPlayer.setDataSource(path);
+            mediaPlayer.prepare();
 
             mediaPlayer.setOnErrorListener((mp, what, extra) -> {
                 Log.e(TAG, "MediaPlayer error: what=" + what + " extra=" + extra);
@@ -216,9 +230,8 @@ public class AudioPlaybackService extends Service {
 
             onMediaPlayerReady();
         } catch (Exception e) {
-            Log.e(TAG, "Local playback failed", e);
-            // fallback: 尝试流式播放
-            streamPlay(audioFile.getAbsolutePath().startsWith("http") ? audioFile.getAbsolutePath() : null);
+            Log.e(TAG, "Local path playback failed", e);
+            stopSelf();
         }
     }
 
