@@ -219,7 +219,7 @@ self.addEventListener('message', async (event) => {
     }
 
     case 'PING': {
-      // 保活 ping，返回当前状态
+      // ping, 返回当前状态
       if (event.source) {
         event.source.postMessage({
           type: 'SW_PONG',
