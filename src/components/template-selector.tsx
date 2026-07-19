@@ -12,7 +12,6 @@ import {
   ListMusic,
   PlayCircle,
   Repeat,
-  RotateCcw,
   ShieldCheck,
   SlidersHorizontal,
   Smartphone,
@@ -55,7 +54,6 @@ const cards: [string, string, LucideIcon][] = [
   ["安静执行", "围绕夜间使用减少打扰", ShieldCheck],
   ["试听预览", "上传后先试听再加入任务", FileAudio],
   ["醒后续播", "半夜醒来一键接着播放", PlayCircle],
-  ["休眠保活", "唤醒锁提升夜间稳定性", RotateCcw],
   ["参数微调", "音量与渐变秒数可细调", SlidersHorizontal],
 ];
 
