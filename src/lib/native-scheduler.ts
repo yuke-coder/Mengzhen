@@ -61,27 +61,29 @@ function getAlarmScheduler(): AlarmSchedulerPlugin | null {
 }
 
 /**
+ * Supabase 项目 URL（和 .env.local 一致）
+ */
+const SUPABASE_URL = 'https://br-epic-clam-5a2fd709.supabase2.aidap-global.cn-beijing.volces.com';
+const AUDIO_BUCKET = 'audios';
+
+/**
  * 获取音频的直链 URL
- * 优先 serverUrl（Supabase 公开 URL），否则用 fileKey 生成签名 URL
+ * 优先 serverUrl，否则用 fileKey 构造 Supabase 公开 URL
  */
 async function getAudioUrl(task: ScheduledTask): Promise<string> {
   for (const audio of task.audios) {
     if (audio.serverUrl && audio.serverUrl.trim() !== '' && audio.serverUrl.startsWith('http')) {
+      console.log('[NativeScheduler] Using serverUrl:', audio.serverUrl);
       return audio.serverUrl;
     }
     if (audio.fileKey && audio.fileKey.trim() !== '') {
-      // 调用 API 获取签名 URL（带 cookie 认证）
-      try {
-        const res = await fetch(`/api/audio/signed-url?key=${encodeURIComponent(audio.fileKey)}`);
-        if (res.ok) {
-          const data = await res.json();
-          if (data.signedUrl) return data.signedUrl;
-        }
-      } catch (e) {
-        console.error('[NativeScheduler] 获取签名 URL 失败:', e);
-      }
+      // 直接构造 Supabase Storage 公开 URL
+      const publicUrl = `${SUPABASE_URL}/storage/v1/object/public/${AUDIO_BUCKET}/${audio.fileKey}`;
+      console.log('[NativeScheduler] Using public URL:', publicUrl);
+      return publicUrl;
     }
   }
+  console.warn('[NativeScheduler] No audio URL found for task', task.id, 'audios:', task.audios.length);
   return '';
 }
 
