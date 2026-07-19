@@ -24,6 +24,7 @@ import UnifiedAudioManager, {
   updateMediaSessionPlaybackState,
   releaseMediaSession
 } from "@/lib/audio";
+import { isNativeEnvironment, stopNativePlayback } from "@/lib/native-scheduler";
 
 type ErrorCode = 'UNAUTHORIZED' | 'FORBIDDEN' | 'TOO_MANY_REQUESTS' | 'SERVER_ERROR' | 'TIMEOUT' | 'UNKNOWN';
 
@@ -338,6 +339,10 @@ class HighPerformanceScheduler {
   }
 
   cancelTask(taskId: string): void {
+    // 原生环境：同时停止原生播放
+    if (isNativeEnvironment()) {
+      stopNativePlayback();
+    }
     const task = getAllTasks().find(t => t.id === taskId);
     if (!task) return;
     this.stopPlayback(taskId);
@@ -361,6 +366,11 @@ class HighPerformanceScheduler {
   }
 
   async executeNow(taskId: string): Promise<void> {
+    // 原生环境：播放由原生 MediaPlayer 处理，JS 层跳过
+    if (isNativeEnvironment()) {
+      log(taskId, 'info', '原生环境，JS 跳过播放，由原生层处理');
+      return;
+    }
     const task = getAllTasks().find(t => t.id === taskId);
     if (!task || activePlaybacks.has(taskId)) return;
     log(taskId, 'info', `立即执行任务，音频数: ${task.audios.length}`);
@@ -481,6 +491,7 @@ class HighPerformanceScheduler {
   }
 
   private async startPlayback(task: ScheduledTask, scheduledStartAt: number): Promise<void> {
+    if (isNativeEnvironment()) return;
     if (activePlaybacks.has(task.id)) return;
     log(task.id, 'info', '开始播放...');
 

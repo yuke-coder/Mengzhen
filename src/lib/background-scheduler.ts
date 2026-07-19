@@ -2,7 +2,8 @@
 
 import { ScheduledTask, TaskStatus } from "@/lib/task-types";
 import UnifiedAudioManager from "./audio";
-import { getAllTasks } from "@/lib/task-store";
+import { getAllTasks } from "./task-store";
+import { isNativeEnvironment } from "./native-scheduler";
 
 export class EnhancedTaskScheduler {
   private static instance: EnhancedTaskScheduler;
@@ -80,6 +81,8 @@ export class EnhancedTaskScheduler {
   }
 
   private async executeTask(taskId: string) {
+    // 原生环境：播放由原生 MediaPlayer 处理，JS 层跳过
+    if (isNativeEnvironment()) return;
     const task = this.tasks.get(taskId);
     if (!task || task.status !== 'pending') return;
 
@@ -124,11 +127,12 @@ export class EnhancedTaskScheduler {
   }
 
   restoreAllSavedTasks() {
+    // 原生环境：恢复由原生层处理
+    if (isNativeEnvironment()) return;
     const tasks = getAllTasks();
     const now = Date.now();
 
     tasks.forEach(task => {
-      // 检查是否是正在执行的任务（在播放时间范围内）
       if (task.status === 'pending') {
         const startDate = new Date(
           task.startTime.year,
@@ -140,7 +144,6 @@ export class EnhancedTaskScheduler {
         );
         const endDate = new Date(startDate.getTime() + task.playDurationMinutes * 60 * 1000);
 
-        // 如果当前时间在播放时间范围内，恢复播放
         if (now >= startDate.getTime() && now <= endDate.getTime()) {
           this.executeTask(task.id);
         }
