@@ -24,19 +24,16 @@
 
         </activity>
 
-        <provider
-            android:name="androidx.core.content.FileProvider"
-            android:authorities="${applicationId}.fileprovider"
-            android:exported="false"
-            android:grantUriPermissions="true">
-            <meta-data
-                android:name="android.support.FILE_PROVIDER_PATHS"
-                android:resource="@xml/file_paths"></meta-data>
-        </provider>
-
         <!-- Foreground Service for audio playback -->
         <service
             android:name=".audio.AudioPlaybackService"
+            android:enabled="true"
+            android:exported="false"
+            android:foregroundServiceType="mediaPlayback" />
+
+        <!-- Sustained listen keepalive service (对标喜马拉雅 XiMaLaYaService + AssistService 双 Service 保活) -->
+        <service
+            android:name=".audio.SustainedListenService"
             android:enabled="true"
             android:exported="false"
             android:foregroundServiceType="mediaPlayback" />
@@ -46,6 +43,28 @@
             android:name=".receiver.AlarmReceiver"
             android:enabled="true"
             android:exported="false" />
+
+        <!-- Wire control / media button receiver (对标喜马拉雅 WireControlReceiver) -->
+        <receiver
+            android:name=".receiver.WireControlReceiver"
+            android:enabled="true"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="android.intent.action.MEDIA_BUTTON" />
+            </intent-filter>
+        </receiver>
+
+        <!-- Screen status receiver (对标喜马拉雅 ScreenStatusReceiver) -->
+        <receiver
+            android:name=".receiver.ScreenStatusReceiver"
+            android:enabled="true"
+            android:exported="false">
+            <intent-filter>
+                <action android:name="android.intent.action.SCREEN_OFF" />
+                <action android:name="android.intent.action.SCREEN_ON" />
+                <action android:name="android.intent.action.USER_PRESENT" />
+            </intent-filter>
+        </receiver>
 
         <!-- Boot receiver to restore alarms after device restart -->
         <receiver
@@ -76,5 +95,11 @@
     <uses-permission android:name="android.permission.POST_NOTIFICATIONS" />
     <!-- Keep CPU running during sleep for playback -->
     <uses-permission android:name="android.permission.REQUEST_IGNORE_BATTERY_OPTIMIZATIONS" />
+    <!-- Phone state for pausing during calls -->
+    <uses-permission android:name="android.permission.READ_PHONE_STATE" />
+    <!-- Access WiFi state for WifiLock -->
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
+    <!-- Access network state -->
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
 
 </manifest>

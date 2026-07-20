@@ -93,3 +93,7 @@ logs/
 *.pptx
 *.xlsx
 *.csv
+
+# Signing keys
+*.jks
+*.keystore

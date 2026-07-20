@@ -17,7 +17,9 @@ import { setupAutoUnlock } from "@/lib/audio";
 import { useIsMobile } from "@/hooks/use-mobile";
 import { usePlaybackController } from "@/hooks/use-playback-controller";
 import { HeroTitle } from "@/components/hero-title";
-import { syncTasksToNative, isNativeEnvironment } from "@/lib/native-scheduler";
+// Capacitor 桥接已移除，原生播放由纯原生 App 处理
+import Link from "next/link";
+import { ShieldCheck, ChevronRight } from "lucide-react";
 
 function useClientOnly() {
     const [mounted, setMounted] = useState(false);
@@ -86,18 +88,15 @@ function CreatePageContent() {
         return () => stopTaskScheduler();
     }, [mounted]);
 
-    // 自动解锁（原生环境不需要）
+    // 自动解锁
     useEffect(() => {
-        if (!mounted || isNativeEnvironment()) return;
+        if (!mounted) return;
         return setupAutoUnlock();
     }, [mounted]);
 
-    // 任务变更时同步到原生 AlarmScheduler
+    // 任务变更时刷新调度
     useEffect(() => {
         if (!mounted) return;
-        if (isNativeEnvironment()) {
-            syncTasksToNative();
-        }
         try { getTaskScheduler().refreshSchedule(); } catch {}
     }, [mounted, tasksVersion]);
 
@@ -242,6 +241,25 @@ function CreatePageContent() {
                     onCancel={handleCloseTaskForm}
                 />
             </TaskModal>
+
+            {/* 后台播放优化入口已移除 */}
+            {false && (
+                <div className="max-w-4xl mx-auto px-4 pb-6 relative z-20">
+                    <Link
+                        href="/background-optimization"
+                        className="flex items-center gap-3 rounded-xl border border-border bg-card/80 backdrop-blur p-4 hover:bg-muted/50 transition-colors group"
+                    >
+                        <div className="w-10 h-10 rounded-lg bg-primary/10 flex items-center justify-center flex-shrink-0">
+                            <ShieldCheck className="w-5 h-5 text-primary" />
+                        </div>
+                        <div className="flex-1 min-w-0">
+                            <div className="font-medium text-sm">后台播放优化</div>
+                            <div className="text-xs text-muted-foreground">确保息屏播放不被系统杀死，前往设置电池优化、自启动等权限</div>
+                        </div>
+                        <ChevronRight className="w-5 h-5 text-muted-foreground group-hover:translate-x-1 transition-transform" />
+                    </Link>
+                </div>
+            )}
 
             <footer className="hidden sm:block border-t border-border py-8 px-6 bg-muted/20 relative z-20">
                 <div className="max-w-5xl mx-auto text-center">

@@ -26,7 +26,7 @@ function blobToBase64(blob: Blob): Promise<string> {
 
 /**
  * 解析播放列表，返回 tracksJson 和首个音频信息
- * 供 UnifiedAudioManager.play() 和 native-scheduler.ts 共用
+ * 供 UnifiedAudioManager.play() 共用
  */
 export async function resolveTracksJson(
   tracks: AudioTrack[]
@@ -89,26 +89,10 @@ export async function resolveTracksJsonFromTaskAudios(
       if (!firstUrl) { firstUrl = url; firstName = audio.name; }
       continue;
     }
-    // 3. dbKey -> IndexedDB -> 本地文件
+    // 3. dbKey -> IndexedDB (Web 端仅保留读取，播放由原生 App 处理)
     if (audio.dbKey && audio.dbKey.trim() !== '') {
-      try {
-        const { getAudioBlob } = await import('./db');
-        const { Filesystem, Directory } = await import('@capacitor/filesystem');
-        const blob = await getAudioBlob(audio.dbKey);
-        if (!blob) continue;
-        const base64 = await blobToBase64(blob);
-        const fileName = `audio_${audio.id}.mp3`;
-        await Filesystem.writeFile({
-          path: fileName,
-          data: base64,
-          directory: Directory.Cache,
-        });
-        const uri = await Filesystem.getUri({ path: fileName, directory: Directory.Cache });
-        resolved.push({ url: uri.uri, name: audio.name });
-        if (!firstUrl) { firstUrl = uri.uri; firstName = audio.name; }
-      } catch (e) {
-        console.error('[resolve] IndexedDB 缓存失败:', e);
-      }
+      // Web 端无法播放，跳过
+      continue;
     }
   }
 

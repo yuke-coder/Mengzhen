@@ -24,7 +24,7 @@ import UnifiedAudioManager, {
   updateMediaSessionPlaybackState,
   releaseMediaSession
 } from "@/lib/audio";
-import { isNativeEnvironment, stopNativePlayback, triggerNativePlayback } from "@/lib/native-scheduler";
+// (Capacitor 桥接已移除，Web 端不支持原生播放)
 
 type ErrorCode = 'UNAUTHORIZED' | 'FORBIDDEN' | 'TOO_MANY_REQUESTS' | 'SERVER_ERROR' | 'TIMEOUT' | 'UNKNOWN';
 
@@ -307,15 +307,7 @@ class HighPerformanceScheduler {
     this.isRunning = true;
     addLog({ taskId: 'scheduler', event: 'start', timestamp: Date.now() });
     this.setupVisibilityHandler();
-    // 原生环境：跳过 JS 音频解锁，但保留状态管理和调度
-    if (isNativeEnvironment()) {
-      log('system', 'info', '原生环境，跳过 JS 音频解锁');
-      this.taskCache.sync();
-      this.rebuildQueue();
-      this.scheduleNextCheck();
-      this.startTickLoop();
-      return;
-    }
+    // Web 端：跳过 JS 音频解锁，保留状态管理和调度
     setupMediaSession();
     tryUnlockAudio();
     await this.resumeActiveTasks();
@@ -350,10 +342,6 @@ class HighPerformanceScheduler {
   }
 
   cancelTask(taskId: string): void {
-    // 原生环境：同时停止原生播放
-    if (isNativeEnvironment()) {
-      stopNativePlayback();
-    }
     const task = getAllTasks().find(t => t.id === taskId);
     if (!task) return;
     this.stopPlayback(taskId);
@@ -381,16 +369,8 @@ class HighPerformanceScheduler {
     if (!task) return;
     if (activePlaybacks.has(taskId)) return;
 
-    if (isNativeEnvironment()) {
-      log(taskId, 'info', '原生环境，调用原生插件播放');
-      updateTask(taskId, { status: 'executing', lastExecutedAt: Date.now() });
-      await triggerNativePlayback(taskId);
-      this.startNativePlaybackState(task);
-      return;
-    }
-
-    // 非原生环境：不执行播放（已统一到原生 AudioPlaybackService）
-    log(taskId, 'warn', '非原生环境，播放不可用');
+    // Web 端不支持播放
+    log(taskId, 'warn', 'Web 端不支持播放，请下载原生 App');
     updateTask(taskId, { status: 'pending' });
   }
 
@@ -506,37 +486,20 @@ class HighPerformanceScheduler {
   private async startPlayback(task: ScheduledTask, scheduledStartAt: number): Promise<void> {
     if (activePlaybacks.has(task.id)) return;
 
-    // 原生环境：只管理状态，不创建 Audio
-    if (isNativeEnvironment()) {
-      this.startNativePlaybackState(task);
-      return;
-    }
-
-    // 非原生环境：不执行播放（已统一到原生 AudioPlaybackService）
-    log(task.id, 'warn', '非原生环境，播放不可用');
+    // Web 端不支持播放
+    log(task.id, 'warn', 'Web 端不支持播放，请下载原生 App');
     updateTask(task.id, { status: 'pending' });
   }
 
   private schedulePlaybackEnd(task: ScheduledTask, scheduledStartAt: number): void {
-    // 原生环境也用这个方法定时结束
     const playback = activePlaybacks.get(task.id);
-    if (!playback && !isNativeEnvironment()) return;
+    if (!playback) return;
     const now = Date.now();
     const endTime = scheduledStartAt + task.playDurationMinutes * 60000;
     const remaining = Math.max(0, endTime - now);
     this.taskCache.invalidate(task.id);
 
     setTimeout(() => {
-      if (isNativeEnvironment()) {
-        // 原生环境：直接结束或渐出后结束
-        if (task.enableFade && task.fadeOutDuration > 0) {
-          this.emitPhaseChange(task.id, 'fading-out');
-          setTimeout(() => this.completeNativePlayback(task), task.fadeOutDuration * 1000);
-        } else {
-          this.completeNativePlayback(task);
-        }
-        return;
-      }
       const p = activePlaybacks.get(task.id);
       if (p) this.startFadeOut(task, p, scheduledStartAt);
     }, remaining);
@@ -648,9 +611,8 @@ class HighPerformanceScheduler {
 
   /** 原生环境播放完成 */
   private completeNativePlayback(task: ScheduledTask): void {
-    log(task.id, 'info', '原生播放完成');
+    log(task.id, 'info', '播放完成');
     activePlaybacks.delete(task.id);
-    stopNativePlayback();
     updateTask(task.id, task.repeatType === 'once'
       ? { status: 'completed', completedAt: Date.now() }
       : { status: 'pending', lastExecutedAt: Date.now() }

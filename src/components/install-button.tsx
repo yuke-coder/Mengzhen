@@ -6,7 +6,6 @@ import { cn } from "@/lib/utils";
 import {
   getPwaInstallServerStatus,
   getPwaInstallStatus,
-  promptInstall,
   subscribePwaInstallStatus,
 } from "@/lib/pwa";
 import {
@@ -174,20 +173,39 @@ export function InstallButton({ className }: InstallButtonProps) {
   }, []);
 
   const handleClick = useCallback(async () => {
-    if (installStatus.mode === "manual") {
-      setGuideOpen(true);
+    // 触发 APK 下载（不再走 PWA 安装流程）
+    // 优先使用环境变量配置的下载地址，兜底使用相对路径
+    const apkUrl = process.env.NEXT_PUBLIC_APK_DOWNLOAD_URL || 'https://br-epic-clam-5a2fd709.supabase2.aidap-global.cn-beijing.volces.com/storage/v1/object/public/apk/mengzhen-latest.apk';
+    
+    if (installStatus.mode === 'installed') {
       return;
     }
 
-    if (installStatus.mode !== "native") return;
-
     setIsPrompting(true);
-    const result = await promptInstall();
-    setIsPrompting(false);
-
-    if (result === "unavailable") {
-      setGuideOpen(true);
+    
+    try {
+      const a = document.createElement('a');
+      a.href = apkUrl;
+      a.download = 'mengzhen.apk';
+      a.rel = 'noopener';
+      // 如果是跨域 URL，在新标签打开；同域直接下载
+      try {
+        const url = new URL(apkUrl, window.location.origin);
+        if (url.origin !== window.location.origin) {
+          a.target = '_blank';
+        }
+      } catch {
+        // 相对路径，无需处理
+      }
+      document.body.appendChild(a);
+      a.click();
+      document.body.removeChild(a);
+    } catch (e) {
+      // 兜底：直接跳转
+      window.location.href = apkUrl;
     }
+    
+    setIsPrompting(false);
   }, [installStatus.mode]);
 
   if (installStatus.mode === "installed") {
@@ -206,15 +224,12 @@ export function InstallButton({ className }: InstallButtonProps) {
   }
 
   const isChecking = installStatus.mode === "checking";
-  const isWaiting = installStatus.mode === "waiting";
-  const isDisabled = isChecking || isWaiting || isPrompting;
+  const isDisabled = isChecking || isPrompting;
   const buttonText = isPrompting
-    ? "正在打开"
+    ? "正在下载"
     : isChecking
       ? "正在检测"
-      : isWaiting
-        ? "稍后再安装"
-        : "安装梦枕";
+      : "安装梦枕";
 
   return (
     <>
@@ -224,7 +239,7 @@ export function InstallButton({ className }: InstallButtonProps) {
           onClick={handleClick}
           disabled={isDisabled}
           aria-busy={isChecking || isPrompting}
-          title={isWaiting ? "已取消本次安装，浏览器重新提供安装入口后可再次尝试" : undefined}
+          title={undefined}
           className={cn(
             "special-button arrow-hover-container color-#000 p-1px primary medium",
             isDisabled && "disabled",

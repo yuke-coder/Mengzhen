@@ -1,38 +1,22 @@
 "use client";
 
 /**
- * 统一音频管理入口(仅原生 Android 播放服务)
+ * 统一音频管理入口
  *
- * 架构:
- *   前端 (Templates/Scheduler/Hooks)
- *     -> @/lib/audio (本文件,提供所有导出名称)
- *     -> native-scheduler.ts (Capacitor 桥接)
- *     -> AudioPlaybackService.java (唯一播放引擎)
- *
- * 删除的 web 引擎文件:
- *   player.ts, fader.ts, wakelock.ts, mediasession.ts,
- *   context.ts, state.ts, unlock.ts, debug.ts
- *
- * 所有播放、渐入渐出、WakeLock、MediaSession、定时停止
- * 均由 Android AudioPlaybackService.java 处理,
- * 不再依赖 HTML5 Audio / JS 定时器。
+ * Web 端保留工具函数和类型导出。
+ * 实际播放由纯原生 App 的 AudioPlaybackService 处理。
+ * Web 端不再有播放能力，只保留音频文件管理（上传、格式、时长计算等）。
  */
 
 import type { ScheduledTask, TaskAudio } from '@/lib/task-types';
 import type { UnifiedPlaybackConfig } from './types';
 
-// ============ 工具函数和常量(保留,前端在用) ============
+// ============ 工具函数和常量(前端在用) ============
 
 export { formatFileSize, formatDuration } from './utils';
 export type { AudioItemBase } from './utils';
 export { AUDIO_EXTENSIONS, AUDIO_ACCEPT } from './formats';
 export { getAudioBlob, saveAudioBlob, deleteAudioBlob } from './db';
-
-// ============ 原生环境检测和桥接 ============
-
-export { isNativeEnvironment } from '@/lib/native-scheduler';
-import { isNativeEnvironment } from '@/lib/native-scheduler';
-import { triggerNativePlayback, stopNativePlayback, syncTasksToNative } from '@/lib/native-scheduler';
 
 // ============ Stub 函数(前端导入但实际由原生处理) ============
 
@@ -108,78 +92,22 @@ class UnifiedAudioManager {
   }
 
   isNative(): boolean {
-    return isNativeEnvironment();
+    return false;
   }
 
-  /**
-   * 开始播放 - 唯一播放入口
-   * 委托给 Android AudioPlaybackService
-   */
-  async play(config: UnifiedPlaybackConfig): Promise<boolean> {
-    if (!isNativeEnvironment()) {
-      console.warn('[UnifiedAudioManager] 非原生环境,播放不可用');
-      return false;
-    }
-
-    // 解析播放列表 URL 并调用原生播放
-    const { resolveTracksJson } = await import('./resolve');
-    const { tracksJson, firstUrl, firstName } = await resolveTracksJson(config.tracks);
-
-    const Capacitor = (window as any).Capacitor;
-    const plugin = Capacitor?.Plugins?.AlarmScheduler;
-    if (!plugin) {
-      console.error('[UnifiedAudioManager] AlarmScheduler 插件不可用');
-      return false;
-    }
-
-    try {
-      await plugin.playNow({
-        taskId: config.id,
-        taskName: config.name,
-        playDurationMinutes: config.playDurationMinutes ?? 30,
-        volume: config.volume,
-        enableFade: config.enableFade,
-        fadeInDuration: config.fadeInDuration,
-        fadeOutDuration: config.fadeOutDuration,
-        audioUrl: firstUrl,
-        audioName: firstName,
-        tracksJson,
-        loopSingle: config.loopSingle ?? true,
-        endTime: config.endTime ?? 0,
-      });
-      return true;
-    } catch (e) {
-      console.error('[UnifiedAudioManager] 播放失败:', e);
-      return false;
-    }
+  /** Web 端不支持播放 */
+  async play(_config: UnifiedPlaybackConfig): Promise<boolean> {
+    console.warn('[UnifiedAudioManager] Web 端不支持播放，请下载原生 App');
+    return false;
   }
 
-  /** 停止播放 */
-  stop(_configId?: string): void {
-    stopNativePlayback();
-  }
+  stop(_configId?: string): void {}
+  stopAll(): void {}
 
-  stopAll(): void {
-    stopNativePlayback();
-  }
-
-  /** Scheduler 旧接口 */
-  async playAudio(task: ScheduledTask, scheduledStartAt: number): Promise<void> {
-    if (!isNativeEnvironment()) return;
-    await triggerNativePlayback(task.id);
-  }
-
-  stopAudio(_taskId: string): void {
-    stopNativePlayback();
-  }
-
-  getActiveTaskIds(): string[] {
-    return [];
-  }
-
-  async syncTasksToNative(): Promise<void> {
-    await syncTasksToNative();
-  }
+  async playAudio(_task: ScheduledTask, _scheduledStartAt: number): Promise<void> {}
+  stopAudio(_taskId: string): void {}
+  getActiveTaskIds(): string[] { return []; }
+  async syncTasks(): Promise<void> {}
 
   // ========== 兼容旧 API ==========
   async requestWakeLock(): Promise<boolean> { return false; }

@@ -5,7 +5,7 @@ import { useRouter } from 'next/navigation';
 import { Volume2, VolumeX, Clock, Music2, Play, Pause, CheckCircle2, HardDrive } from 'lucide-react';
 import DynamicBackground from '@/components/dynamic-background';
 import { getAudioBlob } from '@/lib/audio';
-import { isNativeEnvironment, triggerNativePlayback, stopNativePlayback, isNativePlaying } from '@/lib/native-scheduler';
+// (Capacitor 桥接已移除，播放由纯原生 App 处理)
 
 // 类型定义
 interface AudioItem {
@@ -259,9 +259,6 @@ export default function TemplatesPage() {
     setIsFadingOut(false);
     isFadingOutRef.current = false;
     setInitialFadeOutSeconds(0);
-    if (isNativeEnvironment()) {
-      stopNativePlayback();
-    }
   }, []);
 
 
@@ -290,13 +287,6 @@ export default function TemplatesPage() {
 
   // 暂停/恢复播放
   const togglePause = useCallback(() => {
-    if (isNativeEnvironment()) {
-      if (isPlaying) {
-        stopNativePlayback();
-        setIsPlaying(false);
-      }
-      return;
-    }
     if (!audioRef.current) return;
     if (audioRef.current.paused) {
       audioRef.current.play().catch(() => {});
@@ -614,40 +604,8 @@ export default function TemplatesPage() {
     // PWA: 确保 AudioContext 活跃（解决自动播放限制）
     ensureAudioContext();
 
-    // 原生环境：通过 Capacitor 调用 AudioPlaybackService
-    if (isNativeEnvironment()) {
-      console.log('[梦枕] 原生环境，调用原生播放服务');
-      const savedConfig = localStorage.getItem('dream_config');
-      if (savedConfig) {
-        const cfg = JSON.parse(savedConfig) as DreamConfig;
-        const pseudoTask = {
-          id: 'dream-config',
-          name: '一键梦枕',
-          audios: cfg.audios.map(a => ({
-            id: a.id,
-            name: a.name,
-            url: a.url,
-            fileKey: a.fileKey,
-            serverUrl: a.serverUrl,
-            dbKey: a.dbKey,
-          })),
-          playDurationMinutes: cfg.playDuration
-            ? Math.ceil((cfg.playDuration.hour * 60 + cfg.playDuration.minute))
-            : 30,
-          volume: cfg.volume,
-          enableFade: cfg.enableFade,
-          fadeInDuration: cfg.fadeInDuration,
-          fadeOutDuration: cfg.fadeOutDuration,
-        };
-        localStorage.setItem('temp_dream_task', JSON.stringify(pseudoTask));
-        triggerNativePlayback('dream-config').catch(e => console.error('[梦枕] 原生播放失败:', e));
-      }
-      nativeCheckRef.current = setInterval(async () => {
-        const playing = await isNativePlaying();
-        if (!playing && isPlayingRef.current) {
-          handleEnd();
-        }
-      }, 2000);
+    // 原生播放已移除，Web 端不支持播放，请下载原生 App
+    if (false) {
       return;
     }
 
