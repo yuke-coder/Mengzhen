@@ -79,7 +79,7 @@ data class PlaybackDraft(
 )
 
 /**
- * 用户信息 - 对标 Web API /api/auth/me 响应
+ * 用户信息 - 对标 Web API /api/auth/me + /api/profile 响应
  */
 data class UserInfo(
     val id: String = "",
@@ -87,6 +87,12 @@ data class UserInfo(
     val email: String = "",
     val avatarUrl: String? = null,
     val nickname: String? = null,
+    val gender: String? = null,
+    val birthday: String? = null,
+    val location: String? = null,
+    val bio: String? = null,
+    val signature: String? = null,
+    val createdAt: String = "",
 )
 
 // === JSON 序列化 ===
@@ -225,5 +231,32 @@ fun parseUser(json: JSONObject): UserInfo? {
         email = "",
         avatarUrl = user.optString("avatar_url", "").ifEmpty { null },
         nickname = user.optString("nickname", "").ifEmpty { null },
+        gender = user.optString("gender", "").ifEmpty { null },
+        birthday = user.optString("birthday", "").ifEmpty { null },
+        location = user.optString("location", "").ifEmpty { null },
+        bio = user.optString("bio", "").ifEmpty { null },
+        signature = user.optString("signature", "").ifEmpty { null },
+        createdAt = user.optString("created_at", ""),
+    )
+}
+
+/**
+ * 从 Web API /api/profile 响应解析用户资料
+ */
+fun parseProfile(json: JSONObject): UserInfo? {
+    if (!json.optBoolean("success", false)) return null
+    val profile = json.optJSONObject("profile") ?: return null
+    return UserInfo(
+        id = profile.optString("id"),
+        username = profile.optString("username"),
+        email = "",
+        avatarUrl = profile.optString("avatar_url", "").ifEmpty { null },
+        nickname = profile.optString("nickname", "").ifEmpty { null },
+        gender = profile.optString("gender", "").ifEmpty { null },
+        birthday = profile.optString("birthday", "").ifEmpty { null },
+        location = profile.optString("location", "").ifEmpty { null },
+        bio = profile.optString("bio", "").ifEmpty { null },
+        signature = profile.optString("signature", "").ifEmpty { null },
+        createdAt = profile.optString("createdAt", ""),
     )
 }

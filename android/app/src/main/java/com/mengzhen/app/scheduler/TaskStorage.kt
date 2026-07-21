@@ -35,6 +35,26 @@ class TaskStorage private constructor(context: Context) {
         prefs.edit().putString(KEY, arr.toString()).apply()
     }
 
+    /** 清理已完成的一次性任务 - 对标 Web 端 cleanupCompletedOnceTasks */
+    fun cleanupCompletedOnceTasks(): Int {
+        val tasks = getAllTasks().toMutableList()
+        val before = tasks.size
+        tasks.removeAll { it.status == "completed" && it.repeatType == 0 && it.repeatDays == 0 }
+        val removed = before - tasks.size
+        if (removed > 0) persist(tasks)
+        return removed
+    }
+
+    /** 清理已取消的任务 - 对标 Web 端 cleanupCancelledTasks */
+    fun cleanupCancelledTasks(): Int {
+        val tasks = getAllTasks().toMutableList()
+        val before = tasks.size
+        tasks.removeAll { it.status == "cancelled" }
+        val removed = before - tasks.size
+        if (removed > 0) persist(tasks)
+        return removed
+    }
+
     companion object {
         private const val KEY = "alarm_tasks"
         @Volatile private var instance: TaskStorage? = null

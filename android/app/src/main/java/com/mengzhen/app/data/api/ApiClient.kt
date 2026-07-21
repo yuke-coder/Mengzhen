@@ -14,6 +14,7 @@ import java.io.File
 import java.io.IOException
 import java.util.concurrent.ConcurrentHashMap
 import java.util.concurrent.TimeUnit
+import android.util.Log
 
 /**
  * Web API 客户端 - 对接 https://mengzhen-chi.vercel.app/api/
@@ -115,6 +116,12 @@ class ApiClient private constructor(
                 json.put("success", false)
                 json.put("error", json.optString("error", "请求失败 (${resp.code})"))
             }
+            // Session 过期检测 - 401 时清除 cookie，标记未登录
+            if (resp.code == 401) {
+                Log.w(TAG, "Session expired (401), clearing cookies")
+                clearCookies()
+                json.put("sessionExpired", true)
+            }
             return json
         }
     }
@@ -139,9 +146,7 @@ class ApiClient private constructor(
 
     // === 用户资料 ===
 
-    fun getProfile(): JSONObject = get("/api/profile")
-
-    fun updateProfile(updates: JSONObject): JSONObject = put("/api/profile", updates)
+    // getProfile/updateProfile 定义在下方（含完整参数）
 
     // === 音频 ===
 
@@ -205,6 +210,30 @@ class ApiClient private constructor(
 
     // === 反馈 ===
 
+    fun getProfile(): JSONObject = get("/api/profile")
+
+    fun updateProfile(
+        username: String? = null,
+        nickname: String? = null,
+        gender: String? = null,
+        birthday: String? = null,
+        location: String? = null,
+        bio: String? = null,
+        signature: String? = null,
+        avatarUrl: String? = null,
+    ): JSONObject {
+        val body = JSONObject()
+        username?.let { body.put("username", it) }
+        nickname?.let { body.put("nickname", it) }
+        gender?.let { body.put("gender", it) }
+        birthday?.let { body.put("birthday", it) }
+        location?.let { body.put("location", it) }
+        bio?.let { body.put("bio", it) }
+        signature?.let { body.put("signature", it) }
+        avatarUrl?.let { body.put("avatar_url", it) }
+        return put("/api/profile", body)
+    }
+
     fun submitFeedback(content: String, contact: String? = null): JSONObject {
         val body = JSONObject().put("content", content)
         contact?.let { body.put("contact", it) }
@@ -213,6 +242,7 @@ class ApiClient private constructor(
 
     companion object {
         const val BASE_URL = "https://mengzhen-chi.vercel.app"
+        private const val TAG = "ApiClient"
 
         @Volatile private var instance: ApiClient? = null
         fun get(): ApiClient =

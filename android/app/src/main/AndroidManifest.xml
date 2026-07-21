@@ -44,28 +44,6 @@
             android:enabled="true"
             android:exported="false" />
 
-        <!-- Wire control / media button receiver (对标喜马拉雅 WireControlReceiver) -->
-        <receiver
-            android:name=".receiver.WireControlReceiver"
-            android:enabled="true"
-            android:exported="true">
-            <intent-filter>
-                <action android:name="android.intent.action.MEDIA_BUTTON" />
-            </intent-filter>
-        </receiver>
-
-        <!-- Screen status receiver (对标喜马拉雅 ScreenStatusReceiver) -->
-        <receiver
-            android:name=".receiver.ScreenStatusReceiver"
-            android:enabled="true"
-            android:exported="false">
-            <intent-filter>
-                <action android:name="android.intent.action.SCREEN_OFF" />
-                <action android:name="android.intent.action.SCREEN_ON" />
-                <action android:name="android.intent.action.USER_PRESENT" />
-            </intent-filter>
-        </receiver>
-
         <!-- Boot receiver to restore alarms after device restart -->
         <receiver
             android:name=".receiver.BootReceiver"
@@ -76,6 +54,12 @@
                 <action android:name="android.intent.action.QUICKBOOT_POWERON" />
             </intent-filter>
         </receiver>
+
+        <!-- Note: ScreenStatusReceiver is dynamically registered in AudioPlaybackService.onCreate(),
+             do NOT statically register here to avoid duplicate reception -->
+
+        <!-- Note: WireControlReceiver is replaced by MediaSession in AudioPlaybackService.
+             MediaSession handles MEDIA_BUTTON events natively. -->
 
     </application>
 
@@ -101,5 +85,9 @@
     <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
     <!-- Access network state -->
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <!-- Modify audio settings (ExoPlayer volume control) - 对标喜马拉雅 -->
+    <uses-permission android:name="android.permission.MODIFY_AUDIO_SETTINGS" />
+    <!-- Vibrate for alarm trigger - 对标喜马拉雅 -->
+    <uses-permission android:name="android.permission.VIBRATE" />
 
 </manifest>

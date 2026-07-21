@@ -49,6 +49,7 @@ import com.mengzhen.app.receiver.ScreenStatusReceiver
 import com.mengzhen.app.audio.PlayProgressStore
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.Job
 import kotlinx.coroutines.SupervisorJob
 import kotlinx.coroutines.cancel
 import kotlinx.coroutines.launch
@@ -108,9 +109,9 @@ class AudioPlaybackService : Service() {
     private var noisyReceiverRegistered = false
     private var headsetUnplugDebounced = false // 耳机拔出 3 秒去抖 - 对标喜马拉雅 al.java f45972b
 
-    /** 耳机拔出/音频变嘈杂 - 对标喜马拉雅 al.java
-     *  喜马拉雅用 f45972b 标志 + 3 秒 Timer 去抖，避免 HEADSET_PLUG 和 AUDIO_BECOMING_NOISY
-     *  两个广播短时间内都触发暂停。
+    /** 网络变化监听 - 对标喜马拉雅 al.java ACTION_BROADCAST_NETWORK_CHANGE
+     *  喜马拉雅原版将网络变化和耳机拔出放在同一个 BroadcastReceiver 里处理
+     *  网络断开时暂停播放，网络恢复时不自动恢复（等用户手动操作）
      */
     private val noisyReceiver = object : BroadcastReceiver() {
         override fun onReceive(context: Context, intent: Intent) {
@@ -131,6 +132,17 @@ class AudioPlaybackService : Service() {
                     handler.postDelayed({ headsetUnplugDebounced = false }, 3000)
                     player?.let { if (it.isPlaying) it.pause() }
                     updateNotification("暂停中(音频输出变更): $taskName")
+                }
+                android.net.ConnectivityManager.CONNECTIVITY_ACTION -> {
+                    // 对标喜马拉雅 al.java ACTION_BROADCAST_NETWORK_CHANGE
+                    // 网络断开时暂停播放
+                    val cm = context.getSystemService(Context.CONNECTIVITY_SERVICE) as? android.net.ConnectivityManager
+                    val activeNetwork = cm?.activeNetworkInfo
+                    if (activeNetwork == null || !activeNetwork.isConnected) {
+                        Log.w(tag, "Network lost, pausing playback")
+                        player?.let { if (it.isPlaying) it.pause() }
+                        updateNotification("暂停中(网络断开): $taskName")
+                    }
                 }
             }
         }
@@ -276,6 +288,8 @@ class AudioPlaybackService : Service() {
 
             handler.postDelayed({
                 val p = player ?: return@postDelayed
+                // 确保没有被切换到其他 track
+                if (playlist.getOrNull(currentTrackIndex) != track) return@postDelayed
                 // 重新走 playTrack 逻辑（含 downloadToCache + 断点续播）
                 // 对标喜马拉雅 i.java reset() + setDataSource() + prepare()
                 playTrack(currentTrackIndex, 0L)
@@ -309,11 +323,13 @@ class AudioPlaybackService : Service() {
         }
         phoneListenerRegistered = true
 
-        // 耳机插拔监听 - 对标喜马拉雅 al.java IntentFilter
+        // 耳机插拔 + 网络变化监听 - 对标喜马拉雅 al.java IntentFilter
+        // 喜马拉雅原版同时监听 HEADSET_PLUG + AUDIO_BECOMING_NOISY + ACTION_BROADCAST_NETWORK_CHANGE
         // Android 14+ 必须指定 RECEIVER_NOT_EXPORTED
         val noisyFilter = IntentFilter().apply {
             addAction(Intent.ACTION_HEADSET_PLUG)
             addAction(AudioManager.ACTION_AUDIO_BECOMING_NOISY)
+            addAction(android.net.ConnectivityManager.CONNECTIVITY_ACTION)
         }
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.TIRAMISU) {
             registerReceiver(noisyReceiver, noisyFilter, Context.RECEIVER_NOT_EXPORTED)
@@ -340,6 +356,37 @@ class AudioPlaybackService : Service() {
         } catch (e: Exception) {
             Log.e(tag, "Failed to init cache", e)
         }
+        // 清理下载缓存目录中超过 7 天的文件
+        cleanDownloadCache()
+    }
+
+    /** 清理下载缓存 - 删除超过 7 天的文件，总大小不超过 500MB */
+    private fun cleanDownloadCache() {
+        val dir = File(cacheDir, "audio_download")
+        if (!dir.exists()) return
+        val now = System.currentTimeMillis()
+        val maxAge = 7L * 24 * 60 * 60 * 1000
+        var totalSize = 0L
+        val files = dir.listFiles()?.toMutableList() ?: return
+        // 先删过期文件
+        files.removeAll { f ->
+            val expired = now - f.lastModified() > maxAge
+            if (expired) f.delete()
+            expired
+        }
+        // 计算剩余总大小
+        files.forEach { totalSize += it.length() }
+        // 如果超过 500MB，按最旧优先删除
+        val maxSize = 500L * 1024 * 1024
+        if (totalSize > maxSize) {
+            files.sortBy { it.lastModified() }
+            for (f in files) {
+                if (totalSize <= maxSize) break
+                totalSize -= f.length()
+                f.delete()
+                Log.i(tag, "Cleaned download cache: ${f.name}")
+            }
+        }
     }
 
     private fun initPlayer() {
@@ -356,8 +403,43 @@ class AudioPlaybackService : Service() {
             DefaultHttpDataSource.Factory().setConnectTimeoutMs(15000)
         }
 
+        // 自定义 LoadControl - 对标喜马拉雅 i.java 缓冲配置
+        // 喜马拉雅默认 minBuffer=1000ms, maxBuffer=20000ms
+        // 梦枕增大缓冲：minBuffer=1500ms（快速起播）, maxBuffer=50000ms（更长缓冲抗网络波动）
+        val loadControl = androidx.media3.exoplayer.DefaultLoadControl.Builder()
+            .setBufferDurationsMs(
+                /* minBufferMs= */ 1500,
+                /* maxBufferMs= */ 50000,
+                /* bufferForPlaybackMs= */ 500,
+                /* bufferForPlaybackAfterRebufferMs= */ 2000
+            )
+            .setPrioritizeTimeOverSizeThresholds(true)
+            .build()
+
+        // 自定义 LoadError - 对标喜马拉雅 i.java LoadErrorHandlingPolicy
+        // HttpDataSource.InvalidResponseCodeException (4xx/5xx) 不重试，直接报错
+        // 其他错误走默认重试策略
+        val loadErrorHandlingPolicy = object : androidx.media3.exoplayer.upstream.DefaultLoadErrorHandlingPolicy() {
+            override fun getRetryDelayMsFor(loadErrorInfo: androidx.media3.exoplayer.upstream.LoadErrorHandlingPolicy.LoadErrorInfo): Long {
+                val exception = loadErrorInfo.exception
+                // 4xx 错误不重试（文件不存在、权限错误等）
+                if (exception is androidx.media3.datasource.HttpDataSource.InvalidResponseCodeException) {
+                    val code = exception.responseCode
+                    if (code in 400..499 && code != 416) {
+                        return -Long.MAX_VALUE
+                    }
+                }
+                // 其他错误走默认重试
+                return super.getRetryDelayMsFor(loadErrorInfo)
+            }
+        }
+
         player = ExoPlayer.Builder(this)
-            .setMediaSourceFactory(DefaultMediaSourceFactory(dataSourceFactory))
+            .setMediaSourceFactory(
+                DefaultMediaSourceFactory(dataSourceFactory)
+                    .setLoadErrorHandlingPolicy(loadErrorHandlingPolicy)
+            )
+            .setLoadControl(loadControl)
             .setAudioAttributes(
                 androidx.media3.common.AudioAttributes.Builder()
                     .setUsage(C.USAGE_MEDIA)
@@ -374,6 +456,15 @@ class AudioPlaybackService : Service() {
             }
 
         mediaSession = MediaSession.Builder(this, player!!)
+            .setSessionActivity(
+                PendingIntent.getActivity(
+                    this, 0,
+                    Intent(this, MainActivity::class.java).apply {
+                        flags = Intent.FLAG_ACTIVITY_SINGLE_TOP or Intent.FLAG_ACTIVITY_CLEAR_TOP
+                    },
+                    PendingIntent.FLAG_UPDATE_CURRENT or PendingIntent.FLAG_IMMUTABLE
+                )
+            )
             .build()
     }
 
@@ -523,23 +614,30 @@ class AudioPlaybackService : Service() {
         }
     }
 
+    private var currentDownloadJob: kotlinx.coroutines.Job? = null
+
     private fun playTrack(index: Int, resumePositionMs: Long = 0L) {
         if (index < 0 || index >= playlist.size) return
         currentTrackIndex = index
         val track = playlist[index]
         errorRetryCount = 0
 
+        // 取消上一个下载任务 - 避免并发下载竞态
+        currentDownloadJob?.cancel()
+
         if (track.url.startsWith("file://") || track.url.startsWith("/")) {
             val path = if (track.url.startsWith("file://")) track.url.substring(7) else track.url
             prepareAndPlay(Uri.fromFile(File(path)), resumePositionMs)
         } else {
-            serviceScope.launch {
+            currentDownloadJob = serviceScope.launch {
                 val localFile = downloadToCache(track.url)
                 withContext(Dispatchers.Main) {
-                    if (localFile != null) {
-                        prepareAndPlay(Uri.fromFile(localFile), resumePositionMs)
-                    } else {
-                        prepareAndPlay(Uri.parse(track.url), resumePositionMs)
+                    if (currentTrackIndex == index) { // 确保没有被切换到其他 track
+                        if (localFile != null) {
+                            prepareAndPlay(Uri.fromFile(localFile), resumePositionMs)
+                        } else {
+                            prepareAndPlay(Uri.parse(track.url), resumePositionMs)
+                        }
                     }
                 }
             }
@@ -557,6 +655,12 @@ class AudioPlaybackService : Service() {
                 MediaMetadata.Builder()
                     .setTitle(playlist.getOrNull(currentTrackIndex)?.name ?: taskName)
                     .setArtist("梦枕")
+                    .apply {
+                        // 设置封面 URI - 让 MediaSession 自动在锁屏显示封面
+                        coverUrl?.takeIf { it.isNotEmpty() }?.let { url ->
+                            setArtworkUri(Uri.parse(url))
+                        }
+                    }
                     .build()
             )
             .build()
@@ -730,6 +834,8 @@ class AudioPlaybackService : Service() {
 
     private fun stopPlaybackInternal() {
         userStopped = true
+        currentDownloadJob?.cancel()
+        currentDownloadJob = null
         saveProgress()
         stopProgressUpdates()
         player?.stop()
@@ -739,6 +845,7 @@ class AudioPlaybackService : Service() {
         fadeInRunnable?.let { handler.removeCallbacks(it) }
         fadeOutRunnable?.let { handler.removeCallbacks(it) }
         stopRunnable?.let { handler.removeCallbacks(it) }
+        handler.removeCallbacksAndMessages(null) // 清理所有待执行回调，包括耳机去抖
         fadeInRunnable = null
         fadeOutRunnable = null
         stopRunnable = null
@@ -787,6 +894,15 @@ class AudioPlaybackService : Service() {
             .addAction(android.R.drawable.ic_menu_close_clear_cancel, "停止", stopPending)
             .addAction(android.R.drawable.ic_lock_idle_alarm, "定时停止", sleepPending)
 
+        // 关联 MediaSession - Android 13+ 锁屏控件必需
+        // 对标喜马拉雅通知栏 MediaStyle
+        mediaSession?.let { session ->
+            builder.setStyle(
+                androidx.media3.session.MediaStyleNotificationHelper.MediaStyle(session)
+                    .setShowActionsInCompactView(0, 1, 2)
+            )
+        }
+
         // 封面 - 对标喜马拉雅通知栏封面
         if (coverBitmap != null) {
             builder.setLargeIcon(coverBitmap)
@@ -818,6 +934,14 @@ class AudioPlaybackService : Service() {
             .addAction(android.R.drawable.ic_media_pause, "暂停", actionPending(ACTION_PAUSE, 1))
             .addAction(android.R.drawable.ic_media_next, "下一首", actionPending(ACTION_NEXT, 2))
             .addAction(android.R.drawable.ic_menu_close_clear_cancel, "停止", actionPending(ACTION_STOP, 0))
+
+        // 关联 MediaSession
+        mediaSession?.let { session ->
+            builder.setStyle(
+                androidx.media3.session.MediaStyleNotificationHelper.MediaStyle(session)
+                    .setShowActionsInCompactView(0, 1, 2)
+            )
+        }
 
         if (coverBitmap != null) {
             builder.setLargeIcon(coverBitmap)
@@ -972,6 +1096,8 @@ class AudioPlaybackService : Service() {
 
     override fun onDestroy() {
         stopPlaybackInternal()
+        currentDownloadJob?.cancel()
+        currentDownloadJob = null
         // 双 Service 保活 - 如果不是用户主动停止，拉起 SustainedListenService
         // 对标喜马拉雅 XiMaLaYaService.onDestroy -> startService(AssistService)
         if (!userStopped && currentTaskId != null) {

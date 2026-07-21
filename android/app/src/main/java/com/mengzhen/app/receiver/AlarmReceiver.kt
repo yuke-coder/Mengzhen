@@ -38,6 +38,7 @@ class AlarmReceiver : BroadcastReceiver() {
             .putExtra("tracksJson", task.tracksJson)
             .putExtra("loopSingle", task.loopSingle)
             .putExtra("endTime", task.endTime)
+            .putExtra("coverUrl", task.coverUrl)
 
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
             context.startForegroundService(serviceIntent)

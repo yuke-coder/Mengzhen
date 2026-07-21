@@ -41,6 +41,8 @@ class AlarmScheduler private constructor(context: Context) {
         loopSingle: Boolean,
         endTime: Long,
         repeatDays: Int = 0,
+        repeatType: Int = 0,
+        coverUrl: String = "",
     ) {
         val task = TaskInfo(
             taskId = taskId,
@@ -57,7 +59,12 @@ class AlarmScheduler private constructor(context: Context) {
             loopSingle = loopSingle,
             endTime = endTime,
             repeatDays = repeatDays,
+            repeatType = repeatType,
+            coverUrl = coverUrl,
         )
+        val now = System.currentTimeMillis()
+        if (task.createdAt == 0L) task.createdAt = now
+        task.updatedAt = now
         storage.saveTask(task)
         setAlarm(task)
     }
@@ -99,28 +106,52 @@ class AlarmScheduler private constructor(context: Context) {
     }
 
     /**
-     * 闹钟触发后，如果有重复天数，计算并设置下次闹钟
-     * 对标喜马拉雅 e.java c() 方法：遍历所有闹钟记录找最近的下一个触发时间
+     * 闹钟触发后，如果有重复设置，计算并设置下次闹钟
+     * 对标喜马拉雅 e.java c() 方法 + Web 端 task-types.ts getNextExecuteDate
      */
     fun rescheduleIfRepeating(taskId: String) {
         val task = storage.getTask(taskId) ?: return
-        if (task.repeatDays == 0) {
-            // 不重复 - 删除一次性任务
-            storage.removeTask(taskId)
-            Log.i(TAG, "One-shot task $taskId completed, removed")
-            return
+
+        // 标记上次执行时间
+        task.lastExecutedAt = System.currentTimeMillis()
+        task.updatedAt = System.currentTimeMillis()
+
+        // repeatType 优先，旧 repeatDays 兼容
+        if (task.repeatType != ChineseHolidayCalendar.REPEAT_ONCE) {
+            // 新逻辑：用 repeatType + 节假日日历
+            val cal = Calendar.getInstance()
+            cal.timeInMillis = task.triggerAt
+            val hour = cal.get(Calendar.HOUR_OF_DAY)
+            val minute = cal.get(Calendar.MINUTE)
+
+            val nextTrigger = ChineseHolidayCalendar.getNextTrigger(
+                task.repeatType, hour, minute
+            )
+            if (nextTrigger > 0) {
+                task.triggerAt = nextTrigger
+                storage.saveTask(task)
+                setAlarm(task)
+                Log.i(TAG, "Rescheduled repeating task $taskId (type=${task.repeatType}) for $nextTrigger")
+                return
+            }
+        } else if (task.repeatDays != 0) {
+            // 旧逻辑：位掩码兼容
+            val nextTrigger = calculateNextTrigger(task.repeatDays, task.triggerAt)
+            if (nextTrigger > 0) {
+                task.triggerAt = nextTrigger
+                storage.saveTask(task)
+                setAlarm(task)
+                Log.i(TAG, "Rescheduled repeating task $taskId (bitmask) for $nextTrigger")
+                return
+            }
         }
 
-        // 计算下次触发时间 - 对标喜马拉雅 c.a(hour, minute, DaysOfWeek)
-        val nextTrigger = calculateNextTrigger(task.repeatDays, task.triggerAt)
-        if (nextTrigger > 0) {
-            task.triggerAt = nextTrigger
-            storage.saveTask(task)
-            setAlarm(task)
-            Log.i(TAG, "Rescheduled repeating task $taskId for $nextTrigger")
-        } else {
-            Log.w(TAG, "Could not calculate next trigger for $taskId")
-        }
+        // 不重复 - 删除一次性任务，标记完成
+        task.status = "completed"
+        task.completedAt = System.currentTimeMillis()
+        task.updatedAt = System.currentTimeMillis()
+        storage.saveTask(task)
+        Log.i(TAG, "One-shot task $taskId completed")
     }
 
     /**
@@ -165,8 +196,41 @@ class AlarmScheduler private constructor(context: Context) {
             PendingIntent.FLAG_UPDATE_CURRENT or PendingIntent.FLAG_IMMUTABLE
         )
         alarmManager.cancel(pendingIntent)
-        storage.removeTask(taskId)
+        // 标记为取消而非删除 - 对标 Web 端 cancelTask
+        val task = storage.getTask(taskId)
+        if (task != null) {
+            if (task.repeatType == ChineseHolidayCalendar.REPEAT_ONCE && task.repeatDays == 0) {
+                task.status = "cancelled"
+            } else {
+                // 重复任务：跳过当前周期
+                task.skipUntil = System.currentTimeMillis() + task.playDurationMinutes * 60_000L
+            }
+            task.updatedAt = System.currentTimeMillis()
+            storage.saveTask(task)
+        }
         Log.i(TAG, "Cancelled alarm for $taskId")
+    }
+
+    /** 恢复已取消的任务 - 对标 Web 端 resumeTask */
+    fun resumeTask(taskId: String) {
+        val task = storage.getTask(taskId) ?: return
+        task.status = "pending"
+        task.skipUntil = 0
+        task.updatedAt = System.currentTimeMillis()
+        storage.saveTask(task)
+        if (task.repeatType != ChineseHolidayCalendar.REPEAT_ONCE || task.repeatDays != 0) {
+            setAlarm(task)
+        } else if (task.triggerAt > System.currentTimeMillis()) {
+            setAlarm(task)
+        }
+        Log.i(TAG, "Resumed task $taskId")
+    }
+
+    /** 立即执行任务 - 对标 Web 端 executeNow */
+    fun executeNow(taskId: String) {
+        val task = storage.getTask(taskId) ?: return
+        triggerTaskNow(task)
+        Log.i(TAG, "Executing task $taskId now")
     }
 
     fun cancelAll() {
@@ -180,14 +244,32 @@ class AlarmScheduler private constructor(context: Context) {
     fun restoreAllAlarms() {
         val now = System.currentTimeMillis()
         storage.getAllTasks().forEach { task ->
-            if (task.repeatDays != 0) {
-                // 重复任务 - 重新计算下次触发时间
+            // 跳过已取消的任务
+            if (task.status == "cancelled") return@forEach
+            // 跳过 skipUntil 未过期的任务
+            if (task.skipUntil > now) return@forEach
+
+            if (task.repeatType != ChineseHolidayCalendar.REPEAT_ONCE) {
+                // 新逻辑：repeatType + 节假日
+                val cal = Calendar.getInstance()
+                cal.timeInMillis = task.triggerAt
+                val hour = cal.get(Calendar.HOUR_OF_DAY)
+                val minute = cal.get(Calendar.MINUTE)
+                val nextTrigger = ChineseHolidayCalendar.getNextTrigger(task.repeatType, hour, minute)
+                if (nextTrigger > 0) {
+                    task.triggerAt = nextTrigger
+                    storage.saveTask(task)
+                    setAlarm(task)
+                    Log.i(TAG, "Restored repeating alarm (type=${task.repeatType}) for ${task.taskId}")
+                }
+            } else if (task.repeatDays != 0) {
+                // 旧逻辑：位掩码兼容
                 val nextTrigger = calculateNextTrigger(task.repeatDays, task.triggerAt)
                 if (nextTrigger > 0) {
                     task.triggerAt = nextTrigger
                     storage.saveTask(task)
                     setAlarm(task)
-                    Log.i(TAG, "Restored repeating alarm for ${task.taskId}")
+                    Log.i(TAG, "Restored repeating alarm (bitmask) for ${task.taskId}")
                 }
             } else {
                 // 一次性任务
@@ -197,7 +279,10 @@ class AlarmScheduler private constructor(context: Context) {
                         Log.i(TAG, "Restored alarm for ${task.taskId}")
                     }
                     task.triggerAt > now - 60000 -> triggerTaskNow(task)
-                    else -> storage.removeTask(task.taskId)
+                    else -> {
+                        task.status = "completed"
+                        storage.saveTask(task)
+                    }
                 }
             }
         }
@@ -218,6 +303,7 @@ class AlarmScheduler private constructor(context: Context) {
             .putExtra("tracksJson", task.tracksJson)
             .putExtra("loopSingle", task.loopSingle)
             .putExtra("endTime", task.endTime)
+            .putExtra("coverUrl", task.coverUrl)
 
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
             appContext.startForegroundService(intent)
