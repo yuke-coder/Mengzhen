@@ -8,6 +8,10 @@ import com.mengzhen.app.scheduler.AlarmScheduler
 import com.mengzhen.app.scheduler.TaskStorage
 import com.mengzhen.app.ui.theme.MengZhenTheme
 import com.mengzhen.app.ui.navigation.MengZhenApp
+import kotlinx.coroutines.CoroutineScope
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.SupervisorJob
+import kotlinx.coroutines.launch
 
 class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -20,9 +24,9 @@ class MainActivity : ComponentActivity() {
         AlarmScheduler.get(this).restoreAllAlarms()
 
         // 异步同步云端播放进度
-        Thread {
-            PlayProgressStore.get(this).syncFromCloud()
-        }.start()
+        CoroutineScope(SupervisorJob() + Dispatchers.IO).launch {
+            PlayProgressStore.get(this@MainActivity).syncFromCloud()
+        }
 
         setContent {
             MengZhenTheme {
