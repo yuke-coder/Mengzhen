@@ -10,7 +10,13 @@ const requestBatteryOptimization = async () => false;
 const openAutoStartSettings = async () => false;
 const openNotificationSettings = async () => false;
 const openExactAlarmSettings = async () => false;
-const getDeviceInfo = async () => null;
+interface DeviceInfo {
+  brand: string;
+  manufacturer: string;
+  model: string;
+  androidVersion: string;
+}
+const getDeviceInfo = async (): Promise<DeviceInfo | null> => null;
 const hasNotificationPermission = async () => true;
 const canScheduleExactAlarms = async () => true;
 import { ChevronLeft, Battery, Bell, AlarmClock, Smartphone, Shield, CheckCircle2, AlertCircle, ExternalLink } from "lucide-react";
