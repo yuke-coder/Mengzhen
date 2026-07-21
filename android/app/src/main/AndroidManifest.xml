@@ -36,7 +36,7 @@
             android:name=".audio.SustainedListenService"
             android:enabled="true"
             android:exported="false"
-            android:foregroundServiceType="mediaPlayback" />
+            android:foregroundServiceType="dataSync" />
 
         <!-- AlarmManager receiver -->
         <receiver
@@ -68,6 +68,7 @@
     <!-- Foreground Service -->
     <uses-permission android:name="android.permission.FOREGROUND_SERVICE" />
     <uses-permission android:name="android.permission.FOREGROUND_SERVICE_MEDIA_PLAYBACK" />
+    <uses-permission android:name="android.permission.FOREGROUND_SERVICE_DATA_SYNC" />
     <!-- WakeLock for CPU during sleep -->
     <uses-permission android:name="android.permission.WAKE_LOCK" />
     <!-- Exact alarm (Android 12+) -->

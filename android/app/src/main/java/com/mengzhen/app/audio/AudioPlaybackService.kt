@@ -589,7 +589,7 @@ class AudioPlaybackService : Service() {
     private fun startPlayback(intent: Intent) {
         // 持有 WakeLock + WifiLock - 对标喜马拉雅 ar.java
         if (wakeLock?.isHeld != true) {
-            wakeLock?.acquire(12 * 60 * 60 * 1000L)
+            wakeLock?.acquire() // 无超时，对标喜马拉雅，在 stopPlaybackInternal 里手动释放
         }
         if (wifiLock?.isHeld != true) {
             wifiLock?.acquire()

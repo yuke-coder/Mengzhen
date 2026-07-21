@@ -91,7 +91,7 @@ class SustainedListenService : Service() {
         val taskName = intent?.getStringExtra("taskName") ?: "梦枕"
         startForegroundWithNotification(taskName)
         if (wakeLock?.isHeld != true) {
-            wakeLock?.acquire(12 * 60 * 60 * 1000L)
+            wakeLock?.acquire() // 无超时，对标喜马拉雅，在 stopKeepAlive 里手动释放
         }
 
         // 检查电池优化白名单 - 对标喜马拉雅 BaseBatteryOptimizationPermission
@@ -137,7 +137,7 @@ class SustainedListenService : Service() {
     private fun startForegroundWithNotification(taskName: String) {
         val notification = buildNotification(taskName)
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.Q) {
-            startForeground(notificationId, notification, ServiceInfo.FOREGROUND_SERVICE_TYPE_MEDIA_PLAYBACK)
+            startForeground(notificationId, notification, ServiceInfo.FOREGROUND_SERVICE_TYPE_DATA_SYNC)
         } else {
             startForeground(notificationId, notification)
         }
