@@ -24,7 +24,6 @@ import android.os.Handler
 import android.os.IBinder
 import android.os.Looper
 import android.os.PowerManager
-import android.telephony.PhoneStateListener
 import android.telephony.TelephonyCallback
 import android.telephony.TelephonyManager
 import android.util.Log
@@ -105,7 +104,6 @@ class AudioPlaybackService : Service() {
 
     private var telephonyManager: TelephonyManager? = null
     private var phoneListenerRegistered = false
-    private var phoneStateListener: PhoneStateListener? = null
     private var telephonyCallback: TelephonyCallback? = null
 
     private var noisyReceiverRegistered = false
@@ -135,41 +133,40 @@ class AudioPlaybackService : Service() {
                     player?.let { if (it.isPlaying) it.pause() }
                     updateNotification("暂停中(音频输出变更): $taskName")
                 }
-                android.net.ConnectivityManager.CONNECTIVITY_ACTION -> {
-                    // 对标喜马拉雅 al.java ACTION_BROADCAST_NETWORK_CHANGE
-                    val cm = context.getSystemService(Context.CONNECTIVITY_SERVICE) as? android.net.ConnectivityManager
-                    val activeNetwork = cm?.activeNetworkInfo
-                    if (activeNetwork == null || !activeNetwork.isConnected) {
-                        // 网络断开时暂停播放
-                        Log.w(tag, "Network lost, pausing playback")
-                        val p = player
-                        if (p != null && p.isPlaying) {
-                            wasPlayingBeforeNetworkLoss = true
-                            p.pause()
-                        }
-                        updateNotification("暂停中(网络断开): $taskName")
-                    } else {
-                        // 网络恢复 - 梦枕优于喜马拉雅：自动恢复播放
-                        if (wasPlayingBeforeNetworkLoss) {
-                            Log.i(tag, "Network restored, resuming playback")
-                            wasPlayingBeforeNetworkLoss = false
-                            val p = player
-                            if (p != null && !p.isPlaying) {
-                                p.play()
-                                updateNotification("正在播放: $taskName")
-                            }
-                        }
+            }
+        }
+    }
+
+    /** 网络变化监听 - 对标喜马拉雅 al.java ACTION_BROADCAST_NETWORK_CHANGE
+     *  用 ConnectivityManager.NetworkCallback（最新 API，替代 deprecated 的 CONNECTIVITY_ACTION broadcast）
+     *  网络断开时暂停播放，网络恢复时自动恢复（梦枕优于喜马拉雅）
+     */
+    private val networkCallback = object : android.net.ConnectivityManager.NetworkCallback() {
+        override fun onLost(network: android.net.Network) {
+            Log.w(tag, "Network lost, pausing playback")
+            val p = player
+            if (p != null && p.isPlaying) {
+                wasPlayingBeforeNetworkLoss = true
+                handler.post { p.pause() }
+            }
+            updateNotification("暂停中(网络断开): $taskName")
+        }
+
+        override fun onAvailable(network: android.net.Network) {
+            if (wasPlayingBeforeNetworkLoss) {
+                Log.i(tag, "Network restored, resuming playback")
+                wasPlayingBeforeNetworkLoss = false
+                val p = player
+                if (p != null && !p.isPlaying) {
+                    handler.post {
+                        p.play()
+                        updateNotification("正在播放: $taskName")
                     }
                 }
             }
         }
     }
-
-    private inner class DreamPillowPhoneStateListener : PhoneStateListener() {
-        override fun onCallStateChanged(state: Int, phoneNumber: String?) {
-            onCallStateChangedInternal(state)
-        }
-    }
+    private var networkCallbackRegistered = false
 
     @UnstableApi
     private inner class DreamPillowTelephonyCallback : TelephonyCallback(), TelephonyCallback.CallStateListener {
@@ -351,35 +348,33 @@ class AudioPlaybackService : Service() {
         wakeLock = powerManager.newWakeLock(PowerManager.PARTIAL_WAKE_LOCK, "DreamPillow::Playback")
         wakeLock?.setReferenceCounted(false)
 
-        // WifiLock - 对标喜马拉雅 ExoPlayer ar.java
+        // WifiLock - 对标喜马拉雅 ExoPlayer ar.java（createWifiLock(3, ...) 即 WIFI_MODE_FULL_HIGH_PERF）
+        // HIGH_PERF 在 API 34 弃用，系统会自动转为 LOW_LATENCY；但 LOW_LATENCY 仅前台+亮屏生效，
+        // 梦枕是息屏后台播放场景，必须保留 HIGH_PERF 以在息屏时尽力保 WiFi（与喜马拉雅一致）。
+        // 故用 @SuppressWarnings 压制 deprecated 警告，不换 LOW_LATENCY。
         val wifiManager = applicationContext.getSystemService(Context.WIFI_SERVICE) as? WifiManager
+        @Suppress("DEPRECATION")
         wifiLock = wifiManager?.createWifiLock(WifiManager.WIFI_MODE_FULL_HIGH_PERF, "DreamPillow::WifiLock")
         wifiLock?.setReferenceCounted(false)
 
         telephonyManager = getSystemService(Context.TELEPHONY_SERVICE) as TelephonyManager
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.S) {
-            telephonyCallback = DreamPillowTelephonyCallback()
-            telephonyManager?.registerTelephonyCallback(mainExecutor, telephonyCallback!!)
-        } else {
-            phoneStateListener = DreamPillowPhoneStateListener()
-            telephonyManager?.listen(phoneStateListener, PhoneStateListener.LISTEN_CALL_STATE)
-        }
+        telephonyCallback = DreamPillowTelephonyCallback()
+        telephonyManager?.registerTelephonyCallback(mainExecutor, telephonyCallback!!)
         phoneListenerRegistered = true
 
-        // 耳机插拔 + 网络变化监听 - 对标喜马拉雅 al.java IntentFilter
-        // 喜马拉雅原版同时监听 HEADSET_PLUG + AUDIO_BECOMING_NOISY + ACTION_BROADCAST_NETWORK_CHANGE
+        // 耳机插拔 + 音频输出变更监听 - 对标喜马拉雅 al.java IntentFilter
         // Android 14+ 必须指定 RECEIVER_NOT_EXPORTED
         val noisyFilter = IntentFilter().apply {
             addAction(Intent.ACTION_HEADSET_PLUG)
             addAction(AudioManager.ACTION_AUDIO_BECOMING_NOISY)
-            addAction(android.net.ConnectivityManager.CONNECTIVITY_ACTION)
         }
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.TIRAMISU) {
-            registerReceiver(noisyReceiver, noisyFilter, Context.RECEIVER_NOT_EXPORTED)
-        } else {
-            registerReceiver(noisyReceiver, noisyFilter)
-        }
+        registerReceiver(noisyReceiver, noisyFilter, Context.RECEIVER_NOT_EXPORTED)
         noisyReceiverRegistered = true
+
+        // 网络变化监听 - ConnectivityManager.NetworkCallback（替代 deprecated CONNECTIVITY_ACTION）
+        val connectivityManager = getSystemService(Context.CONNECTIVITY_SERVICE) as? android.net.ConnectivityManager
+        connectivityManager?.registerDefaultNetworkCallback(networkCallback)
+        networkCallbackRegistered = true
 
         ScreenStatusReceiver.register(this)
         createNotificationChannel()
@@ -1168,16 +1163,17 @@ class AudioPlaybackService : Service() {
             SustainedListenService.start(this, taskName)
         }
         if (phoneListenerRegistered) {
-            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.S && telephonyCallback != null) {
-                telephonyManager?.unregisterTelephonyCallback(telephonyCallback!!)
-            } else {
-                telephonyManager?.listen(phoneStateListener, PhoneStateListener.LISTEN_NONE)
-            }
+            telephonyCallback?.let { telephonyManager?.unregisterTelephonyCallback(it) }
             phoneListenerRegistered = false
         }
         if (noisyReceiverRegistered) {
             unregisterReceiver(noisyReceiver)
             noisyReceiverRegistered = false
+        }
+        if (networkCallbackRegistered) {
+            val connectivityManager = getSystemService(Context.CONNECTIVITY_SERVICE) as? android.net.ConnectivityManager
+            connectivityManager?.unregisterNetworkCallback(networkCallback)
+            networkCallbackRegistered = false
         }
         player?.removeListener(playerListener)
         loudnessEnhancer?.release()
