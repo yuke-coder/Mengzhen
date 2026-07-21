@@ -47,9 +47,15 @@ class AlarmReceiver : BroadcastReceiver() {
         }
         Log.i(TAG, "Started playback service for task: $taskId")
 
+        // 标记任务为执行中
+        task.status = "executing"
+        task.lastExecutedAt = System.currentTimeMillis()
+        TaskStorage.get(context).saveTask(task)
+
         // 如果是重复任务，触发后立即设置下次闹钟
         // 对标喜马拉雅 e.java c() 方法：闹钟触发后重新计算下次时间
-        if (task.repeatDays != 0) {
+        // repeatType 优先，旧 repeatDays 兼容
+        if (task.repeatType != 0 || task.repeatDays != 0) {
             AlarmScheduler.get(context).rescheduleIfRepeating(taskId)
         }
     }

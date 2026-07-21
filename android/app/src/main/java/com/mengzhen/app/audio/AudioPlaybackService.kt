@@ -135,13 +135,28 @@ class AudioPlaybackService : Service() {
                 }
                 android.net.ConnectivityManager.CONNECTIVITY_ACTION -> {
                     // 对标喜马拉雅 al.java ACTION_BROADCAST_NETWORK_CHANGE
-                    // 网络断开时暂停播放
                     val cm = context.getSystemService(Context.CONNECTIVITY_SERVICE) as? android.net.ConnectivityManager
                     val activeNetwork = cm?.activeNetworkInfo
                     if (activeNetwork == null || !activeNetwork.isConnected) {
+                        // 网络断开时暂停播放
                         Log.w(tag, "Network lost, pausing playback")
-                        player?.let { if (it.isPlaying) it.pause() }
+                        val p = player
+                        if (p != null && p.isPlaying) {
+                            wasPlayingBeforeNetworkLoss = true
+                            p.pause()
+                        }
                         updateNotification("暂停中(网络断开): $taskName")
+                    } else {
+                        // 网络恢复 - 梦枕优于喜马拉雅：自动恢复播放
+                        if (wasPlayingBeforeNetworkLoss) {
+                            Log.i(tag, "Network restored, resuming playback")
+                            wasPlayingBeforeNetworkLoss = false
+                            val p = player
+                            if (p != null && !p.isPlaying) {
+                                p.play()
+                                updateNotification("正在播放: $taskName")
+                            }
+                        }
                     }
                 }
             }
@@ -218,6 +233,7 @@ class AudioPlaybackService : Service() {
     /** 错误重试 - 对标喜马拉雅 i.java LoadErrorHandlingPolicy + onPlayerError */
     private var errorRetryCount = 0
     private val maxErrorRetries = 3
+    private var wasPlayingBeforeNetworkLoss = false
 
     private val playerListener = object : Player.Listener {
         override fun onPlaybackStateChanged(playbackState: Int) {
@@ -231,6 +247,16 @@ class AudioPlaybackService : Service() {
                 }
                 Player.STATE_IDLE -> {
                     // STATE_IDLE 通常意味着播放错误后被 stop()，不在这里处理重试
+                }
+                Player.STATE_READY -> {
+                    // 准备就绪后检查断点续播位置是否越界
+                    // 对标喜马拉雅 i.java isCausedByPositionOutOfRange
+                    val p = player ?: return
+                    val duration = p.duration
+                    if (duration > 0 && p.currentPosition > duration) {
+                        Log.w(tag, "Resume position ${p.currentPosition} exceeds duration $duration, resetting to 0")
+                        p.seekTo(0)
+                    }
                 }
             }
         }
@@ -279,11 +305,26 @@ class AudioPlaybackService : Service() {
                 return
             }
 
-            // 对标喜马拉雅 i.java: 如果是本地缓存文件损坏，删除后重新下载
-            val localFile = downloadToCacheFilePath(track.url)
-            if (localFile != null && localFile.exists()) {
-                Log.i(tag, "Deleting corrupted local file: ${localFile.absolutePath}")
-                localFile.delete()
+            // 对标喜马拉雅 i.java: 按错误类型分别处理
+            // 1. 本地缓存文件损坏（EOF/decode error）-> 删除后重新下载
+            // 2. 网络错误 -> 直接重试
+            // 3. 其他 -> 直接停
+            val cause = error.cause
+            val isFileError = cause is java.io.EOFException
+                || cause is java.io.IOException && cause.message?.contains("unexpected end") == true
+                || error.errorCode == androidx.media3.common.PlaybackException.ERROR_CODE_PARSING_CONTAINER_MALFORMED
+
+            if (isFileError) {
+                Log.i(tag, "File corruption detected (EOF/malformed), deleting and retrying")
+                val localFile = downloadToCacheFilePath(track.url)
+                localFile?.let { if (it.exists()) it.delete() }
+            } else {
+                // 对标喜马拉雅 i.java: 其他错误也尝试删本地缓存
+                val localFile = downloadToCacheFilePath(track.url)
+                if (localFile != null && localFile.exists()) {
+                    Log.i(tag, "Deleting cached file: ${localFile.absolutePath}")
+                    localFile.delete()
+                }
             }
 
             handler.postDelayed({
@@ -673,6 +714,9 @@ class AudioPlaybackService : Service() {
 
         // 断点续播 - 恢复播放进度
         if (resumePositionMs > 0) {
+            // 对标喜马拉雅 i.java isCausedByPositionOutOfRange
+            // 等待 STATE_READY 后在 listener 里检查 position 是否越界
+            // 这里先 seekTo，如果越界会在 STATE_READY 时重置为 0
             p.seekTo(resumePositionMs)
             Log.i(tag, "Resumed from ${resumePositionMs / 1000}s")
         }
