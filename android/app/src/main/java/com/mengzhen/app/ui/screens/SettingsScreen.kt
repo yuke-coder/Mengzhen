@@ -8,6 +8,7 @@ import androidx.compose.foundation.lazy.items
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.foundation.text.KeyboardOptions
 import androidx.compose.material.icons.Icons
+import androidx.compose.material.icons.automirrored.filled.VolumeUp
 import androidx.compose.material.icons.filled.*
 import androidx.compose.material3.*
 import androidx.compose.runtime.*
@@ -257,7 +258,7 @@ private fun PlaybackSettingsCard(
 
             // 音量
             Row(verticalAlignment = Alignment.CenterVertically) {
-                Icon(Icons.Default.VolumeUp, contentDescription = null,
+                Icon(Icons.AutoMirrored.Filled.VolumeUp, contentDescription = null,
                     tint = MutedForeground, modifier = Modifier.size(20.dp))
                 Spacer(Modifier.width(8.dp))
                 Text("音量", fontSize = 14.sp)

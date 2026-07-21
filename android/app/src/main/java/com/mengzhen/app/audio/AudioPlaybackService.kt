@@ -15,6 +15,7 @@ import android.graphics.BitmapFactory
 import android.media.AudioAttributes
 import android.media.AudioFocusRequest
 import android.media.AudioManager
+import android.media.audiofx.LoudnessEnhancer
 import android.net.Uri
 import android.net.wifi.WifiManager
 import android.os.Build
@@ -70,6 +71,7 @@ class AudioPlaybackService : Service() {
 
     private var player: ExoPlayer? = null
     private var mediaSession: MediaSession? = null
+    private var loudnessEnhancer: LoudnessEnhancer? = null
     private var wakeLock: PowerManager.WakeLock? = null
     private var wifiLock: WifiManager.WifiLock? = null
     private var audioManager: AudioManager? = null
@@ -495,6 +497,23 @@ class AudioPlaybackService : Service() {
             .apply {
                 addListener(playerListener)
             }
+
+        // LoudnessEnhancer 音量增强 - 对标喜马拉雅 i.java
+        // 用系统 android.media.audiofx.LoudnessEnhancer 挂在 audioSessionId 上
+        // 与 player.volume 渐入渐出是两条独立链路，互不冲突
+        // 增益 600 (mB) ≈ +6dB，睡眠场景适度增强不刺耳
+        // media3 1.5.1 创建播放器后 audioSessionId 即可用（1.6.0 起才变异步）
+        try {
+            loudnessEnhancer?.release()
+            loudnessEnhancer = LoudnessEnhancer(player!!.audioSessionId).apply {
+                setTargetGain(600)
+                enabled = true
+            }
+            Log.i(tag, "LoudnessEnhancer enabled, target gain 600 mB")
+        } catch (e: Exception) {
+            Log.w(tag, "LoudnessEnhancer init failed: ${e.message}")
+            loudnessEnhancer = null
+        }
 
         mediaSession = MediaSession.Builder(this, player!!)
             .setSessionActivity(
@@ -1161,6 +1180,8 @@ class AudioPlaybackService : Service() {
             noisyReceiverRegistered = false
         }
         player?.removeListener(playerListener)
+        loudnessEnhancer?.release()
+        loudnessEnhancer = null
         player?.release()
         player = null
         mediaSession?.release()

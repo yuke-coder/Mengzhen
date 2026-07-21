@@ -7,9 +7,9 @@ import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.foundation.verticalScroll
 import androidx.compose.material.icons.Icons
-import androidx.compose.material.icons.filled.ArrowBack
+import androidx.compose.material.icons.automirrored.filled.ArrowBack
 import androidx.compose.material.icons.filled.Person
-import androidx.compose.material.icons.filled.Logout
+import androidx.compose.material.icons.automirrored.filled.Logout
 import androidx.compose.material.icons.filled.History
 import androidx.compose.material.icons.filled.Feedback
 import androidx.compose.material.icons.filled.Settings
@@ -62,7 +62,7 @@ fun ProfileScreen(navController: NavController) {
                 title = { Text("个人中心") },
                 navigationIcon = {
                     IconButton(onClick = { navController.popBackStack() }) {
-                        Icon(Icons.Default.ArrowBack, contentDescription = "返回")
+                        Icon(Icons.AutoMirrored.Filled.ArrowBack, contentDescription = "返回")
                     }
                 },
                 colors = TopAppBarDefaults.topAppBarColors(
@@ -122,7 +122,7 @@ fun ProfileScreen(navController: NavController) {
                         }
                     }
                 }) {
-                    Icon(Icons.Default.Logout, contentDescription = null, tint = Destructive, modifier = Modifier.size(18.dp))
+                    Icon(Icons.AutoMirrored.Filled.Logout, contentDescription = null, tint = Destructive, modifier = Modifier.size(18.dp))
                     Spacer(Modifier.width(8.dp))
                     Text("退出登录", color = Destructive, fontSize = 15.sp)
                 }
