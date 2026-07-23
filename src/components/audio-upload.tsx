@@ -520,7 +520,7 @@ export function AudioUpload({
         >
           <div
             aria-hidden="true"
-            className="h-2 w-full rounded-full"
+            className="h-[9px] w-full rounded-full"
             style={{ background: `linear-gradient(to right, var(--brand-start) ${volume}%, rgba(128,128,128,0.2) ${volume}%)` }}
           />
         </div>
