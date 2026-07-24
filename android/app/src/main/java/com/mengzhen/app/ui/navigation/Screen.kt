@@ -9,5 +9,9 @@ sealed class Screen(val route: String) {
     object Templates : Screen("templates")
     object Profile : Screen("profile")
     object Feedback : Screen("feedback")
-    object BackgroundOptimization : Screen("bg_optimization")
+    object PermissionSettings : Screen("permission_settings")
+    object PermissionTutorial : Screen("permission_tutorial/{permissionKey}") {
+        fun createRoute(permissionKey: com.mengzhen.app.data.tutorial.PermissionKey) =
+            "permission_tutorial/${permissionKey.prefKey}"
+    }
 }

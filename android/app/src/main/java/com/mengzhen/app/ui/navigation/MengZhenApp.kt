@@ -11,6 +11,11 @@ import com.mengzhen.app.ui.screens.LandingScreen
 import com.mengzhen.app.ui.screens.SettingsScreen
 import com.mengzhen.app.ui.screens.LoginScreen
 import com.mengzhen.app.ui.screens.RegisterScreen
+import com.mengzhen.app.ui.screens.HistoryScreen
+import com.mengzhen.app.ui.screens.ProfileScreen
+import com.mengzhen.app.ui.screens.FeedbackScreen
+import com.mengzhen.app.ui.screens.PermissionSettingsScreen
+import com.mengzhen.app.ui.screens.PermissionTutorialScreen
 
 @Composable
 fun MengZhenApp() {
@@ -28,6 +33,24 @@ fun MengZhenApp() {
             }
             composable(Screen.Register.route) {
                 RegisterScreen(navController = navController)
+            }
+            composable(Screen.History.route) {
+                HistoryScreen(navController = navController)
+            }
+            composable(Screen.Profile.route) {
+                ProfileScreen(navController = navController)
+            }
+            composable(Screen.Feedback.route) {
+                FeedbackScreen(navController = navController)
+            }
+            composable(Screen.PermissionSettings.route) {
+                PermissionSettingsScreen(navController = navController)
+            }
+            composable(Screen.PermissionTutorial.route) { backStackEntry ->
+                PermissionTutorialScreen(
+                    navController = navController,
+                    permissionKey = backStackEntry.arguments?.getString("permissionKey") ?: "",
+                )
             }
         }
     }
