@@ -212,6 +212,29 @@ object VendorCompat {
     }
 
     /**
+     * 检查"休眠状态保持网络连接"状态（仅华为/荣耀）
+     * 对标喜马拉雅 HuaWeiDevice 休眠保持网络检查（wifi_sleep_policy）
+     *
+     * 三态返回（仅参考、失败不拦截、不误报——内容文档 §一脚注）：
+     * - true  = 已开启（WIFI_SLEEP_POLICY_ALWAYS）
+     * - false = 未开启
+     * - null  = 读取失败（HarmonyOS 新版本可能缺该 key）→ 列表页按"未确认"中性展示
+     */
+    fun isWifiSleepPolicyAlways(context: Context): Boolean? {
+        return try {
+            // 值 2 = 旧常量 WIFI_SLEEP_POLICY_NEVER（API 29 起 deprecated，无替代 API；
+            // 但华为/荣耀存量设备的「休眠时始终保持网络连接」仍写这个 key，检测目标本身就是历史 key）
+            Settings.Global.getInt(context.contentResolver, "wifi_sleep_policy") == 2
+        } catch (e: Settings.SettingNotFoundException) {
+            Log.d(TAG, "wifi_sleep_policy key not found on this device")
+            null
+        } catch (e: Exception) {
+            Log.w(TAG, "Failed to read wifi_sleep_policy", e)
+            null
+        }
+    }
+
+    /**
      * 检查省电模式状态
      * 对标喜马拉雅 BaseClosePowerSaveModePermission.getPermissionStatus()
      * - 小米: Settings.System POWER_SAVE_MODE_OPEN != 1

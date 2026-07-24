@@ -116,7 +116,7 @@ fun SettingsScreen(navController: NavController) {
                 modifier = Modifier
                     .fillMaxWidth()
                     .padding(horizontal = 16.dp, vertical = 4.dp)
-                    .clickable { navController.navigate("bg_optimization") },
+                    .clickable { navController.navigate(com.mengzhen.app.ui.navigation.Screen.PermissionSettings.route) },
                 colors = CardDefaults.cardColors(
                     containerColor = MaterialTheme.colorScheme.surfaceVariant
                 ),
