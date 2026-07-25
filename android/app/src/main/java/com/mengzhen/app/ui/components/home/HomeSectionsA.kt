@@ -149,28 +149,6 @@ private fun FeatureMiniCard(
     }
 }
 
-/** 两行一列简易网格（grid-cols-2 移动端保持 2 列用） */
-@Composable
-private fun TwoColumnGrid(
-    count: Int,
-    horizontalSpacing: androidx.compose.ui.unit.Dp = 10.dp,
-    verticalSpacing: androidx.compose.ui.unit.Dp = 10.dp,
-    itemContent: @Composable BoxScope.(Int) -> Unit,
-) {
-    Column(verticalArrangement = Arrangement.spacedBy(verticalSpacing)) {
-        (0 until count step 2).forEach { row ->
-            Row(horizontalArrangement = Arrangement.spacedBy(horizontalSpacing)) {
-                Box(Modifier.weight(1f)) { itemContent(row) }
-                if (row + 1 < count) {
-                    Box(Modifier.weight(1f)) { itemContent(row + 1) }
-                } else {
-                    Spacer(Modifier.weight(1f))
-                }
-            }
-        }
-    }
-}
-
 // ==================== §1 Features 大区块 ====================
 
 /**
@@ -192,7 +170,7 @@ fun FeaturesSection() {
         RevealGroup {
             Column(horizontalAlignment = Alignment.CenterHorizontally) {
                 SectionPill("核心优势")
-                Spacer(Modifier.height(24.dp))
+                Spacer(Modifier.height(16.dp))
                 SectionTitle(
                     plain = "专为中国浅眠人群",
                     gradient = "匠心打造",
@@ -254,7 +232,7 @@ fun FeaturesSection() {
 
         // 接续睡眠 3 卡
         SubSectionTitle("夜间觉醒后接续睡眠", "不求辅助入眠，只为中途觉醒后快速重新入睡")
-        Spacer(Modifier.height(24.dp))
+        Spacer(Modifier.height(16.dp))
         val continueSleep = listOf(
             Triple(Icons.Default.Refresh, "觉醒自动续播", "夜间醒来后，柔和音频无缝衔接，帮助快速重新入睡"),
             Triple(Icons.AutoMirrored.Filled.VolumeUp, "零突变音量", "全程音量渐入渐出，彻底规避惊醒风险，营造柔和睡眠氛围"),
@@ -269,7 +247,7 @@ fun FeaturesSection() {
 
         // 个性化音频配置 6 卡
         SubSectionTitle("个性化音频配置", "精细化音量控制，适配个人听觉耐受度")
-        Spacer(Modifier.height(24.dp))
+        Spacer(Modifier.height(16.dp))
         val audioConfig = listOf(
             Triple(Icons.Default.MusicNote, "全格式兼容", "MP3、WAV、FLAC 等全主流音频格式"),
             Triple(Icons.Default.Headphones, "在线试听", "上传后实时预览，快速筛选适配音频"),
@@ -306,7 +284,7 @@ fun FeaturesSection() {
             Spacer(Modifier.height(16.dp))
             SubSectionTitle("后台稳定播放", "夜间锁屏休眠持续播放，不中断接续睡眠")
         }
-        Spacer(Modifier.height(24.dp))
+        Spacer(Modifier.height(16.dp))
         val backgroundPlay = listOf(
             Triple(Icons.Default.Bolt, "后台唤醒", "锁屏休眠仍可定时唤醒正常播放"),
             Triple(Icons.Default.BatterySaver, "电池优化", "忽略电池优化引导，提升休眠稳定性"),
@@ -369,7 +347,7 @@ fun FeaturesSection() {
 
         // 分层数据存储 3 卡
         SubSectionTitle("分层数据存储方案", "兼顾云端便捷性与本地隐私安全")
-        Spacer(Modifier.height(24.dp))
+        Spacer(Modifier.height(16.dp))
         val storage = listOf(
             StorageCardData(Icons.Default.Storage, "云端数据库", "音频文件统一存入云端数据库，跨设备同步无缝使用", Color(0xFF38BDF8), Color(0xFF0EA5E9)),
             StorageCardData(Icons.Default.Cookie, "本地持久化", "Cookie 本地存储配置信息，响应速度快、隐私性强", Color(0xFFFBBF24), Color(0xFFF59E0B)),
@@ -377,7 +355,7 @@ fun FeaturesSection() {
         )
         storage.forEachIndexed { i, data ->
             DiffuseCard(17 + i, modifier = Modifier.fillMaxWidth()) {
-                Column(Modifier.padding(24.dp)) {
+                Column(Modifier.padding(20.dp)) {
                     Box(
                         Modifier
                             .size(48.dp)
@@ -410,9 +388,9 @@ fun FeaturesSection() {
 
         // 极简定位
         SubSectionTitle("纯粹极简的产品定位", "梦枕不争夺注意力，只在深夜替你完成播放这件事。")
-        Spacer(Modifier.height(24.dp))
+        Spacer(Modifier.height(16.dp))
         DiffuseCard(22, modifier = Modifier.fillMaxWidth()) {
-            Column(Modifier.padding(24.dp)) {
+            Column(Modifier.padding(20.dp)) {
                 Row(
                     modifier = Modifier
                         .clip(CircleShape)
@@ -429,7 +407,7 @@ fun FeaturesSection() {
                     lineHeight = 30.sp,
                     color = MaterialTheme.colorScheme.onSurface.copy(alpha = 0.9f),
                 )
-                Spacer(Modifier.height(24.dp))
+                Spacer(Modifier.height(16.dp))
                 // 边界标签
                 val boundaries = listOf("无广告", "无订阅", "无推荐流", "无社交分享", "无睡眠监测", "无多余弹窗")
                 androidx.compose.foundation.layout.FlowRow(
@@ -494,7 +472,7 @@ fun FeaturesSection() {
 
         // 安全保障 2 卡
         SubSectionTitle("全方位隐私安全保障", "用户数据完全可控")
-        Spacer(Modifier.height(24.dp))
+        Spacer(Modifier.height(16.dp))
         SecurityCard(
             26, Icons.Default.Shield, "银行级密码安全", "bcrypt 哈希算法加密", Color(0xFFA78BFA),
             listOf("不可逆加密处理，杜绝明文泄露", "独立随机盐值混合加密", "抵御彩虹表攻击、暴力破解"),
@@ -528,7 +506,7 @@ private fun SecurityCard(
     bullets: List<String>,
 ) {
     DiffuseCard(diffuseIndex, modifier = Modifier.fillMaxWidth()) {
-        Column(Modifier.padding(24.dp)) {
+        Column(Modifier.padding(20.dp)) {
             Row(verticalAlignment = Alignment.CenterVertically) {
                 Box(
                     Modifier
@@ -620,7 +598,7 @@ fun AudienceSection() {
         Spacer(Modifier.height(48.dp))
         audiences.forEachIndexed { i, data ->
             DiffuseCard(28 + i, modifier = Modifier.fillMaxWidth()) {
-                Column(Modifier.padding(24.dp)) {
+                Column(Modifier.padding(20.dp)) {
                     Box(Modifier.size(48.dp).clip(RoundedCornerShape(12.dp)), contentAlignment = Alignment.Center) {
                         Icon(data.icon, null, Modifier.size(32.dp), tint = data.badgeColor)
                     }
