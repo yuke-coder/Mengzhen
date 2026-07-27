@@ -21,6 +21,7 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.Brush
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.geometry.Offset
 import androidx.compose.ui.graphics.vector.ImageVector
 import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.platform.LocalContext
@@ -45,6 +46,12 @@ private val EmeraldAccentB = Color(0xFF10B981)
 private val IndigoAccent = Color(0xFF6366F1)
 private val TealAccent = Color(0xFF14B8A6)
 private val VioletAccent = Color(0xFF8B5CF6)
+// ThemeModeCard 专用色
+private val AmberIconLight = Color(0xFFFDE68A)
+private val AmberIconDark = Color(0xFFFCD34D)
+private val AmberTextDark = Color(0xFFB45309)
+private val PurpleDeep = Color(0xFF9333EA)
+private val IndigoLight = Color(0xFF818CF8)
 
 // ==================== §3 展示模式切换 + 全功能免费 ====================
 
@@ -97,12 +104,12 @@ fun DisplayModeSection() {
                     ThemeModeCard(
                         diffuseIndex = 34,
                         borderColor = AmberAccentB,
-                        iconBg = Brush.linearGradient(listOf(Color(0xFFFDE68A), Color(0xFFFCD34D))),
-                        icon = { Icon(Icons.Default.LightMode, null, Modifier.size(20.dp), tint = Color(0xFFB45309)) },
+                        iconBg = Brush.linearGradient(listOf(AmberIconLight, AmberIconDark)),
+                        icon = { Icon(Icons.Default.LightMode, null, Modifier.size(20.dp), tint = AmberTextDark) },
                         title = "日间模式",
-                        titleColor = Color(0xFFB45309),
+                        titleColor = AmberTextDark,
                         desc = "明亮清晰，适合白天",
-                        descColor = Color(0xCCB45309),
+                        descColor = AmberTextDark.copy(alpha = 0.8f),
                     ) {
                         scope.launch { ThemeModeStore.setMode(context, ThemeMode.LIGHT) }
                     }
@@ -112,12 +119,12 @@ fun DisplayModeSection() {
                     ThemeModeCard(
                         diffuseIndex = 35,
                         borderColor = IndigoAccent,
-                        iconBg = Brush.linearGradient(listOf(IndigoAccent, Color(0xFF9333EA))),
+                        iconBg = Brush.linearGradient(listOf(IndigoAccent, PurpleDeep)),
                         icon = { Icon(Icons.Default.Nightlight, null, Modifier.size(20.dp), tint = Color.White) },
                         title = "夜间模式",
-                        titleColor = Color(0xFF818CF8),
+                        titleColor = IndigoLight,
                         desc = "柔和护眼，适合夜晚",
-                        descColor = Color(0xCC818CF8),
+                        descColor = IndigoLight.copy(alpha = 0.8f),
                     ) {
                         scope.launch { ThemeModeStore.setMode(context, ThemeMode.DARK) }
                     }
@@ -485,7 +492,7 @@ private fun TemplateCard(index: Int, data: TemplateCardData, modifier: Modifier 
                 Modifier
                     .size(40.dp)
                     .clip(RoundedCornerShape(12.dp))
-                    .background(Brush.linearGradient(listOf(from.copy(alpha = 0.5f), to), start = androidx.compose.ui.geometry.Offset.Zero, end = androidx.compose.ui.geometry.Offset.Infinite)),
+                    .background(Brush.linearGradient(listOf(from.copy(alpha = 0.5f), to), start = Offset.Zero, end = Offset.Infinite)),
                 contentAlignment = Alignment.Center,
             ) {
                 Icon(data.icon, null, Modifier.size(20.dp), tint = Color.Black.copy(alpha = 0.55f))

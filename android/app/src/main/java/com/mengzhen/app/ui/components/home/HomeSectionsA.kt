@@ -3,6 +3,7 @@ package com.mengzhen.app.ui.components.home
 import androidx.compose.foundation.background
 import androidx.compose.foundation.border
 import androidx.compose.foundation.layout.*
+import androidx.compose.foundation.layout.ExperimentalLayoutApi
 import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.icons.Icons
@@ -21,6 +22,7 @@ import androidx.compose.ui.graphics.vector.ImageVector
 import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextAlign
+import androidx.compose.ui.unit.TextUnit
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import com.mengzhen.app.ui.theme.BrandEndThemed
@@ -46,7 +48,7 @@ private val CyanLight = Color(0xFF22D3EE)
 private fun SectionTitle(
     plain: String,
     gradient: String,
-    plainSize: androidx.compose.ui.unit.TextUnit = 28.sp,
+    plainSize: TextUnit = 28.sp,
     subtitle: String? = null,
 ) {
     Column(horizontalAlignment = Alignment.CenterHorizontally) {
@@ -148,7 +150,7 @@ private fun FeatureMiniCard(
  * FeaturesSection —— 复刻 page.tsx #features（py-32）
  * 标题 + 4 痛点卡 + 3 价值卡 + 6 配置卡 + 4 后台卡 + 桌面 pill + 3 存储卡 + 极简定位 + 2 安全卡
  */
-@OptIn(androidx.compose.foundation.layout.ExperimentalLayoutApi::class)
+@OptIn(ExperimentalLayoutApi::class)
 @Composable
 fun FeaturesSection() {
     Column(
@@ -265,8 +267,8 @@ fun FeaturesSection() {
                     .background(
                         Brush.linearGradient(
                             listOf(
-                                com.mengzhen.app.ui.theme.BrandStartThemed.copy(alpha = 0.2f),
-                                com.mengzhen.app.ui.theme.BrandEndThemed.copy(alpha = 0.1f),
+                                BrandStartThemed.copy(alpha = 0.2f),
+                                BrandEndThemed.copy(alpha = 0.1f),
                             )
                         )
                     ),
@@ -395,7 +397,7 @@ fun FeaturesSection() {
                 Spacer(Modifier.height(16.dp))
                 // 边界标签
                 val boundaries = listOf("无广告", "无订阅", "无推荐流", "无社交分享", "无睡眠监测", "无多余弹窗")
-                androidx.compose.foundation.layout.FlowRow(
+                FlowRow(
                     horizontalArrangement = Arrangement.spacedBy(8.dp),
                     verticalArrangement = Arrangement.spacedBy(8.dp),
                 ) {
