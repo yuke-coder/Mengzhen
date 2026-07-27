@@ -34,6 +34,18 @@ import com.mengzhen.app.R
 import com.mengzhen.app.ui.theme.*
 import kotlinx.coroutines.launch
 
+// ==================== Accent color constants ====================
+private val GreenAccent = Color(0xFF22C55E)
+private val BlueAccent = Color(0xFF3B82F6)
+private val PurpleAccentB = Color(0xFFA855F7)
+private val AmberAccentB = Color(0xFFF59E0B)
+private val CyanAccentB = Color(0xFF06B6D4)
+private val PinkAccentB = Color(0xFFEC4899)
+private val EmeraldAccentB = Color(0xFF10B981)
+private val IndigoAccent = Color(0xFF6366F1)
+private val TealAccent = Color(0xFF14B8A6)
+private val VioletAccent = Color(0xFF8B5CF6)
+
 // ==================== §3 展示模式切换 + 全功能免费 ====================
 
 /** DisplayModeSection —— 复刻 page.tsx #display-mode：2 主题大卡 + 8 免费权益卡 */
@@ -84,7 +96,7 @@ fun DisplayModeSection() {
                 Box(Modifier.weight(1f)) {
                     ThemeModeCard(
                         diffuseIndex = 34,
-                        borderColor = Color(0xFFF59E0B),
+                        borderColor = AmberAccentB,
                         iconBg = Brush.linearGradient(listOf(Color(0xFFFDE68A), Color(0xFFFCD34D))),
                         icon = { Icon(Icons.Default.LightMode, null, Modifier.size(20.dp), tint = Color(0xFFB45309)) },
                         title = "日间模式",
@@ -99,8 +111,8 @@ fun DisplayModeSection() {
                 Box(Modifier.weight(1f)) {
                     ThemeModeCard(
                         diffuseIndex = 35,
-                        borderColor = Color(0xFF6366F1),
-                        iconBg = Brush.linearGradient(listOf(Color(0xFF6366F1), Color(0xFF9333EA))),
+                        borderColor = IndigoAccent,
+                        iconBg = Brush.linearGradient(listOf(IndigoAccent, Color(0xFF9333EA))),
                         icon = { Icon(Icons.Default.Nightlight, null, Modifier.size(20.dp), tint = Color.White) },
                         title = "夜间模式",
                         titleColor = Color(0xFF818CF8),
@@ -145,14 +157,14 @@ fun DisplayModeSection() {
 
         // 8 免费卡（grid-cols-2）
         val freeCards = listOf(
-            FreeCardData(Icons.Default.CardGiftcard, "全部功能免费", "无付费门槛", Color(0xFF22C55E)),
-            FreeCardData(Icons.Default.Schedule, "全自动定时", "到点自动播放", Color(0xFF3B82F6)),
-            FreeCardData(Icons.Default.Bolt, "无广告弹窗", "纯净体验", Color(0xFFA855F7)),
-            FreeCardData(Icons.Default.Shield, "隐私零收集", "数据安全", Color(0xFFF59E0B)),
-            FreeCardData(Icons.Default.Smartphone, "全平台通用", "多设备同步", Color(0xFF06B6D4)),
-            FreeCardData(Icons.Default.Lock, "密码安全加密", "银行级保障", Color(0xFFEC4899)),
-            FreeCardData(Icons.Default.Bolt, "极速加载", "原生应用", Color(0xFF10B981)),
-            FreeCardData(Icons.Default.WorkspacePremium, "专属音频库", "云端存储", Color(0xFF6366F1)),
+            FreeCardData(Icons.Default.CardGiftcard, "全部功能免费", "无付费门槛", GreenAccent),
+            FreeCardData(Icons.Default.Schedule, "全自动定时", "到点自动播放", BlueAccent),
+            FreeCardData(Icons.Default.Bolt, "无广告弹窗", "纯净体验", PurpleAccentB),
+            FreeCardData(Icons.Default.Shield, "隐私零收集", "数据安全", AmberAccentB),
+            FreeCardData(Icons.Default.Smartphone, "全平台通用", "多设备同步", CyanAccentB),
+            FreeCardData(Icons.Default.Lock, "密码安全加密", "银行级保障", PinkAccentB),
+            FreeCardData(Icons.Default.Bolt, "极速加载", "原生应用", EmeraldAccentB),
+            FreeCardData(Icons.Default.WorkspacePremium, "专属音频库", "云端存储", IndigoAccent),
         )
         RevealGroup(delayBase = 100) {
             Column(verticalArrangement = Arrangement.spacedBy(10.dp)) {
@@ -293,10 +305,10 @@ fun PainPointsSection() {
         Spacer(Modifier.height(40.dp))
 
         val pains = listOf(
-            PainData(Icons.Default.Upload, "音频难上传", "想用专属音频助眠，却找不到支持私人音频文件的应用", Color(0xFF14B8A6)),
-            PainData(Icons.Default.Schedule, "定时不智能", "普通定时器无法自动停止，半夜醒来还得手动关闭", Color(0xFF3B82F6)),
-            PainData(Icons.AutoMirrored.Filled.VolumeUp, "启停太突兀", "音频突然播放或停止，音量骤变极易惊醒浅眠的你", Color(0xFF8B5CF6)),
-            PainData(Icons.Default.Bolt, "操作太繁琐", "现有工具功能分散，全流程自动化难以实现", Color(0xFFF59E0B)),
+            PainData(Icons.Default.Upload, "音频难上传", "想用专属音频助眠，却找不到支持私人音频文件的应用", TealAccent),
+            PainData(Icons.Default.Schedule, "定时不智能", "普通定时器无法自动停止，半夜醒来还得手动关闭", BlueAccent),
+            PainData(Icons.AutoMirrored.Filled.VolumeUp, "启停太突兀", "音频突然播放或停止，音量骤变极易惊醒浅眠的你", VioletAccent),
+            PainData(Icons.Default.Bolt, "操作太繁琐", "现有工具功能分散，全流程自动化难以实现", AmberAccentB),
         )
         RevealGroup(delayBase = 100) {
             Column(verticalArrangement = Arrangement.spacedBy(16.dp)) {
@@ -342,26 +354,17 @@ fun PainPointsSection() {
 
         Spacer(Modifier.height(32.dp))
         RevealGroup(delayBase = 300) {
-            Row(
-                modifier = Modifier
-                    .clip(CircleShape)
-                    .background(
-                        Brush.horizontalGradient(
-                            listOf(BrandStartThemed.copy(alpha = 0.1f), BrandEndThemed.copy(alpha = 0.1f))
-                        )
-                    )
-                    .border(1.dp, BrandStartThemed.copy(alpha = 0.2f), CircleShape)
-                    .padding(horizontal = 20.dp, vertical = 12.dp),
-                verticalAlignment = Alignment.CenterVertically,
-                horizontalArrangement = Arrangement.spacedBy(12.dp),
-            ) {
-                Icon(Icons.Default.AutoAwesome, null, Modifier.size(16.dp), tint = BrandGlowThemed)
-                Text(
-                    "上传音频·自定义定时·淡入淡出·全自动运行",
-                    fontSize = 14.sp,
-                    color = MaterialTheme.colorScheme.onSurfaceVariant,
-                )
-            }
+            BrandPill(
+                text = "上传音频·自定义定时·淡入淡出·全自动运行",
+                icon = Icons.Default.AutoAwesome,
+                background = Brush.horizontalGradient(
+                    listOf(BrandStartThemed.copy(alpha = 0.1f), BrandEndThemed.copy(alpha = 0.1f))
+                ),
+                borderColor = BrandStartThemed.copy(alpha = 0.2f),
+                textColor = MaterialTheme.colorScheme.onSurfaceVariant,
+                horizontalPadding = 20.dp,
+                verticalPadding = 12.dp,
+            )
         }
         Spacer(Modifier.height(48.dp))
     }
@@ -661,22 +664,14 @@ fun StartSection(
                 )
                 Spacer(Modifier.height(32.dp))
                 // 无需登录 pill
-                Row(
-                    modifier = Modifier
-                        .clip(CircleShape)
-                        .background(
-                            Brush.horizontalGradient(
-                                listOf(BrandStartThemed.copy(alpha = 0.15f), BrandEndThemed.copy(alpha = 0.1f))
-                            )
-                        )
-                        .border(1.dp, BrandStartThemed.copy(alpha = 0.2f), CircleShape)
-                        .padding(horizontal = 16.dp, vertical = 8.dp),
-                    verticalAlignment = Alignment.CenterVertically,
-                    horizontalArrangement = Arrangement.spacedBy(8.dp),
-                ) {
-                    Box(Modifier.size(8.dp).clip(CircleShape).background(BrandStartThemed))
-                    Text("无需登录·开箱即用", fontSize = 14.sp, fontWeight = FontWeight.Medium, color = BrandStartThemed)
-                }
+                BrandPill(
+                    text = "无需登录·开箱即用",
+                    background = Brush.horizontalGradient(
+                        listOf(BrandStartThemed.copy(alpha = 0.15f), BrandEndThemed.copy(alpha = 0.1f))
+                    ),
+                    borderColor = BrandStartThemed.copy(alpha = 0.2f),
+                    textColor = BrandStartThemed,
+                )
                 Spacer(Modifier.height(32.dp))
                 // 大按钮「开始设置」（bottomCta 锚点：上报视口可见性给 FloatingBar）
                 Box(

@@ -4,14 +4,26 @@ import androidx.compose.animation.core.Animatable
 import androidx.compose.animation.core.FastOutSlowInEasing
 import androidx.compose.animation.core.tween
 import androidx.compose.foundation.Canvas
+import androidx.compose.foundation.background
 import androidx.compose.foundation.border
+import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.BoxScope
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.ColumnScope
+import androidx.compose.foundation.layout.Row
+import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxSize
+import androidx.compose.foundation.layout.fillMaxWidth
+import androidx.compose.foundation.layout.height
+import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.layout.size
+import androidx.compose.foundation.layout.width
+import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.foundation.shape.RoundedCornerShape
+import androidx.compose.material3.Icon
 import androidx.compose.material3.MaterialTheme
+import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.remember
@@ -25,9 +37,21 @@ import androidx.compose.ui.graphics.Brush
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.Shape
 import androidx.compose.ui.graphics.graphicsLayer
+import androidx.compose.ui.graphics.vector.ImageVector
 import androidx.compose.ui.layout.boundsInRoot
 import androidx.compose.ui.layout.onGloballyPositioned
+import androidx.compose.ui.platform.LocalConfiguration
+import androidx.compose.ui.platform.LocalDensity
+import androidx.compose.ui.text.font.FontWeight
+import androidx.compose.ui.text.style.TextAlign
+import androidx.compose.ui.unit.Dp
+import androidx.compose.ui.unit.TextUnit
 import androidx.compose.ui.unit.dp
+import androidx.compose.ui.unit.sp
+import com.mengzhen.app.ui.theme.BrandEndThemed
+import com.mengzhen.app.ui.theme.BrandGlowThemed
+import com.mengzhen.app.ui.theme.BrandMidThemed
+import com.mengzhen.app.ui.theme.BrandStartThemed
 import com.mengzhen.app.ui.theme.LocalIsDarkTheme
 
 // ==================== 多色弥散卡（home-diffuse-card） ====================
@@ -114,8 +138,8 @@ fun Modifier.viewportVisibilityTracker(
     onVisibleChanged: ((Boolean) -> Unit)?,
 ): Modifier {
     if (onVisibleChanged == null) return this
-    val configuration = androidx.compose.ui.platform.LocalConfiguration.current
-    val density = androidx.compose.ui.platform.LocalDensity.current
+    val configuration = LocalConfiguration.current
+    val density = LocalDensity.current
     val viewportHeightPx = with(density) { configuration.screenHeightDp.dp.toPx() }
     return this.then(
         Modifier.onGloballyPositioned { coords ->
@@ -150,14 +174,132 @@ fun RevealGroup(
     )
 }
 
+// ==================== DiffuseFeatureCard（统一特性卡） ====================
+
+enum class DiffuseCardLayout { ROW, COLUMN }
+
+/** 内部复用：icon 方块（可带渐变背景或边框） */
+@Composable
+private fun DiffuseFeatureIconBox(
+    icon: ImageVector,
+    boxSize: Dp,
+    boxShape: Shape,
+    iconBg: Brush?,
+    iconBorderColor: Color?,
+    iconTint: Color,
+    iconSize: Dp,
+) {
+    Box(
+        Modifier
+            .size(boxSize)
+            .clip(boxShape)
+            .then(if (iconBg != null) Modifier.background(iconBg) else Modifier)
+            .then(if (iconBorderColor != null) Modifier.border(1.dp, iconBorderColor, boxShape) else Modifier),
+        contentAlignment = Alignment.Center,
+    ) {
+        Icon(icon, null, Modifier.size(iconSize), tint = iconTint)
+    }
+}
+
+/**
+ * DiffuseFeatureCard —— 统一的弥散特性卡，取代各处结构雷同的 DiffuseCard+Row/Column。
+ * 支持两种布局：
+ * - Row（默认）：icon 方块在左，title+desc 在右
+ * - Column：icon 方块在上，title+desc 在下（居中可选）
+ */
+@Composable
+fun DiffuseFeatureCard(
+    diffuseIndex: Int,
+    icon: ImageVector,
+    title: String,
+    desc: String,
+    modifier: Modifier = Modifier,
+    layout: DiffuseCardLayout = DiffuseCardLayout.ROW,
+    iconBoxSize: Dp = 40.dp,
+    iconBoxShape: Shape = RoundedCornerShape(12.dp),
+    iconBg: Brush? = null,
+    iconBorderColor: Color? = null,
+    iconTint: Color = BrandGlowThemed,
+    iconSize: Dp = 24.dp,
+    contentPadding: Dp = 20.dp,
+    titleSize: TextUnit = 16.sp,
+    descSize: TextUnit = 14.sp,
+    descLineHeight: TextUnit = 22.sp,
+    centered: Boolean = false,
+) {
+    DiffuseCard(diffuseIndex, modifier = modifier) {
+        when (layout) {
+            DiffuseCardLayout.ROW -> {
+                Row(Modifier.padding(contentPadding), verticalAlignment = Alignment.Top) {
+                    DiffuseFeatureIconBox(icon, iconBoxSize, iconBoxShape, iconBg, iconBorderColor, iconTint, iconSize)
+                    Spacer(Modifier.width(12.dp))
+                    Column {
+                        Text(title, fontSize = titleSize, fontWeight = FontWeight.SemiBold, color = MaterialTheme.colorScheme.onSurface.copy(alpha = 0.9f))
+                        Spacer(Modifier.height(8.dp))
+                        Text(desc, fontSize = descSize, lineHeight = descLineHeight, color = MaterialTheme.colorScheme.onSurfaceVariant.copy(alpha = 0.7f))
+                    }
+                }
+            }
+            DiffuseCardLayout.COLUMN -> {
+                Column(
+                    Modifier.padding(contentPadding).fillMaxWidth(),
+                    horizontalAlignment = if (centered) Alignment.CenterHorizontally else Alignment.Start,
+                ) {
+                    DiffuseFeatureIconBox(icon, iconBoxSize, iconBoxShape, iconBg, iconBorderColor, iconTint, iconSize)
+                    Spacer(Modifier.height(16.dp))
+                    Text(title, fontSize = titleSize, fontWeight = FontWeight.SemiBold, color = MaterialTheme.colorScheme.onSurface.copy(alpha = 0.9f), textAlign = if (centered) TextAlign.Center else TextAlign.Start)
+                    Spacer(Modifier.height(8.dp))
+                    Text(desc, fontSize = descSize, lineHeight = descLineHeight, color = MaterialTheme.colorScheme.onSurfaceVariant.copy(alpha = 0.7f), textAlign = if (centered) TextAlign.Center else TextAlign.Start)
+                }
+            }
+        }
+    }
+}
+
+// ==================== BrandPill（统一 pill 标签） ====================
+
+/**
+ * BrandPill —— 统一的 pill 标签组件，取代各处内联 pill。
+ * 支持 solid / gradient 背景、icon / dot 前缀、自定义边框和文字色。
+ */
+@Composable
+fun BrandPill(
+    text: String,
+    icon: ImageVector? = null,
+    modifier: Modifier = Modifier,
+    background: Brush? = null,
+    borderColor: Color = BrandGlowThemed.copy(alpha = 0.2f),
+    textColor: Color = BrandGlowThemed,
+    horizontalPadding: Dp = 16.dp,
+    verticalPadding: Dp = 6.dp,
+) {
+    val bg = background ?: Brush.linearGradient(listOf(BrandGlowThemed.copy(alpha = 0.1f), BrandGlowThemed.copy(alpha = 0.1f)))
+    Row(
+        modifier = modifier
+            .clip(CircleShape)
+            .background(bg)
+            .border(1.dp, borderColor, CircleShape)
+            .padding(horizontal = horizontalPadding, vertical = verticalPadding),
+        verticalAlignment = Alignment.CenterVertically,
+        horizontalArrangement = Arrangement.spacedBy(8.dp),
+    ) {
+        if (icon != null) {
+            Icon(icon, contentDescription = null, tint = textColor, modifier = Modifier.size(14.dp))
+        } else {
+            Box(Modifier.size(6.dp).clip(CircleShape).background(textColor))
+        }
+        Text(text, fontSize = 14.sp, fontWeight = FontWeight.Medium, color = textColor)
+    }
+}
+
 // ==================== 区块标题（渐变文字） ====================
 
 /** 品牌渐变文字（bg-gradient-to-r from-brand-start via-brand-mid to-brand-end bg-clip-text） */
 @Composable
 fun brandTextGradient(): Brush = Brush.horizontalGradient(
     listOf(
-        com.mengzhen.app.ui.theme.BrandStartThemed,
-        com.mengzhen.app.ui.theme.BrandMidThemed,
-        com.mengzhen.app.ui.theme.BrandEndThemed,
+        BrandStartThemed,
+        BrandMidThemed,
+        BrandEndThemed,
     )
 )

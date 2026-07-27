@@ -23,30 +23,23 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import com.mengzhen.app.ui.theme.BrandEndThemed
 import com.mengzhen.app.ui.theme.BrandGlowThemed
+import com.mengzhen.app.ui.theme.BrandStartThemed
+
+// ==================== Accent color constants ====================
+private val SkyBlueLight = Color(0xFF38BDF8)
+private val SkyBlueDark = Color(0xFF0EA5E9)
+private val AmberLight = Color(0xFFFBBF24)
+private val AmberDark = Color(0xFFF59E0B)
+private val MintLight = Color(0xFF34D399)
+private val EmeraldDark = Color(0xFF10B981)
+private val PurpleAccent = Color(0xFFA855F7)
+private val PinkAccent = Color(0xFFEC4899)
+private val LavenderLight = Color(0xFFA78BFA)
+private val CyanLight = Color(0xFF22D3EE)
 
 // ==================== 共用小件 ====================
-
-/** 小节 pill 标签（核心优势/核心价值 等） */
-@Composable
-private fun SectionPill(text: String, icon: ImageVector? = null) {
-    Row(
-        modifier = Modifier
-            .clip(CircleShape)
-            .background(BrandGlowThemed.copy(alpha = 0.1f))
-            .border(1.dp, BrandGlowThemed.copy(alpha = 0.2f), CircleShape)
-            .padding(horizontal = 16.dp, vertical = 6.dp),
-        verticalAlignment = Alignment.CenterVertically,
-        horizontalArrangement = Arrangement.spacedBy(8.dp),
-    ) {
-        if (icon != null) {
-            Icon(icon, contentDescription = null, tint = BrandGlowThemed, modifier = Modifier.size(14.dp))
-        } else {
-            Box(Modifier.size(6.dp).clip(CircleShape).background(BrandGlowThemed))
-        }
-        Text(text, fontSize = 14.sp, fontWeight = FontWeight.Medium, color = BrandGlowThemed)
-    }
-}
 
 /** 大标题（前景色 + 渐变行） */
 @Composable
@@ -169,7 +162,7 @@ fun FeaturesSection() {
         // 标题组
         RevealGroup {
             Column(horizontalAlignment = Alignment.CenterHorizontally) {
-                SectionPill("核心优势")
+                BrandPill("核心优势")
                 Spacer(Modifier.height(16.dp))
                 SectionTitle(
                     plain = "专为中国浅眠人群",
@@ -198,8 +191,8 @@ fun FeaturesSection() {
                             .background(
                                 Brush.linearGradient(
                                     listOf(
-                                        com.mengzhen.app.ui.theme.BrandStartThemed.copy(alpha = 0.2f),
-                                        com.mengzhen.app.ui.theme.BrandEndThemed.copy(alpha = 0.1f),
+                                        BrandStartThemed.copy(alpha = 0.2f),
+                                        BrandEndThemed.copy(alpha = 0.1f),
                                     )
                                 )
                             ),
@@ -327,21 +320,13 @@ fun FeaturesSection() {
 
         // 原生提示 pill（词表替换：PWA 语境 → 原生语境）
         Spacer(Modifier.height(12.dp))
-        Row(
-            modifier = Modifier
-                .clip(CircleShape)
-                .background(BrandGlowThemed.copy(alpha = 0.1f))
-                .padding(horizontal = 16.dp, vertical = 8.dp),
-            verticalAlignment = Alignment.CenterVertically,
-            horizontalArrangement = Arrangement.spacedBy(8.dp),
-        ) {
-            Icon(Icons.Default.Monitor, null, Modifier.size(16.dp), tint = BrandGlowThemed)
-            Text(
-                "已是原生 App，系统级后台稳定播放",
-                fontSize = 14.sp,
-                color = MaterialTheme.colorScheme.onSurfaceVariant.copy(alpha = 0.8f),
-            )
-        }
+        BrandPill(
+            text = "已是原生 App，系统级后台稳定播放",
+            icon = Icons.Default.Monitor,
+            textColor = MaterialTheme.colorScheme.onSurfaceVariant.copy(alpha = 0.8f),
+            borderColor = BrandGlowThemed.copy(alpha = 0.15f),
+            verticalPadding = 8.dp,
+        )
 
         Spacer(Modifier.height(48.dp))
 
@@ -349,9 +334,9 @@ fun FeaturesSection() {
         SubSectionTitle("分层数据存储方案", "兼顾云端便捷性与本地隐私安全")
         Spacer(Modifier.height(16.dp))
         val storage = listOf(
-            StorageCardData(Icons.Default.Storage, "云端数据库", "音频文件统一存入云端数据库，跨设备同步无缝使用", Color(0xFF38BDF8), Color(0xFF0EA5E9)),
-            StorageCardData(Icons.Default.Cookie, "本地持久化", "Cookie 本地存储配置信息，响应速度快、隐私性强", Color(0xFFFBBF24), Color(0xFFF59E0B)),
-            StorageCardData(Icons.Default.Shield, "自主可控", "支持云端备份开关，自主选择是否同步播放配置", Color(0xFF34D399), Color(0xFF10B981)),
+            StorageCardData(Icons.Default.Storage, "云端数据库", "音频文件统一存入云端数据库，跨设备同步无缝使用", SkyBlueLight, SkyBlueDark),
+            StorageCardData(Icons.Default.Cookie, "本地持久化", "Cookie 本地存储配置信息，响应速度快、隐私性强", AmberLight, AmberDark),
+            StorageCardData(Icons.Default.Shield, "自主可控", "支持云端备份开关，自主选择是否同步播放配置", MintLight, EmeraldDark),
         )
         storage.forEachIndexed { i, data ->
             DiffuseCard(17 + i, modifier = Modifier.fillMaxWidth()) {
@@ -474,12 +459,12 @@ fun FeaturesSection() {
         SubSectionTitle("全方位隐私安全保障", "用户数据完全可控")
         Spacer(Modifier.height(16.dp))
         SecurityCard(
-            26, Icons.Default.Shield, "银行级密码安全", "bcrypt 哈希算法加密", Color(0xFFA78BFA),
+            26, Icons.Default.Shield, "银行级密码安全", "bcrypt 哈希算法加密", LavenderLight,
             listOf("不可逆加密处理，杜绝明文泄露", "独立随机盐值混合加密", "抵御彩虹表攻击、暴力破解"),
         )
         Spacer(Modifier.height(16.dp))
         SecurityCard(
-            27, Icons.Default.Lock, "数据完全可控", "无第三方快捷登录", Color(0xFF22D3EE),
+            27, Icons.Default.Lock, "数据完全可控", "无第三方快捷登录", CyanLight,
             listOf("不收集睡眠数据、不追踪使用行为", "音频素材自主上传管理", "无多余数据上报，仅存用户主动数据"),
         )
 
@@ -557,15 +542,15 @@ fun AudienceSection() {
     val audiences = listOf(
         AudienceData(Icons.Default.Nightlight, "核心用户", BrandGlowThemed, "浅眠 / 神经衰弱人群",
             "长期睡眠浅、半夜频繁惊醒、对音量突变极度敏感，需要柔和渐变音量 + 全自动定时 + 后台稳定播放"),
-        AudienceData(Icons.Default.Work, "职场首选", Color(0xFFF59E0B), "高压都市上班族",
+        AudienceData(Icons.Default.Work, "职场首选", AmberDark, "高压都市上班族",
             "职场压力大、入睡困难，原生构建轻量流畅，全自动定时关闭，厌恶广告付费与臃肿APP"),
-        AudienceData(Icons.Default.School, "校园适配", Color(0xFFA855F7), "住校学生群体",
+        AudienceData(Icons.Default.School, "校园适配", PurpleAccent, "住校学生群体",
             "宿舍环境嘈杂、集体作息受限，自定义专属助眠音频、音量柔和不吵室友，无冗余社交广告"),
-        AudienceData(Icons.Default.Favorite, "新手爸妈", Color(0xFFEC4899), "产后宝妈 / 新手父母",
+        AudienceData(Icons.Default.Favorite, "新手爸妈", PinkAccent, "产后宝妈 / 新手父母",
             "睡眠碎片化、夜间频繁惊醒，没有精力手动开关，全自动预设播放、后台静默运行、解放双手"),
-        AudienceData(Icons.Default.Psychology, "个性化", Color(0xFF0EA5E9), "情绪性失眠 / 焦虑人群",
+        AudienceData(Icons.Default.Psychology, "个性化", SkyBlueDark, "情绪性失眠 / 焦虑人群",
             "依赖个人专属音频助眠（冥想音、雨声、私人歌单），拒绝平台推送、商业化干扰"),
-        AudienceData(Icons.Default.Group, "易上手", Color(0xFF10B981), "中老年浅眠用户",
+        AudienceData(Icons.Default.Group, "易上手", EmeraldDark, "中老年浅眠用户",
             "睡眠周期短、半夜易醒，产品操作极简、全自动定时、无复杂功能，适配低门槛使用习惯"),
     )
 

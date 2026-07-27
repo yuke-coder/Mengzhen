@@ -5,6 +5,8 @@ import android.graphics.Typeface
 import androidx.compose.animation.core.*
 import androidx.compose.foundation.Canvas
 import androidx.compose.foundation.layout.*
+import androidx.compose.material3.MaterialTheme
+import androidx.compose.material3.Text
 import androidx.compose.runtime.*
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.geometry.Offset
@@ -283,12 +285,12 @@ fun WordReveal(
 
     val brandGlow = BrandGlowThemed
     val baseColor = if (color == Color.Unspecified)
-        androidx.compose.material3.MaterialTheme.colorScheme.onSurface.copy(alpha = 0.7f)
+        MaterialTheme.colorScheme.onSurface.copy(alpha = 0.7f)
     else color
     Row(modifier = modifier, horizontalArrangement = Arrangement.Center) {
         flatChars.forEachIndexed { i, (ch, isSep, _) ->
             val p = progresses[i].value
-            androidx.compose.material3.Text(
+            Text(
                 ch.toString(),
                 fontSize = fontSize,
                 color = if (isSep) brandGlow.copy(alpha = 0.5f * p) else baseColor.copy(alpha = baseColor.alpha * p),
