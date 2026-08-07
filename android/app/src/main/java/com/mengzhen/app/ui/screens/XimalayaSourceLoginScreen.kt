@@ -1,5 +1,6 @@
 package com.mengzhen.app.ui.screens
 
+import android.app.Activity
 import android.content.Context
 import android.graphics.Typeface
 import android.text.Editable
@@ -18,6 +19,8 @@ import android.widget.FrameLayout
 import android.widget.ImageView
 import android.widget.TextView
 import androidx.activity.compose.BackHandler
+import androidx.activity.compose.rememberLauncherForActivityResult
+import androidx.activity.result.contract.ActivityResultContracts
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
@@ -33,6 +36,7 @@ import androidx.constraintlayout.widget.ConstraintLayout
 import androidx.core.content.ContextCompat
 import androidx.navigation.NavController
 import com.mengzhen.app.R
+import com.mengzhen.app.auth.TurnstileChallengeActivity
 import com.mengzhen.app.data.api.ApiClient
 import com.mengzhen.app.data.model.parseUser
 import com.mengzhen.app.data.store.TaskStore
@@ -54,6 +58,12 @@ private enum class SourceLoginStep {
     PASSWORD,
 }
 
+private data class PendingSourceAuth(
+    val mode: SourceAuthMode,
+    val username: String,
+    val password: String,
+)
+
 /**
  * 视图层直接加载喜马拉雅 9.4.95.3 的原始登录 XML。
  *
@@ -73,6 +83,93 @@ fun LoginScreen(navController: NavController) {
     var password by rememberSaveable { mutableStateOf("") }
     var passwordVisible by rememberSaveable { mutableStateOf(false) }
     var loading by remember { mutableStateOf(false) }
+    var pendingAuth by remember { mutableStateOf<PendingSourceAuth?>(null) }
+
+    fun authenticate(request: PendingSourceAuth, turnstileToken: String) {
+        val failureMessage =
+            if (request.mode == SourceAuthMode.LOGIN) "登录失败" else "注册失败"
+        scope.launch(Dispatchers.IO) {
+            try {
+                val result = when (request.mode) {
+                    SourceAuthMode.LOGIN -> api.login(
+                        request.username,
+                        request.password,
+                        turnstileToken,
+                    )
+
+                    SourceAuthMode.REGISTER -> api.register(
+                        request.username,
+                        request.password,
+                        turnstileToken,
+                    )
+                }
+                if (result.optBoolean("success", false)) {
+                    val verified = api.me()
+                    val user = parseUser(verified)
+                    if (user == null) {
+                        api.clearCookies()
+                        store.clearSession()
+                        val message = verified.optString("error")
+                            .ifBlank { verified.optString("message") }
+                            .ifBlank { "登录状态建立失败，请重试" }
+                        withContext(Dispatchers.Main) {
+                            AppNotice.error(context, message)
+                        }
+                        return@launch
+                    }
+                    store.saveUserSession("cookie_session", user)
+                    withContext(Dispatchers.Main) {
+                        AppNotice.success(
+                            context,
+                            if (request.mode == SourceAuthMode.LOGIN) "登录成功" else "注册成功",
+                        )
+                        if (!navController.popBackStack()) {
+                            navController.navigate(Screen.Settings.route) { launchSingleTop = true }
+                        }
+                    }
+                } else {
+                    val message = result.optString("error")
+                        .ifBlank {
+                            result.optString(
+                                "message",
+                                failureMessage,
+                            )
+                        }
+                    withContext(Dispatchers.Main) {
+                        AppNotice.error(context, message)
+                    }
+                }
+            } catch (error: Exception) {
+                withContext(Dispatchers.Main) {
+                    AppNotice.error(context, authErrorMessage(error, failureMessage))
+                }
+            } finally {
+                withContext(Dispatchers.Main) {
+                    loading = false
+                }
+            }
+        }
+    }
+
+    val turnstileLauncher = rememberLauncherForActivityResult(
+        ActivityResultContracts.StartActivityForResult(),
+    ) { result ->
+        val request = pendingAuth
+        pendingAuth = null
+        val token = result.data?.getStringExtra(TurnstileChallengeActivity.EXTRA_TOKEN)
+        if (result.resultCode == Activity.RESULT_OK && request != null && !token.isNullOrBlank()) {
+            authenticate(request, token)
+            return@rememberLauncherForActivityResult
+        }
+
+        loading = false
+        val error = result.data?.getStringExtra(TurnstileChallengeActivity.EXTRA_ERROR)
+        if (error.isNullOrBlank()) {
+            AppNotice.warning(context, "安全验证已取消")
+        } else {
+            AppNotice.error(context, error)
+        }
+    }
 
     fun showAccount() {
         if (loading) return
@@ -119,62 +216,19 @@ fun LoginScreen(navController: NavController) {
             return
         }
 
-        val submittingMode = mode
-        val submittingPassword = password
-        val failureMessage =
-            if (submittingMode == SourceAuthMode.LOGIN) "登录失败" else "注册失败"
+        val request = PendingSourceAuth(
+            mode = mode,
+            username = account,
+            password = password,
+        )
         loading = true
-        scope.launch(Dispatchers.IO) {
-            try {
-                val result = when (submittingMode) {
-                    SourceAuthMode.LOGIN -> api.login(account, submittingPassword)
-                    SourceAuthMode.REGISTER -> api.register(account, submittingPassword)
-                }
-                if (result.optBoolean("success", false)) {
-                    val verified = api.me()
-                    val user = parseUser(verified)
-                    if (user == null) {
-                        api.clearCookies()
-                        store.clearSession()
-                        val message = verified.optString("error")
-                            .ifBlank { verified.optString("message") }
-                            .ifBlank { "登录状态建立失败，请重试" }
-                        withContext(Dispatchers.Main) {
-                            AppNotice.error(context, message)
-                        }
-                        return@launch
-                    }
-                    store.saveUserSession("cookie_session", user)
-                    withContext(Dispatchers.Main) {
-                        AppNotice.success(
-                            context,
-                            if (submittingMode == SourceAuthMode.LOGIN) "登录成功" else "注册成功",
-                        )
-                        if (!navController.popBackStack()) {
-                            navController.navigate(Screen.Settings.route) { launchSingleTop = true }
-                        }
-                    }
-                } else {
-                    val message = result.optString("error")
-                        .ifBlank {
-                            result.optString(
-                                "message",
-                                failureMessage,
-                            )
-                        }
-                    withContext(Dispatchers.Main) {
-                        AppNotice.error(context, message)
-                    }
-                }
-            } catch (error: Exception) {
-                withContext(Dispatchers.Main) {
-                    AppNotice.error(context, authErrorMessage(error, failureMessage))
-                }
-            } finally {
-                withContext(Dispatchers.Main) {
-                    loading = false
-                }
-            }
+        pendingAuth = request
+        runCatching {
+            turnstileLauncher.launch(TurnstileChallengeActivity.createIntent(context))
+        }.onFailure {
+            pendingAuth = null
+            loading = false
+            AppNotice.error(context, "无法启动安全验证，请重试")
         }
     }
 

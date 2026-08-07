@@ -31,8 +31,8 @@ import java.util.concurrent.TimeUnit
  * 不直连 Supabase，不暴露 service_role key
  *
  * 接口列表：
- * - POST /api/auth/login { username, password }
- * - POST /api/auth/register { username, password }
+ * - POST /api/auth/login { username, password, turnstileToken }
+ * - POST /api/auth/register { username, password, turnstileToken }
  * - GET  /api/auth/me
  * - POST /api/auth/logout
  * - GET  /api/profile
@@ -184,16 +184,18 @@ class ApiClient private constructor(
 
     // === 认证 ===
 
-    fun login(username: String, password: String): JSONObject {
+    fun login(username: String, password: String, turnstileToken: String): JSONObject {
         return post("/api/auth/login", JSONObject()
             .put("username", username)
-            .put("password", password))
+            .put("password", password)
+            .put("turnstileToken", turnstileToken))
     }
 
-    fun register(username: String, password: String): JSONObject {
+    fun register(username: String, password: String, turnstileToken: String): JSONObject {
         return post("/api/auth/register", JSONObject()
             .put("username", username)
-            .put("password", password))
+            .put("password", password)
+            .put("turnstileToken", turnstileToken))
     }
 
     fun me(): JSONObject = get("/api/auth/me")

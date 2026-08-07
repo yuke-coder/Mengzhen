@@ -45,6 +45,11 @@
         </activity>
 
         <activity
+            android:name=".auth.TurnstileChallengeActivity"
+            android:exported="false"
+            android:theme="@style/AppTheme.NoActionBar" />
+
+        <activity
             android:name="com.tencent.qqmusic.activity.UserNicknameModifyActivity"
             android:exported="false"
             android:theme="@style/AppTheme.NoActionBar"
