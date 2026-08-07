@@ -6,10 +6,10 @@ xm_rev/
 supabase/
 scripts/
 assets/
-*.png
-*.jpg
-*.jpeg
-*.webp
+/*.png
+/*.jpg
+/*.jpeg
+/*.webp
 *.apk
 *.aab
 *.jks
