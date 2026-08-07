@@ -7,7 +7,7 @@ const config: CapacitorConfig = {
   server: {
     androidScheme: 'https',
     // WebView 加载部署的 URL，原生插件接管定时播放
-    url: 'https://mengzhen-chi.vercel.app',
+    url: 'https://driftcue.com',
   },
 };
 

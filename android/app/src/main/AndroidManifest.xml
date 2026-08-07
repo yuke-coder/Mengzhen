@@ -1,6 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android">
 
+    <queries>
+        <package android:name="tv.danmaku.bili" />
+        <package android:name="moe.shizuku.privileged.api" />
+        <provider android:authorities="tv.danmaku.bili.providers.BiliDataProvider" />
+    </queries>
+
     <application
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
@@ -22,7 +28,40 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
 
+            <intent-filter>
+                <action android:name="android.intent.action.SEND" />
+                <category android:name="android.intent.category.DEFAULT" />
+                <data android:mimeType="text/plain" />
+            </intent-filter>
+
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW" />
+                <category android:name="android.intent.category.DEFAULT" />
+                <category android:name="android.intent.category.BROWSABLE" />
+                <data android:scheme="https" android:host="www.bilibili.com" />
+                <data android:scheme="https" android:host="b23.tv" />
+            </intent-filter>
+
         </activity>
+
+        <activity
+            android:name="com.tencent.qqmusic.activity.UserNicknameModifyActivity"
+            android:exported="false"
+            android:theme="@style/AppTheme.NoActionBar"
+            android:windowSoftInputMode="adjustResize" />
+
+        <activity
+            android:name="com.tencent.qqmusic.activity.ImageCropActivity"
+            android:configChanges="keyboardHidden|orientation|screenLayout|screenSize|smallestScreenSize"
+            android:exported="false"
+            android:screenOrientation="portrait"
+            android:theme="@style/os"
+            android:windowSoftInputMode="stateHidden|adjustResize" />
+
+        <activity
+            android:name="com.tencent.qqmusic.activity.QqMusicShufflePlayHistoryActivity"
+            android:exported="false"
+            android:theme="@style/AppTheme.NoActionBar" />
 
         <!-- Foreground Service for audio playback -->
         <service
@@ -31,12 +70,11 @@
             android:exported="false"
             android:foregroundServiceType="mediaPlayback" />
 
-        <!-- Sustained listen keepalive service (对标喜马拉雅 XiMaLaYaService + AssistService 双 Service 保活) -->
+        <!-- 喜马拉雅播放器使用的普通绑定式 SustainedListenService -->
         <service
             android:name=".audio.SustainedListenService"
             android:enabled="true"
-            android:exported="false"
-            android:foregroundServiceType="dataSync" />
+            android:exported="false" />
 
         <!-- AlarmManager receiver -->
         <receiver
@@ -52,6 +90,10 @@
             <intent-filter>
                 <action android:name="android.intent.action.BOOT_COMPLETED" />
                 <action android:name="android.intent.action.QUICKBOOT_POWERON" />
+                <action android:name="android.intent.action.MY_PACKAGE_REPLACED" />
+                <action android:name="android.intent.action.TIME_SET" />
+                <action android:name="android.intent.action.TIMEZONE_CHANGED" />
+                <action android:name="android.app.action.SCHEDULE_EXACT_ALARM_PERMISSION_STATE_CHANGED" />
             </intent-filter>
         </receiver>
 
@@ -61,6 +103,24 @@
         <!-- Note: WireControlReceiver is replaced by MediaSession in AudioPlaybackService.
              MediaSession handles MEDIA_BUTTON events natively. -->
 
+        <provider
+            android:name="androidx.core.content.FileProvider"
+            android:authorities="${applicationId}.fileprovider"
+            android:exported="false"
+            android:grantUriPermissions="true">
+            <meta-data
+                android:name="android.support.FILE_PROVIDER_PATHS"
+                android:resource="@xml/file_paths" />
+        </provider>
+
+        <provider
+            android:name="rikka.shizuku.ShizukuProvider"
+            android:authorities="${applicationId}.shizuku"
+            android:enabled="true"
+            android:exported="true"
+            android:multiprocess="false"
+            android:permission="android.permission.INTERACT_ACROSS_USERS_FULL" />
+
     </application>
 
     <!-- Permissions -->
@@ -68,12 +128,12 @@
     <!-- Foreground Service -->
     <uses-permission android:name="android.permission.FOREGROUND_SERVICE" />
     <uses-permission android:name="android.permission.FOREGROUND_SERVICE_MEDIA_PLAYBACK" />
-    <uses-permission android:name="android.permission.FOREGROUND_SERVICE_DATA_SYNC" />
     <!-- WakeLock for CPU during sleep -->
     <uses-permission android:name="android.permission.WAKE_LOCK" />
     <!-- Exact alarm (Android 12+) -->
     <uses-permission android:name="android.permission.SCHEDULE_EXACT_ALARM" />
     <uses-permission android:name="android.permission.USE_EXACT_ALARM" />
+    <uses-permission android:name="android.permission.SYSTEM_ALERT_WINDOW" />
     <!-- Boot receiver -->
     <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED" />
     <!-- Notification (Android 13+) -->
@@ -86,9 +146,12 @@
     <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
     <!-- Access network state -->
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <!-- Offline voice search -->
+    <uses-permission android:name="android.permission.RECORD_AUDIO" />
     <!-- Modify audio settings (ExoPlayer volume control) - 对标喜马拉雅 -->
     <uses-permission android:name="android.permission.MODIFY_AUDIO_SETTINGS" />
     <!-- Vibrate for alarm trigger - 对标喜马拉雅 -->
     <uses-permission android:name="android.permission.VIBRATE" />
+    <uses-permission android:name="moe.shizuku.manager.permission.API_V23" />
 
 </manifest>

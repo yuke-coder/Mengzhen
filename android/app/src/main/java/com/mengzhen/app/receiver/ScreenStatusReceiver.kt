@@ -4,78 +4,56 @@ import android.content.BroadcastReceiver
 import android.content.Context
 import android.content.Intent
 import android.content.IntentFilter
-import android.os.Build
-import android.util.Log
-import com.mengzhen.app.audio.AudioPlaybackService
-import com.mengzhen.app.audio.SustainedListenService
+import java.util.concurrent.CopyOnWriteArrayList
 
-/**
- * 息屏监听 - 确保保活 Service 运行
- * 对标喜马拉雅 ScreenOnOffReceiver
- *
- * 单例注册，避免 Service 重建时重复注册多个 receiver
- */
+/** 喜马拉雅 9.5.1.4 ScreenStatusReceiver 的事件分发结构。 */
 class ScreenStatusReceiver : BroadcastReceiver() {
 
+    fun interface Listener {
+        fun onScreenStatusChange(status: Int)
+    }
+
     override fun onReceive(context: Context, intent: Intent) {
-        when (intent.action) {
-            Intent.ACTION_SCREEN_OFF -> {
-                Log.i(TAG, "Screen OFF - ensuring keepalive service")
-                if (AudioPlaybackService.isCurrentlyPlaying()) {
-                    SustainedListenService.start(context, "梦枕")
-                }
-            }
-            Intent.ACTION_SCREEN_ON -> Log.i(TAG, "Screen ON")
-            Intent.ACTION_USER_PRESENT -> Log.i(TAG, "User present (unlocked)")
+        val status = when (intent.action) {
+            Intent.ACTION_SCREEN_ON -> SCREEN_ON
+            Intent.ACTION_SCREEN_OFF -> SCREEN_OFF
+            else -> return
         }
+        listeners.forEach { it.onScreenStatusChange(status) }
+    }
+
+    private fun register(context: Context) {
+        context.registerReceiver(
+            this,
+            IntentFilter().apply {
+                addAction(Intent.ACTION_SCREEN_ON)
+                addAction(Intent.ACTION_SCREEN_OFF)
+            },
+        )
     }
 
     companion object {
-        private const val TAG = "ScreenStatusReceiver"
+        const val SCREEN_ON = 1
+        const val SCREEN_OFF = 2
 
-        @Volatile private var instance: ScreenStatusReceiver? = null
+        private val listeners = CopyOnWriteArrayList<Listener>()
 
-        /**
-         * 注册息屏监听 - 单例，重复调用不会创建多个 receiver
-         */
+        @Volatile
+        private var registered = false
+
+        @Synchronized
         fun register(context: Context) {
-            if (instance != null) {
-                Log.d(TAG, "Already registered, skipping")
-                return
-            }
-            synchronized(this) {
-                if (instance != null) return
-                val receiver = ScreenStatusReceiver()
-                val filter = IntentFilter().apply {
-                    addAction(Intent.ACTION_SCREEN_OFF)
-                    addAction(Intent.ACTION_SCREEN_ON)
-                    addAction(Intent.ACTION_USER_PRESENT)
-                }
-                if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.TIRAMISU) {
-                    context.registerReceiver(receiver, filter, Context.RECEIVER_NOT_EXPORTED)
-                } else {
-                    context.registerReceiver(receiver, filter)
-                }
-                instance = receiver
-                Log.i(TAG, "ScreenStatusReceiver registered")
-            }
+            if (registered) return
+            ScreenStatusReceiver().register(context.applicationContext)
+            registered = true
         }
 
-        /**
-         * 注销息屏监听
-         */
-        fun unregister(context: Context) {
-            synchronized(this) {
-                instance?.let {
-                    try {
-                        context.unregisterReceiver(it)
-                    } catch (e: Exception) {
-                        Log.w(TAG, "Unregister failed", e)
-                    }
-                    instance = null
-                    Log.i(TAG, "ScreenStatusReceiver unregistered")
-                }
-            }
+        fun addListener(listener: Listener) {
+            if (!listeners.contains(listener)) listeners.add(listener)
+        }
+
+        fun removeListener(listener: Listener) {
+            listeners.remove(listener)
         }
     }
 }

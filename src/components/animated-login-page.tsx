@@ -9,6 +9,7 @@ import { Spinner } from "@/components/ui/spinner";
 import { useIsMobile } from "@/hooks/use-mobile";
 import { toast } from "@/components/sonner";
 import { Eye, EyeOff, LogIn } from "lucide-react";
+import { Turnstile } from '@marsidev/react-turnstile';
 
 interface PupilProps {
   size?: number;
@@ -160,6 +161,7 @@ function DesktopLoginPage() {
   const [isTyping, setIsTyping] = useState(false);
   const [isLookingAtEachOther, setIsLookingAtEachOther] = useState(false);
   const [isPurplePeeking, setIsPurplePeeking] = useState(false);
+  const [turnstileToken, setTurnstileToken] = useState<string | null>(null);
   const purpleRef = useRef<HTMLDivElement>(null);
   const blackRef = useRef<HTMLDivElement>(null);
   const yellowRef = useRef<HTMLDivElement>(null);
@@ -282,7 +284,7 @@ function DesktopLoginPage() {
     e.preventDefault();
     setIsLoading(true);
 
-    const result = await login(username, password);
+    const result = await login(username, password, turnstileToken || undefined);
     setIsLoading(false);
 
     if (result.success) {
@@ -543,10 +545,18 @@ function DesktopLoginPage() {
 
 
 
+            <Turnstile
+              siteKey={process.env.NEXT_PUBLIC_TURNSTILE_SITE_KEY!}
+              onSuccess={(token) => setTurnstileToken(token)}
+              onExpire={() => setTurnstileToken(null)}
+              onError={() => setTurnstileToken(null)}
+              options={{ theme: 'light' }}
+            />
+
             <button 
               type="submit" 
               className="w-full h-12 text-base font-medium rounded-xl bg-gradient-to-r from-[var(--brand-start)] via-[var(--brand-mid)] to-[var(--brand-end)] text-white shadow-lg shadow-[var(--brand-start)]/25 hover:-translate-y-1 hover:scale-105 hover:shadow-2xl hover:shadow-[var(--brand-start)]/40 active:scale-[0.98] transition-all duration-200 flex items-center justify-center gap-2"
-              disabled={isLoading}
+              disabled={isLoading || !turnstileToken}
             >
               {isLoading ? (
                 <Spinner size="sm" className="h-5 w-5 text-white" />

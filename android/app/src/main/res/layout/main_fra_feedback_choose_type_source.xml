@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#FFF3F4F5"
+    android:orientation="vertical">
+
+    <include
+        android:id="@+id/main_title_bar"
+        layout="@layout/ximalaya_alarm_title_bar"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/arg_res_0x7f0702b1" />
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="#FFF3F4F5"
+        android:ellipsize="end"
+        android:gravity="center_vertical"
+        android:maxLines="1"
+        android:paddingStart="15dp"
+        android:paddingTop="7dp"
+        android:paddingBottom="7dp"
+        android:text="选择您意见反馈的类型："
+        android:textColor="#FF999999"
+        android:textSize="12sp" />
+
+    <LinearLayout
+        android:id="@+id/main_feedback_type_container"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical" />
+</LinearLayout>

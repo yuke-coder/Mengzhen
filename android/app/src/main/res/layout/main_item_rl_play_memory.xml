@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/main_rl_play_memory"
+    android:clickable="false"
+    android:layout_width="match_parent"
+    android:layout_height="50dp"
+    android:paddingStart="16dp"
+    android:paddingEnd="16dp">
+    <TextView
+        android:textSize="15sp"
+        android:textStyle="bold"
+        android:textColor="@color/arg_res_0x7f060a4f"
+        android:ellipsize="end"
+        android:clickable="false"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="后台内存优化"
+        android:maxLines="1"
+        android:drawableRight="@null"
+        android:layout_centerVertical="true"
+        android:fontFamily="sans-serif-light"
+        android:layout_marginEnd="24dp"/>
+    <CheckBox
+        android:id="@+id/main_cb_bg_play_opt"
+        android:background="@drawable/arg_res_0x7f080dce"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:button="@null"
+        android:layout_alignParentRight="true"
+        android:layout_centerVertical="true"/>
+    <View
+        android:id="@+id/main_v_divider"
+        android:background="@color/arg_res_0x7f060d4d"
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:layout_alignParentBottom="true"/>
+</RelativeLayout>

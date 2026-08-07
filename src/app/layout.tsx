@@ -8,6 +8,8 @@ import { Toaster } from "@/components/sonner";
 import ClientProviders from "@/components/client-providers";
 import { ProfileToastListener } from "@/components/profile-toast-listener";
 
+const SITE_URL = new URL(process.env.NEXT_PUBLIC_SITE_URL || "https://driftcue.com");
+
 export const viewport: Viewport = {
   themeColor: [
     { media: '(prefers-color-scheme: light)', color: '#ffffff' },
@@ -16,10 +18,14 @@ export const viewport: Viewport = {
 };
 
 export const metadata: Metadata = {
+  metadataBase: SITE_URL,
   title: "梦枕",
   description: "专为浅眠人群设计的睡眠音频播放器，支持自定义定时、淡入淡出、全自动运行",
   keywords: ["助眠", "睡眠", "白噪音", "定时播放", "音频", "梦枕", "免登录"],
   authors: [{ name: "梦枕" }],
+  alternates: {
+    canonical: "/",
+  },
   icons: {
     icon: "/favicon.png",
     apple: "/favicon.png",
@@ -31,6 +37,7 @@ export const metadata: Metadata = {
     title: "梦枕",
   },
   openGraph: {
+    url: "/",
     title: "梦枕 - 睡眠音频播放器",
     description: "专为浅眠人群设计的睡眠音频播放器，支持自定义定时、淡入淡出、全自动运行",
     type: "website",

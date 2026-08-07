@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="nifty_slider_thumb_radius">10dp</dimen>
+    <dimen name="nifty_slider_thumb_elevation">4dp</dimen>
+    <dimen name="nifty_slider_track_height">4dp</dimen>
+    <dimen name="nifty_slider_halo_radius">24dp</dimen>
+    <dimen name="nifty_slider_tick_radius">1dp</dimen>
+
+    <!-- Bilibili 9.5.0 offline cache source dimensions. -->
+    <dimen name="corner_radius">2dp</dimen>
+    <dimen name="corner_radius_medium">4dp</dimen>
+    <dimen name="history_cover_radius">4dp</dimen>
+    <dimen name="divider_line_height">0.5dp</dimen>
+    <dimen name="text_size_supplementary">10sp</dimen>
+    <dimen name="text_size_body_secondary">12sp</dimen>
+    <dimen name="text_size_subtitle">14sp</dimen>
+    <dimen name="text_size_headline">16sp</dimen>
+    <dimen name="navigation_top_bar_size">44dp</dimen>
+    <dimen name="bili_offline_toolbar_elevation">4dp</dimen>
+</resources>

@@ -19,6 +19,7 @@ data class TaskInfo(
     var enableFade: Boolean = false,
     var fadeInDuration: Int = 0,
     var fadeOutDuration: Int = 0,
+    var enableFadeOut: Boolean = false,
     var audioUrl: String = "",
     var audioName: String = "",
     var tracksJson: String = "",
@@ -45,6 +46,7 @@ fun TaskInfo.toJson(): JSONObject = JSONObject().apply {
     put("enableFade", enableFade)
     put("fadeInDuration", fadeInDuration)
     put("fadeOutDuration", fadeOutDuration)
+    put("enableFadeOut", enableFadeOut)
     put("audioUrl", audioUrl)
     put("audioName", audioName)
     put("tracksJson", tracksJson)
@@ -71,6 +73,11 @@ fun taskInfoFromJson(obj: JSONObject): TaskInfo = TaskInfo(
     enableFade = obj.optBoolean("enableFade", false),
     fadeInDuration = obj.optInt("fadeInDuration", 0),
     fadeOutDuration = obj.optInt("fadeOutDuration", 0),
+    enableFadeOut = if (obj.has("enableFadeOut")) {
+        obj.optBoolean("enableFadeOut", false)
+    } else {
+        obj.optInt("fadeOutDuration", 0) > 0
+    },
     audioUrl = obj.optString("audioUrl", ""),
     audioName = obj.optString("audioName", ""),
     tracksJson = obj.optString("tracksJson", ""),

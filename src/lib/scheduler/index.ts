@@ -97,7 +97,7 @@ interface AudioPlayerAdapter {
 
 interface LocalPlaybackState {
   taskId: string;
-  audio: HTMLAudioElement;
+  audio: HTMLAudioElement | null;
   targetVolume: number;
   phase: 'fading-in' | 'playing' | 'fading-out';
   startedAt: number;
@@ -215,11 +215,13 @@ function stopAudio(taskId: string): void {
   stopFade();
 
   try {
-    playback.audio.volume = 0;
-    playback.audio.pause();
-    playback.audio.removeAttribute('src');
-    playback.audio.src = '';
-    try { playback.audio.load(); } catch {}
+    if (playback.audio) {
+      playback.audio.volume = 0;
+      playback.audio.pause();
+      playback.audio.removeAttribute('src');
+      playback.audio.src = '';
+      try { playback.audio.load(); } catch {}
+    }
     if (playback.currentBlobUrl) {
       try { URL.revokeObjectURL(playback.currentBlobUrl); } catch {}
     }
@@ -506,7 +508,7 @@ class HighPerformanceScheduler {
   }
 
   private startFadeOut(task: ScheduledTask, playback: LocalPlaybackState, scheduledStartAt: number): void {
-    if (task.enableFade && task.fadeOutDuration > 0) {
+    if (task.enableFade && task.fadeOutDuration > 0 && playback.audio) {
       fadeOut(playback.audio, {
         duration: task.fadeOutDuration,
         targetVolume: 0,
@@ -579,7 +581,7 @@ class HighPerformanceScheduler {
     // 创建虚拟 playback 记录用于 UI 状态查询
     activePlaybacks.set(task.id, {
       taskId: task.id,
-      audio: { play: () => {}, pause: () => {}, volume: 0, currentTime: 0, duration: 0, loop: false, paused: true } as any,
+      audio: null,
       targetVolume: (task.volume ?? 70) / 100,
       phase: 'playing',
       startedAt: actualStartAt,
@@ -646,14 +648,14 @@ class HighPerformanceScheduler {
         const fadeInEnd = playback.scheduledStartAt + (task.enableFade ? (task.fadeInDuration || 0) : 0) * 1000;
 
         if (playback.phase === 'fading-in' && now >= fadeInEnd) {
-          setVolume(playback.audio, playback.targetVolume);
+          if (playback.audio) setVolume(playback.audio, playback.targetVolume);
           this.emitPhaseChange(taskId, 'playing');
         }
         if (playback.phase === 'playing' && now >= end) {
           this.startFadeOut(task, playback, playback.scheduledStartAt);
         }
 
-        if (playback.audio.paused && (playback.phase === 'playing' || playback.phase === 'fading-in')) {
+        if (playback.audio?.paused && (playback.phase === 'playing' || playback.phase === 'fading-in')) {
           if (playback.audio.readyState >= 2) {
             if (playback.phase === 'playing') {
               setVolume(playback.audio, playback.targetVolume);
@@ -672,7 +674,8 @@ class HighPerformanceScheduler {
 
   private async handleError(taskId: string, error: Error): Promise<void> {
     const playback = activePlaybacks.get(taskId);
-    if (!playback) return;
+    if (!playback?.audio) return;
+    const audioElement = playback.audio;
     const MAX_RETRY = 5;
     const RETRY_DELAY = 1500;
     const task = getAllTasks().find(t => t.id === taskId);
@@ -691,7 +694,7 @@ class HighPerformanceScheduler {
       await new Promise(r => setTimeout(r, 500));
       try {
         if (task.enableFade && task.fadeInDuration && task.fadeInDuration > 0) {
-          fadeIn(playback.audio, {
+          fadeIn(audioElement, {
             duration: task.fadeInDuration,
             targetVolume: playback.targetVolume,
             onComplete: () => {
@@ -699,12 +702,12 @@ class HighPerformanceScheduler {
             }
           });
         } else {
-          setVolume(playback.audio, playback.targetVolume);
+          setVolume(audioElement, playback.targetVolume);
         }
-        await playback.audio.play();
+        await audioElement.play();
         updateMediaSessionMetadata(task);
         updateMediaSessionPlaybackState(true);
-        log(taskId, 'info', `恢复后播放成功，音量: ${playback.audio.volume}`);
+        log(taskId, 'info', `恢复后播放成功，音量: ${audioElement.volume}`);
         return;
       } catch (error) {
         log(taskId, 'warn', '恢复后仍然无法播放，继续重试流程');
@@ -744,13 +747,13 @@ class HighPerformanceScheduler {
         }
         if (newAudioUrl) {
           log(taskId, 'info', `重新设置音频源: ${newAudioUrl.substring(0, 50)}...`);
-          playback.audio.src = newAudioUrl;
-          playback.audio.load();
-          setVolume(playback.audio, playback.targetVolume);
-          await playback.audio.play();
+          audioElement.src = newAudioUrl;
+          audioElement.load();
+          setVolume(audioElement, playback.targetVolume);
+          await audioElement.play();
           updateMediaSessionMetadata(task);
           updateMediaSessionPlaybackState(true);
-          log(taskId, 'info', `重试播放成功，音量: ${playback.audio.volume}`);
+          log(taskId, 'info', `重试播放成功，音量: ${audioElement.volume}`);
         }
       } catch (error) {
         log(taskId, 'warn', `重试失败: ${error}`);
@@ -780,7 +783,7 @@ class HighPerformanceScheduler {
           const task = getAllTasks().find(t => t.id === taskId);
           if (!task) return;
 
-          if (playback.audio.paused && playback.audio.readyState >= 2) {
+          if (playback.audio?.paused && playback.audio.readyState >= 2) {
             if (playback.phase === 'playing') {
               setVolume(playback.audio, playback.targetVolume);
             } else if (playback.phase === 'fading-in') {

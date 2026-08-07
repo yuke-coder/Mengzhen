@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <declare-styleable name="btnTypeSeekbar">
+        <attr name="btnTypeSeekbar_disableTextAlpha" format="float" />
+        <attr name="btnTypeSeekbar_disableTextColor" format="reference|color" />
+        <attr name="btnTypeSeekbar_lineAlpha" format="float" />
+        <attr name="btnTypeSeekbar_lineColor" format="reference|color" />
+        <attr name="btnTypeSeekbar_lineStrokeWidth" format="reference|dimension" />
+        <attr name="btnTypeSeekbar_sectionPointAlpha" format="float" />
+        <attr name="btnTypeSeekbar_sectionPointColor" format="reference|color" />
+        <attr name="btnTypeSeekbar_sectionPointSize" format="reference|dimension" />
+        <attr name="btnTypeSeekbar_selectedPointColor" format="reference|color" />
+        <attr name="btnTypeSeekbar_selectedPointSize" format="reference|dimension" />
+        <attr name="btnTypeSeekbar_selectedTextAlpha" format="float" />
+        <attr name="btnTypeSeekbar_selectedTextColor" format="reference|color" />
+        <attr name="btnTypeSeekbar_textArray" format="reference|string" />
+        <attr name="btnTypeSeekbar_textSize" format="reference|dimension" />
+        <attr name="btnTypeSeekbar_unSelectedTextColor" format="reference|color" />
+    </declare-styleable>
+</resources>

@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#FFF3F4F5">
+
+    <include
+        android:id="@+id/main_title_bar"
+        layout="@layout/ximalaya_alarm_title_bar"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/arg_res_0x7f0702b1"
+        android:layout_alignParentTop="true" />
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@id/main_title_bar"
+        android:scrollbars="none">
+
+        <LinearLayout
+            android:id="@+id/main_feedback_history_container"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical" />
+    </ScrollView>
+
+    <TextView
+        android:id="@+id/main_feedback_history_state"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/main_title_bar"
+        android:layout_centerInParent="true"
+        android:text="加载中"
+        android:textColor="#FF999999"
+        android:textSize="15sp" />
+</RelativeLayout>

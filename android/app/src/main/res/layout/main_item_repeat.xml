@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:id="@+id/main_repeat_check_item"
+    android:background="@color/xm_alarm_v9514_0x7f060e75"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:minHeight="60dp">
+    <TextView
+        android:textSize="20dp"
+        android:textColor="@color/arg_res_0x7f060a24"
+        android:gravity="center"
+        android:id="@+id/main_repeat_setting_name"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="10dp"
+        android:text="aaaa"
+        android:layout_alignParentLeft="true"
+        android:layout_centerVertical="true"/>
+    <CheckBox
+        android:id="@+id/main_list_select"
+        android:focusable="false"
+        android:clickable="false"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginRight="10dp"
+        android:layout_alignParentRight="true"
+        android:layout_centerVertical="true"
+        android:buttonTint="@color/xm_alarm_v9514_0x7f060ec0"/>
+</RelativeLayout>

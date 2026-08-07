@@ -1,0 +1,142 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+  喜马拉雅 Android 9.4.95.3 定时启播原始资源。
+  数组、尺寸、字符串与样式逐项来自客户端 resources.arsc / values XML；
+  仅去除了当前 Material 版本无法解析且不影响视觉的混淆私有属性。
+-->
+<resources>
+    <style name="arg_res_0x7f1303c3">
+        <item name="android:windowEnterAnimation">@anim/arg_res_0x7f010063</item>
+        <item name="android:windowExitAnimation">@anim/arg_res_0x7f010061</item>
+    </style>
+    <string name="arg_res_0x7f1206e0">Android由于省电设置与后台进程限制，为了确保梦枕在后台或者锁屏播放时有一个好的收听体验，请检查确认以下设置都已按要求设置完成。</string>
+    <string name="arg_res_0x7f12010d">标题栏</string>
+    <string name="arg_res_0x7f120821">为了向您提供更好的用户体验，梦枕在特定场景可能需要向您申请以下系统权限</string>
+    <string name="arg_res_0x7f1207a7">快速设置</string>
+    <attr name="corner_radius" format="dimension" />
+    <attr name="round_background" format="boolean" />
+    <attr name="scaleableSeekBar_KeyPointColor" format="color" />
+    <attr name="scaleableSeekBar_ProgressScaleHeight" format="dimension" />
+    <attr name="scaleableSeekBar_RestoreTimeMS" format="integer" />
+    <attr name="scaleableSeekBar_ThumbScaleResource" format="reference" />
+
+    <dimen name="arg_res_0x7f0702b1">50dp</dimen>
+    <dimen name="arg_res_0x7f0700e4">70dp</dimen>
+
+    <string name="arg_res_0x7f120213">分享</string>
+    <string name="arg_res_0x7f1204f9">若您手机开启了“定时播放”，到时间没有定时唤醒，请检查：</string>
+    <string name="arg_res_0x7f1204ff">为了正常开播，请打开\n「自启动」权限。</string>
+    <string name="arg_res_0x7f120535">快退15秒</string>
+    <string name="arg_res_0x7f12065e">返回</string>
+    <string name="arg_res_0x7f120774">播放列表</string>
+    <string name="arg_res_0x7f120830">定时关闭</string>
+
+    <string-array name="arg_res_0x7f03000c">
+        <item>0</item><item>1</item><item>2</item><item>3</item>
+        <item>4</item><item>5</item><item>6</item><item>7</item>
+        <item>8</item><item>9</item><item>10</item><item>11</item>
+        <item>12</item><item>13</item><item>14</item><item>15</item>
+        <item>16</item><item>17</item><item>18</item><item>19</item>
+        <item>20</item><item>21</item><item>22</item><item>23</item>
+    </string-array>
+    <string-array name="arg_res_0x7f03000e">
+        <item>0</item><item>1</item><item>2</item><item>3</item>
+        <item>4</item><item>5</item><item>6</item><item>7</item>
+        <item>8</item><item>9</item><item>10</item><item>11</item>
+        <item>12</item><item>13</item><item>14</item><item>15</item>
+        <item>16</item><item>17</item><item>18</item><item>19</item>
+        <item>20</item><item>21</item><item>22</item><item>23</item>
+        <item>24</item><item>25</item><item>26</item><item>27</item>
+        <item>28</item><item>29</item><item>30</item><item>31</item>
+        <item>32</item><item>33</item><item>34</item><item>35</item>
+        <item>36</item><item>37</item><item>38</item><item>39</item>
+        <item>40</item><item>41</item><item>42</item><item>43</item>
+        <item>44</item><item>45</item><item>46</item><item>47</item>
+        <item>48</item><item>49</item><item>50</item><item>51</item>
+        <item>52</item><item>53</item><item>54</item><item>55</item>
+        <item>56</item><item>57</item><item>58</item><item>59</item>
+    </string-array>
+
+    <style name="arg_res_0x7f1303b5" parent="">
+        <item name="android:minWidth">0dp</item>
+        <item name="android:minHeight">0dp</item>
+        <item name="android:includeFontPadding">false</item>
+        <item name="android:insetTop">0dp</item>
+        <item name="android:insetBottom">0dp</item>
+        <item name="android:elevation">0dp</item>
+        <item name="android:stateListAnimator">@null</item>
+        <item name="android:letterSpacing">0</item>
+    </style>
+
+    <style name="arg_res_0x7f130469" parent="">
+        <item name="android:background">@drawable/arg_res_0x7f080555</item>
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">1px</item>
+        <item name="android:layout_marginLeft">15dp</item>
+    </style>
+
+    <style name="arg_res_0x7f13046a" parent="">
+        <item name="android:gravity">center_vertical</item>
+        <item name="android:orientation">horizontal</item>
+        <item name="android:background">@drawable/arg_res_0x7f0805ac</item>
+        <item name="android:clickable">true</item>
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">60dp</item>
+    </style>
+
+    <style name="arg_res_0x7f1304bf" parent="">
+        <item name="android:textSize">15sp</item>
+        <item name="android:textColor">@color/arg_res_0x7f060191</item>
+        <item name="android:ellipsize">end</item>
+        <item name="android:gravity">center_vertical|left</item>
+        <item name="android:background">@drawable/arg_res_0x7f0805ac</item>
+        <item name="android:paddingLeft">15dp</item>
+        <item name="android:paddingRight">15dp</item>
+        <item name="android:clickable">true</item>
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:minHeight">50dp</item>
+        <item name="android:maxEms">8</item>
+        <item name="android:singleLine">true</item>
+        <item name="android:drawableRight">@drawable/arg_res_0x7f0809cf</item>
+        <item name="android:drawablePadding">10dp</item>
+    </style>
+
+    <style name="arg_res_0x7f1304c0" parent="@style/arg_res_0x7f1304bf">
+        <item name="android:background">@drawable/arg_res_0x7f0805ad</item>
+    </style>
+
+    <style name="arg_res_0x7f1304c1" parent="">
+        <item name="android:textSize">15sp</item>
+        <item name="android:textColor">@color/arg_res_0x7f060191</item>
+        <item name="android:gravity">center_vertical</item>
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_marginLeft">15dp</item>
+        <item name="android:layout_marginRight">15dp</item>
+        <item name="android:maxEms">8</item>
+        <item name="android:singleLine">true</item>
+        <item name="android:drawablePadding">10dp</item>
+    </style>
+
+    <style name="arg_res_0x7f1304c2" parent="">
+        <item name="android:textSize">14sp</item>
+        <item name="android:textColor">@color/arg_res_0x7f06034d</item>
+        <item name="android:ellipsize">end</item>
+        <item name="android:gravity">center_vertical|right</item>
+        <item name="android:layout_width">0dp</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_marginRight">15dp</item>
+        <item name="android:singleLine">true</item>
+        <item name="android:includeFontPadding">false</item>
+        <item name="android:drawableRight">@drawable/arg_res_0x7f0809cf</item>
+        <item name="android:drawablePadding">3dp</item>
+        <item name="android:layout_weight">1</item>
+    </style>
+
+    <style name="arg_res_0x7f130419" parent="">
+        <item name="android:textSize">17sp</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:fontFamily">sans-serif-light</item>
+    </style>
+</resources>

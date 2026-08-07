@@ -1,0 +1,136 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/arg_res_0x7f0605f6"
+    android:orientation="vertical">
+
+    <include
+        android:id="@+id/main_title_bar"
+        layout="@layout/ximalaya_alarm_title_bar"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/arg_res_0x7f0702b1" />
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:scrollbars="none">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:paddingBottom="100dp">
+
+            <RelativeLayout
+                android:id="@+id/main_push_accept_push_switch"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/arg_res_0x7f0805ad"
+                android:paddingTop="12dp"
+                android:paddingBottom="12dp">
+
+                <TextView
+                    android:id="@+id/main_tv_push_accept_title"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="16dp"
+                    android:text="定时任务提醒"
+                    android:textColor="@color/arg_res_0x7f06060e"
+                    android:textSize="15sp" />
+
+                <TextView
+                    android:id="@+id/main_tv_open_push_prompt"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/main_tv_push_accept_title"
+                    android:layout_marginStart="16dp"
+                    android:layout_marginTop="4dp"
+                    android:text="已关闭任务提醒"
+                    android:textColor="@color/arg_res_0x7f06034d"
+                    android:textSize="12sp"
+                    android:visibility="gone" />
+
+                <CheckBox
+                    android:id="@+id/main_sb_accept_push_switch"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentEnd="true"
+                    android:layout_centerVertical="true"
+                    android:layout_marginEnd="18dp"
+                    android:background="@drawable/xm_alarm_v9514_0x7f080dd5"
+                    android:button="@null" />
+            </RelativeLayout>
+
+            <TextView
+                style="@style/XmSettingSourceSectionTitle"
+                android:paddingStart="16dp"
+                android:text="提醒类型" />
+
+            <FrameLayout
+                android:id="@+id/main_push_reservation"
+                android:layout_width="match_parent"
+                android:layout_height="48dp"
+                android:background="@drawable/arg_res_0x7f0805ad">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical"
+                    android:layout_marginStart="16dp"
+                    android:text="权限异常提醒"
+                    android:textColor="@color/arg_res_0x7f06060e"
+                    android:textSize="15sp" />
+
+                <CheckBox
+                    android:id="@+id/main_sb_reservation"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="end|center_vertical"
+                    android:layout_marginEnd="18dp"
+                    android:background="@drawable/xm_alarm_v9514_0x7f080dd5"
+                    android:button="@null" />
+            </FrameLayout>
+
+            <View style="@style/XmSettingSourceDivider" />
+
+            <FrameLayout
+                android:id="@+id/main_push_subscribe_update"
+                android:layout_width="match_parent"
+                android:layout_height="48dp"
+                android:background="@drawable/arg_res_0x7f0805ad"
+                android:visibility="gone">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical"
+                    android:layout_marginStart="16dp"
+                    android:text="定时关闭提醒"
+                    android:textColor="@color/arg_res_0x7f06060e"
+                    android:textSize="15sp" />
+
+                <CheckBox
+                    android:id="@+id/main_sb_subscribe_update"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="end|center_vertical"
+                    android:layout_marginEnd="18dp"
+                    android:background="@drawable/xm_alarm_v9514_0x7f080dd5"
+                    android:button="@null" />
+            </FrameLayout>
+
+            <TextView
+                android:id="@+id/main_tv_without_sound"
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                android:background="@color/arg_res_0x7f0605f6"
+                android:gravity="center"
+                android:text="免打扰时间：23:00-次日7:00"
+                android:textColor="@color/arg_res_0x7f06034d"
+                android:textSize="13sp"
+                android:visibility="gone" />
+        </LinearLayout>
+    </ScrollView>
+</LinearLayout>

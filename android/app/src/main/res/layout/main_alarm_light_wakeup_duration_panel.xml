@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@id/main_alarm_light_wakeup_duration_panel"
+    android:orientation="vertical"
+    android:background="@color/xm_alarm_v9514_0x7f060e75"
+    android:visibility="gone"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content" />

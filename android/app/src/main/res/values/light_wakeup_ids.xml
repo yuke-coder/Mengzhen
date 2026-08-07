@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <item name="main_alarm_light_wakeup_duration_panel" type="id" />
+    <item name="main_alarm_fade_in_seek" type="id" />
+    <item name="main_alarm_fade_in_value" type="id" />
+    <item name="main_alarm_fade_in_unit" type="id" />
+    <item name="main_alarm_fade_out_seek" type="id" />
+    <item name="main_alarm_fade_out_value" type="id" />
+    <item name="main_alarm_fade_out_unit" type="id" />
+</resources>

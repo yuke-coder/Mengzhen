@@ -269,7 +269,7 @@ fun PermissionTutorialScreen(
             // 应急出口（埋点：睡前流失关键节点）
             EmergencyExit(onClick = {
                 scope.launch { TutorialFunnel.trackEmergencyExit(context) }
-                navController.popBackStack(Screen.Landing.route, inclusive = false)
+                navController.popBackStack(Screen.Settings.route, inclusive = false)
             })
 
             Spacer(Modifier.height(4.dp))

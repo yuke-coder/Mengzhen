@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/qq_healing_page_background"
+    android:orientation="vertical">
+
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="69dp">
+
+        <ImageView
+            android:id="@+id/qq_healing_back"
+            android:layout_width="44dp"
+            android:layout_height="44dp"
+            android:layout_gravity="start|center_vertical"
+            android:padding="12dp"
+            android:rotation="180"
+            android:src="@drawable/qq_auto_close_arrow_right" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_gravity="center"
+            android:gravity="center"
+            android:text="定时关闭"
+            android:textColor="@color/qq_healing_text_main"
+            android:textSize="17sp"
+            android:textStyle="bold" />
+    </FrameLayout>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="27dp"
+        android:text="更多助眠音乐"
+        android:textColor="@color/qq_healing_text_sub"
+        android:textSize="12sp" />
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/qq_healing_list"
+        android:layout_width="match_parent"
+        android:layout_height="136dp"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="12dp"
+        android:clipToPadding="false"
+        android:orientation="horizontal"
+        android:overScrollMode="never"
+        android:paddingEnd="20dp" />
+
+</LinearLayout>

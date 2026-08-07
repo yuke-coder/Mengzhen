@@ -1,0 +1,17 @@
+android/
+build/
+research/
+xm_rev/
+.gradle-codex/
+supabase/
+scripts/
+assets/
+*.png
+*.jpg
+*.jpeg
+*.webp
+*.apk
+*.aab
+*.jks
+*.keystore
+*.md

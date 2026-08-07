@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- host_act_main_stub/rg_tabs + host_fra_play_bar/main_fragment_playbar，9.5.1.4。 -->
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/xm_main_bottom_root"
+    android:clipChildren="false"
+    android:clipToPadding="false"
+    android:background="@drawable/xm_main_bottom_background"
+    android:layout_width="match_parent"
+    android:layout_height="63dp">
+
+    <RadioGroup
+        android:id="@+id/xm_main_tabs"
+        android:orientation="horizontal"
+        android:background="@android:color/transparent"
+        android:layout_width="match_parent"
+        android:layout_height="63dp">
+
+        <RadioButton
+            android:id="@+id/xm_main_tab_home"
+            android:text="音频"
+            android:textColor="@color/xm_main_tab_text"
+            style="@style/XmMainBottomTabSource" />
+
+        <RadioButton
+            android:id="@+id/xm_main_tab_cache"
+            android:text="缓存"
+            android:textColor="@color/xm_main_tab_text"
+            style="@style/XmMainBottomTabSource" />
+
+        <RadioButton
+            android:id="@+id/xm_main_tab_play_slot"
+            style="@style/XmMainBottomTabSource" />
+
+        <RadioButton
+            android:id="@+id/xm_main_tab_audio"
+            android:text="任务"
+            android:textColor="@color/xm_main_tab_text"
+            style="@style/XmMainBottomTabSource" />
+
+        <RadioButton
+            android:id="@+id/xm_main_tab_mine"
+            android:text="我的"
+            android:textColor="@color/xm_main_tab_text"
+            style="@style/XmMainBottomTabSource" />
+    </RadioGroup>
+
+    <FrameLayout
+        android:id="@+id/xm_main_player"
+        android:clickable="true"
+        android:focusable="true"
+        android:layout_gravity="bottom|center_horizontal"
+        android:layout_width="114dp"
+        android:layout_height="63dp"
+        android:contentDescription="播放页">
+
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:src="@drawable/xm_main_v9514_0x7f080b9d" />
+
+        <FrameLayout
+            android:layout_gravity="bottom|center_horizontal"
+            android:paddingBottom="3dp"
+            android:layout_width="62dp"
+            android:layout_height="59dp">
+
+            <ImageView
+                android:layout_gravity="center"
+                android:layout_width="52dp"
+                android:layout_height="52dp"
+                android:src="@drawable/xm_main_v9514_0x7f080b9c" />
+
+            <com.ximalaya.ting.android.framework.view.image.RoundImageView
+                android:id="@+id/xm_main_player_cover"
+                android:layout_gravity="center"
+                android:background="@drawable/xm_main_v9514_default_cover"
+                android:layout_width="44dp"
+                android:layout_height="44dp"
+                android:scaleType="centerCrop"
+                app:corner_radius="50dp" />
+
+            <ImageView
+                android:id="@+id/xm_main_player_state"
+                android:layout_gravity="center"
+                android:layout_width="44dp"
+                android:layout_height="44dp"
+                android:src="@drawable/xm_main_v9514_0x7f080dfa"
+                android:scaleType="centerInside" />
+
+            <com.ximalaya.ting.android.host.view.bar.RoundProgressBar
+                android:id="@+id/xm_main_player_progress"
+                android:layout_gravity="center"
+                android:layout_width="48dp"
+                android:layout_height="48dp" />
+        </FrameLayout>
+    </FrameLayout>
+</FrameLayout>

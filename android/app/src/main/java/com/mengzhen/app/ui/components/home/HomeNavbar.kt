@@ -38,7 +38,7 @@ import androidx.compose.ui.unit.DpOffset
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.navigation.NavController
-import coil.compose.AsyncImage
+import coil3.compose.AsyncImage
 import com.mengzhen.app.R
 import com.mengzhen.app.data.api.ApiClient
 import com.mengzhen.app.data.model.UserInfo
@@ -150,19 +150,20 @@ fun HomeNavbar(
 fun HomeUserMenu(navController: NavController) {
     val context = LocalContext.current
     val store = remember { TaskStore.get(context) }
-    val api = remember { ApiClient.get() }
+    val api = remember(context) { ApiClient.get(context) }
     val scope = rememberCoroutineScope()
-    var user by remember { mutableStateOf(store.getSession()?.second) }
+    val user by store.sessionUser.collectAsState()
     var expanded by remember { mutableStateOf(false) }
 
-    // 进入时静默刷新用户信息（失败忽略，与 ProfileScreen 同链路）
+    // 进入时静默刷新用户信息（失败忽略，与资料页同链路）
     LaunchedEffect(Unit) {
         scope.launch(Dispatchers.IO) {
             try {
                 val res = api.me()
-                parseUser(res)?.let { fresh ->
-                    store.saveUserSession("cookie_session", fresh)
-                    withContext(Dispatchers.Main) { user = fresh }
+                if (res.optBoolean("success", false)) {
+                    val fresh = parseUser(res)
+                    if (fresh == null) store.clearSession()
+                    else store.saveUserSession("cookie_session", fresh)
                 }
             } catch (_: Exception) {
             }
@@ -268,7 +269,6 @@ fun HomeUserMenu(navController: NavController) {
                         try { api.logout() } catch (_: Exception) {}
                         store.clearSession()
                         withContext(Dispatchers.Main) {
-                            user = null
                             navController.navigate(Screen.Landing.route) {
                                 popUpTo(0) { inclusive = true }
                             }

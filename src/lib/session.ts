@@ -24,14 +24,14 @@ export async function createSession(client: SupabaseClient, userId: string | num
   const expiresAt = new Date();
   expiresAt.setFullYear(expiresAt.getFullYear() + 1);
 
-  try {
-    await client.from("sessions").insert({
-      user_id: userId,
-      token,
-      expires_at: expiresAt.toISOString(),
-    });
-  } catch (error) {
+  const { error } = await client.from("sessions").insert({
+    user_id: userId,
+    token,
+    expires_at: expiresAt.toISOString(),
+  });
+  if (error) {
     console.error("存储 session 失败:", error);
+    throw new Error("创建登录会话失败", { cause: error });
   }
 
   const cookieStore = await cookies();

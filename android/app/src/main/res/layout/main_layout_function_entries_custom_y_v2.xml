@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.ximalaya.ting.android.main.playpage.playy.component.functionv2.view.YFunctionLayoutV2 xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="horizontal"
+    android:visibility="visible"
+    android:clipChildren="false"
+    android:clipToPadding="false"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"/>

@@ -3,6 +3,7 @@ package com.mengzhen.app.audio
 import android.content.Context
 import android.util.Log
 import com.mengzhen.app.data.api.ApiClient
+import com.mengzhen.app.data.store.TaskStore
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.withContext
 import org.json.JSONObject
@@ -18,7 +19,10 @@ import org.json.JSONObject
 class PlayProgressStore private constructor(context: Context) {
 
     private val prefs = context.getSharedPreferences("dream_pillow_progress", Context.MODE_PRIVATE)
-    private val api = ApiClient.get()
+    private val api = ApiClient.get(context)
+    private val taskStore = TaskStore.get(context)
+    private val cloudSyncLock = Any()
+    private val lastCloudSyncAt = mutableMapOf<String, Long>()
 
     /**
      * 保存播放进度到本地
@@ -59,6 +63,18 @@ class PlayProgressStore private constructor(context: Context) {
      * 在 IO 协程中调用
      */
     suspend fun saveToCloud(audioId: String, positionSeconds: Long, durationSeconds: Long) {
+        if (taskStore.getSession() == null) return
+        val now = System.currentTimeMillis()
+        val shouldSync = synchronized(cloudSyncLock) {
+            val lastSync = lastCloudSyncAt[audioId] ?: 0L
+            if (now - lastSync < CLOUD_SYNC_INTERVAL_MS) {
+                false
+            } else {
+                lastCloudSyncAt[audioId] = now
+                true
+            }
+        }
+        if (!shouldSync) return
         withContext(Dispatchers.IO) {
             try {
                 val result = api.savePlaybackProgress(audioId, positionSeconds, durationSeconds)
@@ -76,6 +92,7 @@ class PlayProgressStore private constructor(context: Context) {
      * 应用启动时调用
      */
     suspend fun syncFromCloud() {
+        if (taskStore.getSession() == null) return
         withContext(Dispatchers.IO) {
             try {
                 val result = api.getPlaybackProgress()
@@ -110,11 +127,31 @@ class PlayProgressStore private constructor(context: Context) {
      */
     suspend fun delete(audioId: String) {
         prefs.edit().remove(audioId).apply()
+        synchronized(cloudSyncLock) {
+            lastCloudSyncAt.remove(audioId)
+        }
+        if (taskStore.getSession() == null) return
         withContext(Dispatchers.IO) {
             try {
                 api.deletePlaybackProgress(audioId)
             } catch (e: Exception) {
                 Log.w(TAG, "Cloud delete failed", e)
+            }
+        }
+    }
+
+    /** 清除全部本地进度，并在已登录时同步删除对应云端记录。 */
+    suspend fun clearAll() {
+        val audioIds = prefs.all.keys.toList()
+        prefs.edit().clear().apply()
+        synchronized(cloudSyncLock) {
+            lastCloudSyncAt.clear()
+        }
+        if (taskStore.getSession() == null) return
+        withContext(Dispatchers.IO) {
+            audioIds.forEach { audioId ->
+                runCatching { api.deletePlaybackProgress(audioId) }
+                    .onFailure { Log.w(TAG, "Cloud delete failed for $audioId", it) }
             }
         }
     }
@@ -139,6 +176,7 @@ class PlayProgressStore private constructor(context: Context) {
 
     companion object {
         private const val TAG = "PlayProgressStore"
+        private const val CLOUD_SYNC_INTERVAL_MS = 30_000L
 
         @Volatile private var instance: PlayProgressStore? = null
         fun get(context: Context): PlayProgressStore =

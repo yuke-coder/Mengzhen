@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layer-list xmlns:android="http://schemas.android.com/apk/res/android">
+    <item
+        android:left="-1px"
+        android:top="-1px"
+        android:right="-1px">
+        <shape>
+            <solid android:color="@color/xm_alarm_v9514_0x7f060e75"/>
+            <stroke
+                android:width="1px"
+                android:color="@color/arg_res_0x7f06041f"/>
+        </shape>
+    </item>
+</layer-list>

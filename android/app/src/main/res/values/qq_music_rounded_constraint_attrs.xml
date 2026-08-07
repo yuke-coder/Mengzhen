@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- QQ 音乐 20.6.5.8 RoundedConstraintLayout 的原 styleable 顺序。 -->
+    <declare-styleable name="RoundedConstraintLayout">
+        <attr name="constraintLayout_clipBackground" format="boolean" />
+        <attr name="constraintLayout_radiusMode" format="integer" />
+        <attr name="constraintLayout_radiusNew" format="dimension" />
+    </declare-styleable>
+</resources>

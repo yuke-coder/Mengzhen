@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- Ximalaya 9.5.1.4 XNPS light-theme values. -->
+    <color name="xm_feedback_xnps_title">#131313</color>
+    <color name="xm_feedback_xnps_text">#333333</color>
+    <color name="xm_feedback_xnps_accent">#FF4444</color>
+    <color name="xm_feedback_xnps_selected_fill">#1AFF4444</color>
+    <color name="xm_feedback_xnps_tag_selected_fill">#0DFF4444</color>
+    <color name="xm_feedback_xnps_reluctant_fill">#F6FAF5</color>
+    <color name="xm_feedback_xnps_neutral_fill">#FAF6ED</color>
+    <color name="xm_feedback_xnps_willing_fill">#FAF0F6</color>
+    <color name="xm_feedback_xnps_field_fill">#F6F7F8</color>
+    <color name="xm_feedback_xnps_hint">#999999</color>
+    <color name="xm_feedback_xnps_counter">#AAAAAA</color>
+    <color name="xm_feedback_xnps_disabled">#DDDDDD</color>
+    <color name="xm_feedback_xnps_white">#FFFFFF</color>
+</resources>

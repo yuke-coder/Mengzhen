@@ -19,7 +19,7 @@
 ## 一、总体架构
 
 1. **纯原生 App** - Kotlin + Jetpack Compose，对标喜马拉雅
-2. **Web 端** - 保留不动，部署在 `https://mengzhen-chi.vercel.app`
+2. **Web 端** - 保留不动，部署在 `https://driftcue.com`
 3. **Capacitor 壳** - 已彻底清除（Android 侧 + Web 端零残留）
 4. **现有 Java Service/Receiver** - 全部推翻，用 Kotlin 重写
 5. **喜马拉雅反编译代码** - 作为参考路标，读懂逻辑后用 Kotlin 重新实现
@@ -39,7 +39,7 @@
 1. **播放器引擎** - Media3 / ExoPlayer（喜马拉雅也用 ExoPlayer）
 2. **定时调度** - AlarmManager.setExactAndAllowWhileIdle()（最可靠，喜马拉雅同款）
 3. **网络层** - OkHttp（build.gradle 已加依赖）
-4. **数据层** - 走 Web API（`https://mengzhen-chi.vercel.app/api/*`），不直连 Supabase
+4. **数据层** - 走 Web API（`https://driftcue.com/api/*`），不直连 Supabase
 5. **音频上传** - 原生 App 调 Web API 拿签名 URL，直传 Supabase Storage（不走 Vercel，无大小限制）
 6. **图片加载** - Coil Compose（build.gradle 已加依赖）
 
@@ -121,7 +121,7 @@
 ## 五、数据层
 
 ### API 域名
-`https://mengzhen-chi.vercel.app/api/*`
+`https://driftcue.com/api/*`
 
 ### 用户体系
 - 共用 Web 端 `users` 表（Supabase PostgreSQL）

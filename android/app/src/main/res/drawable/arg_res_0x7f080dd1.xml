@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<selector xmlns:android="http://schemas.android.com/apk/res/android">
+    <item android:state_enabled="false">
+        <layer-list>
+            <item>
+                <bitmap
+                    android:src="@drawable/arg_res_0x7f080dcd"
+                    android:alpha="0.25"/>
+            </item>
+        </layer-list>
+    </item>
+    <item
+        android:state_checked="true"
+        android:drawable="@drawable/arg_res_0x7f080dcd"/>
+    <item
+        android:state_checked="false"
+        android:drawable="@drawable/arg_res_0x7f080dc7"/>
+</selector>

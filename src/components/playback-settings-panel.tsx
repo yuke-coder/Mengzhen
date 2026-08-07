@@ -37,17 +37,11 @@ function currentDateTime(): DateTimeValue {
 
 function startTimeError(
   time: DateTimeValue,
-  fadeInDuration: number,
-  enableFade: boolean,
   nowMs: number,
 ): string | null {
   if (!time?.year) return "请设置开始时间";
   const targetMs = new Date(time.year, time.month - 1, time.day, time.hour, time.minute, time.second).getTime();
-  const actualStartMs = targetMs - (enableFade ? fadeInDuration * 1000 : 0);
-  if (actualStartMs >= nowMs - 2000) return null;
-  return enableFade && fadeInDuration > 0
-    ? "距离开始时间不足以完成渐入，请调整开始时间或缩短渐入时长"
-    : "开始时间不能早于当前时间";
+  return targetMs >= nowMs ? null : "开始时间不能早于当前时间";
 }
 
 function endTimeError(time: DateTimeValue, startTime: DateTimeValue, nowMs: number): string | null {
@@ -61,7 +55,7 @@ function endTimeError(time: DateTimeValue, startTime: DateTimeValue, nowMs: numb
     startTime.minute,
     startTime.second,
   ).getTime();
-  if (targetMs < nowMs - 2000) return "结束时间不能早于当前时间";
+  if (targetMs < nowMs) return "结束时间不能早于当前时间";
   if (targetMs === startMs) return "结束时间不能与开始时间相同，请设置不同的时间";
   if (targetMs < startMs) return "结束时间不能早于开始时间";
   return null;
@@ -150,8 +144,8 @@ function DefaultPlaybackContent({
   }, []);
 
   const currentStartTimeError = useMemo(
-    () => startTimeError(startTime, fadeInDuration, enableFade, nowMs),
-    [enableFade, fadeInDuration, nowMs, startTime],
+    () => startTimeError(startTime, nowMs),
+    [nowMs, startTime],
   );
   const currentEndTimeError = useMemo(
     () => endTimeError(endTime, startTime, nowMs),
@@ -162,7 +156,7 @@ function DefaultPlaybackContent({
 
   const handleDreamPillow = async () => {
     const freshNow = Date.now();
-    const freshStartError = startTimeError(startTime, fadeInDuration, enableFade, freshNow);
+    const freshStartError = startTimeError(startTime, freshNow);
     const freshEndError = endTimeError(endTime, startTime, freshNow);
     if (freshStartError) {
       toast.error(freshStartError);

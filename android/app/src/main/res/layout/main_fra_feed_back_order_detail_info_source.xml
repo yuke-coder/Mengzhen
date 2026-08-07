@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#FFFFFFFF"
+    android:orientation="vertical">
+
+    <include
+        android:id="@+id/main_title_bar"
+        layout="@layout/ximalaya_alarm_title_bar"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/arg_res_0x7f0702b1" />
+
+    <LinearLayout
+        android:id="@+id/main_opgroup"
+        style="@style/XmFeedbackInfoRow">
+        <TextView style="@style/XmFeedbackInfoLabel" android:text="受理客服组" />
+        <TextView android:id="@+id/main_tv_opgroup" style="@style/XmFeedbackInfoValue" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/main_opname"
+        style="@style/XmFeedbackInfoRow">
+        <TextView style="@style/XmFeedbackInfoLabel" android:text="受理客服" />
+        <TextView android:id="@+id/main_tv_opname" style="@style/XmFeedbackInfoValue" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/main_created"
+        style="@style/XmFeedbackInfoRow">
+        <TextView style="@style/XmFeedbackInfoLabel" android:text="提交时间" />
+        <TextView android:id="@+id/main_tv_created" style="@style/XmFeedbackInfoValue" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/main_processtime"
+        style="@style/XmFeedbackInfoRow">
+        <TextView style="@style/XmFeedbackInfoLabel" android:text="受理时间" />
+        <TextView android:id="@+id/main_tv_processtime" style="@style/XmFeedbackInfoValue" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/main_status"
+        style="@style/XmFeedbackInfoRow">
+        <TextView style="@style/XmFeedbackInfoLabel" android:text="工单状态" />
+        <TextView android:id="@+id/main_tv_status" style="@style/XmFeedbackInfoValue" />
+    </LinearLayout>
+</LinearLayout>

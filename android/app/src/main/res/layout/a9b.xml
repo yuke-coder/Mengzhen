@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.tencent.qqmusic.ui.FitSystemLinearLayout android:orientation="vertical" android:background="@color/black" android:fitsSystemWindows="true" android:layout_width="match_parent" android:layout_height="match_parent"
+  xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">
+    <androidx.constraintlayout.widget.ConstraintLayout android:background="@color/black" android:layout_width="match_parent" android:layout_height="match_parent">
+        <com.tencent.qqmusic.ui.customview.imagecrop.CroppableImageView android:id="@+id/dmn" android:layout_width="match_parent" android:layout_height="match_parent" />
+        <RelativeLayout android:state_window_focused="false" android:id="@+id/ls7" android:background="@color/black" android:paddingTop="@dimen/c_m" android:layout_width="match_parent" android:layout_height="@dimen/caq" app:layout_constraintTop_toTopOf="parent">
+            <RelativeLayout android:id="@+id/eyl" android:clickable="false" android:layout_width="wrap_content" android:layout_height="match_parent" android:layout_marginRight="4.0dp" android:layout_alignParentLeft="true">
+                <ImageView android:id="@+id/a54" android:background="@null" android:focusable="true" android:layout_width="@dimen/cak" android:layout_height="@dimen/cak" android:src="@drawable/activity_back_selector_white" android:scaleType="centerInside" android:layout_centerInParent="true" android:contentDescription="@string/wd" />
+            </RelativeLayout>
+            <RelativeLayout android:id="@+id/au7" android:layout_width="wrap_content" android:layout_height="match_parent" android:layout_marginLeft="60.0dp" android:layout_marginRight="60.0dp" android:layout_centerHorizontal="true">
+                <androidx.appcompat.widget.AppCompatTextView android:textSize="18.0sp" android:textColor="@color/white" android:ellipsize="end" android:gravity="center" android:id="@+id/lbd" android:layout_width="wrap_content" android:layout_height="wrap_content" android:singleLine="true" android:layout_centerVertical="true" style="@style/a4s" />
+            </RelativeLayout>
+        </RelativeLayout>
+        <androidx.constraintlayout.widget.Guideline android:orientation="horizontal" android:id="@+id/d_1" android:layout_width="wrap_content" android:layout_height="wrap_content" app:layout_constraintGuide_percent="0.8401" />
+        <TextView android:textSize="18.0dp" android:textStyle="bold" android:textColor="@color/white" android:gravity="center" android:id="@+id/jdo" android:background="@drawable/btn_big_confirm" android:layout_width="220.0dp" android:layout_height="42.0dp" android:text="完  成" app:layout_constraintEnd_toEndOf="parent" app:layout_constraintStart_toStartOf="parent" app:layout_constraintTop_toTopOf="@id/d_1" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</com.tencent.qqmusic.ui.FitSystemLinearLayout>

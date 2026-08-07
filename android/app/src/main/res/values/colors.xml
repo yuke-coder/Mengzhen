@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="nifty_slider_thumb_shadow_color">#FF666666</color>
+
+    <!-- Bilibili 9.5.0 offline cache source palette. -->
+    <color name="Ga0">#FFF6F7F8</color>
+    <color name="Ga2">#FFE3E5E7</color>
+    <color name="Ga3_u">#FFC9CCD0</color>
+    <color name="Ga4">#FFAEB3B9</color>
+    <color name="Ga5">#FF9499A0</color>
+    <color name="Ga8">#FF484C53</color>
+    <color name="Ga10">#FF18191C</color>
+    <color name="Wh0">#FFFFFFFF</color>
+    <color name="Wh0_u">#FFFFFFFF</color>
+    <color name="Pi5">#FFFF6699</color>
+    <color name="theme_color_secondary">#FFFB7299</color>
+    <color name="theme_color_text_tertiary">#FFBBBBBB</color>
+    <color name="theme_color_primary_tr_background">#FFFFFFFF</color>
+    <color name="theme_color_primary_tr_icon">#FF61666D</color>
+    <color name="theme_color_primary_tr_title">#FF18191C</color>
+    <color name="black_alpha70">#B4000000</color>
+    <color name="black_alpha50">#7F000000</color>
+    <color name="black_alpha40">#66000000</color>
+    <color name="gray_dark_alpha26">#44999999</color>
+    <color name="daynight_color_background_window">#FFF4F4F4</color>
+</resources>

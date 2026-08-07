@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/main_bottom_bar"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="#FFFFFFFF"
+    android:gravity="center_vertical"
+    android:orientation="horizontal">
+
+    <EditText
+        android:id="@+id/main_reply"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_vertical"
+        android:layout_marginStart="15dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="15dp"
+        android:layout_marginBottom="8dp"
+        android:layout_weight="1"
+        android:background="@drawable/xm_feedback_reply_field"
+        android:gravity="center_vertical"
+        android:hint="回复"
+        android:maxLength="200"
+        android:maxLines="4"
+        android:minHeight="36dp"
+        android:paddingStart="10dp"
+        android:paddingEnd="10dp"
+        android:textColor="#FF333333"
+        android:textColorHint="#FF999999"
+        android:textSize="15sp" />
+
+    <TextView
+        android:id="@+id/main_send"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="10dp"
+        android:background="@null"
+        android:gravity="center_vertical"
+        android:padding="8dp"
+        android:text="发送"
+        android:textColor="#FFFF4444"
+        android:textSize="13sp" />
+</LinearLayout>

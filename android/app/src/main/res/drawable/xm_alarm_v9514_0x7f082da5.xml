@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<selector xmlns:android="http://schemas.android.com/apk/res/android">
+    <item
+        android:state_enabled="true"
+        android:state_pressed="true">
+        <shape android:shape="rectangle">
+            <solid android:color="@color/xm_alarm_v9514_0x7f060cb9"/>
+        </shape>
+    </item>
+    <item
+        android:state_enabled="true"
+        android:state_pressed="false">
+        <shape android:shape="rectangle">
+            <solid android:color="@color/xm_alarm_v9514_0x7f060e75"/>
+        </shape>
+    </item>
+</selector>

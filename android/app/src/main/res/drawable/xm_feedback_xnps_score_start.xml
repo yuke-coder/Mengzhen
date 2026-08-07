@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<selector xmlns:android="http://schemas.android.com/apk/res/android">
+    <item android:state_selected="true">
+        <shape><corners android:topLeftRadius="4dp" android:bottomLeftRadius="4dp" /><solid android:color="@color/xm_feedback_xnps_selected_fill" /></shape>
+    </item>
+    <item>
+        <shape><corners android:topLeftRadius="4dp" android:bottomLeftRadius="4dp" /><solid android:color="@color/xm_feedback_xnps_reluctant_fill" /></shape>
+    </item>
+</selector>

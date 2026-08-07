@@ -11,7 +11,9 @@ import org.json.JSONObject
  */
 enum class TaskRepeatType { ONCE, WORKDAY, HOLIDAY, DAILY }
 enum class TaskStatus { PENDING, EXECUTING, COMPLETED, CANCELLED }
+enum class TaskPhase { WAITING, FADING_IN, PLAYING, FADING_OUT, IDLE }
 enum class PlayMode { DEFAULT, CUSTOM }
+enum class ScheduledStopMode { NONE, MINUTES, TRACKS }
 
 /**
  * 音频文件 - 对标 Web 端 audios 表
@@ -21,11 +23,23 @@ data class TaskAudio(
     val name: String = "",
     val duration: Long = 0,
     val size: Long = 0,
+    /**
+     * Durable device-side source used for immediate/offline playback.
+     *
+     * This is intentionally kept even after [serverUrl] becomes available: an upload
+     * completing in the background must never make the selected local file unplayable.
+     */
+    val localUri: String? = null,
     val fileKey: String? = null,
     val serverUrl: String? = null,
     val dbKey: String? = null,
     val savedToLibrary: Boolean = false,
     val mimeType: String? = null,
+    val sourceType: String? = null,
+    val sourceId: String? = null,
+    val artist: String? = null,
+    val artworkUri: String? = null,
+    val createdAt: String = "",
 )
 
 /**
@@ -39,15 +53,53 @@ data class ScheduledTask(
     val fadeInDuration: Int = 0,
     val fadeOutDuration: Int = 0,
     val enableFade: Boolean = false,
+    val enableFadeOut: Boolean = false,
     val volume: Int = 70,
     val repeatType: TaskRepeatType = TaskRepeatType.ONCE,
+    /**
+     * 喜马拉雅 AlarmRecord.reapeatDays 的原始位掩码：
+     * 周一至周日依次为 1、2、4、8、16、32、64；0 表示仅执行一次。
+     *
+     * null 表示旧任务继续使用 [repeatType]，从而保持已有数据兼容；
+     * 非 null 时调度器以此字段为准，完整支持自定义星期组合。
+     */
+    val repeatDays: Int? = null,
     val audios: List<TaskAudio> = emptyList(),
+    /** 喜马拉雅“跳过片头片尾”，对当前听单内的全部音频生效。 */
+    val skipHeadSeconds: Int = 0,
+    val skipTailSeconds: Int = 0,
+    /**
+     * Alarm.buildPlayingAlarm() is represented by null. A concrete index selects
+     * one of the task's already chosen audios, matching AlarmRingSettingFragmentNew
+     * without introducing a second file-picker entrance.
+     */
+    val alarmAudioIndex: Int? = null,
+    /** 定时启播选择的音频键，列表顺序就是播放顺序；空列表保持旧版续播行为。 */
+    val alarmAudioOrder: List<String> = emptyList(),
+    /** 定时启播开始后是否、以及如何自动停止；NONE 表示按所选顺序自然播完。 */
+    val scheduledStopMode: ScheduledStopMode = ScheduledStopMode.NONE,
+    /** MINUTES 对应分钟数，TRACKS 对应播完的音频数。 */
+    val scheduledStopValue: Int = 0,
+    /**
+     * 时间关闭的精确播放时长。旧任务未保存该字段时继续使用
+     * [scheduledStopValue] 分钟；由结束时刻反算时可保留秒级精度。
+     */
+    val scheduledStopDurationSeconds: Int = 0,
+    /** 按时间停止到点后，是否等待当前音频自然播完。 */
+    val scheduledFinishCurrentTrack: Boolean = false,
+    /**
+     * False for a newly opened, manually playable session. Legacy persisted tasks did
+     * not contain this field and therefore deserialize as armed for compatibility.
+     */
+    val scheduleArmed: Boolean = true,
     val status: TaskStatus = TaskStatus.PENDING,
     val createdAt: Long = System.currentTimeMillis(),
     val lastExecutedAt: Long? = null,
     val nextExecuteAt: Long? = null,
     val completedAt: Long? = null,
     val skipUntil: Long? = null,
+    val executionStartedAt: Long? = null,
+    val executionEndsAt: Long? = null,
     val updatedAt: Long = System.currentTimeMillis(),
 )
 
@@ -76,6 +128,7 @@ data class PlaybackDraft(
     val fadeInDuration: Int = 0,
     val fadeOutDuration: Int = 0,
     val enableFade: Boolean = false,
+    val enableFadeOut: Boolean = false,
 )
 
 /**
@@ -97,6 +150,50 @@ data class UserInfo(
 
 // === JSON 序列化 ===
 
+fun TaskAudio.toJson(): JSONObject = JSONObject().apply {
+    put("id", id)
+    put("name", name)
+    put("duration", duration)
+    put("size", size)
+    localUri?.let { put("localUri", it) }
+    fileKey?.let { put("fileKey", it) }
+    serverUrl?.let { put("serverUrl", it) }
+    dbKey?.let { put("dbKey", it) }
+    put("savedToLibrary", savedToLibrary)
+    mimeType?.let { put("mimeType", it) }
+    sourceType?.let { put("sourceType", it) }
+    sourceId?.let { put("sourceId", it) }
+    artist?.let { put("artist", it) }
+    artworkUri?.let { put("artworkUri", it) }
+    put("createdAt", createdAt)
+}
+
+fun JSONObject.toTaskAudio(): TaskAudio = TaskAudio(
+    id = optString("id"),
+    name = optString("name"),
+    duration = optLong("duration"),
+    size = optLong("size"),
+    localUri = optString("localUri", "").ifEmpty { null },
+    fileKey = optString("fileKey", "").ifEmpty { null },
+    serverUrl = optString("serverUrl", "").ifEmpty { null },
+    dbKey = optString("dbKey", "").ifEmpty { null },
+    savedToLibrary = optBoolean("savedToLibrary", false),
+    mimeType = optString("mimeType", "").ifEmpty { null },
+    sourceType = optString("sourceType", "").ifEmpty { null },
+    sourceId = optString("sourceId", "").ifEmpty { null },
+    artist = optString("artist", "").ifEmpty { null },
+    artworkUri = optString("artworkUri", "").ifEmpty { null },
+    createdAt = optString("createdAt", ""),
+)
+
+fun TaskAudio.selectionKey(): String =
+    id.takeIf(String::isNotBlank)
+        ?: fileKey?.takeIf(String::isNotBlank)
+        ?: localUri?.takeIf(String::isNotBlank)
+        ?: serverUrl?.takeIf(String::isNotBlank)
+        ?: dbKey?.takeIf(String::isNotBlank)
+        ?: name
+
 fun ScheduledTask.toJson(): JSONObject {
     val json = JSONObject()
     json.put("id", id)
@@ -113,8 +210,22 @@ fun ScheduledTask.toJson(): JSONObject {
     json.put("fadeInDuration", fadeInDuration)
     json.put("fadeOutDuration", fadeOutDuration)
     json.put("enableFade", enableFade)
+    json.put("enableFadeOut", enableFadeOut)
     json.put("volume", volume)
     json.put("repeatType", repeatType.name.lowercase())
+    repeatDays?.let { json.put("repeatDays", it) }
+    json.put("skipHeadSeconds", skipHeadSeconds.coerceIn(0, 120))
+    json.put("skipTailSeconds", skipTailSeconds.coerceIn(0, 120))
+    alarmAudioIndex?.let { json.put("alarmAudioIndex", it) }
+    json.put(
+        "alarmAudioOrder",
+        org.json.JSONArray().apply { alarmAudioOrder.forEach { key -> put(key) } },
+    )
+    json.put("scheduledStopMode", scheduledStopMode.name.lowercase())
+    json.put("scheduledStopValue", scheduledStopValue.coerceAtLeast(0))
+    json.put("scheduledStopDurationSeconds", scheduledStopDurationSeconds.coerceAtLeast(0))
+    json.put("scheduledFinishCurrentTrack", scheduledFinishCurrentTrack)
+    json.put("scheduleArmed", scheduleArmed)
     json.put("status", status.name.lowercase())
     json.put("createdAt", createdAt)
     json.put("updatedAt", updatedAt)
@@ -122,21 +233,11 @@ fun ScheduledTask.toJson(): JSONObject {
     nextExecuteAt?.let { json.put("nextExecuteAt", it) }
     completedAt?.let { json.put("completedAt", it) }
     skipUntil?.let { json.put("skipUntil", it) }
+    executionStartedAt?.let { json.put("executionStartedAt", it) }
+    executionEndsAt?.let { json.put("executionEndsAt", it) }
 
     val arr = org.json.JSONArray()
-    audios.forEach { audio ->
-        val a = JSONObject()
-        a.put("id", audio.id)
-        a.put("name", audio.name)
-        a.put("duration", audio.duration)
-        a.put("size", audio.size)
-        audio.fileKey?.let { a.put("fileKey", it) }
-        audio.serverUrl?.let { a.put("serverUrl", it) }
-        audio.dbKey?.let { a.put("dbKey", it) }
-        a.put("savedToLibrary", audio.savedToLibrary)
-        audio.mimeType?.let { a.put("mimeType", it) }
-        arr.put(a)
-    }
+    audios.forEach { audio -> arr.put(audio.toJson()) }
     json.put("audios", arr)
     return json
 }
@@ -160,6 +261,11 @@ fun JSONObject.toScheduledTask(): ScheduledTask {
         fadeInDuration = optInt("fadeInDuration", 0),
         fadeOutDuration = optInt("fadeOutDuration", 0),
         enableFade = optBoolean("enableFade", false),
+        enableFadeOut = if (has("enableFadeOut")) {
+            optBoolean("enableFadeOut", false)
+        } else {
+            optInt("fadeOutDuration", 0) > 0
+        },
         volume = optInt("volume", 70),
         repeatType = when (optString("repeatType", "once")) {
             "workday" -> TaskRepeatType.WORKDAY
@@ -167,23 +273,36 @@ fun JSONObject.toScheduledTask(): ScheduledTask {
             "daily" -> TaskRepeatType.DAILY
             else -> TaskRepeatType.ONCE
         },
-        audios = run {
-            val arr = optJSONArray("audios") ?: return@run emptyList()
-            (0 until arr.length()).map { i ->
-                val a = arr.getJSONObject(i)
-                TaskAudio(
-                    id = a.optString("id"),
-                    name = a.optString("name"),
-                    duration = a.optLong("duration"),
-                    size = a.optLong("size"),
-                    fileKey = a.optString("fileKey", "").ifEmpty { null },
-                    serverUrl = a.optString("serverUrl", "").ifEmpty { null },
-                    dbKey = a.optString("dbKey", "").ifEmpty { null },
-                    savedToLibrary = a.optBoolean("savedToLibrary", false),
-                    mimeType = a.optString("mimeType", "").ifEmpty { null },
-                )
+        repeatDays = if (has("repeatDays")) optInt("repeatDays").coerceIn(0, 127) else null,
+        skipHeadSeconds = optInt("skipHeadSeconds", 0).coerceIn(0, 120),
+        skipTailSeconds = optInt("skipTailSeconds", 0).coerceIn(0, 120),
+        alarmAudioIndex = if (has("alarmAudioIndex")) {
+            optInt("alarmAudioIndex").coerceAtLeast(0)
+        } else {
+            null
+        },
+        alarmAudioOrder = run {
+            val arr = optJSONArray("alarmAudioOrder") ?: return@run emptyList()
+            (0 until arr.length()).mapNotNull { index ->
+                arr.optString(index).takeIf(String::isNotBlank)
             }
         },
+        scheduledStopMode = when (optString("scheduledStopMode", "none")) {
+            "minutes" -> ScheduledStopMode.MINUTES
+            "tracks" -> ScheduledStopMode.TRACKS
+            else -> ScheduledStopMode.NONE
+        },
+        scheduledStopValue = optInt("scheduledStopValue", 0).coerceAtLeast(0),
+        scheduledStopDurationSeconds = optInt(
+            "scheduledStopDurationSeconds",
+            0,
+        ).coerceAtLeast(0),
+        scheduledFinishCurrentTrack = optBoolean("scheduledFinishCurrentTrack", false),
+        audios = run {
+            val arr = optJSONArray("audios") ?: return@run emptyList()
+            (0 until arr.length()).map { i -> arr.getJSONObject(i).toTaskAudio() }
+        },
+        scheduleArmed = optBoolean("scheduleArmed", true),
         status = when (optString("status", "pending")) {
             "executing" -> TaskStatus.EXECUTING
             "completed" -> TaskStatus.COMPLETED
@@ -195,8 +314,30 @@ fun JSONObject.toScheduledTask(): ScheduledTask {
         nextExecuteAt = if (has("nextExecuteAt")) optLong("nextExecuteAt") else null,
         completedAt = if (has("completedAt")) optLong("completedAt") else null,
         skipUntil = if (has("skipUntil")) optLong("skipUntil") else null,
+        executionStartedAt = if (has("executionStartedAt")) optLong("executionStartedAt") else null,
+        executionEndsAt = if (has("executionEndsAt")) optLong("executionEndsAt") else null,
         updatedAt = optLong("updatedAt"),
     )
+}
+
+fun ScheduledTask.isOneShotSchedule(): Boolean =
+    repeatDays?.let { it == 0 } ?: (repeatType == TaskRepeatType.ONCE)
+
+fun ScheduledTask.hasActiveSchedule(): Boolean =
+    scheduleArmed && status != TaskStatus.CANCELLED && status != TaskStatus.COMPLETED
+
+fun ScheduledTask.effectiveScheduledStopDurationSeconds(): Int =
+    if (scheduledStopMode == ScheduledStopMode.MINUTES) {
+        scheduledStopDurationSeconds.takeIf { it > 0 }
+            ?: scheduledStopValue.coerceAtLeast(0) * 60
+    } else {
+        0
+    }
+
+fun ScheduledTask.hasConfiguredStop(): Boolean = when (scheduledStopMode) {
+    ScheduledStopMode.MINUTES -> effectiveScheduledStopDurationSeconds() > 0
+    ScheduledStopMode.TRACKS -> scheduledStopValue > 0
+    ScheduledStopMode.NONE -> false
 }
 
 /**
@@ -215,6 +356,7 @@ fun parseAudioList(json: JSONObject): List<TaskAudio> {
             serverUrl = a.optString("file_url", "").ifEmpty { null },
             savedToLibrary = true,
             mimeType = a.optString("mime_type", "").ifEmpty { null },
+            createdAt = a.optString("created_at", ""),
         )
     }
 }
@@ -236,7 +378,7 @@ fun parseUser(json: JSONObject): UserInfo? {
         location = user.optString("location", "").ifEmpty { null },
         bio = user.optString("bio", "").ifEmpty { null },
         signature = user.optString("signature", "").ifEmpty { null },
-        createdAt = user.optString("created_at", ""),
+        createdAt = user.optString("createdAt", user.optString("created_at", "")),
     )
 }
 

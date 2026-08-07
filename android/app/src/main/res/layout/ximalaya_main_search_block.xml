@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- main_fra_home_page/main_tv_search，9.5.1.4；仅替换业务提示文案。 -->
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/xm_main_search"
+    android:background="@drawable/xm_main_search_background"
+    android:clickable="true"
+    android:focusable="true"
+    android:layout_width="match_parent"
+    android:layout_height="34dp"
+    android:contentDescription="搜索已选择音频">
+
+    <ImageView
+        android:id="@+id/xm_main_search_icon"
+        android:layout_width="20dp"
+        android:layout_height="20dp"
+        android:layout_marginStart="8dp"
+        android:src="@drawable/xm_main_v9514_0x7f080ac2"
+        android:scaleType="centerCrop"
+        android:tint="@color/xm_main_search_text"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/xm_main_search_hint"
+        android:layout_width="0dp"
+        android:layout_height="match_parent"
+        android:layout_marginStart="2dp"
+        android:gravity="center_vertical"
+        android:ellipsize="end"
+        android:maxLines="1"
+        android:text="搜索已选择音频"
+        android:textColor="@color/xm_main_search_text"
+        android:textSize="13sp"
+        app:layout_constraintEnd_toStartOf="@+id/xm_main_voice_search"
+        app:layout_constraintStart_toEndOf="@+id/xm_main_search_icon" />
+
+    <ImageView
+        android:id="@+id/xm_main_voice_search"
+        android:paddingTop="7dp"
+        android:paddingEnd="12dp"
+        android:paddingBottom="7dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/xm_main_v9514_0x7f080ac8"
+        android:scaleType="fitXY"
+        android:tint="@color/xm_main_search_text"
+        android:contentDescription="语音搜索"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+</androidx.constraintlayout.widget.ConstraintLayout>

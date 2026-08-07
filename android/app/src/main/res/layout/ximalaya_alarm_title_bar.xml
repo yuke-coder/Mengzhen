@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:background="@color/xm_alarm_v9514_0x7f060e75"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+    <ImageView
+        android:id="@+id/ximalaya_title_back"
+        android:visibility="gone"
+        android:layout_width="50dp"
+        android:layout_height="match_parent"
+        android:src="@drawable/xm_ui_host_back"
+        android:scaleType="centerInside"
+        android:contentDescription="返回"
+        android:layout_alignParentLeft="true" />
+    <TextView
+        android:id="@+id/ximalaya_title_cancel"
+        android:visibility="gone"
+        android:textSize="15sp"
+        android:textColor="@color/xm_alarm_v9514_0x7f060ac6"
+        android:gravity="center"
+        android:layout_width="50dp"
+        android:layout_height="match_parent"
+        android:text="取消"
+        android:layout_alignParentLeft="true" />
+    <TextView
+        android:id="@+id/ximalaya_title_text"
+        android:textSize="18sp"
+        android:textColor="@color/arg_res_0x7f060191"
+        android:gravity="center"
+        android:singleLine="true"
+        android:layout_width="180dp"
+        android:layout_height="match_parent"
+        android:layout_centerHorizontal="true" />
+    <TextView
+        android:id="@+id/ximalaya_title_right"
+        android:visibility="gone"
+        android:textSize="15sp"
+        android:textColor="@color/xm_alarm_v9514_0x7f060ac6"
+        android:gravity="center"
+        android:paddingLeft="15dp"
+        android:paddingRight="15dp"
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:layout_alignParentRight="true" />
+</RelativeLayout>

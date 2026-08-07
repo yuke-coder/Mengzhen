@@ -169,18 +169,8 @@ function TaskFormContent({ editTask, controller, active, onSave, onCancel }: Tas
       startTime.second
     ).getTime();
 
-    // 仅在启用渐入渐出时才考虑渐入时长
-    const fadeInMs = enableFade ? fadeInDuration * 1000 : 0;
-    const audioStartAt = target - fadeInMs;
-
-    if (audioStartAt < nowMs - 2000) {
-      if (enableFade && fadeInDuration > 0) {
-        return "开始时间不足以完成渐入效果，请选择稍后的时间点";
-      }
-      return "开始时间不能早于当前时间";
-    }
-    return null;
-  }, [startTime, repeatType, fadeInDuration, enableFade, nowMs]);
+    return target < nowMs ? "开始时间不能早于当前时间" : null;
+  }, [startTime, repeatType, nowMs]);
 
   const validateTime = useCallback((): { valid: boolean; error: string | null } => {
     if (repeatType !== "once") {
@@ -196,18 +186,11 @@ function TaskFormContent({ editTask, controller, active, onSave, onCancel }: Tas
       startTime.second
     ).getTime();
 
-    // 仅在启用渐入渐出时才考虑渐入时长
-    const fadeInMs = enableFade ? fadeInDuration * 1000 : 0;
-    const audioStartAt = target - fadeInMs;
-
-    if (audioStartAt < now - 2000) {
-      if (enableFade && fadeInDuration > 0) {
-        return { valid: false, error: "开始时间不足以完成渐入效果，请选择稍后的时间点" };
-      }
+    if (target < now) {
       return { valid: false, error: "开始时间不能早于当前时间" };
     }
     return { valid: true, error: null };
-  }, [startTime, repeatType, fadeInDuration, enableFade]);
+  }, [startTime, repeatType]);
 
   const handleSave = useCallback(() => {
     const playbackSnapshot = clonePlaybackDraft(controller.getDraft());

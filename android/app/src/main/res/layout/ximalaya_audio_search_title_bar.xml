@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- main_in_search_title_bar，喜马拉雅 9.5.1.4；仅替换搜索对象。 -->
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/xm_audio_search_title_bar"
+    android:layout_width="match_parent"
+    android:layout_height="50dp"
+    android:gravity="center_vertical">
+
+    <ImageView
+        android:id="@+id/xm_audio_search_back"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerVertical="true"
+        android:clickable="true"
+        android:contentDescription="返回"
+        android:scaleType="centerInside"
+        android:src="@drawable/xm_ui_host_back" />
+
+    <FrameLayout
+        android:id="@+id/xm_audio_search_box"
+        android:layout_width="match_parent"
+        android:layout_height="34dp"
+        android:layout_centerVertical="true"
+        android:layout_toStartOf="@+id/xm_audio_search_cancel"
+        android:layout_toEndOf="@+id/xm_audio_search_back"
+        android:background="@drawable/xm_main_search_background">
+
+        <ImageView
+            android:layout_width="20dp"
+            android:layout_height="20dp"
+            android:layout_gravity="center"
+            android:scaleType="fitXY"
+            android:src="@drawable/xm_main_v9514_0x7f080ac2"
+            android:tint="@color/xm_main_search_text" />
+
+        <EditText
+            android:id="@+id/xm_audio_search_input"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:layout_marginStart="26dp"
+            android:layout_marginEnd="26dp"
+            android:background="@android:color/transparent"
+            android:cursorVisible="true"
+            android:ellipsize="end"
+            android:gravity="center_vertical"
+            android:hint="搜索已选择音频"
+            android:imeOptions="actionSearch"
+            android:maxLines="1"
+            android:singleLine="true"
+            android:textColor="@color/xm_main_tab_normal"
+            android:textColorHint="@color/xm_main_search_text"
+            android:textSize="13sp" />
+
+        <ImageView
+            android:id="@+id/xm_audio_search_clear"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center|end"
+            android:contentDescription="语音搜索"
+            android:padding="4dp"
+            android:src="@drawable/xm_main_v9514_0x7f080ac1"
+            android:tint="@color/xm_main_search_text"
+            android:visibility="visible" />
+    </FrameLayout>
+
+    <TextView
+        android:id="@+id/xm_audio_search_cancel"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentEnd="true"
+        android:layout_centerVertical="true"
+        android:enabled="true"
+        android:gravity="center"
+        android:paddingStart="12dp"
+        android:paddingTop="5dp"
+        android:paddingEnd="12dp"
+        android:paddingBottom="5dp"
+        android:text="取消"
+        android:textColor="@color/xm_main_tab_normal"
+        android:textSize="13sp" />
+</RelativeLayout>

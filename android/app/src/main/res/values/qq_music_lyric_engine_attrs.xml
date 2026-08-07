@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <attr name="lyric_color_h" format="color" />
+    <attr name="lyric_color_n" format="color" />
+    <attr name="lyric_color_tr" format="color" />
+    <attr name="lyric_enable_qrc" format="boolean" />
+    <attr name="lyric_font_bold_h" format="boolean" />
+    <attr name="lyric_font_bold_n" format="boolean" />
+    <attr name="lyric_font_bold_tr" format="boolean" />
+    <attr name="lyric_font_size_h" format="dimension" />
+    <attr name="lyric_font_size_n" format="dimension" />
+    <attr name="lyric_font_size_tr" format="dimension" />
+    <attr name="lyric_horizontal_gravity" format="string" />
+    <attr name="lyric_horizontal_padding" format="dimension" />
+    <attr name="lyric_lf_anim_refresh_interval" format="integer" />
+    <attr name="lyric_line_margin" format="dimension" />
+    <attr name="lyric_line_num" format="integer" />
+    <attr name="lyric_name" format="string" />
+    <attr name="lyric_padding_bottom" format="dimension" />
+    <attr name="lyric_padding_left" format="dimension" />
+    <attr name="lyric_padding_right" format="dimension" />
+    <attr name="lyric_padding_top" format="dimension" />
+    <attr name="lyric_refresh_interval" format="integer" />
+    <attr name="lyric_sentence_margin" format="dimension" />
+    <attr name="lyric_sentence_num" format="integer" />
+    <attr name="lyric_shadow" format="boolean" />
+    <attr name="lyric_shadow_color" format="color" />
+    <attr name="lyric_shadow_dx" format="float" />
+    <attr name="lyric_shadow_dy" format="float" />
+    <attr name="lyric_shadow_radius" format="float" />
+    <attr name="lyric_stroke" format="boolean" />
+    <attr name="lyric_tr_margin" format="dimension" />
+    <attr name="lyric_vertical_gravity" format="string" />
+
+    <declare-styleable name="LyricUI20">
+        <attr name="lyric_color_h" />
+        <attr name="lyric_color_n" />
+        <attr name="lyric_color_tr" />
+        <attr name="lyric_enable_qrc" />
+        <attr name="lyric_font_bold_h" />
+        <attr name="lyric_font_bold_n" />
+        <attr name="lyric_font_bold_tr" />
+        <attr name="lyric_font_size_h" />
+        <attr name="lyric_font_size_n" />
+        <attr name="lyric_font_size_tr" />
+        <attr name="lyric_horizontal_gravity" />
+        <attr name="lyric_horizontal_padding" />
+        <attr name="lyric_lf_anim_refresh_interval" />
+        <attr name="lyric_line_margin" />
+        <attr name="lyric_line_num" />
+        <attr name="lyric_name" />
+        <attr name="lyric_refresh_interval" />
+        <attr name="lyric_sentence_margin" />
+        <attr name="lyric_sentence_num" />
+        <attr name="lyric_shadow" />
+        <attr name="lyric_shadow_color" />
+        <attr name="lyric_shadow_dx" />
+        <attr name="lyric_shadow_dy" />
+        <attr name="lyric_shadow_radius" />
+        <attr name="lyric_stroke" />
+        <attr name="lyric_tr_margin" />
+        <attr name="lyric_vertical_gravity" />
+    </declare-styleable>
+
+    <declare-styleable name="LyricSelector">
+        <attr name="lyric_padding_bottom" />
+        <attr name="lyric_padding_left" />
+        <attr name="lyric_padding_right" />
+        <attr name="lyric_padding_top" />
+    </declare-styleable>
+</resources>

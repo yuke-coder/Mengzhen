@@ -16,7 +16,8 @@ import {
   Calendar,
   FileText,
   Heart,
-  SquarePen
+  SquarePen,
+  Moon
 } from 'lucide-react';
 
 const GENDER_MAP: Record<string, string> = {
@@ -214,6 +215,18 @@ export function UserMenu() {
             >
               <History className="w-4 h-4" />
               <span>我的音频</span>
+            </Link>
+            <Link
+              href="/app-sleep"
+              onClick={() => setIsOpen(false)}
+              className={cn(
+                "flex items-center gap-3 w-full px-3 py-2 text-left rounded-lg",
+                "text-sm text-muted-foreground hover:text-foreground",
+                "hover:bg-black/[0.04] dark:hover:bg-white/[0.06] transition-colors duration-150"
+              )}
+            >
+              <Moon className="w-4 h-4" />
+              <span>助眠音乐</span>
             </Link>
             <Link
               href="/feedback"

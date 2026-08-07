@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="60dp"
+    android:minHeight="60dp">
+    <TextView
+        android:textSize="16sp"
+        android:textColor="@color/xm_alarm_v9514_0x7f060ac6"
+        android:id="@+id/main_alarm_dialog_repeat_name"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="20dp"
+        android:text="仅一次"
+        android:layout_centerVertical="true"
+        android:fontFamily="Regular"/>
+    <ImageView
+        android:id="@+id/main_alarm_dialog_repeat_iv_choose"
+        android:visibility="invisible"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginRight="15dp"
+        android:src="@drawable/xm_alarm_v9514_0x7f080442"
+        android:layout_alignParentRight="true"
+        android:layout_centerVertical="true"/>
+</RelativeLayout>

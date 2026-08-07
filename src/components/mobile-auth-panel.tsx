@@ -7,12 +7,14 @@ import { Eye, EyeOff, LogIn } from "lucide-react";
 import { Spinner } from "@/components/ui/spinner";
 import { useAuth } from "@/lib/auth-context";
 import { toast } from "@/components/sonner";
+import { Turnstile } from "@marsidev/react-turnstile";
 
 export function MobileAuthPanel() {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
   const [showPassword, setShowPassword] = useState(false);
   const [loading, setLoading] = useState(false);
+  const [turnstileToken, setTurnstileToken] = useState<string | null>(null);
   const router = useRouter();
   const auth = useAuth();
 
@@ -25,7 +27,7 @@ export function MobileAuthPanel() {
     }
 
     setLoading(true);
-    const result = await auth.loginOrRegister(username.trim(), password);
+    const result = await auth.loginOrRegister(username.trim(), password, turnstileToken || undefined);
     setLoading(false);
 
     if (result.success) router.push("/");
@@ -68,9 +70,17 @@ export function MobileAuthPanel() {
               />
             </Field>
 
+            <Turnstile
+              siteKey={process.env.NEXT_PUBLIC_TURNSTILE_SITE_KEY!}
+              onSuccess={(token) => setTurnstileToken(token)}
+              onExpire={() => setTurnstileToken(null)}
+              onError={() => setTurnstileToken(null)}
+              options={{ theme: 'light' }}
+            />
+
             <button
               type="submit"
-              disabled={loading}
+              disabled={loading || !turnstileToken}
               className="flex h-12 w-full items-center justify-center gap-2 rounded-xl bg-gradient-to-r from-[var(--brand-start)] via-[var(--brand-mid)] to-[var(--brand-end)] text-base font-medium text-white shadow-lg shadow-[var(--brand-start)]/25 transition active:scale-[0.98] disabled:opacity-60"
             >
               {loading ? (

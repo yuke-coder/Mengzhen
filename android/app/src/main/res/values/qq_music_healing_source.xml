@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="qq_healing_page_background">#FFF7F7F7</color>
+    <color name="qq_healing_text_main">#FF1F1F1F</color>
+    <color name="qq_healing_text_sub">#FF8A8A8A</color>
+    <color name="qq_healing_white_60">#9AFFFFFF</color>
+    <color name="qq_healing_mask">#66000000</color>
+</resources>

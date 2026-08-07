@@ -1,0 +1,125 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+  Direct layout port of Ximalaya 9.5.1.4 main_fra_kacha_note_edit.xml.
+  The cloud notebook selector is intentionally absent: this app stores one local custom note per
+  audio. The title bar is populated with the source fragment's 取消 / 编辑备注 / 保存 actions.
+-->
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/xm_audio_note_background"
+    android:orientation="vertical">
+
+    <include
+        android:id="@+id/main_title_bar"
+        layout="@layout/ximalaya_audio_note_title_bar"
+        android:layout_width="match_parent"
+        android:layout_height="50dp" />
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingLeft="16dp"
+        android:paddingTop="20dp"
+        android:paddingRight="16dp"
+        android:paddingBottom="15dp">
+
+        <com.ximalaya.ting.android.framework.view.image.RoundImageView
+            android:id="@+id/main_kacha_note_edit_track_bg"
+            android:layout_width="match_parent"
+            android:layout_height="64dp"
+            android:layout_marginRight="3dp"
+            app:corner_radius="64dp"
+            app:round_background="true" />
+
+        <com.ximalaya.ting.android.framework.view.image.RoundImageView
+            android:id="@+id/main_view_mask"
+            android:layout_width="match_parent"
+            android:layout_height="64dp"
+            android:layout_marginRight="3dp"
+            android:background="@color/xm_audio_note_card_mask"
+            app:corner_radius="64dp"
+            app:round_background="true" />
+
+        <com.ximalaya.ting.android.framework.view.image.RoundImageView
+            android:id="@+id/main_kacha_note_edit_album_cover"
+            android:layout_width="54dp"
+            android:layout_height="54dp"
+            android:layout_marginLeft="8dp"
+            android:layout_marginTop="5dp"
+            android:scaleType="centerCrop"
+            android:src="@drawable/xm_main_v9514_default_cover"
+            app:corner_radius="54dp" />
+
+        <com.ximalaya.ting.android.framework.view.image.RoundImageView
+            android:layout_width="54dp"
+            android:layout_height="54dp"
+            android:layout_marginLeft="8dp"
+            android:layout_marginTop="5dp"
+            android:background="#14000000"
+            app:corner_radius="54dp"
+            app:round_background="true" />
+
+        <ImageView
+            android:id="@+id/main_kacha_note_edit_play_iv"
+            android:layout_width="54dp"
+            android:layout_height="54dp"
+            android:layout_alignLeft="@id/main_kacha_note_edit_album_cover"
+            android:layout_alignTop="@id/main_kacha_note_edit_album_cover"
+            android:layout_alignRight="@id/main_kacha_note_edit_album_cover"
+            android:layout_alignBottom="@id/main_kacha_note_edit_album_cover"
+            android:contentDescription="播放试听"
+            android:padding="18dp"
+            android:src="@drawable/xm_main_v9514_0x7f0824bf" />
+
+        <TextView
+            android:id="@+id/main_kacha_note_edit_track_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignTop="@id/main_kacha_note_edit_track_bg"
+            android:layout_alignRight="@id/main_kacha_note_edit_track_bg"
+            android:layout_marginLeft="12dp"
+            android:layout_marginTop="12dp"
+            android:layout_toRightOf="@id/main_kacha_note_edit_album_cover"
+            android:ellipsize="end"
+            android:gravity="center_vertical"
+            android:maxLines="1"
+            android:paddingRight="10dp"
+            android:textColor="@color/xm_audio_note_primary_text"
+            android:textSize="14sp" />
+
+        <TextView
+            android:id="@+id/main_kacha_note_edit_time_info"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignRight="@id/main_kacha_note_edit_track_bg"
+            android:layout_alignBottom="@id/main_kacha_note_edit_track_bg"
+            android:layout_below="@id/main_kacha_note_edit_track_name"
+            android:layout_marginLeft="12dp"
+            android:layout_marginBottom="12dp"
+            android:layout_toRightOf="@id/main_kacha_note_edit_album_cover"
+            android:ellipsize="end"
+            android:fontFamily="sans-serif-light"
+            android:gravity="center_vertical"
+            android:maxLines="1"
+            android:paddingRight="10dp"
+            android:textColor="@color/xm_audio_note_secondary_text"
+            android:textSize="11sp" />
+    </RelativeLayout>
+
+    <EditText
+        android:id="@+id/main_kacha_note_edit_et"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_marginLeft="24dp"
+        android:layout_marginTop="15dp"
+        android:layout_marginRight="24dp"
+        android:layout_weight="1"
+        android:background="@null"
+        android:gravity="start"
+        android:lineSpacingExtra="6dp"
+        android:textColor="@color/xm_audio_note_primary_text"
+        android:textCursorDrawable="@drawable/xm_note_v9514_cursor"
+        android:textSize="17sp" />
+</LinearLayout>

@@ -2,13 +2,24 @@ import { NextRequest, NextResponse } from 'next/server';
 import bcrypt from 'bcryptjs';
 import { getSupabaseClient } from '@/lib/supabase-client';
 import { createSession, toAuthUser } from '@/lib/session';
+import { verifyTurnstileToken } from '@/lib/turnstile';
 
 export const dynamic = 'force-dynamic';
 
 export async function POST(request: NextRequest) {
   try {
     const body = await request.json();
-    const { username, password } = body;
+    const username = typeof body.username === 'string' ? body.username.trim() : '';
+    const password = typeof body.password === 'string' ? body.password : '';
+    const turnstileToken = typeof body.turnstileToken === 'string' ? body.turnstileToken : '';
+
+    // 验证 Turnstile 人机验证
+    if (!turnstileToken || !(await verifyTurnstileToken(turnstileToken))) {
+      return NextResponse.json(
+        { success: false, error: '人机验证失败，请重试' },
+        { status: 403 }
+      );
+    }
 
     // 验证必填字段
     if (!username || !password) {

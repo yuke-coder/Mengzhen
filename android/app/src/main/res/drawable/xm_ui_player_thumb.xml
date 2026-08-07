@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- 喜马拉雅 9.4.95.3 arg_res_0x7f082adf -->
+<shape xmlns:android="http://schemas.android.com/apk/res/android"
+    android:shape="oval">
+    <size
+        android:width="6dp"
+        android:height="6dp" />
+    <solid android:color="#FFFFFFFF" />
+</shape>

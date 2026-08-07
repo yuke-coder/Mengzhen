@@ -1,0 +1,547 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/arg_res_0x7f0605f6"
+    android:orientation="vertical">
+
+    <include
+        android:id="@+id/main_title_bar"
+        layout="@layout/ximalaya_alarm_title_bar"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/arg_res_0x7f0702b1" />
+
+    <ScrollView
+        android:id="@+id/main_scroll_layout"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:clipToPadding="false"
+        android:scrollbars="none">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <TextView
+                style="@style/XmSettingSourceSectionTitle"
+                android:text="我的信息" />
+
+            <TextView
+                android:id="@+id/main_tv_account_safety"
+                style="@style/XmSettingSourceFilledLinkRow"
+                android:text="账号与安全" />
+
+            <View style="@style/XmSettingSourceDivider" />
+
+            <TextView
+                android:id="@+id/main_privacySetting"
+                style="@style/XmSettingSourceFilledLinkRow"
+                android:text="隐私设置" />
+
+            <View style="@style/XmSettingSourceDivider" />
+
+            <TextView
+                android:id="@+id/main_preferenceSetting"
+                style="@style/XmSettingSourceFilledLinkRow"
+                android:text="收听偏好设置" />
+
+            <View style="@style/XmSettingSourceDivider" />
+
+            <TextView
+                android:id="@+id/main_tv_disabled_verify"
+                style="@style/XmSettingSourceFilledLinkRow"
+                android:text="无障碍认证"
+                android:visibility="gone" />
+
+            <TextView
+                android:id="@+id/main_tv_mode_change"
+                style="@style/XmSettingSourceFilledLinkRow"
+                android:text="模式切换" />
+
+            <View style="@style/XmSettingSourceDivider" />
+
+            <TextView
+                style="@style/XmSettingSourceSectionTitle"
+                android:text="播放下载设置" />
+
+            <LinearLayout
+                android:id="@+id/main_ll_track_quality_level"
+                style="@style/XmSettingSourceHorizontalRow">
+
+                <TextView
+                    style="@style/XmSettingSourceLabel"
+                    android:text="在线播放音质" />
+
+                <TextView
+                    android:id="@+id/main_tv_track_quality"
+                    style="@style/XmSettingSourceValue"
+                    android:text="原始音质" />
+            </LinearLayout>
+
+            <View style="@style/XmSettingSourceDivider" />
+
+            <LinearLayout
+                android:id="@+id/main_ll_track_download_quality_level"
+                style="@style/XmSettingSourceHorizontalRow">
+
+                <TextView
+                    style="@style/XmSettingSourceLabel"
+                    android:text="下载音质" />
+
+                <TextView
+                    android:id="@+id/main_tv_track_download_quality"
+                    style="@style/XmSettingSourceValue"
+                    android:text="原始音质" />
+            </LinearLayout>
+
+            <View style="@style/XmSettingSourceDivider" />
+
+            <RelativeLayout
+                android:id="@+id/main_volume_setting_lay"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <TextView
+                    style="@style/XmSettingSourceFilledLinkRow"
+                    android:clickable="false"
+                    android:drawableEnd="@null"
+                    android:text="音量平衡" />
+
+                <CheckBox
+                    android:id="@+id/main_volume_setting"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentEnd="true"
+                    android:layout_centerVertical="true"
+                    android:layout_marginEnd="15dp"
+                    android:background="@drawable/xm_alarm_v9514_0x7f080dd5"
+                    android:button="@null" />
+            </RelativeLayout>
+
+            <View style="@style/XmSettingSourceDivider" />
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <TextView
+                    style="@style/XmSettingSourceFilledLinkRow"
+                    android:clickable="false"
+                    android:drawableEnd="@null"
+                    android:text="记住上次播放进度" />
+
+                <CheckBox
+                    android:id="@+id/main_continueListenSwitch"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentEnd="true"
+                    android:layout_centerVertical="true"
+                    android:layout_marginEnd="15dp"
+                    android:background="@drawable/xm_alarm_v9514_0x7f080dd5"
+                    android:button="@null" />
+            </RelativeLayout>
+
+            <View style="@style/XmSettingSourceDivider" />
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <TextView
+                    style="@style/XmSettingSourceFilledLinkRow"
+                    android:clickable="false"
+                    android:drawableEnd="@null"
+                    android:text="被其他应用中断后继续播放" />
+
+                <CheckBox
+                    android:id="@+id/main_sb_play_continue_when_interrupted"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentEnd="true"
+                    android:layout_centerVertical="true"
+                    android:layout_marginEnd="15dp"
+                    android:background="@drawable/xm_alarm_v9514_0x7f080dd5"
+                    android:button="@null" />
+            </RelativeLayout>
+
+            <View style="@style/XmSettingSourceDivider" />
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <TextView
+                    style="@style/XmSettingSourceFilledLinkRow"
+                    android:clickable="false"
+                    android:drawableEnd="@null"
+                    android:text="蓝牙设备连接后自动播放" />
+
+                <CheckBox
+                    android:id="@+id/main_sb_forbid_wire_control_auto_play"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentEnd="true"
+                    android:layout_centerVertical="true"
+                    android:layout_marginEnd="15dp"
+                    android:background="@drawable/xm_alarm_v9514_0x7f080dd5"
+                    android:button="@null" />
+            </RelativeLayout>
+
+            <View style="@style/XmSettingSourceDivider" />
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <TextView
+                    style="@style/XmSettingSourceFilledLinkRow"
+                    android:clickable="false"
+                    android:drawableEnd="@null"
+                    android:text="允许3G/4G/5G网络下载" />
+
+                <CheckBox
+                    android:id="@+id/main_cb_allow_download_without_wifi"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentEnd="true"
+                    android:layout_centerVertical="true"
+                    android:layout_marginEnd="15dp"
+                    android:background="@drawable/xm_alarm_v9514_0x7f080dd5"
+                    android:button="@null" />
+            </RelativeLayout>
+
+            <View style="@style/XmSettingSourceDivider" />
+
+            <RelativeLayout
+                android:id="@+id/main_vg_child_use_sleep_mode"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/arg_res_0x7f0805ad"
+                android:visibility="gone">
+
+                <TextView
+                    android:id="@+id/main_tv_child_use_sleep_mode"
+                    style="@style/XmSettingSourceFilledLinkRow"
+                    android:clickable="false"
+                    android:drawableEnd="@null"
+                    android:minHeight="30dp"
+                    android:text="哄睡模式" />
+
+                <TextView
+                    android:id="@+id/main_tv_child_use_sleep_mode_subtitle"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/main_tv_child_use_sleep_mode"
+                    android:layout_marginEnd="53dp"
+                    android:maxLines="2"
+                    android:paddingStart="15dp"
+                    android:paddingBottom="14dp"
+                    android:text="收听助眠内容时用“哄睡模式”代替“定时关闭”"
+                    android:textColor="@color/arg_res_0x7f060bb7"
+                    android:textSize="13sp" />
+
+                <CheckBox
+                    android:id="@+id/main_cb_child_use_sleep_mode"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentEnd="true"
+                    android:layout_centerVertical="true"
+                    android:layout_marginEnd="15dp"
+                    android:background="@drawable/xm_alarm_v9514_0x7f080dd5"
+                    android:button="@null" />
+            </RelativeLayout>
+
+            <View style="@style/XmSettingSourceDivider" />
+
+            <RelativeLayout
+                android:id="@+id/main_vg_auto_play"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/arg_res_0x7f0805ad">
+
+                <TextView
+                    android:id="@+id/main_tv_auto_play_title"
+                    style="@style/XmSettingSourceFilledLinkRow"
+                    android:clickable="false"
+                    android:drawableEnd="@null"
+                    android:minHeight="30dp"
+                    android:text="自动播放后续内容" />
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/main_tv_auto_play_title"
+                    android:layout_marginEnd="53dp"
+                    android:maxLines="2"
+                    android:paddingStart="15dp"
+                    android:paddingBottom="14dp"
+                    android:text="当前列表播放完毕后继续播放所选内容"
+                    android:textColor="@color/arg_res_0x7f060bb7"
+                    android:textSize="13sp" />
+
+                <CheckBox
+                    android:id="@+id/main_cb_auto_play"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentEnd="true"
+                    android:layout_centerVertical="true"
+                    android:layout_marginEnd="15dp"
+                    android:background="@drawable/xm_alarm_v9514_0x7f080dd5"
+                    android:button="@null" />
+            </RelativeLayout>
+
+            <TextView
+                android:id="@+id/main_rl_book_free_listen"
+                style="@style/XmSettingSourceFilledLinkRow"
+                android:text="0元听"
+                android:visibility="gone" />
+
+            <View style="@style/XmSettingSourceDivider" />
+
+            <LinearLayout
+                android:id="@+id/main_setting_listen_permission"
+                style="@style/XmSettingSourceHorizontalRow">
+
+                <TextView
+                    style="@style/XmSettingSourceLabel"
+                    android:text="后台播放优化" />
+
+                <TextView style="@style/XmSettingSourceValue" />
+            </LinearLayout>
+
+            <TextView
+                android:id="@+id/main_setting_auto_unlock_by_credit"
+                style="@style/XmSettingSourceFilledLinkRow"
+                android:text="积分自动解锁声音"
+                android:visibility="gone" />
+
+            <TextView
+                android:id="@+id/main_ad_app_download_list"
+                style="@style/XmSettingSourceFilledLinkRow"
+                android:text="下载应用管理"
+                android:visibility="gone" />
+
+            <TextView
+                android:id="@+id/main_rl_open_background_video_play"
+                style="@style/XmSettingSourceFilledLinkRow"
+                android:text="视频后台播放"
+                android:visibility="gone" />
+
+            <TextView
+                android:id="@+id/main_rl_video_play_first"
+                style="@style/XmSettingSourceFilledLinkRow"
+                android:text="优先播放视频"
+                android:visibility="gone" />
+
+            <TextView
+                style="@style/XmSettingSourceSectionTitle"
+                android:text="通用" />
+
+            <LinearLayout
+                android:id="@+id/main_ll_push_set"
+                style="@style/XmSettingSourceHorizontalRow">
+
+                <TextView
+                    style="@style/XmSettingSourceLabel"
+                    android:text="通知设置" />
+
+                <TextView
+                    android:id="@+id/main_pushSetting_sub"
+                    style="@style/XmSettingSourceValue" />
+            </LinearLayout>
+
+            <View style="@style/XmSettingSourceDivider" />
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <TextView
+                    android:id="@+id/main_tv_down_cache"
+                    style="@style/XmSettingSourceFilledLinkRow"
+                    android:text="存储空间清理" />
+
+                <TextView
+                    android:id="@+id/main_tv_cache_size"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_alignParentEnd="true"
+                    android:gravity="center_vertical"
+                    android:paddingEnd="36dp"
+                    android:textColor="@color/arg_res_0x7f06034d"
+                    android:textSize="14sp" />
+            </RelativeLayout>
+
+            <View style="@style/XmSettingSourceDivider" />
+
+            <TextView
+                android:id="@+id/main_tv_chat_xmly_setting"
+                style="@style/XmSettingSourceFilledLinkRow"
+                android:text="语音助手设置" />
+
+            <View style="@style/XmSettingSourceDivider" />
+
+            <LinearLayout
+                android:id="@+id/main_setting_dark_mode"
+                style="@style/XmSettingSourceHorizontalRow">
+
+                <TextView
+                    style="@style/XmSettingSourceLabel"
+                    android:text="深色模式" />
+
+                <TextView
+                    android:id="@+id/main_tv_dark_mode"
+                    style="@style/XmSettingSourceValue" />
+            </LinearLayout>
+
+            <View style="@style/XmSettingSourceDivider" />
+
+            <LinearLayout
+                android:id="@+id/main_setting_lock_screen"
+                style="@style/XmSettingSourceHorizontalRow">
+
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="13dp"
+                    android:layout_weight="1"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="梦枕锁屏"
+                        android:textColor="@color/arg_res_0x7f060191"
+                        android:textSize="15sp" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="2dp"
+                        android:maxLines="2"
+                        android:text="减少后台收听自动暂停或中断"
+                        android:textColor="@color/arg_res_0x7f060bb7"
+                        android:textSize="12sp" />
+                </LinearLayout>
+
+                <TextView
+                    android:id="@+id/main_setting_lock_screen_open_tv"
+                    style="@style/XmSettingSourceValue"
+                    android:text="已开启" />
+            </LinearLayout>
+
+            <View style="@style/XmSettingSourceDivider" />
+
+            <LinearLayout
+                android:id="@+id/main_setting_notification_style"
+                style="@style/XmSettingSourceHorizontalRow"
+                android:visibility="gone">
+
+                <TextView
+                    style="@style/XmSettingSourceLabel"
+                    android:text="通知栏样式" />
+
+                <TextView
+                    android:id="@+id/main_setting_notification_style_right"
+                    style="@style/XmSettingSourceValue"
+                    android:text="系统样式" />
+            </LinearLayout>
+
+            <TextView
+                android:id="@+id/main_my_drive_device_manage_setting"
+                style="@style/XmSettingSourceFilledLinkRow"
+                android:text="我的车载蓝牙管理"
+                android:visibility="gone" />
+
+            <TextView
+                android:id="@+id/main_rl_xiaoya_pet_control"
+                style="@style/XmSettingSourceFilledLinkRow"
+                android:text="小雅书房"
+                android:visibility="gone" />
+
+            <TextView
+                style="@style/XmSettingSourceSectionTitle"
+                android:text="关于" />
+
+            <TextView
+                android:id="@+id/main_tv_check_update"
+                style="@style/XmSettingSourceFilledLinkRow"
+                android:text="检查更新"
+                android:visibility="gone" />
+
+            <View style="@style/XmSettingSourceDivider" />
+
+            <TextView
+                android:id="@+id/main_privacy_rule"
+                style="@style/XmSettingSourceFilledLinkRow"
+                android:text="隐私政策"
+                android:visibility="gone" />
+
+            <TextView
+                android:id="@+id/main_privacy_rule_content"
+                style="@style/XmSettingSourceFilledLinkRow"
+                android:text="隐私政策摘要"
+                android:visibility="gone" />
+
+            <TextView
+                android:id="@+id/main_privacy_child_rule"
+                style="@style/XmSettingSourceFilledLinkRow"
+                android:text="儿童隐私政策"
+                android:visibility="gone" />
+
+            <TextView
+                android:id="@+id/main_personal_info_collect_list"
+                style="@style/XmSettingSourceFilledLinkRow"
+                android:text="个人信息收集清单"
+                android:visibility="gone" />
+
+            <TextView
+                android:id="@+id/main_cl_third_party"
+                style="@style/XmSettingSourceFilledLinkRow"
+                android:text="第三方信息数据共享"
+                android:visibility="gone" />
+
+            <TextView
+                android:id="@+id/main_tv_about"
+                style="@style/XmSettingSourceFilledLinkRow"
+                android:text="关于梦枕" />
+
+            <RelativeLayout
+                android:id="@+id/main_rl_login"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@color/arg_res_0x7f0605f6"
+                android:paddingTop="20dp"
+                android:paddingBottom="80dp">
+
+                <TextView
+                    android:id="@+id/main_tv_change_account"
+                    android:layout_width="match_parent"
+                    android:layout_height="44dp"
+                    android:layout_marginStart="40dp"
+                    android:layout_marginEnd="40dp"
+                    android:background="@drawable/xm_setting_login_button"
+                    android:gravity="center"
+                    android:text="切换账号"
+                    android:textColor="@android:color/white"
+                    android:textSize="18sp" />
+
+                <TextView
+                    android:id="@+id/main_tv_login"
+                    android:layout_width="match_parent"
+                    android:layout_height="44dp"
+                    android:layout_below="@id/main_tv_change_account"
+                    android:layout_marginStart="40dp"
+                    android:layout_marginTop="12dp"
+                    android:layout_marginEnd="40dp"
+                    android:background="@drawable/xm_setting_login_button"
+                    android:gravity="center"
+                    android:text="退出登录"
+                    android:textColor="@android:color/white"
+                    android:textSize="18sp" />
+            </RelativeLayout>
+        </LinearLayout>
+    </ScrollView>
+</LinearLayout>

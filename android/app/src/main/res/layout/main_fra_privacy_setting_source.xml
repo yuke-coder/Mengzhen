@@ -1,0 +1,163 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/arg_res_0x7f0605f6"
+    android:orientation="vertical">
+
+    <include
+        android:id="@+id/main_title_bar"
+        layout="@layout/ximalaya_alarm_title_bar"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/arg_res_0x7f0702b1" />
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:overScrollMode="never"
+        android:scrollbars="none">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:clipToPadding="false"
+            android:orientation="vertical"
+            android:paddingBottom="70dp">
+
+            <LinearLayout
+                android:id="@+id/main_cl_system_setting"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:background="@drawable/arg_res_0x7f0805ad"
+                android:clickable="true"
+                android:focusable="true"
+                android:gravity="center_vertical"
+                android:minHeight="58dp"
+                android:orientation="horizontal"
+                android:paddingTop="12dp"
+                android:paddingBottom="12dp">
+
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="13dp"
+                    android:layout_marginEnd="10dp"
+                    android:layout_weight="1"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:lines="1"
+                        android:text="系统权限"
+                        android:textColor="@color/arg_res_0x7f060191"
+                        android:textSize="15sp" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="2dp"
+                        android:maxLines="2"
+                        android:text="设置授权APP使用的系统权限"
+                        android:textColor="@color/arg_res_0x7f060bb7"
+                        android:textSize="12sp" />
+                </LinearLayout>
+
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="15dp"
+                    android:contentDescription="进入"
+                    android:src="@drawable/xm_alarm_v9514_0x7f0804c7" />
+            </LinearLayout>
+
+            <TextView
+                android:id="@+id/main_personalized_section"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="13dp"
+                android:layout_marginTop="13dp"
+                android:layout_marginBottom="10dp"
+                android:text="个性化服务设置"
+                android:textColor="@color/arg_res_0x7f060bb7"
+                android:textSize="12sp"
+                android:visibility="gone" />
+
+            <RelativeLayout
+                android:id="@+id/main_cl_content"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/arg_res_0x7f0805ad"
+                android:paddingTop="12dp"
+                android:paddingBottom="12dp"
+                android:visibility="gone">
+
+                <TextView
+                    android:id="@+id/main_tv_content_title"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="13dp"
+                    android:layout_marginEnd="10dp"
+                    android:lines="1"
+                    android:text="个性化内容推荐"
+                    android:textColor="@color/arg_res_0x7f060191"
+                    android:textSize="15sp" />
+
+                <TextView
+                    android:id="@+id/main_tv_content_subtitle"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/main_tv_content_title"
+                    android:layout_marginStart="13dp"
+                    android:layout_marginTop="2dp"
+                    android:layout_marginEnd="60dp"
+                    android:maxLines="2"
+                    android:text="关闭后将不再依据播放记录调整内容顺序"
+                    android:textColor="@color/arg_res_0x7f060bb7"
+                    android:textSize="12sp" />
+
+                <CheckBox
+                    android:id="@+id/main_cb_content_recommend"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentEnd="true"
+                    android:layout_centerVertical="true"
+                    android:layout_marginEnd="15dp"
+                    android:background="@drawable/xm_alarm_v9514_0x7f080dd5"
+                    android:button="@null" />
+            </RelativeLayout>
+
+            <View style="@style/XmSettingSourceDivider" />
+
+            <TextView
+                style="@style/XmSettingSourceSectionTitle"
+                android:text="历史记录" />
+
+            <TextView
+                android:id="@+id/main_cl_clear_history"
+                style="@style/XmSettingSourceFilledLinkRow"
+                android:text="清除历史个性记录" />
+
+            <!-- 源版广告、会员免广告与打赏隐私节点保留为能力边界；梦枕无对应业务。 -->
+            <TextView
+                android:id="@+id/main_cl_ad_setting"
+                style="@style/XmSettingSourceFilledLinkRow"
+                android:text="广告设置"
+                android:visibility="gone" />
+
+            <TextView
+                android:id="@+id/main_cl_no_ad_setting"
+                style="@style/XmSettingSourceFilledLinkRow"
+                android:text="会员一键免广告"
+                android:visibility="gone" />
+
+            <TextView
+                android:id="@+id/main_cl_xidian"
+                style="@style/XmSettingSourceFilledLinkRow"
+                android:text="公开喜点打赏记录"
+                android:visibility="gone" />
+        </LinearLayout>
+    </ScrollView>
+</LinearLayout>

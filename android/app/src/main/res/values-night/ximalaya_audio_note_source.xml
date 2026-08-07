@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- Ximalaya 9.5.1.4 night overrides used by KachaNoteEditFragment. -->
+    <color name="xm_audio_note_background">#121212</color>
+    <color name="xm_audio_note_primary_text">#CFCFCF</color>
+    <color name="xm_audio_note_secondary_text">#888888</color>
+    <color name="xm_audio_note_title_surface">#00000000</color>
+    <color name="xm_audio_note_card_mask">#00FFFFFF</color>
+</resources>

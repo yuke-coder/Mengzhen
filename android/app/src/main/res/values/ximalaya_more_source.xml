@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- Density-independent equivalents of the source px dimensions. -->
+    <dimen name="arg_res_0x7f070385">8.75dp</dimen>
+    <dimen name="arg_res_0x7f0703b1">12.25dp</dimen>
+    <dimen name="arg_res_0x7f07040a">3.5dp</dimen>
+    <dimen name="arg_res_0x7f070420">5.25dp</dimen>
+    <dimen name="arg_res_0x7f070436">7dp</dimen>
+    <dimen name="arg_res_0x7f0700f1">14dp</dimen>
+    <dimen name="arg_res_0x7f0703c7">14dp</dimen>
+    <dimen name="arg_res_0x7f07039b">10dp</dimen>
+    <string name="arg_res_0x7f120509">专辑图</string>
+</resources>

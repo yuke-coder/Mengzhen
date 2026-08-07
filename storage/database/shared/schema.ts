@@ -80,11 +80,28 @@ export interface Audio {
 // ============================================================
 export interface Feedback {
   id: string; // UUID 主键
-  user_id: string | null; // 关联 users.id（可选）
+  user_id: string; // 关联 users.id
   type: "bug" | "suggestion"; // 反馈类型
+  category: string | null; // 具体反馈场景
   content: string; // 反馈内容
   contact: string | null; // 联系方式
   images: string[] | null; // 图片 URL 列表
+  status: 1 | 2 | 3; // 尚未受理 / 受理中 / 受理完毕
+  op_group: string | null; // 受理客服组
+  op_name: string | null; // 受理客服
+  processed_at: string | null;
+  created_at: string;
+  updated_at: string;
+}
+
+export interface FeedbackReply {
+  id: string;
+  feedback_id: string;
+  user_id: string | null;
+  sender_role: "user" | "support";
+  sender: string;
+  content: string;
+  images: string[] | null;
   created_at: string;
 }
 
@@ -178,18 +195,44 @@ CREATE INDEX IF NOT EXISTS idx_audios_library
 export const CREATE_FEEDBACKS_TABLE_SQL = `
 CREATE TABLE IF NOT EXISTS public.feedbacks (
   id UUID PRIMARY KEY DEFAULT gen_random_uuid(),
-  user_id UUID REFERENCES public.users(id) ON DELETE SET NULL,
+  user_id UUID NOT NULL REFERENCES public.users(id) ON DELETE CASCADE,
   type VARCHAR(20) NOT NULL CHECK (type IN ('bug', 'suggestion')),
+  category VARCHAR(80),
   content TEXT NOT NULL,
   contact TEXT,
+  images TEXT[],
+  status SMALLINT NOT NULL DEFAULT 1 CHECK (status BETWEEN 1 AND 3),
+  op_group TEXT,
+  op_name TEXT,
+  processed_at TIMESTAMPTZ,
+  created_at TIMESTAMPTZ NOT NULL DEFAULT now(),
+  updated_at TIMESTAMPTZ NOT NULL DEFAULT now()
+);
+
+ALTER TABLE public.feedbacks
+  ADD COLUMN IF NOT EXISTS category VARCHAR(80),
+  ADD COLUMN IF NOT EXISTS status SMALLINT NOT NULL DEFAULT 1,
+  ADD COLUMN IF NOT EXISTS op_group TEXT,
+  ADD COLUMN IF NOT EXISTS op_name TEXT,
+  ADD COLUMN IF NOT EXISTS processed_at TIMESTAMPTZ,
+  ADD COLUMN IF NOT EXISTS updated_at TIMESTAMPTZ NOT NULL DEFAULT now();
+
+CREATE TABLE IF NOT EXISTS public.feedback_replies (
+  id UUID PRIMARY KEY DEFAULT gen_random_uuid(),
+  feedback_id UUID NOT NULL REFERENCES public.feedbacks(id) ON DELETE CASCADE,
+  user_id UUID REFERENCES public.users(id) ON DELETE SET NULL,
+  sender_role VARCHAR(20) NOT NULL DEFAULT 'user'
+    CHECK (sender_role IN ('user', 'support')),
+  sender VARCHAR(80) NOT NULL,
+  content TEXT NOT NULL,
   images TEXT[],
   created_at TIMESTAMPTZ NOT NULL DEFAULT now()
 );
 
--- 索引：按用户查询反馈记录
-CREATE INDEX IF NOT EXISTS idx_feedbacks_user_id ON public.feedbacks(user_id);
--- 索引：按时间倒序查询
-CREATE INDEX IF NOT EXISTS idx_feedbacks_created_at ON public.feedbacks(created_at DESC);
+CREATE INDEX IF NOT EXISTS idx_feedbacks_user_created
+  ON public.feedbacks(user_id, created_at DESC);
+CREATE INDEX IF NOT EXISTS idx_feedback_replies_feedback_created
+  ON public.feedback_replies(feedback_id, created_at ASC);
 `;
 
 /**
@@ -203,6 +246,7 @@ ALTER TABLE public.sessions ENABLE ROW LEVEL SECURITY;
 ALTER TABLE public.user_profiles ENABLE ROW LEVEL SECURITY;
 ALTER TABLE public.audios ENABLE ROW LEVEL SECURITY;
 ALTER TABLE public.feedbacks ENABLE ROW LEVEL SECURITY;
+ALTER TABLE public.feedback_replies ENABLE ROW LEVEL SECURITY;
 
 -- users 表：所有人可注册（INSERT），仅自己可读写
 CREATE POLICY "Users can view own data" ON public.users FOR SELECT USING (true);
@@ -223,7 +267,6 @@ CREATE POLICY "Audios can insert own" ON public.audios FOR INSERT WITH CHECK (tr
 CREATE POLICY "Audios can update own" ON public.audios FOR UPDATE USING (true);
 CREATE POLICY "Audios can delete own" ON public.audios FOR DELETE USING (true);
 
--- feedbacks 表：登录用户可提交和查看自己的反馈
-CREATE POLICY "Feedbacks can view own" ON public.feedbacks FOR SELECT USING (auth.uid() = user_id);
-CREATE POLICY "Feedbacks can insert own" ON public.feedbacks FOR INSERT WITH CHECK (auth.uid() = user_id);
+-- feedbacks / feedback_replies 仅由服务端 service role 访问；
+-- 用户归属校验在 API 会话层完成，不开放匿名直连策略。
 `;

@@ -1,0 +1,208 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <include
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        layout="@layout/m5" />
+
+    <include
+        android:id="@+id/b1t"
+        layout="@layout/mt" />
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@id/b1t"
+        android:fillViewport="true">
+
+        <LinearLayout
+            android:id="@+id/qq_profile_body"
+            android:orientation="vertical"
+            android:background="@drawable/transparent"
+            android:paddingLeft="16dp"
+            android:paddingTop="20dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <RelativeLayout
+                android:id="@+id/j_k"
+                android:layout_width="match_parent"
+                android:layout_height="44dp">
+                <TextView
+                    android:textSize="16sp"
+                    android:textColor="@color/qq_profile_skin_text_main_color"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/fsx"
+                    android:layout_centerVertical="true" />
+                <androidx.appcompat.widget.AppCompatImageView
+                    android:id="@+id/m6"
+                    android:background="@drawable/default_user_avatar"
+                    android:layout_width="43dp"
+                    android:layout_height="43dp"
+                    android:layout_marginRight="15dp"
+                    android:layout_toLeftOf="@id/e9z" />
+                <RelativeLayout
+                    android:id="@+id/a1l"
+                    android:visibility="gone"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignLeft="@id/m6"
+                    android:layout_alignTop="@id/m6"
+                    android:layout_alignRight="@id/m6"
+                    android:layout_alignBottom="@id/m6">
+                    <ImageView
+                        android:layout_width="43dp"
+                        android:layout_height="43dp"
+                        android:src="@color/black_50_opacity" />
+                    <androidx.appcompat.widget.AppCompatTextView
+                        android:textSize="10dp"
+                        android:textColor="@color/white"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/blj"
+                        android:layout_centerInParent="true" />
+                </RelativeLayout>
+                <ImageView
+                    android:id="@+id/e9z"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginRight="14dp"
+                    android:src="@drawable/arrow_right_grey"
+                    android:layout_alignParentRight="true"
+                    android:layout_centerVertical="true" />
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:id="@+id/j_n"
+                android:layout_width="match_parent"
+                android:layout_height="44dp"
+                android:layout_marginTop="15dp">
+                <TextView
+                    android:textSize="16sp"
+                    android:textColor="@color/qq_profile_skin_text_main_color"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/fsy"
+                    android:layout_centerVertical="true" />
+                <TextView
+                    android:id="@+id/mno"
+                    android:textSize="14sp"
+                    android:textColor="@color/qq_profile_skin_text_sub_color"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginRight="15dp"
+                    android:layout_toLeftOf="@id/e_0"
+                    android:layout_centerVertical="true" />
+                <ImageView
+                    android:id="@+id/e_0"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginRight="14dp"
+                    android:src="@drawable/arrow_right_grey"
+                    android:layout_alignParentRight="true"
+                    android:layout_centerVertical="true" />
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:id="@+id/j_m"
+                android:layout_width="match_parent"
+                android:layout_height="44dp"
+                android:layout_marginTop="15dp">
+                <TextView
+                    android:textSize="16sp"
+                    android:textColor="@color/qq_profile_skin_text_main_color"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/fsw"
+                    android:layout_centerVertical="true" />
+                <TextView
+                    android:id="@+id/mnm"
+                    android:textSize="14sp"
+                    android:textColor="@color/qq_profile_skin_text_sub_color"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginRight="15dp"
+                    android:text="@string/fmc"
+                    android:layout_toLeftOf="@id/e_1"
+                    android:layout_centerVertical="true"
+                    android:alpha="0.5" />
+                <ImageView
+                    android:id="@+id/e_1"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginRight="14dp"
+                    android:src="@drawable/arrow_right_grey"
+                    android:layout_alignParentRight="true"
+                    android:layout_centerVertical="true" />
+            </RelativeLayout>
+
+            <include
+                android:id="@+id/j_o"
+                layout="@layout/qq_profile_source_row" />
+
+            <RelativeLayout
+                android:id="@+id/j_l"
+                android:layout_width="match_parent"
+                android:layout_height="44dp"
+                android:layout_marginTop="15dp">
+                <TextView
+                    android:textSize="16sp"
+                    android:textColor="@color/qq_profile_skin_text_main_color"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/fsv"
+                    android:layout_centerVertical="true" />
+                <TextView
+                    android:id="@+id/mni"
+                    android:textSize="14sp"
+                    android:textColor="@color/qq_profile_skin_text_sub_color"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginRight="15dp"
+                    android:layout_toLeftOf="@id/e_3"
+                    android:layout_centerVertical="true" />
+                <ImageView
+                    android:id="@+id/e_3"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginRight="14dp"
+                    android:src="@drawable/arrow_right_grey"
+                    android:layout_alignParentRight="true"
+                    android:layout_centerVertical="true" />
+            </RelativeLayout>
+
+            <include android:id="@+id/qq_profile_location_row" layout="@layout/qq_profile_source_row" />
+            <include android:id="@+id/qq_profile_signature_row" layout="@layout/qq_profile_source_row" />
+            <include android:id="@+id/qq_profile_bio_row" layout="@layout/qq_profile_source_row" />
+            <include android:id="@+id/qq_profile_reset_avatar_row" layout="@layout/qq_profile_source_row" />
+            <include android:id="@+id/qq_profile_feedback_row" layout="@layout/qq_profile_source_row" />
+            <include android:id="@+id/qq_profile_logout_row" layout="@layout/qq_profile_source_row" />
+
+            <TextView
+                android:id="@+id/m3f"
+                android:textSize="12sp"
+                android:textColor="@color/qq_profile_skin_text_sub_color"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="14dp"
+                android:text="@string/a42" />
+
+            <com.tencent.qqmusic.ui.RoundedConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="15dp"
+                android:layout_marginRight="20dp">
+                <androidx.appcompat.widget.AppCompatImageView
+                    android:id="@+id/a5t"
+                    android:visibility="gone"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:adjustViewBounds="true" />
+            </com.tencent.qqmusic.ui.RoundedConstraintLayout>
+        </LinearLayout>
+    </ScrollView>
+</RelativeLayout>

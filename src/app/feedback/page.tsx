@@ -521,7 +521,7 @@ export default function FeedbackPage() {
               <div
                 data-v-2a33e695=""
                 className="vc-records-btn"
-                onClick={() => toast.info('已填记录功能开发中')}
+                onClick={() => router.push('/feedback/history')}
               >
                 <svg
                   width="16"

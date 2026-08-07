@@ -1,23 +1,31 @@
 package com.mengzhen.app.data.api
 
+import android.content.Context
+import android.content.SharedPreferences
+import android.util.Log
+import com.mengzhen.app.data.store.TaskStore
 import okhttp3.Cookie
 import okhttp3.CookieJar
 import okhttp3.HttpUrl
+import okhttp3.HttpUrl.Companion.toHttpUrl
+import okhttp3.MediaType
 import okhttp3.MediaType.Companion.toMediaType
 import okhttp3.OkHttpClient
 import okhttp3.Request
+import okhttp3.RequestBody
 import okhttp3.RequestBody.Companion.toRequestBody
+import okhttp3.MultipartBody
 import okhttp3.RequestBody.Companion.asRequestBody
+import okio.BufferedSink
 import org.json.JSONArray
 import org.json.JSONObject
 import java.io.File
 import java.io.IOException
 import java.util.concurrent.ConcurrentHashMap
 import java.util.concurrent.TimeUnit
-import android.util.Log
 
 /**
- * Web API 客户端 - 对接 https://mengzhen-chi.vercel.app/api/
+ * Web API 客户端 - 对接 https://driftcue.com/api/
  *
  * 认证方式：cookie session（Web 端 set-cookie，OkHttp CookieJar 自动管理）
  * 不直连 Supabase，不暴露 service_role key
@@ -37,10 +45,21 @@ import android.util.Log
  * - POST /api/feedback
  */
 class ApiClient private constructor(
+    context: Context,
     private val baseUrl: String,
 ) : CookieJar {
 
+    private val applicationContext = context.applicationContext
+    private val apiUrl = baseUrl.toHttpUrl()
+    private val cookiePrefs: SharedPreferences = applicationContext.getSharedPreferences(
+        "mengzhen_api_cookies",
+        Context.MODE_PRIVATE,
+    )
     private val cookieStore = ConcurrentHashMap<String, MutableList<Cookie>>()
+
+    init {
+        restoreCookies()
+    }
 
     val client: OkHttpClient = OkHttpClient.Builder()
         .cookieJar(this)
@@ -53,25 +72,61 @@ class ApiClient private constructor(
 
     // === CookieJar ===
 
+    @Synchronized
     override fun saveFromResponse(url: HttpUrl, cookies: List<Cookie>) {
         val host = url.host
-        val store = cookieStore[host] ?: mutableListOf()
-        // 移除同名旧 cookie，加新的
+        val store = cookieStore.getOrPut(host) { mutableListOf() }
+        val now = System.currentTimeMillis()
         cookies.forEach { newCookie ->
-            store.removeAll { it.name == newCookie.name }
-            store.add(newCookie)
+            store.removeAll {
+                it.name == newCookie.name &&
+                    it.domain == newCookie.domain &&
+                    it.path == newCookie.path
+            }
+            if (newCookie.expiresAt > now) store.add(newCookie)
         }
-        cookieStore[host] = store
+        if (host == apiUrl.host) persistApiCookies()
     }
 
+    @Synchronized
     override fun loadForRequest(url: HttpUrl): List<Cookie> {
         val host = url.host
         val now = System.currentTimeMillis()
-        return (cookieStore[host] ?: emptyList()).filter { it.expiresAt > now }
+        val store = cookieStore[host] ?: return emptyList()
+        val expired = store.removeAll { it.expiresAt <= now }
+        if (expired && host == apiUrl.host) persistApiCookies()
+        return store.filter { it.matches(url) }
     }
 
+    @Synchronized
     fun clearCookies() {
         cookieStore.clear()
+        cookiePrefs.edit().remove(COOKIES_KEY).apply()
+    }
+
+    private fun restoreCookies() {
+        val raw = cookiePrefs.getString(COOKIES_KEY, null) ?: return
+        runCatching {
+            val array = JSONArray(raw)
+            val restored = mutableListOf<Cookie>()
+            for (index in 0 until array.length()) {
+                Cookie.parse(apiUrl, array.getString(index))
+                    ?.takeIf { it.expiresAt > System.currentTimeMillis() }
+                    ?.let(restored::add)
+            }
+            if (restored.isNotEmpty()) cookieStore[apiUrl.host] = restored
+        }.onFailure {
+            cookiePrefs.edit().remove(COOKIES_KEY).apply()
+        }
+    }
+
+    private fun persistApiCookies() {
+        val array = JSONArray()
+        cookieStore[apiUrl.host]
+            .orEmpty()
+            .filter { it.expiresAt > System.currentTimeMillis() }
+            .forEach { array.put(it.toString()) }
+        cookiePrefs.edit().putString(COOKIES_KEY, array.toString()).apply()
     }
 
     // === 请求辅助 ===
@@ -116,10 +171,11 @@ class ApiClient private constructor(
                 json.put("success", false)
                 json.put("error", json.optString("error", "请求失败 (${resp.code})"))
             }
-            // Session 过期检测 - 401 时清除 cookie，标记未登录
-            if (resp.code == 401) {
+            // 登录凭据错误同样返回 401，不能误清除已有会话。
+            if (resp.code == 401 && req.url.encodedPath !in CREDENTIAL_ENDPOINTS) {
                 Log.w(TAG, "Session expired (401), clearing cookies")
                 clearCookies()
+                TaskStore.get(applicationContext).clearSession()
                 json.put("sessionExpired", true)
             }
             return json
@@ -142,7 +198,12 @@ class ApiClient private constructor(
 
     fun me(): JSONObject = get("/api/auth/me")
 
-    fun logout(): JSONObject = post("/api/auth/logout", JSONObject())
+    fun logout(): JSONObject = try {
+        post("/api/auth/logout", JSONObject())
+    } finally {
+        clearCookies()
+        TaskStore.get(applicationContext).clearSession()
+    }
 
     // === 用户资料 ===
 
@@ -179,12 +240,17 @@ class ApiClient private constructor(
      * 直传文件到 Supabase Storage（签名 URL）
      * 对标 Web 端 audio-upload.ts 的 uploadToSignedUrl 逻辑
      */
-    fun uploadFileToSignedUrl(signedUrl: String, file: File, mimeType: String): Boolean {
+    fun uploadFileToSignedUrl(
+        signedUrl: String,
+        file: File,
+        mimeType: String,
+        onProgress: (uploadedBytes: Long, totalBytes: Long) -> Unit = { _, _ -> },
+    ): Boolean {
         val req = Request.Builder()
             .url(signedUrl)
             .header("Content-Type", mimeType)
             .header("x-upsert", "true")
-            .put(file.asRequestBody(mimeType.toMediaType()))
+            .put(ProgressRequestBody(file, mimeType.toMediaType(), onProgress))
             .build()
         return try {
             client.newCall(req).execute().use { it.isSuccessful }
@@ -234,20 +300,103 @@ class ApiClient private constructor(
         return put("/api/profile", body)
     }
 
-    fun submitFeedback(content: String, contact: String? = null): JSONObject {
-        val body = JSONObject().put("content", content)
+    fun submitFeedback(
+        type: String,
+        content: String,
+        category: String? = null,
+        contact: String? = null,
+        images: List<String> = emptyList(),
+    ): JSONObject {
+        val body = JSONObject()
+            .put("type", type)
+            .put("content", content)
+        category?.let { body.put("category", it) }
         contact?.let { body.put("contact", it) }
+        if (images.isNotEmpty()) body.put("images", JSONArray(images))
         return post("/api/feedback", body)
     }
 
+    fun getFeedbacks(): JSONObject = get("/api/feedback")
+
+    fun getFeedback(id: String): JSONObject =
+        get("/api/feedback?id=${java.net.URLEncoder.encode(id, "UTF-8")}")
+
+    fun replyFeedback(
+        feedbackId: String,
+        content: String,
+        images: List<String> = emptyList(),
+    ): JSONObject {
+        val body = JSONObject()
+            .put("feedbackId", feedbackId)
+            .put("content", content)
+        if (images.isNotEmpty()) body.put("images", JSONArray(images))
+        return post("/api/feedback", body)
+    }
+
+    // === 头像 ===
+
+    fun uploadAvatar(file: File, mimeType: String): JSONObject {
+        val multipart = MultipartBody.Builder()
+            .setType(MultipartBody.FORM)
+            .addFormDataPart("avatar", file.name, file.asRequestBody(mimeType.toMediaType()))
+            .build()
+        val req = Request.Builder()
+            .url("$baseUrl/api/avatar")
+            .post(multipart)
+            .build()
+        return execute(req)
+    }
+
+    fun resetAvatar(gender: String): JSONObject {
+        return delete("/api/avatar?gender=${java.net.URLEncoder.encode(gender, "UTF-8")}")
+    }
+
     companion object {
-        const val BASE_URL = "https://mengzhen-chi.vercel.app"
+        const val BASE_URL = "https://driftcue.com"
         private const val TAG = "ApiClient"
+        private const val COOKIES_KEY = "api_cookies"
+        private val CREDENTIAL_ENDPOINTS = setOf(
+            "/api/auth/login",
+            "/api/auth/register",
+            "/api/auth/entry",
+        )
 
         @Volatile private var instance: ApiClient? = null
-        fun get(): ApiClient =
+        fun get(context: Context): ApiClient =
             instance ?: synchronized(this) {
-                instance ?: ApiClient(BASE_URL).also { instance = it }
+                instance ?: ApiClient(context.applicationContext, BASE_URL).also { instance = it }
             }
+    }
+}
+
+/**
+ * Streams the signed-URL request body and reports the bytes accepted by OkHttp.
+ *
+ * The callback stays inside the request body instead of using a network interceptor,
+ * so retries and unrelated API calls cannot leak progress into this upload.
+ */
+private class ProgressRequestBody(
+    private val file: File,
+    private val mediaType: MediaType,
+    private val onProgress: (uploadedBytes: Long, totalBytes: Long) -> Unit,
+) : RequestBody() {
+
+    override fun contentType(): MediaType = mediaType
+
+    override fun contentLength(): Long = file.length()
+
+    override fun writeTo(sink: BufferedSink) {
+        val total = contentLength()
+        var uploaded = 0L
+        val buffer = ByteArray(DEFAULT_BUFFER_SIZE)
+        file.inputStream().buffered().use { input ->
+            while (true) {
+                val read = input.read(buffer)
+                if (read < 0) break
+                sink.write(buffer, 0, read)
+                uploaded += read
+                onProgress(uploaded, total)
+            }
+        }
     }
 }

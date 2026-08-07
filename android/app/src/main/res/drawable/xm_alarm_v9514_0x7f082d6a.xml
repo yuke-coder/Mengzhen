@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<selector xmlns:android="http://schemas.android.com/apk/res/android">
+    <item
+        android:state_selected="true"
+        android:drawable="@drawable/xm_alarm_v9514_0x7f081f2c"/>
+    <item
+        android:state_selected="false"
+        android:drawable="@drawable/xm_alarm_v9514_0x7f082081"/>
+</selector>

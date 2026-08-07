@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/fh0"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:gravity="center"
+    android:orientation="vertical">
+
+    <ProgressBar
+        android:id="@+id/ieu"
+        android:layout_width="30dp"
+        android:layout_height="30dp"
+        android:layout_gravity="center"
+        android:layout_marginBottom="10dp"
+        android:indeterminate="true"
+        android:indeterminateDrawable="@drawable/icn_loading_indicator"
+        android:indeterminateDuration="2000"
+        android:indeterminateOnly="true" />
+
+    <TextView
+        android:id="@+id/fh8"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/qq_shuffle_history_loading"
+        android:textColor="@color/skin_text_sub_color" />
+</LinearLayout>

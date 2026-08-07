@@ -1,49 +1,57 @@
 package com.mengzhen.app.ui.screens
 
 import android.app.Activity
-import androidx.compose.animation.AnimatedVisibility
-import androidx.compose.animation.core.tween
-import androidx.compose.animation.fadeIn
-import androidx.compose.animation.fadeOut
-import androidx.compose.foundation.layout.*
-import androidx.compose.foundation.rememberScrollState
-import androidx.compose.foundation.verticalScroll
-import androidx.compose.material.icons.Icons
-import androidx.compose.material.icons.automirrored.filled.ArrowBack
-import androidx.compose.material3.*
-import androidx.compose.runtime.*
-import androidx.compose.runtime.saveable.rememberSaveable
+import android.content.Context
+import android.content.Intent
+import android.net.ConnectivityManager
+import android.net.Uri
+import android.os.Build
+import android.provider.Settings
+import android.view.LayoutInflater
+import android.view.View
+import android.view.ViewGroup
+import android.widget.LinearLayout
+import android.widget.TextView
+import android.widget.Toast
+import androidx.compose.foundation.layout.fillMaxSize
+import androidx.compose.foundation.layout.statusBarsPadding
+import androidx.compose.runtime.Composable
+import androidx.compose.runtime.DisposableEffect
+import androidx.compose.runtime.getValue
+import androidx.compose.runtime.mutableIntStateOf
+import androidx.compose.runtime.remember
+import androidx.compose.runtime.setValue
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.platform.LocalContext
-import androidx.lifecycle.compose.LocalLifecycleOwner
-import androidx.compose.ui.unit.dp
+import androidx.compose.ui.viewinterop.AndroidView
+import androidx.core.content.ContextCompat
+import androidx.core.net.ConnectivityManagerCompat
 import androidx.lifecycle.Lifecycle
 import androidx.lifecycle.LifecycleEventObserver
+import androidx.lifecycle.compose.LocalLifecycleOwner
 import androidx.navigation.NavController
+import com.mengzhen.app.R
 import com.mengzhen.app.compat.VendorCompat
-import com.mengzhen.app.data.tutorial.PermissionGroup
 import com.mengzhen.app.data.tutorial.PermissionKey
-import com.mengzhen.app.data.tutorial.TutorialRepository
-import com.mengzhen.app.ui.components.permission.PermissionGroupSection
-import com.mengzhen.app.ui.components.permission.PermissionItemState
-import com.mengzhen.app.ui.components.permission.StatusBanner
 import com.mengzhen.app.ui.navigation.Screen
 
 /**
- * 权限设置列表页（推倒重写，完全对齐喜马拉雅「后台播放优化」+ 设计 §3.1）
+ * 喜马拉雅 9.4.95.3 ListenPermissionFragment 的宿主移植。
  *
- * - 必须完成组：忽略电池优化（系统弹窗直达）+ 后台运行策略（教程页），常驻展开
- * - 遇到问题再设置组：按品牌矩阵过滤，默认折叠
- * - StatusBanner：onResume 重检，存在未完成必要项时显示
+ * 页面、列表项、文案、状态色、按钮状态和厂商顺序均来自原客户端源码；
+ * 系统目标包名替换为梦枕自身，保证每个入口实际可执行。
  */
-@OptIn(ExperimentalMaterial3Api::class)
 @Composable
-fun PermissionSettingsScreen(navController: NavController) {
-    val context = LocalContext.current
-    val brand = remember { TutorialRepository.mapBrand(VendorCompat.detectBrand()) }
-    val visiblePermissions = remember(brand) { TutorialRepository.getVisiblePermissions(brand) }
+fun PermissionSettingsScreen(
+    navController: NavController,
+    fromAlarm: Boolean = false,
+) {
+    val context = androidx.compose.ui.platform.LocalContext.current
+    val activity = context as? Activity
+    val brand = remember { VendorCompat.detectBrand() }
+    val permissionItems = remember(brand, fromAlarm) {
+        buildSourcePermissionItems(brand, fromAlarm)
+    }
 
-    // ---- onResume 触发系统状态重检 ----
     val lifecycleOwner = LocalLifecycleOwner.current
     var resumeTrigger by remember { mutableIntStateOf(0) }
     DisposableEffect(lifecycleOwner) {
@@ -54,131 +62,390 @@ fun PermissionSettingsScreen(navController: NavController) {
         onDispose { lifecycleOwner.lifecycle.removeObserver(observer) }
     }
 
-    // 系统可检测项（电池优化 / 省电模式 / 休眠保持网络），随 onResume 刷新
-    // 值为 null 表示"检测不可用"（如 HarmonyOS 新版缺 wifi_sleep_policy key）——仅参考、不拦截、不误报
-    val systemDetected: Map<PermissionKey, Boolean?> = remember(resumeTrigger) {
-        mapOf(
-            PermissionKey.BATTERY_OPTIMIZATION to VendorCompat.isIgnoringBatteryOptimizations(context),
-            PermissionKey.CLOSE_POWER_SAVE to VendorCompat.isPowerSaveModeDisabled(context),
-            PermissionKey.KEEP_NET_CONNECTION to VendorCompat.isWifiSleepPolicyAlways(context),
-        )
-    }
-
-    // 教程勾选完成标记（DataStore），无系统检测的项以此为准
-    val tutorialDoneStates = visiblePermissions.associateWith { key ->
-        TutorialRepository.tutorialDoneFlow(context, brand, key)
-            .collectAsState(initial = false)
-    }
-
-    fun isDone(key: PermissionKey): Boolean {
-        systemDetected[key]?.let { return it }
-        val autoSource = TutorialRepository.autoCompletedBy(brand, key)
-        if (autoSource != null) {
-            return tutorialDoneStates[autoSource]?.value == true
-        }
-        return tutorialDoneStates[key]?.value == true
-    }
-
-    fun handleItemClick(key: PermissionKey) {
-        when (key) {
-            // 一键跳转系统授权弹窗（ACTION_REQUEST_IGNORE_BATTERY_OPTIMIZATIONS）
-            PermissionKey.BATTERY_OPTIMIZATION -> {
-                (context as? Activity)?.let { VendorCompat.openBatteryOptimizationSettings(it) }
-            }
-            // 省电模式有系统直达页
-            PermissionKey.CLOSE_POWER_SAVE -> {
-                (context as? Activity)?.let { VendorCompat.openPowerSaveModeSettings(it) }
-            }
-            else -> navController.navigate(Screen.PermissionTutorial.createRoute(key))
+    fun openSourceTutorial(item: SourcePermissionItem) {
+        item.permissionKey?.let {
+            navController.navigate(Screen.PermissionTutorial.createRoute(it))
         }
     }
 
-    val requiredItems = visiblePermissions
-        .filter { it.group == PermissionGroup.REQUIRED }
-        .map { PermissionItemState(it, isDone(it)) }
-    val onDemandItems = visiblePermissions
-        .filter { it.group == PermissionGroup.ON_DEMAND }
-        .map {
-            val autoSource = TutorialRepository.autoCompletedBy(brand, it)
-            PermissionItemState(
-                key = it,
-                done = isDone(it),
-                // 同入口项：源项完成后本项自动打勾置灰（华为自启动←后台策略；三星后台数据←联网控制）
-                autoCompletedByTitle = if (autoSource != null && isDone(it)) autoSource.title else null,
-                // 有系统检测项但读不到（如新版 HarmonyOS 缺 wifi_sleep_policy key）→ "未确认"中性展示
-                undetectable = systemDetected.containsKey(it) && systemDetected[it] == null,
-            )
-        }
+    fun openPermission(item: SourcePermissionItem) {
+        if (!item.hasAction || activity == null) return
 
-    val unfinishedRequired = requiredItems.count { !it.done }
-    var onDemandExpanded by rememberSaveable { mutableStateOf(false) }
-
-    Scaffold(
-        topBar = {
-            TopAppBar(
-                title = { Text("后台播放优化") },
-                navigationIcon = {
-                    IconButton(onClick = { navController.popBackStack() }) {
-                        Icon(Icons.AutoMirrored.Filled.ArrowBack, contentDescription = "返回")
-                    }
-                },
-                colors = TopAppBarDefaults.topAppBarColors(
-                    containerColor = MaterialTheme.colorScheme.background
-                ),
-            )
-        },
-        containerColor = MaterialTheme.colorScheme.background,
-    ) { padding ->
-        Column(
-            modifier = Modifier
-                .fillMaxSize()
-                .padding(padding)
-                .verticalScroll(rememberScrollState())
-                .padding(horizontal = 20.dp),
+        if (item.id == SourcePermissionId.CLOSE_POWER_SAVE &&
+            VendorCompat.isPowerSaveModeDisabled(context)
         ) {
-            Spacer(Modifier.height(8.dp))
+            Toast.makeText(context, "省电模式已关闭", Toast.LENGTH_SHORT).show()
+            return
+        }
+        if (item.id == SourcePermissionId.BATTERY_OPTIMIZATION &&
+            VendorCompat.isIgnoringBatteryOptimizations(context)
+        ) {
+            Toast.makeText(context, "电池优化已关闭", Toast.LENGTH_SHORT).show()
+            return
+        }
 
-            // StatusBanner：有未完成必要项时显示，全部完成 200ms 淡出
-            AnimatedVisibility(
-                visible = unfinishedRequired > 0,
-                enter = fadeIn(tween(200)),
-                exit = fadeOut(tween(200)),
-            ) {
-                Column {
-                    StatusBanner(
-                        unfinishedCount = unfinishedRequired,
-                        onClick = {
-                            // 点击直达首个未完成必要项的操作
-                            requiredItems.firstOrNull { !it.done }?.let { handleItemClick(it.key) }
-                        },
+        // 源码中除 VIVO 自启动外，带 H5 教程的厂商项不尝试直达系统页。
+        if (item.showsTutorial &&
+            !(brand == VendorCompat.Brand.VIVO &&
+                item.id == SourcePermissionId.AUTO_START)
+        ) {
+            openSourceTutorial(item)
+            return
+        }
+
+        val opened = when (item.id) {
+            SourcePermissionId.CLOSE_POWER_SAVE ->
+                VendorCompat.openPowerSaveModeSettings(activity)
+            SourcePermissionId.BATTERY_OPTIMIZATION ->
+                VendorCompat.openBatteryOptimizationSettings(activity)
+            SourcePermissionId.AUTO_START ->
+                VendorCompat.openAutoStartSettings(activity)
+            SourcePermissionId.BACKGROUND_RUNNING ->
+                VendorCompat.openBackgroundRunningSettings(activity)
+            SourcePermissionId.BACKGROUND_DATA,
+            SourcePermissionId.NETWORK_CONTROL ->
+                VendorCompat.openNetworkControlSettings(activity)
+            SourcePermissionId.SHOW_OTHER_APP_TOP ->
+                openOverlayPermission(activity)
+            SourcePermissionId.KEEP_NET_CONNECTION,
+            SourcePermissionId.SMART_DATA_SAVER,
+            SourcePermissionId.KEEP_APP_FOREGROUND -> false
+        }
+        if (!opened) {
+            openSourceTutorial(item)
+        }
+    }
+
+    AndroidView(
+        modifier = Modifier
+            .fillMaxSize()
+            .statusBarsPadding(),
+        factory = { viewContext ->
+            LayoutInflater.from(viewContext)
+                .inflate(R.layout.main_fra_listen_permission, null, false)
+                .also { root ->
+                    installXimalayaTitleBar(
+                        host = root.findViewById(R.id.main_title_bar),
+                        title = "后台播放优化",
+                        left = XimalayaTitleAction.Back { navController.popBackStack() },
                     )
-                    Spacer(Modifier.height(16.dp))
                 }
-            }
-
-            // 必须完成组（常驻展开）
-            PermissionGroupSection(
-                group = PermissionGroup.REQUIRED,
-                items = requiredItems,
-                expanded = true,
-                onToggleExpand = {},
-                onItemClick = ::handleItemClick,
-            )
-
-            Spacer(Modifier.height(24.dp))
-
-            // 遇到问题再设置组（默认折叠）
-            if (onDemandItems.isNotEmpty()) {
-                PermissionGroupSection(
-                    group = PermissionGroup.ON_DEMAND,
-                    items = onDemandItems,
-                    expanded = onDemandExpanded,
-                    onToggleExpand = { onDemandExpanded = !onDemandExpanded },
-                    onItemClick = ::handleItemClick,
+        },
+        update = { root ->
+            resumeTrigger
+            val container = root.findViewById<LinearLayout>(R.id.main_v_container)
+            container.removeAllViews()
+            permissionItems.forEach { item ->
+                container.addView(
+                    createSourcePermissionRow(
+                        context = context,
+                        parent = container,
+                        item = item,
+                        done = sourcePermissionDone(context, item.id),
+                        onClick = { openPermission(item) },
+                    ),
+                    LinearLayout.LayoutParams(
+                        ViewGroup.LayoutParams.MATCH_PARENT,
+                        ViewGroup.LayoutParams.WRAP_CONTENT,
+                    ),
                 )
             }
+        },
+    )
+}
 
-            Spacer(Modifier.height(32.dp))
+private fun createSourcePermissionRow(
+    context: Context,
+    parent: ViewGroup,
+    item: SourcePermissionItem,
+    done: Boolean,
+    onClick: () -> Unit,
+): View {
+    val row = LayoutInflater.from(context)
+        .inflate(R.layout.main_item_listen_permission, parent, false)
+    row.findViewById<TextView>(R.id.main_tv_title).text = item.copy.title
+    row.findViewById<TextView>(R.id.main_tv_sub_title).text = item.copy.subtitle
+    row.findViewById<TextView>(R.id.main_tv_quick_setup).apply {
+        when {
+            item.canAutoCheck && done -> {
+                visibility = View.VISIBLE
+                text = item.copy.openedTitle
+                background = null
+                setTextColor(ContextCompat.getColor(context, R.color.arg_res_0x7f060af1))
+                setCompoundDrawablesRelativeWithIntrinsicBounds(
+                    R.drawable.arg_res_0x7f082a49,
+                    0,
+                    0,
+                    0,
+                )
+            }
+            item.canAutoCheck -> {
+                visibility = View.VISIBLE
+                text = if (item.showsTutorial) "查看教程" else "快速设置"
+                setTextColor(ContextCompat.getColor(context, R.color.arg_res_0x7f060dfb))
+                setBackgroundResource(R.drawable.arg_res_0x7f082b74)
+                setCompoundDrawablesRelativeWithIntrinsicBounds(0, 0, 0, 0)
+            }
+            item.hasAction -> {
+                visibility = View.VISIBLE
+                text = if (item.showsTutorial) "查看教程" else "快速设置"
+                setTextColor(ContextCompat.getColor(context, R.color.arg_res_0x7f060ac3))
+                setBackgroundResource(R.drawable.arg_res_0x7f082b75)
+                setCompoundDrawablesRelativeWithIntrinsicBounds(0, 0, 0, 0)
+            }
+            else -> visibility = View.INVISIBLE
         }
+        setOnClickListener { onClick() }
     }
+    return row
+}
+
+private enum class SourcePermissionId {
+    KEEP_APP_FOREGROUND,
+    SHOW_OTHER_APP_TOP,
+    KEEP_NET_CONNECTION,
+    CLOSE_POWER_SAVE,
+    BATTERY_OPTIMIZATION,
+    AUTO_START,
+    BACKGROUND_RUNNING,
+    BACKGROUND_DATA,
+    NETWORK_CONTROL,
+    SMART_DATA_SAVER,
+}
+
+private data class SourcePermissionItem(
+    val id: SourcePermissionId,
+    val copy: PermissionCopy,
+    val canAutoCheck: Boolean,
+    val hasAction: Boolean,
+    val showsTutorial: Boolean,
+    val permissionKey: PermissionKey?,
+)
+
+private data class PermissionCopy(
+    val title: String,
+    val subtitle: String,
+    val openedTitle: String,
+)
+
+private fun buildSourcePermissionItems(
+    brand: VendorCompat.Brand,
+    fromAlarm: Boolean,
+): List<SourcePermissionItem> {
+    val orderedIds = when (brand) {
+        VendorCompat.Brand.HUAWEI,
+        VendorCompat.Brand.HONOR -> listOf(
+            SourcePermissionId.KEEP_NET_CONNECTION,
+            SourcePermissionId.CLOSE_POWER_SAVE,
+            SourcePermissionId.BATTERY_OPTIMIZATION,
+            SourcePermissionId.AUTO_START,
+            SourcePermissionId.BACKGROUND_RUNNING,
+            SourcePermissionId.NETWORK_CONTROL,
+            SourcePermissionId.SMART_DATA_SAVER,
+        )
+        VendorCompat.Brand.XIAOMI -> listOf(
+            SourcePermissionId.CLOSE_POWER_SAVE,
+            SourcePermissionId.BATTERY_OPTIMIZATION,
+            SourcePermissionId.AUTO_START,
+            SourcePermissionId.BACKGROUND_RUNNING,
+            SourcePermissionId.BACKGROUND_DATA,
+            SourcePermissionId.NETWORK_CONTROL,
+        )
+        VendorCompat.Brand.OPPO -> listOf(
+            SourcePermissionId.CLOSE_POWER_SAVE,
+            SourcePermissionId.BATTERY_OPTIMIZATION,
+            SourcePermissionId.AUTO_START,
+            SourcePermissionId.BACKGROUND_RUNNING,
+            SourcePermissionId.BACKGROUND_DATA,
+            SourcePermissionId.NETWORK_CONTROL,
+            SourcePermissionId.SMART_DATA_SAVER,
+        )
+        VendorCompat.Brand.VIVO -> listOf(
+            SourcePermissionId.CLOSE_POWER_SAVE,
+            SourcePermissionId.BATTERY_OPTIMIZATION,
+            SourcePermissionId.AUTO_START,
+            SourcePermissionId.BACKGROUND_RUNNING,
+            SourcePermissionId.NETWORK_CONTROL,
+            SourcePermissionId.SMART_DATA_SAVER,
+        )
+        VendorCompat.Brand.SAMSUNG -> listOf(
+            SourcePermissionId.CLOSE_POWER_SAVE,
+            SourcePermissionId.BATTERY_OPTIMIZATION,
+            SourcePermissionId.AUTO_START,
+            SourcePermissionId.BACKGROUND_RUNNING,
+            SourcePermissionId.NETWORK_CONTROL,
+        )
+        VendorCompat.Brand.OTHER -> listOf(
+            SourcePermissionId.CLOSE_POWER_SAVE,
+            SourcePermissionId.BATTERY_OPTIMIZATION,
+            SourcePermissionId.AUTO_START,
+            SourcePermissionId.BACKGROUND_RUNNING,
+        )
+    }
+    return buildList {
+        if (fromAlarm) {
+            add(sourcePermissionItem(brand, SourcePermissionId.KEEP_APP_FOREGROUND))
+            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
+                add(sourcePermissionItem(brand, SourcePermissionId.SHOW_OTHER_APP_TOP))
+            }
+        }
+        orderedIds.forEach { add(sourcePermissionItem(brand, it)) }
+    }
+}
+
+private fun sourcePermissionItem(
+    brand: VendorCompat.Brand,
+    id: SourcePermissionId,
+): SourcePermissionItem = SourcePermissionItem(
+    id = id,
+    copy = permissionCopy(id),
+    canAutoCheck = id in setOf(
+        SourcePermissionId.SHOW_OTHER_APP_TOP,
+        SourcePermissionId.KEEP_NET_CONNECTION,
+        SourcePermissionId.CLOSE_POWER_SAVE,
+        SourcePermissionId.BATTERY_OPTIMIZATION,
+        SourcePermissionId.BACKGROUND_DATA,
+    ),
+    hasAction = id != SourcePermissionId.KEEP_APP_FOREGROUND,
+    showsTutorial = sourceUsesTutorial(brand, id),
+    permissionKey = sourcePermissionKey(id),
+)
+
+private fun permissionCopy(id: SourcePermissionId): PermissionCopy = when (id) {
+    SourcePermissionId.KEEP_APP_FOREGROUND -> PermissionCopy(
+        "保持应用在前台",
+        "保持应用打开在页面上，可以提高定时开启成功概率",
+        "已开启",
+    )
+    SourcePermissionId.SHOW_OTHER_APP_TOP -> PermissionCopy(
+        "开启悬浮窗权限",
+        "开启悬浮窗权限，保证闹钟页面正常展示",
+        "已开启",
+    )
+    SourcePermissionId.CLOSE_POWER_SAVE -> PermissionCopy(
+        "关闭省电模式",
+        "省电模式可能导致app在后台被冻结无法获取数据甚至停止运行。相关设置通常在'设置-电池-省电模式'",
+        "已关闭",
+    )
+    SourcePermissionId.BATTERY_OPTIMIZATION -> PermissionCopy(
+        "忽略电池优化",
+        "在省电模式下，应用的运行仍然可能受到限制。为了更好的保证收听体验，请将梦枕加入电池优化白名单",
+        "已忽略",
+    )
+    SourcePermissionId.AUTO_START -> PermissionCopy(
+        "自启动设置",
+        "将梦枕加入后台保护名单，可以在一定程度上帮助梦枕在后台持续运行",
+        "",
+    )
+    SourcePermissionId.BACKGROUND_RUNNING -> PermissionCopy(
+        "后台运行策略",
+        "由于系统会对后台运行的应用自动采取一些限制措施，为保证后台收听不受影响，请按照指引配置后台运行策略",
+        "已允许",
+    )
+    SourcePermissionId.BACKGROUND_DATA -> PermissionCopy(
+        "后台获取数据",
+        "若应用无法在后台拉取新内容，请检查此项并开启",
+        "已允许",
+    )
+    SourcePermissionId.NETWORK_CONTROL -> PermissionCopy(
+        "联网控制（是否允许4G/wifi联网）",
+        "若梦枕不能访问网络，请检查是否已经打开4G/Wifi联网开关",
+        "已开启",
+    )
+    SourcePermissionId.KEEP_NET_CONNECTION -> PermissionCopy(
+        "休眠状态保持网络连接",
+        "为避免系统休眠导致应用无法获取数据，请开启此项",
+        "已允许",
+    )
+    SourcePermissionId.SMART_DATA_SAVER -> PermissionCopy(
+        "智能省流量",
+        "开启智能省流量后，系统将阻止梦枕在后台使用网络数据，并降低其在前台使用网络的频率",
+        "",
+    )
+}
+
+private fun sourcePermissionKey(id: SourcePermissionId): PermissionKey? = when (id) {
+    SourcePermissionId.KEEP_NET_CONNECTION -> PermissionKey.KEEP_NET_CONNECTION
+    SourcePermissionId.CLOSE_POWER_SAVE -> PermissionKey.CLOSE_POWER_SAVE
+    SourcePermissionId.BATTERY_OPTIMIZATION -> PermissionKey.BATTERY_OPTIMIZATION
+    SourcePermissionId.AUTO_START -> PermissionKey.AUTO_START
+    SourcePermissionId.BACKGROUND_RUNNING -> PermissionKey.BACKGROUND_RUNNING
+    SourcePermissionId.BACKGROUND_DATA -> PermissionKey.BACKGROUND_DATA
+    SourcePermissionId.NETWORK_CONTROL -> PermissionKey.NETWORK_CONTROL
+    SourcePermissionId.SMART_DATA_SAVER -> PermissionKey.SMART_DATA_SAVER
+    SourcePermissionId.KEEP_APP_FOREGROUND,
+    SourcePermissionId.SHOW_OTHER_APP_TOP -> null
+}
+
+private fun sourceUsesTutorial(
+    brand: VendorCompat.Brand,
+    id: SourcePermissionId,
+): Boolean = when (brand) {
+    VendorCompat.Brand.HUAWEI,
+    VendorCompat.Brand.HONOR -> id in setOf(
+        SourcePermissionId.KEEP_NET_CONNECTION,
+        SourcePermissionId.AUTO_START,
+        SourcePermissionId.BACKGROUND_RUNNING,
+        SourcePermissionId.NETWORK_CONTROL,
+        SourcePermissionId.SMART_DATA_SAVER,
+    )
+    VendorCompat.Brand.OPPO -> id in setOf(
+        SourcePermissionId.AUTO_START,
+        SourcePermissionId.BACKGROUND_RUNNING,
+        SourcePermissionId.BACKGROUND_DATA,
+        SourcePermissionId.NETWORK_CONTROL,
+        SourcePermissionId.SMART_DATA_SAVER,
+    )
+    VendorCompat.Brand.VIVO -> id in setOf(
+        SourcePermissionId.AUTO_START,
+        SourcePermissionId.BACKGROUND_RUNNING,
+        SourcePermissionId.NETWORK_CONTROL,
+        SourcePermissionId.SMART_DATA_SAVER,
+    )
+    VendorCompat.Brand.SAMSUNG -> id in setOf(
+        SourcePermissionId.AUTO_START,
+        SourcePermissionId.BACKGROUND_RUNNING,
+        SourcePermissionId.NETWORK_CONTROL,
+    )
+    VendorCompat.Brand.XIAOMI,
+    VendorCompat.Brand.OTHER -> false
+}
+
+private fun sourcePermissionDone(
+    context: Context,
+    id: SourcePermissionId,
+): Boolean = when (id) {
+    SourcePermissionId.SHOW_OTHER_APP_TOP ->
+        Build.VERSION.SDK_INT < Build.VERSION_CODES.M || Settings.canDrawOverlays(context)
+    SourcePermissionId.CLOSE_POWER_SAVE ->
+        VendorCompat.isPowerSaveModeDisabled(context)
+    SourcePermissionId.BATTERY_OPTIMIZATION ->
+        VendorCompat.isIgnoringBatteryOptimizations(context)
+    SourcePermissionId.BACKGROUND_DATA -> {
+        val connectivity =
+            context.getSystemService(Context.CONNECTIVITY_SERVICE) as? ConnectivityManager
+        connectivity?.let {
+            ConnectivityManagerCompat.getRestrictBackgroundStatus(it) ==
+                ConnectivityManagerCompat.RESTRICT_BACKGROUND_STATUS_DISABLED
+        } == true
+    }
+    SourcePermissionId.KEEP_NET_CONNECTION ->
+        VendorCompat.isWifiSleepPolicyAlways(context) == true
+    SourcePermissionId.KEEP_APP_FOREGROUND,
+    SourcePermissionId.AUTO_START,
+    SourcePermissionId.BACKGROUND_RUNNING,
+    SourcePermissionId.NETWORK_CONTROL,
+    SourcePermissionId.SMART_DATA_SAVER -> false
+}
+
+private fun openOverlayPermission(activity: Activity): Boolean = try {
+    activity.startActivity(
+        Intent(
+            Settings.ACTION_MANAGE_OVERLAY_PERMISSION,
+            Uri.parse("package:${activity.packageName}"),
+        ),
+    )
+    true
+} catch (_: Exception) {
+    false
 }

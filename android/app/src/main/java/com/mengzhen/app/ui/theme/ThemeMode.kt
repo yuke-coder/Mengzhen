@@ -17,10 +17,14 @@ private val Context.themeModeDataStore by preferencesDataStore(name = "theme_mod
  * - DataStore key `theme-mode`（与 Web 端 localStorage key 同名）
  * - 值：light / dark / auto（Web 端 system 存储为 auto）
  */
-enum class ThemeMode(val prefValue: String, val label: String, val description: String) {
-    LIGHT("light", "浅色模式", "始终使用浅色主题"),
+enum class ThemeMode(
+    val prefValue: String,
+    val label: String,
+    val description: String,
+) {
+    LIGHT("light", "普通模式", "始终使用浅色主题"),
     DARK("dark", "深色模式", "始终使用深色主题"),
-    SYSTEM("auto", "自动模式", "跟随系统主题设置");
+    SYSTEM("auto", "跟随系统", "跟随系统主题设置");
 
     companion object {
         fun fromPref(value: String?): ThemeMode = when (value) {
@@ -34,12 +38,27 @@ enum class ThemeMode(val prefValue: String, val label: String, val description: 
 /** 主题模式持久化（DataStore） */
 object ThemeModeStore {
     private val KEY = stringPreferencesKey("theme-mode")
+    private const val BOOTSTRAP_PREFS = "theme_mode_bootstrap"
+    private const val BOOTSTRAP_KEY = "theme-mode"
 
     fun modeFlow(context: Context): Flow<ThemeMode> =
         context.themeModeDataStore.data.map { ThemeMode.fromPref(it[KEY]) }
 
     suspend fun setMode(context: Context, mode: ThemeMode) {
+        syncBootstrapMode(context, mode)
         context.themeModeDataStore.edit { it[KEY] = mode.prefValue }
+    }
+
+    fun bootstrapMode(context: Context): ThemeMode = ThemeMode.fromPref(
+        context.getSharedPreferences(BOOTSTRAP_PREFS, Context.MODE_PRIVATE)
+            .getString(BOOTSTRAP_KEY, null),
+    )
+
+    fun syncBootstrapMode(context: Context, mode: ThemeMode) {
+        context.getSharedPreferences(BOOTSTRAP_PREFS, Context.MODE_PRIVATE)
+            .edit()
+            .putString(BOOTSTRAP_KEY, mode.prefValue)
+            .commit()
     }
 }
 

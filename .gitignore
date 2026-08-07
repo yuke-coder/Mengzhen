@@ -49,6 +49,9 @@ bin/
 .vscode/
 .idea/
 *.iml
+.cowork-temp/
+.trae/
+.claude/settings.local.json
 
 # OS / misc
 Thumbs.db
@@ -97,3 +100,10 @@ logs/
 # Signing keys
 *.jks
 *.keystore
+.vercel
+.env*
+
+# Local reverse-engineering and build research artifacts
+/research/
+/xm_rev/
+/.gradle-codex/

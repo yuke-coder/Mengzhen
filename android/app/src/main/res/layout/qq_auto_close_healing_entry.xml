@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="54dp"
+    android:background="@drawable/xm_alarm_v9514_0x7f081e1c">
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:layout_gravity="start|center_vertical"
+        android:gravity="center_vertical"
+        android:paddingStart="16dp"
+        android:text="更多助眠音乐"
+        android:textColor="@color/xm_alarm_v9514_0x7f0601c8"
+        android:textSize="15sp"
+        android:textStyle="bold" />
+
+    <ImageView
+        android:layout_width="32dp"
+        android:layout_height="match_parent"
+        android:layout_gravity="end|center_vertical"
+        android:paddingEnd="16dp"
+        android:src="@drawable/qq_auto_close_arrow_right" />
+
+</FrameLayout>

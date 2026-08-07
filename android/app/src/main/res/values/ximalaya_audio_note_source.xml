@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- Ximalaya 9.5.1.4 main_fra_kacha_note_edit / KachaNoteEditFragment. -->
+    <color name="xm_audio_note_background">#FFFFFF</color>
+    <color name="xm_audio_note_primary_text">#333333</color>
+    <color name="xm_audio_note_secondary_text">#888888</color>
+    <color name="xm_audio_note_title_surface">#00000000</color>
+    <color name="xm_audio_note_card_mask">#EBFFFFFF</color>
+</resources>

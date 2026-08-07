@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/host_layout_satisfaction"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+    <com.airbnb.lottie.LottieAnimationView
+        android:id="@+id/host_satisfaction_iv1"
+        android:layout_width="48dp"
+        android:layout_height="48dp"
+        android:layout_marginStart="6dp"
+        app:layout_constraintEnd_toStartOf="@+id/host_satisfaction_iv2"
+        app:layout_constraintHorizontal_chainStyle="spread_inside"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/host_satisfaction_tv1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="4dp"
+        android:text="很不满意"
+        android:textColor="@color/xm_feedback_xnps_satisfaction_text"
+        android:textSize="12sp"
+        app:layout_constraintEnd_toEndOf="@+id/host_satisfaction_iv1"
+        app:layout_constraintStart_toStartOf="@+id/host_satisfaction_iv1"
+        app:layout_constraintTop_toBottomOf="@+id/host_satisfaction_iv1" />
+
+    <com.airbnb.lottie.LottieAnimationView
+        android:id="@+id/host_satisfaction_iv2"
+        android:layout_width="48dp"
+        android:layout_height="48dp"
+        app:layout_constraintEnd_toStartOf="@+id/host_satisfaction_iv3"
+        app:layout_constraintStart_toEndOf="@+id/host_satisfaction_iv1"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/host_satisfaction_tv2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="4dp"
+        android:text="不满意"
+        android:textColor="@color/xm_feedback_xnps_satisfaction_text"
+        android:textSize="12sp"
+        app:layout_constraintEnd_toEndOf="@+id/host_satisfaction_iv2"
+        app:layout_constraintStart_toStartOf="@+id/host_satisfaction_iv2"
+        app:layout_constraintTop_toBottomOf="@+id/host_satisfaction_iv2" />
+
+    <com.airbnb.lottie.LottieAnimationView
+        android:id="@+id/host_satisfaction_iv3"
+        android:layout_width="48dp"
+        android:layout_height="48dp"
+        app:layout_constraintEnd_toStartOf="@+id/host_satisfaction_iv4"
+        app:layout_constraintStart_toEndOf="@+id/host_satisfaction_iv2"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/host_satisfaction_tv3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="4dp"
+        android:text="一般"
+        android:textColor="@color/xm_feedback_xnps_satisfaction_text"
+        android:textSize="12sp"
+        app:layout_constraintEnd_toEndOf="@+id/host_satisfaction_iv3"
+        app:layout_constraintStart_toStartOf="@+id/host_satisfaction_iv3"
+        app:layout_constraintTop_toBottomOf="@+id/host_satisfaction_iv3" />
+
+    <com.airbnb.lottie.LottieAnimationView
+        android:id="@+id/host_satisfaction_iv4"
+        android:layout_width="48dp"
+        android:layout_height="48dp"
+        app:layout_constraintEnd_toStartOf="@+id/host_satisfaction_iv5"
+        app:layout_constraintStart_toEndOf="@+id/host_satisfaction_iv3"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/host_satisfaction_tv4"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="4dp"
+        android:text="满意"
+        android:textColor="@color/xm_feedback_xnps_satisfaction_text"
+        android:textSize="12sp"
+        app:layout_constraintEnd_toEndOf="@+id/host_satisfaction_iv4"
+        app:layout_constraintStart_toStartOf="@+id/host_satisfaction_iv4"
+        app:layout_constraintTop_toBottomOf="@+id/host_satisfaction_iv4" />
+
+    <com.airbnb.lottie.LottieAnimationView
+        android:id="@+id/host_satisfaction_iv5"
+        android:layout_width="48dp"
+        android:layout_height="48dp"
+        android:layout_marginEnd="6dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/host_satisfaction_iv4"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/host_satisfaction_tv5"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="4dp"
+        android:text="很满意"
+        android:textColor="@color/xm_feedback_xnps_satisfaction_text"
+        android:textSize="12sp"
+        app:layout_constraintEnd_toEndOf="@+id/host_satisfaction_iv5"
+        app:layout_constraintStart_toStartOf="@+id/host_satisfaction_iv5"
+        app:layout_constraintTop_toBottomOf="@+id/host_satisfaction_iv5" />
+</androidx.constraintlayout.widget.ConstraintLayout>

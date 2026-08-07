@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- PlayListPagerSlidingTabStrip attributes used verbatim by 9.4.95.3 XML. -->
+    <declare-styleable name="PlayListPagerSlidingTabStrip">
+        <attr name="pstsActivateTextColor" format="color"/>
+        <attr name="pstsDeactivateTextColor" format="color"/>
+        <attr name="pstsDividerPadding" format="dimension"/>
+        <attr name="pstsIndicatorColor" format="color"/>
+        <attr name="pstsIndicatorCornerRadius" format="dimension"/>
+        <attr name="pstsIndicatorHeight" format="dimension"/>
+        <attr name="pstsIndicatorWidth" format="dimension"/>
+        <attr name="pstsRedDotAutoDismiss" format="boolean"/>
+        <attr name="pstsRedDotColor" format="color"/>
+        <attr name="pstsRedDotEnable" format="boolean"/>
+        <attr name="pstsRedDotHintLeftRightPadding" format="dimension"/>
+        <attr name="pstsRedDotHintLightBold" format="boolean"/>
+        <attr name="pstsRedDotHintPadding" format="dimension"/>
+        <attr name="pstsRedDotHintTextSize" format="dimension"/>
+        <attr name="pstsRedDotLeftMargin" format="dimension"/>
+        <attr name="pstsRedDotSize" format="dimension"/>
+        <attr name="pstsRedDotStrokeColor" format="color"/>
+        <attr name="pstsRedDotStrokeSize" format="dimension"/>
+        <attr name="pstsRedDotTopMargin" format="dimension"/>
+        <attr name="pstsShouldExpand" format="boolean"/>
+        <attr name="pstsSmoothScroll" format="boolean"/>
+        <attr name="pstsTabPaddingLeftRight" format="dimension"/>
+        <attr name="pstsUnderlineColor" format="color"/>
+        <attr name="pstsUnderlineHeight" format="dimension"/>
+    </declare-styleable>
+
+    <style name="arg_res_0x7f1303b6" parent="">
+        <item name="android:textSize">15sp</item>
+        <item name="android:background">@color/arg_res_0x7f060521</item>
+    </style>
+</resources>

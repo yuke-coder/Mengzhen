@@ -19,9 +19,9 @@ export interface User {
 interface AuthContextType {
   user: User | null;
   loading: boolean;
-  login: (username: string, password: string) => Promise<{ success: boolean; message: string }>;
-  register: (username: string, password: string) => Promise<{ success: boolean; message: string }>;
-  loginOrRegister: (username: string, password: string) => Promise<{ success: boolean; message: string }>;
+  login: (username: string, password: string, turnstileToken?: string) => Promise<{ success: boolean; message: string }>;
+  register: (username: string, password: string, turnstileToken?: string) => Promise<{ success: boolean; message: string }>;
+  loginOrRegister: (username: string, password: string, turnstileToken?: string) => Promise<{ success: boolean; message: string }>;
   logout: () => Promise<void>;
   checkAuth: () => Promise<void>;
   updateUser: (userData: Partial<User>) => void;
@@ -75,14 +75,15 @@ export function AuthProvider({ children }: { children: React.ReactNode }) {
     username: string,
     password: string,
     successMessage: string,
-    failureMessage: string
+    failureMessage: string,
+    turnstileToken?: string
   ) => {
     try {
       const res = await fetch(url, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         credentials: 'include',
-        body: JSON.stringify({ username, password }),
+        body: JSON.stringify({ username, password, turnstileToken }),
       });
       const data = await res.json();
       if (data.success && data.user) {
@@ -97,14 +98,14 @@ export function AuthProvider({ children }: { children: React.ReactNode }) {
     }
   };
 
-  const login = (username: string, password: string) =>
-    submitAuth('/api/auth/login', username, password, '登录成功', '登录失败');
+  const login = (username: string, password: string, turnstileToken?: string) =>
+    submitAuth('/api/auth/login', username, password, '登录成功', '登录失败', turnstileToken);
 
-  const register = (username: string, password: string) =>
-    submitAuth('/api/auth/register', username, password, '注册成功', '注册失败');
+  const register = (username: string, password: string, turnstileToken?: string) =>
+    submitAuth('/api/auth/register', username, password, '注册成功', '注册失败', turnstileToken);
 
-  const loginOrRegister = (username: string, password: string) =>
-    submitAuth('/api/auth/entry', username, password, '登录成功', '登录失败');
+  const loginOrRegister = (username: string, password: string, turnstileToken?: string) =>
+    submitAuth('/api/auth/entry', username, password, '登录成功', '登录失败', turnstileToken);
 
   const logout = async () => {
     try {

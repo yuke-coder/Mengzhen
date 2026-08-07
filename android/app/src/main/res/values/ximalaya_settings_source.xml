@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- 喜马拉雅 9.5.1.4 styles.xml 0x7f1304bd-0x7f1304c2。 -->
+    <style name="XmSettingSourceDivider">
+        <item name="android:background">@drawable/arg_res_0x7f080555</item>
+        <item name="android:paddingLeft">15dp</item>
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">1px</item>
+    </style>
+
+    <style name="XmSettingSourceHorizontalRow">
+        <item name="android:gravity">center_vertical</item>
+        <item name="android:orientation">horizontal</item>
+        <item name="android:background">@drawable/arg_res_0x7f0805ac</item>
+        <item name="android:clickable">true</item>
+        <item name="android:focusable">true</item>
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">50dp</item>
+    </style>
+
+    <style name="XmSettingSourceLinkRow">
+        <item name="android:textSize">15sp</item>
+        <item name="android:textColor">@color/arg_res_0x7f060191</item>
+        <item name="android:ellipsize">middle</item>
+        <item name="android:gravity">start|center_vertical</item>
+        <item name="android:background">@drawable/arg_res_0x7f0805ac</item>
+        <item name="android:paddingLeft">15dp</item>
+        <item name="android:paddingRight">15dp</item>
+        <item name="android:clickable">true</item>
+        <item name="android:focusable">true</item>
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:minHeight">50dp</item>
+        <item name="android:maxEms">8</item>
+        <item name="android:singleLine">true</item>
+        <item name="android:drawableEnd">@drawable/xm_alarm_v9514_0x7f0809d6</item>
+        <item name="android:drawablePadding">10dp</item>
+    </style>
+
+    <style name="XmSettingSourceFilledLinkRow" parent="@style/XmSettingSourceLinkRow">
+        <item name="android:background">@drawable/arg_res_0x7f0805ad</item>
+    </style>
+
+    <style name="XmSettingSourceLabel">
+        <item name="android:textSize">15sp</item>
+        <item name="android:textColor">@color/arg_res_0x7f060191</item>
+        <item name="android:gravity">center_vertical</item>
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_marginLeft">15dp</item>
+        <item name="android:layout_marginRight">15dp</item>
+        <item name="android:maxEms">12</item>
+        <item name="android:singleLine">true</item>
+        <item name="android:drawablePadding">10dp</item>
+    </style>
+
+    <style name="XmSettingSourceValue">
+        <item name="android:textSize">14sp</item>
+        <item name="android:textColor">@color/arg_res_0x7f06034d</item>
+        <item name="android:ellipsize">end</item>
+        <item name="android:gravity">end|center_vertical</item>
+        <item name="android:layout_width">0dp</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_marginRight">15dp</item>
+        <item name="android:singleLine">true</item>
+        <item name="android:includeFontPadding">false</item>
+        <item name="android:drawableEnd">@drawable/xm_alarm_v9514_0x7f0809d6</item>
+        <item name="android:drawablePadding">3dp</item>
+        <item name="android:layout_weight">1</item>
+    </style>
+
+    <style name="XmSettingSourceSectionTitle">
+        <item name="android:textSize">12sp</item>
+        <item name="android:textColor">@color/arg_res_0x7f06034d</item>
+        <item name="android:background">@color/arg_res_0x7f0605f6</item>
+        <item name="android:paddingLeft">13dp</item>
+        <item name="android:paddingTop">13dp</item>
+        <item name="android:paddingBottom">10dp</item>
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+    </style>
+</resources>

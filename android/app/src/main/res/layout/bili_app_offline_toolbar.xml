@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.appcompat.widget.Toolbar
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/nav_top_bar"
+    style="@style/BiliOfflineToolbar"
+    android:layout_width="match_parent"
+    android:layout_height="@dimen/navigation_top_bar_size"
+    app:menu="@menu/offline_home"
+    app:navigationIcon="@drawable/abc_ic_ab_back_material" />

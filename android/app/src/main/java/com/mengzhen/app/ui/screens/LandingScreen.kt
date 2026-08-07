@@ -28,7 +28,10 @@ import com.mengzhen.app.ui.navigation.Screen
  * 权限设置按钮 → permission_settings（InstallButton 样式保留、逻辑已改）。
  */
 @Composable
-fun LandingScreen(navController: NavController) {
+fun LandingScreen(
+    navController: NavController,
+    onExperienceStarted: () -> Unit = {},
+) {
     // FloatingBar 可见性：Hero 按钮与底部 CTA 均滚出视口时显示（Web showFloatingBar）
     var heroCtaVisible by remember { mutableStateOf(true) }
     var bottomCtaVisible by remember { mutableStateOf(false) }
@@ -36,6 +39,7 @@ fun LandingScreen(navController: NavController) {
 
     // router.replace("/settings") 语义：替换当前页，返回键不回首页
     val startExperience: () -> Unit = {
+        onExperienceStarted()
         navController.navigate(Screen.Settings.route) {
             popUpTo(Screen.Landing.route) { inclusive = true }
         }

@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="Ga0">#FF101011</color>
+    <color name="Ga2">#FF2F3134</color>
+    <color name="Ga3_u">#FF45484C</color>
+    <color name="Ga4">#FF5E6267</color>
+    <color name="Ga5">#FF757A81</color>
+    <color name="Ga8">#FFB9BDC2</color>
+    <color name="Ga10">#FFE7E9EB</color>
+    <color name="Wh0">#FF17181A</color>
+    <color name="Wh0_u">#FFFFFFFF</color>
+    <color name="Pi5">#FFD44E7D</color>
+    <color name="theme_color_secondary">#FFD44E7D</color>
+    <color name="theme_color_text_tertiary">#44999999</color>
+    <color name="theme_color_primary_tr_background">#FF17181A</color>
+    <color name="theme_color_primary_tr_icon">#FFB9BDC2</color>
+    <color name="theme_color_primary_tr_title">#FFE7E9EB</color>
+    <color name="daynight_color_background_window">#FF1B1B1B</color>
+</resources>

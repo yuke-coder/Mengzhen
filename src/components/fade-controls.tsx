@@ -82,12 +82,12 @@ export function FadeControls({
   return (
     <div className={cn("space-y-4", className)}>
       <div className="flex items-center justify-between gap-3">
-        <span className="text-sm font-medium text-foreground">音量渐入渐出</span>
+        <span className="text-sm font-medium text-foreground">轻唤醒</span>
         <button
           type="button"
           role="switch"
           aria-checked={enabled}
-          aria-label="音量渐入渐出"
+          aria-label="轻唤醒"
           onClick={() => onEnabledChange(!enabled)}
           className={cn(
             "inline-flex items-center gap-1.5 px-2.5 py-1.5 rounded-md text-xs font-semibold transition-colors shrink-0",
@@ -103,8 +103,8 @@ export function FadeControls({
 
       {enabled && (
         <>
-          <DurationControl label="音量渐入" value={fadeInDuration} onChange={onFadeInDurationChange} />
-          <DurationControl label="音量渐出" value={fadeOutDuration} onChange={onFadeOutDurationChange} />
+          <DurationControl label="音量渐强" value={fadeInDuration} onChange={onFadeInDurationChange} />
+          <DurationControl label="音量渐弱" value={fadeOutDuration} onChange={onFadeOutDurationChange} />
           {showHint && (
             <div className="p-2.5 bg-muted/20 rounded-lg">
               <p className="text-xs text-muted-foreground leading-relaxed">💡 渐入将在开始时间前开始播放，渐出将在结束时间后完成。实际播放时段 = 目标音量时段。</p>

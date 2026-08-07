@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:clipChildren="false">
+
+    <ImageView
+        android:id="@+id/qq_source_top_back"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:contentDescription="返回"
+        android:scaleType="fitCenter"
+        android:src="@drawable/player_btn_top_back_normal" />
+
+    <com.tencent.qqmusic.ui.ViewPagerCircleIndicator
+        android:id="@+id/qq_source_top_indicator"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:importantForAccessibility="no" />
+
+    <ImageView
+        android:id="@+id/qq_source_top_style"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:contentDescription="播放器样式"
+        android:scaleType="centerCrop"
+        android:src="@drawable/icon_top_record_setting_entrance" />
+
+    <ImageView
+        android:id="@+id/qq_source_top_share"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:contentDescription="分享"
+        android:scaleType="centerCrop"
+        android:src="@drawable/player_btn_top_share_normal" />
+</FrameLayout>

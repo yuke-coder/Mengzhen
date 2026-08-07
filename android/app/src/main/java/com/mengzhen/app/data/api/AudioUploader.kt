@@ -18,7 +18,7 @@ import java.io.FileOutputStream
  * 对标 Web 端 src/lib/audio-upload.ts
  * 重复文件拦截：文件名 + 文件大小都匹配，直接不允许上传
  */
-class AudioUploader(private val api: ApiClient = ApiClient.get()) {
+class AudioUploader(private val api: ApiClient) {
 
     /**
      * 上传音频文件
@@ -35,6 +35,7 @@ class AudioUploader(private val api: ApiClient = ApiClient.get()) {
         fileName: String,
         fileSize: Long,
         mimeType: String,
+        onProgress: (Int) -> Unit = {},
     ): UploadResult = withContext(Dispatchers.IO) {
         try {
             // Step 1: 获取上传凭证
@@ -52,9 +53,28 @@ class AudioUploader(private val api: ApiClient = ApiClient.get()) {
 
             // Step 2: 直传文件到 Supabase Storage
             Log.i(TAG, "Step 2: Uploading file to Supabase Storage")
-            val tempFile = uriToTempFile(context, fileUri, fileName)
-            val uploaded = api.uploadFileToSignedUrl(signedUploadUrl, tempFile, mimeType)
-            tempFile.delete()
+            val directFile = fileUri
+                .takeIf { it.scheme == "file" }
+                ?.path
+                ?.let(::File)
+                ?.takeIf(File::isFile)
+            val uploadFile = directFile ?: uriToTempFile(context, fileUri, fileName)
+            var lastProgress = -1
+            val uploaded = try {
+                api.uploadFileToSignedUrl(signedUploadUrl, uploadFile, mimeType) { sent, total ->
+                    val progress = if (total > 0) {
+                        ((sent * 100L) / total).toInt().coerceIn(0, 100)
+                    } else {
+                        0
+                    }
+                    if (progress != lastProgress) {
+                        lastProgress = progress
+                        onProgress(progress)
+                    }
+                }
+            } finally {
+                if (directFile == null) uploadFile.delete()
+            }
 
             if (!uploaded) {
                 return@withContext UploadResult.Failed("文件上传失败，请检查网络后重试")
