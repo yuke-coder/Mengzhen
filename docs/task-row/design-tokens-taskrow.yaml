@@ -1,0 +1,625 @@
+# ============================================================
+# 设计系统令牌文档 — 睡眠音频 App 任务行组件
+# Design System: Spotify (Primary) + Soft Warm × Tech Utility
+# 生成者: 彩格调 (Cai) · 设计系统专家
+# ============================================================
+
+# ----------------------------------------------------------
+# 0. 设计系统推荐摘要
+# ----------------------------------------------------------
+design_system_recommendation:
+  primary:
+    name: "Spotify"
+    match_score: 5
+    reason: >
+      音频领域原生设计系统，天然处理播放状态/等待/完成等音频生命周期；
+      暗色模式成熟，夜间场景适配性极佳；
+      曲目行（Track Row）组件模式可直接映射任务行，高信息密度布局经验丰富。
+  secondary:
+    name: "Airbnb"
+    match_score: 4
+    reason: >
+      B2C 消费品设计标杆，卡片式无边框分层方案成熟；
+      Soft Warm 视觉方向契合睡眠场景，圆润亲和的圆角体系。
+  tertiary:
+    name: "Apple"
+    match_score: 3
+    reason: >
+      健康/生活方式领域设计权威，暗色模式与无障碍标准业界领先；
+      去边框设计哲学与品牌色板的克制运用高度匹配。
+  selected: "Spotify"
+  hybrid_direction: "Soft Warm × Tech Utility"
+  rationale: >
+    以 Spotify 的音频行布局逻辑为骨架，注入 Soft Warm 的柔和圆角与暖色调，
+    辅以 Tech Utility 的等宽数字与状态指示器精确性，
+    形成夜间低注意力场景下的高信息密度但视觉松弛的任务行。
+
+# ----------------------------------------------------------
+# 1. Visual Theme（视觉主题）
+# ----------------------------------------------------------
+visual_theme:
+  philosophy: "柔和即效率——在夜间低注意力场景下，用温度感包裹信息密度"
+  direction: "soft-warm-primary, tech-utility-auxiliary, borderless-elevation"
+  personality: "calm, precise, breathable, trustworthy"
+  reference: "Spotify track row × Calm app × Material 3 expressive"
+
+# ----------------------------------------------------------
+# 2. Color Palette（调色板）
+# ----------------------------------------------------------
+color_palette:
+  # --- 品牌渐变色（用户指定） ---
+  brand:
+    brand_start_themed:
+      light: "#9ED2BE"
+      dark: "#7EEDC4"
+      usage: "渐变起始色 / 待激活状态填充"
+    brand_mid_themed:
+      light: "#7BC4A8"
+      dark: "#50DDB0"
+      usage: "渐变中段色 / 进度指示"
+    brand_end_themed:
+      light: "#5BB892"
+      dark: "#2BC496"
+      usage: "渐变终止色 / 执行中状态填充"
+    brand_glow_themed:
+      light: "#5BB892"
+      dark: "#2BC496"
+      usage: "光晕/辉光效果（播放中脉冲动画）"
+
+  # --- 语义状态色 ---
+  semantic:
+    pending:
+      light: "#B8A9D4"
+      dark: "#9B86C4"
+      usage: "等待中状态 — 柔和紫，低唤醒度"
+    executing:
+      light: "#5BB892"
+      dark: "#2BC496"
+      usage: "执行中状态 — 品牌色，活力指示"
+    completed:
+      light: "#8FA8B5"
+      dark: "#5A7A8A"
+      usage: "已完成状态 — 蓝灰，平静收束"
+    cancelled:
+      light: "#C4A5A0"
+      dark: "#8A6258"
+      usage: "已关闭状态 — 暖灰红，不刺眼的否定"
+    error:
+      light: "#D4856B"
+      dark: "#E07A5F"
+      usage: "错误状态 — 暖珊瑚，夜间友好"
+
+  # --- 背景与表面层（去边框设计的核心分层） ---
+  surface:
+    # 亮色模式
+    light:
+      bg_root: "#FAF7F2"          # 页面根背景 — 暖米白
+      bg_surface_1: "#F3EDE4"     # 第一层卡片 — 略深暖白
+      bg_surface_2: "#EBE3D6"     # 第二层内嵌区域 — 浅暖沙
+      bg_surface_3: "#E0D5C4"     # 第三层 Chip/标签 — 暖沙
+      bg_elevated: "#FFFCF6"      # 浮起元素 — 近白暖光
+      bg_pressed: "#D8CCB8"       # 按压态 — 深暖沙
+      bg_overlay: "#00000066"     # 遮罩 — 40% 黑
+    # 暗色模式
+    dark:
+      bg_root: "#14110E"          # 页面根背景 — 深暖黑
+      bg_surface_1: "#1E1A15"     # 第一层卡片 — 略浅暖黑
+      bg_surface_2: "#28231C"     # 第二层内嵌区域 — 暖深棕
+      bg_surface_3: "#332D24"     # 第三层 Chip/标签 — 中暖棕
+      bg_elevated: "#2A241D"      # 浮起元素 — 暖深棕浮层
+      bg_pressed: "#3D3528"       # 按压态 — 亮暖棕
+      bg_overlay: "#00000099"     # 遮罩 — 60% 黑
+
+  # --- 文本色 ---
+  text:
+    light:
+      primary: "#2A2520"          # 主文本 — 深暖棕黑
+      secondary: "#6B5F52"        # 辅助文本 — 中暖灰棕
+      tertiary: "#9A8E7E"         # 第三级文本 — 浅暖灰
+      disabled: "#C4B8A8"         # 禁用文本 — 淡暖灰
+      on_brand: "#FFFFFF"         # 品牌色上的文本
+      on_semantic: "#FFFFFF"      # 语义色上的文本
+    dark:
+      primary: "#F0EBE0"          # 主文本 — 暖白
+      secondary: "#A89E8E"        # 辅助文本 — 暖灰
+      tertiary: "#9A8E7E"         # 第三级文本 — 暖灰（提亮以满足 WCAG AA 4.5:1）
+      disabled: "#4A4138"         # 禁用文本 — 暗暖灰
+      on_brand: "#0A0805"         # 品牌色上的文本 — 深黑（暗色品牌色较亮）
+      on_semantic: "#0A0805"      # 语义色上的文本
+
+  # --- 渐变定义 ---
+  gradients:
+    brand_gradient:
+      light: "linear-gradient(135deg, #9ED2BE 0%, #7BC4A8 50%, #5BB892 100%)"
+      dark: "linear-gradient(135deg, #7EEDC4 0%, #50DDB0 50%, #2BC496 100%)"
+      usage: "执行中状态指示器、进度条、激活态 Chip 背景"
+    fade_in_gradient:
+      light: "linear-gradient(90deg, #9ED2BE 0%, #B8A9D4 100%)"
+      dark: "linear-gradient(90deg, #7EEDC4 0%, #9B86C4 100%)"
+      usage: "渐入形态标签"
+    fade_out_gradient:
+      light: "linear-gradient(90deg, #5BB892 0%, #8FA8B5 100%)"
+      dark: "linear-gradient(90deg, #2BC496 0%, #5A7A8A 100%)"
+      usage: "渐出形态标签"
+
+# ----------------------------------------------------------
+# 3. Typography（排版）
+# ----------------------------------------------------------
+typography:
+  font_stacks:
+    heading: "'Noto Sans SC', 'Source Han Sans SC', 'PingFang SC', sans-serif"
+    body: "'Noto Sans SC', 'Source Han Sans SC', 'PingFang SC', sans-serif"
+    mono_time: "'JetBrains Mono', 'Roboto Mono', 'Droid Sans Mono', monospace"
+    mono_number: "'JetBrains Mono', 'Roboto Mono', monospace"
+
+  scale:
+    # 组件内排版阶梯（移动端，sp 单位）
+    - level: "row_title"
+      size_sp: 15
+      size_px: 15
+      weight: 600
+      line_height: 1.3
+      usage: "音频名称 — 任务行主标题"
+    - level: "row_subtitle"
+      size_sp: 13
+      size_px: 13
+      weight: 400
+      line_height: 1.4
+      usage: "时长、重复类型等辅助信息"
+    - level: "chip_label"
+      size_sp: 11
+      size_px: 11
+      weight: 500
+      line_height: 1.2
+      usage: "形态标签、状态标签内文字"
+    - level: "time_display"
+      size_sp: 13
+      size_px: 13
+      weight: 500
+      line_height: 1.3
+      font_family: "mono_time"
+      usage: "启播时间、关闭时间 — 等宽确保对齐"
+    - level: "time_micro"
+      size_sp: 11
+      size_px: 11
+      weight: 400
+      line_height: 1.2
+      font_family: "mono_time"
+      usage: "秒级时间补充信息"
+    - level: "meta_caption"
+      size_sp: 12
+      size_px: 12
+      weight: 400
+      line_height: 1.3
+      usage: "音量百分比、渐入渐出秒数"
+    - level: "status_badge"
+      size_sp: 10
+      size_px: 10
+      weight: 600
+      line_height: 1.1
+      letter_spacing_sp: 0.5
+      usage: "状态指示器文字（大写英文）"
+    - level: "duration_large"
+      size_sp: 17
+      size_px: 17
+      weight: 700
+      line_height: 1.2
+      font_family: "mono_number"
+      usage: "展开态时长大字显示"
+
+# ----------------------------------------------------------
+# 4. Component Styles（组件规范）
+# ----------------------------------------------------------
+components:
+  # --- 任务行卡片容器 ---
+  task_row_card:
+    bg_light: "var(--bg-surface-1)"
+    bg_dark: "var(--bg-surface-1)"
+    border: "none"
+    border_radius: "16dp"
+    padding_horizontal: "16dp"
+    padding_vertical_compact: "12dp"
+    padding_vertical_expanded: "16dp"
+    margin_horizontal: "12dp"
+    margin_vertical: "4dp"
+    min_height_compact: "72dp"
+    min_height_expanded: "168dp"
+    elevation_compact: 1
+    elevation_expanded: 3
+    transition_duration: "300ms"
+    transition_easing: "cubic-bezier(0.4, 0.0, 0.2, 1)"
+
+  # --- 形态标签 Chip ---
+  form_chip:
+    bg_gradient: "var(--gradient-brand) | var(--gradient-fade-in) | var(--gradient-fade-out)"
+    bg_playing:
+      light: "linear-gradient(135deg, #7BC4A8, #5BB892)"
+      dark: "linear-gradient(135deg, #50DDB0, #2BC496)"
+    bg_waiting:
+      light: "#E8E0F0"
+      dark: "#2A2438"
+    bg_closed:
+      light: "#E0D5C4"
+      dark: "#332D24"
+    text_color_on_gradient: "var(--text-on-brand)"
+    text_color_muted_light: "#9A8E7E"
+    text_color_muted_dark: "#A89E8E"
+    border: "none"
+    border_radius: "8dp"
+    padding_horizontal: "8dp"
+    padding_vertical: "3dp"
+    min_height: "20dp"
+    icon_size: "12dp"
+    icon_text_gap: "3dp"
+
+  # --- 状态指示器 ---
+  status_indicator:
+    type: "dot + label"
+    dot_size: "8dp"
+    dot_border_radius: "4dp"
+    dot_colors:
+      PENDING:
+        light: "#B8A9D4"
+        dark: "#9B86C4"
+      EXECUTING:
+        light: "#5BB892"
+        dark: "#2BC496"
+        pulse_animation: true
+        pulse_duration: "2000ms"
+        pulse_scale: 1.3
+      COMPLETED:
+        light: "#8FA8B5"
+        dark: "#5A7A8A"
+      CANCELLED:
+        light: "#C4A5A0"
+        dark: "#8A6258"
+    label_typography: "status_badge"
+    label_letter_spacing: "0.5sp"
+    dot_label_gap: "4dp"
+    container_padding: "4dp 8dp"
+    container_border_radius: "6dp"
+    container_bg:
+      light: "rgba(0,0,0,0.03)"
+      dark: "rgba(255,255,255,0.04)"
+
+  # --- 时长显示 ---
+  duration_display:
+    compact:
+      font_size: "13sp"
+      font_weight: 500
+      font_family: "body"
+      suffix_unit: "分钟"
+      suffix_size: "11sp"
+      suffix_weight: 400
+      suffix_color: "var(--text-secondary)"
+    expanded:
+      font_size: "17sp"
+      font_weight: 700
+      font_family: "mono_number"
+      number_color: "var(--text-primary)"
+      suffix_color: "var(--text-secondary)"
+
+  # --- 时间显示 ---
+  time_display:
+    font_family: "mono_time"
+    font_size: "13sp"
+    font_weight: 500
+    color: "var(--text-secondary)"
+    label_prefix:
+      start: "开始"
+      end: "关闭"
+    label_color: "var(--text-tertiary)"
+    label_size: "11sp"
+    label_weight: 400
+    time_label_gap: "4dp"
+
+  # --- 重复类型标签 ---
+  repeat_label:
+    bg:
+      light: "rgba(0,0,0,0.04)"
+      dark: "rgba(255,255,255,0.06)"
+    border: "none"
+    border_radius: "6dp"
+    padding: "2dp 6dp"
+    text_size: "11sp"
+    text_weight: 400
+    text_color: "var(--text-secondary)"
+    icon_size: "10dp"
+    icon_color: "var(--text-tertiary)"
+
+  # --- 音量条 ---
+  volume_bar:
+    type: "horizontal mini bar"
+    height: "3dp"
+    width_compact: "48dp"
+    width_expanded: "120dp"
+    track_bg:
+      light: "rgba(0,0,0,0.06)"
+      dark: "rgba(255,255,255,0.08)"
+    track_fill_gradient:
+      light: "linear-gradient(90deg, #9ED2BE, #5BB892)"
+      dark: "linear-gradient(90deg, #7EEDC4, #2BC496)"
+    border_radius: "1.5dp"
+    percentage_text:
+      size: "11sp"
+      weight: 400
+      color: "var(--text-tertiary)"
+      font_family: "mono_number"
+
+  # --- 渐入渐出标签 ---
+  fade_label:
+    layout: "inline icon + text"
+    icon_size: "10dp"
+    icon_fade_in: "arrow_downward (↓)"
+    icon_fade_out: "arrow_upward (↑)"
+    text_size: "11sp"
+    text_weight: 400
+    text_color: "var(--text-tertiary)"
+    value_font: "mono_number"
+    format: "{icon} {value}s"
+
+  # --- 展开/收起手柄 ---
+  expand_handle:
+    type: "chevron icon"
+    icon_size: "16dp"
+    icon_color: "var(--text-tertiary)"
+    rotation_collapsed: "0deg"
+    rotation_expanded: "180deg"
+    rotation_duration: "300ms"
+    hit_target: "48dp x 48dp"
+
+  # --- 音频名称行 ---
+  audio_title:
+    font_size: "15sp"
+    font_weight: 600
+    color: "var(--text-primary)"
+    max_lines_compact: 1
+    max_lines_expanded: 2
+    ellipsize: "end"
+    playing_prefix_icon:
+      icon: "graphic_eq"
+      size: "14dp"
+      color: "var(--brand-glow)"
+      visible_only_when: "EXECUTING"
+
+# ----------------------------------------------------------
+# 5. Layout（布局）
+# ----------------------------------------------------------
+layout:
+  # --- 间距体系 ---
+  spacing:
+    xs: "4dp"
+    sm: "8dp"
+    md: "12dp"
+    lg: "16dp"
+    xl: "20dp"
+    xxl: "24dp"
+    xxxl: "32dp"
+
+  # --- 任务行内部间距 ---
+  task_row_spacing:
+    # 紧凑态
+    compact:
+      card_padding_h: "16dp"
+      card_padding_v: "12dp"
+      title_to_subtitle: "2dp"
+      subtitle_to_meta: "6dp"
+      meta_to_status: "8dp"
+      chip_to_chip: "4dp"
+      left_to_content: "12dp"
+      content_to_trailing: "8dp"
+    # 展开态
+    expanded:
+      card_padding_h: "16dp"
+      card_padding_v: "16dp"
+      header_to_body: "8dp"
+      body_to_footer: "12dp"
+      section_gap: "8dp"
+      item_gap: "6dp"
+
+  # --- 紧凑态布局结构 ---
+  compact_layout:
+    orientation: "horizontal"
+    structure:
+      - zone: "leading"
+        width: "40dp"
+        content: "状态指示圆点 + 播放波形图标"
+      - zone: "content"
+        weight: 1
+        rows:
+          - row_1: "音频名称 + 形态Chip（同行右端）"
+          - row_2: "时长 · 启播时间 · 重复类型（分隔点连接）"
+      - zone: "trailing"
+        width: "32dp"
+        content: "展开手柄 chevron"
+
+  # --- 展开态布局结构 ---
+  expanded_layout:
+    orientation: "vertical"
+    structure:
+      - section: "header"
+        layout: "horizontal"
+        content:
+          left: "状态指示器（dot + label）"
+          right: "展开手柄（旋转 180°）"
+      - section: "title"
+        content: "音频名称（最多2行）+ 形态Chip"
+      - section: "time_grid"
+        layout: "2×2 grid"
+        cells:
+          - cell_1: "启播时间（label + HH:MM:SS）"
+          - cell_2: "关闭时间（label + HH:MM:SS）"
+          - cell_3: "时长（大字 + 分钟后缀）"
+          - cell_4: "重复类型（icon + text）"
+      - section: "footer"
+        layout: "horizontal"
+        content:
+          left: "音量条 + 百分比"
+          right: "渐入秒数 · 渐出秒数"
+
+# ----------------------------------------------------------
+# 6. Radius（圆角规范）
+# ----------------------------------------------------------
+radius:
+  card: "16dp"
+  card_compact: "14dp"
+  chip: "8dp"
+  chip_pill: "10dp"
+  badge: "6dp"
+  dot: "4dp"
+  bar: "1.5dp"
+  inner_section: "12dp"
+  icon_container: "10dp"
+
+# ----------------------------------------------------------
+# 7. Depth & Elevation（阴影与层级 — 去边框设计的核心）
+# ----------------------------------------------------------
+elevation:
+  # 亮色模式 — 暖色阴影
+  light:
+    level_0:
+      shadow: "none"
+      usage: "根背景层 — 无需浮起"
+    level_1:
+      shadow: "0dp 1dp 2dp rgba(42, 37, 32, 0.06)"
+      usage: "紧凑态任务行卡片"
+    level_2:
+      shadow: "0dp 2dp 6dp rgba(42, 37, 32, 0.08)"
+      usage: "hover/按压态卡片"
+    level_3:
+      shadow: "0dp 4dp 12dp rgba(42, 37, 32, 0.10)"
+      usage: "展开态任务行卡片"
+    level_4:
+      shadow: "0dp 8dp 24dp rgba(42, 37, 32, 0.12)"
+      usage: "浮层菜单/弹窗"
+
+  # 暗色模式 — 深色阴影 + 微光晕
+  dark:
+    level_0:
+      shadow: "none"
+      usage: "根背景层"
+    level_1:
+      shadow: "0dp 1dp 3dp rgba(0, 0, 0, 0.30)"
+      usage: "紧凑态任务行卡片"
+    level_2:
+      shadow: "0dp 2dp 8dp rgba(0, 0, 0, 0.35)"
+      usage: "hover/按压态卡片"
+    level_3:
+      shadow: "0dp 4dp 16dp rgba(0, 0, 0, 0.40)"
+      usage: "展开态任务行卡片"
+    level_4:
+      shadow: "0dp 8dp 32dp rgba(0, 0, 0, 0.50)"
+      usage: "浮层菜单/弹窗"
+
+  # 去边框分层策略
+  borderless_layering_strategy:
+    principle: "用 3 级表面色差 + elevation 组合替代边框线"
+    layers:
+      - layer: "L0 根背景"
+        method: "bg_root — 最深/最浅"
+      - layer: "L1 卡片表面"
+        method: "bg_surface_1 + elevation_1 — 与 L0 产生色差"
+      - layer: "L2 内嵌区域"
+        method: "bg_surface_2 + 圆角 12dp — 与 L1 产生色差"
+      - layer: "L3 Chip/标签"
+        method: "bg_surface_3 或品牌渐变 + 圆角 8dp"
+    glow_for_active:
+      method: "EXECUTING 状态的卡片左边缘添加 3dp 品牌色辉光条 + 脉冲动画"
+      glow_color_light: "rgba(91, 184, 146, 0.15)"
+      glow_color_dark: "rgba(43, 196, 150, 0.20)"
+      glow_blur: "8dp"
+      glow_spread: "0dp"
+
+# ----------------------------------------------------------
+# 8. Animation（动画规范）
+# ----------------------------------------------------------
+animation:
+  state_transition:
+    duration: "300ms"
+    easing: "cubic-bezier(0.4, 0.0, 0.2, 1)"
+    properties: ["elevation", "maxHeight", "opacity"]
+  expand_collapse:
+    duration: "300ms"
+    easing: "cubic-bezier(0.4, 0.0, 0.2, 1)"
+  pulse_executing:
+    duration: "2000ms"
+    repeat: "infinite"
+    scale_range: [1.0, 1.3]
+    opacity_range: [1.0, 0.6]
+  glow_pulse:
+    duration: "2500ms"
+    repeat: "infinite"
+    opacity_range: [0.15, 0.30]
+  chip_appear:
+    duration: "200ms"
+    easing: "cubic-bezier(0.2, 0.0, 0.0, 1.0)"
+    start_scale: 0.85
+    start_opacity: 0.0
+
+# ----------------------------------------------------------
+# 9. Cautions（注意事项）
+# ----------------------------------------------------------
+cautions:
+  never_do:
+    - "禁止使用 1px 边框线做分隔 — 统一用 bg_surface 色差 + elevation"
+    - "禁止使用纯白/纯黑背景 — 必须带暖色调（色温偏暖约 200K）"
+    - "禁止在暗色模式下使用高饱和度纯色 — 所有语义色需降低饱和度 15%"
+    - "禁止时间数字使用非等宽字体 — 会导致列对齐错乱"
+    - "禁止在紧凑态展示全部 9 项信息 — 紧凑态最多 4 项"
+    - "禁止使用红色表示已关闭状态 — 夜间场景用暖灰红 #C4A5A0"
+    - "禁止状态指示器闪烁频率高于 1Hz — 夜间场景避免视觉刺激"
+  prefer:
+    - "用填充色块和透明度叠加代替边框"
+    - "用等宽字体显示所有数字（时间、秒数、百分比）"
+    - "用渐变色区分渐强/渐弱形态，而非文字"
+    - "用 8dp 间距倍数系统保持节奏感"
+    - "EXECUTING 状态用 2s 慢脉冲而非快闪"
+    - "展开态用平滑高度动画 + 淡入，避免内容跳变"
+
+# ----------------------------------------------------------
+# 10. Responsive Behavior（响应式行为 — 移动端竖屏/横屏）
+# ----------------------------------------------------------
+responsive:
+  portrait:
+    compact_max_info_items: 4
+    expanded_grid_columns: 2
+    card_margin_horizontal: "12dp"
+  landscape:
+    compact_max_info_items: 5
+    expanded_grid_columns: 4
+    card_margin_horizontal: "24dp"
+    note: "横屏时展开态时间网格变为 1×4 水平排列"
+  font_scale_accessibility:
+    min_scale: 0.85
+    max_scale: 1.3
+    strategy: "紧凑态在 fontScale > 1.2 时隐藏 meta 行，仅保留标题 + 状态"
+
+# ----------------------------------------------------------
+# 11. Agent Prompt Guide（Agent 生成指南）
+# ----------------------------------------------------------
+agent_guide:
+  key_instructions:
+    - "此组件为 Android 原生，使用 Compose XML 或 Jetpack Compose 实现"
+    - "所有尺寸用 dp/sp，不使用 px"
+    - "去边框设计的核心：bg_surface_1/2/3 三级色差 + elevation 层级，绝不用 stroke"
+    - "EXECUTING 状态必须实现慢脉冲动画（2s 周期），这是品牌核心交互"
+    - "时间数字必须使用 JetBrains Mono 或 Roboto Mono 等宽字体"
+    - "紧凑态→展开态用 animateContentSize() 或 Transition API"
+    - "暗色模式不是简单反色 — 背景偏暖黑 (#14110E)，不是纯黑 (#000000)"
+    - "状态色在暗色模式下需提亮以保证对比度 ≥ 4.5:1 (WCAG AA)"
+  quick_compose_snippet: |
+    // 关键颜色映射
+    val brandGradient = Brush.linearGradient(
+      colors = listOf(BrandStart, BrandMid, BrandEnd)
+    )
+    // 去边框卡片
+    Card(
+      elevation = CardDefaults.cardElevation(
+        defaultElevation = if (expanded) 3.dp else 1.dp
+      ),
+      shape = RoundedCornerShape(16.dp),
+      colors = CardDefaults.cardColors(
+        containerColor = MaterialTheme.colorScheme.surface
+      ),
+      border = null  // ← 去边框核心
+    ) { ... }

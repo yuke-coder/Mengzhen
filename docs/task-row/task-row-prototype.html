@@ -1,0 +1,434 @@
+<!DOCTYPE html>
+<html lang="zh-CN" data-theme="dark">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>任务行组件原型 — 睡眠音频 App</title>
+<!--
+  设计系统: Spotify (Primary) + Soft Warm × Tech Utility
+  设计令牌来源: design-tokens-taskrow.yaml
+  生成者: 筑原型 (Zhu) · 原型构建师
+  修订: P0 对比度 / P1 紧凑瘦身·reduced-motion·hover·变量化·触摸目标·时间统一
+-->
+<style>
+/* 0. CSS 变量 */
+[data-theme="dark"] {
+  --brand-start: #7EEDC4; --brand-mid: #50DDB0; --brand-end: #2BC496; --brand-glow: #2BC496;
+  --color-pending: #9B86C4; --color-executing: #2BC496; --color-completed: #5A7A8A; --color-cancelled: #8A6258; --color-error: #E07A5F;
+  --bg-root: #14110E; --bg-surface-1: #1E1A15; --bg-surface-2: #28231C; --bg-surface-3: #332D24; --bg-elevated: #2A241D; --bg-pressed: #3D3528; --bg-overlay: rgba(0,0,0,0.6);
+  --text-primary: #F0EBE0; --text-secondary: #A89E8E; --text-tertiary: #9A8E7E; --text-disabled: #4A4138; --text-on-brand: #0A0805; --text-on-semantic: #0A0805;
+  --gradient-brand: linear-gradient(135deg, var(--brand-start) 0%, var(--brand-mid) 50%, var(--brand-end) 100%);
+  --gradient-fade-in: linear-gradient(90deg, var(--brand-start) 0%, var(--color-pending) 100%);
+  --gradient-fade-out: linear-gradient(90deg, var(--brand-end) 0%, var(--color-completed) 100%);
+  --gradient-playing: linear-gradient(135deg, var(--brand-mid), var(--brand-end));
+  --chip-waiting-bg: #2A2438; --chip-closed-bg: #332D24;
+  --elevation-1: 0 1px 3px rgba(0,0,0,0.30); --elevation-2: 0 2px 8px rgba(0,0,0,0.35); --elevation-3: 0 4px 16px rgba(0,0,0,0.40); --elevation-4: 0 8px 32px rgba(0,0,0,0.50);
+  --glow-color: rgba(43,196,150,0.20);
+  --volume-track: rgba(255,255,255,0.08); --volume-fill: linear-gradient(90deg, var(--brand-start), var(--brand-end));
+  --status-container-bg: rgba(255,255,255,0.04); --repeat-bg: rgba(255,255,255,0.06);
+}
+[data-theme="light"] {
+  --brand-start: #9ED2BE; --brand-mid: #7BC4A8; --brand-end: #5BB892; --brand-glow: #5BB892;
+  --color-pending: #B8A9D4; --color-executing: #5BB892; --color-completed: #8FA8B5; --color-cancelled: #C4A5A0; --color-error: #D4856B;
+  --bg-root: #FAF7F2; --bg-surface-1: #F3EDE4; --bg-surface-2: #EBE3D6; --bg-surface-3: #E0D5C4; --bg-elevated: #FFFCF6; --bg-pressed: #D8CCB8; --bg-overlay: rgba(0,0,0,0.4);
+  --text-primary: #2A2520; --text-secondary: #6B5F52; --text-tertiary: #9A8E7E; --text-disabled: #C4B8A8; --text-on-brand: #FFFFFF; --text-on-semantic: #FFFFFF;
+  --gradient-brand: linear-gradient(135deg, var(--brand-start) 0%, var(--brand-mid) 50%, var(--brand-end) 100%);
+  --gradient-fade-in: linear-gradient(90deg, var(--brand-start) 0%, var(--color-pending) 100%);
+  --gradient-fade-out: linear-gradient(90deg, var(--brand-end) 0%, var(--color-completed) 100%);
+  --gradient-playing: linear-gradient(135deg, var(--brand-mid), var(--brand-end));
+  --chip-waiting-bg: #E8E0F0; --chip-closed-bg: #E0D5C4;
+  --elevation-1: 0 1px 2px rgba(42,37,32,0.06); --elevation-2: 0 2px 6px rgba(42,37,32,0.08); --elevation-3: 0 4px 12px rgba(42,37,32,0.10); --elevation-4: 0 8px 24px rgba(42,37,32,0.12);
+  --glow-color: rgba(91,184,146,0.15);
+  --volume-track: rgba(0,0,0,0.06); --volume-fill: linear-gradient(90deg, var(--brand-start), var(--brand-end));
+  --status-container-bg: rgba(0,0,0,0.03); --repeat-bg: rgba(0,0,0,0.04);
+}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0;-webkit-font-smoothing:antialiased}
+html{font-size:16px}
+body{font-family:'Noto Sans SC','Source Han Sans SC','PingFang SC','Microsoft YaHei',sans-serif;background:var(--bg-root);color:var(--text-primary);min-height:100vh;transition:background 300ms ease,color 300ms ease;display:flex;flex-direction:column;align-items:center}
+.mono{font-family:'JetBrains Mono','Roboto Mono','Droid Sans Mono','Consolas',monospace;font-variant-numeric:tabular-nums}
+/* 2. 顶部工具栏 */
+.topbar{width:100%;max-width:375px;display:flex;align-items:center;justify-content:space-between;padding:16px 16px 12px;background:var(--bg-root);position:sticky;top:0;z-index:100}
+.topbar__title{font-size:15px;font-weight:600;color:var(--text-primary);letter-spacing:0.3px}
+.theme-toggle{display:flex;align-items:center;gap:6px;padding:6px 12px;border-radius:10px;border:none;background:var(--bg-surface-2);color:var(--text-secondary);font-size:12px;font-weight:500;cursor:pointer;transition:background 200ms ease,color 200ms ease;font-family:inherit}
+.theme-toggle:hover{background:var(--bg-surface-3);color:var(--text-primary)}
+.theme-toggle__icon{width:16px;height:16px;display:flex;align-items:center;justify-content:center}
+.theme-toggle__icon svg{width:14px;height:14px}
+/* 3. 手机模拟框架 */
+.device-frame{width:375px;min-height:720px;background:var(--bg-root);display:flex;flex-direction:column;padding-bottom:32px;flex-shrink:0}
+.page-header{padding:8px 16px 16px}
+.page-header__label{font-size:11px;font-weight:600;color:var(--text-tertiary);letter-spacing:0.8px;text-transform:uppercase;margin-bottom:4px}
+.page-header__title{font-size:22px;font-weight:700;color:var(--text-primary);line-height:1.2}
+.filter-bar{display:flex;gap:6px;padding:0 16px 12px;overflow-x:auto;-webkit-overflow-scrolling:touch;scrollbar-width:none}
+.filter-bar::-webkit-scrollbar{display:none}
+.filter-chip{flex-shrink:0;padding:5px 12px;border-radius:8px;background:var(--bg-surface-2);color:var(--text-secondary);font-size:12px;font-weight:500;cursor:pointer;transition:all 200ms ease;border:none;font-family:inherit}
+.filter-chip--active{background:var(--gradient-brand);color:var(--text-on-brand)}
+/* 4. 任务行卡片 */
+.task-row{margin:4px 12px;border-radius:14px;background:var(--bg-surface-1);box-shadow:var(--elevation-1);overflow:hidden;position:relative;transition:box-shadow 300ms cubic-bezier(0.4,0,0.2,1),border-radius 300ms cubic-bezier(0.4,0,0.2,1);cursor:pointer}
+.task-row:hover{box-shadow:var(--elevation-2)}
+.task-row:focus-visible{outline:2px solid var(--brand-mid);outline-offset:2px}
+.task-row--expanded{border-radius:16px;box-shadow:var(--elevation-3)}
+.task-row--executing::before{content:'';position:absolute;left:0;top:8px;bottom:8px;width:3px;border-radius:0 2px 2px 0;background:var(--brand-glow);box-shadow:0 0 8px var(--glow-color);animation:glowPulse 2500ms ease-in-out infinite;z-index:1}
+@keyframes glowPulse{0%,100%{opacity:0.6}50%{opacity:1}}
+.task-row__compact{display:flex;align-items:center;padding:12px 16px;min-height:72px;gap:12px}
+.compact__leading{width:40px;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:4px;flex-shrink:0}
+.compact__content{flex:1;min-width:0;display:flex;flex-direction:column;gap:2px}
+.compact__row1{display:flex;align-items:center;justify-content:space-between;gap:8px}
+.compact__title{font-size:15px;font-weight:600;color:var(--text-primary);white-space:nowrap;overflow:hidden;text-overflow:ellipsis;display:flex;align-items:center;gap:6px}
+.compact__subtitle{display:flex;align-items:center;gap:6px;font-size:13px;color:var(--text-secondary);line-height:1.4}
+.subtitle-dot{color:var(--text-tertiary);font-size:10px;flex-shrink:0}
+.compact__trailing{width:48px;display:flex;align-items:center;justify-content:center;flex-shrink:0}
+/* 5. 形态标签 Chip */
+.form-chip{display:inline-flex;align-items:center;gap:3px;padding:3px 8px;border-radius:8px;font-size:11px;font-weight:500;line-height:1.2;white-space:nowrap;flex-shrink:0;border:none}
+.form-chip--fadein{background:var(--gradient-fade-in);color:var(--text-on-brand)}
+.form-chip--fadeout{background:var(--gradient-fade-out);color:var(--text-on-brand)}
+.form-chip--playing{background:var(--gradient-playing);color:var(--text-on-brand)}
+.form-chip--waiting{background:var(--chip-waiting-bg);color:var(--text-secondary)}
+.form-chip--closed{background:var(--chip-closed-bg);color:var(--text-tertiary)}
+.form-chip__icon{width:12px;height:12px;flex-shrink:0}
+/* 6. 状态指示器 */
+.status-indicator{display:inline-flex;align-items:center;gap:4px;padding:4px 8px;border-radius:6px;background:var(--status-container-bg)}
+.status-dot{width:8px;height:8px;border-radius:4px;flex-shrink:0}
+.status-dot--pending{background:var(--color-pending)}
+.status-dot--executing{background:var(--color-executing);animation:pulseDot 2000ms ease-in-out infinite}
+.status-dot--completed{background:var(--color-completed)}
+.status-dot--cancelled{background:var(--color-cancelled)}
+@keyframes pulseDot{0%,100%{transform:scale(1);opacity:1}50%{transform:scale(1.3);opacity:0.6}}
+.status-label{font-size:10px;font-weight:600;letter-spacing:0.5px;text-transform:uppercase;color:var(--text-secondary)}
+.status-dot--mini{width:8px;height:8px;border-radius:4px}
+.playing-icon{width:14px;height:14px;color:var(--brand-glow);display:flex;align-items:center;justify-content:center}
+.playing-icon svg{width:14px;height:14px}
+.playing-icon--active svg path{animation:waveBar 1200ms ease-in-out infinite}
+.playing-icon--active svg path:nth-child(1){animation-delay:0ms}
+.playing-icon--active svg path:nth-child(2){animation-delay:200ms}
+.playing-icon--active svg path:nth-child(3){animation-delay:400ms}
+@keyframes waveBar{0%,100%{transform:scaleY(0.4)}50%{transform:scaleY(1)}}
+/* 7. 展开/收起手柄 — 48×48 触摸目标 */
+.expand-handle{width:48px;height:48px;display:flex;align-items:center;justify-content:center;color:var(--text-tertiary);transition:transform 300ms cubic-bezier(0.4,0,0.2,1);flex-shrink:0}
+.expand-handle--expanded{transform:rotate(180deg)}
+.expand-handle svg{width:16px;height:16px}
+/* 8. 展开态布局 */
+.task-row__expanded{display:none;flex-direction:column;padding:16px;gap:8px}
+.task-row--expanded .task-row__expanded{display:flex}
+.task-row--expanded .task-row__compact{display:none}
+.expanded__header{display:flex;align-items:center;justify-content:space-between}
+.expanded__title{display:flex;align-items:center;gap:8px;flex-wrap:wrap}
+.expanded__title-text{font-size:15px;font-weight:600;color:var(--text-primary);line-height:1.3;flex:1;min-width:0}
+.time-grid{display:grid;grid-template-columns:1fr 1fr;gap:8px;background:var(--bg-surface-2);border-radius:12px;padding:12px}
+.time-cell{display:flex;flex-direction:column;gap:4px}
+.time-cell__label{font-size:11px;font-weight:400;color:var(--text-tertiary);line-height:1.2}
+.time-cell__value{font-family:'JetBrains Mono','Roboto Mono','Consolas',monospace;font-size:13px;font-weight:500;color:var(--text-secondary);font-variant-numeric:tabular-nums;line-height:1.3}
+.time-cell__value--large{font-size:17px;font-weight:700;color:var(--text-primary)}
+.time-cell__suffix{font-size:11px;font-weight:400;color:var(--text-tertiary);margin-left:2px}
+.expanded__footer{display:flex;align-items:center;justify-content:space-between;gap:12px}
+.footer-left{display:flex;align-items:center;gap:8px}
+.footer-right{display:flex;align-items:center;gap:10px}
+/* 9. 音量条 */
+.volume-display{display:flex;align-items:center;gap:6px}
+.volume-bar{width:120px;height:3px;border-radius:1.5px;background:var(--volume-track);overflow:hidden}
+.volume-bar__fill{height:100%;border-radius:1.5px;background:var(--volume-fill)}
+.volume-percent{font-family:'JetBrains Mono','Roboto Mono',monospace;font-size:11px;font-weight:400;color:var(--text-tertiary);font-variant-numeric:tabular-nums;min-width:30px}
+/* 10. 渐入渐出标签 */
+.fade-tag{display:inline-flex;align-items:center;gap:2px;font-size:11px;font-weight:400;color:var(--text-tertiary)}
+.fade-tag__icon{font-size:10px;line-height:1}
+.fade-tag__value{font-family:'JetBrains Mono','Roboto Mono',monospace;font-variant-numeric:tabular-nums}
+/* 11. 重复类型标签 */
+.repeat-tag{display:inline-flex;align-items:center;gap:3px;padding:2px 6px;border-radius:6px;background:var(--repeat-bg);font-size:11px;font-weight:400;color:var(--text-secondary)}
+.repeat-tag__icon{width:10px;height:10px;color:var(--text-tertiary)}
+.repeat-tag__icon svg{width:10px;height:10px}
+/* 12. 紧凑态音量迷你条 */
+.volume-mini{display:inline-flex;align-items:center;gap:4px}
+.volume-mini__bar{width:48px;height:3px;border-radius:1.5px;background:var(--volume-track);overflow:hidden}
+.volume-mini__fill{height:100%;border-radius:1.5px;background:var(--volume-fill)}
+/* 13. 状态分组标题 */
+.section-divider{display:flex;align-items:center;gap:8px;padding:16px 16px 4px}
+.section-divider__line{flex:1;height:1px;background:var(--bg-surface-2)}
+.section-divider__label{font-size:11px;font-weight:600;color:var(--text-tertiary);letter-spacing:0.5px;text-transform:uppercase}
+/* 14. 已取消状态样式 */
+.task-row--cancelled .compact__title,.task-row--cancelled .expanded__title-text{color:var(--text-tertiary)}
+.task-row--cancelled .compact__subtitle,.task-row--cancelled .time-cell__value{color:var(--text-tertiary)}
+.task-row--completed .compact__title,.task-row--completed .expanded__title-text{color:var(--text-secondary)}
+/* 15. 底部信息 */
+.footer-info{width:375px;padding:24px 16px 8px;text-align:center}
+.footer-info__text{font-size:11px;color:var(--text-tertiary);line-height:1.5}
+/* 16. 响应式 */
+@media (max-width:400px){.device-frame{width:100%;min-height:auto}.topbar{max-width:100%}.footer-info{width:100%}}
+/* 17. prefers-reduced-motion 降级 */
+@media (prefers-reduced-motion:reduce){
+  *,*::before,*::after{animation-duration:0.01ms !important;animation-iteration-count:1 !important;transition-duration:0.01ms !important}
+  .task-row--executing::before{animation:none;opacity:1}
+  .status-dot--executing{animation:none}
+  .playing-icon--active svg path{animation:none}
+}
+</style>
+</head>
+<body>
+<div class="topbar">
+  <span class="topbar__title">任务 Tab · 任务行组件</span>
+  <button class="theme-toggle" id="themeToggle" onclick="toggleTheme()">
+    <span class="theme-toggle__icon" id="themeIcon">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+    </span>
+    <span id="themeLabel">暗色</span>
+  </button>
+</div>
+<div class="device-frame">
+  <div class="page-header">
+    <div class="page-header__label">SLEEP SCHEDULE</div>
+    <div class="page-header__title">睡眠任务</div>
+  </div>
+  <div class="filter-bar">
+    <button class="filter-chip filter-chip--active">全部</button>
+    <button class="filter-chip">待执行</button>
+    <button class="filter-chip">执行中</button>
+    <button class="filter-chip">已完成</button>
+    <button class="filter-chip">已关闭</button>
+  </div>
+
+  <div class="section-divider"><span class="section-divider__label">执行中</span><div class="section-divider__line"></div></div>
+
+  <!-- 任务行1: EXECUTING / 播放中 -->
+  <div class="task-row task-row--executing" data-status="executing" onclick="toggleExpand(this)" tabindex="0">
+    <div class="task-row__compact">
+      <div class="compact__leading">
+        <div class="status-dot status-dot--executing status-dot--mini"></div>
+        <div class="playing-icon playing-icon--active"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M4 10v4h2v-4H4zm3-3v10h2V7H7zm3-5v16h2V2h-2zm3 8v8h2v-8h-2zm3-3v11h2V7h-2z" opacity="0.9"/></svg></div>
+      </div>
+      <div class="compact__content">
+        <div class="compact__row1">
+          <span class="compact__title">深海鲸歌 · 低频共振</span>
+          <span class="form-chip form-chip--playing"><svg class="form-chip__icon" viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg>播放中</span>
+        </div>
+        <div class="compact__subtitle"><span class="mono">22:30:00</span></div>
+      </div>
+      <div class="compact__trailing"><div class="expand-handle"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></div></div>
+    </div>
+    <div class="task-row__expanded">
+      <div class="expanded__header">
+        <div class="status-indicator"><div class="status-dot status-dot--executing"></div><span class="status-label">EXECUTING</span></div>
+        <div class="expand-handle expand-handle--expanded"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></div>
+      </div>
+      <div class="expanded__title">
+        <div class="playing-icon playing-icon--active"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M4 10v4h2v-4H4zm3-3v10h2V7H7zm3-5v16h2V2h-2zm3 8v8h2v-8h-2zm3-3v11h2V7h-2z" opacity="0.9"/></svg></div>
+        <span class="expanded__title-text">深海鲸歌 · 低频共振</span>
+        <span class="form-chip form-chip--playing"><svg class="form-chip__icon" viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg>播放中</span>
+      </div>
+      <div class="time-grid">
+        <div class="time-cell"><span class="time-cell__label">开始</span><span class="time-cell__value mono">22:30:00</span></div>
+        <div class="time-cell"><span class="time-cell__label">关闭</span><span class="time-cell__value mono">23:15:00</span></div>
+        <div class="time-cell"><span class="time-cell__label">时长</span><span class="time-cell__value time-cell__value--large mono">45<span class="time-cell__suffix">分钟</span></span></div>
+        <div class="time-cell"><span class="time-cell__label">重复</span><span class="time-cell__value"><span class="repeat-tag"><span class="repeat-tag__icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 1l4 4-4 4"/><path d="M3 11V9a4 4 0 0 1 4-4h14"/><path d="M7 23l-4-4 4-4"/><path d="M21 13v2a4 4 0 0 1-4 4H3"/></svg></span>每天</span></span></div>
+      </div>
+      <div class="expanded__footer">
+        <div class="footer-left"><div class="volume-display"><div class="volume-bar"><div class="volume-bar__fill" style="width:35%"></div></div><span class="volume-percent mono">35%</span></div></div>
+        <div class="footer-right"><span class="fade-tag"><span class="fade-tag__icon">↓</span><span class="fade-tag__value mono">10</span>s</span><span class="fade-tag"><span class="fade-tag__icon">↑</span><span class="fade-tag__value mono">15</span>s</span></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 任务行2: EXECUTING / 渐强 -->
+  <div class="task-row task-row--executing" data-status="executing" onclick="toggleExpand(this)" tabindex="0">
+    <div class="task-row__compact">
+      <div class="compact__leading">
+        <div class="status-dot status-dot--executing status-dot--mini"></div>
+        <div class="playing-icon playing-icon--active"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M4 10v4h2v-4H4zm3-3v10h2V7H7zm3-5v16h2V2h-2zm3 8v8h2v-8h-2zm3-3v11h2V7h-2z" opacity="0.9"/></svg></div>
+      </div>
+      <div class="compact__content">
+        <div class="compact__row1">
+          <span class="compact__title">雨声白噪 · 渐强模式</span>
+          <span class="form-chip form-chip--fadein"><svg class="form-chip__icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 15 12 9 18 3"/></svg>渐强</span>
+        </div>
+        <div class="compact__subtitle"><span class="mono">22:00:00</span></div>
+      </div>
+      <div class="compact__trailing"><div class="expand-handle"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></div></div>
+    </div>
+    <div class="task-row__expanded">
+      <div class="expanded__header">
+        <div class="status-indicator"><div class="status-dot status-dot--executing"></div><span class="status-label">EXECUTING</span></div>
+        <div class="expand-handle expand-handle--expanded"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></div>
+      </div>
+      <div class="expanded__title">
+        <div class="playing-icon playing-icon--active"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M4 10v4h2v-4H4zm3-3v10h2V7H7zm3-5v16h2V2h-2zm3 8v8h2v-8h-2zm3-3v11h2V7h-2z" opacity="0.9"/></svg></div>
+        <span class="expanded__title-text">雨声白噪 · 渐强模式</span>
+        <span class="form-chip form-chip--fadein"><svg class="form-chip__icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 15 12 9 18 3"/></svg>渐强</span>
+      </div>
+      <div class="time-grid">
+        <div class="time-cell"><span class="time-cell__label">开始</span><span class="time-cell__value mono">22:00:00</span></div>
+        <div class="time-cell"><span class="time-cell__label">关闭</span><span class="time-cell__value mono">22:30:00</span></div>
+        <div class="time-cell"><span class="time-cell__label">时长</span><span class="time-cell__value time-cell__value--large mono">30<span class="time-cell__suffix">分钟</span></span></div>
+        <div class="time-cell"><span class="time-cell__label">重复</span><span class="time-cell__value"><span class="repeat-tag"><span class="repeat-tag__icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg></span>周一至周五</span></span></div>
+      </div>
+      <div class="expanded__footer">
+        <div class="footer-left"><div class="volume-display"><div class="volume-bar"><div class="volume-bar__fill" style="width:50%"></div></div><span class="volume-percent mono">50%</span></div></div>
+        <div class="footer-right"><span class="fade-tag"><span class="fade-tag__icon">↓</span><span class="fade-tag__value mono">8</span>s</span><span class="fade-tag"><span class="fade-tag__icon">↑</span><span class="fade-tag__value mono">12</span>s</span></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="section-divider"><span class="section-divider__label">待执行</span><div class="section-divider__line"></div></div>
+
+  <!-- 任务行3: PENDING / 渐弱 -->
+  <div class="task-row" data-status="pending" onclick="toggleExpand(this)" tabindex="0">
+    <div class="task-row__compact">
+      <div class="compact__leading"><div class="status-dot status-dot--pending status-dot--mini"></div></div>
+      <div class="compact__content">
+        <div class="compact__row1">
+          <span class="compact__title">森林夜语 · 渐弱助眠</span>
+          <span class="form-chip form-chip--fadeout"><svg class="form-chip__icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 3 12 9 18 15"/></svg>渐弱</span>
+        </div>
+        <div class="compact__subtitle"><span class="mono">23:00:00</span></div>
+      </div>
+      <div class="compact__trailing"><div class="expand-handle"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></div></div>
+    </div>
+    <div class="task-row__expanded">
+      <div class="expanded__header">
+        <div class="status-indicator"><div class="status-dot status-dot--pending"></div><span class="status-label">PENDING</span></div>
+        <div class="expand-handle expand-handle--expanded"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></div>
+      </div>
+      <div class="expanded__title">
+        <span class="expanded__title-text">森林夜语 · 渐弱助眠</span>
+        <span class="form-chip form-chip--fadeout"><svg class="form-chip__icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 3 12 9 18 15"/></svg>渐弱</span>
+      </div>
+      <div class="time-grid">
+        <div class="time-cell"><span class="time-cell__label">开始</span><span class="time-cell__value mono">23:00:00</span></div>
+        <div class="time-cell"><span class="time-cell__label">关闭</span><span class="time-cell__value mono">00:00:00</span></div>
+        <div class="time-cell"><span class="time-cell__label">时长</span><span class="time-cell__value time-cell__value--large mono">60<span class="time-cell__suffix">分钟</span></span></div>
+        <div class="time-cell"><span class="time-cell__label">重复</span><span class="time-cell__value"><span class="repeat-tag"><span class="repeat-tag__icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 1l4 4-4 4"/><path d="M3 11V9a4 4 0 0 1 4-4h14"/><path d="M7 23l-4-4 4-4"/><path d="M21 13v2a4 4 0 0 1-4 4H3"/></svg></span>每天</span></span></div>
+      </div>
+      <div class="expanded__footer">
+        <div class="footer-left"><div class="volume-display"><div class="volume-bar"><div class="volume-bar__fill" style="width:25%"></div></div><span class="volume-percent mono">25%</span></div></div>
+        <div class="footer-right"><span class="fade-tag"><span class="fade-tag__icon">↓</span><span class="fade-tag__value mono">5</span>s</span><span class="fade-tag"><span class="fade-tag__icon">↑</span><span class="fade-tag__value mono">20</span>s</span></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 任务行4: PENDING / 等待中 -->
+  <div class="task-row" data-status="pending" onclick="toggleExpand(this)" tabindex="0">
+    <div class="task-row__compact">
+      <div class="compact__leading"><div class="status-dot status-dot--pending status-dot--mini"></div></div>
+      <div class="compact__content">
+        <div class="compact__row1">
+          <span class="compact__title">星空冥想 · 432Hz</span>
+          <span class="form-chip form-chip--waiting"><svg class="form-chip__icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>等待中</span>
+        </div>
+        <div class="compact__subtitle"><span class="mono">23:30:00</span></div>
+      </div>
+      <div class="compact__trailing"><div class="expand-handle"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></div></div>
+    </div>
+    <div class="task-row__expanded">
+      <div class="expanded__header">
+        <div class="status-indicator"><div class="status-dot status-dot--pending"></div><span class="status-label">PENDING</span></div>
+        <div class="expand-handle expand-handle--expanded"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></div>
+      </div>
+      <div class="expanded__title">
+        <span class="expanded__title-text">星空冥想 · 432Hz</span>
+        <span class="form-chip form-chip--waiting"><svg class="form-chip__icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>等待中</span>
+      </div>
+      <div class="time-grid">
+        <div class="time-cell"><span class="time-cell__label">开始</span><span class="time-cell__value mono">23:30:00</span></div>
+        <div class="time-cell"><span class="time-cell__label">关闭</span><span class="time-cell__value mono">00:15:00</span></div>
+        <div class="time-cell"><span class="time-cell__label">时长</span><span class="time-cell__value time-cell__value--large mono">45<span class="time-cell__suffix">分钟</span></span></div>
+        <div class="time-cell"><span class="time-cell__label">重复</span><span class="time-cell__value"><span class="repeat-tag"><span class="repeat-tag__icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 1l4 4-4 4"/><path d="M3 11V9a4 4 0 0 1 4-4h14"/><path d="M7 23l-4-4 4-4"/><path d="M21 13v2a4 4 0 0 1-4 4H3"/></svg></span>周末</span></span></div>
+      </div>
+      <div class="expanded__footer">
+        <div class="footer-left"><div class="volume-display"><div class="volume-bar"><div class="volume-bar__fill" style="width:40%"></div></div><span class="volume-percent mono">40%</span></div></div>
+        <div class="footer-right"><span class="fade-tag"><span class="fade-tag__icon">↓</span><span class="fade-tag__value mono">12</span>s</span><span class="fade-tag"><span class="fade-tag__icon">↑</span><span class="fade-tag__value mono">15</span>s</span></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="section-divider"><span class="section-divider__label">已完成</span><div class="section-divider__line"></div></div>
+
+  <!-- 任务行5: COMPLETED / 默认展开 — P1.6: "今天"移至label -->
+  <div class="task-row task-row--completed task-row--expanded" data-status="completed" onclick="toggleExpand(this)" tabindex="0">
+    <div class="task-row__compact">
+      <div class="compact__leading"><div class="status-dot status-dot--completed status-dot--mini"></div></div>
+      <div class="compact__content">
+        <div class="compact__row1">
+          <span class="compact__title">湖畔虫鸣 · 自然白噪</span>
+          <span class="form-chip form-chip--fadeout"><svg class="form-chip__icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 3 12 9 18 15"/></svg>渐弱</span>
+        </div>
+        <div class="compact__subtitle"><span class="mono">08:00:00</span></div>
+      </div>
+      <div class="compact__trailing"><div class="expand-handle expand-handle--expanded"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></div></div>
+    </div>
+    <div class="task-row__expanded">
+      <div class="expanded__header">
+        <div class="status-indicator"><div class="status-dot status-dot--completed"></div><span class="status-label">COMPLETED</span></div>
+        <div class="expand-handle expand-handle--expanded"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></div>
+      </div>
+      <div class="expanded__title">
+        <span class="expanded__title-text">湖畔虫鸣 · 自然白噪</span>
+        <span class="form-chip form-chip--fadeout"><svg class="form-chip__icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 3 12 9 18 15"/></svg>渐弱</span>
+      </div>
+      <div class="time-grid">
+        <div class="time-cell"><span class="time-cell__label">开始</span><span class="time-cell__value mono">08:00:00</span></div>
+        <div class="time-cell"><span class="time-cell__label">今天关闭</span><span class="time-cell__value mono">08:30:00</span></div>
+        <div class="time-cell"><span class="time-cell__label">时长</span><span class="time-cell__value time-cell__value--large mono">30<span class="time-cell__suffix">分钟</span></span></div>
+        <div class="time-cell"><span class="time-cell__label">重复</span><span class="time-cell__value"><span class="repeat-tag"><span class="repeat-tag__icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/></svg></span>仅一次</span></span></div>
+      </div>
+      <div class="expanded__footer">
+        <div class="footer-left"><div class="volume-display"><div class="volume-bar"><div class="volume-bar__fill" style="width:30%"></div></div><span class="volume-percent mono">30%</span></div></div>
+        <div class="footer-right"><span class="fade-tag"><span class="fade-tag__icon">↓</span><span class="fade-tag__value mono">8</span>s</span><span class="fade-tag"><span class="fade-tag__icon">↑</span><span class="fade-tag__value mono">10</span>s</span></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="section-divider"><span class="section-divider__label">已关闭</span><div class="section-divider__line"></div></div>
+
+  <!-- 任务行6: CANCELLED — P1.6: "今天"移至label -->
+  <div class="task-row task-row--cancelled" data-status="cancelled" onclick="toggleExpand(this)" tabindex="0">
+    <div class="task-row__compact">
+      <div class="compact__leading"><div class="status-dot status-dot--cancelled status-dot--mini"></div></div>
+      <div class="compact__content">
+        <div class="compact__row1">
+          <span class="compact__title">篝火燃烧 · ASMR 助眠</span>
+          <span class="form-chip form-chip--closed"><svg class="form-chip__icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><line x1="15" y1="9" x2="9" y2="15"/><line x1="9" y1="9" x2="15" y2="15"/></svg>已关闭</span>
+        </div>
+        <div class="compact__subtitle"><span class="mono">07:00:00</span></div>
+      </div>
+      <div class="compact__trailing"><div class="expand-handle"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></div></div>
+    </div>
+    <div class="task-row__expanded">
+      <div class="expanded__header">
+        <div class="status-indicator"><div class="status-dot status-dot--cancelled"></div><span class="status-label">CANCELLED</span></div>
+        <div class="expand-handle expand-handle--expanded"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></div>
+      </div>
+      <div class="expanded__title">
+        <span class="expanded__title-text">篝火燃烧 · ASMR 助眠</span>
+        <span class="form-chip form-chip--closed"><svg class="form-chip__icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><line x1="15" y1="9" x2="9" y2="15"/><line x1="9" y1="9" x2="15" y2="15"/></svg>已关闭</span>
+      </div>
+      <div class="time-grid">
+        <div class="time-cell"><span class="time-cell__label">开始</span><span class="time-cell__value mono">07:00:00</span></div>
+        <div class="time-cell"><span class="time-cell__label">今天关闭</span><span class="time-cell__value mono">06:58:00</span></div>
+        <div class="time-cell"><span class="time-cell__label">时长</span><span class="time-cell__value time-cell__value--large mono">45<span class="time-cell__suffix">分钟</span></span></div>
+        <div class="time-cell"><span class="time-cell__label">重复</span><span class="time-cell__value"><span class="repeat-tag"><span class="repeat-tag__icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/></svg></span>自定义</span></span></div>
+      </div>
+      <div class="expanded__footer">
+        <div class="footer-left"><div class="volume-display"><div class="volume-bar"><div class="volume-bar__fill" style="width:0%"></div></div><span class="volume-percent mono">0%</span></div></div>
+        <div class="footer-right"><span class="fade-tag"><span class="fade-tag__icon">↓</span><span class="fade-tag__value mono">10</span>s</span><span class="fade-tag"><span class="fade-tag__icon">↑</span><span class="fade-tag__value mono">10</span>s</span></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="footer-info"><p class="footer-info__text">点击任意任务行可展开/收起详情<br>设计系统: Spotify × Soft Warm × Tech Utility</p></div>
+</div>
+<script>
+function toggleExpand(row){
+  row.classList.toggle('task-row--expanded');
+  row.querySelectorAll('.expand-handle').forEach(h=>{
+    if(row.classList.contains('task-row--expanded'))h.classList.add('expand-handle--expanded');
+    else h.classList.remove('expand-handle--expanded');
+  });
+}
+function toggleTheme(){
+  const html=document.documentElement;const cur=html.getAttribute('data-theme');const next=cur==='dark'?'light':'dark';html.setAttribute('data-theme',next);
+  const label=document.getElementById('themeLabel');const icon=document.getElementById('themeIcon');
+  if(next==='dark'){label.textContent='暗色';icon.innerHTML='<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>';}
+  else{label.textContent='亮色';icon.innerHTML='<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg>';}
+}
+document.querySelectorAll('.filter-chip').forEach(chip=>{
+  chip.addEventListener('click',function(e){e.stopPropagation();document.querySelectorAll('.filter-chip').forEach(c=>c.classList.remove('filter-chip--active'));this.classList.add('filter-chip--active');});
+});
+</script>
+</body>
+</html>

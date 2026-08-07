@@ -1,0 +1,503 @@
+<!DOCTYPE html>
+<!-- 
+  task-row-final · DOM 深度审计
+  ─────────────────────────────
+  紧凑态（最多 3 层）:
+    article.card (1)
+      ├─ span.dot        (2) → 无子元素          = 2层 ✅
+      ├─ span.title      (2) → 纯文本             = 2层 ✅
+      ├─ span.wave       (2) → i (3)             = 3层 ✅  [仅执行中]
+      ├─ span.chip       (2) → 纯文本 + ::before  = 2层 ✅
+      ├─ span.ctime      (2) → 纯文本             = 2层 ✅
+      ├─ svg.chev        (2) → path (3)          = 3层 ✅
+      └─ div.exp         (2) → [max-height:0 隐藏]
+
+  展开态（最多 4 层）:
+    article.card (1)
+      └─ div.exp (2)
+            ├─ span.stag    (3) → 纯文本           = 3层 ✅
+            ├─ div.tgrid    (3) → span.tc (4)     = 4层 ✅  [tc 用 ::before 伪元素显示标签]
+            ├─ span.vol     (3) → i / b (4)       = 4层 ✅
+            └─ span.fades   (3) → time (4)        = 4层 ✅
+
+  辉光条 = card::before 伪元素（非 DOM 节点）
+  标签文本 = tc::before 伪元素 via attr(data-lbl)
+  Chip 闪烁点 = chip::before 伪元素
+-->
+<html lang="zh-CN" data-theme="dark">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>定时任务 · task-row-final</title>
+<style>
+/* ============================================================
+   1. Reset & Base
+   ============================================================ */
+*{margin:0;padding:0;box-sizing:border-box}
+html{-webkit-font-smoothing:antialiased;-webkit-tap-highlight-color:transparent}
+body{
+  background:var(--bg0);
+  color:var(--t1);
+  font-family:system-ui,-apple-system,"Segoe UI","PingFang SC","Microsoft YaHei",sans-serif;
+  font-size:14px;line-height:1.45;
+  min-height:100vh;
+  padding:20px 16px 48px;
+}
+::selection{background:var(--brand-glow);color:var(--t1)}
+::-webkit-scrollbar{width:6px}
+::-webkit-scrollbar-track{background:var(--bg0)}
+::-webkit-scrollbar-thumb{background:var(--bg3);border-radius:3px}
+.wrap{max-width:460px;margin:0 auto}
+
+/* ============================================================
+   2. Design Tokens
+   ============================================================ */
+[data-theme="dark"]{
+  --bg0:#0F0D0B; --bg1:#1A1611; --bg2:#221E18; --bg3:#2C2720;
+  --brand:#2BC496; --brand-hi:#7EEDC4; --brand-glow:rgba(43,196,150,.30);
+  --amber:#E8A04C; --amber-hi:#F2BE7E; --amber-glow:rgba(232,160,76,.22);
+  --done:#7CAA98; --done-glow:rgba(124,170,152,.16);
+  --closed:#6B6256;
+  --t1:#F2EDE2; --t2:#A89E8E; --t3:#8A8070;
+  --chip-on:rgba(43,196,150,.13);
+  --chip-amber:rgba(232,160,76,.13);
+  --chip-wait:rgba(168,158,142,.10);
+  --chip-done:rgba(124,170,152,.12);
+  --chip-off:rgba(168,158,142,.08);
+  --mfont:"JetBrains Mono","SF Mono","Cascadia Code",ui-monospace,monospace;
+}
+[data-theme="light"]{
+  --bg0:#FAF7F2; --bg1:#F3EDE4; --bg2:#EBE3D6; --bg3:#E0D5C4;
+  --brand:#5BB892; --brand-hi:#2A8B68; --brand-glow:rgba(91,184,146,.22);
+  --amber:#D4892E; --amber-hi:#B06F1E; --amber-glow:rgba(212,137,46,.16);
+  --done:#5E8C76; --done-glow:rgba(94,140,118,.14);
+  --closed:#B5A99A;
+  --t1:#2A2520; --t2:#6B5F52; --t3:#A89E8E;
+  --chip-on:rgba(91,184,146,.13);
+  --chip-amber:rgba(212,137,46,.12);
+  --chip-wait:rgba(107,95,82,.09);
+  --chip-done:rgba(94,140,118,.11);
+  --chip-off:rgba(107,95,82,.08);
+  --mfont:"JetBrains Mono","SF Mono","Cascadia Code",ui-monospace,monospace;
+}
+
+/* ============================================================
+   3. Top Bar
+   ============================================================ */
+.bar{display:flex;align-items:center;justify-content:space-between;margin-bottom:18px}
+.bar b{font-size:13px;font-weight:600;letter-spacing:.02em;color:var(--t1)}
+.toggle{display:inline-flex;align-items:center;gap:8px;cursor:pointer;font-size:12px;color:var(--t2);user-select:none}
+.toggle input{display:none}
+.toggle .sw{width:38px;height:20px;border-radius:11px;background:var(--bg3);position:relative;transition:background .25s}
+.toggle .sw::after{content:"";position:absolute;top:2px;left:2px;width:16px;height:16px;border-radius:50%;background:var(--t1);transition:transform .25s,background .25s}
+.toggle input:checked+.sw{background:var(--brand)}
+.toggle input:checked+.sw::after{transform:translateX(18px);background:var(--bg0)}
+
+/* ============================================================
+   4. Card — flex 布局，所有紧凑态元素均为直接子元素
+   ============================================================ */
+.card{
+  position:relative;
+  display:flex;
+  flex-wrap:wrap;
+  align-items:center;
+  column-gap:11px;
+  row-gap:0;
+  min-height:50px;
+  padding:14px 16px;
+  background:var(--bg1);
+  border-radius:13px;
+  margin-bottom:9px;
+  cursor:pointer;
+  transition:background .18s ease,transform .1s ease;
+}
+.card:active{transform:scale(.985)}
+@media(hover:hover){
+  .card:hover{background:var(--bg2)}
+}
+
+/* 辉光条 — card::before 伪元素，非 DOM 节点 */
+.card[data-st="on"]::before,
+.card[data-st="amber"]::before{
+  content:"";
+  position:absolute;left:0;top:0;bottom:0;width:3px;
+  border-radius:13px 0 0 13px;
+  pointer-events:none;
+}
+.card[data-st="on"]::before{background:var(--brand);box-shadow:0 0 12px 1px var(--brand-glow)}
+.card[data-st="amber"]::before{background:var(--amber);box-shadow:0 0 12px 1px var(--amber-glow)}
+
+/* ============================================================
+   5. Compact State Elements — 全部是 .card 的直接子元素
+   ============================================================ */
+
+/* 状态点 */
+.dot{
+  width:8px;height:8px;border-radius:50%;
+  flex:0 0 auto;
+  margin-top:1px;
+}
+[data-st="on"] .dot{background:var(--brand);box-shadow:0 0 0 4px var(--brand-glow);animation:pulse 1.8s ease-in-out infinite}
+[data-st="amber"] .dot{background:var(--amber);box-shadow:0 0 0 4px var(--amber-glow);animation:pulseAmber 1.8s ease-in-out infinite}
+[data-st="wait"] .dot{background:var(--t3)}
+[data-st="done"] .dot{background:var(--done);box-shadow:0 0 0 4px var(--done-glow)}
+[data-st="off"] .dot{background:var(--closed)}
+
+/* 标题 */
+.title{
+  flex:1 1 0;min-width:0;
+  font-size:14px;font-weight:500;color:var(--t1);
+  white-space:nowrap;overflow:hidden;text-overflow:ellipsis;
+}
+[data-st="off"] .title,[data-st="done"] .title{color:var(--t2)}
+
+/* 纯 CSS 波形动画 — span.wave > i×4 */
+.wave{
+  display:inline-flex;align-items:flex-end;gap:2px;
+  height:12px;flex:0 0 auto;
+}
+.wave i{
+  display:block;width:2px;height:100%;border-radius:1px;
+  background:var(--brand-hi);transform-origin:bottom;
+}
+[data-st="amber"] .wave i{background:var(--amber-hi)}
+[data-st="on"] .wave i:nth-child(1),
+[data-st="amber"] .wave i:nth-child(1){animation:wv .7s ease-in-out infinite}
+[data-st="on"] .wave i:nth-child(2),
+[data-st="amber"] .wave i:nth-child(2){animation:wv .7s ease-in-out .15s infinite}
+[data-st="on"] .wave i:nth-child(3),
+[data-st="amber"] .wave i:nth-child(3){animation:wv .7s ease-in-out .3s infinite}
+[data-st="on"] .wave i:nth-child(4),
+[data-st="amber"] .wave i:nth-child(4){animation:wv .7s ease-in-out .45s infinite}
+
+/* 形态 Chip — ::before 伪元素做闪烁点 */
+.chip{
+  flex:0 0 auto;
+  font-size:11px;font-weight:500;
+  padding:3px 9px;border-radius:6px;white-space:nowrap;
+  letter-spacing:.01em;
+}
+[data-st="on"] .chip{background:var(--chip-on);color:var(--brand-hi)}
+[data-st="amber"] .chip{background:var(--chip-amber);color:var(--amber-hi)}
+[data-st="wait"] .chip{background:var(--chip-wait);color:var(--t2)}
+[data-st="done"] .chip{background:var(--chip-done);color:var(--done)}
+[data-st="off"] .chip{background:var(--chip-off);color:var(--t3)}
+[data-st="on"] .chip::before,
+[data-st="amber"] .chip::before{
+  content:"";display:inline-block;
+  width:5px;height:5px;border-radius:50%;
+  margin-right:5px;vertical-align:middle;
+  animation:blink 1s ease-in-out infinite;
+}
+[data-st="on"] .chip::before{background:var(--brand-hi)}
+[data-st="amber"] .chip::before{background:var(--amber-hi)}
+
+/* 时间范围 — 第二行，独占整行 */
+.ctime{
+  flex-basis:100%;
+  font-family:var(--mfont);
+  font-size:11.5px;font-weight:500;
+  color:var(--t2);
+  font-variant-numeric:tabular-nums;
+  letter-spacing:.02em;
+  white-space:nowrap;
+  padding-left:19px;
+  margin-top:1px;
+}
+[data-st="off"] .ctime,[data-st="done"] .ctime{color:var(--t3)}
+
+/* Chevron — 隐藏，不要箭头 */
+.chev{display:none}
+
+/* ============================================================
+   6. Expanded State — div.exp 作为 grid 容器
+   ============================================================ */
+.exp{
+  flex-basis:100%;
+  display:grid;
+  grid-template-columns:1fr auto;
+  grid-template-areas:"stag stag" "tgrid tgrid" "vol fades";
+  gap:11px;
+  max-height:0;
+  overflow:hidden;
+  opacity:0;
+  transition:max-height .3s ease,opacity .25s ease,margin-top .25s ease;
+}
+.card.open .exp{
+  max-height:360px;
+  opacity:1;
+  margin-top:13px;
+}
+
+/* 状态标签 */
+.stag{
+  grid-area:stag;
+  font-size:10.5px;font-weight:600;letter-spacing:.05em;
+  color:var(--t3);
+}
+[data-st="on"] .stag{color:var(--brand-hi)}
+[data-st="amber"] .stag{color:var(--amber-hi)}
+[data-st="off"] .stag{color:var(--closed)}
+
+/* 时间网格 — tgrid > tc（无 tcell 包裹层）
+   tc 用 ::before 伪元素 + data-lbl 属性显示标签 */
+.tgrid{
+  grid-area:tgrid;
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:1px;
+  background:var(--bg2);
+  border-radius:9px;
+  overflow:hidden;
+}
+.tc{
+  background:var(--bg1);
+  padding:8px 12px;
+  display:flex;flex-direction:column;gap:3px;
+  font-family:var(--mfont);
+  font-size:13.5px;font-weight:600;
+  color:var(--t1);
+  font-variant-numeric:tabular-nums;
+}
+.tc::before{
+  content:attr(data-lbl);
+  font-size:10.5px;color:var(--t3);font-weight:500;
+  font-family:system-ui,-apple-system,"Segoe UI","PingFang SC","Microsoft YaHei",sans-serif;
+}
+.tc.txt{font-family:system-ui,-apple-system,"Segoe UI","PingFang SC","Microsoft YaHei",sans-serif}
+[data-st="off"] .tc,[data-st="done"] .tc{color:var(--t2)}
+
+/* 音量 — vol > i×7 + b（无 vw 包裹层） */
+.vol{
+  grid-area:vol;
+  justify-self:start;
+  font-size:11px;color:var(--t2);
+  white-space:nowrap;
+  line-height:1;
+}
+.vol i{
+  display:inline-block;width:3px;margin-left:1px;
+  border-radius:1px;background:var(--t3);
+  vertical-align:middle;
+}
+.vol i:first-of-type{margin-left:5px}
+.vol b{
+  font-family:var(--mfont);font-weight:600;
+  color:var(--t1);margin-left:5px;
+  font-variant-numeric:tabular-nums;
+}
+[data-st="off"] .vol b,[data-st="done"] .vol b{color:var(--t2)}
+
+/* 渐入渐出 — fades > time×2（无 ftag 包裹层） */
+.fades{
+  grid-area:fades;
+  justify-self:end;
+  font-size:11px;color:var(--t2);
+  white-space:nowrap;
+  line-height:1.6;
+}
+.fades time{
+  display:inline-block;
+  font-family:var(--mfont);font-weight:500;font-size:11px;
+  padding:2px 7px;margin:0 3px;
+  border-radius:5px;
+  background:var(--bg2);color:var(--t1);
+  font-variant-numeric:tabular-nums;
+}
+[data-st="off"] .fades time,[data-st="done"] .fades time{color:var(--t2)}
+
+/* ============================================================
+   7. Keyframes
+   ============================================================ */
+@keyframes pulse{
+  0%,100%{box-shadow:0 0 0 4px var(--brand-glow)}
+  50%{box-shadow:0 0 0 7px var(--brand-glow)}
+}
+@keyframes pulseAmber{
+  0%,100%{box-shadow:0 0 0 4px var(--amber-glow)}
+  50%{box-shadow:0 0 0 7px var(--amber-glow)}
+}
+@keyframes blink{0%,100%{opacity:1}50%{opacity:.25}}
+@keyframes wv{0%,100%{transform:scaleY(.3)}50%{transform:scaleY(1)}}
+
+/* ============================================================
+   8. Responsive
+   ============================================================ */
+@media(max-width:380px){
+  .card{column-gap:8px;padding:12px 13px}
+  .chip{font-size:10px;padding:2px 7px}
+  .ctime{font-size:10.5px}
+  .tc{padding:7px 10px;font-size:12.5px}
+}
+
+/* ============================================================
+   9. Reduced Motion
+   ============================================================ */
+@media(prefers-reduced-motion:reduce){
+  *,*::before,*::after{
+    animation-duration:.001ms!important;
+    animation-iteration-count:1!important;
+    transition-duration:.001ms!important;
+  }
+}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <!-- 顶部：标题 + 亮暗切换 -->
+  <header class="bar">
+    <b>定时任务</b>
+    <label class="toggle">
+      <input type="checkbox" id="themeToggle" autocomplete="off">
+      <span class="sw"></span>
+      <span id="themeLabel">暗色</span>
+    </label>
+  </header>
+
+  <!-- 1. 执行中 · 播放（默认展开） -->
+  <article class="card open" data-st="on" aria-expanded="true" role="button" tabindex="0">
+    <span class="dot"></span>
+    <span class="title">晨间唤醒 · 鸟鸣</span>
+    <span class="wave"><i></i><i></i><i></i><i></i></span>
+    <span class="chip">播放中</span>
+    <span class="ctime">06:30:00 → 07:00:00</span>
+    <div class="exp">
+      <span class="stag">● 正在执行</span>
+      <div class="tgrid">
+        <span class="tc" data-lbl="开始">06:30:00</span>
+        <span class="tc" data-lbl="关闭">07:00:00</span>
+        <span class="tc" data-lbl="时长">30 min</span>
+        <span class="tc txt" data-lbl="重复">每日</span>
+      </div>
+      <span class="vol">音量<i style="height:4px;background:var(--brand)"></i><i style="height:6px;background:var(--brand)"></i><i style="height:8px;background:var(--brand)"></i><i style="height:10px;background:var(--brand)"></i><i style="height:12px;background:var(--brand)"></i><i style="height:10px"></i><i style="height:8px"></i><b>70</b></span>
+      <span class="fades">渐入<time>3.0s</time>· 渐出<time>5.0s</time></span>
+    </div>
+  </article>
+
+  <!-- 2. 执行中 · 渐强 -->
+  <article class="card" data-st="amber" aria-expanded="false" role="button" tabindex="0">
+    <span class="dot"></span>
+    <span class="title">午休放松 · 雨声</span>
+    <span class="wave"><i></i><i></i><i></i><i></i></span>
+    <span class="chip">渐强中</span>
+    <span class="ctime">12:00:00 → 12:45:00</span>
+    <div class="exp">
+      <span class="stag">● 音量渐强</span>
+      <div class="tgrid">
+        <span class="tc" data-lbl="开始">12:00:00</span>
+        <span class="tc" data-lbl="关闭">12:45:00</span>
+        <span class="tc" data-lbl="时长">45 min</span>
+        <span class="tc txt" data-lbl="重复">工作日</span>
+      </div>
+      <span class="vol">音量<i style="height:4px;background:var(--amber)"></i><i style="height:6px;background:var(--amber)"></i><i style="height:8px;background:var(--amber)"></i><i style="height:10px;background:var(--amber)"></i><i style="height:12px"></i><i style="height:10px"></i><i style="height:8px"></i><b>50</b></span>
+      <span class="fades">渐入<time>5.0s</time>· 渐出<time>3.0s</time></span>
+    </div>
+  </article>
+
+  <!-- 3. 待执行 · 渐弱 -->
+  <article class="card" data-st="wait" aria-expanded="false" role="button" tabindex="0">
+    <span class="dot"></span>
+    <span class="title">睡前助眠 · 白噪音</span>
+    <span class="chip">待执行</span>
+    <span class="ctime">22:30:00 → 23:15:00</span>
+    <div class="exp">
+      <span class="stag">○ 待执行</span>
+      <div class="tgrid">
+        <span class="tc" data-lbl="开始">22:30:00</span>
+        <span class="tc" data-lbl="关闭">23:15:00</span>
+        <span class="tc" data-lbl="时长">45 min</span>
+        <span class="tc txt" data-lbl="重复">每日</span>
+      </div>
+      <span class="vol">音量<i style="height:4px;background:var(--brand)"></i><i style="height:6px;background:var(--brand)"></i><i style="height:8px;background:var(--brand)"></i><i style="height:10px"></i><i style="height:12px"></i><i style="height:10px"></i><i style="height:8px"></i><b>45</b></span>
+      <span class="fades">渐入<time>3.0s</time>· 渐出<time>8.0s</time></span>
+    </div>
+  </article>
+
+  <!-- 4. 待执行 · 等待 -->
+  <article class="card" data-st="wait" aria-expanded="false" role="button" tabindex="0">
+    <span class="dot"></span>
+    <span class="title">专注时段 · 钢琴曲</span>
+    <span class="chip">待执行</span>
+    <span class="ctime">14:00:00 → 15:30:00</span>
+    <div class="exp">
+      <span class="stag">○ 待执行</span>
+      <div class="tgrid">
+        <span class="tc" data-lbl="开始">14:00:00</span>
+        <span class="tc" data-lbl="关闭">15:30:00</span>
+        <span class="tc" data-lbl="时长">90 min</span>
+        <span class="tc txt" data-lbl="重复">工作日</span>
+      </div>
+      <span class="vol">音量<i style="height:4px;background:var(--brand)"></i><i style="height:6px;background:var(--brand)"></i><i style="height:8px;background:var(--brand)"></i><i style="height:10px;background:var(--brand)"></i><i style="height:12px"></i><i style="height:10px"></i><i style="height:8px"></i><b>60</b></span>
+      <span class="fades">渐入<time>2.0s</time>· 渐出<time>2.0s</time></span>
+    </div>
+  </article>
+
+  <!-- 5. 已完成 · 渐弱（默认展开） -->
+  <article class="card open" data-st="done" aria-expanded="true" role="button" tabindex="0">
+    <span class="dot"></span>
+    <span class="title">晨间冥想 · 颂钵</span>
+    <span class="chip">已完成</span>
+    <span class="ctime">05:00:00 → 05:20:00</span>
+    <div class="exp">
+      <span class="stag">✓ 已完成</span>
+      <div class="tgrid">
+        <span class="tc" data-lbl="开始">05:00:00</span>
+        <span class="tc" data-lbl="关闭">05:20:00</span>
+        <span class="tc" data-lbl="时长">20 min</span>
+        <span class="tc txt" data-lbl="重复">每日</span>
+      </div>
+      <span class="vol">音量<i style="height:3px;background:var(--done)"></i><i style="height:5px;background:var(--done)"></i><i style="height:6px;background:var(--done)"></i><i style="height:8px"></i><i style="height:10px"></i><i style="height:8px"></i><i style="height:6px"></i><b>35</b></span>
+      <span class="fades">渐入<time>3.0s</time>· 渐出<time>8.0s</time></span>
+    </div>
+  </article>
+
+  <!-- 6. 已关闭 -->
+  <article class="card" data-st="off" aria-expanded="false" role="button" tabindex="0">
+    <span class="dot"></span>
+    <span class="title">周末叫醒 · 海浪声</span>
+    <span class="chip">已关闭</span>
+    <span class="ctime">08:00:00 → 08:30:00</span>
+    <div class="exp">
+      <span class="stag">✕ 已关闭</span>
+      <div class="tgrid">
+        <span class="tc" data-lbl="开始">08:00:00</span>
+        <span class="tc" data-lbl="关闭">08:30:00</span>
+        <span class="tc" data-lbl="时长">30 min</span>
+        <span class="tc txt" data-lbl="重复">周末</span>
+      </div>
+      <span class="vol">音量<i style="height:3px"></i><i style="height:4px"></i><i style="height:5px"></i><i style="height:6px"></i><i style="height:7px"></i><i style="height:6px"></i><i style="height:5px"></i><b>40</b></span>
+      <span class="fades">渐入<time>3.0s</time>· 渐出<time>5.0s</time></span>
+    </div>
+  </article>
+
+</div>
+
+<script>
+(function(){
+  // 亮暗模式切换
+  var t=document.getElementById('themeToggle');
+  var lbl=document.getElementById('themeLabel');
+  function applyTheme(dark){
+    document.documentElement.setAttribute('data-theme',dark?'dark':'light');
+    t.checked=dark;
+    lbl.textContent=dark?'暗色':'亮色';
+  }
+  t.addEventListener('change',function(){applyTheme(t.checked);});
+  applyTheme(true);
+
+  // 卡片展开/收起 — 支持点击和键盘
+  document.querySelectorAll('.card').forEach(function(c){
+    function toggle(){
+      c.classList.toggle('open');
+      c.setAttribute('aria-expanded',c.classList.contains('open'));
+    }
+    c.addEventListener('click',toggle);
+    c.addEventListener('keydown',function(e){
+      if(e.key==='Enter'||e.key===' '){e.preventDefault();toggle();}
+    });
+  });
+})();
+</script>
+</body>
+</html>
