@@ -60,7 +60,7 @@ class AudioUploader(private val api: ApiClient) {
                 ?.takeIf(File::isFile)
             val uploadFile = directFile ?: uriToTempFile(context, fileUri, fileName)
             var lastProgress = -1
-            val uploaded = try {
+            try {
                 api.uploadFileToSignedUrl(signedUploadUrl, uploadFile, mimeType) { sent, total ->
                     val progress = if (total > 0) {
                         ((sent * 100L) / total).toInt().coerceIn(0, 100)
@@ -74,10 +74,6 @@ class AudioUploader(private val api: ApiClient) {
                 }
             } finally {
                 if (directFile == null) uploadFile.delete()
-            }
-
-            if (!uploaded) {
-                return@withContext UploadResult.Failed("文件上传失败，请检查网络后重试")
             }
             Log.i(TAG, "Step 2 complete: File uploaded")
 

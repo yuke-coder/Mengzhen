@@ -247,17 +247,45 @@ class ApiClient private constructor(
         file: File,
         mimeType: String,
         onProgress: (uploadedBytes: Long, totalBytes: Long) -> Unit = { _, _ -> },
-    ): Boolean {
+    ) {
+        val multipart = MultipartBody.Builder()
+            .setType(MultipartBody.FORM)
+            .addFormDataPart("cacheControl", "3600")
+            .addFormDataPart(
+                "",
+                file.name,
+                ProgressRequestBody(file, mimeType.toMediaType(), onProgress),
+            )
+            .build()
         val req = Request.Builder()
             .url(signedUrl)
-            .header("Content-Type", mimeType)
-            .header("x-upsert", "true")
-            .put(ProgressRequestBody(file, mimeType.toMediaType(), onProgress))
+            .header("x-upsert", "false")
+            .put(multipart)
             .build()
-        return try {
-            client.newCall(req).execute().use { it.isSuccessful }
+
+        try {
+            client.newCall(req).execute().use { response ->
+                if (response.isSuccessful) return
+
+                val responseBody = response.body.string().trim()
+                val storageMessage = runCatching {
+                    JSONObject(responseBody).optString("message").trim()
+                }.getOrNull().orEmpty()
+                val message = buildString {
+                    append("存储服务上传失败（HTTP ")
+                    append(response.code)
+                    append('）')
+                    if (storageMessage.isNotEmpty()) {
+                        append("：")
+                        append(storageMessage.take(200))
+                    }
+                }
+                Log.e(TAG, "$message; response=${responseBody.take(800)}")
+                throw IllegalStateException(message)
+            }
         } catch (e: IOException) {
-            false
+            Log.e(TAG, "Signed upload network failure", e)
+            throw IOException("文件上传网络连接失败", e)
         }
     }
 
