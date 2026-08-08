@@ -6,6 +6,7 @@ import { useEffect, useState } from 'react';
 type NativeTurnstileBridge = {
   onToken: (token: string) => void;
   onError: (message: string) => void;
+  onInteractive: () => void;
 };
 
 function nativeBridge(): NativeTurnstileBridge | undefined {
@@ -31,13 +32,23 @@ export default function NativeTurnstilePage() {
         {siteKey ? (
           <Turnstile
             siteKey={siteKey}
+            options={{ appearance: 'interaction-only' }}
             onSuccess={(token) => {
               setStatus('验证完成');
               nativeBridge()?.onToken(token);
             }}
+            onBeforeInteractive={() => {
+              setStatus('请完成安全验证');
+              nativeBridge()?.onInteractive();
+            }}
             onExpire={() => setStatus('验证已过期，请重新完成验证')}
             onError={() => {
               const message = '安全验证加载失败，请重试';
+              setStatus(message);
+              nativeBridge()?.onError(message);
+            }}
+            onUnsupported={() => {
+              const message = '当前 WebView 不支持安全验证';
               setStatus(message);
               nativeBridge()?.onError(message);
             }}

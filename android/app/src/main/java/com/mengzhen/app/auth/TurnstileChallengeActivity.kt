@@ -25,7 +25,8 @@ class TurnstileChallengeActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
 
         webView = WebView(this).apply challengeView@ {
-            setBackgroundColor(Color.WHITE)
+            alpha = 0f
+            setBackgroundColor(Color.TRANSPARENT)
             settings.javaScriptEnabled = true
             settings.domStorageEnabled = true
             settings.allowFileAccess = false
@@ -87,6 +88,11 @@ class TurnstileChallengeActivity : AppCompatActivity() {
         finish()
     }
 
+    private fun showInteractiveChallenge() {
+        webView.setBackgroundColor(Color.WHITE)
+        webView.alpha = 1f
+    }
+
     private inner class TurnstileBridge {
         @JavascriptInterface
         fun onToken(token: String) {
@@ -104,6 +110,11 @@ class TurnstileChallengeActivity : AppCompatActivity() {
             runOnUiThread {
                 finishWithError(message.ifBlank { "安全验证失败，请重试" })
             }
+        }
+
+        @JavascriptInterface
+        fun onInteractive() {
+            runOnUiThread(::showInteractiveChallenge)
         }
     }
 
