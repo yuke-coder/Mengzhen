@@ -1,7 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <color name="nifty_slider_thumb_shadow_color">#FF666666</color>
-
     <!-- Bilibili 9.5.0 offline cache source palette. -->
     <color name="Ga0">#FFF6F7F8</color>
     <color name="Ga2">#FFE3E5E7</color>

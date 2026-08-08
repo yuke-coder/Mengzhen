@@ -63,11 +63,6 @@
             android:theme="@style/os"
             android:windowSoftInputMode="stateHidden|adjustResize" />
 
-        <activity
-            android:name="com.tencent.qqmusic.activity.QqMusicShufflePlayHistoryActivity"
-            android:exported="false"
-            android:theme="@style/AppTheme.NoActionBar" />
-
         <!-- Foreground Service for audio playback -->
         <service
             android:name=".audio.AudioPlaybackService"

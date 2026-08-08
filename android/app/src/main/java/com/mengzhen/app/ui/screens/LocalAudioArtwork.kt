@@ -8,7 +8,6 @@ import androidx.compose.runtime.Composable
 import androidx.compose.runtime.State
 import androidx.compose.runtime.produceState
 import androidx.compose.ui.platform.LocalContext
-import com.tencent.qqmusic.business.playernew.fxeffect.o
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.withContext
 import java.net.HttpURLConnection
@@ -79,14 +78,3 @@ private fun decodeArtworkUri(context: android.content.Context, value: String?): 
         }
     }.getOrNull()
 }
-
-@Composable
-internal fun rememberQqMusicPlayerThemeColor(bitmap: Bitmap?): State<Int> =
-    produceState(initialValue = 0xFF666666.toInt(), key1 = bitmap) {
-        value = withContext(Dispatchers.Default) {
-            qqMusicPlayerThemeColor(bitmap)
-        }
-    }
-
-internal fun qqMusicPlayerThemeColor(bitmap: Bitmap?): Int =
-    o.a.p(bitmap).first ?: 0xFF666666.toInt()

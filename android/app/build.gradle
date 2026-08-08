@@ -58,9 +58,6 @@ android {
 
 dependencies {
     implementation fileTree(include: ['*.jar'], dir: 'libs')
-    implementation files("vendor/qqmusic-20.6.5.8/tekengine/original/libs/qqmusic-tek-direct-classes.jar")
-    implementation files("vendor/qqmusic-20.6.5.8/light-effect/original/libs/qqmusic-light-effect-texture-direct.jar")
-    implementation files("vendor/qqmusic-20.6.5.8/light-effect/original/libs/qqmusic-log-closure-direct.jar")
     implementation files("vendor/qqmusic-20.6.5.8/profile/original/libs/qqmusic-profile-picker-direct.jar")
     implementation files("vendor/qqmusic-20.6.5.8/profile/original/libs/qqmusic-profile-text-counter-direct.jar")
     implementation files("vendor/qqmusic-20.6.5.8/profile/original/libs/qqmusic-profile-kotlin-hash-direct.jar")
