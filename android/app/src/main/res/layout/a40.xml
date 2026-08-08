@@ -1,21 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
-
-    <include
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        layout="@layout/m5" />
-
-    <include
-        android:id="@+id/b1t"
-        layout="@layout/mt" />
+    android:layout_height="match_parent"
+    android:background="@drawable/main_bg">
 
     <ScrollView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_below="@id/b1t"
         android:fillViewport="true">
 
         <LinearLayout

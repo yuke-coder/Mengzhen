@@ -52,6 +52,7 @@ private val topLevelRoutes = setOf(
     Screen.Settings.route,
     Screen.BiliCache.route,
     Screen.Tasks.route,
+    Screen.Profile.route,
 )
 
 @Composable

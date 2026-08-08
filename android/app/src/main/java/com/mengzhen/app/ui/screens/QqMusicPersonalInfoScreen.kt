@@ -16,6 +16,7 @@ import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.LaunchedEffect
+import androidx.compose.runtime.collectAsState
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableIntStateOf
 import androidx.compose.runtime.mutableStateOf
@@ -60,8 +61,13 @@ fun QqMusicPersonalInfoScreen(navController: NavController) {
     val store = remember(context) { TaskStore.get(context) }
     val api = remember(context) { ApiClient.get(context) }
     val scope = rememberCoroutineScope()
-    var profile by remember { mutableStateOf(store.getSession()?.second) }
+    val sessionProfile by store.sessionUser.collectAsState()
+    var profile by remember { mutableStateOf(sessionProfile) }
     var avatarVersion by remember { mutableIntStateOf(0) }
+
+    LaunchedEffect(sessionProfile) {
+        profile = sessionProfile
+    }
 
     val fieldEditor = rememberLauncherForActivityResult(
         ActivityResultContracts.StartActivityForResult(),
@@ -152,7 +158,7 @@ fun QqMusicPersonalInfoScreen(navController: NavController) {
     if (profile == null) {
         LaunchedEffect(Unit) {
             navController.navigate(Screen.Login.route) {
-                popUpTo(Screen.Profile.route) { inclusive = true }
+                launchSingleTop = true
             }
         }
         Box(Modifier.fillMaxSize())
@@ -164,7 +170,7 @@ fun QqMusicPersonalInfoScreen(navController: NavController) {
         if (response?.optBoolean("sessionExpired", false) == true) {
             store.clearSession()
             navController.navigate(Screen.Login.route) {
-                popUpTo(Screen.Profile.route) { inclusive = true }
+                launchSingleTop = true
             }
             return@LaunchedEffect
         }
@@ -178,9 +184,6 @@ fun QqMusicPersonalInfoScreen(navController: NavController) {
         factory = { viewContext ->
             QqProfileBinding.inflate(
                 context = viewContext,
-                onBack = {
-                    if (!navController.popBackStack()) navController.navigate(Screen.Settings.route)
-                },
                 onAvatar = { avatarPicker.launch("image/*") },
                 onNickname = { value ->
                     edit(
@@ -351,7 +354,6 @@ private class QqProfileBinding private constructor(
     companion object {
         fun inflate(
             context: Context,
-            onBack: () -> Unit,
             onAvatar: () -> Unit,
             onNickname: (String) -> Unit,
             onAccount: (String) -> Unit,
@@ -366,8 +368,6 @@ private class QqProfileBinding private constructor(
         ): QqProfileBinding {
             val inflater = LayoutInflater.from(context)
             val root = inflater.inflate(R.layout.a40, null, false)
-            root.findViewById<TextView>(R.id.lbd).setText(R.string.imf)
-            root.findViewById<View>(R.id.a54).setOnClickListener { onBack() }
             val account = SourceRow(root.findViewById(R.id.j_o)).apply {
                 label.setText(R.string.qq_profile_account)
             }
