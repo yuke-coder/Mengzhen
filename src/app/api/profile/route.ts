@@ -4,6 +4,9 @@ import { getAuthUser } from "@/lib/auth";
 
 export const dynamic = 'force-dynamic';
 
+const PROFILE_SELECT =
+  "nickname, avatar_url, background_url, gender, birthday, location, bio, signature, username_change_count, username_change_reset_at";
+
 export async function GET() {
   try {
     const user = await getAuthUser();
@@ -24,15 +27,14 @@ export async function GET() {
 
     const { data: profile } = await supabase
       .from("user_profiles")
-      .select(
-        "nickname, avatar_url, gender, birthday, location, bio, signature, username_change_count, username_change_reset_at"
-      )
+      .select(PROFILE_SELECT)
       .eq("user_id", user.id)
       .maybeSingle();
 
     const profileData = profile || {
       nickname: null,
       avatar_url: null,
+      background_url: null,
       gender: null,
       birthday: null,
       location: null,
@@ -79,6 +81,7 @@ export async function PUT(request: NextRequest) {
       bio,
       signature,
       avatar_url,
+      background_url,
     } = body;
 
     const supabase = getSupabaseClient();
@@ -153,6 +156,7 @@ export async function PUT(request: NextRequest) {
     if (bio !== undefined) profileData.bio = bio || null;
     if (signature !== undefined) profileData.signature = signature || null;
     if (avatar_url !== undefined) profileData.avatar_url = avatar_url || null;
+    if (background_url !== undefined) profileData.background_url = background_url || null;
 
     const hasProfileData = Object.keys(profileData).length > 0;
     let profileResult: Record<string, unknown> | null = null;
@@ -162,9 +166,7 @@ export async function PUT(request: NextRequest) {
         .from("user_profiles")
         .update(profileData)
         .eq("user_id", user.id)
-        .select(
-          "nickname, avatar_url, gender, birthday, location, bio, signature, username_change_count"
-        )
+        .select(PROFILE_SELECT)
         .single();
 
       if (error) {
@@ -182,9 +184,7 @@ export async function PUT(request: NextRequest) {
           user_id: user.id,
           ...profileData,
         })
-        .select(
-          "nickname, avatar_url, gender, birthday, location, bio, signature, username_change_count"
-        )
+        .select(PROFILE_SELECT)
         .single();
 
       if (error) {
@@ -198,9 +198,7 @@ export async function PUT(request: NextRequest) {
     } else if (existingProfile) {
       const { data } = await supabase
         .from("user_profiles")
-        .select(
-          "nickname, avatar_url, gender, birthday, location, bio, signature, username_change_count"
-        )
+        .select(PROFILE_SELECT)
         .eq("user_id", user.id)
         .maybeSingle();
       profileResult = data;

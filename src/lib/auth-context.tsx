@@ -8,6 +8,7 @@ export interface User {
   createdAt: string;
   // 用户资料字段
   avatar_url?: string | null;
+  background_url?: string | null;
   nickname?: string | null;
   gender?: 'male' | 'female' | 'secret' | null;
   birthday?: string | null;
@@ -49,15 +50,14 @@ export function AuthProvider({ children }: { children: React.ReactNode }) {
         signal: abortController.signal,
       });
       const data = await res.json();
-      if (data.success && data.user) {
+      if (res.ok && data.authenticated === true && data.user) {
         setUser(data.user);
-      } else {
+      } else if (res.ok && data.authenticated === false) {
         setUser(null);
       }
     } catch (err) {
       // 被取消的请求不更新状态
       if (err instanceof DOMException && err.name === 'AbortError') return;
-      setUser(null);
     } finally {
       if (!abortController.signal.aborted) {
         setLoading(false);

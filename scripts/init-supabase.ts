@@ -52,6 +52,7 @@ CREATE TABLE IF NOT EXISTS public.user_profiles (
   user_id UUID UNIQUE NOT NULL REFERENCES public.users(id) ON DELETE CASCADE,
   nickname VARCHAR(50) NOT NULL DEFAULT '',
   avatar_url TEXT,
+  background_url TEXT,
   gender VARCHAR(10) CHECK (gender IN ('male', 'female', 'other')),
   birthday DATE,
   location JSONB,
@@ -62,6 +63,8 @@ CREATE TABLE IF NOT EXISTS public.user_profiles (
   created_at TIMESTAMPTZ NOT NULL DEFAULT now(),
   updated_at TIMESTAMPTZ NOT NULL DEFAULT now()
 );
+ALTER TABLE public.user_profiles
+  ADD COLUMN IF NOT EXISTS background_url TEXT;
 CREATE UNIQUE INDEX IF NOT EXISTS idx_user_profiles_user_id ON public.user_profiles(user_id);
 `;
 

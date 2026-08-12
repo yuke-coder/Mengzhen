@@ -40,6 +40,7 @@ export interface UserProfile {
   user_id: string; // 关联 users.id（一对一）
   nickname: string; // 显示昵称
   avatar_url: string | null; // 头像 URL（Supabase Storage 路径）
+  background_url: string | null; // 个人主页背景图 URL（Supabase Storage 公开 URL）
   gender: "male" | "female" | "other" | null; // 性别
   birthday: string | null; // 生日 (YYYY-MM-DD)
   location: string | null; // 所在地（JSON 字符串：{planet,country,province,city,district}）
@@ -141,6 +142,7 @@ CREATE TABLE IF NOT EXISTS public.user_profiles (
   user_id UUID UNIQUE NOT NULL REFERENCES public.users(id) ON DELETE CASCADE,
   nickname VARCHAR(50) NOT NULL DEFAULT '',
   avatar_url TEXT,
+  background_url TEXT,
   gender VARCHAR(10) CHECK (gender IN ('male', 'female', 'other')),
   birthday DATE,
   location JSONB,
@@ -151,6 +153,9 @@ CREATE TABLE IF NOT EXISTS public.user_profiles (
   created_at TIMESTAMPTZ NOT NULL DEFAULT now(),
   updated_at TIMESTAMPTZ NOT NULL DEFAULT now()
 );
+
+ALTER TABLE public.user_profiles
+  ADD COLUMN IF NOT EXISTS background_url TEXT;
 
 -- 索引
 CREATE UNIQUE INDEX IF NOT EXISTS idx_user_profiles_user_id ON public.user_profiles(user_id);
