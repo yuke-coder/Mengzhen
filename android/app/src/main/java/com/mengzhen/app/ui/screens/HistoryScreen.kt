@@ -35,7 +35,6 @@ import androidx.compose.material.icons.filled.Schedule
 import androidx.compose.material.icons.filled.Straighten
 import androidx.compose.material3.Card
 import androidx.compose.material3.CardDefaults
-import androidx.compose.material3.CircularProgressIndicator
 import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.Icon
 import androidx.compose.material3.IconButton
@@ -70,7 +69,7 @@ import androidx.navigation.NavController
 import com.mengzhen.app.data.api.ApiClient
 import com.mengzhen.app.data.model.TaskAudio
 import com.mengzhen.app.data.model.parseAudioList
-import com.mengzhen.app.ui.components.PageRefreshShimmer
+import com.mengzhen.app.ui.components.ChatGptLoadingSpinner
 import com.mengzhen.app.ui.theme.BrandEndThemed
 import com.mengzhen.app.ui.theme.BrandGlowThemed
 import com.mengzhen.app.ui.theme.BrandStartThemed
@@ -261,7 +260,15 @@ private fun rememberHistoryScreenState(): HistoryScreenState {
 
 @Composable
 private fun LoadingState() {
-    PageRefreshShimmer(Modifier.fillMaxSize())
+    Box(
+        modifier = Modifier.fillMaxSize(),
+        contentAlignment = Alignment.Center,
+    ) {
+        ChatGptLoadingSpinner(
+            color = MaterialTheme.colorScheme.onSurface,
+            loadingDescription = "正在加载音频",
+        )
+    }
 }
 
 @Composable
@@ -457,10 +464,10 @@ private fun ActionButtons(
     Row(horizontalArrangement = Arrangement.spacedBy(4.dp)) {
         IconButton(onClick = onDownloadClick, enabled = !isDownloading, modifier = Modifier.size(ACTION_BUTTON_SIZE)) {
             if (isDownloading) {
-                CircularProgressIndicator(
-                    modifier = Modifier.size(16.dp),
-                    strokeWidth = 2.dp,
-                    color = MutedForeground
+                ChatGptLoadingSpinner(
+                    size = 18.dp,
+                    color = MutedForeground,
+                    loadingDescription = "正在下载",
                 )
             } else {
                 Icon(Icons.Default.Download, contentDescription = "下载", tint = MutedForeground, modifier = Modifier.size(ACTION_ICON_SIZE))

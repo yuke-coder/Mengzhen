@@ -25,6 +25,7 @@ import androidx.compose.runtime.collectAsState
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
+import androidx.compose.runtime.rememberCoroutineScope
 import androidx.compose.runtime.rememberUpdatedState
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Modifier
@@ -39,10 +40,12 @@ import com.mengzhen.app.audio.PlaybackStateStore
 import com.mengzhen.app.audio.PlaybackTransportState
 import com.mengzhen.app.data.model.ScheduledTask
 import com.mengzhen.app.data.model.TaskAudio
+import com.mengzhen.app.data.store.AudioLibraryState
 import com.mengzhen.app.data.store.TaskStore
 import com.mengzhen.app.scheduler.AlarmScheduler
 import com.mengzhen.app.ui.feedback.AppNotice
 import com.mengzhen.app.ui.theme.LocalIsDarkTheme
+import kotlinx.coroutines.launch
 import org.json.JSONObject
 import java.io.ByteArrayOutputStream
 import java.text.SimpleDateFormat
@@ -66,7 +69,9 @@ fun XimalayaSoundDetailsScreen(
 ) {
     val context = LocalContext.current
     val isDark = LocalIsDarkTheme.current
-    val task = remember(taskId) { TaskStore.get(context).getTaskById(taskId) }
+    val store = remember(context) { TaskStore.get(context) }
+    val task = remember(taskId) { store.getTaskById(taskId) }
+    val scope = rememberCoroutineScope()
     val resolvedIndex = audioIndex.coerceIn(0, (task?.audios?.lastIndex ?: 0).coerceAtLeast(0))
     val audio = task?.audios?.getOrNull(resolvedIndex)
     val playbackSnapshot by remember(context) {
@@ -76,9 +81,10 @@ fun XimalayaSoundDetailsScreen(
     val preferences = remember(context) {
         context.getSharedPreferences("ximalaya_player_actions", Context.MODE_PRIVATE)
     }
-    var liked by remember(taskId) {
-        mutableStateOf(preferences.getBoolean("liked_$taskId", false))
+    var liked by remember(taskId, audio?.id, audio?.savedToLibrary) {
+        mutableStateOf(audio?.savedToLibrary == true)
     }
+    var favoriteUpdating by remember(taskId, audio?.id) { mutableStateOf(false) }
     var waited by remember(taskId, audio?.id) {
         mutableStateOf(
             preferences.getBoolean(
@@ -108,11 +114,23 @@ fun XimalayaSoundDetailsScreen(
         }
     }
     val share = rememberUpdatedState {
-        shareCurrentAudio(context, audio, audio?.name ?: task?.name ?: "音频")
+        scope.launch {
+            shareCurrentAudio(context, audio, audio?.name ?: task?.name ?: "音频")
+        }
     }
     val toggleLike = rememberUpdatedState {
-        liked = !liked
-        preferences.edit().putBoolean("liked_$taskId", liked).apply()
+        if (!favoriteUpdating && audio != null) {
+            val favorite = !liked
+            favoriteUpdating = true
+            scope.launch {
+                AudioLibraryState.setFavorite(context, taskId, audio, favorite)
+                    .onSuccess { liked = favorite }
+                    .onFailure { error ->
+                        AppNotice.error(context, error.message ?: "更新收藏状态失败")
+                    }
+                favoriteUpdating = false
+            }
+        }
     }
     val toggleWaited = rememberUpdatedState {
         waited = !waited

@@ -42,7 +42,6 @@ import androidx.compose.material3.Button
 import androidx.compose.material3.ButtonDefaults
 import androidx.compose.material3.Card
 import androidx.compose.material3.CardDefaults
-import androidx.compose.material3.CircularProgressIndicator
 import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.Icon
 import androidx.compose.material3.IconButton
@@ -97,6 +96,7 @@ import com.mengzhen.app.data.api.AudioUploadQueue
 import com.mengzhen.app.data.model.TaskAudio
 import com.mengzhen.app.data.store.TaskStore
 import com.mengzhen.app.scheduler.QuickPlaybackSessionFactory
+import com.mengzhen.app.ui.components.ChatGptLoadingSpinner
 import com.mengzhen.app.ui.feedback.AppNotice
 import com.mengzhen.app.ui.navigation.Screen
 import com.mengzhen.app.ui.theme.BrandGlow
@@ -675,13 +675,19 @@ fun BiliCacheScreen(
                 }
             },
             indicator = {
-                PullToRefreshDefaults.Indicator(
+                PullToRefreshDefaults.IndicatorBox(
                     state = pullRefreshState,
                     isRefreshing = refreshing,
-                    color = Color(0xFFFB7299),
                     containerColor = Color.Transparent,
+                    elevation = 0.dp,
                     modifier = Modifier.align(Alignment.TopCenter),
-                )
+                ) {
+                    ChatGptLoadingSpinner(
+                        size = 28.dp,
+                        color = Color(0xFFFB7299),
+                        loadingDescription = "正在刷新缓存",
+                    )
+                }
             },
             modifier = Modifier
                 .fillMaxSize()

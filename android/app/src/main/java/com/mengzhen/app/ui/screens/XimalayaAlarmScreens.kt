@@ -45,6 +45,29 @@ import androidx.compose.runtime.remember
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.viewinterop.AndroidView
+import androidx.compose.foundation.background
+import androidx.compose.ui.draw.clip
+import androidx.compose.foundation.clickable
+import androidx.compose.foundation.isSystemInDarkTheme
+import androidx.compose.foundation.layout.Arrangement
+import androidx.compose.foundation.layout.Box
+import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.PaddingValues
+import androidx.compose.foundation.layout.Spacer
+import androidx.compose.foundation.layout.fillMaxWidth
+import androidx.compose.foundation.layout.height
+import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.lazy.LazyColumn
+import androidx.compose.foundation.lazy.items
+import androidx.compose.foundation.shape.RoundedCornerShape
+import androidx.compose.material3.FloatingActionButton
+import androidx.compose.material3.MaterialTheme
+import androidx.compose.material3.Text
+import androidx.compose.ui.Alignment
+import androidx.compose.ui.platform.LocalContext
+import androidx.compose.ui.text.font.FontWeight
+import androidx.compose.ui.unit.dp
+import androidx.compose.ui.unit.sp
 import androidx.core.content.ContextCompat
 import androidx.navigation.NavController
 import com.ximalaya.ting.android.main.view.NumberPickerView
@@ -112,114 +135,22 @@ fun XimalayaAlarmManagerScreen(
     taskId: String = "",
     topLevel: Boolean = false,
 ) {
-    val context = androidx.compose.ui.platform.LocalContext.current
+    val context = LocalContext.current
     val store = remember { TaskStore.get(context) }
     val scheduler = remember { AlarmScheduler.get(context) }
     val playbackState = remember(context) { PlaybackStateStore.get(context).snapshot }
         .collectAsState()
-    val playback by remember {
-        derivedStateOf { playbackState.value.forAlarmList() }
-    }
+    val playback by remember { derivedStateOf { playbackState.value.forAlarmList() } }
     var storedTasks by remember { mutableStateOf(store.getAllTasks()) }
 
     DisposableEffect(store) {
-        val listener = store.registerTasksChangedListener { tasks ->
-            storedTasks = tasks
-        }
+        val listener = store.registerTasksChangedListener { tasks -> storedTasks = tasks }
         onDispose { store.unregisterTasksChangedListener(listener) }
     }
 
-    AndroidView(
-        modifier = Modifier
-            .fillMaxSize()
-            .statusBarsPadding(),
-        factory = { viewContext ->
-            LayoutInflater.from(viewContext)
-                .inflate(R.layout.main_fra_alarm_manager, null, false)
-                .also { root ->
-                    root.setBackgroundResource(R.color.xm_alarm_v9514_0x7f060e75)
-                    installXimalayaTitleBar(
-                        host = root.findViewById(R.id.main_title_bar),
-                        title = if (topLevel) "任务" else "定时启播",
-                        left = if (topLevel) {
-                            XimalayaTitleAction.None
-                        } else {
-                            XimalayaTitleAction.Back { navController.popBackStack() }
-                        },
-                        rightText = "帮助",
-                        onRight = {
-                            navController.navigate(Screen.AlarmHelp.route)
-                        },
-                    )
-
-                    val list = root.findViewById<ListView>(R.id.main_alarm_wakeup_list)
-                    list.divider = null
-                    list.dividerHeight = 0
-                    val sourceMaterialContext = ContextThemeWrapper(
-                        viewContext,
-                        com.google.android.material.R.style.Theme_MaterialComponents_DayNight,
-                    )
-                    val tips = LayoutInflater.from(sourceMaterialContext)
-                        .inflate(R.layout.main_fra_alarm_tips, list, false)
-                    tips.findViewById<View>(R.id.main_tips_bg).setOnClickListener {
-                        navController.navigate(
-                            Screen.PermissionSettings.createRoute(fromAlarm = true)
-                        )
-                    }
-                    list.addFooterView(tips, null, true)
-
-                    root.findViewById<ImageView>(R.id.main_alarm_iv_add).setOnClickListener {
-                        showAlarmCreationModeDialog(viewContext) { mode ->
-                            if (mode == AlarmCreationMode.STOP_ONLY) {
-                                val activeTaskId = AudioPlaybackService.getCurrentTaskId()
-                                val activeTask = activeTaskId?.let(store::getTaskById)
-                                if (
-                                    activeTask == null ||
-                                    !AudioPlaybackService.isCurrentlyPlaying()
-                                ) {
-                                    AppNotice.warning(
-                                        viewContext,
-                                        "当前没有实际播放的音频，请先选择音频并开始播放，再创建仅定时关闭任务",
-                                    )
-                                } else {
-                                    navController.navigate(
-                                        Screen.Templates.createRoute(
-                                            activeTask.id,
-                                            openTimer = true,
-                                        )
-                                    )
-                                }
-                                return@showAlarmCreationModeDialog
-                            }
-                            if (requiresOverlayPermission(viewContext)) {
-                                showOverlayPermissionPrompt(viewContext)
-                                return@showAlarmCreationModeDialog
-                            }
-                            val sourceDraft = createAlarmDraft(store, taskId)
-                            val combined = mode == AlarmCreationMode.START_AND_STOP
-                            val draft = sourceDraft.copy(
-                                scheduledStopMode = ScheduledStopMode.NONE,
-                                scheduledStopValue = 0,
-                                scheduledStopDurationSeconds = 0,
-                                scheduledFinishCurrentTrack = false,
-                                enableFadeOut = combined && sourceDraft.enableFadeOut,
-                                fadeOutDuration = sourceDraft.fadeOutDuration,
-                            )
-                            store.saveTask(draft)
-                            navController.navigate(
-                                Screen.AlarmEditor.createRoute(
-                                    taskId = draft.id,
-                                    newAlarm = true,
-                                    openTimerAfterSave =
-                                        mode == AlarmCreationMode.START_AND_STOP,
-                                )
-                            )
-                        }
-                    }
-                }
-        },
-        update = { root ->
-            val alarms = storedTasks
+    val alarms by remember(storedTasks, playback) {
+        derivedStateOf {
+            storedTasks
                 .filter { task ->
                     if (task.isQuickPlaybackSession()) {
                         task.hasActiveSchedule() ||
@@ -231,51 +162,185 @@ fun XimalayaAlarmManagerScreen(
                 .sortedWith(
                     compareByDescending<ScheduledTask>(ScheduledTask::hasActiveSchedule)
                         .thenBy { it.nextExecuteAt ?: Long.MAX_VALUE }
-                        .thenByDescending(ScheduledTask::updatedAt)
+                        .thenByDescending(ScheduledTask::updatedAt),
                 )
-            val list = root.findViewById<ListView>(R.id.main_alarm_wakeup_list)
-            list.visibility = if (alarms.isEmpty()) View.GONE else View.VISIBLE
-            root.findViewById<View>(R.id.main_alarm_no_data_rl).visibility =
-                if (alarms.isEmpty()) View.VISIBLE else View.GONE
-            val adapter = (list.tag as? XimalayaAlarmListAdapter)
-                ?: XimalayaAlarmListAdapter(
-                    context = context,
-                    onOpen = { alarm ->
-                        navController.navigate(
-                            Screen.Templates.createRoute(alarm.id, openTimer = true)
-                        )
-                    },
-                    onToggle = { alarm, enabled ->
-                        if (enabled && requiresOverlayPermission(context)) {
-                            showOverlayPermissionPrompt(context)
-                        } else if (enabled) {
-                            val resumed = scheduler.resumeTask(alarm.id)
-                            if (resumed != null) {
-                                AppNotice.success(
-                                    context,
-                                    "将会在${alarmRelativeText(
-                                        resumed.toXimalayaRepeatDays(),
-                                        resumed.startTime.hour,
-                                        resumed.startTime.minute,
-                                    )}",
-                                )
-                            }
-                        } else {
-                            scheduler.disableSchedule(alarm.id)
-                        }
-                    },
-                    onDelete = { alarm ->
-                        showDeleteAlarmDialog(context) {
-                            scheduler.deleteTask(alarm.id)
-                        }
-                    },
-                ).also {
-                    list.tag = it
-                    list.adapter = it
+        }
+    }
+
+    val onAdd: () -> Unit = {
+        showAlarmCreationModeDialog(context) { mode ->
+            if (mode == AlarmCreationMode.STOP_ONLY) {
+                val activeTaskId = AudioPlaybackService.getCurrentTaskId()
+                val activeTask = activeTaskId?.let(store::getTaskById)
+                if (activeTask == null || !AudioPlaybackService.isCurrentlyPlaying()) {
+                    AppNotice.warning(
+                        context,
+                        "当前没有实际播放的音频，请先选择音频并开始播放，再创建仅定时关闭任务",
+                    )
+                } else {
+                    navController.navigate(
+                        Screen.Templates.createRoute(activeTask.id, openTimer = true),
+                    )
                 }
-            adapter.submit(alarms, playback)
-        },
-    )
+                return@showAlarmCreationModeDialog
+            }
+            if (requiresOverlayPermission(context)) {
+                showOverlayPermissionPrompt(context)
+                return@showAlarmCreationModeDialog
+            }
+            val sourceDraft = createAlarmDraft(store, taskId)
+            val combined = mode == AlarmCreationMode.START_AND_STOP
+            val draft = sourceDraft.copy(
+                scheduledStopMode = ScheduledStopMode.NONE,
+                scheduledStopValue = 0,
+                scheduledStopDurationSeconds = 0,
+                scheduledFinishCurrentTrack = false,
+                enableFadeOut = combined && sourceDraft.enableFadeOut,
+                fadeOutDuration = sourceDraft.fadeOutDuration,
+            )
+            store.saveTask(draft)
+            navController.navigate(
+                Screen.AlarmEditor.createRoute(
+                    taskId = draft.id,
+                    newAlarm = true,
+                    openTimerAfterSave = mode == AlarmCreationMode.START_AND_STOP,
+                )
+            )
+        }
+    }
+
+    Column(
+        modifier = Modifier
+            .fillMaxSize()
+            .statusBarsPadding()
+            .background(MaterialTheme.colorScheme.background),
+    ) {
+        AndroidView(
+            modifier = Modifier.fillMaxWidth(),
+            factory = { viewContext ->
+                val root = LayoutInflater.from(viewContext)
+                    .inflate(R.layout.main_fra_alarm_manager, null, false)
+                val titleBar = root.findViewById<View>(R.id.main_title_bar)
+                titleBar.findViewById<TextView>(R.id.ximalaya_title_text).text =
+                    if (topLevel) "任务" else "定时启播"
+                titleBar.findViewById<View>(R.id.ximalaya_title_back).apply {
+                    visibility = if (topLevel) View.GONE else View.VISIBLE
+                    setOnClickListener { navController.popBackStack() }
+                }
+                titleBar.findViewById<TextView>(R.id.ximalaya_title_right).apply {
+                    text = "帮助"
+                    visibility = View.VISIBLE
+                    setOnClickListener { navController.navigate(Screen.AlarmHelp.route) }
+                }
+                root
+            },
+        )
+
+        Box(modifier = Modifier.fillMaxSize()) {
+            if (alarms.isEmpty()) {
+                Text(
+                    text = "当前没有定时任务",
+                    modifier = Modifier.align(Alignment.Center),
+                    color = MaterialTheme.colorScheme.onSurfaceVariant,
+                )
+            } else {
+                LazyColumn(
+                    modifier = Modifier.fillMaxSize(),
+                    contentPadding = PaddingValues(horizontal = 12.dp, vertical = 8.dp),
+                    verticalArrangement = Arrangement.spacedBy(8.dp),
+                ) {
+                    items(alarms, key = { it.id }) { task ->
+                        TaskRowCard(
+                            data = task.toRowData(playback),
+                            isDark = isSystemInDarkTheme(),
+                            onClick = {
+                                navController.navigate(
+                                    Screen.Templates.createRoute(task.id, openTimer = true),
+                                )
+                            },
+                            onLongClick = {
+                                showDeleteAlarmDialog(context) {
+                                    scheduler.deleteTask(task.id)
+                                }
+                            },
+                            onToggle = { enabled ->
+                                if (enabled && requiresOverlayPermission(context)) {
+                                    showOverlayPermissionPrompt(context)
+                                } else if (enabled) {
+                                    val resumed = scheduler.resumeTask(task.id)
+                                    if (resumed != null) {
+                                        AppNotice.success(
+                                            context,
+                                            "将会在${
+                                                alarmRelativeText(
+                                                    resumed.toXimalayaRepeatDays(),
+                                                    resumed.startTime.hour,
+                                                    resumed.startTime.minute,
+                                                )
+                                            }",
+                                        )
+                                    }
+                                } else {
+                                    scheduler.disableSchedule(task.id)
+                                }
+                            },
+                        )
+                    }
+
+                    item {
+                        Column(
+                            modifier = Modifier
+                                .fillMaxWidth()
+                                .padding(top = 4.dp)
+                                .clip(RoundedCornerShape(8.dp))
+                                .background(MaterialTheme.colorScheme.surfaceVariant)
+                                .clickable {
+                                    navController.navigate(
+                                        Screen.PermissionSettings.createRoute(fromAlarm = true),
+                                    )
+                                }
+                                .padding(12.dp),
+                        ) {
+                            Text(
+                                "优化提示",
+                                fontSize = 12.sp,
+                                fontWeight = FontWeight.Bold,
+                                color = MaterialTheme.colorScheme.onSurface,
+                            )
+                            Spacer(modifier = Modifier.height(2.dp))
+                            Text(
+                                "为保证正常使用 请不要退出梦枕",
+                                fontSize = 12.sp,
+                                color = MaterialTheme.colorScheme.onSurfaceVariant,
+                            )
+                            Spacer(modifier = Modifier.height(8.dp))
+                            Text(
+                                "为保证正常使用，请注意：",
+                                fontSize = 12.sp,
+                                color = MaterialTheme.colorScheme.onSurface,
+                            )
+                            Spacer(modifier = Modifier.height(4.dp))
+                            Text(
+                                "1.退出梦枕APP时，无法响铃\n2.关机、打开手机静音开关、音量为0，处于勿扰模式、省电模式时，都将无法响铃\n3.插入耳机时，闹钟仅能在耳机中播放\n4.电话通话时，也将正常响铃\n5.Android10 以上设备需要开启悬浮窗权限",
+                                fontSize = 12.sp,
+                                color = MaterialTheme.colorScheme.onSurfaceVariant,
+                            )
+                        }
+                    }
+                }
+            }
+
+            FloatingActionButton(
+                onClick = onAdd,
+                modifier = Modifier
+                    .align(Alignment.BottomEnd)
+                    .padding(16.dp),
+                containerColor = MaterialTheme.colorScheme.primary,
+            ) {
+                Text("+", fontSize = 24.sp, color = MaterialTheme.colorScheme.onPrimary)
+            }
+        }
+    }
 }
 
 private fun createAlarmDraft(store: TaskStore, sourceTaskId: String): ScheduledTask {
@@ -917,102 +982,6 @@ internal fun installXimalayaTitleBar(
         text = rightText.orEmpty()
         textSize = if (rightText == "帮助") 14f else 15f
         setOnClickListener(if (onRight == null) null else View.OnClickListener { onRight() })
-    }
-}
-
-private class XimalayaAlarmListAdapter(
-    private val context: Context,
-    private val onOpen: (ScheduledTask) -> Unit,
-    private val onToggle: (ScheduledTask, Boolean) -> Unit,
-    private val onDelete: (ScheduledTask) -> Unit,
-) : BaseAdapter() {
-    private var alarms: List<ScheduledTask> = emptyList()
-    private var playback = PlaybackSnapshot()
-
-    fun submit(value: List<ScheduledTask>, runtime: PlaybackSnapshot) {
-        if (alarms == value && playback == runtime) return
-        alarms = value
-        playback = runtime
-        notifyDataSetChanged()
-    }
-
-    override fun getCount(): Int = alarms.size
-    override fun getItem(position: Int): ScheduledTask = alarms[position]
-    override fun getItemId(position: Int): Long = getItem(position).id.hashCode().toLong()
-
-    override fun getView(position: Int, recycled: View?, parent: ViewGroup): View {
-        val view = recycled ?: LayoutInflater.from(context)
-            .inflate(R.layout.main_alarm_item, parent, false)
-        val alarm = getItem(position)
-        val time = view.findViewById<TextView>(R.id.item_tv_clock_time)
-        val repeat = view.findViewById<TextView>(R.id.item_tv_repeat_times)
-        val ringName = view.findViewById<TextView>(R.id.item_tv_clock_ring_name)
-        val enabled = alarm.hasActiveSchedule()
-        val runtimeActive = taskRuntimeIsActive(alarm, playback)
-        val stopEnabled = alarm.hasConfiguredStop() && (enabled || runtimeActive)
-        time.text = if (enabled) {
-            String.format(
-                Locale.getDefault(),
-                "%02d:%02d",
-                alarm.startTime.hour,
-                alarm.startTime.minute,
-            )
-        } else {
-            "--:--"
-        }
-        repeat.text = "${taskActivationSummary(enabled, stopEnabled)} · " +
-            taskRuntimeStatus(alarm, playback)
-        ringName.text = taskDetailText(alarm, playback)
-        view.findViewById<CheckBox>(R.id.item_cb_switch).apply {
-            setOnCheckedChangeListener(null)
-            isChecked = enabled
-            setOnCheckedChangeListener { button, checked ->
-                if (button.isPressed) {
-                    button.performHapticFeedback(HapticFeedbackConstants.VIRTUAL_KEY)
-                    onToggle(alarm, checked)
-                }
-            }
-        }
-        val visuallyEnabled = enabled || stopEnabled
-        val sourceTextColor = Color.parseColor(
-            when {
-                visuallyEnabled && isNightMode(context) -> "#dcdcdc"
-                visuallyEnabled -> "#333333"
-                isNightMode(context) -> "#4d4d4d"
-                else -> "#cccccc"
-            }
-        )
-        time.setTextColor(sourceTextColor)
-        repeat.setTextColor(
-            ContextCompat.getColor(
-                context,
-                if (enabled || stopEnabled) {
-                    R.color.xm_alarm_v9514_0x7f060c98
-                } else {
-                    R.color.xm_alarm_v9514_0x7f060bbb
-                },
-            )
-        )
-        ringName.setTextColor(
-            if (enabled || stopEnabled) {
-                sourceTextColor
-            } else if (isNightMode(context)) {
-                Color.parseColor("#666666")
-            } else {
-                Color.parseColor("#999999")
-            }
-        )
-        view.contentDescription = if (enabled || stopEnabled) {
-            repeat.text.toString() + "。" + ringName.text.toString().replace('\n', '。')
-        } else {
-            "任务已关闭。" + ringName.text.toString().replace('\n', '。')
-        }
-        view.setOnClickListener { onOpen(alarm) }
-        view.setOnLongClickListener {
-            onDelete(alarm)
-            true
-        }
-        return view
     }
 }
 

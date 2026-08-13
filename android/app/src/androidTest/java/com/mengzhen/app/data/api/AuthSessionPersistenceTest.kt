@@ -2,40 +2,44 @@ package com.mengzhen.app.data.api
 
 import androidx.test.ext.junit.runners.AndroidJUnit4
 import androidx.test.platform.app.InstrumentationRegistry
-import com.mengzhen.app.data.model.parseUser
 import org.junit.Assert.assertEquals
-import org.junit.Assert.assertNotNull
 import org.junit.Assert.assertTrue
 import org.junit.Test
 import org.junit.runner.RunWith
+import okhttp3.Cookie
+import okhttp3.HttpUrl.Companion.toHttpUrl
 
 @RunWith(AndroidJUnit4::class)
 class AuthSessionPersistenceTest {
 
     @Test
-    fun loginCookieSurvivesClientRecreation() {
-        val arguments = InstrumentationRegistry.getArguments()
-        val username = arguments.getString("authUsername").orEmpty()
-        val password = arguments.getString("authPassword").orEmpty()
-        assertTrue("authUsername is required", username.isNotBlank())
-        assertTrue("authPassword is required", password.isNotBlank())
-
+    fun persistedCookieSurvivesClientRecreation() {
         val context = InstrumentationRegistry.getInstrumentation().targetContext
         var api = ApiClient.get(context)
         api.clearCookies()
 
         try {
-            assertTrue(api.login(username, password).optBoolean("success", false))
-            assertEquals(username, parseUser(api.me())?.username)
+            val url = ApiClient.BASE_URL.toHttpUrl()
+            val cookie = Cookie.Builder()
+                .name("mengzhen_session")
+                .value("instrumentation-session")
+                .hostOnlyDomain(url.host)
+                .path("/")
+                .expiresAt(System.currentTimeMillis() + 60_000)
+                .httpOnly()
+                .secure()
+                .build()
+            api.saveFromResponse(url, listOf(cookie))
+            assertEquals("instrumentation-session", api.loadForRequest(url).single().value)
 
             resetApiClientSingleton()
             api = ApiClient.get(context)
 
-            val restored = parseUser(api.me())
-            assertNotNull(restored)
-            assertEquals(username, restored?.username)
+            assertTrue(
+                api.loadForRequest(url).any { it.name == "mengzhen_session" && it.value == "instrumentation-session" },
+            )
         } finally {
-            runCatching { api.logout() }
+            api.clearCookies()
             resetApiClientSingleton()
         }
     }

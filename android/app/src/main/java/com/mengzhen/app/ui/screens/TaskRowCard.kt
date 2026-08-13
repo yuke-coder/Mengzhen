@@ -1,5 +1,7 @@
 package com.mengzhen.app.ui.screens
 
+import androidx.compose.animation.AnimatedVisibility
+import androidx.compose.animation.animateContentSize
 import androidx.compose.animation.core.LinearEasing
 import androidx.compose.animation.core.RepeatMode
 import androidx.compose.animation.core.animateFloat
@@ -7,6 +9,10 @@ import androidx.compose.animation.core.animateFloatAsState
 import androidx.compose.animation.core.infiniteRepeatable
 import androidx.compose.animation.core.rememberInfiniteTransition
 import androidx.compose.animation.core.tween
+import androidx.compose.animation.expandVertically
+import androidx.compose.animation.fadeIn
+import androidx.compose.animation.fadeOut
+import androidx.compose.animation.shrinkVertically
 import androidx.compose.foundation.ExperimentalFoundationApi
 import androidx.compose.foundation.background
 import androidx.compose.foundation.combinedClickable
@@ -17,6 +23,8 @@ import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.Spacer
+import androidx.compose.foundation.layout.defaultMinSize
+import androidx.compose.foundation.layout.fillMaxHeight
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
@@ -36,6 +44,8 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.draw.scale
+import androidx.compose.ui.draw.shadow
+import androidx.compose.ui.graphics.Brush
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.text.font.FontFamily
 import androidx.compose.ui.text.font.FontWeight
@@ -53,52 +63,74 @@ import com.mengzhen.app.data.model.hasActiveSchedule
 import com.mengzhen.app.data.model.hasConfiguredStop
 
 // ============================================================
-// Design Tokens
+// Design Tokens — aligned with design-tokens-taskrow.yaml
 // ============================================================
 
 private object TaskRowTokens {
-    // Dark mode
+    // Dark mode surface layers (warm-black, not pure black)
     val darkBg0 = Color(0xFF0F0D0B)
     val darkBg1 = Color(0xFF1A1611)
     val darkBg2 = Color(0xFF221E18)
     val darkBg3 = Color(0xFF2C2720)
+
+    // Dark text
     val darkT1 = Color(0xFFF2EDE2)
     val darkT2 = Color(0xFFA89E8E)
     val darkT3 = Color(0xFF8A8070)
-    val darkBrand = Color(0xFF2BC496)
-    val darkBrandHi = Color(0xFF7EEDC4)
-    val darkBrandGlow = Color(0x4D2BC496) // 30% alpha
+
+    // Dark brand gradient
+    val darkBrandStart = Color(0xFF7EEDC4)
+    val darkBrandMid = Color(0xFF50DDB0)
+    val darkBrandEnd = Color(0xFF2BC496)
+    val darkBrandGlow = Color(0x4D2BC496)
+
+    // Dark amber (fade phase)
     val darkAmber = Color(0xFFE8A04C)
     val darkAmberHi = Color(0xFFF2BE7E)
     val darkAmberGlow = Color(0x38E8A04C)
-    val darkDone = Color(0xFF7CAA98)
-    val darkClosed = Color(0xFF6B6256)
 
-    // Light mode
+    // Dark semantic colors — aligned with YAML
+    val darkPending = Color(0xFF9B86C4)
+    val darkCompleted = Color(0xFF5A7A8A)
+    val darkCancelled = Color(0xFF8A6258)
+
+    // Light mode surface layers
     val lightBg0 = Color(0xFFFAF7F2)
     val lightBg1 = Color(0xFFF3EDE4)
     val lightBg2 = Color(0xFFEBE3D6)
     val lightBg3 = Color(0xFFE0D5C4)
+
+    // Light text
     val lightT1 = Color(0xFF2A2520)
     val lightT2 = Color(0xFF6B5F52)
-    val lightT3 = Color(0xFFA89E8E)
-    val lightBrand = Color(0xFF5BB892)
-    val lightBrandHi = Color(0xFF2A8B68)
+    val lightT3 = Color(0xFF8A7E6E)
+
+    // Light brand gradient
+    val lightBrandStart = Color(0xFF9ED2BE)
+    val lightBrandMid = Color(0xFF7BC4A8)
+    val lightBrandEnd = Color(0xFF5BB892)
     val lightBrandGlow = Color(0x385BB892)
+
+    // Light amber
     val lightAmber = Color(0xFFD4892E)
     val lightAmberHi = Color(0xFFB06F1E)
     val lightAmberGlow = Color(0x29D4892E)
-    val lightDone = Color(0xFF5E8C76)
-    val lightClosed = Color(0xFFB5A99A)
 
+    // Light semantic colors
+    val lightPending = Color(0xFFB8A9D4)
+    val lightCompleted = Color(0xFF8FA8B5)
+    val lightCancelled = Color(0xFFC4A5A0)
+
+    // Geometry — aligned with YAML radius/spacing
     val cardRadius = 13.dp
-    val cardRadiusOpen = 18.dp
-    val cardPadding = 14.dp
-    val cardMinHeight = 50.dp
+    val cardRadiusOpen = 16.dp
+    val cardPaddingH = 16.dp
+    val cardPaddingV = 14.dp
     val cardGap = 11.dp
     val gridGap = 1.dp
     val gridRadius = 9.dp
-    val gridCellPadding = 12.dp
+    val gridCellPaddingH = 12.dp
+    val gridCellPaddingV = 8.dp
 }
 
 // ============================================================
@@ -106,11 +138,11 @@ private object TaskRowTokens {
 // ============================================================
 
 enum class TaskRowVisualState {
-    EXECUTING_PLAY,   // brand green + wave + pulse
-    EXECUTING_FADE,   // amber + wave + pulse
-    PENDING,          // gray dot
-    COMPLETED,        // done green
-    CANCELLED,        // closed gray
+    EXECUTING_PLAY,
+    EXECUTING_FADE,
+    PENDING,
+    COMPLETED,
+    CANCELLED,
 }
 
 data class TaskRowData(
@@ -227,16 +259,18 @@ fun ScheduledTask.toRowData(playback: PlaybackSnapshot): TaskRowData {
 }
 
 // ============================================================
-// Token resolver for current theme
+// Token resolver — palette derived from theme + visual state
 // ============================================================
 
 private data class RowPalette(
     val bg0: Color, val bg1: Color, val bg2: Color, val bg3: Color,
     val t1: Color, val t2: Color, val t3: Color,
-    val accent: Color, val accentHi: Color, val accentGlow: Color,
+    val accent: Color, val accentStart: Color, val accentEnd: Color,
+    val accentHi: Color, val accentGlow: Color,
     val dotColor: Color,
     val chipBg: Color, val chipText: Color,
     val stagText: Color,
+    val glowShadow: Color,
 )
 
 @Composable
@@ -246,20 +280,32 @@ private fun rememberPalette(isDark: Boolean, state: TaskRowVisualState): RowPale
             bg0 = TaskRowTokens.darkBg0, bg1 = TaskRowTokens.darkBg1,
             bg2 = TaskRowTokens.darkBg2, bg3 = TaskRowTokens.darkBg3,
             t1 = TaskRowTokens.darkT1, t2 = TaskRowTokens.darkT2, t3 = TaskRowTokens.darkT3,
-            accent = TaskRowTokens.darkBrand, accentHi = TaskRowTokens.darkBrandHi,
+            accent = TaskRowTokens.darkBrandEnd,
+            accentStart = TaskRowTokens.darkBrandStart,
+            accentEnd = TaskRowTokens.darkBrandEnd,
+            accentHi = TaskRowTokens.darkBrandStart,
             accentGlow = TaskRowTokens.darkBrandGlow,
-            dotColor = TaskRowTokens.darkBrand, chipBg = Color(0x2243C196),
-            chipText = TaskRowTokens.darkBrandHi, stagText = TaskRowTokens.darkBrandHi,
+            dotColor = TaskRowTokens.darkBrandEnd,
+            chipBg = Color(0x2243C196),
+            chipText = TaskRowTokens.darkBrandStart,
+            stagText = TaskRowTokens.darkBrandStart,
+            glowShadow = TaskRowTokens.darkBrandGlow,
         )
     } else {
         RowPalette(
             bg0 = TaskRowTokens.lightBg0, bg1 = TaskRowTokens.lightBg1,
             bg2 = TaskRowTokens.lightBg2, bg3 = TaskRowTokens.lightBg3,
             t1 = TaskRowTokens.lightT1, t2 = TaskRowTokens.lightT2, t3 = TaskRowTokens.lightT3,
-            accent = TaskRowTokens.lightBrand, accentHi = TaskRowTokens.lightBrandHi,
+            accent = TaskRowTokens.lightBrandEnd,
+            accentStart = TaskRowTokens.lightBrandStart,
+            accentEnd = TaskRowTokens.lightBrandEnd,
+            accentHi = TaskRowTokens.lightBrandEnd,
             accentGlow = TaskRowTokens.lightBrandGlow,
-            dotColor = TaskRowTokens.lightBrand, chipBg = Color(0x225BB892),
-            chipText = TaskRowTokens.lightBrandHi, stagText = TaskRowTokens.lightBrandHi,
+            dotColor = TaskRowTokens.lightBrandEnd,
+            chipBg = Color(0x225BB892),
+            chipText = TaskRowTokens.lightBrandEnd,
+            stagText = TaskRowTokens.lightBrandEnd,
+            glowShadow = TaskRowTokens.lightBrandGlow,
         )
     }
 
@@ -268,26 +314,38 @@ private fun rememberPalette(isDark: Boolean, state: TaskRowVisualState): RowPale
             TaskRowVisualState.EXECUTING_PLAY -> p
             TaskRowVisualState.EXECUTING_FADE -> p.copy(
                 accent = if (isDark) TaskRowTokens.darkAmber else TaskRowTokens.lightAmber,
+                accentStart = if (isDark) TaskRowTokens.darkAmberHi else TaskRowTokens.lightAmberHi,
+                accentEnd = if (isDark) TaskRowTokens.darkAmber else TaskRowTokens.lightAmber,
                 accentHi = if (isDark) TaskRowTokens.darkAmberHi else TaskRowTokens.lightAmberHi,
                 accentGlow = if (isDark) TaskRowTokens.darkAmberGlow else TaskRowTokens.lightAmberGlow,
                 dotColor = if (isDark) TaskRowTokens.darkAmber else TaskRowTokens.lightAmber,
                 chipBg = if (isDark) Color(0x22E8A04C) else Color(0x22D4892E),
                 chipText = if (isDark) TaskRowTokens.darkAmberHi else TaskRowTokens.lightAmberHi,
                 stagText = if (isDark) TaskRowTokens.darkAmberHi else TaskRowTokens.lightAmberHi,
+                glowShadow = if (isDark) TaskRowTokens.darkAmberGlow else TaskRowTokens.lightAmberGlow,
             )
             TaskRowVisualState.PENDING -> p.copy(
-                dotColor = p.t3, chipBg = Color(0x1AA89E8E), chipText = p.t2, stagText = p.t3,
+                dotColor = if (isDark) TaskRowTokens.darkPending else TaskRowTokens.lightPending,
+                accentGlow = if (isDark) Color(0x299B86C4) else Color(0x26B8A9D4),
+                chipBg = if (isDark) Color(0x1A9B86C4) else Color(0x1AB8A9D4),
+                chipText = if (isDark) TaskRowTokens.darkPending else TaskRowTokens.lightPending,
+                stagText = if (isDark) TaskRowTokens.darkPending else TaskRowTokens.lightPending,
+                glowShadow = Color.Transparent,
             )
             TaskRowVisualState.COMPLETED -> p.copy(
-                dotColor = if (isDark) TaskRowTokens.darkDone else TaskRowTokens.lightDone,
-                accentGlow = if (isDark) Color(0x297CAA98) else Color(0x245E8C76),
-                chipBg = if (isDark) Color(0x207CAA98) else Color(0x1C5E8C76),
-                chipText = if (isDark) TaskRowTokens.darkDone else TaskRowTokens.lightDone,
+                dotColor = if (isDark) TaskRowTokens.darkCompleted else TaskRowTokens.lightCompleted,
+                accentGlow = if (isDark) Color(0x295A7A8A) else Color(0x248FA8B5),
+                chipBg = if (isDark) Color(0x205A7A8A) else Color(0x1C8FA8B5),
+                chipText = if (isDark) TaskRowTokens.darkCompleted else TaskRowTokens.lightCompleted,
                 stagText = p.t3,
+                glowShadow = Color.Transparent,
             )
             TaskRowVisualState.CANCELLED -> p.copy(
-                dotColor = if (isDark) TaskRowTokens.darkClosed else TaskRowTokens.lightClosed,
-                chipBg = Color(0x14A89E8E), chipText = p.t3, stagText = if (isDark) TaskRowTokens.darkClosed else TaskRowTokens.lightClosed,
+                dotColor = if (isDark) TaskRowTokens.darkCancelled else TaskRowTokens.lightCancelled,
+                chipBg = Color(0x14A89E8E),
+                chipText = p.t3,
+                stagText = if (isDark) TaskRowTokens.darkCancelled else TaskRowTokens.lightCancelled,
+                glowShadow = Color.Transparent,
             )
         }
     }
@@ -318,15 +376,38 @@ fun TaskRowCard(
         label = "press-scale",
     )
 
-    val radius = if (expanded) TaskRowTokens.cardRadiusOpen else TaskRowTokens.cardRadius
+    val radius by animateFloatAsState(
+        targetValue = if (expanded) TaskRowTokens.cardRadiusOpen.value else TaskRowTokens.cardRadius.value,
+        animationSpec = tween(300),
+        label = "radius",
+    )
+
+    val bgColor by animateFloatAsState(
+        targetValue = if (isPressed) 1f else 0f,
+        animationSpec = tween(180),
+        label = "bg-shift",
+    )
+    val bg = androidx.compose.ui.graphics.lerp(palette.bg1, palette.bg2, bgColor)
+
+    val isExecuting = data.visualState == TaskRowVisualState.EXECUTING_PLAY ||
+        data.visualState == TaskRowVisualState.EXECUTING_FADE
 
     Box(
         modifier = modifier
             .fillMaxWidth()
-            .padding(horizontal = 10.dp, vertical = 4.dp)
+            .padding(horizontal = 12.dp, vertical = 4.dp)
             .scale(scale)
-            .clip(RoundedCornerShape(radius))
-            .background(palette.bg1)
+            .clip(RoundedCornerShape(radius.dp))
+            .background(bg)
+            .then(
+                if (isExecuting) Modifier.shadow(
+                    elevation = if (expanded) 8.dp else 4.dp,
+                    shape = RoundedCornerShape(radius.dp),
+                    clip = false,
+                    ambientColor = palette.accent.copy(alpha = 0.15f),
+                    spotColor = palette.accent.copy(alpha = 0.2f),
+                ) else Modifier
+            )
             .combinedClickable(
                 interactionSource = interactionSource,
                 indication = null,
@@ -337,15 +418,18 @@ fun TaskRowCard(
                 onLongClick = onLongClick,
             )
     ) {
-        // Glow bar (left edge) for executing states
-        if (data.visualState == TaskRowVisualState.EXECUTING_PLAY ||
-            data.visualState == TaskRowVisualState.EXECUTING_FADE
-        ) {
+        // Glow bar (left edge) for executing states — extends full card height
+        if (isExecuting) {
             GlowBar(palette)
         }
 
         Column(
-            modifier = Modifier.padding(TaskRowTokens.cardPadding),
+            modifier = Modifier
+                .padding(
+                    horizontal = TaskRowTokens.cardPaddingH,
+                    vertical = TaskRowTokens.cardPaddingV,
+                )
+                .animateContentSize(animationSpec = tween(300)),
         ) {
             // Line 1: dot + title + wave + chip + switch
             Row(
@@ -373,7 +457,7 @@ fun TaskRowCard(
                     WaveBars(palette)
                 }
 
-                Chip(data.phaseLabel, palette)
+                Chip(data.phaseLabel, data.visualState, palette)
 
                 if (onToggle != null) {
                     Switch(
@@ -390,46 +474,77 @@ fun TaskRowCard(
                 }
             }
 
-            // Line 2: time range on its own line
-            Text(
-                text = "${data.startTimeText} → ${data.closeTimeText}",
-                fontSize = 11.5.sp,
-                fontWeight = FontWeight.Medium,
-                color = if (data.visualState == TaskRowVisualState.CANCELLED ||
-                    data.visualState == TaskRowVisualState.COMPLETED
-                ) palette.t3 else palette.t2,
-                fontFamily = FontFamily.Monospace,
-                modifier = Modifier.padding(start = 19.dp, top = 1.dp),
-            )
-
-            // Expanded section
-            if (expanded) {
-                Spacer(Modifier.height(13.dp))
-
-                // Status label
+            // Line 2: time range + repeat summary on its own line
+            Row(
+                verticalAlignment = Alignment.CenterVertically,
+                modifier = Modifier
+                    .padding(start = 19.dp, top = 2.dp),
+            ) {
                 Text(
-                    text = "● ${data.phaseLabel}",
-                    fontSize = 10.5.sp,
-                    fontWeight = FontWeight.SemiBold,
-                    color = palette.stagText,
-                    letterSpacing = 0.5.sp,
+                    text = "${data.startTimeText} → ${data.closeTimeText}",
+                    fontSize = 11.5.sp,
+                    fontWeight = FontWeight.Medium,
+                    color = if (data.visualState == TaskRowVisualState.CANCELLED ||
+                        data.visualState == TaskRowVisualState.COMPLETED
+                    ) palette.t3 else palette.t2,
+                    fontFamily = FontFamily.Monospace,
                 )
+                Spacer(Modifier.width(8.dp))
+                Text(
+                    text = "·",
+                    fontSize = 11.sp,
+                    color = palette.t3,
+                )
+                Spacer(Modifier.width(8.dp))
+                Text(
+                    text = data.repeatText,
+                    fontSize = 11.sp,
+                    color = if (data.visualState == TaskRowVisualState.CANCELLED ||
+                        data.visualState == TaskRowVisualState.COMPLETED
+                    ) palette.t3 else palette.t2,
+                )
+            }
 
-                Spacer(Modifier.height(11.dp))
+            // Expanded section with animated visibility
+            AnimatedVisibility(
+                visible = expanded,
+                enter = expandVertically(tween(300)) + fadeIn(tween(250)),
+                exit = shrinkVertically(tween(300)) + fadeOut(tween(200)),
+            ) {
+                Column {
+                    Spacer(Modifier.height(13.dp))
 
-                // Time grid 2x2 — flat Row + Column, no wrapper
-                TimeGrid(data, palette)
+                    // Status label with icon prefix
+                    Row(
+                        verticalAlignment = Alignment.CenterVertically,
+                        horizontalArrangement = Arrangement.spacedBy(4.dp),
+                    ) {
+                        StatusIcon(data.visualState, palette)
+                        Text(
+                            text = data.phaseLabel,
+                            fontSize = 10.5.sp,
+                            fontWeight = FontWeight.SemiBold,
+                            color = palette.stagText,
+                            letterSpacing = 0.5.sp,
+                        )
+                    }
 
-                Spacer(Modifier.height(11.dp))
+                    Spacer(Modifier.height(11.dp))
 
-                // Footer: volume + fades — flat Row
-                Row(
-                    modifier = Modifier.fillMaxWidth(),
-                    horizontalArrangement = Arrangement.SpaceBetween,
-                    verticalAlignment = Alignment.CenterVertically,
-                ) {
-                    VolumeBars(data.volumePercent, palette)
-                    FadeTags(data.fadeInSeconds, data.fadeOutSeconds, palette)
+                    // Time grid 2x2
+                    TimeGrid(data, palette)
+
+                    Spacer(Modifier.height(11.dp))
+
+                    // Footer: volume + fades
+                    Row(
+                        modifier = Modifier.fillMaxWidth(),
+                        horizontalArrangement = Arrangement.SpaceBetween,
+                        verticalAlignment = Alignment.CenterVertically,
+                    ) {
+                        VolumeBars(data.volumePercent, palette)
+                        FadeTags(data.fadeInSeconds, data.fadeOutSeconds, palette)
+                    }
                 }
             }
         }
@@ -437,14 +552,30 @@ fun TaskRowCard(
 }
 
 // ============================================================
-// Sub-components — each is a single Composable, no extra nesting
+// Sub-components
 // ============================================================
+
+@Composable
+private fun StatusIcon(state: TaskRowVisualState, palette: RowPalette) {
+    val icon = when (state) {
+        TaskRowVisualState.EXECUTING_PLAY -> "●"
+        TaskRowVisualState.EXECUTING_FADE -> "●"
+        TaskRowVisualState.PENDING -> "○"
+        TaskRowVisualState.COMPLETED -> "✓"
+        TaskRowVisualState.CANCELLED -> "✕"
+    }
+    Text(
+        text = icon,
+        fontSize = 10.5.sp,
+        color = palette.stagText,
+    )
+}
 
 @Composable
 private fun GlowBar(palette: RowPalette) {
     val transition = rememberInfiniteTransition(label = "glow")
     val alpha by transition.animateFloat(
-        initialValue = 0.5f,
+        initialValue = 0.4f,
         targetValue = 1f,
         animationSpec = infiniteRepeatable(
             animation = tween(2500, easing = LinearEasing),
@@ -455,7 +586,7 @@ private fun GlowBar(palette: RowPalette) {
     Box(
         modifier = Modifier
             .width(3.dp)
-            .height(44.dp)
+            .fillMaxHeight()
             .background(
                 color = palette.accent.copy(alpha = alpha),
                 shape = RoundedCornerShape(topEnd = 2.dp, bottomEnd = 2.dp),
@@ -469,21 +600,46 @@ private fun StatusDot(state: TaskRowVisualState, palette: RowPalette) {
         state == TaskRowVisualState.EXECUTING_FADE
     ) {
         val transition = rememberInfiniteTransition(label = "dot")
-        val scale by transition.animateFloat(
+        val pulseScale by transition.animateFloat(
             initialValue = 1f,
             targetValue = 1.3f,
             animationSpec = infiniteRepeatable(
-                animation = tween(900, easing = LinearEasing),
+                animation = tween(2000, easing = LinearEasing),
                 repeatMode = RepeatMode.Reverse,
             ),
-            label = "dot-scale",
+            label = "dot-pulse",
         )
+        // Outer glow ring — matches CSS box-shadow pulse
         Box(
             modifier = Modifier
-                .size((8 * scale).dp)
+                .size((8 * pulseScale + 8).dp)
                 .clip(CircleShape)
-                .background(palette.dotColor),
-        )
+                .background(palette.glowShadow.copy(alpha = 0.3f * pulseScale)),
+            contentAlignment = Alignment.Center,
+        ) {
+            Box(
+                modifier = Modifier
+                    .size(8.dp)
+                    .clip(CircleShape)
+                    .background(palette.dotColor),
+            )
+        }
+    } else if (state == TaskRowVisualState.PENDING || state == TaskRowVisualState.COMPLETED) {
+        // Static glow ring
+        Box(
+            modifier = Modifier
+                .size(16.dp)
+                .clip(CircleShape)
+                .background(palette.accentGlow.copy(alpha = 0.25f)),
+            contentAlignment = Alignment.Center,
+        ) {
+            Box(
+                modifier = Modifier
+                    .size(8.dp)
+                    .clip(CircleShape)
+                    .background(palette.dotColor),
+            )
+        }
     } else {
         Box(
             modifier = Modifier
@@ -525,13 +681,36 @@ private fun WaveBars(palette: RowPalette) {
 }
 
 @Composable
-private fun Chip(label: String, palette: RowPalette) {
-    Box(
+private fun Chip(label: String, state: TaskRowVisualState, palette: RowPalette) {
+    Row(
+        verticalAlignment = Alignment.CenterVertically,
         modifier = Modifier
             .clip(RoundedCornerShape(6.dp))
             .background(palette.chipBg)
             .padding(horizontal = 9.dp, vertical = 3.dp),
     ) {
+        // Blinking dot for executing states
+        if (state == TaskRowVisualState.EXECUTING_PLAY ||
+            state == TaskRowVisualState.EXECUTING_FADE
+        ) {
+            val transition = rememberInfiniteTransition(label = "chip-dot")
+            val alpha by transition.animateFloat(
+                initialValue = 1f,
+                targetValue = 0.25f,
+                animationSpec = infiniteRepeatable(
+                    animation = tween(1000, easing = LinearEasing),
+                    repeatMode = RepeatMode.Reverse,
+                ),
+                label = "chip-dot-alpha",
+            )
+            Box(
+                modifier = Modifier
+                    .padding(end = 5.dp)
+                    .size(5.dp)
+                    .clip(CircleShape)
+                    .background(palette.chipText.copy(alpha = alpha)),
+            )
+        }
         Text(
             text = label,
             fontSize = 11.sp,
@@ -539,22 +718,6 @@ private fun Chip(label: String, palette: RowPalette) {
             color = palette.chipText,
         )
     }
-}
-
-@Composable
-private fun Chevron(expanded: Boolean, palette: RowPalette) {
-    val rotation by animateFloatAsState(
-        targetValue = if (expanded) 90f else 0f,
-        animationSpec = tween(300),
-        label = "chev",
-    )
-    // Simple arrow drawn with rotation
-    Text(
-        text = "›",
-        fontSize = 16.sp,
-        color = palette.t3,
-        modifier = Modifier,
-    )
 }
 
 @Composable
@@ -595,7 +758,10 @@ private fun TimeCell(
     Column(
         modifier = modifier
             .background(palette.bg1)
-            .padding(TaskRowTokens.gridCellPadding),
+            .padding(
+                horizontal = TaskRowTokens.gridCellPaddingH,
+                vertical = TaskRowTokens.gridCellPaddingV,
+            ),
         verticalArrangement = Arrangement.spacedBy(3.dp),
     ) {
         Text(
@@ -631,12 +797,21 @@ private fun VolumeBars(percent: Int, palette: RowPalette) {
         for (i in 0 until barCount) {
             val height = (4 + i * 1.5f).dp
             val isFilled = i < filledBars
+            val fillBrush = if (isFilled) {
+                Brush.verticalGradient(
+                    colors = listOf(palette.accentStart, palette.accentEnd),
+                )
+            } else {
+                Brush.verticalGradient(
+                    colors = listOf(palette.t3.copy(alpha = 0.4f), palette.t3.copy(alpha = 0.25f)),
+                )
+            }
             Box(
                 modifier = Modifier
                     .width(3.dp)
                     .height(height)
                     .clip(RoundedCornerShape(1.dp))
-                    .background(if (isFilled) palette.accent else palette.t3.copy(alpha = 0.4f)),
+                    .background(fillBrush),
             )
         }
         Spacer(Modifier.width(5.dp))

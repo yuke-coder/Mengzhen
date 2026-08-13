@@ -2193,6 +2193,7 @@ class AudioPlaybackService : Service() {
         private const val SHUFFLE_HISTORY = "qq_shuffle_play_history"
         private const val PENDING_SOUND_EFFECT = "pending_sound_effect"
         private const val PENDING_AUTO_CONTINUE = "pending_auto_continue"
+        private const val PENDING_LOCK_SCREEN_CONTROL = "pending_lock_screen_control"
         private const val EXTRA_PLAYBACK_SPEED = "playback_speed"
         private const val EXTRA_PLAYBACK_MODE = "playback_mode"
         private const val EXTRA_SOUND_EFFECT = "sound_effect"
@@ -2211,13 +2212,21 @@ class AudioPlaybackService : Service() {
         fun getCurrentQueueIds(): List<String> =
             instance?.playlist?.map(Track::id).orEmpty()
 
-        /** QQ 音乐播放列表“批量下载”的最小宿主桥；与正常播放共用同一缓存。 */
-        fun cacheAudio(context: Context, audioUrl: String): Boolean =
+        fun cacheAudioUri(context: Context, audioUrl: String): String? =
             downloadAudioToCache(
                 context = context.applicationContext,
                 audioUrl = audioUrl,
                 persistent = true,
-            ) != null
+            )?.let(Uri::fromFile)?.toString()
+
+        fun getCachedAudioUri(context: Context, audioUrl: String): String? =
+            audioDownloadCacheFile(
+                context = context.applicationContext,
+                audioUrl = audioUrl,
+                persistent = true,
+            ).takeIf { it.isFile && it.length() > 0L }
+                ?.let(Uri::fromFile)
+                ?.toString()
 
         fun getTransientCacheSize(context: Context): Long {
             val appContext = context.applicationContext
@@ -2577,6 +2586,14 @@ class AudioPlaybackService : Service() {
                     .putExtra(EXTRA_AUTO_CONTINUE, enabled)
                 sendIntent(context, intent)
             }
+        }
+
+        fun setLockScreenControl(context: Context, enabled: Boolean) {
+            context.applicationContext
+                .getSharedPreferences(PLAYBACK_PREFS, Context.MODE_PRIVATE)
+                .edit()
+                .putBoolean(PENDING_LOCK_SCREEN_CONTROL, enabled)
+                .apply()
         }
 
         fun setSkipHeadTail(

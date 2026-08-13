@@ -62,16 +62,18 @@ internal fun BiliOfflineToolbar(
             val search = toolbar.menu.findItem(R.id.offline_video_search)
             val settings = toolbar.menu.findItem(R.id.offline_video_setting)
             val edit = toolbar.menu.findItem(R.id.offline_video_edit)
-            search.isVisible = !editMode
-            settings.isVisible = !editMode
-            edit.isVisible = canEdit
-            edit.title = if (editMode) "取消" else "编辑"
-            edit.icon = if (editMode) {
-                null
-            } else {
-                ContextCompat.getDrawable(toolbar.context, R.drawable.ic_download_edit)
+            search?.isVisible = !editMode
+            settings?.isVisible = !editMode
+            edit?.let {
+                it.isVisible = canEdit
+                it.title = if (editMode) "取消" else "编辑"
+                it.icon = if (editMode) {
+                    null
+                } else {
+                    ContextCompat.getDrawable(toolbar.context, R.drawable.ic_download_edit)
+                }
             }
-            listOf(search, settings, edit).forEach { item ->
+            listOf(search, settings, edit).filterNotNull().forEach { item ->
                 item.icon?.let { icon ->
                     DrawableCompat.setTint(
                         icon.mutate(),

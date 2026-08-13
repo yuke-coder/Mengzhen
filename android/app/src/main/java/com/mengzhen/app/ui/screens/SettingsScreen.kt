@@ -7,10 +7,8 @@ import androidx.compose.material3.*
 import androidx.compose.runtime.*
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.platform.LocalContext
-import androidx.compose.ui.viewinterop.AndroidView
 import androidx.compose.ui.unit.dp
 import androidx.navigation.NavController
-import com.mengzhen.app.R
 import com.mengzhen.app.data.api.ApiClient
 import com.mengzhen.app.data.model.PlaybackDraft
 import com.mengzhen.app.data.store.TaskStore
@@ -83,11 +81,6 @@ fun SettingsScreen(navController: NavController) {
                     }
                 }
                 item {
-                    AppSettingsEntry(
-                        onClick = { navController.navigate(Screen.AppSettings.route) },
-                    )
-                }
-                item {
                     BiliHomeAvatarSettingsSection(
                         onClick = {
                             navController.navigate(Screen.HomeAvatarDestination.route)
@@ -99,19 +92,3 @@ fun SettingsScreen(navController: NavController) {
     }
 }
 
-@Composable
-private fun AppSettingsEntry(onClick: () -> Unit) {
-    AndroidView(
-        modifier = Modifier
-            .fillMaxWidth()
-            .padding(horizontal = 16.dp, vertical = 4.dp),
-        factory = { context ->
-            android.view.LayoutInflater.from(context)
-                .inflate(R.layout.ximalaya_settings_permission_entries, null, false)
-        },
-        update = { root ->
-            root.findViewById<android.view.View>(R.id.main_app_setting)
-                .setOnClickListener { onClick() }
-        },
-    )
-}

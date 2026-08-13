@@ -42,6 +42,7 @@ class AppSettingsStore private constructor(context: Context) {
         const val KEY_PUSH_RESERVATION = "pushReservation"
         const val KEY_PUSH_SUBSCRIBE = "pushSubscribe"
         const val KEY_PERSONALIZED_CONTENT = "personalized_content_recommend"
+        const val KEY_QUICK_LOGIN = "key_quick_login"
 
         private const val PREFERENCES_NAME = "setting"
 

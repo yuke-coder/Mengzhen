@@ -33,6 +33,7 @@ import com.ximalaya.ting.android.main.view.LinearItemDecoration
 @Composable
 internal fun XimalayaSourceMoreActionSheet(
     liked: Boolean,
+    downloaded: Boolean,
     notePreview: String?,
     onAction: (XimalayaMoreAction) -> Unit,
     onDismiss: () -> Unit,
@@ -41,10 +42,11 @@ internal fun XimalayaSourceMoreActionSheet(
     val currentAction by rememberUpdatedState(onAction)
     val currentDismiss by rememberUpdatedState(onDismiss)
 
-    DisposableEffect(context, liked, notePreview) {
+    DisposableEffect(context, liked, downloaded, notePreview) {
         val dialog = createXimalayaMoreActionDialog(
             context = context,
             liked = liked,
+            downloaded = downloaded,
             notePreview = notePreview,
             onAction = { action ->
                 currentAction(action)
@@ -98,6 +100,7 @@ private data class MoreActionItem(
 private fun createXimalayaMoreActionDialog(
     context: Context,
     liked: Boolean,
+    downloaded: Boolean,
     notePreview: String?,
     onAction: (XimalayaMoreAction) -> Unit,
     onDismiss: () -> Unit,
@@ -159,7 +162,7 @@ private fun createXimalayaMoreActionDialog(
             "下载节目",
             R.drawable.arg_res_0x7f0823e3,
             XimalayaMoreAction.DOWNLOAD,
-            subtitle = "已下载",
+            subtitle = if (downloaded) "已下载" else null,
         ),
         MoreActionItem(
             "连接外设",
