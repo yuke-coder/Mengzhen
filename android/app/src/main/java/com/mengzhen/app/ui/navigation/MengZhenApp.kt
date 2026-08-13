@@ -1,5 +1,7 @@
 package com.mengzhen.app.ui.navigation
 
+import androidx.compose.animation.EnterTransition
+import androidx.compose.animation.ExitTransition
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.WindowInsets
 import androidx.compose.foundation.layout.consumeWindowInsets
@@ -37,7 +39,7 @@ import com.mengzhen.app.ui.screens.LandingScreen
 import com.mengzhen.app.ui.screens.LoginScreen
 import com.mengzhen.app.ui.screens.PermissionSettingsScreen
 import com.mengzhen.app.ui.screens.PermissionTutorialScreen
-import com.mengzhen.app.ui.screens.QqMusicPersonalInfoScreen
+import com.mengzhen.app.ui.screens.QqMusicMineHomeScreen
 import com.mengzhen.app.ui.screens.SettingsScreen
 import com.mengzhen.app.ui.screens.TemplatesScreen
 import com.mengzhen.app.ui.screens.XimalayaAlarmEditorScreen
@@ -47,7 +49,10 @@ import com.mengzhen.app.ui.screens.XimalayaAlarmRingScreen
 import com.mengzhen.app.ui.screens.XimalayaAudioSearchScreen
 import com.mengzhen.app.ui.screens.XimalayaSoundDetailsScreen
 import com.mengzhen.app.ui.screens.XimalayaSystemPermissionScreen
-
+import com.mengzhen.app.ui.screens.XimalayaPersonalEditScreen
+import com.mengzhen.app.ui.screens.XimalayaAccountSafetyScreen
+import com.mengzhen.app.ui.screens.XimalayaListeningPreferenceScreen
+import com.mengzhen.app.ui.screens.XimalayaLockScreenSettingsScreen
 private val topLevelRoutes = setOf(
     Screen.Settings.route,
     Screen.BiliCache.route,
@@ -114,6 +119,10 @@ fun MengZhenApp(
                 } else {
                     Screen.Settings.route
                 },
+                enterTransition = { EnterTransition.None },
+                exitTransition = { ExitTransition.None },
+                popEnterTransition = { EnterTransition.None },
+                popExitTransition = { ExitTransition.None },
             ) {
                 composable(Screen.Landing.route) {
                     LandingScreen(
@@ -273,7 +282,10 @@ fun MengZhenApp(
                     XimalayaAlarmHelpScreen(navController)
                 }
                 composable(Screen.Profile.route) {
-                    QqMusicPersonalInfoScreen(navController)
+                    QqMusicMineHomeScreen(navController)
+                }
+                composable(Screen.ProfileEdit.route) {
+                    XimalayaPersonalEditScreen(navController)
                 }
                 composable(Screen.AppSettings.route) {
                     XimalayaAppSettingsScreen(navController)
@@ -378,6 +390,15 @@ fun MengZhenApp(
                 }
                 composable(Screen.SystemPermissions.route) {
                     XimalayaSystemPermissionScreen(navController)
+                }
+                composable(Screen.AccountSafety.route) {
+                    XimalayaAccountSafetyScreen(navController)
+                }
+                composable(Screen.ListeningPreference.route) {
+                    XimalayaListeningPreferenceScreen(navController)
+                }
+                composable(Screen.LockScreenSettings.route) {
+                    XimalayaLockScreenSettingsScreen(navController)
                 }
             }
             AppNoticeHost()

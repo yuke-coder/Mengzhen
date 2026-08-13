@@ -147,13 +147,13 @@ fun XimalayaAppSettingsScreen(navController: NavController) {
             root.bindSourceTitle("设置") { navController.popBackStack() }
 
             root.findViewById<View>(R.id.main_tv_account_safety).setOnClickListener {
-                navController.navigate(if (user == null) Screen.Login.route else Screen.Profile.route)
+                navController.navigate(Screen.AccountSafety.route)
             }
             root.findViewById<View>(R.id.main_privacySetting).setOnClickListener {
                 navController.navigate(Screen.PrivacySettings.route)
             }
             root.findViewById<View>(R.id.main_preferenceSetting).setOnClickListener {
-                navController.navigate(Screen.Settings.route) { launchSingleTop = true }
+                navController.navigate(Screen.ListeningPreference.route)
             }
             root.findViewById<View>(R.id.main_tv_mode_change).setOnClickListener {
                 chooseTheme()
@@ -238,7 +238,7 @@ fun XimalayaAppSettingsScreen(navController: NavController) {
             root.findViewById<View>(R.id.main_setting_dark_mode).setOnClickListener { chooseTheme() }
             root.findViewById<TextView>(R.id.main_tv_dark_mode).text = themeMode.label
             root.findViewById<View>(R.id.main_setting_lock_screen).setOnClickListener {
-                navController.navigate(Screen.PermissionSettings.createRoute())
+                navController.navigate(Screen.LockScreenSettings.route)
             }
             root.findViewById<TextView>(R.id.main_setting_lock_screen_open_tv).text = "播放时开启"
             root.findViewById<View>(R.id.main_tv_about).setOnClickListener {
@@ -389,7 +389,7 @@ fun XimalayaNotificationSettingsScreen(navController: NavController) {
     )
 }
 
-private fun View.bindSourceTitle(title: String, onBack: () -> Unit) {
+internal fun View.bindSourceTitle(title: String, onBack: () -> Unit) {
     findViewById<TextView>(R.id.ximalaya_title_text).text = title
     findViewById<View>(R.id.ximalaya_title_back).apply {
         visibility = View.VISIBLE
@@ -397,7 +397,7 @@ private fun View.bindSourceTitle(title: String, onBack: () -> Unit) {
     }
 }
 
-private fun CheckBox.bindChecked(checked: Boolean, onChanged: (Boolean) -> Unit) {
+internal fun CheckBox.bindChecked(checked: Boolean, onChanged: (Boolean) -> Unit) {
     setOnCheckedChangeListener(null)
     isChecked = checked
     setOnCheckedChangeListener { _, value -> onChanged(value) }

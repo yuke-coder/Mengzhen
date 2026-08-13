@@ -59,6 +59,7 @@ sealed class Screen(val route: String) {
     }
     object AlarmHelp : Screen("alarm_help")
     object Profile : Screen("profile")
+    object ProfileEdit : Screen("profile_edit")
     object AppSettings : Screen("app_settings")
     object PrivacySettings : Screen("privacy_settings")
     object NotificationSettings : Screen("notification_settings")
@@ -92,4 +93,7 @@ sealed class Screen(val route: String) {
             "permission_tutorial/${permissionKey.prefKey}"
     }
     object SystemPermissions : Screen("system_permissions")
+    object AccountSafety : Screen("account_safety")
+    object ListeningPreference : Screen("listening_preference")
+    object LockScreenSettings : Screen("lock_screen_settings")
 }

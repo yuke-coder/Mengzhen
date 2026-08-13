@@ -1,0 +1,229 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/arg_res_0x7f0605f6"
+    android:orientation="vertical">
+
+    <include
+        android:id="@+id/main_title_bar"
+        layout="@layout/ximalaya_alarm_title_bar"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/arg_res_0x7f0702b1" />
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:overScrollMode="never"
+        android:scrollbars="none">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:clipToPadding="false"
+            android:orientation="vertical"
+            android:paddingBottom="70dp">
+
+            <TextView
+                style="@style/XmSettingSourceSectionTitle"
+                android:text="收听偏好" />
+
+            <LinearLayout
+                android:id="@+id/preference_age_layout"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/arg_res_0x7f0805ad"
+                android:clickable="true"
+                android:focusable="true"
+                android:gravity="center_vertical"
+                android:minHeight="58dp"
+                android:orientation="horizontal"
+                android:paddingStart="13dp"
+                android:paddingEnd="15dp">
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:lines="1"
+                    android:text="年龄偏好"
+                    android:textColor="@color/arg_res_0x7f060191"
+                    android:textSize="15sp" />
+
+                <TextView
+                    android:id="@+id/preference_age_value"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textColor="@color/arg_res_0x7f06034d"
+                    android:textSize="14sp" />
+            </LinearLayout>
+
+            <View style="@style/XmSettingSourceDivider" />
+
+            <LinearLayout
+                android:id="@+id/preference_gender_layout"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/arg_res_0x7f0805ad"
+                android:clickable="true"
+                android:focusable="true"
+                android:gravity="center_vertical"
+                android:minHeight="58dp"
+                android:orientation="horizontal"
+                android:paddingStart="13dp"
+                android:paddingEnd="15dp">
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:lines="1"
+                    android:text="性别偏好"
+                    android:textColor="@color/arg_res_0x7f060191"
+                    android:textSize="15sp" />
+
+                <TextView
+                    android:id="@+id/preference_gender_value"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textColor="@color/arg_res_0x7f06034d"
+                    android:textSize="14sp" />
+            </LinearLayout>
+
+            <View style="@style/XmSettingSourceDivider" />
+
+            <LinearLayout
+                android:id="@+id/preference_category_layout"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/arg_res_0x7f0805ad"
+                android:clickable="true"
+                android:focusable="true"
+                android:gravity="center_vertical"
+                android:minHeight="58dp"
+                android:orientation="horizontal"
+                android:paddingStart="13dp"
+                android:paddingEnd="15dp">
+
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:lines="1"
+                        android:text="兴趣分类"
+                        android:textColor="@color/arg_res_0x7f060191"
+                        android:textSize="15sp" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="2dp"
+                        android:maxLines="2"
+                        android:text="选择你感兴趣的内容分类"
+                        android:textColor="@color/arg_res_0x7f060bb7"
+                        android:textSize="12sp" />
+                </LinearLayout>
+
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="15dp"
+                    android:contentDescription="进入"
+                    android:src="@drawable/xm_alarm_v9514_0x7f0804c7" />
+            </LinearLayout>
+
+            <View style="@style/XmSettingSourceDivider" />
+
+            <TextView
+                style="@style/XmSettingSourceSectionTitle"
+                android:text="播放偏好" />
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/arg_res_0x7f0805ad">
+
+                <TextView
+                    android:id="@+id/preference_auto_play_title"
+                    style="@style/XmSettingSourceFilledLinkRow"
+                    android:clickable="false"
+                    android:drawableEnd="@null"
+                    android:minHeight="30dp"
+                    android:text="自动播放推荐内容" />
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/preference_auto_play_title"
+                    android:layout_marginEnd="53dp"
+                    android:maxLines="2"
+                    android:paddingStart="15dp"
+                    android:paddingBottom="14dp"
+                    android:text="播放结束后自动推荐相似内容"
+                    android:textColor="@color/arg_res_0x7f060bb7"
+                    android:textSize="13sp" />
+
+                <CheckBox
+                    android:id="@+id/preference_cb_auto_play"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentEnd="true"
+                    android:layout_centerVertical="true"
+                    android:layout_marginEnd="15dp"
+                    android:background="@drawable/xm_alarm_v9514_0x7f080dd5"
+                    android:button="@null" />
+            </RelativeLayout>
+
+            <View style="@style/XmSettingSourceDivider" />
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/arg_res_0x7f0805ad">
+
+                <TextView
+                    android:id="@+id/preference_personalized_title"
+                    style="@style/XmSettingSourceFilledLinkRow"
+                    android:clickable="false"
+                    android:drawableEnd="@null"
+                    android:minHeight="30dp"
+                    android:text="个性化内容推荐" />
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/preference_personalized_title"
+                    android:layout_marginEnd="53dp"
+                    android:maxLines="2"
+                    android:paddingStart="15dp"
+                    android:paddingBottom="14dp"
+                    android:text="关闭后将不再依据播放记录调整内容顺序"
+                    android:textColor="@color/arg_res_0x7f060bb7"
+                    android:textSize="13sp" />
+
+                <CheckBox
+                    android:id="@+id/preference_cb_personalized"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentEnd="true"
+                    android:layout_centerVertical="true"
+                    android:layout_marginEnd="15dp"
+                    android:background="@drawable/xm_alarm_v9514_0x7f080dd5"
+                    android:button="@null" />
+            </RelativeLayout>
+
+            <View style="@style/XmSettingSourceDivider" />
+
+            <TextView
+                android:id="@+id/preference_clear_history"
+                style="@style/XmSettingSourceFilledLinkRow"
+                android:text="重置收听偏好" />
+        </LinearLayout>
+    </ScrollView>
+</LinearLayout>

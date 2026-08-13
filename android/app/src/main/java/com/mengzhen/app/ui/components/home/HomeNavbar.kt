@@ -160,10 +160,11 @@ fun HomeUserMenu(navController: NavController) {
         scope.launch(Dispatchers.IO) {
             try {
                 val res = api.me()
-                if (res.optBoolean("success", false)) {
+                if (res.optBoolean("authenticated", false)) {
                     val fresh = parseUser(res)
-                    if (fresh == null) store.clearSession()
-                    else store.saveUserSession("cookie_session", fresh)
+                    if (fresh != null) store.saveUserSession("cookie_session", fresh)
+                } else if (res.optBoolean("authenticated", true) == false) {
+                    store.clearSession()
                 }
             } catch (_: Exception) {
             }
@@ -236,7 +237,7 @@ fun HomeUserMenu(navController: NavController) {
         ) {
             UserProfileCard(u, onEditProfile = {
                 expanded = false
-                navController.navigate(Screen.Profile.route)
+                navController.navigate(Screen.ProfileEdit.route)
             })
 
             // 菜单项

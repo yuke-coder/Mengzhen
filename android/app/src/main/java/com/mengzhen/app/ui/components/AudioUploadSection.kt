@@ -575,9 +575,9 @@ fun AudioUploadSection(
                                 contentPadding = PaddingValues(horizontal = 8.dp, vertical = 4.dp),
                             ) {
                                 if (anySaving) {
-                                    CircularProgressIndicator(
-                                        modifier = Modifier.size(14.dp),
-                                        strokeWidth = 2.dp,
+                                    ChatGptLoadingSpinner(
+                                        size = 16.dp,
+                                        loadingDescription = "正在保存全部音频",
                                     )
                                     Spacer(Modifier.width(4.dp))
                                     Text("保存中...", fontSize = 12.sp)
@@ -803,9 +803,9 @@ fun AudioUploadSection(
                                         modifier = Modifier.size(42.dp),
                                     ) {
                                         if (saving) {
-                                            CircularProgressIndicator(
-                                                modifier = Modifier.size(16.dp),
-                                                strokeWidth = 2.dp,
+                                            ChatGptLoadingSpinner(
+                                                size = 18.dp,
+                                                loadingDescription = "正在保存音频",
                                             )
                                         } else {
                                             Icon(
@@ -826,10 +826,10 @@ fun AudioUploadSection(
                                         .padding(start = 76.dp, end = 42.dp, bottom = 8.dp),
                                     verticalAlignment = Alignment.CenterVertically,
                                 ) {
-                                    CircularProgressIndicator(
-                                        modifier = Modifier.size(12.dp),
-                                        strokeWidth = 1.5.dp,
+                                    ChatGptLoadingSpinner(
+                                        size = 14.dp,
                                         color = Color(0xFFFF4444),
+                                        loadingDescription = "正在上传音频",
                                     )
                                     Spacer(Modifier.width(6.dp))
                                     Text(

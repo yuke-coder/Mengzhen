@@ -62,7 +62,7 @@ import com.mengzhen.app.ui.theme.LocalIsDarkTheme
 import com.mengzhen.app.ui.theme.LocalThemeMode
 import com.mengzhen.app.ui.theme.ThemeMode
 import com.mengzhen.app.ui.theme.ThemeModeStore
-import com.tencent.qqmusic.business.playernew.view.playersong.thememode.ih as QqThemeModePopupWindow
+import com.tencent.qqmusic.business.playernew.view.playersong.ai as QqThemeModePopupWindow
 import com.tencent.qqmusicplayerprocess.audio.playlist.y
 import com.ximalaya.ting.android.host.view.bar.RoundProgressBar
 import kotlinx.coroutines.launch
@@ -272,18 +272,54 @@ fun XimalayaSourceBottomNavigation(
                     false,
                 ).also { root ->
                     installTabLotties(root, darkTheme)
-                    root.findViewById<RadioGroup>(R.id.xm_main_tabs)
-                        .setOnCheckedChangeListener { group, checkedId ->
-                            group.tag = checkedId
-                            updateTabSelection(root, checkedId)
-                            val destination = when (checkedId) {
-                                R.id.xm_main_tab_cache -> Screen.BiliCache.route
-                                R.id.xm_main_tab_audio -> Screen.Tasks.route
-                                R.id.xm_main_tab_mine -> Screen.Profile.route
-                                else -> Screen.Settings.route
-                            }
-                            navigateTopLevel(navController, destination)
+                    val group = root.findViewById<RadioGroup>(R.id.xm_main_tabs)
+                    val destinationFor: (Int) -> String = { checkedId ->
+                        when (checkedId) {
+                            R.id.xm_main_tab_cache -> Screen.BiliCache.route
+                            R.id.xm_main_tab_audio -> Screen.Tasks.route
+                            R.id.xm_main_tab_mine -> Screen.Profile.route
+                            else -> Screen.Settings.route
                         }
+                    }
+                    group.setOnCheckedChangeListener { changedGroup, checkedId ->
+                        changedGroup.tag = checkedId
+                        updateTabSelection(root, checkedId)
+                    }
+                    listOf(
+                        R.id.xm_main_tab_home,
+                        R.id.xm_main_tab_cache,
+                        R.id.xm_main_tab_audio,
+                        R.id.xm_main_tab_mine,
+                    ).forEach { id ->
+                        root.findViewById<RadioButton>(id).setOnClickListener {
+                            if (group.checkedRadioButtonId != id) {
+                                group.check(id)
+                            } else {
+                                group.tag = id
+                                updateTabSelection(root, id)
+                            }
+                            navigateTopLevel(navController, destinationFor(id))
+                        }
+                    }
+                    root.setOnTouchListener { view, event ->
+                        val slotWidth = view.width / 5f
+                        val slot = (event.x / slotWidth).toInt().coerceIn(0, 4)
+                        val id = when (slot) {
+                            0 -> R.id.xm_main_tab_home
+                            1 -> R.id.xm_main_tab_cache
+                            3 -> R.id.xm_main_tab_audio
+                            4 -> R.id.xm_main_tab_mine
+                            else -> null
+                        }
+                        if (id == null) {
+                            false
+                        } else {
+                            if (event.actionMasked == android.view.MotionEvent.ACTION_UP) {
+                                root.findViewById<RadioButton>(id).performClick()
+                            }
+                            true
+                        }
+                    }
                 }
             },
             modifier = Modifier.fillMaxWidth().height(63.dp),
@@ -344,7 +380,7 @@ fun XimalayaSourceBottomNavigation(
     }
 }
 
-private fun installTabLotties(root: View, darkTheme: Boolean) {
+internal fun installTabLotties(root: View, darkTheme: Boolean) {
     val folder = if (darkTheme) "lottie-night-v9514" else "lottie-v9514"
     val tabs = listOf(
         R.id.xm_main_tab_home to "bottom_tab_home_page_btn.json",
@@ -368,7 +404,7 @@ private fun installTabLotties(root: View, darkTheme: Boolean) {
     }
 }
 
-private fun updateTabSelection(root: View, checkedId: Int) {
+internal fun updateTabSelection(root: View, checkedId: Int) {
     listOf(
         R.id.xm_main_tab_home,
         R.id.xm_main_tab_cache,

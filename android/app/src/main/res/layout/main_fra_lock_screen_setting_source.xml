@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/arg_res_0x7f0605f6"
+    android:orientation="vertical">
+
+    <include
+        android:id="@+id/main_title_bar"
+        layout="@layout/ximalaya_alarm_title_bar"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/arg_res_0x7f0702b1" />
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:overScrollMode="never"
+        android:scrollbars="none">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:clipToPadding="false"
+            android:orientation="vertical"
+            android:paddingBottom="70dp">
+
+            <TextView
+                style="@style/XmSettingSourceSectionTitle"
+                android:text="锁屏显示" />
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/arg_res_0x7f0805ad">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:layout_marginStart="13dp"
+                    android:layout_marginEnd="53dp"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="锁屏显示"
+                        android:textColor="@color/arg_res_0x7f060191"
+                        android:textSize="15sp" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="2dp"
+                        android:maxLines="2"
+                        android:text="在锁屏界面显示播放控件"
+                        android:textColor="@color/arg_res_0x7f060bb7"
+                        android:textSize="12sp" />
+                </LinearLayout>
+
+                <CheckBox
+                    android:id="@+id/lock_screen_cb_enable"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentEnd="true"
+                    android:layout_centerVertical="true"
+                    android:layout_marginEnd="15dp"
+                    android:background="@drawable/xm_alarm_v9514_0x7f080dd5"
+                    android:button="@null" />
+            </RelativeLayout>
+
+            <View style="@style/XmSettingSourceDivider" />
+
+            <TextView
+                style="@style/XmSettingSourceSectionTitle"
+                android:text="锁屏设置" />
+
+            <TextView
+                android:id="@+id/lock_screen_notification_setting"
+                style="@style/XmSettingSourceFilledLinkRow"
+                android:text="锁屏通知权限" />
+
+            <View style="@style/XmSettingSourceDivider" />
+
+            <TextView
+                android:id="@+id/lock_screen_help"
+                style="@style/XmSettingSourceFilledLinkRow"
+                android:text="已设置锁屏但不显示？查看帮助" />
+        </LinearLayout>
+    </ScrollView>
+</LinearLayout>

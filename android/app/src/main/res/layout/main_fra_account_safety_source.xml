@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/arg_res_0x7f0605f6"
+    android:orientation="vertical">
+
+    <include
+        android:id="@+id/main_title_bar"
+        layout="@layout/ximalaya_alarm_title_bar"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/arg_res_0x7f0702b1" />
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:overScrollMode="never"
+        android:scrollbars="none">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:clipToPadding="false"
+            android:orientation="vertical"
+            android:paddingBottom="70dp">
+
+            <TextView
+                android:id="@+id/account_safety_bind"
+                style="@style/XmSettingSourceFilledLinkRow"
+                android:text="账号绑定" />
+
+            <View style="@style/XmSettingSourceDivider" />
+
+            <TextView
+                android:id="@+id/account_safety_change_password"
+                style="@style/XmSettingSourceFilledLinkRow"
+                android:text="设置密码" />
+
+            <View style="@style/XmSettingSourceDivider" />
+
+            <TextView
+                android:id="@+id/account_safety_device_manage"
+                style="@style/XmSettingSourceFilledLinkRow"
+                android:text="最近登录设备" />
+
+            <View style="@style/XmSettingSourceDivider" />
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <TextView
+                    style="@style/XmSettingSourceFilledLinkRow"
+                    android:clickable="false"
+                    android:drawableEnd="@null"
+                    android:text="允许快捷登录" />
+
+                <CheckBox
+                    android:id="@+id/account_safety_quick_login"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentEnd="true"
+                    android:layout_centerVertical="true"
+                    android:layout_marginEnd="15dp"
+                    android:background="@drawable/xm_alarm_v9514_0x7f080dd5"
+                    android:button="@null" />
+            </RelativeLayout>
+
+            <View style="@style/XmSettingSourceDivider" />
+
+            <TextView
+                android:id="@+id/account_safety_cancel_account"
+                style="@style/XmSettingSourceFilledLinkRow"
+                android:textColor="@color/arg_res_0x7f06034d"
+                android:text="注销账户" />
+
+            <View style="@style/XmSettingSourceDivider" />
+
+            <TextView
+                android:id="@+id/account_safety_faq"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:paddingTop="20dp"
+                android:paddingBottom="20dp"
+                android:text="常见问题"
+                android:textColor="@color/arg_res_0x7f06034d"
+                android:textSize="14sp" />
+        </LinearLayout>
+    </ScrollView>
+</LinearLayout>

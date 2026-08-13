@@ -11,6 +11,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.view.animation.Animation
+import android.view.animation.LinearInterpolator
 import android.view.animation.RotateAnimation
 import android.view.inputmethod.EditorInfo
 import android.view.inputmethod.InputMethodManager
@@ -104,13 +105,10 @@ fun LoginScreen(navController: NavController) {
                     )
                 }
                 if (result.optBoolean("success", false)) {
-                    val verified = api.me()
-                    val user = parseUser(verified)
+                    val user = parseUser(result)
                     if (user == null) {
-                        api.clearCookies()
-                        store.clearSession()
-                        val message = verified.optString("error")
-                            .ifBlank { verified.optString("message") }
+                        val message = result.optString("error")
+                            .ifBlank { result.optString("message") }
                             .ifBlank { "登录状态建立失败，请重试" }
                         withContext(Dispatchers.Main) {
                             AppNotice.error(context, message)
@@ -209,6 +207,10 @@ fun LoginScreen(navController: NavController) {
         val account = username.trim()
         if (account.isEmpty() || password.isEmpty()) {
             AppNotice.warning(context, "请输入用户名和密码")
+            return
+        }
+        if (account.length > 20) {
+            AppNotice.warning(context, "用户名不能超过 20 个字符")
             return
         }
         if (mode == SourceAuthMode.REGISTER && password.length < 6) {
@@ -571,6 +573,7 @@ private fun sourceLoadingAnimation(): Animation =
         0.5f,
     ).apply {
         duration = 1_000L
+        interpolator = LinearInterpolator()
         repeatCount = Animation.INFINITE
     }
 
