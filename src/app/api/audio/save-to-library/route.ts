@@ -67,3 +67,47 @@ export async function POST(request: NextRequest) {
     );
   }
 }
+
+export async function DELETE(request: NextRequest) {
+  try {
+    const user = await getAuthUser();
+    if (!user) {
+      return NextResponse.json({ success: false, error: "请先登录" }, { status: 401 });
+    }
+
+    const fileKey = request.nextUrl.searchParams.get("fileKey");
+    if (!fileKey) {
+      return NextResponse.json({ success: false, error: "缺少音频资源标识" }, { status: 400 });
+    }
+
+    const supabase = getSupabaseClient();
+    if (!supabase) {
+      return NextResponse.json({ success: false, error: "服务器配置错误" }, { status: 500 });
+    }
+
+    const updatedAt = new Date().toISOString();
+    const { data: audio, error } = await supabase
+      .from("audios")
+      .update({ library_saved_at: null, updated_at: updatedAt })
+      .eq("user_id", user.id)
+      .eq("file_key", fileKey)
+      .select("id")
+      .maybeSingle();
+
+    if (error) {
+      console.error("[save-to-library] 移除失败:", error);
+      return NextResponse.json({ success: false, error: "移出音频库失败，请重试" }, { status: 500 });
+    }
+    if (!audio) {
+      return NextResponse.json({ success: false, error: "音频资源不存在或不属于当前用户" }, { status: 404 });
+    }
+
+    return NextResponse.json({ success: true, savedToLibrary: false });
+  } catch (error) {
+    console.error("[save-to-library] 移除异常:", error);
+    return NextResponse.json(
+      { success: false, error: "移出音频库失败，请重试" },
+      { status: 500 }
+    );
+  }
+}

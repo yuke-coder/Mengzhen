@@ -108,3 +108,19 @@ logs/
 /xm_rev/
 /.gradle-codex/
 /artifacts/
+
+# Android build & Gradle caches
+android/.gradle/
+android/.gradle-*/
+android/build/
+android/app/build/
+android/qqmusic-runtime/build/
+android/app/build-setting-icon/
+
+# Device diagnostics & temp files
+android/diag_*
+android/device_*
+android/mz_*
+android/our_launch.png
+android/.device_*
+tmp_*

@@ -1,7 +1,12 @@
 import { NextRequest, NextResponse } from "next/server";
 import bcrypt from "bcryptjs";
 import { getSupabaseClient } from "@/lib/supabase-client";
-import { createSession, toAuthUser, type SessionUser } from "@/lib/session";
+import {
+  createSession,
+  MAX_USERNAME_LENGTH,
+  toAuthUser,
+  type SessionUser,
+} from "@/lib/session";
 import { verifyTurnstileToken } from "@/lib/turnstile";
 
 export const dynamic = "force-dynamic";
@@ -13,18 +18,25 @@ export async function POST(request: NextRequest) {
     const normalizedPassword = typeof password === "string" ? password : "";
     const normalizedTurnstileToken = typeof turnstileToken === "string" ? turnstileToken : "";
 
+    if (!normalizedUsername || !normalizedPassword) {
+      return NextResponse.json(
+        { success: false, error: "请填写用户名和密码" },
+        { status: 400 }
+      );
+    }
+
+    if (normalizedUsername.length > MAX_USERNAME_LENGTH) {
+      return NextResponse.json(
+        { success: false, error: `用户名不能超过 ${MAX_USERNAME_LENGTH} 个字符` },
+        { status: 400 },
+      );
+    }
+
     // 验证 Turnstile 人机验证
     if (!normalizedTurnstileToken || !(await verifyTurnstileToken(normalizedTurnstileToken))) {
       return NextResponse.json(
         { success: false, error: "人机验证失败，请重试" },
         { status: 403 }
-      );
-    }
-
-    if (!normalizedUsername || !normalizedPassword) {
-      return NextResponse.json(
-        { success: false, error: "请填写用户名和密码" },
-        { status: 400 }
       );
     }
 
@@ -70,7 +82,7 @@ export async function POST(request: NextRequest) {
     if (normalizedPassword.length < 6) {
       return NextResponse.json(
         { success: false, error: "新账号密码不能少于 6 位" },
-        { status: 400 }
+        { status: 400 },
       );
     }
 
@@ -97,7 +109,16 @@ export async function POST(request: NextRequest) {
       );
     }
 
-    await createSession(client, newUser.id);
+    try {
+      await createSession(client, newUser.id);
+    } catch (error) {
+      const { error: rollbackError } = await client
+        .from("users")
+        .delete()
+        .eq("id", newUser.id);
+      if (rollbackError) console.error("回滚注册用户失败:", rollbackError);
+      throw error;
+    }
     return NextResponse.json({
       success: true,
       message: "注册成功",

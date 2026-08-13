@@ -1,13 +1,13 @@
 "use client";
 
-import { useState } from "react";
+import { useRef, useState } from "react";
 import type { FormEvent, ReactNode } from "react";
 import { useRouter } from "next/navigation";
 import { Eye, EyeOff, LogIn } from "lucide-react";
 import { Spinner } from "@/components/ui/spinner";
 import { useAuth } from "@/lib/auth-context";
 import { toast } from "@/components/sonner";
-import { Turnstile } from "@marsidev/react-turnstile";
+import { Turnstile, type TurnstileInstance } from "@marsidev/react-turnstile";
 
 export function MobileAuthPanel() {
   const [username, setUsername] = useState("");
@@ -15,6 +15,7 @@ export function MobileAuthPanel() {
   const [showPassword, setShowPassword] = useState(false);
   const [loading, setLoading] = useState(false);
   const [turnstileToken, setTurnstileToken] = useState<string | null>(null);
+  const turnstileRef = useRef<TurnstileInstance | null>(null);
   const router = useRouter();
   const auth = useAuth();
 
@@ -28,9 +29,11 @@ export function MobileAuthPanel() {
 
     setLoading(true);
     const result = await auth.loginOrRegister(username.trim(), password, turnstileToken || undefined);
+    turnstileRef.current?.reset();
+    setTurnstileToken(null);
     setLoading(false);
 
-    if (result.success) router.push("/");
+    if (result.success) router.replace("/");
     else toast.error(result.message);
   };
 
@@ -49,6 +52,7 @@ export function MobileAuthPanel() {
             <Field label="用户名">
               <input
                 value={username}
+                maxLength={20}
                 onChange={(event) => setUsername(event.target.value)}
                 autoComplete="username"
                 disabled={loading}
@@ -71,11 +75,12 @@ export function MobileAuthPanel() {
             </Field>
 
             <Turnstile
+              ref={turnstileRef}
               siteKey={process.env.NEXT_PUBLIC_TURNSTILE_SITE_KEY!}
               onSuccess={(token) => setTurnstileToken(token)}
               onExpire={() => setTurnstileToken(null)}
               onError={() => setTurnstileToken(null)}
-              options={{ theme: 'light' }}
+              options={{ theme: 'light', action: 'auth' }}
             />
 
             <button

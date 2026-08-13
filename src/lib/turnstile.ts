@@ -11,6 +11,13 @@ interface TurnstileVerifyResponse {
   cdata?: string;
 }
 
+export class TurnstileServiceUnavailableError extends Error {
+  constructor(message: string, cause?: unknown) {
+    super(message, { cause });
+    this.name = 'TurnstileServiceUnavailableError';
+  }
+}
+
 /**
  * 验证 Turnstile token
  * @param token 前端传来的 Turnstile token
@@ -19,8 +26,7 @@ interface TurnstileVerifyResponse {
 export async function verifyTurnstileToken(token: string): Promise<boolean> {
   const secretKey = process.env.TURNSTILE_SECRET_KEY;
   if (!secretKey) {
-    console.error('TURNSTILE_SECRET_KEY 未配置');
-    return false;
+    throw new TurnstileServiceUnavailableError('TURNSTILE_SECRET_KEY 未配置');
   }
 
   try {
@@ -36,10 +42,26 @@ export async function verifyTurnstileToken(token: string): Promise<boolean> {
       }
     );
 
+    if (!response.ok) {
+      throw new TurnstileServiceUnavailableError(`Turnstile 服务返回 ${response.status}`);
+    }
     const data: TurnstileVerifyResponse = await response.json();
-    return data.success;
+    if (!data.success || data.action !== 'auth') return false;
+
+    const configuredHost = new URL(
+      process.env.NEXT_PUBLIC_SITE_URL || 'https://driftcue.com',
+    ).hostname;
+    const allowedHosts = new Set([
+      configuredHost,
+      'driftcue.com',
+      'www.driftcue.com',
+      'localhost',
+      '127.0.0.1',
+    ]);
+    return Boolean(data.hostname && allowedHosts.has(data.hostname));
   } catch (error) {
+    if (error instanceof TurnstileServiceUnavailableError) throw error;
     console.error('Turnstile 验证请求失败:', error);
-    return false;
+    throw new TurnstileServiceUnavailableError('Turnstile 服务暂时不可用', error);
   }
 }

@@ -4,6 +4,7 @@ import type { SupabaseClient } from "@supabase/supabase-js";
 
 export const SESSION_COOKIE_NAME = "mengzhen_session";
 export const SESSION_MAX_AGE = 365 * 24 * 60 * 60;
+export const MAX_USERNAME_LENGTH = 20;
 
 export interface SessionUser {
   id: string | number;
@@ -34,12 +35,17 @@ export async function createSession(client: SupabaseClient, userId: string | num
     throw new Error("创建登录会话失败", { cause: error });
   }
 
-  const cookieStore = await cookies();
-  cookieStore.set(SESSION_COOKIE_NAME, token, {
-    httpOnly: true,
-    secure: process.env.NODE_ENV !== "development",
-    sameSite: "lax",
-    maxAge: SESSION_MAX_AGE,
-    path: "/",
-  });
+  try {
+    const cookieStore = await cookies();
+    cookieStore.set(SESSION_COOKIE_NAME, token, {
+      httpOnly: true,
+      secure: process.env.NODE_ENV !== "development",
+      sameSite: "lax",
+      maxAge: SESSION_MAX_AGE,
+      path: "/",
+    });
+  } catch (error) {
+    await client.from("sessions").delete().eq("token", token);
+    throw error;
+  }
 }

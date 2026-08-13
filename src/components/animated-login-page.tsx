@@ -9,7 +9,7 @@ import { Spinner } from "@/components/ui/spinner";
 import { useIsMobile } from "@/hooks/use-mobile";
 import { toast } from "@/components/sonner";
 import { Eye, EyeOff, LogIn } from "lucide-react";
-import { Turnstile } from '@marsidev/react-turnstile';
+import { Turnstile, type TurnstileInstance } from '@marsidev/react-turnstile';
 
 interface PupilProps {
   size?: number;
@@ -162,6 +162,7 @@ function DesktopLoginPage() {
   const [isLookingAtEachOther, setIsLookingAtEachOther] = useState(false);
   const [isPurplePeeking, setIsPurplePeeking] = useState(false);
   const [turnstileToken, setTurnstileToken] = useState<string | null>(null);
+  const turnstileRef = useRef<TurnstileInstance | null>(null);
   const purpleRef = useRef<HTMLDivElement>(null);
   const blackRef = useRef<HTMLDivElement>(null);
   const yellowRef = useRef<HTMLDivElement>(null);
@@ -285,11 +286,13 @@ function DesktopLoginPage() {
     setIsLoading(true);
 
     const result = await login(username, password, turnstileToken || undefined);
+    turnstileRef.current?.reset();
+    setTurnstileToken(null);
     setIsLoading(false);
 
     if (result.success) {
       // login 函数已自动刷新用户状态
-      router.push('/');
+      router.replace('/');
     } else {
       toast.error(result.message);
     }
@@ -508,6 +511,7 @@ function DesktopLoginPage() {
                 type="text"
                 placeholder="请输入用户名"
                 value={username}
+                maxLength={20}
                 autoComplete="off"
                 onChange={(e) => setUsername(e.target.value)}
                 onFocus={() => setIsTyping(true)}
@@ -546,11 +550,12 @@ function DesktopLoginPage() {
 
 
             <Turnstile
+              ref={turnstileRef}
               siteKey={process.env.NEXT_PUBLIC_TURNSTILE_SITE_KEY!}
               onSuccess={(token) => setTurnstileToken(token)}
               onExpire={() => setTurnstileToken(null)}
               onError={() => setTurnstileToken(null)}
-              options={{ theme: 'light' }}
+              options={{ theme: 'light', action: 'auth' }}
             />
 
             <button 
