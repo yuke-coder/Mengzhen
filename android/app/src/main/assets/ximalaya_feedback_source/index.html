@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="utf-8">
+    <!-- 解决 ip 数字颜色问题 -->
+    <meta name="format-detection" content="telephone = no"/>
+    <meta http-equiv="X-UA-Compatible" content="chrome=1,IE=edge">
+    <meta name="title" content="">
+    <meta name="description" content="梦枕评价反馈">
+    <meta name="viewport"
+          content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=0,viewport-fit=cover">
+    <link href="/assets/ximalaya_feedback_source/index.css" rel="stylesheet" type="text/css"/>
+    <link href="/assets/ximalaya_feedback_source/vendor.css" rel="stylesheet" type="text/css"/>
+    <script>
+        (function (a) {
+            var b = a.FormData.prototype["append"];
+            a.FormData.prototype["append"] = function () {
+                if (!this._entries) {
+                    this._entries = []
+                }
+                this._entries.push(arguments);
+                return b.apply(this, arguments)
+            }
+        })(window);
+    </script>
+</head>
+
+<body>
+<div id="root"></div>
+<!--<script src="https://res.wx.qq.com/mmbizwap/zh_CN/htmledition/js/vconsole/3.0.0/vconsole.min.js"></script>-->
+<script>
+    window.imServerHost = null;
+    window.robotName = null;
+    window.channelActionConfig = null;
+    window.appId=null;
+    window.queueUpDisconnectCancelTime=null;
+    window.appName=null;
+    window.robotSessionEvaluateSolvedOpen=null;
+    window.flowTemplateIdEncrypt=null
+</script>
+
+<!--<script>-->
+<!--    // init vConsole-->
+<!--    var vConsole = new VConsole();-->
+<!--</script>-->
+<script src="/assets/ximalaya_feedback_source/bridge.js"></script>
+<script src="/assets/ximalaya_feedback_source/index.js"></script>
+<script src="/assets/ximalaya_feedback_source/vendor.js"></script>
+<script>
+
+    const recommendText = 'label[title*="您有多大意愿向他人推荐使用梦枕？"]';
+    const detractorsText = 'div[title="不推荐是因为哪些方面做的不好？"] input[value="#detractors#"]';
+    const passivesText = 'div[title="哪些方面还有待改善？"] input[value="#passives#"]';
+    const promotorsText = 'div[title="愿意推荐是因为哪些方面做的好？"] input[value="#promotors#"]';
+    const satOpen1Text = 'textarea[title="对我们有什么其他的建议/吐槽吗？（选填）"]';
+    const feedbackParams = new URLSearchParams(window.location.search);
+    const recommendValue = feedbackParams.get('recommendValue') || '-1';
+    const rateReasons = JSON.stringify(feedbackParams.get('rateReasons') || '');
+    const rateRemark = JSON.stringify(feedbackParams.get('rateRemark') || '');
+    console.log(rateReasons, rateRemark);
+
+    function isOneToTenParseInt(str) {
+        // 先判断转换后是否为NaN，再检查范围，同时确保转换后的值与原字符串去掉首尾空格的表示一致
+        const num = parseInt(str, 10);
+        return !isNaN(num) && num >= 0 && num <= 10 && num.toString() === str.trim();
+    }
+
+    // 等待 NPS 按钮组出现
+    function waitForNpsButtons(callback) {
+        // 目标容器选择器（根据图片）
+
+        // 如果已经存在，直接执行
+        const existingElement = document.querySelector(recommendText);
+        if (existingElement) {
+            callback(existingElement);
+            return;
+        }
+
+        // 创建观察器监听 DOM 变化
+        const observer = new MutationObserver((mutations, obs) => {
+            const npsGroup = document.querySelector(recommendText);
+            if (npsGroup) {
+                // 找到目标元素，停止观察并执行回调
+                obs.disconnect();
+                callback(npsGroup);
+            }
+        });
+
+        // 开始观察整个文档
+        observer.observe(document.body, {
+            childList: true,
+            subtree: true
+        });
+
+        // 设置超时，防止无限等待
+        setTimeout(() => {
+            observer.disconnect();
+            console.warn('等待 NPS 按钮超时');
+        }, 15000); // 15秒超时
+    }
+
+    const waitForElement = (selector, timeout = 500) => {
+        return new Promise((resolve) => {
+            const startTime = Date.now();
+
+            const check = () => {
+                const element = document.querySelector(selector);
+                if (element) {
+                    resolve(element);
+                } else if (Date.now() - startTime > timeout) {
+                    resolve(null);
+                } else {
+                    setTimeout(check, 100);
+                }
+            };
+
+            check();
+        });
+    };
+
+    // 使用示例
+    waitForNpsButtons((title) => {
+        if(isOneToTenParseInt(recommendValue)) {
+            if (title) {
+                // 2. 找到最近的包含所有按钮的容器
+                const npsContainer = title.closest('.fr-field').querySelector('.fr-nps-com-btn-group');
+
+                // 3. 找到第N个按钮
+                npsContainer.querySelectorAll('.fr-nps-button')[recommendValue].click();
+
+                //设置 不推荐、中立、推荐原因
+                const num = parseInt(recommendValue, 10);
+                if(num < 7) {
+
+                    rateReasons.slice(1, -1).split(',').forEach(item => {
+                        setTimeout(async () => {
+                            const selector = detractorsText.replace('#detractors#', item);
+                            const element = await waitForElement(selector, 600);
+
+                            if (element) {
+                                element.click();
+                                console.log(`已点击: ${item}`);
+                            } else {
+                                console.warn(`未找到: ${item}`);
+                            }
+                        }, 500);
+                    })
+                }else if(num < 9) {
+
+                    rateReasons.slice(1, -1).split(',').forEach(item => {
+                        setTimeout(async () => {
+                            const selector = passivesText.replace('#passives#', item);
+                            const element = await waitForElement(selector, 600);
+
+                            if (element) {
+                                element.click();
+                                console.log(`已点击: ${item}`);
+                            } else {
+                                console.warn(`未找到: ${item}`);
+                            }
+                        }, 500);
+
+                    })
+                }else {
+
+                    rateReasons.slice(1, -1).split(',').forEach(item => {
+                        setTimeout(async () => {
+                            const selector = promotorsText.replace('#promotors#', item);
+                            const element = await waitForElement(selector, 600);
+
+                            if (element) {
+                                element.click();
+                                console.log(`已点击: ${item}`);
+                            } else {
+                                console.warn(`未找到: ${item}`);
+                            }
+                        }, 500);
+                    })
+                }
+
+                //设置其他的建议/吐槽
+                if(rateRemark != '') {
+                    setTimeout(async () => {
+                        const element = await waitForElement(satOpen1Text, 600);
+
+                        if (element) {
+                            element.value = rateRemark.slice(1, -1);
+                        }
+                    }, 500);
+                }
+                //
+
+            }
+        }
+    });
+
+</script>
+</body>
+</html>

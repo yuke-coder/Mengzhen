@@ -63,6 +63,12 @@
             android:exported="false"
             android:theme="@style/AppTheme.TransparentChallenge" />
 
+        <activity
+            android:name="com.tencent.picker.activity.PictureSelectorActivity"
+            android:exported="false"
+            android:screenOrientation="portrait"
+            android:theme="@style/os" />
+
         <!-- QQ Music lock screen Activity (not declared by qqmusic-runtime manifest) -->
         <activity
             android:name="com.tencent.qqmusic.business.lockscreennew.LockScreenActivity"
@@ -155,6 +161,12 @@
     <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED" />
     <!-- Notification (Android 13+) -->
     <uses-permission android:name="android.permission.POST_NOTIFICATIONS" />
+    <!-- QQ Music source image picker reads the MediaStore grid directly. -->
+    <!-- targetSdk is currently 32, so Android 13+ still grants MediaStore access
+         through the legacy permission. Remove this once targetSdk moves to 33+. -->
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.READ_MEDIA_IMAGES" />
+    <uses-permission android:name="android.permission.READ_MEDIA_VISUAL_USER_SELECTED" />
     <!-- Keep CPU running during sleep for playback -->
     <uses-permission android:name="android.permission.REQUEST_IGNORE_BATTERY_OPTIMIZATIONS" />
     <!-- Phone state for pausing during calls -->

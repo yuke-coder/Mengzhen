@@ -4,16 +4,13 @@ import android.app.Activity
 import android.content.Context
 import android.graphics.Bitmap
 import android.graphics.Color
-import android.net.Uri
+import android.view.Gravity
 import android.view.LayoutInflater
 import android.view.View
-import android.view.ViewGroup
 import android.widget.Button
 import android.widget.FrameLayout
 import android.widget.ImageView
 import android.widget.TextView
-import androidx.activity.compose.rememberLauncherForActivityResult
-import androidx.activity.result.contract.ActivityResultContracts
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.fillMaxSize
@@ -28,14 +25,16 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color as ComposeColor
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.viewinterop.AndroidView
-import androidx.core.view.ViewCompat
+import androidx.appcompat.content.res.AppCompatResources
 import androidx.core.view.WindowCompat
-import androidx.core.view.WindowInsetsCompat
 import androidx.lifecycle.Observer
 import androidx.navigation.NavController
+import com.bumptech.glide.Glide
 import com.mengzhen.app.R as AppR
 import com.mengzhen.app.data.model.UserInfo
 import com.mengzhen.app.data.store.TaskStore
+import com.mengzhen.app.ui.components.main.absoluteAvatarUrl
+import com.mengzhen.app.ui.components.rememberQqMusicImagePicker
 import com.mengzhen.app.ui.navigation.Screen
 import com.tencent.component.widget.AsyncEffectImageView
 import com.tencent.component.widget.AsyncImageView
@@ -58,10 +57,8 @@ fun QqMusicMineHomeScreen(navController: NavController) {
     val scope = rememberCoroutineScope()
     val user by store.sessionUser.collectAsState()
     val activity = context as? Activity
-    val backgroundPicker = rememberLauncherForActivityResult(
-        ActivityResultContracts.GetContent(),
-    ) { uri: Uri? ->
-        if (uri == null) return@rememberLauncherForActivityResult
+    val backgroundPicker = rememberQqMusicImagePicker(maxSelection = 1) { selected ->
+        val uri = selected.firstOrNull() ?: return@rememberQqMusicImagePicker
         scope.launch {
             uploadSelectedProfileBackground(context, uri, user)
         }
@@ -88,14 +85,9 @@ fun QqMusicMineHomeScreen(navController: NavController) {
         Modifier.fillMaxSize().background(ComposeColor.Black),
     )
     val sourceView = remember(context) { QqMusicSourceProfileView(context) }
-    sourceView.onBack = {
-        if (!navController.popBackStack()) {
-            navController.navigate(Screen.Settings.route) { launchSingleTop = true }
-        }
-    }
     sourceView.onEdit = { navController.navigate(Screen.ProfileEdit.route) }
     sourceView.onSettings = { navController.navigate(Screen.AppSettings.route) }
-    sourceView.onBackground = { backgroundPicker.launch("image/*") }
+    sourceView.onBackground = backgroundPicker
 
     DisposableEffect(sourceView) {
         onDispose(sourceView::release)
@@ -112,7 +104,6 @@ fun QqMusicMineHomeScreen(navController: NavController) {
  * The bridge only supplies Mengzhen identity data, background selection and host navigation.
  */
 private class QqMusicSourceProfileView(context: Context) : FrameLayout(context) {
-    var onBack: () -> Unit = {}
     var onEdit: () -> Unit = {}
     var onSettings: () -> Unit = {}
     var onBackground: () -> Unit = {}
@@ -120,12 +111,10 @@ private class QqMusicSourceProfileView(context: Context) : FrameLayout(context) 
     private val scope = CoroutineScope(SupervisorJob() + Dispatchers.Main.immediate)
     private val backgroundComposer = SourceHeaderBackground()
     private val header = LayoutInflater.from(context).inflate(QqR.layout.a6c, this, false)
-    private val topBar = LayoutInflater.from(context).inflate(QqR.layout.a70, this, false)
     private val rawBackground = header.findViewById<AsyncEffectImageView>(QqR.id.dbt)
     private val combinedBackground = header.findViewById<AsyncEffectImageView>(QqR.id.dbr)
     private val defaultBackground = header.findViewById<AsyncEffectImageView>(QqR.id.blu)
-    private var statusBarHeight = 0
-    private var topBarBottom = 0
+    private val avatar = header.findViewById<AsyncEffectImageView>(QqR.id.hdt)
     private var lastBoundUser: UserInfo? = null
 
     private val backgroundObserver = Observer<Bitmap> { bitmap ->
@@ -140,16 +129,9 @@ private class QqMusicSourceProfileView(context: Context) : FrameLayout(context) 
         clipChildren = false
         clipToPadding = false
         addView(header)
-        addView(topBar)
         backgroundComposer.M6().observeForever(backgroundObserver)
         installSourceActions()
         applySourceDarkPalette()
-        ViewCompat.setOnApplyWindowInsetsListener(this) { _, insets ->
-            statusBarHeight = insets.getInsets(WindowInsetsCompat.Type.statusBars()).top
-            layoutSource(width)
-            insets
-        }
-        ViewCompat.requestApplyInsets(this)
     }
 
     override fun onSizeChanged(w: Int, h: Int, oldw: Int, oldh: Int) {
@@ -161,20 +143,7 @@ private class QqMusicSourceProfileView(context: Context) : FrameLayout(context) 
         if (screenWidth <= 0) return
         val adjustedWidth = (screenWidth * SOURCE_WIDTH_PERCENT).roundToInt()
         val backgroundHeight = adjustedWidth * 2
-        val sourceBarHeight = (46f * resources.displayMetrics.density).roundToInt()
-        topBarBottom = statusBarHeight + sourceBarHeight
-
-        topBar.layoutParams = LayoutParams(
-            ViewGroup.LayoutParams.MATCH_PARENT,
-            sourceBarHeight,
-        ).apply { topMargin = statusBarHeight }
-
-        header.layoutParams = LayoutParams(screenWidth, backgroundHeight).apply {
-            topMargin = topBarBottom
-        }
-        rawBackground.translationY = -topBarBottom.toFloat()
-        combinedBackground.translationY = -topBarBottom.toFloat()
-        defaultBackground.translationY = -topBarBottom.toFloat()
+        header.layoutParams = LayoutParams(screenWidth, backgroundHeight)
 
         header.findViewById<View>(QqR.id.my0).let { card ->
             card.layoutParams = card.layoutParams.apply {
@@ -196,9 +165,16 @@ private class QqMusicSourceProfileView(context: Context) : FrameLayout(context) 
         header.findViewById<TextView>(QqR.id.hbu).text = user.username
         header.findViewById<TextView>(QqR.id.kzb).text = user.profileSummary()
 
-        header.findViewById<AsyncEffectImageView>(QqR.id.hdt).apply {
+        avatar.apply {
             setRadius(32f * resources.displayMetrics.density)
-            user.avatarUrl?.takeIf(String::isNotBlank)?.let(::m)
+            Glide.with(this).clear(this)
+            setImageDrawable(null)
+            user.avatarUrl?.takeIf(String::isNotBlank)?.let { url ->
+                Glide.with(this)
+                    .load(absoluteAvatarUrl(url))
+                    .circleCrop()
+                    .into(this)
+            }
             setOnClickListener { onEdit() }
         }
         header.findViewById<ImageView>(QqR.id.mzd).visibility = View.GONE
@@ -210,8 +186,34 @@ private class QqMusicSourceProfileView(context: Context) : FrameLayout(context) 
             setOnClickListener { onEdit() }
         }
         header.findViewById<Button>(QqR.id.j8r).apply {
-            visibility = View.GONE
-            setOnClickListener(null)
+            visibility = View.VISIBLE
+            text = null
+            contentDescription = "设置"
+            background = null
+            gravity = Gravity.CENTER
+            isAllCaps = false
+            minimumWidth = 0
+            minimumHeight = 0
+            setMinWidth(0)
+            setMinHeight(0)
+            val density = resources.displayMetrics.density
+            val buttonSize = (36f * density).roundToInt()
+            val iconPadding = (6f * density).roundToInt()
+            val iconSize = (24f * density).roundToInt()
+            layoutParams = layoutParams.apply {
+                width = buttonSize
+                height = buttonSize
+            }
+            setPadding(iconPadding, iconPadding, iconPadding, iconPadding)
+            val settingsIcon = AppCompatResources
+                .getDrawable(context, AppR.drawable.ximalaya_mine_setting)
+                ?.mutate()
+                ?.apply {
+                    setTint(Color.WHITE)
+                    setBounds(0, 0, iconSize, iconSize)
+                }
+            setCompoundDrawables(settingsIcon, null, null, null)
+            setOnClickListener { onSettings() }
         }
 
         header.findViewById<View>(QqR.id.mxz).visibility = View.INVISIBLE
@@ -260,28 +262,6 @@ private class QqMusicSourceProfileView(context: Context) : FrameLayout(context) 
     }
 
     private fun installSourceActions() {
-        topBar.findViewById<ImageView>(QqR.id.a5j).apply {
-            visibility = View.VISIBLE
-            setOnClickListener { onBack() }
-        }
-        topBar.findViewById<ImageView>(QqR.id.ddm).apply {
-            visibility = View.VISIBLE
-            setImageResource(AppR.drawable.icon_top_record_setting_entrance)
-            contentDescription = "设置"
-            setPadding(dp(7), dp(7), dp(7), dp(7))
-            layoutParams = (layoutParams as android.widget.RelativeLayout.LayoutParams).apply {
-                width = dp(44)
-                height = dp(44)
-                marginStart = 0
-                marginEnd = dp(8)
-                removeRule(android.widget.RelativeLayout.LEFT_OF)
-                removeRule(android.widget.RelativeLayout.ALIGN_TOP)
-                removeRule(android.widget.RelativeLayout.ALIGN_BOTTOM)
-                addRule(android.widget.RelativeLayout.ALIGN_PARENT_END)
-                addRule(android.widget.RelativeLayout.CENTER_VERTICAL)
-            }
-            setOnClickListener { onSettings() }
-        }
         header.findViewById<View>(QqR.id.db7).setOnClickListener { onBackground() }
     }
 
@@ -295,14 +275,11 @@ private class QqMusicSourceProfileView(context: Context) : FrameLayout(context) 
             header.findViewById<TextView>(id).setTextColor(Color.WHITE)
         }
         header.findViewById<Button>(QqR.id.j8e).setTextColor(Color.WHITE)
-        topBar.findViewById<ImageView>(QqR.id.a5j).setColorFilter(Color.WHITE)
-        topBar.findViewById<ImageView>(QqR.id.ddm).setColorFilter(Color.WHITE)
+        header.findViewById<Button>(QqR.id.j8r).setTextColor(Color.WHITE)
     }
 
-    private fun dp(value: Int): Int =
-        (value * resources.displayMetrics.density).roundToInt()
-
     fun release() {
+        Glide.with(avatar).clear(avatar)
         rawBackground.setAsyncImageListener(null)
         backgroundComposer.M6().removeObserver(backgroundObserver)
         scope.cancel()

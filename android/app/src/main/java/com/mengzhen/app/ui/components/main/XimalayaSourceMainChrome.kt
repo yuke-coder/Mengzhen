@@ -443,8 +443,19 @@ private fun activeAudio(store: TaskStore, taskId: String?, trackIndex: Int): Tas
     taskId?.let(store::getTaskById)?.audios?.getOrNull(trackIndex)
         ?: store.getDraft().audios.getOrNull(trackIndex)
 
-internal fun absoluteAvatarUrl(url: String): String =
-    if (url.startsWith("http")) url else "${ApiClient.BASE_URL}$url"
+internal fun absoluteAvatarUrl(url: String): String {
+    val normalized = url.trim()
+    return when {
+        normalized.isEmpty() -> normalized
+        normalized.startsWith("http://") ||
+            normalized.startsWith("https://") ||
+            normalized.startsWith("content://") ||
+            normalized.startsWith("file://") -> normalized
+        normalized.startsWith("//") -> "https:$normalized"
+        normalized.startsWith("/") -> "${ApiClient.BASE_URL}$normalized"
+        else -> "${ApiClient.BASE_URL}/$normalized"
+    }
+}
 
 private tailrec fun Context.findActivity(): Activity? = when (this) {
     is Activity -> this

@@ -28,6 +28,7 @@ import com.mengzhen.app.ui.screens.XimalayaAppSettingsScreen
 import com.mengzhen.app.ui.screens.XimalayaNotificationSettingsScreen
 import com.mengzhen.app.ui.screens.XimalayaPrivacySettingsScreen
 import com.mengzhen.app.ui.screens.FeedbackScreen
+import com.mengzhen.app.ui.screens.XimalayaFeedbackEvaluationScreen
 import com.mengzhen.app.ui.screens.XimalayaFeedbackDetailScreen
 import com.mengzhen.app.ui.screens.XimalayaFeedbackChooseTypeScreen
 import com.mengzhen.app.ui.screens.XimalayaFeedbackHistoryScreen
@@ -308,6 +309,36 @@ fun MengZhenApp(
                     ),
                 ) {
                     FeedbackScreen(navController)
+                }
+                composable(
+                    route = Screen.FeedbackEvaluation.route,
+                    arguments = listOf(
+                        navArgument(Screen.FeedbackEvaluation.ARG_SCORE) {
+                            type = NavType.IntType
+                            defaultValue = 0
+                        },
+                        navArgument(Screen.FeedbackEvaluation.ARG_REASONS) {
+                            type = NavType.StringType
+                            defaultValue = ""
+                        },
+                        navArgument(Screen.FeedbackEvaluation.ARG_REMARK) {
+                            type = NavType.StringType
+                            defaultValue = ""
+                        },
+                    ),
+                ) { entry ->
+                    XimalayaFeedbackEvaluationScreen(
+                        navController = navController,
+                        initialScore = entry.arguments
+                            ?.getInt(Screen.FeedbackEvaluation.ARG_SCORE)
+                            ?: 0,
+                        initialReasons = entry.arguments
+                            ?.getString(Screen.FeedbackEvaluation.ARG_REASONS)
+                            .orEmpty(),
+                        initialRemark = entry.arguments
+                            ?.getString(Screen.FeedbackEvaluation.ARG_REMARK)
+                            .orEmpty(),
+                    )
                 }
                 composable(Screen.FeedbackChooseType.route) {
                     XimalayaFeedbackChooseTypeScreen(navController)

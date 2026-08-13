@@ -20,9 +20,9 @@ import androidx.compose.runtime.remember
 import androidx.compose.runtime.rememberCoroutineScope
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.platform.LocalView
+import androidx.compose.ui.res.colorResource
 import androidx.compose.ui.viewinterop.AndroidView
 import androidx.compose.ui.window.DialogWindowProvider
 import androidx.navigation.NavController
@@ -41,26 +41,38 @@ import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
 
-private val FeedbackBackground = Color(0xFFFFFFFF)
+private val recommendationReasons = listOf(
+    "内容质量/丰富度",
+    "会员体验",
+    "消息通知及弹窗",
+    "广告体验",
+    "功能使用",
+    "页面设计",
+    "活动及任务玩法",
+)
 
 private fun createXnpsQueryModel() =
     XNpsQueryModel(
-        "您有多大意愿向他人推荐使用梦枕",
+        "您有多大意愿向他人推荐使用梦枕？",
         1,
         0,
         "",
         false,
         0L,
         listOf(
-            CustomButtonModel("提交", 1, "", 1),
+            CustomButtonModel("直接提交", 1, "", 1),
             CustomButtonModel("提交并反馈更多", 2, "", 2),
         ),
         QuestionnaireFormText("", "", 0),
         (0..10).map { score ->
             XNpsQuestionnaireFormScore(
                 QuestionnaireFormTag(
-                    listOf("Bug 缺陷", "产品建议"),
-                    "请选择原因",
+                    recommendationReasons,
+                    when (score) {
+                        in 0..6 -> "不推荐是因为哪些方面做的不好？"
+                        in 7..8 -> "哪些方面还有待改善？"
+                        else -> "愿意推荐是因为哪些方面做的好？"
+                    },
                     "",
                     0,
                 ),
@@ -79,6 +91,7 @@ fun FeedbackScreen(navController: NavController) {
     val store = remember(context) { TaskStore.get(context) }
     val xnpsModel = remember { createXnpsQueryModel() }
     var submitting by remember { mutableStateOf(false) }
+    val feedbackBackground = colorResource(R.color.xm_feedback_xnps_white)
 
     fun submit(action: Int, score: Int, reasons: List<String>, remark: String) {
         if (store.getSession() == null) {
@@ -86,11 +99,19 @@ fun FeedbackScreen(navController: NavController) {
             navController.navigate(Screen.Login.route)
             return
         }
+        if (action == 2) {
+            navController.navigate(
+                Screen.FeedbackEvaluation.createRoute(score, reasons, remark),
+            ) {
+                popUpTo(Screen.Feedback.route) { inclusive = true }
+            }
+            return
+        }
         submitting = true
         scope.launch(Dispatchers.IO) {
             val response = runCatching {
                 api.submitFeedback(
-                    type = if ("Bug 缺陷" in reasons) "bug" else "suggestion",
+                    type = "suggestion",
                     content = buildRecommendationFeedbackContent(score, reasons, remark),
                 )
             }
@@ -99,14 +120,8 @@ fun FeedbackScreen(navController: NavController) {
                 response.onSuccess { result ->
                     when {
                         result.optBoolean("success", false) -> {
-                            if (action == 2) {
-                                navController.navigate(Screen.FeedbackChooseType.route) {
-                                    popUpTo(Screen.Feedback.route) { inclusive = true }
-                                }
-                            } else {
-                                AppNotice.success(context, "感谢你的反馈")
-                                navController.popBackStack()
-                            }
+                            AppNotice.success(context, "感谢你的反馈")
+                            navController.popBackStack()
                         }
                         result.optBoolean("sessionExpired", false) -> {
                             AppNotice.warning(context, "登录状态已失效，请重新登录")
@@ -130,7 +145,7 @@ fun FeedbackScreen(navController: NavController) {
     Column(
         modifier = Modifier
             .fillMaxWidth()
-            .background(FeedbackBackground)
+            .background(feedbackBackground)
             .windowInsetsPadding(WindowInsets.ime)
             .verticalScroll(rememberScrollState()),
     ) {

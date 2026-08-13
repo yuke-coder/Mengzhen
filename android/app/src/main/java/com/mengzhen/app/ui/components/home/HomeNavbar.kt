@@ -16,7 +16,6 @@ import androidx.compose.material.icons.filled.Favorite
 import androidx.compose.material.icons.filled.History
 import androidx.compose.material.icons.filled.LightMode
 import androidx.compose.material.icons.filled.Monitor
-import androidx.compose.material.icons.filled.Person
 import androidx.compose.material.icons.filled.Place
 import androidx.compose.material3.DropdownMenu
 import androidx.compose.material3.HorizontalDivider
@@ -44,6 +43,7 @@ import com.mengzhen.app.data.api.ApiClient
 import com.mengzhen.app.data.model.UserInfo
 import com.mengzhen.app.data.model.parseUser
 import com.mengzhen.app.data.store.TaskStore
+import com.mengzhen.app.ui.components.main.absoluteAvatarUrl
 import com.mengzhen.app.ui.navigation.Screen
 import com.mengzhen.app.ui.theme.*
 import kotlinx.coroutines.Dispatchers
@@ -208,21 +208,14 @@ fun HomeUserMenu(navController: NavController) {
                 .clickable { expanded = !expanded },
             contentAlignment = Alignment.Center,
         ) {
-            if (u.avatarUrl != null) {
+            if (!u.avatarUrl.isNullOrBlank()) {
                 AsyncImage(
-                    model = u.avatarUrl,
+                    model = absoluteAvatarUrl(u.avatarUrl),
                     contentDescription = "头像",
                     modifier = Modifier
                         .size(32.dp)
                         .clip(CircleShape),
                     contentScale = ContentScale.Crop,
-                )
-            } else {
-                Icon(
-                    Icons.Default.Person,
-                    contentDescription = null,
-                    tint = BrandEndThemed,
-                    modifier = Modifier.size(18.dp),
                 )
             }
         }
@@ -301,19 +294,12 @@ private fun UserProfileCard(user: UserInfo, onEditProfile: () -> Unit) {
                     ),
                 contentAlignment = Alignment.Center,
             ) {
-                if (user.avatarUrl != null) {
+                if (!user.avatarUrl.isNullOrBlank()) {
                     AsyncImage(
-                        model = user.avatarUrl,
+                        model = absoluteAvatarUrl(user.avatarUrl),
                         contentDescription = "头像",
                         modifier = Modifier.size(44.dp).clip(CircleShape),
                         contentScale = ContentScale.Crop,
-                    )
-                } else {
-                    Icon(
-                        Icons.Default.Person,
-                        contentDescription = null,
-                        tint = BrandEndThemed,
-                        modifier = Modifier.size(24.dp),
                     )
                 }
             }

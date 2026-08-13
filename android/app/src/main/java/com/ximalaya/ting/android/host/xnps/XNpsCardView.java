@@ -323,7 +323,7 @@ public final class XNpsCardView extends LinearLayout {
         }
         layout.removeAllViews();
         layout.setVisibility(VISIBLE);
-        int count = Math.min(tags.size(), 6);
+        int count = tags.size();
         for (int index = 0; index < count; index++) {
             final TextView textView = new TextView(context);
             textView.setBackgroundResource(R.drawable.xm_feedback_xnps_tag);

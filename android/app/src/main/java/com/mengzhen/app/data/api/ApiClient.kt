@@ -413,10 +413,6 @@ class ApiClient private constructor(
         )
     }
 
-    fun resetAvatar(gender: String): JSONObject {
-        return delete("/api/avatar?gender=${java.net.URLEncoder.encode(gender, "UTF-8")}")
-    }
-
     companion object {
         const val BASE_URL = "https://driftcue.com"
         private const val TAG = "ApiClient"

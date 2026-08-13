@@ -2,10 +2,7 @@ package com.mengzhen.app.ui.screens
 
 import android.app.DatePickerDialog
 import android.content.Context
-import android.net.Uri
 import android.widget.DatePicker
-import androidx.activity.compose.rememberLauncherForActivityResult
-import androidx.activity.result.contract.ActivityResultContracts
 import androidx.compose.foundation.background
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Arrangement
@@ -27,7 +24,6 @@ import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.automirrored.filled.ArrowBack
 import androidx.compose.material.icons.filled.ChevronRight
 import androidx.compose.material.icons.filled.Edit
-import androidx.compose.material.icons.filled.Person
 import androidx.compose.material3.AlertDialog
 import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.Icon
@@ -68,6 +64,8 @@ import com.mengzhen.app.data.model.UserInfo
 import com.mengzhen.app.data.model.parseProfile
 import com.mengzhen.app.data.store.TaskStore
 import com.mengzhen.app.ui.components.ChatGptLoadingSpinner
+import com.mengzhen.app.ui.components.main.absoluteAvatarUrl
+import com.mengzhen.app.ui.components.rememberQqMusicImagePicker
 import com.mengzhen.app.ui.feedback.AppNotice
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
@@ -101,7 +99,6 @@ fun XimalayaPersonalEditScreen(navController: NavController) {
     var showGenderPicker by remember { mutableStateOf(false) }
     var showRegionPicker by remember { mutableStateOf(false) }
     var showBirthdayPicker by remember { mutableStateOf(false) }
-    var showAvatarResetConfirm by remember { mutableStateOf(false) }
 
     // 初始加载远端资料
     LaunchedEffect(Unit) {
@@ -121,10 +118,8 @@ fun XimalayaPersonalEditScreen(navController: NavController) {
     }
 
     // 背景图选择器
-    val backgroundPicker = rememberLauncherForActivityResult(
-        ActivityResultContracts.GetContent(),
-    ) { uri: Uri? ->
-        if (uri == null) return@rememberLauncherForActivityResult
+    val backgroundPicker = rememberQqMusicImagePicker(maxSelection = 1) { selected ->
+        val uri = selected.firstOrNull() ?: return@rememberQqMusicImagePicker
         scope.launch {
             saving = true
             uploadSelectedProfileBackground(context, uri, profile)?.let { profile = it }
@@ -133,10 +128,8 @@ fun XimalayaPersonalEditScreen(navController: NavController) {
     }
 
     // 头像选择器
-    val avatarPicker = rememberLauncherForActivityResult(
-        ActivityResultContracts.GetContent(),
-    ) { uri: Uri? ->
-        if (uri == null) return@rememberLauncherForActivityResult
+    val avatarPicker = rememberQqMusicImagePicker(maxSelection = 1) { selected ->
+        val uri = selected.firstOrNull() ?: return@rememberQqMusicImagePicker
         scope.launch {
             saving = true
             val file = withContext(Dispatchers.IO) {
@@ -231,29 +224,6 @@ fun XimalayaPersonalEditScreen(navController: NavController) {
         }
     }
 
-    fun resetAvatar() {
-        showAvatarResetConfirm = false
-        val current = profile ?: return
-        val gender = current.gender?.lowercase() ?: "male"
-        scope.launch {
-            saving = true
-            runCatching {
-                withContext(Dispatchers.IO) { api.resetAvatar(gender) }
-            }.onSuccess { response ->
-                val url = response.optString("avatar_url", "").ifBlank { null }
-                if (response.optBoolean("success") && url != null) {
-                    val next = current.copy(avatarUrl = url)
-                    profile = next
-                    store.getSession()?.first?.let { token -> store.saveUserSession(token, next) }
-                    AppNotice.success(context, "头像已重置")
-                } else {
-                    AppNotice.error(context, response.optString("error", "头像重置失败"))
-                }
-            }.onFailure { AppNotice.error(context, it.message ?: "头像重置失败") }
-            saving = false
-        }
-    }
-
     fun saveRegion(region: String) {
         showRegionPicker = false
         val current = profile ?: return
@@ -339,9 +309,8 @@ fun XimalayaPersonalEditScreen(navController: NavController) {
                 item {
                     ProfileHero(
                         user = user,
-                        onEditAvatar = { avatarPicker.launch("image/*") },
-                        onResetAvatar = { showAvatarResetConfirm = true },
-                        onEditBackground = { backgroundPicker.launch("image/*") },
+                        onEditAvatar = avatarPicker,
+                        onEditBackground = backgroundPicker,
                     )
                 }
                 // 资料行 — 顺序对标 main_fra_my_detail_new.xml
@@ -435,20 +404,6 @@ fun XimalayaPersonalEditScreen(navController: NavController) {
         )
     }
 
-    // 头像重置确认
-    if (showAvatarResetConfirm) {
-        AlertDialog(
-            onDismissRequest = { showAvatarResetConfirm = false },
-            title = { Text("恢复默认头像") },
-            text = { Text("确定要将头像恢复为系统默认头像吗？") },
-            confirmButton = {
-                TextButton(onClick = { resetAvatar() }) { Text("确定") }
-            },
-            dismissButton = {
-                TextButton(onClick = { showAvatarResetConfirm = false }) { Text("取消") }
-            },
-        )
-    }
 }
 
 // === 编辑器子页 ===
@@ -788,7 +743,6 @@ private fun RegionPickerDialog(
 private fun ProfileHero(
     user: UserInfo,
     onEditAvatar: () -> Unit,
-    onResetAvatar: () -> Unit,
     onEditBackground: () -> Unit,
 ) {
     Box(
@@ -836,11 +790,9 @@ private fun ProfileHero(
                         .clickable(onClick = onEditAvatar),
                     contentAlignment = Alignment.Center,
                 ) {
-                    if (user.avatarUrl.isNullOrBlank()) {
-                        Icon(Icons.Default.Person, contentDescription = "头像", modifier = Modifier.size(36.dp))
-                    } else {
+                    if (!user.avatarUrl.isNullOrBlank()) {
                         AsyncImage(
-                            model = user.avatarUrl,
+                            model = absoluteAvatarUrl(user.avatarUrl),
                             contentDescription = "头像",
                             modifier = Modifier.fillMaxSize(),
                             contentScale = ContentScale.Crop,
@@ -867,14 +819,8 @@ private fun ProfileHero(
                 }
             }
             Spacer(Modifier.height(8.dp))
-            Row {
-                TextButton(onClick = onEditAvatar) {
-                    Text("更换头像", color = Color.White, fontSize = 12.sp)
-                }
-                Spacer(Modifier.width(4.dp))
-                TextButton(onClick = onResetAvatar) {
-                    Text("恢复默认", color = Color.White.copy(alpha = 0.7f), fontSize = 12.sp)
-                }
+            TextButton(onClick = onEditAvatar) {
+                Text("更换头像", color = Color.White, fontSize = 12.sp)
             }
         }
         // 编辑背景按钮

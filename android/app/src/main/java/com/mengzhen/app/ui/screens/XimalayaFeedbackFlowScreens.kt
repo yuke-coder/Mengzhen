@@ -27,8 +27,6 @@ import android.widget.LinearLayout
 import android.widget.ListView
 import android.widget.ScrollView
 import android.widget.TextView
-import androidx.activity.compose.rememberLauncherForActivityResult
-import androidx.activity.result.contract.ActivityResultContracts
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.LaunchedEffect
@@ -49,6 +47,7 @@ import coil3.request.target
 import com.mengzhen.app.R
 import com.mengzhen.app.data.api.ApiClient
 import com.mengzhen.app.data.store.TaskStore
+import com.mengzhen.app.ui.components.rememberQqMusicImagePicker
 import com.mengzhen.app.ui.feedback.AppNotice
 import com.mengzhen.app.ui.navigation.Screen
 import java.io.ByteArrayOutputStream
@@ -177,9 +176,7 @@ fun XimalayaFeedbackDetailScreen(
         }
     }
 
-    val imagePicker = rememberLauncherForActivityResult(
-        ActivityResultContracts.GetMultipleContents(),
-    ) { selected ->
+    val imagePicker = rememberQqMusicImagePicker(maxSelection = 6) { selected ->
         val remaining = (6 - imageUris.size).coerceAtLeast(0)
         imageUris = imageUris + selected.filterNot(imageUris::contains).take(remaining)
         if (selected.size > remaining) AppNotice.info(context, "最多可上传6张图片")
@@ -250,7 +247,7 @@ fun XimalayaFeedbackDetailScreen(
                 onBack = { navController.popBackStack() },
                 onHistory = { navController.navigate(Screen.FeedbackHistory.route) },
                 onChoiceSelected = { selectedScene = it },
-                onAddImage = { imagePicker.launch("image/*") },
+                onAddImage = imagePicker,
                 onPreviewImage = { showFeedbackImage(context, it) },
                 onRemoveImage = { uri -> imageUris = imageUris - uri },
                 onSubmit = ::submit,

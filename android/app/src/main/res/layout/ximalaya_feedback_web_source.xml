@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/xm_feedback_web_surface"
+    android:orientation="vertical">
+
+    <!-- Ximalaya 9.5.1.4 component_actionbar, with only the app bridge IDs renamed. -->
+    <RelativeLayout
+        android:id="@+id/feedback_web_actionbar"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:background="@color/xm_feedback_web_toolbar"
+        android:gravity="center_vertical">
+
+        <LinearLayout
+            android:id="@+id/feedback_web_back"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_alignParentStart="true"
+            android:contentDescription="返回"
+            android:gravity="center_vertical"
+            android:orientation="horizontal">
+
+            <ImageView
+                android:layout_width="50dp"
+                android:layout_height="match_parent"
+                android:contentDescription="返回"
+                android:scaleType="centerInside"
+                android:src="@drawable/xm_ui_host_back" />
+        </LinearLayout>
+
+        <TextView
+            android:id="@+id/feedback_web_title"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_centerInParent="true"
+            android:gravity="center"
+            android:maxWidth="160dp"
+            android:singleLine="true"
+            android:text="评价反馈"
+            android:textColor="@color/xm_feedback_web_title"
+            android:textSize="18sp" />
+
+        <ImageView
+            android:id="@+id/feedback_web_share"
+            android:layout_width="50dp"
+            android:layout_height="match_parent"
+            android:layout_alignParentEnd="true"
+            android:contentDescription="分享"
+            android:padding="12dp"
+            android:scaleType="centerInside"
+            android:src="@drawable/xm_feedback_web_share" />
+    </RelativeLayout>
+
+    <WebView
+        android:id="@+id/feedback_web_view"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:background="@color/xm_feedback_web_surface"
+        android:overScrollMode="never"
+        android:scrollbars="none" />
+</LinearLayout>

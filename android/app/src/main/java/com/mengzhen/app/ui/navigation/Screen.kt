@@ -65,6 +65,18 @@ sealed class Screen(val route: String) {
     object NotificationSettings : Screen("notification_settings")
     object HomeAvatarDestination : Screen("home_avatar_destination")
     object Feedback : Screen("feedback")
+    object FeedbackEvaluation : Screen(
+        "feedback_evaluation?score={score}&reasons={reasons}&remark={remark}",
+    ) {
+        const val ARG_SCORE = "score"
+        const val ARG_REASONS = "reasons"
+        const val ARG_REMARK = "remark"
+
+        fun createRoute(score: Int, reasons: List<String>, remark: String): String =
+            "feedback_evaluation?score=${score.coerceIn(0, 10)}" +
+                "&reasons=${android.net.Uri.encode(reasons.joinToString(","))}" +
+                "&remark=${android.net.Uri.encode(remark)}"
+    }
     object FeedbackChooseType : Screen("feedback_choose_type")
     object FeedbackDetail : Screen("feedback_detail?feedbackType={feedbackType}") {
         const val ARG_FEEDBACK_TYPE = "feedbackType"
