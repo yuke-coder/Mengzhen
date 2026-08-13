@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="xm_feedback_web_toolbar">#FFFFFFFF</color>
+    <color name="xm_feedback_web_title">#FF22222D</color>
+    <color name="xm_feedback_web_surface">#FFFFFFFF</color>
+</resources>
