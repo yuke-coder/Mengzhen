@@ -1,9 +1,0 @@
-<?xml version="1.0" encoding="utf-8"?>
-<!--
-  原播放页为直播内容预留的 ViewStub。梦枕本地音频不会进入直播内容态，
-  但保留同名挂载点，避免改变原导航栏层级和后续接入契约。
--->
-<View xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="0dp"
-    android:layout_height="0dp"
-    android:visibility="gone" />
