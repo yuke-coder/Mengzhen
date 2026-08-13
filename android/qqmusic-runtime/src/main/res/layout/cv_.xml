@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout android:orientation="vertical" android:background="@drawable/video_tab_collection_action_sheet_bg" android:layout_width="match_parent" android:layout_height="match_parent"
+  xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">
+    <androidx.constraintlayout.widget.ConstraintLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginTop="20.0dp" android:paddingStart="20.0dp" android:paddingEnd="21.5dp">
+        <TextView android:textSize="16.0dp" android:textColor="@color/white" android:id="@id/n90" android:layout_width="wrap_content" android:layout_height="wrap_content" android:singleLine="true" android:includeFontPadding="false" app:a23="hnz" app:a27="hnz" />
+        <TextView android:textSize="16.0dp" android:textColor="@color/white" android:id="@id/n8t" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="完成" android:singleLine="true" android:includeFontPadding="false" app:a1_="@id/n90" app:a1j="hnz" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+    <androidx.recyclerview.widget.RecyclerView android:id="@id/n8z" android:clipToPadding="false" android:layout_width="match_parent" android:layout_height="0.0dp" android:layout_marginTop="8.0dp" android:layout_weight="1.0" android:overScrollMode="never" android:paddingStart="20.0dp" android:paddingEnd="20.0dp" />
+    <LinearLayout android:gravity="center" android:orientation="horizontal" android:id="@id/n8q" android:layout_width="match_parent" android:layout_height="52.0dp">
+        <ImageView android:id="@id/n8r" android:layout_width="16.0dp" android:layout_height="16.0dp" android:src="@drawable/video_tab_related_song_add_all" />
+        <TextView android:textSize="14.0dp" android:textColor="@color/white" android:id="@id/n8s" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="添加到" android:includeFontPadding="false" android:layout_marginStart="6.0dp" />
+    </LinearLayout>
+</LinearLayout>

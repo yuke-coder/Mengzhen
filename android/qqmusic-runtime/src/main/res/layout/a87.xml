@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<merge
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <TextView android:textSize="16.0dp" android:textColor="@color/white" android:gravity="center" android:id="@id/dkr" android:paddingLeft="13.0dp" android:paddingTop="11.0dp" android:paddingRight="13.0dp" android:paddingBottom="11.0dp" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/brr" android:singleLine="true" />
+    <View android:id="@id/dn0" android:background="@color/im_split_color" android:layout_width="1.0dp" android:layout_height="10.0dp" />
+    <TextView android:textSize="16.0dp" android:textColor="@color/white" android:id="@id/dks" android:paddingLeft="13.0dp" android:paddingTop="11.0dp" android:paddingRight="13.0dp" android:paddingBottom="11.0dp" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/brs" android:singleLine="true" />
+    <View android:id="@id/dn1" android:background="@color/im_split_color" android:layout_width="1.0dp" android:layout_height="10.0dp" />
+    <TextView android:textSize="16.0dp" android:textColor="@color/white" android:id="@id/dm9" android:paddingLeft="13.0dp" android:paddingTop="11.0dp" android:paddingRight="13.0dp" android:paddingBottom="11.0dp" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/brx" android:singleLine="true" />
+</merge>

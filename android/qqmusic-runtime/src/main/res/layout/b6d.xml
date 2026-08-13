@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout android:layout_width="match_parent" android:layout_height="46.0dp"
+  xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">
+    <com.tencent.component.widget.AsyncEffectImageView android:id="@id/ua" android:layout_width="43.0dp" android:layout_height="43.0dp" android:scaleType="centerCrop" app:a1d="hnz" app:a1i="w,1:1" app:a23="hnz" app:a27="hnz" />
+    <androidx.appcompat.widget.AppCompatTextView android:textSize="12.0dp" android:textColor="@color/skin_text_main_color" android:ellipsize="end" android:gravity="center_vertical" android:id="@id/uc" android:layout_width="wrap_content" android:layout_height="wrap_content" android:maxWidth="91.0dp" android:maxLines="2" android:layout_marginStart="8.0dp" android:textFontWeight="400" app:a18="true" app:a1e="@id/ub" app:a1j="hnz" app:a1t="0.0" app:a22="@id/ua" app:a27="@id/ua" app:a29="hmg" />
+    <androidx.appcompat.widget.AppCompatTextView android:textSize="10.0dp" android:textColor="@color/skin_text_mid_color" android:ellipsize="end" android:gravity="left" android:layout_gravity="center_vertical" android:id="@id/ub" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="3.0dp" android:maxWidth="91.0dp" android:maxLines="1" app:a18="true" app:a1d="@id/ua" app:a1j="hnz" app:a1t="0.0" app:a23="@id/uc" app:a26="@id/uc" />
+</androidx.constraintlayout.widget.ConstraintLayout>

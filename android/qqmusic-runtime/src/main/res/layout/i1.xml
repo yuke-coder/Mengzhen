@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout android:orientation="horizontal" android:id="@id/hvx" android:background="@drawable/widget_bg_color_deep_shadow" android:layout_width="match_parent" android:layout_height="@dimen/chn"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <RelativeLayout android:layout_gravity="center_vertical" android:paddingLeft="@dimen/chs" android:paddingTop="@dimen/chs" android:paddingBottom="@dimen/chs" android:layout_width="wrap_content" android:layout_height="wrap_content" android:scaleType="fitStart">
+        <ImageButton android:id="@id/ud" android:background="@drawable/appwidget_button_center" android:layout_width="@dimen/chd" android:layout_height="@dimen/chd" android:src="@drawable/widget_qqmusic_default_album_small" android:scaleType="fitStart" android:layout_alignParentLeft="true" android:layout_alignParentTop="true" />
+        <ImageView android:layout_width="wrap_content" android:layout_height="wrap_content" android:src="@drawable/widget_qqmusic_icon" android:layout_alignParentLeft="true" android:layout_alignParentTop="true" />
+    </RelativeLayout>
+    <RelativeLayout android:layout_gravity="center_vertical" android:id="@id/j7t" android:paddingTop="@dimen/chs" android:paddingBottom="@dimen/chs" android:layout_width="match_parent" android:layout_height="match_parent" android:layout_marginLeft="9.0dp" android:layout_marginRight="13.0dp">
+        <LinearLayout android:orientation="horizontal" android:id="@id/lei" android:layout_width="match_parent" android:layout_height="26.0dp" android:layout_marginRight="3.0dp" android:layout_alignParentTop="true">
+            <TextView android:textSize="@dimen/chz" android:textStyle="bold" android:textColor="@color/appwidget_text" android:ellipsize="end" android:gravity="left|center" android:id="@id/ldr" android:layout_width="match_parent" android:layout_height="match_parent" android:text="@string/iwr" android:singleLine="true" android:shadowColor="@color/appwidget_text" android:shadowDx="5.0" android:layout_weight="1.0" />
+            <ImageView android:id="@id/awf" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="2.0dp" android:src="@drawable/app_widget_background_button" />
+        </LinearLayout>
+        <ProgressBar android:id="@id/ntu" android:layout_width="match_parent" android:layout_height="1.5dp" android:max="1000" android:progress="0" android:secondaryProgress="0" android:indeterminate="false" android:progressDrawable="@drawable/widgetprogressbar_xml" android:layout_below="@id/lei" style="?android:progressBarStyleHorizontal" />
+        <RelativeLayout android:gravity="center_vertical" android:id="@id/ntn" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginTop="4.0dp" android:layout_below="@id/ntu">
+            <ImageView android:id="@id/bb0" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginLeft="4.0dp" android:src="@drawable/app_widget_circle_repeat_button" android:layout_alignParentLeft="true" android:layout_centerVertical="true" />
+            <ImageView android:id="@id/akt" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginRight="3.0dp" android:src="@drawable/app_widget_dl_close_button" android:layout_alignParentRight="true" android:layout_centerVertical="true" />
+            <ImageView android:id="@id/baz" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginLeft="19.0dp" android:layout_marginRight="19.0dp" android:src="@drawable/app_widget_play_button" android:layout_centerHorizontal="true" android:layout_centerVertical="true" />
+            <ImageView android:id="@id/bb1" android:layout_width="wrap_content" android:layout_height="wrap_content" android:src="@drawable/app_widget_prev_button" android:scaleType="fitEnd" android:layout_toLeftOf="@id/baz" android:layout_toRightOf="@id/bb0" android:layout_centerVertical="true" />
+            <ImageView android:id="@id/bay" android:layout_width="wrap_content" android:layout_height="wrap_content" android:src="@drawable/app_widget_next_button" android:scaleType="fitStart" android:layout_toLeftOf="@id/akt" android:layout_toRightOf="@id/baz" android:layout_centerVertical="true" />
+        </RelativeLayout>
+    </RelativeLayout>
+</LinearLayout>

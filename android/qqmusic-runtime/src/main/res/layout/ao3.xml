@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.tme.karaoke.recordui.widget.RoundedFrameLayout android:layout_width="match_parent" android:layout_height="match_parent" app:t8="4.0dp" app:t9="4.0dp"
+  xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">
+    <ImageView android:layout_gravity="bottom" android:id="@id/g15" android:background="#e65e0515" android:visibility="gone" android:layout_width="match_parent" android:layout_height="18.0dp" />
+    <com.tme.karaoke.recordui.widget.NewMarqueeView android:gravity="center_horizontal" android:layout_gravity="center|bottom" android:id="@id/hd7" android:layout_width="match_parent" android:layout_height="18.0dp" app:a7c="true" app:a_7="1000" app:a_8="ah0" app:a_a="2500" app:a_b="true" app:a_c="#ffffff" app:a_d="10.0dp" />
+</com.tme.karaoke.recordui.widget.RoundedFrameLayout>

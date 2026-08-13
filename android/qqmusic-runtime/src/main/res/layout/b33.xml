@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout android:background="@color/black" android:layout_width="match_parent" android:layout_height="match_parent"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <include android:id="@id/lvi" android:layout_width="match_parent" android:layout_height="wrap_content" layout="@layout/clv" />
+    <LinearLayout android:orientation="vertical" android:id="@id/n5n" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_alignParentBottom="true" />
+    <FrameLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_above="@id/n5n" android:layout_below="@id/lvi">
+        <com.tencent.xffects.effects.XEngineView android:layout_gravity="center" android:id="@id/n5t" android:visibility="visible" android:layout_width="match_parent" android:layout_height="match_parent" />
+    </FrameLayout>
+    <RelativeLayout android:id="@id/lv0" android:background="@color/yellow" android:visibility="invisible" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginTop="90.0dp">
+        <ProgressBar android:id="@id/ih0" android:visibility="invisible" android:layout_width="match_parent" android:layout_height="20.0dp" android:max="100" style="@android:style/Widget.ProgressBar.Horizontal" />
+    </RelativeLayout>
+    <ImageView android:id="@id/ezd" android:layout_width="match_parent" android:layout_height="match_parent" android:scaleType="centerCrop" />
+</RelativeLayout>

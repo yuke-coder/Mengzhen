@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout android:layout_gravity="center_horizontal" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginBottom="@dimen/c9d"
+  xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">
+    <androidx.recyclerview.widget.RecyclerView android:id="@id/d39" android:visibility="gone" android:layout_width="wrap_content" android:layout_height="wrap_content" app:a1d="hnz" app:a1x="hnz" app:a27="hnz" />
+    <androidx.constraintlayout.widget.ConstraintLayout android:id="@id/k90" android:visibility="gone" android:layout_width="wrap_content" android:layout_height="wrap_content" app:a1d="hnz" app:a1x="hnz" app:a27="hnz">
+        <com.tencent.qqmusic.ui.customview.ScaleImageView android:id="@id/k97" android:visibility="gone" android:layout_width="@dimen/bm5" android:layout_height="@dimen/bm5" android:scaleType="centerCrop" android:contentDescription="@string/f52" app:a1d="hnz" app:a1x="hnz" app:a27="hnz" app:afv="@dimen/kx" />
+        <com.tencent.qqmusic.ui.RoundedRelativeLayout android:id="@id/k8y" android:visibility="gone" android:layout_width="@dimen/bm5" android:layout_height="@dimen/bm5" app:a1d="hnz" app:a1x="hnz" app:a27="hnz">
+            <com.tencent.component.widget.AsyncEffectImageView android:id="@id/k8x" android:layout_width="@dimen/bm5" android:layout_height="@dimen/bm5" android:scaleType="centerCrop" android:contentDescription="@string/f52" app:a1d="hnz" app:a1x="hnz" app:a27="hnz" app:afv="@dimen/kx" />
+            <TextView android:textSize="10.0sp" android:textColor="#fff" android:gravity="center" android:id="@id/k8w" android:background="@drawable/rounded_shape_alpha_black" android:layout_width="28.0dp" android:layout_height="15.0dp" android:layout_margin="5.0dp" android:text="动图" android:layout_alignParentRight="true" android:layout_alignParentBottom="true" />
+        </com.tencent.qqmusic.ui.RoundedRelativeLayout>
+    </androidx.constraintlayout.widget.ConstraintLayout>
+    <include android:visibility="gone" android:layout_width="0.0dp" android:layout_height="0.0dp" app:a1d="@id/k90" app:a1x="@id/k90" app:a21="@id/k90" app:a27="@id/k90" layout="@layout/d13" />
+</androidx.constraintlayout.widget.ConstraintLayout>

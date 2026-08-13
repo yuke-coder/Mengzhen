@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout android:layout_width="match_parent" android:layout_height="match_parent"
+  xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">
+    <com.tencent.qqmusic.pag.QQMusicPAGView android:id="@id/hn5" android:layout_width="0.0dp" android:layout_height="match_parent" app:a1i="w,780:1688" app:a1j="hnz" app:a23="hnz" />
+    <androidx.appcompat.widget.AppCompatButton android:textColor="@color/white" android:id="@id/emw" android:background="@drawable/bg_dialog_singer_medal_anniversary_button" android:layout_width="240.0dp" android:layout_height="50.0dp" android:text="查看守护详情" app:a1e="@id/b3t" app:a1j="hnz" app:a23="hnz" app:a27="hnz" app:a28="0.85" app:a29="hmg" />
+    <androidx.appcompat.widget.AppCompatTextView android:textColor="@color/white" android:gravity="center" android:id="@id/b3t" android:layout_width="240.0dp" android:layout_height="50.0dp" android:text="关闭" app:a1d="hnz" app:a1j="hnz" app:a23="hnz" app:a26="@id/emw" app:a29="hmg" />
+</androidx.constraintlayout.widget.ConstraintLayout>

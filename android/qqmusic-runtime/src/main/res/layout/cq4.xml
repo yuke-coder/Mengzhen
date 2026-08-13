@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout android:orientation="vertical" android:layout_width="match_parent" android:layout_height="wrap_content"
+  xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">
+    <RelativeLayout android:gravity="center" android:id="@id/a_q" android:layout_width="match_parent" android:layout_height="@dimen/kc" android:minHeight="@dimen/kc">
+        <com.airbnb.lottie.LottieAnimationView android:id="@id/fz5" android:visibility="gone" android:layout_width="25.0dp" android:layout_height="25.0dp" android:layout_marginLeft="10.0dp" android:layout_marginRight="10.0dp" android:layout_centerVertical="true" android:alpha="0.6" />
+        <TextView android:textSize="14.0sp" android:textColor="@color/timeline_black_text" android:id="@id/fz6" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="撒打算打算的是" android:layout_centerInParent="true" style="@style/a4r" />
+        <ImageView android:id="@id/j7u" android:background="@drawable/timeline_black_more_arrow_right" android:visibility="gone" android:layout_width="26.0dp" android:layout_height="26.0dp" android:layout_toRightOf="@id/fz6" android:layout_centerVertical="true" />
+    </RelativeLayout>
+    <View android:id="@id/a_p" android:layout_width="match_parent" android:layout_height="wrap_content" />
+</LinearLayout>

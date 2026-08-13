@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout android:gravity="center_horizontal" android:orientation="vertical" android:layout_width="wrap_content" android:layout_height="wrap_content"
+  xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">
+    <FrameLayout android:layout_width="100.0dp" android:layout_height="100.0dp">
+        <com.tencent.qqmusic.business.playernew.view.playersong.definedplayer.personalradio.blur.BlurTarget android:id="@id/g39" android:layout_width="100.0dp" android:layout_height="100.0dp">
+            <com.tencent.component.widget.AsyncEffectImageView android:layout_gravity="center" android:id="@id/g3_" android:layout_width="100.0dp" android:layout_height="100.0dp" android:scaleType="centerInside" />
+        </com.tencent.qqmusic.business.playernew.view.playersong.definedplayer.personalradio.blur.BlurTarget>
+        <com.tencent.qqmusic.business.playernew.view.playersong.definedplayer.personalradio.blur.MaskBlurView android:layout_gravity="center|bottom" android:id="@id/g3b" android:layout_width="20.0dp" android:layout_height="20.0dp" app:e5="@drawable/bg_white_oval" />
+        <ImageView android:layout_gravity="center|bottom" android:id="@id/g3a" android:background="@drawable/player_recommend_artist_medal_lock_bg" android:padding="4.0dp" android:layout_width="20.0dp" android:layout_height="20.0dp" android:src="@drawable/icon_player_recommend_artist_medal_lock" android:contentDescription="@string/fh1" />
+    </FrameLayout>
+    <androidx.appcompat.widget.AppCompatTextView android:textSize="13.0dp" android:textColor="@color/black" android:ellipsize="end" android:gravity="center" android:id="@id/g3d" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="10.0dp" android:maxWidth="78.0dp" android:maxLines="1" />
+    <androidx.appcompat.widget.AppCompatTextView android:textSize="11.0dp" android:textColor="@color/black" android:ellipsize="end" android:gravity="center" android:id="@id/g3c" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginTop="8.0dp" android:maxLines="1" android:alpha="0.5" />
+</LinearLayout>

@@ -1,0 +1,3 @@
+<?xml version="1.0" encoding="utf-8"?>
+<kk.design.layout.KKFrameLayout android:id="@id/eoc" android:paddingTop="@dimen/a6_" android:layout_width="match_parent" android:layout_height="wrap_content"
+  xmlns:android="http://schemas.android.com/apk/res/android" />

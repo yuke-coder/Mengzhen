@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.tme.qqmusic.widget.base.view.CustomDispatcherConstraintLayout android:orientation="vertical" android:id="@id/mlive_create_root" android:layout_width="match_parent" android:layout_height="match_parent"
+  xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">
+    <include android:id="@id/mlive_ugc_background_container" android:layout_width="match_parent" android:layout_height="match_parent" layout="@layout/bgp" />
+    <android.widget.Space android:id="@id/mlive_ugc_audio_create_top_space" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="100.0dp" app:a27="hnz" />
+    <include android:id="@id/mlive_ugc_create_title" android:layout_width="match_parent" android:layout_height="wrap_content" app:a26="@id/mlive_ugc_audio_create_top_space" layout="@layout/bkv" />
+    <com.tme.mlive.ui.custom.CreateUgcSeatPreView android:id="@id/mlive_ugc_create_friend_seat" android:background="@drawable/mlive_ugc_audio_create_room_mode_select_bg" android:paddingTop="27.0dp" android:paddingBottom="27.0dp" android:layout_width="match_parent" android:layout_height="200.0dp" android:layout_marginTop="5.0dp" android:paddingStart="12.0dp" android:paddingEnd="12.0dp" android:layout_marginStart="16.0dp" android:layout_marginEnd="16.0dp" app:a26="@id/mlive_ugc_create_title" />
+    <androidx.recyclerview.widget.RecyclerView android:id="@id/mlive_ugc_create_button_rv" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginBottom="110.0dp" app:a1d="hnz" app:a1j="hnz" app:a23="hnz" />
+    <TextView android:textSize="18.0sp" android:textColor="@color/white" android:gravity="center" android:id="@id/mlive_create_start" android:background="@drawable/mlive_create_button_bg" android:layout_width="200.0dp" android:layout_height="40.0dp" android:layout_marginBottom="58.0dp" android:text="@string/d2v" app:a1d="hnz" app:a1j="hnz" app:a23="hnz" />
+</com.tme.qqmusic.widget.base.view.CustomDispatcherConstraintLayout>

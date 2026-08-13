@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout android:orientation="vertical" android:layout_width="match_parent" android:layout_height="match_parent"
+  xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">
+    <include android:layout_width="match_parent" android:layout_height="match_parent" layout="@layout/m6" />
+    <com.tencent.qqmusic.ClipTopFrameLayout android:id="@id/gyi" android:layout_width="match_parent" android:layout_height="0.0dp" app:a1e="@id/gyu" app:a26="@id/gyr">
+        <ListView android:id="@id/gyp" android:paddingBottom="@dimen/ait" android:visibility="gone" android:clipToPadding="false" android:layout_width="match_parent" android:layout_height="match_parent" android:listSelector="@color/transparent" android:divider="@null" android:overScrollMode="never" />
+    </com.tencent.qqmusic.ClipTopFrameLayout>
+    <com.tencent.qqmusic.business.smartlabel.ui.SmartLabelContainer android:orientation="vertical" android:id="@id/gyo" android:background="@color/transparent" android:layout_width="match_parent" android:layout_height="wrap_content" app:a27="@id/gyi" />
+    <LinearLayout android:gravity="center" android:orientation="horizontal" android:id="@id/gyr" android:layout_width="match_parent" android:layout_height="50.0dp" app:a26="@id/gyq">
+        <TextView android:textSize="16.0sp" android:textColor="@color/skin_text_sub_color" android:id="@id/gys" android:layout_width="wrap_content" android:layout_height="wrap_content" />
+        <ImageView android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginLeft="5.0dp" android:src="@drawable/arrow_right" android:layout_marginStart="5.0dp" />
+    </LinearLayout>
+    <include android:id="@id/gyq" android:layout_width="match_parent" android:layout_height="@dimen/cau" app:a27="hnz" layout="@layout/mu" />
+    <ImageView android:id="@id/gym" android:visibility="invisible" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginRight="60.0dp" android:layout_marginBottom="15.0dp" android:src="@drawable/anchor_in_cell" android:layout_marginEnd="60.0dp" app:a1e="@id/gyu" app:a1j="hnz" app:a2m="67.5dp" />
+    <include android:id="@id/gyl" android:visibility="visible" android:layout_width="match_parent" android:layout_height="match_parent" android:layout_below="@id/gyr" layout="@layout/mj" />
+    <ViewStub android:id="@id/gyj" android:layout="@layout/mh" android:layout_width="match_parent" android:layout_height="match_parent" android:layout_below="@id/gyr" />
+    <ViewStub android:id="@id/gyk" android:layout="@layout/yc" android:layout_width="match_parent" android:layout_height="match_parent" android:layout_below="@id/gyr" />
+    <ViewStub android:id="@id/gyn" android:layout="@layout/ye" android:layout_width="match_parent" android:layout_height="match_parent" android:layout_below="@id/gyr" />
+    <View android:background="@drawable/skin_divider_img" android:layout_width="match_parent" android:layout_height="0.5dp" app:a1e="@id/gyu" />
+    <LinearLayout android:gravity="center_vertical" android:orientation="horizontal" android:id="@id/gyu" android:background="@color/transparent" android:paddingLeft="10.0dp" android:paddingRight="10.0dp" android:visibility="visible" android:layout_width="match_parent" android:layout_height="30.0dp" android:layout_marginBottom="@dimen/ait" app:a1d="hnz" app:a1x="hnz" app:a21="hnz">
+        <TextView android:textSize="14.0sp" android:textColor="@color/skin_text_main_color" android:id="@id/gyw" android:layout_width="wrap_content" android:layout_height="wrap_content" />
+        <com.tencent.qqmusic.musicdisk.ui.UsageProgressBar android:id="@id/gyv" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginLeft="10.0dp" android:layout_marginStart="10.0dp" />
+    </LinearLayout>
+    <View android:background="@drawable/head_shadow" android:layout_width="match_parent" android:layout_height="20.0dp" app:a26="@id/gyq" />
+</androidx.constraintlayout.widget.ConstraintLayout>

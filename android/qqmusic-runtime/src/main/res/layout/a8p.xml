@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout android:gravity="center" android:orientation="horizontal" android:id="@id/jt4" android:paddingTop="12.0dp" android:paddingBottom="12.0dp" android:clipChildren="false" android:clipToPadding="false" android:layout_width="match_parent" android:layout_height="wrap_content"
+  xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">
+    <LinearLayout android:gravity="center_horizontal" android:orientation="vertical" android:id="@id/c8l" android:clipChildren="false" android:clipToPadding="false" android:layout_width="0.0dp" android:layout_height="wrap_content" android:layout_weight="1.0">
+        <FrameLayout android:layout_gravity="center_horizontal" android:clipChildren="false" android:clipToPadding="false" android:layout_width="wrap_content" android:layout_height="wrap_content">
+            <com.tencent.component.widget.AsyncEffectImageView android:id="@id/c8m" android:layout_width="50.0dp" android:layout_height="50.0dp" />
+            <com.tencent.qqmusic.fragment.morefeatures.ui.BadgeViewNew android:layout_gravity="end|top" android:id="@id/c8n" android:visibility="gone" android:layout_width="wrap_content" android:layout_height="15.0dp" android:layout_marginTop="-4.0dp" android:layout_marginEnd="-4.0dp" app:cq="@color/red_dot" />
+        </FrameLayout>
+        <TextView android:textSize="13.0dp" android:textColor="@color/skin_text_main_color" android:gravity="center" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="8.0dp" android:text="@string/bqv" />
+    </LinearLayout>
+    <LinearLayout android:gravity="center_horizontal" android:orientation="vertical" android:id="@id/c8r" android:clipChildren="false" android:clipToPadding="false" android:layout_width="0.0dp" android:layout_height="wrap_content" android:layout_weight="1.0">
+        <FrameLayout android:layout_gravity="center_horizontal" android:clipChildren="false" android:clipToPadding="false" android:layout_width="wrap_content" android:layout_height="wrap_content">
+            <com.tencent.component.widget.AsyncEffectImageView android:id="@id/c8s" android:layout_width="50.0dp" android:layout_height="50.0dp" />
+            <com.tencent.qqmusic.fragment.morefeatures.ui.BadgeViewNew android:layout_gravity="end|top" android:id="@id/c8t" android:visibility="gone" android:layout_width="wrap_content" android:layout_height="15.0dp" android:layout_marginTop="-4.0dp" android:layout_marginEnd="-4.0dp" app:cq="@color/red_dot" />
+        </FrameLayout>
+        <TextView android:textSize="13.0dp" android:textColor="@color/skin_text_main_color" android:gravity="center" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="8.0dp" android:text="@string/bqw" />
+    </LinearLayout>
+    <LinearLayout android:gravity="center_horizontal" android:orientation="vertical" android:id="@id/c8h" android:clipChildren="false" android:clipToPadding="false" android:layout_width="0.0dp" android:layout_height="wrap_content" android:layout_weight="1.0">
+        <FrameLayout android:layout_gravity="center_horizontal" android:clipChildren="false" android:clipToPadding="false" android:layout_width="wrap_content" android:layout_height="wrap_content">
+            <com.tencent.component.widget.AsyncEffectImageView android:id="@id/c8i" android:layout_width="50.0dp" android:layout_height="50.0dp" />
+            <com.tencent.qqmusic.fragment.morefeatures.ui.BadgeViewNew android:layout_gravity="end|top" android:id="@id/c8j" android:visibility="gone" android:layout_width="wrap_content" android:layout_height="15.0dp" android:layout_marginTop="-4.0dp" android:layout_marginEnd="-4.0dp" app:cq="@color/red_dot" />
+        </FrameLayout>
+        <TextView android:textSize="13.0dp" android:textColor="@color/skin_text_main_color" android:gravity="center" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="8.0dp" android:text="@string/bqu" />
+    </LinearLayout>
+</LinearLayout>

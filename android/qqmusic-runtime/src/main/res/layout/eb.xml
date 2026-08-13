@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout android:background="@drawable/main_bg" android:layout_width="match_parent" android:layout_height="match_parent"
+  xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">
+    <include android:id="@id/jqs" android:layout_width="match_parent" android:layout_height="@dimen/cau" app:a1x="hnz" app:a27="hnz" layout="@layout/mu" />
+    <androidx.recyclerview.widget.RecyclerView android:id="@id/jff" android:layout_width="match_parent" android:layout_height="0.0dp" app:a1d="hnz" app:a1x="hnz" app:a26="@id/jqs" />
+    <LinearLayout android:gravity="center" android:orientation="vertical" android:id="@id/fdg" android:visibility="gone" android:layout_width="wrap_content" android:layout_height="wrap_content" app:a1d="hnz" app:a1x="hnz" app:a21="hnz" app:a27="hnz">
+        <ImageView android:id="@id/f3q" android:background="@drawable/empty_music_list" android:layout_width="@dimen/bdw" android:layout_height="@dimen/bdw" />
+        <TextView android:textSize="14.0sp" android:textColor="@color/skin_text_sub_color" android:gravity="center_horizontal" android:id="@id/f3s" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="@dimen/bdx" android:text="@string/eyt" android:singleLine="true" />
+    </LinearLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>

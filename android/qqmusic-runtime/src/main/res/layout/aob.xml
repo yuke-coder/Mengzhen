@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<kk.design.layout.KKConstraintLayout android:id="@id/eo4" android:descendantFocusability="afterDescendants" android:layout_width="match_parent" android:layout_height="match_parent"
+  xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">
+    <kk.design.layout.KKLinearLayout android:orientation="vertical" android:id="@id/enx" android:layout_width="match_parent" android:layout_height="0.0dp" app:a1e="@id/eo5">
+        <ViewStub android:id="@id/eo3" android:visibility="gone" android:layout_width="match_parent" android:layout_height="90.0dp" android:layout_marginBottom="-12.0dp" />
+        <kk.design.layout.KKLinearLayout android:gravity="center_vertical" android:layout_gravity="bottom" android:orientation="vertical" android:id="@id/eo0" android:focusable="true" android:clickable="true" android:layout_width="match_parent" android:layout_height="wrap_content" android:minHeight="@dimen/a4s">
+            <ViewStub android:id="@id/eo2" android:layout_width="match_parent" android:layout_height="wrap_content" />
+            <androidx.core.widget.NestedScrollView android:id="@id/eny" android:layout_width="match_parent" android:layout_height="wrap_content">
+                <ViewStub android:id="@id/enz" android:layout_width="match_parent" android:layout_height="wrap_content" />
+            </androidx.core.widget.NestedScrollView>
+        </kk.design.layout.KKLinearLayout>
+    </kk.design.layout.KKLinearLayout>
+    <kk.design.KKSpaceView android:layout_gravity="bottom" android:id="@id/eo5" android:background="@drawable/kk_o_bg_normal" android:focusable="true" android:clickable="true" android:layout_width="0.0dp" android:layout_height="@dimen/a4u" android:importantForAccessibility="no" app:a1e="@id/eo1" app:a1j="@id/enx" app:a23="@id/enx" />
+    <kk.design.layout.KKFrameLayout android:layout_gravity="bottom" android:id="@id/eo1" android:layout_width="0.0dp" android:layout_height="@dimen/a4t" app:a1d="hnz" app:a1j="@id/enx" app:a23="@id/enx">
+        <kk.design.KKTextView android:gravity="center" android:layout_gravity="center" android:id="@id/mrn" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/bxi" android:lines="1" android:singleLine="true" app:a0f="g7y" app:a0g="a2c" />
+    </kk.design.layout.KKFrameLayout>
+</kk.design.layout.KKConstraintLayout>

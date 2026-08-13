@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout android:orientation="vertical" android:background="@drawable/recording_default_bg" android:clickable="true" android:layout_width="match_parent" android:layout_height="match_parent"
+  xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">
+    <include layout="@layout/vn" />
+    <include layout="@layout/vl" />
+    <FrameLayout android:id="@id/chm" android:layout_width="match_parent" android:layout_height="0.0dp" android:layout_marginTop="18.0dp" android:layout_marginBottom="50.0dp" app:a1e="@id/afk" app:a26="@id/lxu">
+        <com.tme.karaoke.recordui.widget.CountBackwardViewer android:layout_gravity="center_horizontal" android:id="@id/j21" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="1.0dp" />
+        <com.tme.karaoke.recordui.widget.RecordLyricWithBuoyView android:layout_gravity="center_horizontal" android:id="@id/j1t" android:paddingTop="4.0dp" android:layout_width="match_parent" android:layout_height="match_parent" android:layout_marginTop="10.0dp" android:importantForAccessibility="no" app:v3="j0v" />
+        <ScrollView android:layout_gravity="center_horizontal" android:id="@id/j23" android:visibility="gone" android:layout_width="match_parent" android:layout_height="match_parent" android:layout_marginTop="10.0dp" android:layout_marginBottom="75.0dp">
+            <TextView android:textSize="18.0dp" android:textColor="@color/lyric_text_color" android:gravity="center" android:layout_gravity="center_horizontal" android:id="@id/j24" android:paddingTop="10.0dp" android:paddingBottom="18.0dp" android:layout_width="match_parent" android:layout_height="wrap_content" android:lineSpacingExtra="10.0dp" />
+        </ScrollView>
+    </FrameLayout>
+    <LinearLayout android:gravity="center_horizontal" android:layout_gravity="right|bottom" android:orientation="vertical" android:id="@id/j1q" android:visibility="gone" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginLeft="10.0dp" android:layout_marginRight="15.0dp" android:contentDescription="音译" app:a1e="@id/afk" app:a21="hnz" app:a26="@id/lxu">
+        <ImageView android:id="@id/j1s" android:layout_width="26.0dp" android:layout_height="26.0dp" android:src="@drawable/recording_translate_btn_selector" android:layout_centerHorizontal="true" android:importantForAccessibility="no" />
+        <TextView android:textSize="10.0sp" android:textColor="#ccffffff" android:gravity="center" android:id="@id/j1r" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="3.0dp" android:minHeight="14.5dp" android:text="音译" android:importantForAccessibility="no" />
+    </LinearLayout>
+    <androidx.constraintlayout.widget.ConstraintLayout android:id="@id/lxu" android:layout_width="match_parent" android:layout_height="wrap_content" app:a1j="hnz" app:a23="hnz" app:a26="@id/dl">
+        <com.tme.karaoke.recordui.widget.RecordingScoreLayout android:id="@id/cio" android:layout_width="match_parent" android:layout_height="wrap_content" android:minHeight="125.0dp" app:a1j="hnz" app:a23="hnz" app:a27="hnz" />
+        <FrameLayout android:id="@id/dzq" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginLeft="18.0dp" android:layout_marginTop="15.0dp" android:layout_marginRight="18.0dp" app:a1j="hnz" app:a23="hnz" app:a26="@id/cio" app:a2r="151.0dp">
+            <View android:id="@id/lx2" android:background="#26ffffff" android:layout_width="match_parent" android:layout_height="0.6dp" />
+            <View android:id="@id/j1o" android:layout_width="match_parent" android:layout_height="100.0dp" />
+            <com.tme.karaoke.recordui.widget.RecordIntonationViewerV8 android:id="@id/j1p" android:layout_width="match_parent" android:layout_height="100.0dp" android:forceDarkAllowed="false" />
+            <com.tme.karaoke.recordui.widget.LineShapeBreathLight android:layout_gravity="bottom" android:id="@id/j18" android:layout_width="match_parent" android:layout_height="wrap_content" />
+            <View android:layout_gravity="bottom" android:id="@id/afl" android:background="#26ffffff" android:layout_width="match_parent" android:layout_height="0.6dp" />
+        </FrameLayout>
+        <kk.design.KKTextView android:id="@id/j1n" android:tag="@string/g6w" android:background="@drawable/recording_hq_btn_background" android:paddingLeft="7.0dp" android:paddingTop="4.0dp" android:paddingRight="7.0dp" android:paddingBottom="4.0dp" android:visibility="gone" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginRight="16.0dp" android:layout_marginBottom="10.0dp" android:text="切换高质" android:layout_alignParentRight="true" app:a0f="ka8" app:a0g="bj0" app:a1e="@id/dzq" app:a21="hnz" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+    <RelativeLayout android:id="@id/g6w" android:layout_width="match_parent" android:layout_height="0.0dp" app:a1d="@id/lxu" app:a1x="hnz" app:a21="hnz" app:a27="hnz">
+        <com.tme.karaoke.recordui.widget.RecordingNoteFlyAnimationView android:id="@id/j1w" android:layout_width="match_parent" android:layout_height="match_parent" />
+        <RelativeLayout android:id="@id/d8" android:layout_width="match_parent" android:layout_height="match_parent" />
+        <kk.design.KKImageView android:id="@id/hq2" android:visibility="gone" android:layout_width="0.0dp" android:layout_height="match_parent" android:src="@drawable/prefect_view_gradient" app:a1j="hnz" app:a23="hnz" app:a27="hnz" />
+    </RelativeLayout>
+    <com.tme.karaoke.recordui.widget.TipsViewerV8 android:id="@id/j2_" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginBottom="9.0dp" app:a1e="@id/afk" app:a1j="hnz" />
+    <include android:id="@id/afk" layout="@layout/c1_" />
+    <include layout="@layout/cet" />
+    <include layout="@layout/vm" />
+    <androidx.constraintlayout.widget.ConstraintLayout android:id="@id/j0a" android:background="@drawable/loading_bg" android:visibility="gone" android:layout_width="match_parent" android:layout_height="match_parent">
+        <com.tme.karaoke.recordui.widget.ProgressBarView android:layout_gravity="center" android:id="@id/bwz" android:layout_width="68.0dp" android:layout_height="68.0dp" android:layout_centerInParent="true" app:a1d="hnz" app:a1j="hnz" app:a23="hnz" app:a27="hnz" app:afj="#33ffffff" app:afk="#fe4f4f" />
+        <TextView android:textSize="15.0dp" android:textColor="@android:color/white" android:id="@id/ihy" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="40%" app:a1d="@id/bwz" app:a1j="@id/bwz" app:a23="@id/bwz" app:a27="@id/bwz" />
+        <TextView android:textSize="14.0dp" android:textStyle="bold" android:textColor="@android:color/white" android:id="@id/ns2" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="12.0dp" android:text="欢迎使用全民K歌功能" app:a1j="hnz" app:a23="hnz" app:a26="@id/bwz" />
+        <TextView android:textSize="14.0dp" android:textColor="@color/white_50_transparent" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="8.0dp" android:text="音乐加载中…" app:a1j="hnz" app:a23="hnz" app:a26="@id/ns2" />
+        <LinearLayout android:gravity="center_horizontal" android:orientation="horizontal" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginBottom="20.0dp" app:a1d="hnz" app:a1j="hnz" app:a23="hnz">
+            <TextView android:textSize="10.0dp" android:textColor="@color/white_50_transparent" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="此唱功能由" android:layout_marginEnd="6.0dp" />
+            <ImageView android:layout_width="wrap_content" android:layout_height="13.0dp" android:src="@drawable/karaoke_text_logo" />
+            <TextView android:textSize="10.0dp" android:textColor="@color/white_50_transparent" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="提供" android:layout_marginStart="6.0dp" />
+        </LinearLayout>
+    </androidx.constraintlayout.widget.ConstraintLayout>
+    <View android:id="@id/hsp" android:layout_width="match_parent" android:layout_height="50.0dp" app:a27="hnz" />
+    <include android:id="@id/dl" layout="@layout/c1a" />
+</androidx.constraintlayout.widget.ConstraintLayout>

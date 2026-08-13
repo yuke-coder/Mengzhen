@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout android:layout_width="375.0dp" android:layout_height="600.0dp" app:kj="15.0dp"
+  xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">
+    <ImageView android:id="@id/nck" android:layout_width="match_parent" android:layout_height="match_parent" app:a1d="hnz" app:a1x="hnz" app:a21="hnz" app:a27="hnz" />
+    <ImageView android:id="@id/ncl" android:layout_width="match_parent" android:layout_height="match_parent" android:src="@drawable/icon_share_card_poster_bg_mask" app:a1d="hnz" app:a1x="hnz" app:a21="hnz" app:a27="hnz" />
+    <ImageView android:id="@id/ncn" android:layout_width="250.0dp" android:layout_height="250.0dp" android:layout_marginTop="180.0dp" app:a1x="hnz" app:a21="hnz" app:a27="hnz" />
+    <ImageView android:id="@id/ncm" android:layout_width="250.0dp" android:layout_height="250.0dp" android:src="@drawable/icon_share_card_poster_fg_mask" app:a1x="@id/ncn" app:a27="@id/ncn" />
+    <com.tencent.qqmusic.camerascan.share.cardtemplate.ShareCardInfoView android:id="@id/ncp" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginTop="94.0dp" app:a1x="hnz" app:a27="hnz" />
+    <com.tencent.qqmusic.camerascan.share.cardtemplate.ShareCardBottomView android:id="@id/nco" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginLeft="@dimen/c1o" android:layout_marginRight="@dimen/c1o" android:layout_marginBottom="@dimen/c1n" app:a1d="hnz" app:a1x="hnz" />
+</androidx.constraintlayout.widget.ConstraintLayout>

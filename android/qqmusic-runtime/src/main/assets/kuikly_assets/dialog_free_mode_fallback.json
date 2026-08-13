@@ -1,0 +1,11 @@
+{
+  "router": "openHalf",
+  "page_name": "dialog_free_mode_fallback",
+  "params": {
+    "id": 7,
+    "scene": 2
+  },
+  "container": {
+    "tabbar_mode": 4
+  }
+}

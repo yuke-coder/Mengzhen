@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout android:layout_width="match_parent" android:layout_height="@dimen/b32" android:minHeight="@dimen/b32"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <include android:id="@id/el" android:layout_width="wrap_content" android:layout_height="match_parent" android:layout_alignParentRight="true" android:layout_centerVertical="true" layout="@layout/b40" />
+    <RelativeLayout android:id="@id/lf9" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginLeft="12.0dp" android:layout_toLeftOf="@id/el" android:layout_centerVertical="true">
+        <LinearLayout android:gravity="center_vertical" android:id="@id/kzh" android:layout_width="wrap_content" android:layout_height="wrap_content">
+            <TextView android:textColor="@color/skin_text_main_color" android:id="@id/j_b" android:layout_width="wrap_content" android:text="adsfasdf" android:layout_weight="1.0" style="@style/ln" />
+            <ImageView android:id="@id/i8q" android:layout_width="30.0dp" android:layout_height="30.0dp" android:layout_marginRight="6.0dp" android:src="@anim/eh" />
+        </LinearLayout>
+        <RelativeLayout android:id="@id/kzc" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_below="@id/kzh">
+            <ImageView android:id="@id/hk0" android:layout_width="14.0dp" android:layout_height="14.0dp" android:layout_marginRight="6.0dp" android:src="@drawable/music_offline_sign" android:scaleType="centerCrop" android:layout_centerVertical="true" />
+            <ImageView android:id="@id/j99" android:layout_width="14.0dp" android:layout_height="14.0dp" android:layout_marginRight="6.0dp" android:src="@drawable/icon_list_ring" android:layout_toRightOf="@id/hk0" android:layout_centerVertical="true" />
+            <TextView android:textColor="@color/skin_text_sub_color" android:id="@id/j_a" android:layout_toRightOf="@id/j99" style="@style/ll" />
+        </RelativeLayout>
+    </RelativeLayout>
+    <View android:id="@id/cod" android:background="@drawable/z_color_l1" android:layout_width="match_parent" android:layout_height="0.5dp" android:layout_marginLeft="12.0dp" android:layout_alignParentBottom="true" />
+</RelativeLayout>

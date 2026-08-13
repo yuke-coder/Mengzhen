@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.tme.qqmusic.widget.base.view.CornerConstraintLayout android:background="@drawable/mive_pendant_left_item_bg" android:layout_width="@dimen/asi" android:layout_height="@dimen/ash" app:lg="4.0dp"
+  xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">
+    <androidx.viewpager.widget.ViewPager android:id="@id/mlive_pendent_pavilion_viewpager" android:layout_width="match_parent" android:layout_height="match_parent" app:a1d="hnz" app:a1j="hnz" app:a27="hnz" />
+</com.tme.qqmusic.widget.base.view.CornerConstraintLayout>

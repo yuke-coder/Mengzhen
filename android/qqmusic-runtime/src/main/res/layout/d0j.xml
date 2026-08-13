@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout android:id="@id/bw_" android:paddingTop="@dimen/c_q" android:layout_width="match_parent" android:layout_height="@dimen/cau"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <LinearLayout android:gravity="center" android:layout_gravity="center" android:orientation="horizontal" android:layout_width="match_parent" android:layout_height="match_parent">
+        <TextView android:textSize="18.0sp" android:id="@id/k4i" android:visibility="gone" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/h_e" />
+        <View android:gravity="center_vertical" android:id="@id/n2s" android:background="@drawable/skin_text_sub_img" android:visibility="gone" android:layout_width="1.0dp" android:layout_height="10.0dp" android:layout_marginLeft="15.0dp" android:layout_marginRight="15.0dp" />
+        <TextView android:textSize="18.0sp" android:textColor="@color/skin_text_main_color" android:gravity="center" android:id="@id/irz" android:visibility="gone" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/h_d" />
+        <TextView android:textSize="8.5sp" android:textStyle="bold" android:textColor="#ffffff" android:ellipsize="end" android:gravity="center" android:id="@id/ist" android:background="@drawable/singer_rank_mark" android:paddingLeft="4.5dp" android:paddingTop="1.5dp" android:paddingRight="4.5dp" android:paddingBottom="1.5dp" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginLeft="8.5dp" android:text="打榜中" android:singleLine="true" />
+    </LinearLayout>
+    <FrameLayout android:layout_gravity="right|center" android:id="@id/bwd" android:visibility="gone" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginRight="4.0dp">
+        <ImageView android:layout_gravity="left" android:id="@id/bwc" android:background="@drawable/material_ripple_background_circle" android:layout_width="@dimen/cao" android:layout_height="@dimen/cao" android:src="@drawable/local_music_cloud_num_icon" android:scaleType="centerInside" android:contentDescription="@string/ihj" />
+        <TextView android:textSize="10.0sp" android:textColor="@color/white" android:gravity="left|bottom" android:id="@id/bwe" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginLeft="25.0dp" android:layout_marginTop="9.0dp" android:maxLines="1" />
+        <TextView android:textColor="@color/skin_text_sub_color" android:gravity="center" android:id="@id/mx2" android:visibility="gone" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginRight="10.0dp" />
+    </FrameLayout>
+    <ImageView android:layout_gravity="left|center" android:id="@id/bw9" android:background="@drawable/material_ripple_background_circle" android:layout_width="@dimen/cao" android:layout_height="@dimen/cao" android:src="@drawable/ic_download_list_tital_bar_back_selector" android:scaleType="centerInside" android:contentDescription="@string/wf" />
+</FrameLayout>

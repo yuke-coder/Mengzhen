@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout android:gravity="center_vertical" android:layout_width="match_parent" android:layout_height="match_parent"
+  xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">
+    <com.tencent.component.widget.AsyncEffectImageView android:id="@id/k29" android:layout_width="match_parent" android:layout_height="0.0dp" android:scaleType="centerCrop" app:a1d="hnz" app:a1j="hnz" app:a23="hnz" app:a27="hnz" />
+    <FrameLayout android:id="@id/k2a" android:visibility="gone" android:layout_width="match_parent" android:layout_height="0.0dp" android:scaleType="centerCrop" app:a1d="hnz" app:a1j="hnz" app:a23="hnz" app:a27="hnz" />
+    <com.tencent.component.widget.AsyncEffectImageView android:id="@id/k2b" android:visibility="gone" android:layout_width="0.0dp" android:layout_height="0.0dp" android:src="@drawable/homepage_singer_cover_video_play" android:scaleType="centerInside" app:a1d="hnz" app:a1j="hnz" app:a23="hnz" app:a27="hnz" />
+    <com.tencent.component.widget.AsyncEffectImageView android:id="@id/k2_" android:layout_width="0.0dp" android:layout_height="0.0dp" android:scaleType="centerCrop" app:a1d="hnz" app:a1i="w,438:780" app:a1j="hnz" app:a23="hnz" app:a27="hnz" />
+    <FrameLayout android:id="@id/d5u" android:visibility="gone" android:layout_width="0.0dp" android:layout_height="0.0dp" app:a1d="hnz" app:a1j="hnz" app:a23="hnz" app:a27="hnz">
+        <LinearLayout android:gravity="center" android:layout_gravity="start|center" android:orientation="vertical" android:layout_width="39.0dp" android:layout_height="wrap_content" android:layout_marginStart="30.0dp">
+            <ImageView android:id="@id/d5n" android:layout_width="30.0dp" android:layout_height="30.0dp" android:src="@drawable/ic_singer_portrait_swipe_chevrons" android:contentDescription="@null" />
+            <TextView android:textSize="13.0dp" android:textColor="@color/skin_text_main_color" android:gravity="center" android:layout_width="match_parent" android:layout_height="wrap_content" android:text="继续滑\n看全部" />
+        </LinearLayout>
+    </FrameLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>

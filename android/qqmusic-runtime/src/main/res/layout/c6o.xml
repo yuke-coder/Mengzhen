@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout android:orientation="vertical" android:layout_width="70.0dp" android:layout_height="wrap_content"
+  xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">
+    <com.tencent.component.widget.AsyncEffectImageView android:layout_gravity="center_horizontal" android:id="@id/gr7" android:layout_width="50.0dp" android:layout_height="50.0dp" android:layout_marginTop="10.0dp" android:importantForAccessibility="no" app:a1j="hnz" app:a23="hnz" app:a27="hnz" />
+    <TextView android:textSize="12.0sp" android:textColor="@android:color/transparent" android:ellipsize="end" android:gravity="center" android:layout_gravity="center_horizontal" android:id="@id/gra" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="5.0dp" android:maxWidth="70.0dp" android:maxLines="1" app:a1j="@id/gr7" app:a23="@id/gr7" app:a26="@id/gr7" />
+    <TextView android:textSize="9.0sp" android:textColor="@android:color/transparent" android:ellipsize="end" android:gravity="center" android:layout_gravity="center_horizontal" android:id="@id/gr_" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="6.0dp" android:maxWidth="70.0dp" android:maxLines="1" app:a1j="@id/gr7" app:a23="@id/gr7" app:a26="@id/gra" />
+</androidx.constraintlayout.widget.ConstraintLayout>

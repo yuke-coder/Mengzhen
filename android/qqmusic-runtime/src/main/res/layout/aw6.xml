@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout android:layout_width="match_parent" android:layout_height="wrap_content"
+  xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">
+    <androidx.constraintlayout.widget.ConstraintLayout android:id="@id/fsb" android:background="@drawable/shape_long_audio_preference_popup_bg" android:paddingLeft="10.0dp" android:paddingRight="10.0dp" android:layout_width="match_parent" android:layout_height="38.0dp" android:layout_marginTop="10.0dp" app:a18="true" app:a1j="hnz" app:a23="hnz" app:a27="hnz">
+        <ImageView android:id="@id/fsa" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="8.0dp" android:layout_marginBottom="8.0dp" android:src="@drawable/ic_long_audio_preference_popup_close" app:a1d="hnz" app:a1j="hnz" app:a27="hnz" />
+        <TextView android:textSize="12.0sp" android:textColor="@color/skin_text_main_color" android:ellipsize="end" android:id="@id/fsc" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="10.0dp" android:layout_marginRight="8.0dp" android:layout_marginBottom="10.0dp" android:singleLine="true" app:a18="true" app:a1d="hnz" app:a1k="@id/fsa" app:a1t="0.0" app:a1u="hmg" app:a23="hnz" app:a27="hnz" app:a2p="0.0dp" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>

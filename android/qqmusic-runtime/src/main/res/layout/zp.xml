@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout android:paddingBottom="@dimen/b98" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginLeft="@dimen/b98" android:layout_marginRight="@dimen/b98"
+  xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">
+    <include android:id="@id/co4" android:layout_width="0.0dp" android:layout_height="wrap_content" android:layout_marginRight="6.0dp" app:a1k="@id/co6" app:a1v="1.0" app:a23="hnz" app:a27="hnz" layout="@layout/zr" />
+    <include android:id="@id/co6" android:layout_width="0.0dp" android:layout_height="wrap_content" android:layout_marginRight="6.0dp" app:a1k="@id/co8" app:a1v="1.0" app:a22="@id/co4" app:a27="hnz" layout="@layout/zr" />
+    <include android:id="@id/co8" android:layout_width="0.0dp" android:layout_height="wrap_content" app:a1j="hnz" app:a1v="1.0" app:a22="@id/co6" app:a27="hnz" layout="@layout/zr" />
+    <include android:id="@id/co5" android:layout_width="0.0dp" android:layout_height="wrap_content" android:layout_marginTop="@dimen/b9_" android:layout_marginRight="6.0dp" app:a1k="@id/co7" app:a1t="0.5" app:a1v="1.0" app:a23="hnz" app:a26="@id/co4" layout="@layout/zr" />
+    <include android:id="@id/co7" android:layout_width="0.0dp" android:layout_height="wrap_content" android:layout_marginTop="@dimen/b9_" android:layout_marginRight="6.0dp" app:a1k="@id/co9" app:a1t="0.5" app:a1v="1.0" app:a22="@id/co5" app:a26="@id/co6" layout="@layout/zr" />
+    <include android:id="@id/co9" android:layout_width="0.0dp" android:layout_height="wrap_content" android:layout_marginTop="@dimen/b9_" app:a1j="hnz" app:a1t="0.5" app:a1v="1.0" app:a22="@id/co7" app:a26="@id/co8" layout="@layout/zr" />
+</androidx.constraintlayout.widget.ConstraintLayout>

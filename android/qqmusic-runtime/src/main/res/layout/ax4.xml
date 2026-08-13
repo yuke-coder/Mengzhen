@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout android:id="@id/i0j" android:clipChildren="false" android:layout_width="match_parent" android:layout_height="match_parent"
+  xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">
+    <ViewStub android:id="@id/no_" android:layout="@layout/b8f" android:inflatedId="@id/no8" android:layout_width="0.0dp" android:layout_height="0.0dp" app:a1d="hnz" app:a1j="hnz" app:a23="hnz" app:a27="hnz" />
+    <ViewStub android:id="@id/noa" android:layout="@layout/b8g" android:inflatedId="@id/no9" android:layout_width="0.0dp" android:layout_height="0.0dp" app:a1d="hnz" app:a1j="hnz" app:a23="hnz" app:a27="hnz" />
+    <ViewStub android:id="@id/noe" android:layout="@layout/b8h" android:inflatedId="@id/noc" android:layout_width="0.0dp" android:layout_height="0.0dp" app:a1d="hnz" app:a1j="hnz" app:a23="hnz" app:a27="hnz" />
+    <ViewStub android:id="@id/nof" android:layout="@layout/b8i" android:inflatedId="@id/nod" android:layout_width="0.0dp" android:layout_height="0.0dp" app:a1d="hnz" app:a1j="hnz" app:a23="hnz" app:a27="hnz" />
+    <ViewStub android:id="@id/noj" android:layout="@layout/b8j" android:inflatedId="@id/noi" android:layout_width="0.0dp" android:layout_height="0.0dp" app:a1d="hnz" app:a1j="hnz" app:a23="hnz" app:a27="hnz" />
+    <RelativeLayout android:id="@id/jz0" android:layout_width="match_parent" android:layout_height="46.0dp" android:layout_marginTop="10.0dp" android:layout_marginBottom="40.0dp" android:layout_marginStart="34.0dp" android:layout_marginEnd="34.0dp" app:a1d="hnz" app:a1j="hnz" app:a23="hnz">
+        <com.tencent.qqmusic.ui.MiniBarContentChangeImageView android:id="@id/g02" android:background="@drawable/skin_mini_player_bg" android:focusableInTouchMode="false" android:layout_width="match_parent" android:layout_height="38.0dp" android:layout_marginTop="4.0dp" android:layout_marginBottom="4.0dp" android:scaleType="fitXY" android:layout_alignParentTop="true" android:layout_alignParentBottom="true" android:alpha="0.1" android:layout_alignParentStart="true" android:layout_alignParentEnd="true" />
+        <ImageView android:id="@id/minibar_content_album" android:layout_width="46.0dp" android:layout_height="46.0dp" android:importantForAccessibility="no" />
+        <ImageView android:id="@id/g92" android:layout_width="wrap_content" android:layout_height="wrap_content" android:src="@drawable/minibar_pic_right_album" android:scaleType="fitXY" android:layout_toRightOf="@id/minibar_content_album" android:layout_alignParentBottom="true" />
+        <LinearLayout android:gravity="center_vertical" android:orientation="horizontal" android:id="@id/fez" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_toRightOf="@id/g92" android:layout_alignTop="@id/g02" android:layout_alignBottom="@id/g02" android:layout_marginStart="7.0dp">
+            <TextView android:textSize="12.0sp" android:id="@id/mdf" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="广告之后继续｜" android:alpha="0.8" />
+            <TextView android:textSize="12.0sp" android:ellipsize="end" android:id="@id/mmo" android:layout_width="wrap_content" android:layout_height="wrap_content" android:singleLine="true" android:alpha="0.8" />
+        </LinearLayout>
+    </RelativeLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>

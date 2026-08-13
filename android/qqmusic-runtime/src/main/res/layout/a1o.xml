@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout android:orientation="vertical" android:layout_width="match_parent" android:layout_height="match_parent"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <LinearLayout android:gravity="center_vertical" android:layout_width="wrap_content" android:layout_height="44.0dp" android:layout_marginTop="10.0dp">
+        <TextView android:textSize="16.0sp" android:textColor="@color/skin_text_main_color" android:gravity="center" android:id="@id/b4q" android:layout_width="wrap_content" android:layout_height="match_parent" android:layout_marginLeft="16.0dp" android:text="收藏歌单" />
+        <View android:layout_gravity="center_vertical" android:id="@id/n6x" android:background="#fafafa" android:layout_width="1.0dp" android:layout_height="10.0dp" android:layout_marginLeft="14.0dp" android:layout_marginRight="14.0dp" />
+        <TextView android:textSize="16.0sp" android:textColor="@color/skin_text_main_color" android:gravity="center" android:layout_gravity="center_vertical" android:id="@id/bee" android:layout_width="wrap_content" android:layout_height="match_parent" android:text="自建歌单" />
+        <View android:layout_gravity="center_vertical" android:id="@id/n6y" android:background="#fafafa" android:layout_width="1.0dp" android:layout_height="10.0dp" android:layout_marginLeft="14.0dp" android:layout_marginRight="14.0dp" />
+        <TextView android:textSize="16.0sp" android:textColor="@color/skin_text_main_color" android:gravity="center" android:layout_gravity="center_vertical" android:id="@id/iuq" android:layout_width="wrap_content" android:layout_height="match_parent" android:text="最近听过" />
+    </LinearLayout>
+    <FrameLayout android:layout_width="match_parent" android:layout_height="0.0dp" android:layout_weight="1.0">
+        <include android:id="@id/j6y" android:visibility="gone" android:layout_width="match_parent" android:layout_height="match_parent" layout="@layout/mj" />
+        <ViewStub android:id="@id/j6w" android:visibility="gone" android:layout="@layout/mh" android:layout_width="match_parent" android:layout_height="match_parent" />
+        <ViewStub android:id="@id/j6x" android:visibility="gone" android:layout="@layout/n8" android:layout_width="match_parent" android:layout_height="match_parent" />
+        <com.tencent.qqmusic.ui.HiddenHeaderListView android:id="@id/n4q" android:background="@android:color/transparent" android:paddingBottom="@dimen/ait" android:visibility="gone" android:clipToPadding="false" android:layout_width="match_parent" android:layout_height="match_parent" android:cacheColorHint="#00000000" android:divider="@null" android:dividerHeight="0.0dp" android:layout_alignWithParentIfMissing="true" android:overScrollMode="never" />
+    </FrameLayout>
+</LinearLayout>

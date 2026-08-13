@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout android:orientation="vertical" android:background="@drawable/main_bg" android:layout_width="match_parent" android:layout_height="match_parent"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <RelativeLayout android:id="@id/g2k" android:visibility="gone" android:layout_width="match_parent" android:layout_height="match_parent">
+        <include android:id="@id/g2s" android:layout_width="match_parent" android:layout_height="@dimen/cau" layout="@layout/mu" />
+        <TextView android:textSize="14.0sp" android:textColor="@color/skin_text_main_color" android:id="@id/g2t" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="20.0dp" android:layout_below="@id/g2s" android:layout_centerHorizontal="true" />
+        <RelativeLayout android:id="@id/g2r" android:layout_width="225.0dp" android:layout_height="225.0dp" android:layout_marginTop="60.0dp" android:layout_below="@id/g2s" android:layout_centerHorizontal="true">
+            <com.tencent.qqmusic.musicdisk.ui.CircleUsageProgressBar android:id="@id/g2q" android:layout_width="225.0dp" android:layout_height="225.0dp" />
+            <TextView android:textSize="35.0sp" android:textColor="@color/my_music_green" android:id="@id/g2l" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_centerInParent="true" />
+            <TextView android:textSize="12.0sp" android:textColor="@color/my_music_green" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="5.0dp" android:text="@string/ee6" android:layout_below="@id/g2l" android:layout_centerHorizontal="true" />
+        </RelativeLayout>
+        <RelativeLayout android:id="@id/g2f" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="30.0dp" android:layout_below="@id/g2r" android:layout_centerHorizontal="true">
+            <View android:id="@id/g2n" android:background="@color/my_music_green" android:layout_width="16.0dp" android:layout_height="16.0dp" />
+            <TextView android:textSize="16.0sp" android:textColor="@color/skin_text_main_color" android:id="@id/g2m" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginLeft="10.0dp" android:includeFontPadding="false" android:layout_toRightOf="@id/g2n" />
+            <View android:id="@id/g2p" android:background="#ffafe3ca" android:layout_width="16.0dp" android:layout_height="16.0dp" android:layout_marginTop="10.0dp" android:layout_below="@id/g2n" />
+            <TextView android:textSize="16.0sp" android:textColor="@color/skin_text_main_color" android:id="@id/g2o" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginLeft="10.0dp" android:includeFontPadding="false" android:layout_toRightOf="@id/g2p" android:layout_alignTop="@id/g2p" />
+            <View android:id="@id/g2i" android:background="#ffededed" android:layout_width="16.0dp" android:layout_height="16.0dp" android:layout_marginTop="10.0dp" android:layout_below="@id/g2p" />
+            <TextView android:textSize="16.0sp" android:textColor="@color/skin_text_main_color" android:id="@id/g2h" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginLeft="10.0dp" android:includeFontPadding="false" android:layout_toRightOf="@id/g2i" android:layout_alignTop="@id/g2i" />
+        </RelativeLayout>
+        <LinearLayout android:gravity="center" android:orientation="horizontal" android:id="@id/g2g" android:background="@drawable/bg_stroke_button_gray" android:layout_width="200.0dp" android:layout_height="40.0dp" android:layout_marginTop="30.0dp" android:layout_below="@id/g2f" android:layout_centerHorizontal="true">
+            <ImageView android:layout_width="wrap_content" android:layout_height="wrap_content" android:src="@drawable/ic_music_disk_usage_extend" />
+            <TextView android:textColor="@color/skin_text_main_color" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginLeft="7.0dp" android:text="@string/ee1" />
+        </LinearLayout>
+        <TextView android:textColor="@color/skin_text_sub_color" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="5.0dp" android:text="@string/ee2" android:layout_below="@id/g2g" android:layout_centerHorizontal="true" />
+    </RelativeLayout>
+    <include android:id="@id/g2j" android:visibility="visible" android:layout_width="match_parent" android:layout_height="match_parent" android:layout_below="@id/gyr" layout="@layout/mj" />
+</RelativeLayout>

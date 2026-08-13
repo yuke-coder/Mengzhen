@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout android:layout_width="match_parent" android:layout_height="match_parent"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <TextView android:textSize="18.0sp" android:textColor="@color/black" android:gravity="center" android:id="@id/ldr" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginTop="30.0dp" android:text="@string/wv" />
+    <TextView android:textSize="14.0sp" android:textColor="@color/black" android:gravity="center" android:id="@id/l02" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginTop="6.0dp" android:text="@string/wr" android:layout_below="@id/ldr" />
+    <ImageView android:id="@id/d5t" android:layout_width="238.0dp" android:layout_height="261.0dp" android:layout_marginTop="21.0dp" android:src="@drawable/recognize_guide_dialog_subtitle_step1" android:layout_below="@id/l02" android:layout_centerHorizontal="true" />
+</RelativeLayout>

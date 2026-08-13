@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout android:layout_width="@dimen/as7" android:layout_height="@dimen/as7"
+  xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">
+    <ViewStub android:id="@id/mlive_oper_button_circle_stub" android:layout="@layout/ba7" android:layout_width="match_parent" android:layout_height="match_parent" />
+    <com.tme.qqmusic.widget.base.view.GlideImageView android:id="@id/mlive_oper_button_icon" android:layout_width="@dimen/as7" android:layout_height="@dimen/as7" app:a1d="hnz" app:a1x="hnz" app:a21="hnz" app:a27="hnz" />
+    <ViewStub android:id="@id/mlive_oper_button_new_flag_stub" android:layout="@layout/ba8" android:layout_width="5.0dp" android:layout_height="5.0dp" app:a21="hnz" app:a27="hnz" />
+</androidx.constraintlayout.widget.ConstraintLayout>

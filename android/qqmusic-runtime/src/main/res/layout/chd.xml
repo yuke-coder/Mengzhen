@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout android:id="@id/jku" android:background="@drawable/skin_mask_img" android:paddingLeft="11.0dp" android:layout_width="match_parent" android:layout_height="wrap_content"
+  xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">
+    <ImageView android:id="@id/jl1" android:layout_width="match_parent" android:layout_height="43.0dp" android:layout_marginTop="36.0dp" app:a1d="hnz" app:a23="hnz" />
+    <ImageView android:id="@id/jl0" android:visibility="gone" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginRight="8.0dp" app:a1d="@id/jl1" app:a1j="hnz" app:a27="@id/jl1" />
+</androidx.constraintlayout.widget.ConstraintLayout>

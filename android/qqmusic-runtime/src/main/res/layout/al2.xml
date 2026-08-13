@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout android:layout_width="wrap_content" android:layout_height="wrap_content"
+  xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">
+    <com.tencent.qqmusic.ui.RoundedRelativeLayout android:id="@id/ey0" android:layout_width="@dimen/c1u" android:layout_height="@dimen/c1q" app:a1x="hnz" app:a27="hnz" app:ado="4.0dp">
+        <ImageView android:id="@id/eat" android:layout_width="match_parent" android:layout_height="match_parent" android:scaleType="centerCrop" android:alpha="0.5" />
+        <org.libpag.PAGView android:id="@id/ily" android:layout_width="match_parent" android:layout_height="match_parent" />
+        <View android:id="@id/n1e" android:background="@color/black_30_transparent" android:layout_width="match_parent" android:layout_height="match_parent" />
+        <org.libpag.PAGView android:id="@id/ilv" android:layout_width="match_parent" android:layout_height="match_parent" />
+        <ImageView android:id="@id/eh7" android:visibility="gone" android:layout_width="wrap_content" android:layout_height="wrap_content" android:src="@drawable/icon_share_card_new" android:layout_alignParentLeft="true" android:layout_alignParentTop="true" android:importantForAccessibility="no" />
+    </com.tencent.qqmusic.ui.RoundedRelativeLayout>
+    <TextView android:textSize="12.0dp" android:textColor="@color/common_grid_title_color_selector" android:ellipsize="end" android:id="@id/mla" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="9.5dp" android:text="@string/fx6" app:a1x="hnz" app:a21="hnz" app:a26="@id/ey0" />
+</androidx.constraintlayout.widget.ConstraintLayout>

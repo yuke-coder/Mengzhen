@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout android:id="@id/mlive_layout_cloud_game_pure_root" android:layout_width="match_parent" android:layout_height="match_parent"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <ImageView android:layout_gravity="left|bottom" android:id="@id/mlive_cloud_game_switch_view_point_btn_pic" android:layout_width="50.0dp" android:layout_height="50.0dp" android:layout_marginBottom="60.0dp" android:src="@drawable/mlive_cloud_game_pure_switch_view_point" android:layout_marginStart="10.0dp" />
+    <com.tme.cloudgame.commonView.CloudGamePureModeSwitchPointView android:layout_gravity="left|bottom" android:id="@id/mlive_cloud_game_switch_view_point_list_container" android:visibility="gone" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginBottom="60.0dp" android:layout_marginStart="10.0dp" />
+    <TextView android:textSize="11.0sp" android:textColor="@color/white" android:layout_gravity="left|bottom" android:id="@id/mlive_cloud_game_switch_view_point_btn_text" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginBottom="40.0dp" android:text="@string/d0x" android:layout_marginStart="13.0dp" />
+    <ImageView android:layout_gravity="right|bottom" android:id="@id/mlive_cloud_game_pure_pic" android:layout_width="50.0dp" android:layout_height="50.0dp" android:layout_marginBottom="60.0dp" android:src="@drawable/mlive_cloud_game_pure_cancel" android:layout_marginEnd="10.0dp" />
+    <TextView android:textSize="11.0sp" android:textColor="@color/white" android:layout_gravity="right|bottom" android:id="@id/mlive_cloud_game_pure_btn" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginBottom="40.0dp" android:text="@string/d0h" android:layout_marginEnd="13.0dp" />
+</FrameLayout>

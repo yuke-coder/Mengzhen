@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout android:layout_width="match_parent" android:layout_height="wrap_content"
+  xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">
+    <TextView android:textSize="14.0dp" android:textColor="@color/white" android:ellipsize="end" android:gravity="start|center" android:id="@id/fqs" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginLeft="16.0dp" android:layout_marginTop="20.0dp" android:maxLines="1" app:a1x="hnz" app:a27="hnz" />
+    <ImageView android:id="@id/fqo" android:paddingRight="8.0dp" android:layout_width="28.0dp" android:layout_height="23.0dp" android:layout_marginTop="20.0dp" android:layout_marginRight="8.0dp" android:src="@drawable/right_white_arrow" android:scaleType="fitCenter" android:importantForAccessibility="no" app:a21="hnz" app:a27="hnz" />
+    <TextView android:textSize="14.0dp" android:textColor="@color/white_60_opacity" android:id="@id/fqn" android:layout_width="wrap_content" android:layout_height="wrap_content" app:a1d="@id/fqo" app:a20="@id/fqo" app:a27="@id/fqo" />
+    <androidx.recyclerview.widget.RecyclerView android:id="@id/fo_" android:layout_width="match_parent" android:layout_height="match_parent" android:layout_marginTop="10.0dp" android:layout_marginBottom="10.0dp" app:a1d="hnz" app:a1x="hnz" app:a26="@id/fqs" />
+</androidx.constraintlayout.widget.ConstraintLayout>

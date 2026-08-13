@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <style name="nk">
+        <item name="android:windowEnterAnimation">@anim/dg</item>
+        <item name="android:windowExitAnimation">@anim/di</item>
+    </style>
+    <style name="nl">
+        <item name="android:windowBackground">@android:color/transparent</item>
+        <item name="android:windowNoTitle">true</item>
+        <item name="android:windowIsTranslucent">true</item>
+        <item name="android:windowAnimationStyle">@android:style/Animation.Translucent</item>
+        <item name="android:fitsSystemWindows">true</item>
+        <item name="android:windowCloseOnTouchOutside">true</item>
+        <item name="android:windowTranslucentStatus">true</item>
+    </style>
+    <style name="a04" parent="@style/fe">
+        <item name="ami">auo</item>
+        <item name="amu">che</item>
+    </style>
+    <style name="a1p" parent="@style/zq">
+        <item name="android:textAppearance">?ano</item>
+        <item name="android:textColor">?k1</item>
+        <item name="android:ellipsize">end</item>
+        <item name="android:maxLines">@integer/ae</item>
+    </style>
+</resources>

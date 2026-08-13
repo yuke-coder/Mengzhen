@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout android:gravity="center" android:orientation="vertical" android:background="@color/transparent" android:layout_width="match_parent" android:layout_height="match_parent"
+  xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">
+    <com.tencent.qqmusic.ui.RoundedRelativeLayout android:id="@id/f3m" android:background="@drawable/skin_highlight_img" android:layout_width="200.0dp" android:layout_height="40.0dp" android:layout_marginTop="55.0dp" app:ado="20.0dp">
+        <LinearLayout android:gravity="center_vertical" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_centerInParent="true">
+            <ImageView android:id="@id/ha_" android:layout_width="21.0dp" android:layout_height="21.0dp" android:src="@drawable/not_login_default_image" />
+            <View android:layout_width="10.0dp" android:layout_height="1.0dp" />
+            <TextView android:textSize="16.0sp" android:textColor="@color/skin_button_text_color" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/g8r" />
+        </LinearLayout>
+    </com.tencent.qqmusic.ui.RoundedRelativeLayout>
+    <TextView android:textSize="12.0sp" android:textColor="@color/skin_text_sub_color" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="10.0dp" android:text="@string/g8q" />
+    <View android:background="@drawable/z_color_l1" android:layout_width="match_parent" android:layout_height="1.0px" android:layout_marginLeft="@dimen/c1_" android:layout_marginTop="45.0dp" android:scaleType="fitXY" android:layout_marginStart="@dimen/c1_" />
+</LinearLayout>

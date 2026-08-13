@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout android:layout_width="match_parent" android:layout_height="match_parent"
+  xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">
+    <com.tencentmusic.ad.base.widget.TMEAdRoundImageView android:layout_gravity="center" android:id="@id/lgx" android:visibility="gone" android:layout_width="match_parent" android:layout_height="match_parent" android:scaleType="centerInside" android:contentDescription="广告内容" />
+    <FrameLayout android:layout_gravity="center" android:id="@id/lgw" android:layout_width="match_parent" android:layout_height="match_parent" />
+    <LinearLayout android:layout_gravity="top" android:orientation="horizontal" android:id="@id/lgl" android:background="@drawable/tme_ad_banner_top_action_bg_gradient" android:layout_width="match_parent" android:layout_height="60.0dp">
+        <ImageView android:id="@id/lgv" android:padding="8.5dp" android:layout_width="34.0dp" android:layout_height="34.0dp" android:src="@drawable/tme_ad_icn_mute" />
+    </LinearLayout>
+    <LinearLayout android:gravity="center_vertical" android:layout_gravity="bottom" android:orientation="horizontal" android:background="@drawable/tme_ad_banner_advertiser_bg_gradient" android:layout_width="match_parent" android:layout_height="40.0dp">
+        <com.tencentmusic.ad.base.widget.TMEAdRoundImageView android:id="@id/lgu" android:layout_width="20.0dp" android:layout_height="20.0dp" android:layout_marginLeft="10.0dp" android:layout_marginRight="5.0dp" app:afv="40.0dp" />
+        <TextView android:textSize="14.0sp" android:textColor="@android:color/white" android:ellipsize="end" android:id="@id/lgt" android:layout_width="match_parent" android:layout_height="wrap_content" android:lines="1" />
+    </LinearLayout>
+</FrameLayout>

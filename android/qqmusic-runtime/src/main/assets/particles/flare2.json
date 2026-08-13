@@ -1,0 +1,58 @@
+{
+  "systems": [
+    {
+      "name": "flare2ParticleSystem",
+      "capacity": 200,
+      "texture": {
+        "name": "asset://textures/Flare.png"
+      },
+      "minSize": 0.05,
+      "maxSize": 0.5,
+      "minLifeTime": 0.5,
+      "maxLifeTime": 5.0,
+      "minEmitPower": 0.5,
+      "maxEmitPower": 3,
+      "emitRate": 10,
+      "particleEmitterType": {
+        "type": "BoxParticleEmitter",
+        "direction1": [
+          -1,
+          1,
+          -1
+        ],
+        "direction2": [
+          1,
+          1,
+          1
+        ],
+        "minEmitBox": [
+          -0.5,
+          -0.5,
+          -0.5
+        ],
+        "maxEmitBox": [
+          0.5,
+          0.5,
+          0.5
+        ]
+      },
+      "color1": [
+        1,
+        0.5,
+        0,
+        1
+      ],
+      "color2": [
+        1,
+        1,
+        0,
+        1
+      ],
+      "gravity": [
+        0,
+        -1,
+        0
+      ]
+    }
+  ]
+}

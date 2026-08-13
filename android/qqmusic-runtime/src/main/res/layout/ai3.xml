@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout android:layout_width="108.0dp" android:layout_height="192.0dp" android:layout_marginLeft="16.0dp"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <ImageView android:id="@id/bta" android:padding="6.0dp" android:layout_width="20.0dp" android:layout_height="20.0dp" android:src="@drawable/my_following_remove_recoomend_user" android:scaleType="centerInside" android:layout_alignParentRight="true" />
+    <RelativeLayout android:id="@id/a3w" android:layout_width="72.0dp" android:layout_height="72.0dp" android:layout_marginTop="16.0dp" android:layout_centerHorizontal="true">
+        <com.tencent.qqmusic.business.live.ui.view.RoundAvatarImage android:id="@id/a3c" android:layout_width="72.0dp" android:layout_height="72.0dp" />
+        <com.tencent.component.widget.AsyncImageView android:id="@id/did" android:layout_width="14.0dp" android:layout_height="14.0dp" android:layout_alignParentRight="true" android:layout_alignParentBottom="true" />
+    </RelativeLayout>
+    <TextView android:textSize="12.0sp" android:textColor="@color/skin_text_main_color" android:ellipsize="end" android:gravity="center" android:id="@id/hbm" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginLeft="10.0dp" android:layout_marginTop="10.0dp" android:layout_marginRight="10.0dp" android:maxWidth="180.0dp" android:text="" android:maxLines="1" android:layout_below="@id/a3w" android:layout_centerHorizontal="true" />
+    <TextView android:textSize="12.0sp" android:textColor="@color/skin_text_sub_color" android:ellipsize="end" android:gravity="center" android:id="@id/bn2" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginLeft="10.0dp" android:layout_marginTop="4.0dp" android:layout_marginRight="10.0dp" android:maxWidth="180.0dp" android:text="" android:maxLines="2" android:layout_below="@id/hbm" android:layout_centerHorizontal="true" />
+    <TextView android:textSize="12.0sp" android:textColor="#ffffff" android:gravity="center" android:id="@id/cq7" android:background="@drawable/my_following_timeline_follow_plugin_follow_btn_bg" android:layout_width="78.0dp" android:layout_height="25.0dp" android:layout_marginBottom="12.0dp" android:text="关注" android:layout_alignParentBottom="true" android:layout_centerHorizontal="true" />
+</RelativeLayout>

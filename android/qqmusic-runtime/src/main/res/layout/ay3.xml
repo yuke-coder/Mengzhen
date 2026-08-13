@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout android:layout_width="match_parent" android:layout_height="match_parent"
+  xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">
+    <com.tencent.qqmusic.business.playernew.fxeffect.textureview.LightEffectView4Texture android:id="@id/f2g" android:layout_width="match_parent" android:layout_height="match_parent" />
+    <ImageView android:id="@id/efq" android:visibility="gone" android:layout_width="match_parent" android:layout_height="match_parent" />
+    <com.tencent.qqmusic.pag.QQMusicPAGView android:id="@id/hn5" android:layout_width="match_parent" android:layout_height="match_parent" app:a1x="hnz" app:a27="hnz" />
+    <androidx.constraintlayout.widget.ConstraintLayout android:id="@id/b16" android:layout_width="match_parent" android:layout_height="match_parent">
+        <ImageView android:id="@id/efw" android:layout_width="65.5dp" android:layout_height="18.0dp" android:src="@drawable/icon_music_video_qqmusic_logo" app:a1d="@id/d5i" app:a1x="@id/d5w" />
+        <androidx.constraintlayout.widget.ConstraintLayout android:gravity="center" android:orientation="horizontal" android:id="@id/fgz" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="10.0dp" app:a18="true" app:a1x="@id/d5w" app:a21="@id/d6i" app:a26="@id/fyw">
+            <TextView android:textSize="13.0dp" android:textColor="@color/white_60_opacity" android:ellipsize="middle" android:gravity="left" android:id="@id/mmc" android:layout_width="wrap_content" android:layout_height="wrap_content" android:singleLine="true" app:a18="true" app:a1u="hmg" app:a1x="hnz" app:a20="@id/me9" app:a27="hnz" />
+            <TextView android:textSize="13.0dp" android:textStyle="bold" android:textColor="@color/white_60_opacity" android:id="@id/me9" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginLeft="5.0dp" android:layout_marginRight="5.0dp" android:text="·" app:a1d="hnz" app:a1y="@id/mmc" app:a20="@id/mlp" app:a27="hnz" />
+            <TextView android:textSize="13.0dp" android:textColor="@color/white_60_opacity" android:ellipsize="middle" android:gravity="left" android:id="@id/mlp" android:layout_width="wrap_content" android:layout_height="wrap_content" android:singleLine="true" app:a18="true" app:a1y="@id/me9" app:a21="hnz" app:a27="hnz" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
+        <androidx.constraintlayout.widget.Guideline android:orientation="vertical" android:id="@id/d5w" android:layout_width="wrap_content" android:layout_height="wrap_content" app:a1n="0.083" />
+        <androidx.constraintlayout.widget.Guideline android:orientation="vertical" android:id="@id/d6i" android:layout_width="wrap_content" android:layout_height="wrap_content" app:a1n="0.916" />
+        <androidx.constraintlayout.widget.Guideline android:orientation="horizontal" android:id="@id/d6n" android:layout_width="wrap_content" android:layout_height="wrap_content" app:a1n="0.0525" />
+        <androidx.constraintlayout.widget.Guideline android:orientation="horizontal" android:id="@id/d5i" android:layout_width="wrap_content" android:layout_height="wrap_content" app:a1n="0.9375" />
+        <com.lyricengine.ui.MultiAnimationLyricView android:id="@id/fyw" android:focusable="false" android:scrollbars="none" android:saveEnabled="false" android:layout_width="0.0dp" android:layout_height="wrap_content" android:layout_marginTop="320.0dp" android:fillViewport="true" android:overScrollMode="never" app:a1x="@id/d5w" app:a21="@id/d6i" app:a27="hnz" app:a6i="@android:color/white" app:a6j="@android:color/white" app:a6k="@android:color/white" app:a6l="false" app:a6m="true" app:a6n="true" app:a6p="14.0dp" app:a6q="14.0dp" app:a6r="14.0dp" app:a6s="center" app:a6w="2" app:a72="30" app:a7b="top" />
+        <com.tencent.qqmusic.share.musicvideo.widget.MusicVideoVisualizerView android:id="@id/nl0" android:layout_width="47.0dp" android:layout_height="20.0dp" app:a1d="@id/d5i" app:a21="@id/d6i" />
+        <ImageView android:id="@id/ema" android:visibility="gone" android:layout_width="47.0dp" android:layout_height="15.0dp" android:src="@drawable/icon_music_video_visualizer" app:a1d="@id/d5i" app:a21="@id/d6i" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+    <include android:id="@id/ht0" android:layout_width="match_parent" android:layout_height="match_parent" layout="@layout/ay1" />
+</androidx.constraintlayout.widget.ConstraintLayout>

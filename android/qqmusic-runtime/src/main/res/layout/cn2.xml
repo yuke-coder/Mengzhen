@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout android:gravity="center_vertical" android:orientation="horizontal" android:id="@id/kg4" android:layout_width="wrap_content" android:layout_height="30.0dp" android:paddingEnd="10.0dp"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <LinearLayout android:gravity="center" android:orientation="horizontal" android:id="@id/kg5" android:background="@drawable/song_or_folder_filter_item_bg" android:layout_width="wrap_content" android:layout_height="match_parent" android:paddingStart="22.0dp" android:paddingEnd="22.0dp">
+        <TextView android:textSize="12.0dp" android:textColor="@color/skin_text_main_color" android:ellipsize="end" android:id="@id/kg6" android:layout_width="wrap_content" android:layout_height="wrap_content" android:maxLines="1" android:includeFontPadding="false" />
+        <ImageView android:id="@id/kg3" android:paddingTop="5.0dp" android:paddingBottom="5.0dp" android:visibility="gone" android:layout_width="15.0dp" android:layout_height="25.0dp" android:src="@drawable/icon_song_filter_selected_close" android:scaleType="centerInside" android:contentDescription="@string/a7j" android:alpha="0.5" />
+    </LinearLayout>
+    <ImageView android:id="@id/kct" android:visibility="gone" android:layout_width="7.0dp" android:layout_height="7.0dp" android:src="@drawable/icon_song_filter_item_connect_line" android:scaleType="centerInside" android:importantForAccessibility="no" android:layout_marginStart="1.5dp" android:layout_marginEnd="1.5dp" />
+    <TextView android:textSize="12.0dp" android:textColor="@color/skin_text_main_color" android:ellipsize="end" android:gravity="center" android:id="@id/kcu" android:background="@drawable/song_or_folder_filter_item_bg" android:visibility="gone" android:layout_width="wrap_content" android:layout_height="30.0dp" android:maxLines="1" android:includeFontPadding="false" android:paddingStart="22.0dp" android:paddingEnd="22.0dp" />
+</LinearLayout>

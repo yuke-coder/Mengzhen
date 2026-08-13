@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout android:layout_width="match_parent" android:layout_height="match_parent"
+  xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">
+    <androidx.constraintlayout.widget.ConstraintLayout android:id="@id/g3u" android:visibility="gone" android:layout_width="wrap_content" android:layout_height="wrap_content" app:a1x="hnz" app:a27="hnz">
+        <com.tencent.component.widget.AsyncImageView android:id="@id/g3s" android:layout_width="30.0dp" android:layout_height="30.0dp" app:a1d="hnz" app:a1x="hnz" />
+        <LinearLayout android:orientation="horizontal" android:id="@id/g3w" android:layout_width="wrap_content" android:layout_height="wrap_content" app:a1d="hnz" app:a1x="hnz">
+            <org.libpag.PAGView android:id="@id/g3x" android:layout_width="30.0dp" android:layout_height="30.0dp" />
+            <TextView android:textSize="@dimen/c8b" android:textColor="@color/white" android:ellipsize="end" android:gravity="center_vertical" android:layout_gravity="center_vertical" android:id="@id/g3y" android:layout_width="wrap_content" android:layout_height="27.0dp" android:maxLines="1" android:maxEms="7" android:includeFontPadding="false" />
+            <View android:gravity="center_vertical" android:layout_gravity="center_vertical" android:background="#66ffffff" android:layout_width="1.0dp" android:layout_height="13.0dp" android:layout_marginLeft="6.0dp" android:layout_marginRight="6.0dp" />
+            <TextView android:textSize="@dimen/c8b" android:textColor="#66ffffff" android:ellipsize="end" android:gravity="center_vertical" android:layout_gravity="center_vertical" android:id="@id/g3q" android:paddingRight="10.0dp" android:layout_width="wrap_content" android:layout_height="27.0dp" android:text="关闭广告" android:maxLines="1" android:includeFontPadding="false" />
+        </LinearLayout>
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>

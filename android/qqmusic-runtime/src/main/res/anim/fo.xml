@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<animation-list android:oneshot="true"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <item android:duration="74" android:drawable="@drawable/weekly_playlist_entrance_anim_01" />
+    <item android:duration="74" android:drawable="@drawable/weekly_playlist_entrance_anim_02" />
+    <item android:duration="74" android:drawable="@drawable/weekly_playlist_entrance_anim_03" />
+    <item android:duration="74" android:drawable="@drawable/weekly_playlist_entrance_anim_04" />
+    <item android:duration="74" android:drawable="@drawable/weekly_playlist_entrance_anim_05" />
+    <item android:duration="74" android:drawable="@drawable/weekly_playlist_entrance_anim_06" />
+    <item android:duration="74" android:drawable="@drawable/weekly_playlist_entrance_anim_07" />
+    <item android:duration="74" android:drawable="@drawable/weekly_playlist_entrance_anim_08" />
+    <item android:duration="74" android:drawable="@drawable/weekly_playlist_entrance_anim_09" />
+    <item android:duration="74" android:drawable="@drawable/weekly_playlist_entrance_anim_10" />
+    <item android:duration="74" android:drawable="@drawable/weekly_playlist_entrance_anim_11" />
+    <item android:duration="74" android:drawable="@drawable/weekly_playlist_entrance_anim_12" />
+    <item android:duration="74" android:drawable="@drawable/weekly_playlist_entrance_anim_13" />
+    <item android:duration="74" android:drawable="@drawable/weekly_playlist_entrance_anim_14" />
+    <item android:duration="74" android:drawable="@drawable/weekly_playlist_entrance_anim_15" />
+    <item android:duration="74" android:drawable="@drawable/weekly_playlist_entrance_anim_16" />
+    <item android:duration="74" android:drawable="@drawable/weekly_playlist_entrance_anim_17" />
+    <item android:duration="74" android:drawable="@drawable/weekly_playlist_entrance_anim_18" />
+    <item android:duration="74" android:drawable="@drawable/weekly_playlist_entrance_anim_19" />
+    <item android:duration="74" android:drawable="@drawable/weekly_playlist_entrance_anim_20" />
+    <item android:duration="74" android:drawable="@drawable/weekly_playlist_entrance_anim_21" />
+    <item android:duration="74" android:drawable="@drawable/weekly_playlist_entrance_anim_22" />
+    <item android:duration="74" android:drawable="@drawable/weekly_playlist_entrance_anim_23" />
+    <item android:duration="74" android:drawable="@drawable/weekly_playlist_entrance_anim_24" />
+    <item android:duration="74" android:drawable="@drawable/weekly_playlist_entrance_anim_25" />
+    <item android:duration="74" android:drawable="@drawable/weekly_playlist_entrance_anim_26" />
+    <item android:duration="74" android:drawable="@drawable/weekly_playlist_entrance_anim_27" />
+</animation-list>

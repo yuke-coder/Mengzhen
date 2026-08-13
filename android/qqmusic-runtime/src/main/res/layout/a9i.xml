@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout android:id="@id/aq8" android:layout_width="match_parent" android:layout_height="match_parent"
+  xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">
+    <FrameLayout android:id="@id/apf" android:layout_width="match_parent" android:layout_height="match_parent" app:a1e="@id/apg" app:a1j="hnz" app:a23="hnz" app:a27="hnz" />
+    <FrameLayout android:id="@id/aph" android:background="@drawable/call_shape_dialpad_panel_backgournd" android:layout_width="match_parent" android:layout_height="400.0dp" android:alpha="0.3" app:a1j="hnz" app:a23="hnz" app:a27="hnz" />
+    <TextView android:textSize="16.0sp" android:textColor="@android:color/white" android:id="@id/aqi" android:visibility="gone" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="50.0dp" android:alpha="0.8" app:a1j="hnz" app:a23="hnz" app:a27="hnz" style="@style/g2" />
+    <androidx.constraintlayout.widget.ConstraintLayout android:id="@id/apg" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginTop="40.0dp" app:a1j="hnz" app:a23="hnz" app:a26="@id/aqi">
+        <TextView android:textSize="@dimen/iv" android:textColor="@android:color/white" android:gravity="center_horizontal" android:id="@id/aqt" android:visibility="visible" android:layout_width="0.0dp" android:layout_height="wrap_content" android:layout_marginTop="@dimen/il" app:a1j="hnz" app:a23="hnz" app:a27="hnz" style="@style/g2" />
+        <TextView android:textSize="@dimen/ix" android:textColor="@android:color/white" android:gravity="center_horizontal" android:id="@id/aqv" android:paddingTop="@dimen/il" android:layout_width="0.0dp" android:layout_height="wrap_content" app:a1j="hnz" app:a23="hnz" app:a26="@id/aqt" style="@style/g2" />
+        <TextView android:textSize="@dimen/j3" android:textColor="@android:color/white" android:gravity="center_horizontal" android:id="@id/aqs" android:paddingTop="@dimen/il" android:visibility="gone" android:layout_width="0.0dp" android:layout_height="wrap_content" app:a1j="hnz" app:a23="hnz" app:a26="@id/aqv" />
+        <TextView android:textSize="@dimen/j3" android:textColor="@android:color/white" android:id="@id/aqz" android:paddingTop="@dimen/il" android:visibility="visible" android:layout_width="wrap_content" android:layout_height="wrap_content" android:alpha="0.8" app:a1j="hnz" app:a23="hnz" app:a26="@id/aqs" style="@style/g2" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+    <include android:id="@id/aq3" android:visibility="gone" android:layout_width="match_parent" android:layout_height="match_parent" app:a1d="hnz" app:a1j="hnz" app:a23="hnz" app:a27="hnz" layout="@layout/a9t" />
+    <include android:id="@id/aq4" android:visibility="gone" android:layout_width="match_parent" android:layout_height="match_parent" app:a1d="hnz" app:a1j="hnz" app:a23="hnz" app:a27="hnz" layout="@layout/a9u" />
+    <include android:id="@id/ap4" android:visibility="gone" android:layout_width="@dimen/ii" android:layout_height="match_parent" app:a1d="hnz" app:a1j="hnz" app:a23="hnz" app:a27="hnz" layout="@layout/a9n" />
+    <include android:id="@id/aq9" android:visibility="gone" android:layout_width="match_parent" android:layout_height="wrap_content" app:a1j="hnz" app:a23="hnz" app:a27="hnz" layout="@layout/a9v" />
+    <include android:id="@id/ape" android:visibility="gone" android:layout_width="match_parent" android:layout_height="wrap_content" app:a1d="hnz" app:a1j="hnz" app:a23="hnz" app:a27="hnz" app:a28="@dimen/ia" layout="@layout/a9q" />
+</androidx.constraintlayout.widget.ConstraintLayout>

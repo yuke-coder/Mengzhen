@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout android:layout_width="match_parent" android:layout_height="50.0dp"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <ImageView android:id="@id/mlive_dialog_info_card_async_play_bt" android:layout_width="17.0dp" android:layout_height="17.0dp" android:src="@drawable/mlive_song_content_play_operate_pause" android:layout_centerVertical="true" android:layout_marginEnd="22.0dp" android:layout_alignParentEnd="true" />
+    <TextView android:textSize="15.0sp" android:textColor="@color/white" android:ellipsize="end" android:id="@id/mlive_dialog_info_card_async_title" android:layout_width="match_parent" android:layout_height="wrap_content" android:text="啦啦啦啦啦啦" android:maxLines="1" android:singleLine="true" android:layout_centerVertical="true" android:layout_marginStart="16.0dp" android:layout_marginEnd="16.0dp" android:layout_toStartOf="@id/mlive_dialog_info_card_async_play_bt" android:layout_alignParentStart="true" />
+</RelativeLayout>

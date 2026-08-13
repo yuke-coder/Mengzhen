@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout android:id="@id/jdg" android:focusable="false" android:focusableInTouchMode="false" android:layout_width="match_parent" android:layout_height="match_parent"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <RelativeLayout android:id="@id/kyg" android:layout_width="match_parent" android:layout_height="match_parent" android:layout_centerInParent="true">
+        <FrameLayout android:gravity="center" android:id="@id/kyf" android:layout_width="match_parent" android:layout_height="match_parent" />
+        <FrameLayout android:id="@id/h3t" android:layout_width="match_parent" android:layout_height="match_parent" />
+    </RelativeLayout>
+    <LinearLayout android:gravity="center" android:id="@id/kyc" android:background="@drawable/bg_stream_live_loading" android:layout_width="match_parent" android:layout_height="match_parent">
+        <ImageView android:layout_width="wrap_content" android:layout_height="wrap_content" android:src="@drawable/live_loading" android:contentDescription="@null" />
+    </LinearLayout>
+    <com.tencent.mobileqq.webviewplugin.CustomWebView android:id="@id/kyb" android:background="@color/transparent" android:visibility="gone" android:descendantFocusability="blocksDescendants" android:layout_width="match_parent" android:layout_height="match_parent" />
+    <include android:id="@id/ky8" android:visibility="gone" android:layout_width="match_parent" android:layout_height="match_parent" layout="@layout/mj" />
+    <ImageView android:layout_gravity="center_vertical" android:id="@id/ky9" android:paddingLeft="15.0dp" android:paddingTop="12.0dp" android:paddingRight="15.0dp" android:paddingBottom="12.0dp" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="12.0dp" android:layout_marginRight="3.0dp" android:src="@drawable/live_close" android:layout_alignParentRight="true" android:contentDescription="@string/cbi" android:layout_marginEnd="3.0dp" android:layout_alignParentEnd="true" />
+    <ImageView android:id="@id/ky_" android:visibility="gone" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginRight="13.0dp" android:layout_marginBottom="116.0dp" android:src="@drawable/ic_live_exit_pure" android:layout_alignParentRight="true" android:layout_alignParentBottom="true" android:contentDescription="@string/c3f" android:layout_marginEnd="13.0dp" android:layout_alignParentEnd="true" />
+    <include layout="@layout/b24" />
+    <ScrollView android:id="@id/kye" android:background="#90000000" android:padding="3.0dp" android:visibility="gone" android:layout_width="450.0dp" android:layout_height="250.0dp" android:layout_marginLeft="12.0dp" android:layout_marginTop="50.0dp" android:layout_marginRight="12.0dp" android:layout_alignParentLeft="true" android:layout_alignParentStart="true">
+        <TextView android:textSize="10.0dp" android:textColor="@color/green" android:id="@id/kyd" android:layout_width="match_parent" android:layout_height="wrap_content" />
+    </ScrollView>
+</RelativeLayout>

@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout android:background="@drawable/material_ripple_background" android:layout_width="match_parent" android:layout_height="@dimen/b6k" android:minHeight="@dimen/b6k"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <ImageView android:id="@id/ipx" android:visibility="visible" android:layout_width="@dimen/ti" android:layout_height="@dimen/ti" android:layout_marginLeft="16.0dp" android:layout_marginRight="16.0dp" android:src="@drawable/edit_btn_unselected" android:scaleType="centerCrop" android:layout_alignParentLeft="true" android:layout_centerVertical="true" android:layout_alignParentStart="true" />
+    <com.tencent.qqmusic.ui.RoundedRelativeLayout android:id="@id/iqn" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginRight="10.0dp" android:layout_toRightOf="@id/ipx" android:layout_centerVertical="true" android:layout_marginEnd="10.0dp" android:layout_toEndOf="@id/ipx">
+        <com.tencent.component.widget.AsyncEffectImageView android:id="@id/bx0" android:background="@drawable/default_album_mid" android:layout_width="64.0dp" android:layout_height="64.0dp" android:scaleType="centerCrop" android:layout_centerVertical="true" />
+    </com.tencent.qqmusic.ui.RoundedRelativeLayout>
+    <RelativeLayout android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginRight="12.0dp" android:layout_toRightOf="@id/iqn" android:layout_centerVertical="true" android:layout_marginEnd="12.0dp" android:layout_toEndOf="@id/iqn">
+        <TextView android:textColor="@color/skin_text_main_color" android:ellipsize="end" android:id="@id/bx1" android:layout_width="wrap_content" android:maxLines="1" style="@style/lj" />
+        <TextView android:textColor="@color/skin_text_sub_color" android:ellipsize="end" android:id="@id/bx2" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginTop="6.0dp" android:layout_marginRight="12.0dp" android:maxLines="1" android:layout_below="@id/bx1" android:layout_marginEnd="12.0dp" style="@style/li" />
+    </RelativeLayout>
+</RelativeLayout>

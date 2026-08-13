@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout android:id="@id/ij0" android:background="@color/transparent" android:layout_width="match_parent" android:layout_height="60.0dp"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <RelativeLayout android:gravity="center_vertical" android:id="@id/ij8" android:background="@drawable/material_ripple_background" android:paddingLeft="15.0dp" android:layout_width="match_parent" android:layout_height="match_parent" android:layout_toLeftOf="@id/iiw" android:layout_alignParentLeft="true">
+        <LinearLayout android:gravity="center_vertical" android:orientation="horizontal" android:id="@id/ij6" android:layout_width="wrap_content" android:layout_height="wrap_content">
+            <TextView android:textSize="10.0dp" android:textColor="@color/skin_floor_color" android:ellipsize="end" android:gravity="center" android:layout_gravity="center_vertical" android:id="@id/ij7" android:paddingLeft="4.0dp" android:paddingTop="1.0dp" android:paddingRight="4.0dp" android:paddingBottom="1.0dp" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginRight="4.0dp" android:maxWidth="56.0dp" android:text="@string/mu" android:singleLine="true" android:includeFontPadding="false" />
+            <com.tencent.qqmusic.ui.customview.textview.BracketsEllipsisTextView android:textSize="14.0sp" android:textColor="@color/skin_text_main_color" android:ellipsize="end" android:id="@id/ij5" android:paddingRight="0.0dp" android:layout_width="match_parent" android:layout_height="wrap_content" android:text="@string/m7" android:maxLines="1" android:layout_alignParentLeft="true" android:fontFamily="PingFangSC-Regular" android:textFontWeight="500" />
+        </LinearLayout>
+        <LinearLayout android:gravity="center_vertical" android:orientation="horizontal" android:id="@id/ij2" android:visibility="gone" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="2.5dp" android:layout_below="@id/ij6" android:layout_alignParentLeft="true">
+            <com.tencent.component.widget.AsyncEffectImageView android:id="@id/ij4" android:layout_width="wrap_content" android:layout_height="11.0dp" android:layout_marginRight="1.0dp" />
+            <TextView android:textSize="12.0sp" android:textColor="@color/skin_text_sub_color" android:ellipsize="end" android:gravity="center_vertical" android:id="@id/ij3" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/mg" android:maxLines="1" android:scrollHorizontally="true" android:contentDescription="" />
+        </LinearLayout>
+        <TextView android:textSize="12.0sp" android:textColor="@color/skin_text_sub_color" android:ellipsize="end" android:gravity="center_vertical" android:id="@id/ij1" android:visibility="gone" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="1.0dp" android:text="@string/mg" android:maxLines="1" android:scrollHorizontally="true" android:layout_below="@id/ij6" android:layout_alignParentLeft="true" android:contentDescription="" />
+    </RelativeLayout>
+    <LinearLayout android:gravity="center_vertical" android:orientation="horizontal" android:id="@id/iiw" android:layout_width="wrap_content" android:layout_height="match_parent" android:layout_alignParentRight="true">
+        <LinearLayout android:gravity="center_vertical" android:id="@id/iix" android:layout_width="wrap_content" android:layout_height="25.0dp" android:layout_marginRight="7.5dp">
+            <TextView android:textSize="14.0sp" android:textColor="@color/skin_text_main_color" android:id="@id/iiy" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginLeft="8.5dp" android:fontFamily="PingFangSC-Regular" android:textFontWeight="500" />
+            <TextView android:textSize="14.0sp" android:textColor="@color/skin_text_main_color" android:gravity="center_vertical" android:id="@id/iiz" android:paddingLeft="2.0dp" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginRight="8.5dp" android:text="@string/mf" android:fontFamily="PingFangSC-Regular" android:textFontWeight="500" />
+        </LinearLayout>
+        <LinearLayout android:id="@id/iit" android:visibility="gone" android:layout_width="wrap_content" android:layout_height="25.0dp" android:layout_marginRight="7.5dp">
+            <com.tencent.component.widget.AsyncEffectImageView android:layout_gravity="center_vertical" android:id="@id/iiv" android:layout_width="wrap_content" android:layout_height="15.0dp" android:layout_marginLeft="8.5dp" />
+            <TextView android:textSize="14.0sp" android:textColor="@color/skin_text_main_color" android:gravity="center_vertical" android:id="@id/iiu" android:paddingLeft="2.0dp" android:layout_width="wrap_content" android:layout_height="match_parent" android:layout_marginRight="8.5dp" android:text="@string/mf" android:textFontWeight="500" />
+        </LinearLayout>
+    </LinearLayout>
+</RelativeLayout>

@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout android:id="@id/p4" android:background="#f1f5f7" android:layout_width="match_parent" android:layout_height="match_parent"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <androidx.recyclerview.widget.RecyclerView android:id="@id/nr" android:focusableInTouchMode="true" android:layout_width="match_parent" android:layout_height="match_parent" android:layout_marginBottom="90.0dp" android:overScrollMode="never" />
+    <androidx.appcompat.widget.AppCompatTextView android:textSize="14.0sp" android:textColor="@color/black" android:gravity="center" android:layout_gravity="center|bottom" android:id="@id/ns" android:background="@drawable/bg_ai_folder_preview_btn_bottom" android:layout_width="170.0dp" android:layout_height="40.0dp" android:layout_marginBottom="48.0dp" android:text="@string/ie" android:fontFamily="PingFang-SC-Regular" />
+    <FrameLayout android:id="@id/nt" android:layout_width="match_parent" android:layout_height="@dimen/cau">
+        <androidx.appcompat.widget.AppCompatImageView android:layout_gravity="bottom" android:id="@id/p3" android:layout_width="30.0dp" android:layout_height="30.0dp" android:layout_marginLeft="20.0dp" android:src="@drawable/ai_assistant_folder_back" android:contentDescription="@string/wd" />
+    </FrameLayout>
+</FrameLayout>

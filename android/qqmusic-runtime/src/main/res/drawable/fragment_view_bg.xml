@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<selector
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <item>
+        <shape>
+            <corners android:topLeftRadius="15.0dp" android:topRightRadius="15.0dp" />
+            <solid android:color="@color/dialog_background_default" />
+        </shape>
+    </item>
+</selector>

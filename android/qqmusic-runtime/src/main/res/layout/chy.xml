@@ -1,0 +1,3 @@
+<?xml version="1.0" encoding="utf-8"?>
+<TextView android:textColor="@color/search_hot_word_text_color" android:id="@id/jmm" android:background="@drawable/search_hot_word" style="@style/a55"
+  xmlns:android="http://schemas.android.com/apk/res/android" />

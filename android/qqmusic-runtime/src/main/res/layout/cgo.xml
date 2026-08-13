@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout android:gravity="center|bottom" android:id="@id/jku" android:background="@drawable/mix_search_shadow" android:layout_width="152.0dp" android:layout_height="190.5dp"
+  xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">
+    <com.tencent.qqmusic.ui.RoundedRelativeLayout android:gravity="center" android:layout_width="142.0dp" android:layout_height="184.0dp" android:layout_marginBottom="6.5dp">
+        <ImageView android:layout_width="match_parent" android:layout_height="match_parent" android:src="@drawable/skin_mask_img" android:scaleType="fitXY" />
+        <FrameLayout android:id="@id/brg" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginLeft="5.0dp" android:layout_marginTop="20.0dp" android:layout_marginRight="5.0dp" android:layout_alignParentTop="true" android:layout_centerHorizontal="true" android:layout_marginStart="5.0dp" android:layout_marginEnd="5.0dp">
+            <RelativeLayout android:layout_gravity="center_vertical" android:id="@id/brr" android:layout_width="wrap_content" android:layout_height="wrap_content">
+                <ImageView android:id="@id/bro" android:visibility="gone" android:clickable="false" android:layout_width="@dimen/bvm" android:layout_height="@dimen/bvm" />
+                <com.tencent.component.widget.AsyncEffectImageView android:id="@id/brn" android:clickable="false" android:layout_width="@dimen/bvm" android:layout_height="@dimen/bvm" android:scaleType="centerCrop" />
+                <LinearLayout android:gravity="center" android:id="@id/jn0" android:layout_width="@dimen/bvm" android:layout_height="@dimen/bvm">
+                    <ImageView android:id="@id/jmz" android:layout_width="30.0dp" android:layout_height="30.0dp" android:src="@drawable/search_mv_play" />
+                    <ImageView android:id="@id/jnx" android:visibility="gone" android:layout_width="30.0dp" android:layout_height="30.0dp" android:src="@drawable/search_mv_pause" />
+                </LinearLayout>
+                <com.tencent.component.widget.AsyncEffectImageView android:layout_gravity="right|bottom" android:id="@id/bsb" android:layout_width="20.0dp" android:layout_height="20.0dp" android:scaleType="fitXY" android:layout_alignRight="@id/brn" android:layout_alignBottom="@id/brn" />
+                <com.tencent.component.widget.AsyncEffectImageView android:id="@id/bsi" android:visibility="gone" android:layout_width="0.0dp" android:layout_height="0.0dp" android:scaleType="fitXY" />
+                <ImageView android:id="@id/cm5" android:visibility="gone" android:layout_width="6.0dp" android:layout_height="50.0dp" android:scaleType="centerInside" android:layout_toRightOf="@id/brn" android:layout_centerVertical="true" />
+            </RelativeLayout>
+            <FrameLayout android:id="@id/h4u" android:visibility="gone" android:layout_width="wrap_content" android:layout_height="wrap_content">
+                <com.tencent.qqmusic.ui.RoundedRelativeLayout android:id="@id/mv_album_layout" android:layout_width="120.0dp" android:layout_height="@dimen/bvm" android:layout_centerVertical="true" app:ado="@dimen/bxa">
+                    <com.tencent.component.widget.AsyncEffectImageView android:id="@id/h4s" android:layout_width="match_parent" android:layout_height="match_parent" android:scaleType="centerCrop" />
+                    <com.tencent.component.widget.AsyncEffectImageView android:id="@id/h4q" android:layout_width="match_parent" android:layout_height="match_parent" android:src="@drawable/mv_cover_bg_w" android:scaleType="fitCenter" android:layout_centerHorizontal="true" />
+                    <RelativeLayout android:gravity="center" android:id="@id/h6j" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginRight="6.0dp" android:layout_marginBottom="4.0dp" android:layout_alignParentRight="true" android:layout_alignParentBottom="true" android:layout_marginEnd="6.0dp">
+                        <ImageView android:id="@id/h5_" android:layout_width="wrap_content" android:layout_height="7.0dp" android:src="@drawable/search_mv_cover_icon" android:scaleType="fitCenter" android:layout_alignParentLeft="true" android:layout_centerVertical="true" android:layout_alignParentStart="true" />
+                        <TextView android:gravity="center" android:id="@id/h3u" android:layout_marginLeft="2.0dp" android:layout_toRightOf="@id/h5_" android:layout_centerVertical="true" android:layout_marginStart="2.0dp" android:layout_toEndOf="@id/h5_" style="@style/na" />
+                    </RelativeLayout>
+                </com.tencent.qqmusic.ui.RoundedRelativeLayout>
+            </FrameLayout>
+        </FrameLayout>
+        <RelativeLayout android:gravity="center_vertical" android:orientation="vertical" android:clickable="false" android:layout_width="match_parent" android:layout_height="match_parent" android:layout_marginLeft="5.0dp" android:layout_marginRight="5.0dp" android:layout_below="@id/brg" android:layout_centerHorizontal="true" android:layout_marginStart="5.0dp" android:layout_marginEnd="5.0dp">
+            <RelativeLayout android:id="@id/b_e" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_centerHorizontal="true">
+                <TextView android:textSize="12.0sp" android:textStyle="bold" android:textColor="@color/skin_text_main_color" android:ellipsize="end" android:gravity="center" android:id="@id/bs5" android:layout_width="wrap_content" android:layout_height="wrap_content" android:maxLines="2" android:layout_centerInParent="true" />
+                <ImageView android:id="@id/bs6" android:visibility="visible" android:layout_width="18.0dp" android:layout_height="18.0dp" android:layout_marginLeft="6.0dp" android:layout_toRightOf="@id/bs5" android:layout_centerVertical="true" />
+            </RelativeLayout>
+            <TextView android:textSize="11.0sp" android:textColor="@color/skin_text_sub_color" android:ellipsize="end" android:gravity="center" android:id="@id/bri" android:visibility="gone" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="5.0dp" android:maxLines="2" android:layout_below="@id/b_e" android:layout_centerHorizontal="true" />
+        </RelativeLayout>
+    </com.tencent.qqmusic.ui.RoundedRelativeLayout>
+</LinearLayout>

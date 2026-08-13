@@ -1,0 +1,201 @@
+{
+  "type": "constraint",
+  "layout_width": "match_parent",
+  "layout_height": "match_parent",
+  "id": "parent_root",
+  "package": "com.tencent.qqmusic",
+  "background": "@drawable/desk_widget_oppo_card_bg",
+  "forceDarkAllowed": false,
+  "onClick": [
+    {
+      "type": "activity",
+      "packageName": "com.tencent.qqmusic",
+      "action": "android.intent.action.VIEW",
+      "data": "qqmusic://qq.com/ui/oppoNegativeCardClick?p={\"btn_id\":8,\"card_type\":1}"
+    }
+  ],
+  "child": [
+    {
+      "type": "image",
+      "layout_width": 80,
+      "layout_height": 80,
+      "layout_constraintStart_toStartOf": "parent",
+      "layout_constraintTop_toTopOf": "parent",
+      "id": "cover_left_top_bg",
+      "scaleType": "centerCrop"
+    },
+    {
+      "type": "image",
+      "id": "cover",
+      "layout_constraintEnd_toEndOf": "cover_left_top_bg",
+      "layout_constraintBottom_toBottomOf": "cover_left_top_bg",
+      "layout_width": 56,
+      "layout_height": 56,
+      "layout_marginEnd": 8,
+      "layout_marginBottom": 8,
+      "src": "@drawable/oppo_desk_widget_cover_default_bg",
+      "scaleType": "centerCrop",
+      "cornerRadius": "6dp",
+      "onClick": [
+        {
+          "type": "activity",
+          "packageName": "com.tencent.qqmusic",
+          "action": "android.intent.action.VIEW",
+          "data": "qqmusic://qq.com/ui/oppoNegativeCardClick?p={\"btn_id\":9,\"card_type\":1}"
+        }
+      ]
+    },
+    {
+      "type": "constraint",
+      "layout_width": 0,
+      "layout_height": "wrap_content",
+      "layout_constraintHorizontal_chainStyle": "packed",
+      "layout_constraintStart_toEndOf": "cover_left_top_bg",
+      "layout_constraintBottom_toBottomOf": "cover",
+      "layout_constraintTop_toTopOf": "cover",
+      "layout_constraintEnd_toEndOf": "parent",
+      "layout_marginEnd": 16,
+      "onClick": [
+        {
+          "type": "activity",
+          "packageName": "com.tencent.qqmusic",
+          "action": "android.intent.action.VIEW",
+          "data": "qqmusic://qq.com/ui/oppoNegativeCardClick?p={\"btn_id\":9,\"card_type\":1}"
+        }
+      ],
+      "child": [
+        {
+          "type": "text",
+          "layout_width": "match_parent",
+          "layout_height": "wrap_content",
+          "layout_constraintTop_toTopOf": "parent",
+          "layout_constraintBottom_toTopOf": "song_artist",
+          "id": "song_name",
+          "maxLines": 2,
+          "ellipsize": "end",
+          "typeface": "sys-sans-en",
+          "textStyle": "bold",
+          "text": "无歌曲",
+          "textSize": 12,
+          "textColor": "@color/desk_widget_oppo_card_text_color"
+        },
+        {
+          "type": "text",
+          "layout_width": "match_parent",
+          "layout_height": "wrap_content",
+          "layout_constraintTop_toBottomOf": "song_name",
+          "layout_constraintBottom_toBottomOf": "parent",
+          "layout_marginTop": 2,
+          "id": "song_artist",
+          "maxLines": 1,
+          "ellipsize": "end",
+          "text": "选一首开始听吧",
+          "textSize": 10,
+          "textColor": "@color/desk_widget_oppo_card_text_color"
+        }
+      ]
+    },
+    {
+      "type": "progress",
+      "id": "music_progress",
+      "layout_constraintStart_toStartOf": "parent",
+      "layout_constraintEnd_toEndOf": "parent",
+      "layout_constraintTop_toBottomOf": "cover_left_top_bg",
+      "layout_marginTop": 8,
+      "layout_marginStart": 16,
+      "layout_marginEnd": 16,
+      "layout_width": "match_parent",
+      "layout_height": "wrap_content",
+      "progressType": "horizontal",
+      "progressDrawable": "@drawable/oppo_desk_widget_progress_drawable",
+      "minHeight": 2,
+      "min": 0,
+      "max": 1000,
+      "progress": 0
+    },
+    {
+      "type": "constraint",
+      "layout_width": "wrap_content",
+      "layout_height": "wrap_content",
+      "layout_constraintHorizontal_chainStyle": "packed",
+      "layout_constraintStart_toStartOf": "parent",
+      "layout_constraintEnd_toEndOf": "parent",
+      "layout_constraintBottom_toBottomOf": "parent",
+      "layout_marginBottom": 16,
+      "child": [
+        {
+          "type": "image",
+          "id": "play_previous",
+          "layout_width": 41,
+          "layout_height": 44,
+          "paddingStart": 4,
+          "paddingEnd": 9,
+          "paddingTop": 8,
+          "paddingBottom": 8,
+          "layout_constraintTop_toTopOf": "parent",
+          "layout_constraintBottom_toBottomOf": "parent",
+          "layout_constraintStart_toStartOf": "parent",
+          "layout_constraintEnd_toStartOf": "play",
+          "src": "@drawable/selector_oppo_desk_widget_pre",
+          "background": "@drawable/selector_desk_widget_play_button_bg",
+          "onClick": [
+            {
+              "type": "activity",
+              "packageName": "com.tencent.qqmusic",
+              "action": "android.intent.action.VIEW",
+              "data": "qqmusic://qq.com/ui/oppoNegativeCardClick?p={\"btn_id\":1,\"card_type\":1}"
+            }
+          ]
+        },
+        {
+          "type": "image",
+          "id": "play",
+          "layout_width": 46,
+          "layout_height": 44,
+          "paddingTop": 4,
+          "paddingBottom": 4,
+          "paddingStart": 5,
+          "paddingEnd": 5,
+          "layout_constraintTop_toTopOf": "parent",
+          "layout_constraintBottom_toBottomOf": "parent",
+          "layout_constraintStart_toEndOf": "play_previous",
+          "layout_constraintEnd_toStartOf": "play_next",
+          "background": "@drawable/selector_desk_widget_play_button_bg",
+          "src": "@drawable/oppo_icon_desk_widget_play",
+          "onClick": [
+            {
+              "type": "activity",
+              "packageName": "com.tencent.qqmusic",
+              "action": "android.intent.action.VIEW",
+              "data": "qqmusic://qq.com/ui/oppoNegativeCardClick?p={\"btn_id\":2,\"card_type\":1}"
+            }
+          ]
+        },
+        {
+          "type": "image",
+          "id": "play_next",
+          "layout_width": 46,
+          "layout_height": 44,
+          "paddingStart": 9,
+          "paddingTop": 8,
+          "paddingEnd": 9,
+          "paddingBottom": 8,
+          "layout_constraintTop_toTopOf": "parent",
+          "layout_constraintBottom_toBottomOf": "parent",
+          "layout_constraintStart_toEndOf": "play",
+          "layout_constraintEnd_toEndOf": "parent",
+          "src": "@drawable/selector_oppo_desk_widget_next",
+          "background": "@drawable/selector_desk_widget_play_button_bg",
+          "onClick": [
+            {
+              "type": "activity",
+              "packageName": "com.tencent.qqmusic",
+              "action": "android.intent.action.VIEW",
+              "data": "qqmusic://qq.com/ui/oppoNegativeCardClick?p={\"btn_id\":3,\"card_type\":1}"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

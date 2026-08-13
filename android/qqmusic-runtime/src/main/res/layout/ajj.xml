@@ -1,0 +1,3 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.lyricengine.ui.SingleLyricView android:id="@id/fx8" android:paddingBottom="13.0dp" android:visibility="gone" android:scrollbars="none" android:layout_width="match_parent" android:layout_height="wrap_content" android:contentDescription="@string/atl" app:a1x="hnz" app:a21="hnz" app:a27="hnz" app:a6i="#ffffff" app:a6j="#99ffffff" app:a6l="true" app:a6q="14.0dp" app:a6s="center" app:a6w="1" app:a7b="top"
+  xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto" />

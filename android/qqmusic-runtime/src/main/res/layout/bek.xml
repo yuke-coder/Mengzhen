@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout android:background="@drawable/mlive_gift_set_item_select_bg" android:layout_width="65.0dp" android:layout_height="34.0dp" android:layout_marginEnd="4.0dp"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <androidx.appcompat.widget.AppCompatTextView android:textSize="14.0dp" android:textStyle="bold" android:textColor="@color/white" android:gravity="center" android:layout_gravity="top" android:id="@id/mlive_gift_set_num" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginTop="1.0dp" android:includeFontPadding="false" />
+    <androidx.appcompat.widget.AppCompatTextView android:textSize="10.0dp" android:textColor="@color/white" android:ellipsize="end" android:gravity="center" android:layout_gravity="bottom" android:id="@id/mlive_gift_set_desc" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginBottom="3.0dp" android:singleLine="true" android:includeFontPadding="false" />
+</FrameLayout>

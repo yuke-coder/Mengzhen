@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout android:background="#b3000000" android:layout_width="match_parent" android:layout_height="match_parent"
+  xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">
+    <ImageView android:id="@id/lon" android:layout_width="30.0dp" android:layout_height="30.0dp" android:layout_marginTop="54.0dp" android:layout_marginRight="12.0dp" android:src="@drawable/tme_ad_wx_mask_close" app:a1j="hnz" app:a27="hnz" />
+    <com.tencentmusic.ad.base.widget.TMEAdRoundFrameLayout android:id="@id/lok" android:background="@drawable/tme_ad_wx_mask_text_bg" android:layout_width="260.0dp" android:layout_height="312.0dp" app:a1d="hnz" app:a1j="hnz" app:a23="hnz" app:a27="hnz" app:adl="10.0dp">
+        <androidx.constraintlayout.widget.ConstraintLayout android:layout_width="260.0dp" android:layout_height="312.0dp">
+            <ImageView android:id="@id/loo" android:visibility="gone" android:layout_width="192.0dp" android:layout_height="101.0dp" android:layout_marginTop="57.0dp" android:src="@drawable/tme_ad_wx_get_gold" app:a1j="hnz" app:a23="hnz" app:a27="hnz" />
+            <TextView android:textSize="20.0dp" android:textColor="#000000" android:gravity="center" android:id="@id/lop" android:visibility="gone" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginLeft="6.0dp" android:layout_marginTop="8.0dp" android:layout_marginRight="6.0dp" android:text="恭喜你获得奖励" app:a1j="hnz" app:a23="hnz" app:a26="@id/loo" />
+            <TextView android:textSize="20.0dp" android:textColor="#000000" android:gravity="center" android:id="@id/lor" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginLeft="6.0dp" android:layout_marginTop="92.0dp" android:layout_marginRight="6.0dp" app:a1j="hnz" app:a23="hnz" app:a27="hnz" />
+            <TextView android:textSize="16.0dp" android:textColor="#ffffff" android:gravity="center" android:id="@id/lol" android:background="@drawable/tme_ad_mask_btn_bg" android:layout_width="match_parent" android:layout_height="48.0dp" android:layout_marginLeft="6.0dp" android:layout_marginRight="6.0dp" android:layout_marginBottom="26.0dp" android:text="立即去微信浏览" app:a1e="@id/lom" />
+            <ImageView android:id="@id/loq" android:layout_width="100.0dp" android:layout_height="100.0dp" android:layout_marginTop="-12.0dp" android:src="@drawable/tme_ad_wx_mask_hand" android:scaleType="fitXY" android:layout_marginEnd="-25.0dp" app:a1j="@id/lol" app:a27="@id/lol" />
+            <TextView android:textSize="14.0dp" android:textColor="#99000000" android:gravity="center" android:id="@id/lom" android:layout_width="match_parent" android:layout_height="24.0dp" android:layout_marginLeft="6.0dp" android:layout_marginRight="6.0dp" android:layout_marginBottom="24.0dp" android:text="放弃奖励" app:a1d="hnz" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </com.tencentmusic.ad.base.widget.TMEAdRoundFrameLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>

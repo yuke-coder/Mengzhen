@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout android:layout_width="match_parent" android:layout_height="match_parent" android:layout_marginTop="@dimen/ae8" android:layout_marginBottom="@dimen/ae6"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <com.tencent.qqmusic.modular.module.musichall.views.focus.CyclicViewPager android:layout_gravity="center" android:id="@id/f9o" android:layout_width="match_parent" android:layout_height="match_parent" android:contentDescription="@string/e77" android:importantForAccessibility="yes" />
+    <com.tencent.qqmusic.ui.IconPageIndicator android:layout_gravity="center|bottom" android:id="@id/f9n" android:layout_width="match_parent" android:layout_height="24.0dp" />
+</FrameLayout>

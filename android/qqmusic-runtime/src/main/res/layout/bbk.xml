@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.tme.qqmusic.widget.base.view.CustomDispatcherConstraintLayout android:id="@id/mlive_fragment_card_root" android:layout_width="match_parent" android:layout_height="wrap_content"
+  xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">
+    <com.tme.qqmusic.widget.base.view.CornerConstraintLayout android:id="@id/mlive_fragment_card_container" android:background="@color/mlive_fragment_card_background" android:layout_width="match_parent" android:layout_height="wrap_content" app:lm="10.0dp" app:a1d="hnz" />
+    <com.tme.qqmusic.widget.base.view.CornerConstraintLayout android:id="@id/mlive_fragment_card_header" android:visibility="gone" android:layout_width="match_parent" android:layout_height="wrap_content" app:lm="10.0dp" app:a1e="@id/mlive_fragment_card_container" />
+</com.tme.qqmusic.widget.base.view.CustomDispatcherConstraintLayout>

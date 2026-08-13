@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout android:orientation="vertical" android:layout_width="296.0dp" android:layout_height="wrap_content"
+  xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">
+    <LinearLayout android:orientation="vertical" android:id="@id/euy" android:layout_width="296.0dp" android:layout_height="305.5dp">
+        <RelativeLayout android:layout_width="296.0dp" android:layout_height="wrap_content">
+            <View android:id="@id/a85" android:background="@color/white" android:layout_width="match_parent" android:layout_height="134.0dp" />
+            <View android:background="@drawable/mlive_bg_multi_link_guest_result" android:layout_width="match_parent" android:layout_height="134.0dp" />
+            <com.tme.qqmusic.widget.base.view.GlideImageView android:id="@id/a3c" android:background="@drawable/mlive_multi_link_avatar_bg" android:padding="2.0dp" android:layout_width="74.0dp" android:layout_height="74.0dp" android:layout_marginTop="30.0dp" android:src="@drawable/mlive_default_avatar" android:layout_centerHorizontal="true" />
+        </RelativeLayout>
+        <androidx.constraintlayout.widget.ConstraintLayout android:background="@color/white" android:paddingLeft="30.0dp" android:paddingTop="30.0dp" android:paddingRight="30.0dp" android:layout_width="match_parent" android:layout_height="match_parent">
+            <LinearLayout android:orientation="horizontal" android:id="@id/d1h" android:layout_width="wrap_content" android:layout_height="18.0dp" app:a1x="hnz" app:a27="hnz" />
+            <TextView android:textSize="12.0sp" android:textColor="#ababab" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/dll" app:a1d="@id/d1h" app:a21="hnz" app:a27="@id/d1h" />
+            <LinearLayout android:orientation="horizontal" android:id="@id/byp" android:layout_width="wrap_content" android:layout_height="18.0dp" android:layout_marginTop="44.0dp" app:a1x="hnz" app:a27="hnz" />
+            <TextView android:textSize="10.0sp" android:textStyle="bold" android:textColor="@color/black" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginLeft="2.0dp" android:text="@string/dlj" android:includeFontPadding="false" android:layout_marginStart="2.0dp" app:a1d="@id/byp" app:a1y="@id/byp" />
+            <TextView android:textSize="12.0sp" android:textColor="#ababab" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/dli" app:a1d="@id/byp" app:a21="hnz" app:a27="@id/byp" />
+            <com.tme.qqmusic.widget.base.view.GlideImageView android:id="@id/ire" android:background="@drawable/mlive_multi_link_avatar_bg" android:padding="1.0dp" android:visibility="gone" android:layout_width="25.0dp" android:layout_height="25.0dp" android:layout_marginLeft="40.0dp" android:layout_marginTop="85.0dp" android:src="@drawable/mlive_default_avatar" android:layout_marginStart="40.0dp" app:a1x="hnz" app:a27="hnz" />
+            <com.tme.qqmusic.widget.base.view.GlideImageView android:id="@id/ird" android:background="@drawable/mlive_multi_link_avatar_bg" android:padding="1.0dp" android:visibility="gone" android:layout_width="25.0dp" android:layout_height="25.0dp" android:layout_marginLeft="20.0dp" android:layout_marginTop="85.0dp" android:src="@drawable/mlive_default_avatar" android:layout_marginStart="20.0dp" app:a1x="hnz" app:a27="hnz" />
+            <com.tme.qqmusic.widget.base.view.GlideImageView android:id="@id/irc" android:background="@drawable/mlive_multi_link_avatar_bg" android:padding="1.0dp" android:layout_width="25.0dp" android:layout_height="25.0dp" android:layout_marginTop="85.0dp" android:src="@drawable/mlive_default_avatar" app:a1x="hnz" app:a27="hnz" />
+            <TextView android:textSize="12.0sp" android:textColor="#ababab" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/dlk" app:a1d="@id/irc" app:a21="hnz" app:a27="@id/irc" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </LinearLayout>
+    <ImageButton android:layout_gravity="center_horizontal" android:id="@id/close_btn" android:background="@drawable/mlive_dialog_fragment_btn_close" android:layout_width="40.0dp" android:layout_height="40.0dp" android:layout_marginTop="40.0dp" />
+</LinearLayout>

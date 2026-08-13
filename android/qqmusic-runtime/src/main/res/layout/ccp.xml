@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout android:layout_gravity="center|bottom" android:id="@id/jdb" android:layout_width="match_parent" android:layout_height="414.0dp"
+  xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">
+    <com.tencent.qqmusic.ui.RoundedRelativeLayout android:id="@id/je_" android:background="#fff6e2" android:layout_width="match_parent" android:layout_height="330.0dp" android:layout_marginTop="84.0dp" app:a1x="hnz" app:a27="hnz" app:ado="15.0dp">
+        <com.tme.qqmusic.widget.base.view.GlideImageView android:id="@id/ec6" android:background="@drawable/bg_qplay_wifi_verify_dialog" android:layout_width="match_parent" android:layout_height="match_parent" android:scaleType="fitXY" />
+    </com.tencent.qqmusic.ui.RoundedRelativeLayout>
+    <LinearLayout android:gravity="center" android:orientation="horizontal" android:id="@id/fdw" android:layout_width="match_parent" android:layout_height="120.0dp" android:layout_marginTop="25.0dp" app:a1x="hnz" app:a27="@id/je_">
+        <com.tencent.component.widget.AsyncEffectImageView android:id="@id/ekw" android:visibility="gone" android:layout_width="85.0dp" android:layout_height="120.0dp" />
+        <com.tencent.component.widget.AsyncEffectImageView android:id="@id/ekx" android:visibility="gone" android:layout_width="85.0dp" android:layout_height="120.0dp" android:layout_marginLeft="@dimen/sl" />
+        <com.tencent.component.widget.AsyncEffectImageView android:id="@id/eky" android:visibility="gone" android:layout_width="85.0dp" android:layout_height="120.0dp" android:layout_marginLeft="@dimen/sl" />
+    </LinearLayout>
+    <ImageView android:id="@id/em9" android:background="@drawable/ic_qplay_svip_icon" android:layout_width="25.0dp" android:layout_height="20.0dp" android:layout_marginTop="27.0dp" app:a1u="hmg" app:a1x="hnz" app:a20="@id/m6h" app:a26="@id/fdw" />
+    <TextView android:textSize="18.0dp" android:textStyle="bold" android:textColor="#4f3500" android:gravity="center" android:id="@id/m6h" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="25.0dp" app:a1y="@id/em9" app:a21="hnz" app:a26="@id/fdw" />
+    <TextView android:textSize="14.0dp" android:textColor="#b2000000" android:gravity="center" android:id="@id/m6g" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginTop="8.0dp" android:text="3个月全库区常听+臻品音质畅想，1年全景声专区" app:a26="@id/m6h" />
+    <com.tencent.qqmusic.ui.RoundedRelativeLayout android:id="@id/aim" android:background="#ffcd4b" android:layout_width="180.0dp" android:layout_height="50.0dp" android:layout_marginTop="10.0dp" app:a1x="hnz" app:a21="hnz" app:a26="@id/m6g" app:ado="25.0dp">
+        <TextView android:textSize="14.0dp" android:textColor="@color/black" android:gravity="center" android:id="@id/m6d" android:layout_width="wrap_content" android:layout_height="match_parent" android:text="立即领用" android:includeFontPadding="false" android:layout_centerInParent="true" android:importantForAccessibility="no" />
+    </com.tencent.qqmusic.ui.RoundedRelativeLayout>
+    <TextView android:textSize="10.0dp" android:textColor="@color/black_50_transparent" android:gravity="center" android:id="@id/m6f" android:visibility="gone" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginTop="10.0dp" android:text="开通超级会员，继续尊享" app:a1j="hnz" app:a23="hnz" app:a26="@id/aim" />
+    <ImageView android:id="@id/aj7" android:background="@drawable/ic_qplay_wifi_head" android:layout_width="match_parent" android:layout_height="84.0dp" android:layout_marginTop="@dimen/s8" app:a21="hnz" app:a27="hnz" />
+    <ImageView android:id="@id/aj6" android:background="@drawable/ic_qplay_wifi_cancel_icon" android:padding="5.0dp" android:focusable="true" android:clickable="true" android:layout_width="25.0dp" android:layout_height="25.0dp" android:layout_marginTop="30.0dp" android:layout_marginRight="5.0dp" android:contentDescription="@string/a75" app:a21="hnz" app:a27="hnz" />
+</androidx.constraintlayout.widget.ConstraintLayout>

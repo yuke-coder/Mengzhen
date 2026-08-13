@@ -1,0 +1,30 @@
+apply plugin: 'com.android.library'
+
+android {
+    namespace = 'com.mengzhen.vendor.qqmusicruntime'
+    compileSdk = rootProject.ext.compileSdkVersion
+
+    defaultConfig {
+        minSdkVersion rootProject.ext.minSdkVersion
+        targetSdkVersion rootProject.ext.targetSdkVersion
+        consumerProguardFiles 'consumer-rules.pro'
+        aaptOptions {
+            ignoreAssetsPattern = '!.svn:!.git:!.ds_store:!*.scc:.*:!CVS:!thumbs.db:!picasa.ini:!*~'
+            additionalParameters '--stable-ids', file('qqmusic-runtime-stable-ids.txt').absolutePath
+        }
+    }
+
+    buildFeatures {
+        buildConfig = false
+    }
+
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_17
+        targetCompatibility JavaVersion.VERSION_17
+    }
+}
+
+dependencies {
+    api fileTree(dir: 'libs/runtime', include: ['*.jar'])
+    api 'androidx.constraintlayout:constraintlayout:2.1.4'
+}

@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout android:id="@id/c_0" android:layout_width="match_parent" android:layout_height="match_parent"
+  xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">
+    <androidx.constraintlayout.widget.ConstraintLayout android:layout_gravity="center" android:layout_width="wrap_content" android:layout_height="wrap_content">
+        <ImageView android:id="@id/c_1" android:layout_width="wrap_content" android:layout_height="wrap_content" android:src="@drawable/video_poster_retry" android:minWidth="20.0dp" android:minHeight="20.0dp" app:a1d="hnz" app:a1x="hnz" app:a27="hnz" />
+        <TextView android:textSize="16.0sp" android:textColor="@color/white" android:id="@id/c_2" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginLeft="10.0dp" app:a1d="hnz" app:a1y="@id/c_1" app:a27="hnz" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</FrameLayout>

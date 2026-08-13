@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout android:orientation="horizontal" android:layout_width="0.0dp" android:layout_height="wrap_content"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <LinearLayout android:layout_gravity="center" android:orientation="vertical" android:id="@id/myp" android:layout_width="wrap_content" android:layout_height="wrap_content" android:paddingStart="10.0dp" android:paddingEnd="10.0dp" android:layout_marginEnd="4.0dp">
+        <com.tencent.component.widget.AsyncImageView android:layout_gravity="center_horizontal" android:id="@id/myo" android:layout_width="20.0dp" android:layout_height="20.0dp" android:src="@drawable/user_info_rb3_icon_default" />
+        <androidx.appcompat.widget.AppCompatTextView android:textSize="12.0dp" android:textColor="@color/skin_text_main_color" android:ellipsize="end" android:id="@id/myq" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="2.0dp" android:maxWidth="48.0dp" android:text="@string/ino" android:singleLine="true" />
+    </LinearLayout>
+    <LinearLayout android:layout_gravity="center" android:orientation="vertical" android:id="@id/mym" android:layout_width="wrap_content" android:layout_height="wrap_content" android:paddingStart="10.0dp" android:paddingEnd="10.0dp" android:layout_marginEnd="4.0dp">
+        <com.tencent.component.widget.AsyncImageView android:layout_gravity="center_horizontal" android:id="@id/myl" android:layout_width="20.0dp" android:layout_height="20.0dp" android:src="@drawable/user_info_rb2_icon_default" />
+        <androidx.appcompat.widget.AppCompatTextView android:textSize="12.0dp" android:textColor="@color/skin_text_main_color" android:ellipsize="end" android:id="@id/myn" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="2.0dp" android:maxWidth="48.0dp" android:text="@string/inp" android:singleLine="true" />
+    </LinearLayout>
+    <LinearLayout android:layout_gravity="center" android:orientation="vertical" android:id="@id/myj" android:layout_width="wrap_content" android:layout_height="wrap_content" android:paddingStart="10.0dp" android:paddingEnd="10.0dp">
+        <com.tencent.component.widget.AsyncImageView android:layout_gravity="center_horizontal" android:id="@id/myi" android:layout_width="20.0dp" android:layout_height="20.0dp" android:src="@drawable/user_info_rb1_icon_default" />
+        <androidx.appcompat.widget.AppCompatTextView android:textSize="12.0dp" android:textColor="@color/skin_text_main_color" android:ellipsize="end" android:id="@id/myk" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="2.0dp" android:maxWidth="48.0dp" android:text="@string/inq" android:singleLine="true" />
+    </LinearLayout>
+</LinearLayout>

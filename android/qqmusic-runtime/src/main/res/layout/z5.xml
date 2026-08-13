@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.tencent.qqmusic.ui.customview.CleanClipTopFrameLayout android:orientation="vertical" android:id="@id/h03" android:layout_width="match_parent" android:layout_height="match_parent"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <ViewStub android:id="@id/kqa" android:layout="@layout/at9" android:inflatedId="@id/kq_" android:layout_width="match_parent" android:layout_height="wrap_content" />
+    <ViewStub android:id="@id/kq9" android:layout="@layout/at_" android:inflatedId="@id/kqb" android:layout_width="match_parent" android:layout_height="wrap_content" />
+    <LinearLayout android:orientation="vertical" android:id="@id/h0y" android:layout_width="match_parent" android:layout_height="match_parent" />
+    <ViewStub android:layout_gravity="right|bottom" android:orientation="vertical" android:id="@id/hkg" android:layout="@layout/ays" android:inflatedId="@id/ew8" android:layout_width="120.0dp" android:layout_height="157.0dp" android:layout_marginBottom="20.0dp" />
+    <ViewStub android:id="@id/kqc" android:layout="@layout/at_" android:inflatedId="@id/kqd" android:layout_width="match_parent" android:layout_height="wrap_content" />
+</com.tencent.qqmusic.ui.customview.CleanClipTopFrameLayout>

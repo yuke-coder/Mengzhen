@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout android:layout_width="70.0dp" android:layout_height="50.0dp"
+  xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">
+    <TextView android:textSize="@dimen/ru" android:textColor="@color/white_50_transparent" android:gravity="center" android:id="@id/mlive_layout_info_card_info_gift_wall_item_all_tv" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/db7" android:drawablePadding="8.0dp" android:drawableEnd="@drawable/mlive_icon_gift_wall_enter" android:layout_marginStart="15.0dp" app:a1d="hnz" app:a23="hnz" app:a27="hnz" />
+</androidx.constraintlayout.widget.ConstraintLayout>

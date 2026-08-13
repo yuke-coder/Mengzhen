@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout android:id="@id/jt3" android:layout_width="match_parent" android:layout_height="match_parent" android:minHeight="300.0dp" android:layout_centerInParent="true"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <LinearLayout android:gravity="center_horizontal" android:orientation="vertical" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_centerInParent="true">
+        <ImageView android:id="@id/hl2" android:background="@drawable/error_no_net" android:layout_width="@dimen/list_empty_image_length" android:layout_height="@dimen/list_empty_image_length" />
+        <TextView android:textSize="17.0sp" android:textColor="@color/empty_view_color" android:gravity="center_horizontal" android:id="@id/hl4" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginTop="@dimen/tq" android:text="@string/ex3" android:singleLine="true" />
+        <TextView android:textSize="16.0sp" android:textColor="@color/empty_view_color" android:gravity="center_horizontal" android:id="@id/hl3" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginTop="@dimen/tn" android:text="@string/ex2" android:singleLine="true" />
+        <TextView android:textSize="14.0sp" android:textColor="@drawable/skin_action_button_text" android:id="@id/hl1" android:background="@drawable/empty_view_button_selector" android:paddingLeft="15.0dp" android:paddingRight="15.0dp" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="@dimen/tn" android:text="@string/ex1" android:maxLines="2" />
+    </LinearLayout>
+</RelativeLayout>

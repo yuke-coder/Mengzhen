@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout android:layout_width="wrap_content" android:layout_height="wrap_content"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <ImageView android:id="@id/bt6" android:padding="50.0dp" android:layout_width="wrap_content" android:layout_height="wrap_content" android:src="@drawable/music_disk_green_hand" android:layout_centerHorizontal="true" />
+    <TextView android:textSize="18.0sp" android:textStyle="bold" android:textColor="@color/skin_text_main_color" android:id="@id/bt8" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/ee_" android:layout_below="@id/bt6" android:layout_centerHorizontal="true" />
+    <TextView android:textSize="18.0sp" android:textColor="@color/skin_text_main_color" android:gravity="center" android:id="@id/bt7" android:paddingLeft="10.0dp" android:paddingRight="10.0dp" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="5.0dp" android:text="@string/eea" android:layout_below="@id/bt8" android:layout_centerHorizontal="true" />
+    <View android:id="@id/bt5" android:background="@color/my_music_divider" android:layout_width="match_parent" android:layout_height="1.0dp" android:layout_marginTop="30.0dp" android:layout_below="@id/bt7" />
+    <Button android:textSize="16.0sp" android:textColor="@color/skin_highlight_color" android:id="@id/bt9" android:background="@drawable/base_select_dialog_bottom_button_click" android:padding="16.0dp" android:focusable="false" android:layout_width="match_parent" android:layout_height="wrap_content" android:text="@string/edx" android:layout_below="@id/bt5" android:layout_centerHorizontal="true" />
+</RelativeLayout>

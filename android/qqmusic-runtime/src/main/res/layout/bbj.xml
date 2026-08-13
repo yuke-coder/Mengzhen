@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout android:orientation="vertical" android:layout_width="match_parent" android:layout_height="match_parent"
+  xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">
+    <ListView android:id="@id/fx3" android:scrollbars="none" android:layout_width="match_parent" android:layout_height="0.0dp" android:listSelector="#00000000" android:cacheColorHint="@android:color/transparent" android:divider="@null" android:layout_weight="1.0" android:overScrollMode="always" android:requiresFadingEdge="vertical" />
+    <LinearLayout android:orientation="vertical" android:id="@id/mlive_layout_official_bottom" android:layout_width="match_parent" android:layout_height="wrap_content">
+        <View android:background="@color/mlive_divider_gray" android:layout_width="match_parent" android:layout_height="0.100000024dp" app:a23="@id/aab" app:a26="@id/aab" />
+        <RelativeLayout android:layout_gravity="bottom" style="@style/mf">
+            <TextView android:id="@id/m7j" android:text="15:00" android:layout_centerVertical="true" android:layout_marginStart="16.0dp" android:layout_marginEnd="8.0dp" style="@style/mp" />
+            <LinearLayout android:paddingTop="4.0dp" android:paddingBottom="4.0dp" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_centerVertical="true" android:paddingStart="8.0dp" android:paddingEnd="16.0dp" android:layout_toEndOf="@id/m7j">
+                <include layout="@layout/bfx" />
+            </LinearLayout>
+        </RelativeLayout>
+    </LinearLayout>
+</LinearLayout>

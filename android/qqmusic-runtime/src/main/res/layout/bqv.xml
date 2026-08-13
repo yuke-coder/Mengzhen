@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout android:id="@id/gdt" android:background="@android:color/white" android:layout_width="108.0dp" android:layout_height="175.0dp"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <com.tencent.component.widget.AsyncEffectImageView android:id="@id/gdv" android:layout_width="84.0dp" android:layout_height="84.0dp" android:layout_marginTop="20.0dp" android:layout_alignParentTop="true" android:layout_centerHorizontal="true" android:importantForAccessibility="no" />
+    <ImageView android:id="@id/gdo" android:layout_width="20.0dp" android:layout_height="20.0dp" android:src="@drawable/module_musichall_dislike_feedback_button_square_light" android:scaleType="centerInside" android:layout_alignParentTop="true" android:layout_alignParentRight="true" android:contentDescription="@string/e7e" android:layout_alignParentEnd="true" />
+    <com.tencent.component.widget.AsyncEffectImageView android:id="@id/gdu" android:layout_width="30.0dp" android:layout_height="30.0dp" android:src="@drawable/module_musichall_scene_radio_play" android:scaleType="fitCenter" android:layout_alignTop="@id/gdv" android:layout_centerHorizontal="true" android:importantForAccessibility="no" />
+    <com.tencent.qqmusic.modular.framework.ui.text.SimpleTextView android:id="@id/gjv" android:layout_width="match_parent" android:layout_height="20.0dp" android:layout_marginLeft="4.0dp" android:layout_marginTop="10.0dp" android:layout_marginRight="4.0dp" android:layout_below="@id/gdv" android:layout_centerHorizontal="true" android:importantForAccessibility="no" />
+    <com.tencent.qqmusic.modular.framework.ui.text.SimpleTextView android:id="@id/ge4" android:layout_width="match_parent" android:layout_height="22.0dp" android:layout_marginLeft="4.0dp" android:layout_marginTop="1.0dp" android:layout_marginRight="4.0dp" android:layout_below="@id/gjv" android:layout_centerHorizontal="true" />
+</RelativeLayout>

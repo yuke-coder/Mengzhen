@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout android:id="@id/item_layout" android:background="@drawable/material_ripple_background" android:layout_width="match_parent" android:layout_height="@dimen/b70" android:minHeight="@dimen/b70"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <ImageView android:id="@id/i8p" android:background="@drawable/my_music_green_bg" android:visibility="visible" android:layout_width="@dimen/bim" android:layout_height="@dimen/bil" android:layout_alignParentLeft="true" android:layout_centerVertical="true" />
+    <include android:id="@id/ek" android:layout_width="wrap_content" android:layout_height="match_parent" android:layout_alignParentRight="true" android:layout_centerVertical="true" layout="@layout/b40" />
+    <TextView android:textSize="17.0sp" android:textColor="@color/skin_text_sub_color" android:gravity="center" android:id="@id/ir8" android:visibility="gone" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginLeft="5.0dp" android:layout_marginTop="8.0dp" android:minWidth="40.0dp" android:singleLine="true" android:layout_toRightOf="@id/i8p" android:layout_centerHorizontal="true" android:layout_alignWithParentIfMissing="true" style="@style/ll" />
+    <TextView android:textSize="@dimen/b35" android:textColor="@color/skin_text_sub_color" android:gravity="center" android:id="@id/hlu" android:visibility="visible" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginLeft="5.0dp" android:minWidth="40.0dp" android:singleLine="true" android:layout_toRightOf="@id/i8p" android:layout_centerVertical="true" />
+    <LinearLayout android:gravity="center|top" android:orientation="horizontal" android:id="@id/irl" android:visibility="gone" android:layout_width="wrap_content" android:layout_height="match_parent" android:layout_below="@id/ir8" android:layout_alignLeft="@id/ir8" android:layout_alignRight="@id/ir8">
+        <com.tencent.component.widget.AsyncEffectImageView android:id="@id/iso" android:layout_width="wrap_content" android:layout_height="wrap_content" android:scaleType="fitCenter" />
+        <TextView android:textSize="10.0sp" android:textColor="@color/online_topic_bord_simple" android:ellipsize="none" android:id="@id/isp" android:visibility="visible" android:fadingEdge="none" android:layout_width="wrap_content" android:layout_height="wrap_content" android:singleLine="true" android:includeFontPadding="false" />
+    </LinearLayout>
+    <CheckBox android:id="@id/jq0" android:background="@drawable/ic_edit_song_checkbox_live" android:focusable="false" android:focusableInTouchMode="false" android:clickable="false" android:layout_width="30.0dp" android:layout_height="30.0dp" android:layout_marginLeft="15.0dp" android:layout_marginRight="8.0dp" android:checked="false" android:button="@null" android:layout_centerVertical="true" />
+    <LinearLayout android:gravity="center_vertical" android:orientation="horizontal" android:id="@id/kfn" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="9.5dp" android:layout_marginRight="78.0dp" android:layout_toRightOf="@id/jq0">
+        <TextView android:textColor="@color/skin_text_main_color" android:id="@id/kfb" android:layout_width="wrap_content" android:includeFontPadding="false" android:layout_weight="1.0" style="@style/ln" />
+        <TextView android:textColor="@color/skin_text_main_color" android:id="@id/kfw" android:visibility="gone" android:layout_width="wrap_content" android:text="@string/bzf" style="@style/ln" />
+    </LinearLayout>
+    <RelativeLayout android:id="@id/kzc" android:paddingRight="2.0dp" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="3.0dp" android:layout_marginRight="78.0dp" android:layout_below="@id/kfn" android:layout_alignLeft="@id/kfn">
+        <include android:id="@id/kh9" android:layout_width="wrap_content" android:layout_height="wrap_content" layout="@layout/cn8" />
+    </RelativeLayout>
+    <include android:visibility="gone" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="3.0dp" android:layout_below="@id/kzc" android:layout_alignLeft="@id/kzc" layout="@layout/cn6" />
+    <View android:background="@drawable/z_color_l1" android:layout_width="match_parent" android:layout_height="0.5dp" android:layout_alignParentBottom="true" />
+</RelativeLayout>

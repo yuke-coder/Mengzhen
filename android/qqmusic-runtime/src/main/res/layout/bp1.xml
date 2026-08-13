@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout android:gravity="bottom" android:orientation="vertical" android:id="@id/ckt" android:background="@color/transparent" android:fitsSystemWindows="true" android:layout_width="match_parent" android:layout_height="match_parent"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <LinearLayout android:gravity="center_vertical" android:orientation="horizontal" android:id="@id/ckr" android:background="@color/focus_radio_danmu_input_bg" android:paddingLeft="15.0dp" android:paddingRight="15.0dp" android:layout_width="match_parent" android:layout_height="45.0dp">
+        <EditText android:textSize="14.0sp" android:textColor="@color/white" android:textColorHint="@color/white_50_opacity" android:gravity="center_vertical" android:layout_gravity="center_vertical" android:id="@id/cks" android:background="@drawable/focus_radio_danmu_edit_text_bg" android:paddingLeft="15.0dp" android:paddingRight="15.0dp" android:layout_width="0.0dp" android:layout_height="30.0dp" android:hint="@string/b8o" android:singleLine="true" android:layout_weight="1.0" android:imeOptions="actionSend|flagNoExtractUi" android:textCursorDrawable="@drawable/color_cursor" />
+        <ImageView android:layout_gravity="center_vertical" android:id="@id/cku" android:layout_width="22.5dp" android:layout_height="22.5dp" android:layout_marginLeft="10.0dp" android:src="@drawable/input_emoji_icon" />
+    </LinearLayout>
+    <androidx.recyclerview.widget.RecyclerView android:gravity="center_vertical" android:id="@id/cky" android:background="@color/focus_radio_danmu_input_bg" android:visibility="gone" android:scrollbars="none" android:clipToPadding="true" android:layout_width="match_parent" android:layout_height="45.0dp" android:overScrollMode="never" android:paddingStart="15.0dp" android:paddingEnd="15.0dp" />
+</LinearLayout>

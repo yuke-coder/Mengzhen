@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout android:padding="15.0dp" android:layout_width="match_parent" android:layout_height="match_parent"
+  xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">
+    <LinearLayout android:orientation="vertical" android:id="@id/fdr" android:layout_width="match_parent" android:layout_height="wrap_content" app:a1x="hnz" app:a27="hnz" />
+    <androidx.appcompat.widget.AppCompatTextView android:textSize="12.0sp" android:id="@id/nu" android:visibility="gone" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="7.5dp" app:a1x="hnz" app:a26="@id/fdr" />
+</androidx.constraintlayout.widget.ConstraintLayout>

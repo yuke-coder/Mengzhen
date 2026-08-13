@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout android:layout_width="match_parent" android:layout_height="match_parent"
+  xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">
+    <com.tencent.qqmusic.ui.customview.AspectRatioLayout android:orientation="vertical" android:id="@id/jar" android:layout_width="match_parent" android:layout_height="match_parent" android:layout_centerInParent="true" app:adw="1.7778">
+        <TextureView android:id="@id/mqz" android:layout_width="match_parent" android:layout_height="match_parent" />
+        <com.tencent.component.widget.AsyncEffectImageView android:id="@id/em4" android:layout_width="match_parent" android:layout_height="match_parent" android:layout_centerInParent="true" />
+        <ImageView android:id="@id/em6" android:layout_width="wrap_content" android:layout_height="wrap_content" android:src="@drawable/scan_ar_result_paly" android:layout_centerInParent="true" />
+    </com.tencent.qqmusic.ui.customview.AspectRatioLayout>
+</RelativeLayout>

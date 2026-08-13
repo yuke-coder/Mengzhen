@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout android:background="@drawable/base_select_dialog_bottom_button_click" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginBottom="10.5dp"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <RelativeLayout android:layout_width="120.0dp" android:layout_height="wrap_content">
+        <ImageView android:id="@id/bnn" android:layout_width="25.0dp" android:layout_height="25.0dp" android:layout_marginLeft="13.0dp" android:layout_centerVertical="true" />
+        <TextView android:textSize="15.0sp" android:textColor="@color/skin_text_main_color" android:id="@id/bno" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginLeft="8.0dp" android:text="听歌识曲" android:lines="1" android:layout_toRightOf="@id/bnn" android:layout_centerVertical="true" />
+        <View android:id="@id/bnm" android:background="@drawable/skin_divider_img" android:visibility="gone" android:layout_width="match_parent" android:layout_height="@dimen/rh" android:layout_alignParentTop="true" />
+    </RelativeLayout>
+</LinearLayout>

@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout android:id="@id/jdj" android:background="@color/ss_all_effect_bg_color" android:layout_width="match_parent" android:layout_height="match_parent"
+  xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">
+    <androidx.constraintlayout.widget.ConstraintLayout android:state_window_focused="false" android:id="@id/lvi" android:background="@color/ss_all_effect_bg_color" android:paddingTop="@dimen/c_q" android:clickable="false" android:layout_width="match_parent" android:layout_height="@dimen/cau" android:elevation="2.0dp" app:a27="hnz">
+        <ImageView android:id="@id/a5v" android:focusable="true" android:layout_width="@dimen/can" android:layout_height="@dimen/can" android:src="@drawable/activity_back_selector_white" android:scaleType="centerInside" android:contentDescription="@string/wf" android:layout_marginStart="14.0dp" app:a1d="hnz" app:a23="hnz" app:a27="hnz" />
+        <TextView android:textSize="18.0sp" android:textColor="@color/colorWhite" android:id="@id/lg1" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/ec8" app:a1d="hnz" app:a1j="hnz" app:a23="hnz" app:a27="hnz" />
+        <TextView android:textSize="16.0sp" android:textColor="@color/white" android:id="@id/j54" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/ec3" android:layout_marginEnd="20.0dp" app:a1d="hnz" app:a1j="hnz" app:a27="hnz" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+    <androidx.constraintlayout.widget.ConstraintLayout android:id="@id/l2v" android:visibility="gone" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginTop="14.0dp" android:layout_marginStart="25.0dp" android:layout_marginEnd="25.0dp" android:elevation="1.0dp" app:a26="@id/lvi">
+        <TextView android:textSize="17.0sp" android:textColor="@color/white" android:id="@id/g0l" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/ec6" app:a23="hnz" app:a27="hnz" />
+        <TextView android:textSize="12.0sp" android:textColor="@color/white_50_opacity" android:id="@id/kzp" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="4.0dp" android:text="@string/ec7" app:a1d="hnz" app:a23="hnz" app:a26="@id/g0l" />
+        <ImageView android:id="@id/l2s" android:layout_width="wrap_content" android:layout_height="wrap_content" android:src="@drawable/multi_track_adjust_switch_off" app:a1d="hnz" app:a1j="hnz" app:a27="hnz" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+    <FrameLayout android:id="@id/g7v" android:layout_width="match_parent" android:layout_height="wrap_content" android:elevation="1.0dp" app:a1e="@id/nmt" app:a26="@id/l2v">
+        <com.tencent.qqmusic.activity.multitrackadjust.AspectRatioImageView android:layout_gravity="center" android:id="@id/a8x" android:layout_width="match_parent" android:layout_height="wrap_content" android:src="@drawable/multi_track_adjust_middle_bg" />
+        <com.tencent.qqmusic.pag.QQMusicPAGView android:layout_gravity="center" android:id="@id/hn9" android:layout_width="match_parent" android:layout_height="match_parent" />
+        <TextView android:textSize="12.0sp" android:textColor="@color/white_40_opacity" android:gravity="center" android:layout_gravity="center" android:id="@id/hgw" android:visibility="gone" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/ec0" />
+        <FrameLayout android:id="@id/bxk" android:layout_width="match_parent" android:layout_height="match_parent">
+            <ImageView android:layout_gravity="center" android:id="@id/das" android:layout_width="wrap_content" android:layout_height="wrap_content" android:src="@drawable/multi_track_adjust_head" />
+        </FrameLayout>
+    </FrameLayout>
+    <androidx.constraintlayout.widget.ConstraintLayout android:id="@id/nmt" android:visibility="gone" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginBottom="12.0dp" android:elevation="1.0dp" app:a1e="@id/iex" app:a1j="hnz" app:a23="hnz">
+        <TextView android:textSize="12.0sp" android:textColor="@color/white_50_opacity" android:id="@id/nmu" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/ec9" app:a1d="hnz" app:a23="hnz" app:a27="hnz" />
+        <ImageView android:id="@id/nmr" android:layout_width="wrap_content" android:layout_height="wrap_content" android:src="@drawable/multi_track_adjust_indicator_expand" android:layout_marginStart="3.0dp" app:a1d="hnz" app:a22="@id/nmu" app:a27="hnz" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+    <androidx.constraintlayout.widget.ConstraintLayout android:id="@id/iex" android:background="@drawable/multi_track_adjust_layout_round_bg" android:visibility="gone" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginBottom="30.0dp" android:layout_marginStart="25.0dp" android:layout_marginEnd="25.0dp" android:elevation="1.0dp" app:a1d="hnz">
+        <androidx.recyclerview.widget.RecyclerView android:id="@id/iez" android:layout_width="match_parent" android:layout_height="wrap_content" app:a1d="hnz" app:a1j="hnz" app:a23="hnz" app:a27="hnz" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+    <androidx.constraintlayout.widget.ConstraintLayout android:id="@id/nms" android:background="@drawable/multi_track_adjust_layout_round_bg" android:visibility="gone" android:layout_width="match_parent" android:layout_height="215.0dp" android:layout_marginBottom="30.0dp" android:layout_marginStart="25.0dp" android:layout_marginEnd="25.0dp" android:elevation="1.0dp" app:a27="@id/iex">
+        <LinearLayout android:orientation="horizontal" android:id="@id/m1d" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginTop="13.0dp" android:layout_marginStart="10.0dp" android:layout_marginEnd="10.0dp" app:a27="hnz" />
+        <com.tencent.qqmusic.ui.customview.equalizer.EqualizerView android:id="@id/m1b" android:paddingLeft="10.0dp" android:paddingRight="10.0dp" android:layout_width="match_parent" android:layout_height="0.0dp" android:layout_marginTop="9.0dp" app:a1e="@id/m1c" app:a26="@id/m1d" />
+        <LinearLayout android:orientation="horizontal" android:id="@id/m1c" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginTop="10.0dp" android:layout_marginBottom="13.0dp" android:layout_marginStart="10.0dp" android:layout_marginEnd="10.0dp" app:a1d="hnz" app:a26="@id/m1b" app:a2r="9.0dp" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>

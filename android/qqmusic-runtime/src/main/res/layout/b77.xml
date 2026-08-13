@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout android:layout_width="match_parent" android:layout_height="match_parent"
+  xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">
+    <com.tencent.component.widget.AsyncEffectImageView android:id="@id/frr" android:layout_width="match_parent" android:layout_height="match_parent" android:scaleType="centerCrop" android:importantForAccessibility="no" app:afv="7.0dp" />
+    <LinearLayout android:orientation="horizontal" android:id="@id/ewl" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginLeft="6.0dp" android:layout_marginRight="6.0dp" android:importantForAccessibility="noHideDescendants" app:a1d="hnz" app:a23="hnz">
+        <ImageView android:layout_gravity="center_vertical" android:id="@id/dse" android:layout_width="14.0dp" android:layout_height="14.0dp" android:src="@drawable/module_musichall_icon_play" android:importantForAccessibility="no" />
+        <TextView android:textSize="10.0dp" android:textColor="@android:color/white" android:ellipsize="end" android:gravity="center_vertical" android:layout_gravity="center_vertical" android:id="@id/mfn" android:paddingBottom="1.0px" android:layout_width="wrap_content" android:layout_height="wrap_content" android:maxWidth="65.0dp" android:text="123.5w" android:maxLines="1" android:importantForAccessibility="no" android:layout_marginStart="2.0dp" />
+        <View android:id="@id/g14" android:layout_width="3.0dp" android:layout_height="1.0dp" />
+    </LinearLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>

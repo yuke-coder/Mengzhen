@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout android:id="@id/b85" android:layout_width="match_parent" android:layout_height="match_parent"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <include android:id="@id/b6y" android:layout_width="match_parent" android:layout_height="match_parent" layout="@layout/m6" />
+    <com.tencent.component.widget.AsyncImageView android:id="@id/b84" android:paddingTop="@dimen/um" android:layout_width="match_parent" android:layout_height="@dimen/ul" />
+    <ImageView android:id="@id/b86" android:paddingTop="@dimen/um" android:visibility="gone" android:layout_width="match_parent" android:layout_height="@dimen/ul" />
+    <FrameLayout android:id="@id/bue" android:visibility="gone" android:layout_width="match_parent" android:layout_height="360.0dp" android:layout_alignParentTop="true" android:layout_alignParentStart="true" />
+    <ViewStub android:id="@id/bud" android:layout="@layout/r7" android:layout_width="match_parent" android:layout_height="match_parent" />
+    <com.tencent.qqmusic.business.timeline.ui.SongRefreshableRecycleView android:id="@id/b88" android:background="@null" android:paddingBottom="@dimen/ait" android:focusable="false" android:focusableInTouchMode="false" android:scrollbars="none" android:clipToPadding="false" android:layout_width="match_parent" android:layout_height="match_parent" android:overScrollMode="never" />
+    <com.tencent.qqmusic.business.timeline.ui.NestedParentSongRefreshableRecycleView android:id="@id/b89" android:background="@null" android:paddingBottom="@dimen/ait" android:focusable="false" android:focusableInTouchMode="false" android:visibility="gone" android:scrollbars="none" android:clipChildren="false" android:clipToPadding="false" android:layout_width="match_parent" android:layout_height="match_parent" android:overScrollMode="never" />
+    <ViewStub android:id="@id/b7q" android:layout="@layout/mh" android:layout_width="match_parent" android:layout_height="match_parent" />
+    <ImageView android:id="@id/elm" android:layout_width="match_parent" android:layout_height="@dimen/cau" android:alpha="0.0" />
+    <ImageView android:id="@id/eln" android:visibility="gone" android:layout_width="match_parent" android:layout_height="@dimen/rg" android:src="@drawable/homepage_header_pic_top_mask" android:scaleType="fitXY" />
+    <include android:id="@id/b7m" android:background="@color/transparent" android:layout_width="match_parent" android:layout_height="@dimen/cau" android:layout_alignParentTop="true" layout="@layout/mu" />
+    <LinearLayout android:orientation="vertical" android:id="@id/b87" android:background="@drawable/transparent" android:visibility="invisible" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_below="@id/b7m" android:backgroundTint="@color/transparent">
+        <include android:id="@id/fty" android:visibility="gone" layout="@layout/kt" />
+        <include android:layout_width="match_parent" android:layout_height="wrap_content" layout="@layout/mr" />
+    </LinearLayout>
+    <RelativeLayout android:id="@id/j_m" android:visibility="gone" android:layout_width="match_parent" android:layout_height="match_parent" android:layout_marginTop="50.0dp">
+        <include android:id="@id/k4b" layout="@layout/hw" />
+        <RelativeLayout android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginRight="1.0dp" android:layout_alignParentRight="true" android:layout_centerVertical="true">
+            <include android:id="@id/k44" android:layout_width="@dimen/li" android:layout_height="wrap_content" layout="@layout/hv" />
+        </RelativeLayout>
+    </RelativeLayout>
+    <RelativeLayout android:id="@id/b_k" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginRight="8.0dp" android:layout_below="@id/b7m" android:layout_alignParentRight="true" />
+    <ImageView android:id="@id/cnz" android:background="@drawable/folder_interactive_float_button_icon" android:padding="16.0dp" android:visibility="gone" android:layout_width="61.0dp" android:layout_height="61.0dp" android:layout_marginRight="16.0dp" android:layout_marginBottom="55.0dp" android:src="@drawable/folder_interactive_detail_publish_add_song" android:layout_alignParentRight="true" android:layout_alignParentBottom="true" android:contentDescription="@string/bbc" />
+</RelativeLayout>

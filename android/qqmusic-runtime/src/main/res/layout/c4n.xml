@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout android:layout_width="match_parent" android:layout_height="match_parent"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <AdapterViewFlipper android:id="@id/b1h" android:layout_width="match_parent" android:layout_height="match_parent" android:inAnimation="@animator/t" android:outAnimation="@animator/u" android:flipInterval="2000" android:autoStart="false" android:animateFirstView="true" android:loopViews="true" />
+</FrameLayout>

@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout android:orientation="horizontal" android:background="@drawable/mlive_tips_switch_background" android:layout_width="255.0dp" android:layout_height="46.0dp"
+  xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">
+    <TextView android:textSize="14.0dp" android:textColor="@color/black" android:gravity="center_vertical" android:layout_gravity="center_vertical" android:id="@id/mlive_tips_switch_live_quality_tips" android:layout_width="154.0dp" android:layout_height="wrap_content" android:maxWidth="155.0dp" android:includeFontPadding="false" android:layout_marginStart="12.0dp" />
+    <TextView android:textSize="12.0dp" android:textColor="@color/white" android:gravity="center" android:layout_gravity="center_vertical" android:id="@id/mlive_tips_switch_live_quality_button" android:background="@drawable/mlive_quality_tips_button_bg" android:layout_width="60.0dp" android:layout_height="20.0dp" android:layout_marginLeft="14.5dp" android:text="@string/dj6" android:includeFontPadding="false" />
+</LinearLayout>

@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout android:layout_width="match_parent" android:layout_height="wrap_content"
+  xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">
+    <ImageView android:id="@id/close_btn" android:padding="10.0dp" android:layout_width="wrap_content" android:layout_height="wrap_content" android:src="@drawable/close_btn" android:layout_alignParentTop="true" android:contentDescription="关闭" android:layout_marginEnd="10.0dp" android:layout_alignParentEnd="true" />
+    <LinearLayout android:gravity="center_horizontal" android:orientation="vertical" android:background="@drawable/authorize_bg" android:paddingBottom="12.0dp" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_below="@id/close_btn">
+        <LinearLayout android:gravity="center_horizontal" android:orientation="vertical" android:background="@drawable/login_dialog_bg" android:layout_width="match_parent" android:layout_height="120.0dp">
+            <kk.design.KKImageView android:id="@id/fmz" android:layout_width="90.0dp" android:layout_height="90.0dp" android:layout_marginTop="30.0dp" android:src="@drawable/default_avatar" app:kkImageRadiusSize="90.0dp" />
+        </LinearLayout>
+        <TextView android:textSize="17.0sp" android:textColor="@color/black" android:id="@id/fn1" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginLeft="20.0dp" android:layout_marginTop="20.0dp" android:layout_marginRight="20.0dp" android:text="K歌小甜甜" android:maxLines="1" android:singleLine="true" android:layout_marginHorizontal="20.0dp" />
+        <TextView android:textSize="12.0sp" android:textColor="@color/gray" android:id="@id/fn0" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="4.0dp" android:text="微信登录" />
+        <Button android:textSize="13.0dp" android:textColor="@color/white" android:id="@id/fmy" android:background="@drawable/account_btn_bg" android:layout_width="wrap_content" android:layout_height="40.0dp" android:layout_marginTop="10.0dp" android:layout_marginBottom="30.0dp" android:text="退出当前K歌账号" android:paddingStart="36.5dp" android:paddingEnd="36.5dp" android:stateListAnimator="@null" />
+    </LinearLayout>
+</RelativeLayout>

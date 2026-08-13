@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout android:orientation="vertical" android:background="@drawable/color_b15_dark_theme" android:layout_width="match_parent" android:layout_height="wrap_content"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <TextView android:textSize="18.0sp" android:textColor="@color/common_grid_title_color_selector_dark_theme" android:layout_gravity="center" android:id="@id/a1z" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="46.0dp" />
+    <RelativeLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginTop="35.0dp">
+        <com.tencent.qqmusic.business.playernew.actionsheet.HorizontalBar android:layout_width="match_parent" android:layout_height="12.0dp" android:layout_centerInParent="true" />
+        <SeekBar android:id="@id/kob" android:paddingLeft="18.0dp" android:paddingRight="18.0dp" android:layout_width="match_parent" android:layout_height="wrap_content" android:maxHeight="2.5dp" android:progressDrawable="@drawable/speed_progress_bar" android:minHeight="2.5dp" android:thumb="@drawable/speed_thumb_pressed" android:thumbOffset="0.0dp" android:layout_centerInParent="true" />
+    </RelativeLayout>
+    <RelativeLayout android:paddingLeft="16.0dp" android:paddingRight="16.0dp" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginTop="3.0dp">
+        <TextView android:textColor="@color/common_grid_title_color_selector_dark_theme" android:id="@id/c8a" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/hgn" android:layout_alignParentRight="true" android:layout_alignParentEnd="true" />
+        <LinearLayout android:orientation="horizontal" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_toLeftOf="@id/c8a" android:layout_toStartOf="@id/c8a">
+            <TextView android:textColor="@color/common_grid_title_color_selector_dark_theme" android:layout_width="0.0dp" android:layout_height="wrap_content" android:text="@string/hgl" android:layout_weight="1.0" />
+            <TextView android:textColor="@color/common_grid_title_color_selector_dark_theme" android:layout_width="0.0dp" android:layout_height="wrap_content" android:text="@string/ety" android:layout_weight="1.0" />
+            <TextView android:textColor="@color/common_grid_title_color_selector_dark_theme" android:layout_width="0.0dp" android:layout_height="wrap_content" android:text="@string/hgm" android:layout_weight="1.0" />
+        </LinearLayout>
+    </RelativeLayout>
+    <View android:background="#26ffffff" android:layout_width="match_parent" android:layout_height="0.5dp" android:layout_marginTop="46.0dp" />
+    <TextView android:textSize="16.0sp" android:textColor="@color/common_grid_title_color_selector_dark_theme" android:gravity="center" android:id="@id/a1x" android:layout_width="match_parent" android:layout_height="60.0dp" android:text="@string/a_6" />
+</LinearLayout>

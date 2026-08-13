@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout android:background="@drawable/main_bg" android:layout_width="match_parent" android:layout_height="match_parent"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <include android:id="@id/lv1" android:layout_width="match_parent" android:layout_height="@dimen/cau" android:layout_alignParentTop="true" layout="@layout/mu" />
+    <LinearLayout android:gravity="center_vertical" android:orientation="horizontal" android:id="@id/jpy" android:background="@drawable/skin_common_tab_img" android:layout_width="100.0dp" android:layout_height="60.0dp" android:layout_below="@id/lv1" android:layout_alignParentRight="true">
+        <TextView android:textSize="16.0sp" android:textColor="@color/skin_text_main_color" android:gravity="center" android:paddingLeft="5.0dp" android:layout_width="0.0dp" android:layout_height="match_parent" android:text="@string/gjr" android:layout_weight="1.0" />
+        <CheckBox android:id="@id/cno" android:background="@drawable/ic_edit_song_checkbox" android:layout_width="18.0dp" android:layout_height="18.0dp" android:layout_marginLeft="12.0dp" android:layout_marginRight="12.0dp" android:button="@null" />
+    </LinearLayout>
+    <LinearLayout android:gravity="center_vertical" android:orientation="horizontal" android:id="@id/ho2" android:background="@drawable/skin_common_tab_img" android:layout_width="match_parent" android:layout_height="60.0dp" android:layout_toLeftOf="@id/jpy" android:layout_below="@id/lv1">
+        <ImageView android:id="@id/ho4" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginLeft="10.0dp" android:layout_marginRight="10.0dp" android:src="@drawable/scanning_icon_up_disable" />
+        <LinearLayout android:gravity="center_vertical" android:orientation="vertical" android:paddingRight="10.0dp" android:layout_width="match_parent" android:layout_height="match_parent">
+            <TextView android:textSize="18.0sp" android:textColor="@color/skin_text_main_color" android:gravity="left" android:id="@id/ho5" android:layout_width="match_parent" android:layout_height="wrap_content" android:text="@string/gji" android:includeFontPadding="false" />
+            <TextView android:textColor="@color/skin_text_sub_color" android:ellipsize="start" android:gravity="left" android:id="@id/bf1" android:layout_width="match_parent" android:layout_height="wrap_content" android:singleLine="true" android:includeFontPadding="false" />
+        </LinearLayout>
+    </LinearLayout>
+    <RelativeLayout android:layout_width="match_parent" android:layout_height="match_parent" android:layout_above="@id/bhg" android:layout_below="@id/ho2">
+        <ListView android:id="@id/cl8" android:scrollbars="none" android:layout_width="match_parent" android:layout_height="match_parent" android:cacheColorHint="#00000000" android:divider="@null" android:dividerHeight="0.0px" android:overScrollMode="never" />
+        <include android:id="@id/c77" android:visibility="gone" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_centerInParent="true" layout="@layout/m9" />
+    </RelativeLayout>
+    <LinearLayout android:gravity="center" android:orientation="vertical" android:id="@id/bhg" android:background="@drawable/skin_common_tab_img" android:layout_width="match_parent" android:layout_height="70.0dp" android:layout_alignParentBottom="true">
+        <Button android:textSize="18.0sp" android:textColor="@color/white" android:id="@id/bhf" android:background="@drawable/bg_solid_button" android:layout_width="205.0dp" android:layout_height="40.0dp" android:text="@string/gjt" />
+    </LinearLayout>
+    <ViewStub android:id="@id/nfc" android:layout="@layout/mj" android:layout_width="match_parent" android:layout_height="match_parent" />
+</RelativeLayout>

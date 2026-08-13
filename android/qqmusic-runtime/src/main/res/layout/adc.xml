@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout android:paddingBottom="40.0dp" android:layout_width="match_parent" android:layout_height="wrap_content"
+  xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">
+    <include android:id="@id/na4" android:layout_width="match_parent" android:layout_height="wrap_content" app:a27="hnz" layout="@layout/ada" />
+    <androidx.recyclerview.widget.RecyclerView android:id="@id/it3" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginTop="27.0dp" app:a26="@id/na4" />
+    <include android:id="@id/n_c" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginTop="20.0dp" app:a26="@id/it3" layout="@layout/adb" />
+</androidx.constraintlayout.widget.ConstraintLayout>

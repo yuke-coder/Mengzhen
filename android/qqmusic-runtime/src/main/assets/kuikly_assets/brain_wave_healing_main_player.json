@@ -1,0 +1,70 @@
+{
+  "router": "openPage",
+  "page_name": "bw_main_player",
+  "container": {
+    "w_weight": "1",
+    "h_weight": "1",
+    "direction": "from-bottom",
+    "tabbar_mode": "4"
+  },
+  "params": {
+    "image_bg": "https://dlied5sdk.myapp.com/music/release/upload/ocs/ffadaec023d1b5db583b47eb055cfd9f.png",
+    "video_bg": "https://music-conf-cdn.y.qq.com/ocs/1c63337_lgx9044p/f8678c1e16f17a8fecc9f3768593f1e1.pag",
+    "title": "疗愈模式",
+    "icon": "https://y.qq.com/music/common/upload/ocs/71e201563e59014d98c0110f4ea4130b.png",
+    "play_info": {
+      "song": [
+        {
+          "songid": "378337006"
+        },{
+          "songid": "378337007"
+        },{
+          "songid": "378337008"
+        },{
+          "songid": "378315024"
+        },{
+          "songid": "378314987"
+        },{
+          "songid": "378315051"
+        },{
+          "songid": "378315032"
+        },{
+          "songid": "378315052"
+        },{
+          "songid": "378315055"
+        },{
+          "songid": "378314969"
+        },{
+          "songid": "378314946"
+        },{
+          "songid": "378315045"
+        },{
+          "songid": "378315008"
+        },{
+          "songid": "378314975"
+        },{
+          "songid": "378315048"
+        },{
+          "songid": "378311479"
+        },{
+          "songid": "378311471"
+        },{
+          "songid": "378311477"
+        },{
+          "songid": "378311478"
+        },{
+          "songid": "378311472"
+        }
+      ],
+      "hideLoading": 1,
+      "action": "backplay",
+      "longAudioPlaySongListBlockType": "album",
+      "from": "42800849",
+      "source": {
+        "type": 111117,
+        "listTag": 146,
+        "title": "疗愈模式"
+      }
+    }
+  }
+}

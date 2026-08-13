@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout android:id="@id/gf8" android:layout_width="match_parent" android:layout_height="match_parent"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <com.tencent.qqmusic.modular.module.musichall.views.recycler.MusicHallCellRecyclerView android:id="@id/gf7" android:paddingBottom="@dimen/ait" android:clipChildren="false" android:clipToPadding="false" android:layout_width="match_parent" android:layout_height="match_parent" />
+    <RelativeLayout android:id="@id/hky" android:paddingBottom="@dimen/ait" android:focusable="false" android:focusableInTouchMode="false" android:visibility="gone" android:clickable="false" android:clipChildren="false" android:clipToPadding="false" android:layout_width="match_parent" android:layout_height="match_parent" />
+    <ViewStub android:id="@id/cys" android:layout="@layout/bs8" android:layout_width="match_parent" android:layout_height="match_parent" />
+</FrameLayout>

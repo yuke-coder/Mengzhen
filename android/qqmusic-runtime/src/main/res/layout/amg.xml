@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout android:layout_width="wrap_content" android:layout_height="@dimen/lp"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <RelativeLayout android:id="@id/item_common_tab_container" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_centerInParent="true">
+        <TextView android:textSize="16.0dp" android:gravity="center" android:id="@id/e1v" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_centerVertical="true" />
+        <TextView android:textSize="16.0sp" android:id="@id/e21" android:visibility="gone" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginBottom="1.0dp" android:layout_toRightOf="@id/e1v" android:layout_alignBottom="@id/e1v" />
+        <TextView android:textSize="12.0dp" android:id="@id/l43" android:visibility="gone" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginLeft="2.0dp" android:layout_marginBottom="1.0dp" android:layout_toRightOf="@id/e1v" android:layout_alignBottom="@id/e1v" />
+        <ImageView android:id="@id/e1w" android:visibility="gone" android:layout_width="@dimen/btd" android:layout_height="@dimen/btd" android:src="@drawable/ic_red_dot" android:scaleType="fitXY" android:layout_toRightOf="@id/e21" android:layout_alignTop="@id/e21" android:layout_alignParentTop="true" />
+    </RelativeLayout>
+    <ImageView android:id="@id/e1s" android:focusable="false" android:visibility="invisible" android:layout_width="@dimen/c0v" android:layout_height="@dimen/c0w" android:src="@drawable/my_music_green_bg" android:scaleType="centerCrop" android:layout_alignParentBottom="true" android:layout_centerHorizontal="true" />
+</RelativeLayout>

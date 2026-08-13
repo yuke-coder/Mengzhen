@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout android:gravity="center_horizontal" android:orientation="vertical" android:id="@id/lfb" android:background="@drawable/color_b15" android:layout_width="match_parent" android:layout_height="match_parent" android:alpha="229.5"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <TextView android:textSize="16.0sp" android:textColor="@color/skin_text_main_color" android:gravity="center" android:layout_width="match_parent" android:layout_height="55.0dp" android:scaleType="centerInside" android:text="@string/cdi" />
+    <View android:background="@drawable/z_color_l1" android:layout_width="match_parent" android:layout_height="2.0px" />
+    <ListView android:gravity="left" android:id="@id/ldy" android:layout_width="match_parent" android:layout_height="0.0dp" android:drawSelectorOnTop="false" android:cacheColorHint="#00000000" android:divider="@drawable/z_color_l1" android:dividerHeight="1.0px" android:layout_weight="1.0" android:fastScrollEnabled="false" android:overScrollMode="never" />
+    <View android:background="@drawable/z_color_l1" android:layout_width="match_parent" android:layout_height="2.0px" />
+    <TextView android:textSize="16.0sp" android:textColor="@color/skin_text_main_color" android:gravity="center" android:id="@id/lf_" android:layout_width="match_parent" android:layout_height="55.0dp" android:scaleType="centerInside" android:text="@string/we" />
+</LinearLayout>

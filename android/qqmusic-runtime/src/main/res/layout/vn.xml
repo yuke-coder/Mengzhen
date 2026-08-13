@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<merge android:orientation="vertical" android:layout_width="match_parent" android:layout_height="match_parent"
+  xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">
+    <kk.design.KKImageView android:id="@id/j1l" android:layout_width="match_parent" android:layout_height="match_parent" android:scaleType="centerCrop" app:kkImagePlaceholder="@drawable/recording_default_bg" app:yg="a_x" />
+    <ImageView android:id="@id/h8a" android:layout_width="match_parent" android:layout_height="match_parent" android:src="#99000000" />
+    <View android:id="@id/j1m" android:visibility="gone" android:layout_width="match_parent" android:layout_height="match_parent" />
+    <FrameLayout android:id="@id/hdc" android:visibility="gone" android:layout_width="match_parent" android:layout_height="match_parent" />
+</merge>

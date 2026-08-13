@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout android:id="@id/b17" android:layout_width="@dimen/bik" android:layout_height="@dimen/bij"
+  xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">
+    <com.tencent.qqmusic.business.playernew.view.playersong.aiinteractive.PlayerAiCharacterTextureView android:id="@id/i8m" android:layout_width="match_parent" android:layout_height="match_parent" android:alpha="0.0" />
+    <com.tencent.qqmusic.business.playernew.view.playersong.aiinteractive.PlayerAiCharacterTextureView android:id="@id/i8l" android:layout_width="match_parent" android:layout_height="match_parent" android:alpha="0.0" />
+    <ImageView android:id="@id/em_" android:visibility="gone" android:layout_width="12.0dp" android:layout_height="12.0dp" android:layout_marginTop="24.0dp" android:layout_marginRight="18.0dp" android:src="@drawable/icon_player_close_virtual_companion" android:contentDescription="@string/fd2" app:a21="hnz" app:a27="hnz" />
+    <TextView android:textSize="10.0sp" android:textColor="@color/skin_highlight_color" android:id="@id/bki" android:visibility="gone" android:layout_width="match_parent" android:layout_height="match_parent" />
+</androidx.constraintlayout.widget.ConstraintLayout>

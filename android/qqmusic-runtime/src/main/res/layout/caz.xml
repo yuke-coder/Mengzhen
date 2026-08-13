@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout android:id="@id/ibj" android:layout_width="wrap_content" android:layout_height="wrap_content"
+  xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">
+    <FrameLayout android:id="@id/n4m" android:paddingLeft="13.0dp" android:paddingRight="13.0dp" android:layout_width="wrap_content" android:layout_height="wrap_content" app:a1x="hnz" app:a21="hnz" app:a27="hnz">
+        <com.airbnb.lottie.LottieAnimationView android:layout_gravity="center" android:id="@id/n4l" android:visibility="gone" android:clipChildren="false" android:layout_width="40.0dp" android:layout_height="40.0dp" android:scaleType="centerCrop" app:a4s="lottie/video_tab_like.json" app:a4v="1.0" />
+    </FrameLayout>
+    <TextView android:textSize="11.0sp" android:textColor="@color/white" android:ellipsize="end" android:id="@id/n4n" android:layout_width="wrap_content" android:layout_height="wrap_content" android:singleLine="true" android:importantForAccessibility="no" app:a1x="@id/n4m" app:a21="@id/n4m" app:a26="@id/n4m" />
+    <ImageButton android:id="@id/n3e" android:background="@drawable/video_tab_comment_btn" android:layout_width="40.0dp" android:layout_height="40.0dp" android:layout_marginTop="19.0dp" app:a1x="hnz" app:a21="hnz" app:a26="@id/n4n" />
+    <TextView android:textSize="11.0sp" android:textColor="@color/white" android:ellipsize="end" android:id="@id/n3g" android:layout_width="wrap_content" android:layout_height="wrap_content" android:singleLine="true" android:importantForAccessibility="no" app:a1x="@id/n4m" app:a21="@id/n4m" app:a26="@id/n3e" />
+    <ImageButton android:id="@id/n6o" android:background="@drawable/video_tab_share_btn_new" android:layout_width="40.0dp" android:layout_height="40.0dp" android:layout_marginTop="19.0dp" android:contentDescription="@string/share" app:a1x="hnz" app:a21="hnz" app:a26="@id/n3g" />
+    <TextView android:textSize="11.0sp" android:textColor="@color/white" android:ellipsize="end" android:id="@id/n6p" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="分享" android:singleLine="true" android:importantForAccessibility="no" app:a1x="@id/n4m" app:a21="@id/n4m" app:a26="@id/n6o" />
+</androidx.constraintlayout.widget.ConstraintLayout>

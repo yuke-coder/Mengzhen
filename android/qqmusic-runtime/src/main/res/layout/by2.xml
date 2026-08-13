@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<merge
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <com.tencent.qqmusic.business.live.ui.view.RoundAvatarImage android:id="@id/f5d" android:focusable="false" android:layout_width="@dimen/h1" android:layout_height="@dimen/h1" />
+    <com.tencent.qqmusic.business.live.ui.view.RoundAvatarImage android:id="@id/f5e" android:focusable="false" android:layout_width="@dimen/h1" android:layout_height="@dimen/h1" android:layout_marginLeft="15.0dp" />
+    <com.tencent.qqmusic.business.live.ui.view.RoundAvatarImage android:id="@id/f5f" android:focusable="false" android:layout_width="@dimen/h1" android:layout_height="@dimen/h1" android:layout_marginLeft="30.0dp" />
+</merge>

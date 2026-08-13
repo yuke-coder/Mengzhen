@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:tools="http://schemas.android.com/tools"
+	tools:keep="
+	@layout/fragment_singer,
+	@layout/player_activity_new_guide,
+	@layout/item_follow_btn,
+	@layout/hot_word_item,
+	@layout/hot_word_item_abt_a,
+	@layout/hot_word_item_abt_d,
+	@drawable/green_level_progress_bar,
+	@drawable/player_radio_cover_favorite_setting,
+	@drawable/singer_fans_extra_info,
+	@drawable/unipay_pic_tipsbg_thin,
+	@drawable/default_avatar_rectangle,
+	@drawable/follow_plus_btn,
+	@drawable/new_guide_bg,
+	@drawable/noob_slide,
+	@drawable/singer_fragment_label_shape,
+	@raw/com_sony_immersive_audio_brir_standard"/>

@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout android:layout_width="match_parent" android:layout_height="match_parent"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <ImageView android:layout_width="match_parent" android:layout_height="match_parent" android:src="@drawable/tme_ad_slider_card_loading_bg" android:scaleType="center" />
+    <ImageView android:id="@id/ln4" android:background="@android:color/transparent" android:layout_width="match_parent" android:layout_height="match_parent" android:scaleType="centerCrop" />
+    <FrameLayout android:id="@id/ln8" android:layout_width="match_parent" android:layout_height="match_parent" />
+    <View android:background="@drawable/tme_ad_slider_bg_top" android:layout_width="match_parent" android:layout_height="75.0dp" />
+    <View android:layout_gravity="bottom" android:background="@drawable/tme_ad_slider_bg_bottom" android:layout_width="match_parent" android:layout_height="125.0dp" />
+    <TextView android:textSize="16.0sp" android:textColor="#ffffffff" android:ellipsize="end" android:layout_gravity="bottom" android:id="@id/ln6" android:paddingLeft="0.0dp" android:paddingTop="2.0dp" android:paddingRight="2.0dp" android:paddingBottom="2.0dp" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginLeft="13.0dp" android:layout_marginBottom="38.0dp" android:maxLines="1" android:shadowColor="#b2000000" android:shadowDx="0.0" android:shadowDy="0.0" android:shadowRadius="5.0" />
+    <FrameLayout android:layout_gravity="bottom" android:id="@id/ln5" android:layout_width="18.0dp" android:layout_height="18.0dp" android:layout_marginLeft="13.0dp" android:layout_marginBottom="14.0dp" />
+    <TextView android:textSize="14.0sp" android:textColor="#ffffffff" android:ellipsize="end" android:layout_gravity="bottom" android:id="@id/ln7" android:paddingLeft="0.0dp" android:paddingTop="2.0dp" android:paddingRight="2.0dp" android:paddingBottom="2.0dp" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginLeft="37.0dp" android:layout_marginBottom="12.5dp" android:maxLines="1" android:shadowColor="#b2000000" android:shadowDx="0.0" android:shadowDy="0.0" android:shadowRadius="5.0" />
+</FrameLayout>

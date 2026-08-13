@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout android:layout_width="match_parent" android:layout_height="wrap_content"
+  xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">
+    <RelativeLayout android:id="@id/mwd" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginLeft="@dimen/b7r" android:layout_marginRight="@dimen/b7s" android:layout_marginStart="@dimen/b7r" android:layout_marginEnd="@dimen/b7s" app:a1x="hnz" app:a21="hnz" app:a27="hnz">
+        <com.tencent.qqmusic.ui.RoundedRelativeLayout android:id="@id/mwc" android:background="@drawable/skin_mask_img" android:layout_width="match_parent" android:layout_height="match_parent" />
+        <LinearLayout android:gravity="center_vertical" android:orientation="horizontal" android:id="@id/fkg" android:layout_width="wrap_content" android:layout_height="64.0dp" android:layout_marginLeft="25.0dp" android:layout_marginRight="70.0dp">
+            <RelativeLayout android:layout_width="40.0dp" android:layout_height="40.0dp">
+                <com.tencent.component.widget.AsyncEffectImageView android:id="@id/ha_" android:layout_width="match_parent" android:layout_height="match_parent" android:src="@drawable/default_avatar" android:scaleType="fitXY" />
+                <ImageView android:id="@id/haa" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_alignRight="@id/ha_" android:layout_alignBottom="@id/ha_" android:contentDescription="@string/ftx" android:layout_alignEnd="@id/ha_" />
+            </RelativeLayout>
+            <TextView android:textSize="16.0sp" android:textColor="@color/skin_text_main_color" android:ellipsize="end" android:id="@id/my_music_username" android:layout_width="0.0dp" android:layout_height="wrap_content" android:layout_marginLeft="6.0dp" android:singleLine="true" android:layout_weight="1.0" android:layout_marginStart="6.0dp" />
+            <include android:layout_width="wrap_content" android:layout_height="wrap_content" layout="@layout/zw" />
+        </LinearLayout>
+        <View android:id="@id/mzc" android:background="@drawable/skin_divider_img" android:layout_width="match_parent" android:layout_height="1.0dp" android:layout_below="@id/fkg" />
+        <include android:gravity="center_horizontal" android:id="@id/l6u" android:layout_width="match_parent" android:layout_height="72.0dp" android:layout_below="@id/mzc" layout="@layout/a00" />
+    </RelativeLayout>
+    <ImageView android:id="@id/fmh" android:visibility="gone" android:layout_width="@dimen/be7" android:layout_height="@dimen/be4" android:layout_marginRight="@dimen/be5" android:scaleType="fitXY" android:contentDescription="@string/crw" app:a21="hnz" app:a27="hnz" />
+    <FrameLayout android:clipChildren="true" android:layout_width="@dimen/be7" android:layout_height="@dimen/be4" android:layout_marginRight="@dimen/be5" android:contentDescription="@string/f2f" app:a21="hnz" app:a27="hnz">
+        <ImageView android:id="@id/hpz" android:visibility="gone" android:layout_width="@dimen/be7" android:layout_height="@dimen/be4" android:scaleType="fitXY" android:contentDescription="@string/f2f" />
+    </FrameLayout>
+    <View android:id="@id/hpx" android:visibility="gone" android:layout_width="@dimen/be7" android:layout_height="@dimen/be6" android:layout_marginRight="@dimen/be5" app:a21="hnz" app:a27="hnz" />
+    <androidx.constraintlayout.widget.Guideline android:orientation="vertical" android:id="@id/d67" android:layout_width="wrap_content" android:layout_height="match_parent" app:a1m="@dimen/b93" />
+    <com.tencent.qqmusic.ui.im.MessageCenterView android:id="@id/nai" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginBottom="95.5dp" app:a1d="@id/mwd" app:a1y="@id/d67" />
+</androidx.constraintlayout.widget.ConstraintLayout>

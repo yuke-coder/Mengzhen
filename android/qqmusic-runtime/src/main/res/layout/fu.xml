@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout android:orientation="vertical" android:id="@id/bol" android:background="@drawable/bg_ai_agent_image_source_dialog_light" android:paddingBottom="50.0dp" android:layout_width="match_parent" android:layout_height="wrap_content"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <LinearLayout android:gravity="center_vertical" android:orientation="horizontal" android:paddingLeft="20.0dp" android:paddingTop="20.0dp" android:paddingRight="20.0dp" android:paddingBottom="13.0dp" android:layout_width="match_parent" android:layout_height="wrap_content">
+        <androidx.appcompat.widget.AppCompatTextView android:textSize="18.0dp" android:textStyle="bold" android:textColor="@color/black" android:gravity="left|center" android:id="@id/m45" android:layout_width="0.0dp" android:layout_height="wrap_content" android:text="上传图片" android:layout_weight="1.0" />
+        <ImageView android:id="@id/e_0" android:layout_width="15.0dp" android:layout_height="15.0dp" android:src="@drawable/icon_ai_agent_select_img_dialog_tip" />
+        <androidx.appcompat.widget.AppCompatTextView android:textSize="12.0dp" android:textColor="@color/black_40_opacity" android:id="@id/m44" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginLeft="3.0dp" android:text="选择后替换当前图片" />
+    </LinearLayout>
+    <androidx.appcompat.widget.AppCompatTextView android:textSize="15.0dp" android:textColor="@color/black" android:gravity="left|center" android:id="@id/boj" android:paddingLeft="20.0dp" android:paddingTop="13.0dp" android:paddingRight="20.0dp" android:paddingBottom="13.0dp" android:layout_width="match_parent" android:layout_height="wrap_content" android:text="从相册选择" />
+    <androidx.appcompat.widget.AppCompatTextView android:textSize="15.0dp" android:textColor="@color/black" android:gravity="left|center" android:id="@id/bok" android:paddingLeft="20.0dp" android:paddingTop="13.0dp" android:paddingRight="20.0dp" android:paddingBottom="13.0dp" android:layout_width="match_parent" android:layout_height="wrap_content" android:text="@string/btq" />
+</LinearLayout>

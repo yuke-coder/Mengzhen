@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout android:layout_width="match_parent" android:layout_height="match_parent"
+  xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">
+    <TextView android:textSize="18.0sp" android:textColor="@color/white" android:id="@id/fnx" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginLeft="16.0dp" android:layout_marginTop="25.0dp" android:text="@string/ho4" app:a23="hnz" app:a27="hnz" />
+    <ImageView android:id="@id/fnv" android:layout_width="50.0dp" android:layout_height="50.0dp" android:layout_marginTop="16.0dp" app:a23="@id/fnx" app:a26="@id/fnx" />
+    <ImageView android:id="@id/fnt" android:layout_width="16.0dp" android:layout_height="16.0dp" app:a1d="@id/fnv" app:a1j="@id/fnv" />
+    <TextView android:textSize="15.0sp" android:textColor="@color/white" android:ellipsize="end" android:id="@id/fnu" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginLeft="15.0dp" android:layout_marginTop="19.0dp" android:text="声娱文化" android:maxLines="1" app:a22="@id/fnv" app:a26="@id/fnx" />
+    <TextView android:textSize="15.0sp" android:textColor="@color/white_50_opacity" android:ellipsize="end" android:id="@id/fnw" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginLeft="15.0dp" android:layout_marginTop="3.0dp" android:text="Q音达人" android:maxLines="1" app:a22="@id/fnv" app:a26="@id/fnu" />
+    <include android:id="@id/fns" android:visibility="gone" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="29.0dp" android:layout_marginRight="16.0dp" app:a1j="hnz" app:a26="@id/fnx" layout="@layout/avz" />
+    <androidx.recyclerview.widget.RecyclerView android:id="@id/fnp" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginTop="15.0dp" app:a26="@id/fnv" />
+</androidx.constraintlayout.widget.ConstraintLayout>

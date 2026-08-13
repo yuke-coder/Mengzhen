@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout android:layout_width="match_parent" android:layout_height="wrap_content"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <androidx.recyclerview.widget.RecyclerView android:id="@id/j30" android:layout_width="match_parent" android:layout_height="wrap_content" android:overScrollMode="never" android:nestedScrollingEnabled="false" />
+    <TextView android:textColor="@color/common_subtitle_color" android:gravity="center" android:id="@id/c7e" android:visibility="gone" android:layout_width="match_parent" android:layout_height="wrap_content" android:text="@string/c_1" android:layout_alignParentTop="true" android:layout_alignParentBottom="true" />
+</RelativeLayout>

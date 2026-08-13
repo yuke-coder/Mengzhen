@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout android:background="@color/video_poster_player_other_dialog_bg" android:paddingLeft="10.0dp" android:paddingRight="10.0dp" android:paddingBottom="10.0dp" android:layout_width="match_parent" android:layout_height="wrap_content"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <Button android:textSize="18.0sp" android:textColor="@color/white" android:gravity="center" android:id="@id/bq9" android:background="@color/transparent" android:layout_width="match_parent" android:layout_height="wrap_content" android:text="@string/a_6" android:layout_alignParentBottom="true" />
+    <ImageView android:id="@id/bq_" android:layout_width="match_parent" android:layout_height="@dimen/cdx" android:layout_marginBottom="10.0dp" android:src="@color/video_poster_player_select_video_line_bg" android:layout_above="@id/bq9" />
+    <FrameLayout android:layout_width="match_parent" android:layout_height="match_parent" android:layout_above="@id/bq_">
+        <LinearLayout android:layout_gravity="center" android:orientation="vertical" android:layout_width="match_parent" android:layout_height="wrap_content">
+            <RelativeLayout android:id="@id/bqs" android:visibility="visible" android:layout_width="match_parent" android:layout_height="wrap_content">
+                <TextView android:textSize="16.0sp" android:textColor="@color/white" android:layout_gravity="left|center" android:id="@id/n6e" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/iqg" android:layout_centerVertical="true" />
+                <SeekBar android:id="@id/n6f" android:paddingLeft="0.0dp" android:paddingTop="0.0dp" android:paddingRight="0.0dp" android:paddingBottom="0.0dp" android:focusable="false" android:clickable="true" android:layout_width="match_parent" android:layout_height="18.0dp" android:maxHeight="18.0dp" android:progress="50" android:progressDrawable="@drawable/video_poster_volume_seekbar" android:minHeight="18.0dp" android:thumb="@drawable/default_player_seekbar_playback_thumb" android:thumbOffset="0.0dp" android:layout_toRightOf="@id/n6e" android:layout_alignParentRight="true" android:layout_centerVertical="true" />
+            </RelativeLayout>
+            <RelativeLayout android:id="@id/bqr" android:visibility="visible" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginTop="30.0dp">
+                <TextView android:textSize="16.0sp" android:textColor="@color/white" android:layout_gravity="left|center" android:id="@id/n5u" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/ips" android:layout_centerVertical="true" />
+                <SeekBar android:id="@id/n5v" android:paddingLeft="0.0dp" android:paddingTop="0.0dp" android:paddingRight="0.0dp" android:paddingBottom="0.0dp" android:focusable="false" android:clickable="true" android:layout_width="match_parent" android:layout_height="18.0dp" android:maxHeight="18.0dp" android:progress="50" android:progressDrawable="@drawable/video_poster_volume_seekbar" android:minHeight="18.0dp" android:thumb="@drawable/default_player_seekbar_playback_thumb" android:thumbOffset="0.0dp" android:layout_toRightOf="@id/n5u" android:layout_alignParentRight="true" android:layout_centerVertical="true" />
+            </RelativeLayout>
+        </LinearLayout>
+    </FrameLayout>
+</RelativeLayout>

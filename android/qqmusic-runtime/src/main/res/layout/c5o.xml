@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout android:id="@id/g8o" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginLeft="@dimen/bfa" android:layout_marginTop="@dimen/bf_" android:layout_marginRight="@dimen/bfa"
+  xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">
+    <ImageView android:id="@id/g8l" android:focusableInTouchMode="false" android:layout_width="0.0dp" android:layout_height="0.0dp" android:src="@drawable/music_video_mode_header_minibar" android:scaleType="fitXY" app:a1d="@id/g8t" app:a1s="0.9" app:a1x="hnz" app:a21="hnz" app:a27="@id/g8t" app:a2e="1.0" />
+    <com.tencent.component.widget.AsyncEffectImageView android:id="@id/g8t" android:layout_width="42.0dp" android:layout_height="42.0dp" app:a1d="hnz" app:a1x="hnz" app:a27="hnz" />
+    <View android:background="@drawable/music_video_mode_header_minibar_cover_shadow" android:layout_width="0.0dp" android:layout_height="0.0dp" app:a1d="@id/g8t" app:a1x="@id/g8t" app:a21="@id/g8t" app:a27="@id/g8t" />
+    <ImageView android:id="@id/g8z" android:layout_width="28.0dp" android:layout_height="28.0dp" android:src="@drawable/timeline_state_pause" android:scaleType="centerInside" app:a1d="@id/g8t" app:a1x="@id/g8t" app:a21="@id/g8t" app:a27="@id/g8t" />
+    <ImageView android:id="@id/g96" android:layout_width="wrap_content" android:layout_height="0.0dp" android:src="@drawable/minibar_pic_right_album" android:scaleType="fitXY" app:a1d="@id/g8l" app:a1y="@id/g8t" app:a27="@id/g8l" />
+    <LinearLayout android:gravity="left|center" android:layout_width="0.0dp" android:layout_height="wrap_content" app:a1d="hnz" app:a1y="@id/g96" app:a20="@id/dpm" app:a27="hnz">
+        <com.tencent.qqmusic.ui.minibar.MinibarMarqueeTextView android:textSize="11.0sp" android:textColor="@color/white" android:ellipsize="marquee" android:id="@id/g9n" android:focusable="true" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginLeft="9.0dp" android:layout_marginRight="11.0dp" android:singleLine="true" android:marqueeRepeatLimit="1" />
+    </LinearLayout>
+    <ImageView android:id="@id/dpm" android:layout_width="9.5dp" android:layout_height="9.5dp" android:layout_marginRight="14.5dp" android:src="@drawable/minibar_pic_back_to_music" app:a1d="hnz" app:a21="hnz" app:a27="hnz" />
+</androidx.constraintlayout.widget.ConstraintLayout>

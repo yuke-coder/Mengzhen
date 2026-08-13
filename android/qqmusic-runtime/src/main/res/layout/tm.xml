@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<TableLayout android:background="@color/ivory" android:layout_width="match_parent" android:layout_height="wrap_content"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <TableRow android:layout_width="match_parent" android:layout_height="match_parent">
+        <Switch android:id="@id/l2a" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/b82" />
+        <EditText android:id="@id/c0r" android:layout_width="wrap_content" android:layout_height="wrap_content" android:ems="10" android:inputType="numberDecimal" />
+        <SeekBar android:id="@id/ai" android:layout_width="wrap_content" android:layout_height="wrap_content" android:max="255" />
+    </TableRow>
+    <TableRow android:layout_width="match_parent" android:layout_height="match_parent">
+        <Switch android:id="@id/l2b" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/ghb" android:layout_weight="1.0" />
+        <Spinner android:id="@id/kog" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_weight="1.0" />
+        <Spinner android:id="@id/koh" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_weight="1.0" />
+    </TableRow>
+</TableLayout>

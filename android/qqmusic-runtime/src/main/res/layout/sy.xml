@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout android:paddingBottom="@dimen/c9e" android:layout_width="match_parent" android:layout_height="wrap_content"
+  xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">
+    <com.tencent.qqmusic.ui.RoundedRelativeLayout android:id="@id/kem" android:layout_width="wrap_content" android:layout_height="wrap_content" app:ado="5.0dp">
+        <LinearLayout android:gravity="center_vertical" android:orientation="horizontal" android:background="@color/timeline_tab_color_normal_dark" android:paddingTop="4.0dp" android:paddingBottom="4.0dp" android:layout_width="wrap_content" android:layout_height="wrap_content">
+            <ImageView android:id="@id/kel" android:layout_width="10.0dp" android:layout_height="10.0dp" android:layout_marginLeft="6.0dp" android:src="@drawable/video_detail_music" android:scaleType="centerInside" />
+            <TextView android:textSize="13.0sp" android:textColor="@color/timeline_black_text" android:ellipsize="end" android:id="@id/keu" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginLeft="5.0dp" android:layout_marginRight="6.0dp" android:text="123" android:singleLine="true" android:layout_marginStart="5.0dp" android:layout_marginEnd="6.0dp" />
+        </LinearLayout>
+        <TextView android:id="@id/lcr" android:background="@color/timeline_black_mask" android:visibility="gone" android:layout_width="match_parent" android:layout_height="match_parent" />
+    </com.tencent.qqmusic.ui.RoundedRelativeLayout>
+</FrameLayout>

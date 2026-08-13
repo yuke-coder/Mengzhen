@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout android:id="@id/b_c" android:layout_width="match_parent" android:layout_height="match_parent"
+  xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">
+    <include android:id="@id/naf" android:visibility="gone" android:layout_width="match_parent" android:layout_height="match_parent" layout="@layout/m6" />
+    <ImageView android:id="@id/nag" android:background="@drawable/homepage_bg" android:layout_width="match_parent" android:layout_height="match_parent" />
+    <FrameLayout android:id="@id/lp4" android:layout_width="match_parent" android:layout_height="match_parent" />
+    <ViewStub android:id="@id/xs" android:layout="@layout/hu" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_alignParentBottom="true" />
+    <FrameLayout android:id="@id/mzo" android:visibility="gone" android:layout_width="match_parent" android:layout_height="match_parent">
+        <com.tencent.component.widget.AsyncEffectImageView android:id="@id/mzp" android:layout_width="match_parent" android:layout_height="match_parent" android:scaleType="centerCrop" />
+    </FrameLayout>
+    <FrameLayout android:id="@id/b77" android:layout_width="match_parent" android:layout_height="match_parent" />
+    <com.tencent.qqmusic.ui.ContentLoadingView android:id="@id/b70" android:layout_width="match_parent" android:layout_height="match_parent" />
+    <com.tencent.qqmusic.activity.base.CustomTabPagerLinearLayout android:id="@id/b73" android:visibility="gone" android:layout_width="match_parent" android:layout_height="match_parent" android:layout_below="@id/b75" app:o1="@id/b6z" app:aax="@id/b72" app:an6="@id/b74" app:an7="@id/l4n" app:aqk="@id/b76">
+        <FrameLayout android:id="@id/b76" android:layout_width="match_parent" android:layout_height="wrap_content" />
+        <com.tencent.qqmusic.ui.HomepageHorizontalScrollTab android:id="@id/b74" android:background="@drawable/transparent" android:layout_width="match_parent" android:layout_height="@dimen/lp" />
+        <View android:id="@id/l4n" android:visibility="gone" android:layout_width="35.0dp" android:layout_height="42.0dp" />
+        <com.tencent.qqmusic.activity.base.QMusicBaseViewPager android:id="@id/b72" android:background="@color/transparent" android:layout_width="match_parent" android:layout_height="match_parent" />
+    </com.tencent.qqmusic.activity.base.CustomTabPagerLinearLayout>
+    <include android:id="@id/ddx" android:layout_width="match_parent" android:layout_height="match_parent" layout="@layout/a6b" />
+    <com.tencent.qqmusic.ui.blurmask.BlurOverlayView android:id="@id/deb" android:visibility="gone" android:layout_width="match_parent" android:layout_height="@dimen/cau" app:aa5="true" />
+    <ImageView android:id="@id/dea" android:layout_width="match_parent" android:layout_height="@dimen/cau" />
+    <include android:id="@id/b75" android:background="@drawable/transparent" android:layout_width="match_parent" android:layout_height="@dimen/cau" android:layout_alignParentTop="true" layout="@layout/a70" />
+    <include android:id="@id/hnf" android:visibility="gone" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="-10.0dp" android:layout_below="@id/b75" layout="@layout/a6g" />
+    <ViewStub android:id="@id/b7q" android:background="@color/transparent" android:layout="@layout/mh" android:layout_width="match_parent" android:layout_height="match_parent" android:layout_marginTop="@dimen/cau" android:layout_alignWithParentIfMissing="true" />
+    <ViewStub android:id="@id/b7r" android:visibility="gone" android:layout="@layout/yc" android:layout_width="match_parent" android:layout_height="match_parent" android:layout_marginTop="@dimen/cau" />
+    <ViewStub android:id="@id/b7u" android:layout="@layout/vi" android:layout_width="match_parent" android:layout_height="match_parent" android:layout_marginTop="@dimen/cau" />
+    <ViewStub android:id="@id/b7x" android:layout="@layout/ye" android:layout_width="match_parent" android:layout_height="match_parent" android:layout_marginTop="@dimen/cau" android:layout_alignWithParentIfMissing="true" />
+    <ViewStub android:id="@id/b7v" android:layout="@layout/a6n" android:layout_width="match_parent" android:layout_height="match_parent" android:layout_marginTop="@dimen/cau" />
+    <ViewStub android:id="@id/ifd" android:layout="@layout/a6q" android:layout_width="match_parent" android:layout_height="match_parent" />
+    <FrameLayout android:layout_width="143.0dp" android:layout_height="100.0dp" android:layout_marginRight="15.0dp" android:layout_alignParentRight="true" android:layout_alignParentBottom="true">
+        <com.tencent.qqmusic.pag.QQMusicPAGImageView android:id="@id/f1i" android:visibility="gone" android:layout_width="143.0dp" android:layout_height="41.0dp" />
+    </FrameLayout>
+    <FrameLayout android:id="@id/ddo" android:visibility="gone" android:layout_width="match_parent" android:layout_height="match_parent" android:importantForAccessibility="no">
+        <com.tencent.qgame.animplayer.AnimView android:id="@id/ddn" android:layout_width="match_parent" android:layout_height="match_parent" />
+    </FrameLayout>
+</RelativeLayout>

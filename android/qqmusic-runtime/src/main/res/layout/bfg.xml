@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout android:layout_width="45.0dp" android:layout_height="60.0dp" android:layout_marginLeft="5.0dp" android:layout_marginRight="5.0dp"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <com.tme.mlive.ui.custom.AvatarImageView android:id="@id/f5y" android:layout_width="40.0dp" android:layout_height="40.0dp" android:layout_centerHorizontal="true" android:layout_centerVertical="true" />
+    <ImageView android:id="@id/f62" android:visibility="visible" android:layout_width="42.0dp" android:layout_height="42.0dp" android:src="@drawable/mlive_gift_send_select_guest" android:layout_centerInParent="true" android:contentDescription="@null" />
+    <TextView android:textSize="9.0sp" android:gravity="center" android:id="@id/f5z" android:background="@drawable/mlive_friend_gift_identity_bg" android:layout_width="30.0dp" android:layout_height="12.0dp" android:layout_marginBottom="10.0dp" android:text="@string/doq" android:layout_alignParentBottom="true" android:layout_centerHorizontal="true" />
+    <TextView android:textSize="9.0sp" android:textColor="@color/white" android:gravity="center" android:id="@id/f61" android:background="@drawable/mlive_friend_gift_position_bg" android:layout_width="12.0dp" android:layout_height="12.0dp" android:layout_alignBottom="@id/f5y" android:layout_alignParentRight="true" />
+    <ImageView android:textSize="9.0sp" android:gravity="center" android:id="@id/f63" android:background="@drawable/mlive_friend_gift_select" android:layout_width="12.0dp" android:layout_height="12.0dp" android:layout_alignBottom="@id/f5y" android:layout_alignParentRight="true" />
+</RelativeLayout>

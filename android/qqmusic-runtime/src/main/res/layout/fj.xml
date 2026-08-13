@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout android:orientation="vertical" android:background="@android:color/white" android:paddingTop="200.0dp" android:layout_width="match_parent" android:layout_height="match_parent"
+  xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">
+    <EditText android:id="@id/nrc" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_margin="10.0dp" android:text="https://kg.qq.com/minigame/tmeApi/index.html" />
+    <LinearLayout android:layout_width="match_parent" android:layout_height="60.0dp" android:layout_marginTop="10.0dp">
+        <TextView android:gravity="center" android:layout_width="0.0dp" android:layout_height="match_parent" android:text="tdeId" android:layout_weight="1.0" />
+        <EditText android:id="@id/nr_" android:layout_width="0.0dp" android:layout_height="match_parent" android:text="8286" android:layout_weight="3.0" />
+    </LinearLayout>
+    <LinearLayout android:layout_width="match_parent" android:layout_height="60.0dp" android:layout_marginTop="10.0dp">
+        <TextView android:gravity="center" android:layout_width="0.0dp" android:layout_height="match_parent" android:text="tdeToken" android:layout_weight="1.0" />
+        <EditText android:id="@id/nrb" android:layout_width="0.0dp" android:layout_height="match_parent" android:text="eb88f266-2419-4544-884e-ae4373fe195f" android:layout_weight="3.0" />
+    </LinearLayout>
+    <LinearLayout android:layout_width="match_parent" android:layout_height="30.0dp" android:layout_marginTop="10.0dp">
+        <TextView android:gravity="center" android:layout_width="0.0dp" android:layout_height="match_parent" android:text="isTDE" android:layout_weight="1.0" />
+        <Switch android:gravity="center" android:id="@id/nra" android:layout_width="0.0dp" android:layout_height="match_parent" android:checked="false" android:layout_weight="1.0" />
+        <TextView android:gravity="center" android:layout_width="0.0dp" android:layout_height="match_parent" android:text="isDebug" android:layout_weight="1.0" />
+        <Switch android:gravity="center" android:id="@id/nr8" android:layout_width="0.0dp" android:layout_height="match_parent" android:checked="false" android:layout_weight="1.0" />
+    </LinearLayout>
+    <Button android:textStyle="bold" android:textColor="@color/white" android:layout_gravity="center" android:id="@id/nr9" android:background="@drawable/web_button_bg" android:layout_width="300.0dp" android:layout_height="wrap_content" android:layout_marginTop="20.0dp" android:text="启动页面" />
+</LinearLayout>

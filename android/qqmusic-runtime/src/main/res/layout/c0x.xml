@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <LinearLayout android:orientation="vertical" android:id="@id/jzd" android:paddingLeft="@dimen/bsf" android:paddingTop="@dimen/bsg" android:paddingRight="@dimen/bsf" android:paddingBottom="@dimen/bse" android:layout_width="match_parent" android:layout_height="wrap_content" android:minHeight="0.0dp">
+        <RelativeLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginBottom="@dimen/bse">
+            <TextView android:textSize="@dimen/bsi" android:textColor="@color/skin_text_main_color" android:id="@id/m3b" android:clickable="false" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_alignParentLeft="true" android:layout_centerVertical="true" />
+            <TextView android:textSize="@dimen/bsj" android:textColor="@color/skin_text_sub_color" android:id="@id/m2w" android:visibility="invisible" android:clickable="true" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/gbv" android:layout_alignParentRight="true" android:layout_centerVertical="true" />
+        </RelativeLayout>
+        <LinearLayout android:orientation="horizontal" android:id="@id/f36" android:layout_width="match_parent" android:layout_height="wrap_content">
+            <RelativeLayout android:id="@id/e17" android:background="@color/recommend_similar_album_background" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginRight="@dimen/bsa" android:layout_weight="0.33">
+                <RelativeLayout android:id="@id/jzq" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_alignParentTop="true">
+                    <com.tencent.component.widget.AsyncEffectImageView android:id="@id/a3_" android:layout_width="match_parent" android:layout_height="wrap_content" android:scaleType="centerCrop" android:layout_alignParentTop="true" />
+                    <com.tencent.qqmusic.ui.customview.SquareImageView android:id="@id/f0n" android:visibility="gone" android:layout_width="@dimen/ai6" android:layout_height="@dimen/ai6" android:layout_alignLeft="@id/a3_" android:layout_alignTop="@id/a3_" />
+                    <LinearLayout android:orientation="horizontal" android:id="@id/f0k" android:background="@drawable/bg_gradient" android:visibility="invisible" android:layout_width="match_parent" android:layout_height="29.0dp" android:layout_alignBottom="@id/a3_">
+                        <ImageView android:layout_gravity="left|bottom" android:layout_width="20.0dp" android:layout_height="20.0dp" android:src="@drawable/musichall_listener_icon" android:scaleType="centerCrop" />
+                        <TextView android:textSize="10.0dp" android:textColor="#99ffffff" android:gravity="left|center" android:layout_gravity="right|bottom" android:id="@id/f0m" android:layout_width="0.0dp" android:layout_height="20.0dp" android:layout_weight="1.0" />
+                        <ImageView android:layout_gravity="right|bottom" android:id="@id/f0l" android:layout_width="wrap_content" android:layout_height="wrap_content" android:src="@drawable/musichall_play_icon" android:scaleType="fitXY" />
+                    </LinearLayout>
+                </RelativeLayout>
+                <LinearLayout android:orientation="vertical" android:layout_width="@dimen/bsd" android:layout_height="wrap_content" android:layout_below="@id/jzq">
+                    <TextView android:textSize="@dimen/bs8" android:textColor="@color/skin_text_main_color" android:ellipsize="end" android:gravity="left" android:id="@id/m2g" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginLeft="@dimen/bsc" android:layout_marginTop="@dimen/bsb" android:layout_marginRight="@dimen/bsc" android:text="AlbumAlbum" android:maxLines="2" />
+                    <TextView android:textSize="@dimen/bsh" android:textColor="@color/skin_text_sub_color" android:ellipsize="end" android:gravity="left" android:id="@id/m2j" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginLeft="@dimen/bsc" android:layout_marginBottom="@dimen/bsb" android:text="Default Singer" android:maxLines="1" />
+                </LinearLayout>
+            </RelativeLayout>
+            <RelativeLayout android:id="@id/e18" android:background="@color/recommend_similar_album_background" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginLeft="@dimen/bsa" android:layout_marginRight="@dimen/bsa" android:layout_weight="0.33">
+                <RelativeLayout android:id="@id/jzr" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_alignParentTop="true">
+                    <com.tencent.component.widget.AsyncEffectImageView android:id="@id/a3a" android:layout_width="match_parent" android:layout_height="wrap_content" android:scaleType="centerCrop" android:layout_alignParentTop="true" />
+                    <com.tencent.qqmusic.ui.customview.SquareImageView android:id="@id/g76" android:visibility="gone" android:layout_width="@dimen/ai6" android:layout_height="@dimen/ai6" android:layout_alignLeft="@id/a3a" android:layout_alignTop="@id/a3a" />
+                    <LinearLayout android:orientation="horizontal" android:id="@id/g73" android:background="@drawable/bg_gradient" android:visibility="invisible" android:layout_width="match_parent" android:layout_height="29.0dp" android:layout_alignBottom="@id/a3a">
+                        <ImageView android:layout_gravity="left|bottom" android:layout_width="20.0dp" android:layout_height="20.0dp" android:src="@drawable/musichall_listener_icon" android:scaleType="centerCrop" />
+                        <TextView android:textSize="12.0dp" android:textColor="#99ffffff" android:gravity="left|center" android:layout_gravity="right|bottom" android:id="@id/g75" android:layout_width="0.0dp" android:layout_height="20.0dp" android:layout_weight="1.0" />
+                        <ImageView android:layout_gravity="right|bottom" android:id="@id/g74" android:layout_width="wrap_content" android:layout_height="wrap_content" android:src="@drawable/musichall_play_icon" android:scaleType="fitXY" />
+                    </LinearLayout>
+                </RelativeLayout>
+                <LinearLayout android:orientation="vertical" android:layout_width="@dimen/bsd" android:layout_height="wrap_content" android:layout_below="@id/jzr">
+                    <TextView android:textSize="@dimen/bs8" android:textColor="@color/skin_text_main_color" android:ellipsize="end" android:gravity="left" android:id="@id/m2h" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginLeft="@dimen/bsc" android:layout_marginTop="@dimen/bsb" android:layout_marginRight="@dimen/bsc" android:text="Default\nAlbum" android:maxLines="2" />
+                    <TextView android:textSize="@dimen/bsh" android:textColor="@color/skin_text_sub_color" android:ellipsize="end" android:gravity="left" android:id="@id/m2k" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginLeft="@dimen/bsc" android:layout_marginBottom="@dimen/bsb" android:text="Default Singer" android:maxLines="1" />
+                </LinearLayout>
+            </RelativeLayout>
+            <RelativeLayout android:id="@id/e1_" android:background="@color/recommend_similar_album_background" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginLeft="@dimen/bsa" android:layout_weight="0.33">
+                <RelativeLayout android:id="@id/jzs" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_alignParentTop="true">
+                    <com.tencent.component.widget.AsyncEffectImageView android:id="@id/a3b" android:layout_width="match_parent" android:layout_height="wrap_content" android:scaleType="centerCrop" android:layout_alignParentTop="true" />
+                    <com.tencent.qqmusic.ui.customview.SquareImageView android:id="@id/j8a" android:visibility="gone" android:layout_width="@dimen/ai6" android:layout_height="@dimen/ai6" android:layout_alignLeft="@id/a3b" android:layout_alignTop="@id/a3b" />
+                    <LinearLayout android:orientation="horizontal" android:id="@id/j88" android:background="@drawable/bg_gradient" android:visibility="invisible" android:layout_width="match_parent" android:layout_height="29.0dp" android:layout_alignBottom="@id/a3b">
+                        <ImageView android:layout_gravity="left|bottom" android:layout_width="20.0dp" android:layout_height="20.0dp" android:src="@drawable/musichall_listener_icon" android:scaleType="centerCrop" />
+                        <TextView android:textSize="12.0dp" android:textColor="#99ffffff" android:gravity="center_vertical" android:layout_gravity="right|bottom" android:id="@id/j8_" android:layout_width="0.0dp" android:layout_height="20.0dp" android:layout_weight="1.0" />
+                        <ImageView android:layout_gravity="right|bottom" android:id="@id/j89" android:layout_width="wrap_content" android:layout_height="wrap_content" android:src="@drawable/musichall_play_icon" android:scaleType="fitXY" />
+                    </LinearLayout>
+                </RelativeLayout>
+                <LinearLayout android:orientation="vertical" android:layout_width="@dimen/bsd" android:layout_height="wrap_content" android:layout_below="@id/jzs">
+                    <TextView android:textSize="@dimen/bs8" android:textColor="@color/skin_text_main_color" android:ellipsize="end" android:gravity="left" android:id="@id/m2i" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginLeft="@dimen/bsc" android:layout_marginTop="@dimen/bsb" android:layout_marginRight="@dimen/bsc" android:text="Album" android:maxLines="2" />
+                    <TextView android:textSize="@dimen/bsh" android:textColor="@color/skin_text_sub_color" android:ellipsize="end" android:gravity="left" android:id="@id/m2l" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginLeft="@dimen/bsc" android:layout_marginBottom="@dimen/bsb" android:text="Default Singer" android:maxLines="1" />
+                </LinearLayout>
+            </RelativeLayout>
+        </LinearLayout>
+    </LinearLayout>
+</LinearLayout>

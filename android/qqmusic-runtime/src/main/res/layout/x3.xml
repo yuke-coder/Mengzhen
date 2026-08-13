@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout android:layout_width="match_parent" android:layout_height="match_parent"
+  xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">
+    <View android:id="@id/ku" android:background="@drawable/main_bg" android:layout_width="match_parent" android:layout_height="match_parent" />
+    <include android:id="@id/cld" android:background="@color/transparent" android:visibility="visible" android:layout_width="match_parent" android:layout_height="@dimen/cau" layout="@layout/mu" />
+    <androidx.recyclerview.widget.RecyclerView android:id="@id/cls" android:scrollbars="none" android:layout_width="match_parent" android:layout_height="match_parent" android:divider="@color/transparent" android:layout_below="@id/cld" android:overScrollMode="never" />
+    <androidx.cardview.widget.CardView android:id="@id/cm1" android:visibility="gone" android:layout_width="wrap_content" android:layout_height="42.0dp" android:layout_marginBottom="45.0dp" android:layout_alignParentBottom="true" android:layout_centerHorizontal="true" app:gs="21.0dp" app:gt="1.5dp" app:l0="0.0dp">
+        <com.tencent.qqmusic.ui.RoundedConstraintLayout android:gravity="center_vertical" android:paddingLeft="16.5dp" android:paddingRight="16.5dp" android:layout_width="wrap_content" android:layout_height="42.0dp">
+            <androidx.appcompat.widget.AppCompatTextView android:textSize="14.0sp" android:textColor="@color/skin_text_main_color" android:id="@id/t1" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/gc5" app:a1d="hnz" app:a1x="hnz" app:a27="hnz" />
+            <ImageView android:id="@id/t0" android:layout_width="20.0dp" android:layout_height="20.0dp" android:layout_marginRight="5.0dp" android:src="@drawable/zadd_songs_ai_switch" app:a1d="hnz" app:a1y="@id/t1" app:a27="hnz" />
+        </com.tencent.qqmusic.ui.RoundedConstraintLayout>
+    </androidx.cardview.widget.CardView>
+</RelativeLayout>

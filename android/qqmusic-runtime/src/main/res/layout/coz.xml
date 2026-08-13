@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout android:gravity="center" android:layout_width="match_parent" android:layout_height="wrap_content"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <com.tencent.qqmusic.activity.soundfx.supersound.SSCustomCyclicViewPager android:layout_gravity="center" android:id="@id/l1p" android:visibility="visible" android:layout_width="match_parent" android:layout_height="match_parent" />
+    <com.tencent.qqmusic.ui.IconPageIndicator android:layout_gravity="center|bottom" android:id="@id/l1q" android:layout_width="match_parent" android:layout_height="wrap_content" />
+</FrameLayout>

@@ -1,0 +1,7 @@
+{
+  "router": "openPage",
+  "page_name": "jzt_router",
+  "params": {
+    "h5_url": "https://forest.y.qq.com/forest/render/?appId=76248bb0-49fa-4061-90fb-015f056464e0&branch=master#/?vconsole=1"
+  }
+}

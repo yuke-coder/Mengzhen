@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout android:layout_width="match_parent" android:layout_height="match_parent"
+  xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">
+    <RelativeLayout android:id="@id/j6n" android:background="@drawable/transparent" android:visibility="gone" android:layout_width="173.0dp" android:layout_height="60.0dp" android:layout_marginBottom="100.0dp" android:layout_marginStart="15.0dp" app:a1d="hnz" app:a1x="hnz">
+        <com.tencent.qqmusic.ui.MiniBarContentChangeImageView android:id="@id/j6p" android:focusableInTouchMode="false" android:layout_width="match_parent" android:layout_height="39.0dp" android:layout_marginBottom="@dimen/aig" android:src="@drawable/reward_ad_minibar_bg" android:scaleType="fitXY" android:layout_alignParentBottom="true" />
+        <ImageView android:layout_width="60.0dp" android:layout_height="60.0dp" android:src="@drawable/minibar_pic_bottom_shadow" android:scaleType="fitXY" />
+        <ImageView android:id="@id/j6q" android:layout_width="42.0dp" android:layout_height="42.0dp" android:layout_marginBottom="@dimen/aig" android:importantForAccessibility="no" />
+        <ImageView android:id="@id/j6o" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginBottom="@dimen/aig" android:src="@drawable/minibar_pic_right_album" android:scaleType="fitXY" android:layout_toRightOf="@id/j6q" android:layout_alignParentBottom="true" />
+        <TextView android:textSize="14.0sp" android:textColor="@color/white" android:ellipsize="end" android:id="@id/j6r" android:layout_width="78.0dp" android:layout_height="wrap_content" android:layout_marginLeft="9.0dp" android:layout_marginTop="14.0dp" android:maxLines="1" android:layout_toRightOf="@id/j6o" />
+        <ImageView android:id="@id/j6s" android:layout_width="16.0dp" android:layout_height="10.0dp" android:layout_marginLeft="4.0dp" android:layout_marginTop="19.0dp" android:src="@drawable/reward_ad_minibar_vip_icon" android:layout_toRightOf="@id/j6r" />
+    </RelativeLayout>
+    <TextView android:textSize="13.0sp" android:textColor="@color/white" android:gravity="center_vertical" android:id="@id/j6u" android:background="@drawable/reward_ad_toast_tip_bg" android:visibility="gone" android:layout_width="wrap_content" android:layout_height="29.0dp" android:layout_marginBottom="37.0dp" android:paddingStart="15.0dp" android:paddingEnd="15.0dp" app:a1d="hnz" app:a1x="hnz" app:a21="hnz" />
+</androidx.constraintlayout.widget.ConstraintLayout>

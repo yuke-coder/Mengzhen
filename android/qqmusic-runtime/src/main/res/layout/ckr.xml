@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:minHeight="60.0dp"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <Button android:textSize="16.0sp" android:id="@id/inh" android:layout_width="match_parent" android:layout_height="40.0dp" android:layout_marginLeft="10.0dp" android:layout_marginRight="10.0dp" android:text="@string/gs4" android:shadowColor="#ff000000" android:shadowDy="1.0" android:layout_centerVertical="true" />
+    <ImageView android:background="@drawable/list_item_broad_divider" android:layout_width="match_parent" android:layout_height="1.5dp" android:layout_alignParentBottom="true" />
+</RelativeLayout>

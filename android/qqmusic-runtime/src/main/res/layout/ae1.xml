@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout android:padding="1.0dp" android:layout_width="78.0dp" android:layout_height="78.0dp"
+  xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">
+    <ImageView android:id="@id/ec9" android:layout_width="62.0dp" android:layout_height="62.0dp" android:src="@drawable/module_musichall_digital_album_mask" android:scaleType="fitXY" android:contentDescription="@string/e5t" app:a1d="hnz" app:a1j="hnz" app:a27="hnz" />
+    <androidx.constraintlayout.widget.ConstraintLayout android:id="@id/eu6" android:background="@drawable/selector_digital_album_cover" android:layout_width="70.0dp" android:layout_height="70.0dp" app:a1d="hnz" app:a23="hnz" app:a27="hnz">
+        <com.tencent.qqmusic.ui.RoundedRelativeLayout android:id="@id/eso" android:layout_width="match_parent" android:layout_height="match_parent" app:a1d="hnz" app:a1x="hnz" app:a27="hnz" app:ado="7.5dp">
+            <com.tencent.component.widget.AsyncEffectImageView android:id="@id/dpb" android:layout_width="match_parent" android:layout_height="match_parent" android:scaleType="centerCrop" />
+        </com.tencent.qqmusic.ui.RoundedRelativeLayout>
+    </androidx.constraintlayout.widget.ConstraintLayout>
+    <ImageView android:id="@id/dpc" android:layout_width="14.5dp" android:layout_height="14.5dp" android:layout_marginLeft="5.0dp" android:layout_marginRight="5.0dp" android:layout_marginBottom="5.0dp" android:src="@drawable/icon_payment_locked" app:a1d="@id/eu6" app:a21="@id/eu6" />
+</androidx.constraintlayout.widget.ConstraintLayout>

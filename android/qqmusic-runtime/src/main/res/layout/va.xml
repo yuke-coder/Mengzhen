@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout android:orientation="vertical" android:layout_width="match_parent" android:layout_height="wrap_content"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <RelativeLayout android:paddingLeft="20.0dp" android:paddingRight="10.0dp" android:layout_width="match_parent" android:layout_height="wrap_content" android:paddingStart="20.0dp" android:paddingEnd="16.0dp">
+        <TextView android:textSize="14.0dp" android:textColor="@color/skin_text_mid_color" android:id="@id/cqt" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/bcy" android:layout_alignParentLeft="true" android:layout_centerVertical="true" android:fontFamily="PingFang-SC-Medium" android:layout_alignParentStart="true" />
+        <ImageView android:id="@id/cqm" android:layout_width="27.0dp" android:layout_height="27.0dp" android:src="@drawable/icon_close_normal" android:scaleType="centerInside" android:layout_alignParentRight="true" android:layout_centerVertical="true" android:contentDescription="@string/bcx" android:layout_alignParentEnd="true" />
+    </RelativeLayout>
+    <androidx.recyclerview.widget.RecyclerView android:id="@id/cqs" android:paddingLeft="20.0dp" android:paddingRight="20.0dp" android:clipToPadding="false" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginTop="8.0dp" android:overScrollMode="never" android:paddingStart="20.0dp" android:paddingEnd="20.0dp" />
+</LinearLayout>

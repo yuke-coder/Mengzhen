@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginTop="10.0dp" android:layout_marginBottom="10.0dp"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <com.tme.qqmusic.widget.base.view.GlideImageView android:id="@id/mlive_assistant_msg_avatar_iv" android:layout_width="40.0dp" android:layout_height="40.0dp" android:layout_marginStart="16.0dp" />
+    <TextView android:textSize="14.0sp" android:textColor="@color/black" android:gravity="center_vertical" android:id="@id/mlive_assistant_msg_content_tv" android:background="@drawable/mlive_assistant_msg_white_bg" android:paddingTop="8.0dp" android:paddingBottom="8.0dp" android:layout_width="wrap_content" android:layout_height="wrap_content" android:paddingStart="16.0dp" android:paddingEnd="12.0dp" android:layout_marginStart="64.0dp" android:layout_marginEnd="68.0dp" />
+</FrameLayout>

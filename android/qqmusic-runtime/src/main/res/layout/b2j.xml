@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout android:id="@id/jd3" android:layout_width="match_parent" android:layout_height="match_parent" app:a1d="hnz" app:a1x="hnz" app:a21="hnz" app:a27="hnz"
+  xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">
+    <ImageView android:id="@id/aff" android:layout_width="match_parent" android:layout_height="match_parent" android:scaleType="centerCrop" app:a1d="hnz" app:a1x="hnz" app:a21="hnz" app:a27="hnz" />
+    <androidx.constraintlayout.widget.ConstraintLayout android:id="@id/c0y" android:layout_width="0.0dp" android:layout_height="0.0dp" app:a1d="hnz" app:a1x="hnz" app:a21="hnz" app:a27="hnz">
+        <com.tencent.qqmusic.camerascan.share.playercard.SingleTouchView android:id="@id/k9r" android:visibility="visible" android:layout_width="match_parent" android:layout_height="match_parent" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+    <ImageView android:id="@id/g1f" android:layout_width="match_parent" android:layout_height="match_parent" android:scaleType="centerCrop" android:alpha="0.98" app:a1d="hnz" app:a1x="hnz" app:a21="hnz" app:a27="hnz" />
+</androidx.constraintlayout.widget.ConstraintLayout>

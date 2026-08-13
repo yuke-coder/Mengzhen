@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout android:orientation="vertical" android:layout_width="match_parent" android:layout_height="match_parent"
+  xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">
+    <include android:id="@id/naf" android:layout_width="match_parent" android:layout_height="match_parent" app:a1d="hnz" app:a1x="hnz" app:a27="hnz" layout="@layout/m6" />
+    <androidx.recyclerview.widget.RecyclerView android:id="@id/j2x" android:paddingBottom="27.0dp" android:layout_width="match_parent" android:layout_height="wrap_content" app:a1x="hnz" app:a27="hnz" />
+    <include android:id="@id/lei" android:layout_width="match_parent" android:layout_height="@dimen/cau" app:a1x="hnz" app:a27="hnz" layout="@layout/mu" />
+    <ImageView android:id="@id/a5i" android:background="@drawable/material_ripple_background_circle" android:layout_width="@dimen/cao" android:layout_height="@dimen/cao" android:src="@drawable/activity_back_selector" android:scaleType="centerInside" android:layout_centerInParent="true" android:contentDescription="@string/wf" app:a1d="@id/lei" app:a23="hnz" />
+    <include android:id="@id/fdh" android:visibility="gone" android:layout_width="match_parent" android:layout_height="match_parent" app:a1x="hnz" app:a26="@id/lei" layout="@layout/mh" />
+</androidx.constraintlayout.widget.ConstraintLayout>

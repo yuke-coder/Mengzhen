@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<set
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <scale android:duration="200" android:pivotX="50.0%" android:pivotY="100.0%" android:fillAfter="true" android:fromXScale="0.0" android:toXScale="1.18" android:fromYScale="0.0" android:toYScale="1.18" android:fillEnabled="true" />
+    <scale android:duration="110" android:pivotX="50.0%" android:pivotY="100.0%" android:fillAfter="true" android:startOffset="200" android:fromXScale="1.0" android:toXScale="0.84" android:fromYScale="1.0" android:toYScale="0.84" android:fillEnabled="true" />
+    <scale android:duration="150" android:pivotX="50.0%" android:pivotY="100.0%" android:fillAfter="true" android:startOffset="4640" android:fromXScale="1.0" android:toXScale="1.2" android:fromYScale="1.0" android:toYScale="1.2" android:fillEnabled="true" />
+    <scale android:duration="210" android:pivotX="50.0%" android:pivotY="100.0%" android:fillAfter="true" android:startOffset="4790" android:fromXScale="1.0" android:toXScale="0.0" android:fromYScale="1.0" android:toYScale="0.0" android:fillEnabled="true" />
+    <alpha android:duration="310" android:fillAfter="true" android:fromAlpha="0.0" android:toAlpha="1.0" />
+    <alpha android:duration="60" android:fillAfter="true" android:startOffset="4940" android:fromAlpha="1.0" android:toAlpha="0.0" />
+</set>

@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout android:id="@id/cu4" android:layout_width="match_parent" android:layout_height="match_parent"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <ViewStub android:id="@id/h76" android:layout="@layout/bz8" android:layout_width="match_parent" android:layout_height="match_parent" />
+    <ViewStub android:id="@id/b7x" android:layout="@layout/ye" android:layout_width="match_parent" android:layout_height="match_parent" android:layout_alignWithParentIfMissing="true" />
+    <ViewStub android:id="@id/b7r" android:layout="@layout/yc" android:layout_width="match_parent" android:layout_height="match_parent" android:layout_alignWithParentIfMissing="true" />
+    <RelativeLayout android:layout_width="match_parent" android:layout_height="match_parent">
+        <com.tencent.qqmusic.ClipTopFrameLayout android:id="@id/jd3" android:layout_width="match_parent" android:layout_height="match_parent">
+            <com.tencent.qqmusic.business.timeline.ui.refreshable.RefreshableRecyclerViewNew android:id="@id/h7r" android:clipChildren="true" android:descendantFocusability="blocksDescendants" android:layout_width="match_parent" android:layout_height="match_parent" android:overScrollMode="never" />
+            <ViewStub android:id="@id/h7n" android:layout="@layout/coe" android:layout_width="match_parent" android:layout_height="match_parent" />
+        </com.tencent.qqmusic.ClipTopFrameLayout>
+    </RelativeLayout>
+    <ViewStub android:layout_gravity="center_horizontal" android:id="@id/h7c" android:layout="@layout/bze" android:layout_width="match_parent" android:layout_height="match_parent" android:layout_marginTop="39.0dp" android:layout_marginBottom="44.0dp" />
+</FrameLayout>

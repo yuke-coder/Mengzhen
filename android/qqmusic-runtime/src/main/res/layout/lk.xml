@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout android:layout_gravity="center_vertical" android:background="@color/transparent" android:focusable="true" android:clickable="true" android:layout_width="30.0dp" android:layout_height="match_parent" android:layout_marginLeft="5.0dp" android:layout_marginRight="5.0dp"
+  xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">
+    <View android:layout_gravity="center" android:id="@id/mlive_cloud_game_switch_view_point_item_bg" android:background="@drawable/cloud_game_switch_view_point_item_unselect_bg" android:focusable="true" android:clickable="true" android:layout_width="30.0dp" android:layout_height="30.0dp" />
+    <TextView android:textSize="8.0sp" android:textColor="@color/black" android:ellipsize="none" android:gravity="center" android:layout_gravity="center" android:id="@id/mlive_cloud_game_switch_view_point_text" android:focusable="true" android:clickable="true" android:layout_width="16.0dp" android:layout_height="wrap_content" android:singleLine="false" android:inputType="textMultiLine" />
+    <View android:layout_gravity="center" android:id="@id/mlive_cloud_game_switch_view_point_item_layer" android:background="@drawable/cloud_game_switch_view_point_item_last_layer" android:focusable="true" android:visibility="gone" android:clickable="true" android:layout_width="30.0dp" android:layout_height="30.0dp" />
+</FrameLayout>

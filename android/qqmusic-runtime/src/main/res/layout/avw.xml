@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<merge android:layout_width="match_parent" android:layout_height="wrap_content"
+  xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">
+    <com.tencent.qqmusic.ui.RoundedConstraintLayout android:id="@id/fmw" android:layout_width="match_parent" android:layout_height="50.0dp" android:layout_marginLeft="20.0dp" android:layout_marginTop="10.0dp" android:layout_marginRight="20.0dp" android:layout_marginBottom="50.0dp" app:kj="5.0dp">
+        <androidx.constraintlayout.widget.ConstraintLayout android:layout_width="wrap_content" android:layout_height="match_parent" app:a1d="hnz" app:a1x="hnz" app:a21="hnz" app:a27="hnz">
+            <ImageView android:id="@id/drs" android:layout_width="30.0dp" android:layout_height="30.0dp" android:src="@drawable/icon_logout" app:a1d="hnz" app:a1x="hnz" app:a20="@id/fmv" app:a27="hnz" />
+            <TextView android:textSize="14.0dp" android:textColor="@color/skin_text_main_color" android:ellipsize="end" android:id="@id/fmv" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/as" android:singleLine="true" app:a1d="hnz" app:a1y="@id/drs" app:a21="hnz" app:a27="hnz" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </com.tencent.qqmusic.ui.RoundedConstraintLayout>
+</merge>

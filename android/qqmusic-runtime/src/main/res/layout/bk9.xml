@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout android:layout_width="match_parent" android:layout_height="match_parent"
+  xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">
+    <com.tme.qqmusic.widget.base.view.NestedScrollableConstraintLayout android:id="@id/mlive_layout_live_pendent_web_pendant" android:background="@color/transparent" android:visibility="gone" android:layout_width="80.0dp" android:layout_height="140.0dp" android:layout_marginEnd="5.0dp" app:a1d="hnz" app:a1x="hnz" app:a21="hnz" />
+    <ViewStub android:id="@id/mlive_layout_live_pendent_shop" android:visibility="gone" android:layout="@layout/bkm" android:inflatedId="@id/mlive_layout_shop_pendent_container_fl" android:layout_width="81.0dp" android:layout_height="140.0dp" android:layout_marginEnd="10.0dp" app:a1d="hnz" app:a1x="hnz" app:a21="hnz" />
+    <ViewStub android:id="@id/mlive_layout_link_pendent_container" android:layout="@layout/bg8" android:inflatedId="@id/mlive_layout_link_pendent_container_fl" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginEnd="10.0dp" app:a1d="hnz" app:a1j="hnz" />
+</androidx.constraintlayout.widget.ConstraintLayout>

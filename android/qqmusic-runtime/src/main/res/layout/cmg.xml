@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout android:layout_width="match_parent" android:layout_height="match_parent"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <com.tencent.qqmusic.ui.TopAlignedImageView android:id="@id/k1x" android:layout_width="match_parent" android:layout_height="match_parent" android:src="@drawable/skin_floor_img" android:scaleType="matrix" />
+    <include android:id="@id/cu8" android:layout_width="match_parent" android:layout_height="@dimen/cau" layout="@layout/d0j" />
+    <FrameLayout android:orientation="vertical" android:id="@id/k8p" android:visibility="gone" android:layout_width="match_parent" android:layout_height="match_parent" android:layout_below="@id/cu8" />
+    <View android:id="@id/lya" android:background="@drawable/head_shadow" android:visibility="gone" android:layout_width="match_parent" android:layout_height="@dimen/l9" android:layout_below="@id/cu8" />
+</RelativeLayout>

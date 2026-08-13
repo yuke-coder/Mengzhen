@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout android:layout_width="match_parent" android:layout_height="wrap_content"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <kk.design.KKImageView android:id="@id/e24" android:layout_width="match_parent" android:layout_height="wrap_content" android:src="@drawable/lmf_ai_guide_1" android:scaleType="fitXY" />
+    <View android:id="@id/emv" android:visibility="gone" android:layout_width="60.0dp" android:layout_height="30.0dp" android:layout_marginTop="6.0dp" android:layout_marginRight="14.0dp" android:layout_alignRight="@id/e24" />
+    <View android:id="@id/cge" android:visibility="gone" android:layout_width="144.0dp" android:layout_height="33.0dp" android:layout_marginBottom="24.0dp" android:layout_alignBottom="@id/e24" android:layout_centerHorizontal="true" />
+</RelativeLayout>

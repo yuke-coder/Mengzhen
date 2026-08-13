@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout android:id="@id/lxa" android:visibility="gone" android:layout_width="match_parent" android:layout_height="match_parent"
+  xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">
+    <ImageView android:layout_gravity="center" android:id="@id/lx8" android:layout_width="22.0dp" android:layout_height="22.0dp" android:src="@drawable/default_avatar_for_profile" android:scaleType="centerCrop" android:contentDescription="@string/c0z" />
+    <com.tme.mlive.ui.custom.LiveWaveView android:layout_gravity="center" android:id="@id/lx7" android:layout_width="30.0dp" android:layout_height="30.0dp" android:importantForAccessibility="no" />
+    <TextView android:textSize="7.0sp" android:textColor="@color/white" android:layout_gravity="center" android:id="@id/lxe" android:background="@drawable/live_tag_bg" android:paddingRight="3.0dp" android:layout_width="wrap_content" android:layout_height="10.0dp" android:layout_marginTop="10.0dp" android:text="Live" android:singleLine="true" android:paddingStart="3.0dp" />
+</FrameLayout>

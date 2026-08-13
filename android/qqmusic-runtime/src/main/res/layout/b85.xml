@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.tencent.qqmusic.ui.customview.ClipBottomRelativeLayout android:id="@id/nsa" android:layout_width="match_parent" android:layout_height="wrap_content"
+  xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">
+    <ImageView android:id="@id/fzy" android:layout_width="match_parent" android:layout_height="match_parent" android:scaleType="centerCrop" android:layout_alignBottom="@id/dw6" />
+    <com.tencent.qqmusic.ui.customview.TranslationListenableRelativeLayout android:id="@id/dw6" android:layout_width="match_parent" android:layout_height="wrap_content">
+        <View android:id="@id/b7b" android:layout_width="match_parent" android:layout_height="@dimen/b7x" android:layout_marginLeft="@dimen/b7r" android:layout_marginRight="@dimen/b7s" />
+        <FrameLayout android:id="@id/cke" android:clipChildren="false" android:layout_width="match_parent" android:layout_height="@dimen/l7" android:layout_below="@id/b7b">
+            <ImageView android:id="@id/jmp" android:layout_width="match_parent" android:layout_height="match_parent" android:contentDescription="@null" />
+            <include android:id="@id/haw" android:layout_width="match_parent" android:layout_height="@dimen/l7" layout="@layout/wd" />
+        </FrameLayout>
+        <ViewStub android:id="@id/dbb" android:layout="@layout/auz" android:inflatedId="@id/dbb" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_below="@id/cke" />
+        <RelativeLayout android:gravity="center" android:id="@id/f0i" android:clipChildren="false" android:clipToPadding="false" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginRight="@dimen/b8a" android:layout_below="@id/cke" android:layout_alignBottom="@id/b7d">
+            <com.tencent.qqmusic.ui.customview.ClipRightFrameLayout android:id="@id/f0h" android:paddingLeft="5.0dp" android:clipChildren="false" android:clipToPadding="false" android:layout_width="match_parent" android:layout_height="wrap_content" />
+        </RelativeLayout>
+        <RelativeLayout android:gravity="center_vertical" android:id="@id/b7d" android:clipChildren="false" android:layout_width="match_parent" android:layout_height="@dimen/my_music_fragment_head_view_height" android:layout_marginRight="@dimen/ah_" android:layout_below="@id/dbb">
+            <ImageView android:id="@id/b8l" android:visibility="gone" android:layout_width="30.0dp" android:layout_height="30.0dp" android:src="@drawable/fragment_my_music_more" android:layout_alignParentRight="true" android:layout_centerVertical="true" android:layout_alignParentEnd="true" />
+            <ImageView android:id="@id/b8m" android:visibility="gone" android:clickable="false" android:layout_width="5.0dp" android:layout_height="5.0dp" android:src="@drawable/ic_red_dot" android:layout_alignTop="@id/b8l" android:layout_alignRight="@id/b8l" />
+            <FrameLayout android:id="@id/ly1" android:layout_width="30.0dp" android:layout_height="30.0dp" android:layout_marginRight="16.0dp" android:layout_alignParentTop="true" android:layout_alignParentRight="true" android:layout_alignParentBottom="true" android:layout_centerVertical="true" android:layout_alignParentEnd="true">
+                <ImageView android:layout_gravity="center" android:id="@id/ly0" android:visibility="gone" android:layout_width="30.0dp" android:layout_height="30.0dp" android:src="@drawable/common_top_right_icon_bg" />
+                <ImageView android:layout_gravity="center" android:id="@id/ly5" android:visibility="gone" android:layout_width="30.0dp" android:layout_height="30.0dp" />
+            </FrameLayout>
+            <ImageView android:id="@id/ly2" android:visibility="gone" android:layout_width="@dimen/btd" android:layout_height="@dimen/btd" android:layout_marginTop="5.0dp" android:src="@drawable/ic_red_dot" android:scaleType="fitXY" android:layout_marginEnd="10.0dp" android:layout_alignParentEnd="true" />
+            <ImageView android:id="@id/j8q" android:visibility="gone" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginRight="19.0dp" android:layout_centerVertical="true" />
+        </RelativeLayout>
+        <LinearLayout android:gravity="center_vertical" android:id="@id/b8k" android:layout_width="wrap_content" android:layout_height="@dimen/my_music_fragment_head_view_height" android:layout_marginLeft="@dimen/b7r" android:layout_marginRight="9.0dp" android:layout_below="@id/dbb" android:layout_alignParentRight="true" android:layout_alignParentEnd="true">
+            <FrameLayout android:layout_width="wrap_content" android:layout_height="wrap_content">
+                <com.airbnb.lottie.LottieAnimationView android:layout_gravity="center" android:id="@id/b8j" android:visibility="invisible" android:layout_width="44.0dp" android:layout_height="@dimen/my_music_fragment_head_view_height" android:layout_marginBottom="2.0dp" />
+            </FrameLayout>
+        </LinearLayout>
+    </com.tencent.qqmusic.ui.customview.TranslationListenableRelativeLayout>
+    <ViewStub android:id="@id/au_" android:layout="@layout/awh" android:inflatedId="@id/au_" android:layout_width="match_parent" android:layout_height="wrap_content" />
+</com.tencent.qqmusic.ui.customview.ClipBottomRelativeLayout>

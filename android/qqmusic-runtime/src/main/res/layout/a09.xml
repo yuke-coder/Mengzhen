@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout android:id="@id/b8n" android:layout_width="match_parent" android:layout_height="match_parent"
+  xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">
+    <RelativeLayout android:id="@id/b97" android:layout_width="match_parent" android:layout_height="wrap_content">
+        <include android:id="@id/b8q" android:layout_width="match_parent" android:layout_height="@dimen/cau" layout="@layout/mu" />
+        <ViewStub android:id="@id/b7k" android:layout="@layout/n5" android:layout_width="match_parent" android:layout_height="@dimen/cau" android:layout_alignParentTop="true" />
+    </RelativeLayout>
+    <com.tencent.qqmusic.fragment.newsong.NewSongScrollFragment android:id="@id/hdq" android:layout_width="match_parent" android:layout_height="match_parent" app:aax="@id/b8o" app:an6="@id/b8p" app:aqk="@id/ezh">
+        <include android:layout_width="match_parent" android:layout_height="wrap_content" layout="@layout/b3l" />
+        <com.tencent.qqmusic.ui.SimpleHorizontalScrollTab android:id="@id/b8p" android:background="@drawable/skin_sub_mask_img" android:layout_width="match_parent" android:layout_height="@dimen/lp" android:layout_below="@id/ezh" />
+        <com.tencent.qqmusic.ui.MusicHallsViewPager android:id="@id/b8o" android:layout_width="match_parent" android:layout_height="match_parent" android:layout_below="@id/b8p" />
+    </com.tencent.qqmusic.fragment.newsong.NewSongScrollFragment>
+    <include android:id="@id/b70" android:visibility="invisible" android:layout_width="match_parent" android:layout_height="match_parent" android:layout_below="@id/b97" layout="@layout/mj" />
+    <ViewStub android:id="@id/b78" android:background="@color/transparent" android:layout="@layout/mh" android:layout_width="match_parent" android:layout_height="match_parent" android:layout_below="@id/b97" android:layout_centerInParent="true" />
+    <View android:background="@drawable/head_shadow" android:layout_width="match_parent" android:layout_height="@dimen/l9" android:layout_marginTop="@dimen/lp" android:layout_below="@id/b97" />
+</RelativeLayout>

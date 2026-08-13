@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout android:orientation="vertical" android:background="@drawable/color_b2_click" android:paddingLeft="12.0dp" android:paddingTop="15.0dp" android:visibility="visible" android:layout_width="match_parent" android:layout_height="wrap_content"
+  xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">
+    <TextView android:textSize="@dimen/b89" android:textColor="@color/skin_text_main_color" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginBottom="8.0dp" android:text="@string/emn" />
+    <androidx.constraintlayout.widget.ConstraintLayout android:id="@id/h9e" android:clickable="true" android:descendantFocusability="blocksDescendants" android:layout_width="match_parent" android:layout_height="wrap_content">
+        <ImageView android:id="@id/crt" android:layout_width="60.0dp" android:layout_height="55.0dp" android:src="@drawable/my_music_following_entrance_bg" app:a1x="hnz" app:a27="hnz" />
+        <com.tencent.qqmusic.ui.customview.SquareImageView android:id="@id/cru" android:layout_width="55.0dp" android:layout_height="55.0dp" android:src="@drawable/my_music_following_default" android:scaleType="centerCrop" app:a1x="@id/crt" app:a27="@id/crt" />
+        <ImageView android:id="@id/el" android:background="@drawable/icon_folder_action_sheet" android:layout_width="38.0dp" android:layout_height="38.0dp" android:layout_marginRight="5.0dp" app:a1d="hnz" app:a21="hnz" app:a27="hnz" />
+        <TextView android:textColor="@color/skin_text_main_color" android:id="@id/crw" android:layout_width="0.0dp" android:layout_height="wrap_content" android:layout_marginLeft="12.0dp" android:layout_marginTop="9.0dp" android:text="@string/emp" app:a1t="0.0" app:a1y="@id/cru" app:a20="@id/el" app:a27="hnz" style="@style/nc" />
+        <TextView android:textColor="@color/skin_text_main_color" android:id="@id/crv" android:layout_width="0.0dp" android:layout_height="wrap_content" android:layout_marginLeft="12.0dp" android:text="@string/emo" android:textDirection="ltr" app:a1t="0.0" app:a1y="@id/cru" app:a20="@id/el" app:a26="@id/crw" app:a2o="12.0dp" style="@style/nb" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</LinearLayout>

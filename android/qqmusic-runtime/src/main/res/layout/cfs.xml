@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout android:background="@drawable/color_b2_click" android:layout_width="match_parent" android:layout_height="@dimen/b32" android:minHeight="@dimen/b32"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <CheckBox android:id="@id/bgw" android:background="@drawable/ic_edit_song_checkbox" android:focusable="false" android:focusableInTouchMode="false" android:clickable="false" android:layout_width="24.0dp" android:layout_height="24.0dp" android:layout_marginLeft="12.0dp" android:layout_marginRight="12.0dp" android:checked="true" android:button="@null" android:layout_centerVertical="true" />
+    <ImageView android:id="@id/bgv" android:layout_width="wrap_content" android:layout_height="wrap_content" android:src="@drawable/custom_file_type_dir" android:layout_toRightOf="@id/bgw" android:layout_centerVertical="true" />
+    <RelativeLayout android:id="@id/bgy" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginLeft="12.0dp" android:layout_toRightOf="@id/bgv" android:layout_centerVertical="true">
+        <TextView android:textSize="@dimen/b35" android:textColor="@color/skin_text_main_color" android:ellipsize="end" android:id="@id/bgx" android:fadingEdge="none" android:layout_width="wrap_content" android:layout_height="wrap_content" android:singleLine="true" android:layout_alignWithParentIfMissing="true" />
+        <TextView android:textSize="@dimen/b33" android:textColor="@color/skin_text_sub_color" android:ellipsize="end" android:id="@id/bgz" android:fadingEdge="none" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="5.0dp" android:maxWidth="250.0dp" android:singleLine="true" android:layout_below="@id/bgx" android:layout_alignWithParentIfMissing="true" />
+    </RelativeLayout>
+    <View android:background="@drawable/z_color_l1" android:layout_width="match_parent" android:layout_height="0.5dp" android:layout_toRightOf="@id/bgw" android:layout_alignParentBottom="true" />
+</RelativeLayout>

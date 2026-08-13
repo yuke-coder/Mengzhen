@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="f7">9.0dp</dimen>
+    <dimen name="h8">30.0dp</dimen>
+    <dimen name="h9">20.0dp</dimen>
+    <dimen name="zh">60.0dp</dimen>
+    <dimen name="zi">5.0dp</dimen>
+    <dimen name="zj">250.0dp</dimen>
+    <dimen name="zk">17.0dp</dimen>
+    <dimen name="zl">23.0dp</dimen>
+    <dimen name="ac1">103.0dp</dimen>
+    <dimen name="ac2">104.0dp</dimen>
+    <dimen name="ac3">27.0dp</dimen>
+    <dimen name="ac4">8.0dp</dimen>
+    <dimen name="ac5">25.0dp</dimen>
+    <dimen name="ac6">25.0dp</dimen>
+    <dimen name="ba1">10.0dp</dimen>
+    <dimen name="bdt">34.0dp</dimen>
+    <dimen name="beq">480.0px</dimen>
+    <dimen name="biz">280.0dp</dimen>
+    <dimen name="brz">90.0dp</dimen>
+    <dimen name="bue">19.0dp</dimen>
+    <dimen name="buh">50.0dp</dimen>
+    <dimen name="bui">220.0dp</dimen>
+    <dimen name="bun">115.0dp</dimen>
+    <dimen name="buo">105.0dp</dimen>
+    <dimen name="c12">13.329987dp</dimen>
+</resources>

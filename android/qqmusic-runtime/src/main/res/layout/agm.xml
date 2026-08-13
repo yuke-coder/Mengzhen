@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout android:background="@drawable/color_b2_click" android:layout_width="match_parent" android:layout_height="60.0dp"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <TextView android:textSize="14.0dp" android:textColor="@color/skin_text_sub_color" android:gravity="center_vertical" android:id="@id/ldr" android:paddingTop="10.0dp" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginLeft="15.0dp" android:text="最近联系人" android:layout_centerVertical="true" />
+    <View android:id="@id/bu2" android:background="@drawable/z_color_l1" android:layout_width="match_parent" android:layout_height="0.5dp" android:layout_marginLeft="15.0dp" android:layout_alignParentBottom="true" />
+</RelativeLayout>

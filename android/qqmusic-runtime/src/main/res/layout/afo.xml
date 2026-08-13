@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout android:layout_width="match_parent" android:layout_height="wrap_content"
+  xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">
+    <ImageView android:id="@id/dau" android:layout_width="match_parent" android:layout_height="5.0dp" android:src="@drawable/header_lt_rt_round" app:a1x="hnz" app:a27="hnz" />
+    <androidx.constraintlayout.widget.ConstraintLayout android:id="@id/kza" android:background="@drawable/skin_mask_img" android:layout_width="match_parent" android:layout_height="170.0dp" app:a26="@id/dau">
+        <androidx.constraintlayout.widget.ConstraintLayout android:id="@id/eyc" android:paddingLeft="16.0dp" android:paddingRight="16.0dp" android:layout_width="match_parent" android:layout_height="40.0dp" app:a27="hnz">
+            <androidx.appcompat.widget.AppCompatTextView android:textSize="15.0dp" android:textColor="@color/skin_text_main_color" android:id="@id/mpv" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/bk6" app:a1d="hnz" app:a1x="hnz" app:a27="hnz" />
+            <CheckBox android:id="@id/ay5" android:background="@drawable/checkbox_default_new" android:layout_width="20.0dp" android:layout_height="20.0dp" android:checked="true" android:button="@null" app:a1d="hnz" app:a21="hnz" app:a27="hnz" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
+        <androidx.constraintlayout.widget.ConstraintLayout android:id="@id/eu0" android:paddingLeft="16.0dp" android:paddingRight="16.0dp" android:layout_width="match_parent" android:layout_height="40.0dp" app:a26="@id/eyc">
+            <androidx.appcompat.widget.AppCompatTextView android:textSize="15.0dp" android:textColor="@color/skin_text_main_color" android:id="@id/mpi" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/bk4" app:a1d="hnz" app:a1x="hnz" app:a27="hnz" />
+            <CheckBox android:id="@id/axs" android:background="@drawable/checkbox_default_new" android:layout_width="20.0dp" android:layout_height="20.0dp" android:checked="true" android:button="@null" app:a1d="hnz" app:a21="hnz" app:a27="hnz" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
+        <androidx.constraintlayout.widget.ConstraintLayout android:id="@id/ew0" android:paddingLeft="16.0dp" android:paddingRight="16.0dp" android:layout_width="match_parent" android:layout_height="40.0dp" app:a26="@id/eu0">
+            <androidx.appcompat.widget.AppCompatTextView android:textSize="15.0dp" android:textColor="@color/skin_text_main_color" android:id="@id/mpr" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/bk5" app:a1d="hnz" app:a1x="hnz" app:a27="hnz" />
+            <CheckBox android:id="@id/ay0" android:background="@drawable/checkbox_default_new" android:layout_width="20.0dp" android:layout_height="20.0dp" android:checked="true" android:button="@null" app:a1d="hnz" app:a21="hnz" app:a27="hnz" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
+        <androidx.constraintlayout.widget.ConstraintLayout android:id="@id/et2" android:paddingLeft="16.0dp" android:paddingRight="16.0dp" android:layout_width="match_parent" android:layout_height="40.0dp" app:a26="@id/ew0">
+            <androidx.appcompat.widget.AppCompatTextView android:textSize="15.0dp" android:textColor="@color/skin_text_main_color" android:id="@id/mpd" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/bk3" app:a1d="hnz" app:a1x="hnz" app:a27="hnz" />
+            <CheckBox android:id="@id/axn" android:background="@drawable/checkbox_default_new" android:layout_width="20.0dp" android:layout_height="20.0dp" android:checked="true" android:button="@null" app:a1d="hnz" app:a21="hnz" app:a27="hnz" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </androidx.constraintlayout.widget.ConstraintLayout>
+    <ImageView android:id="@id/csa" android:layout_width="match_parent" android:layout_height="5.0dp" android:src="@drawable/footer_lb_rb_round" app:a26="@id/kza" />
+</androidx.constraintlayout.widget.ConstraintLayout>

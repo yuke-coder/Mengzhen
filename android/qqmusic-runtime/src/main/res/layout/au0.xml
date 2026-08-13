@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout android:gravity="center" android:orientation="vertical" android:id="@id/kcb" android:visibility="gone" android:layout_width="match_parent" android:layout_height="match_parent"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <androidx.appcompat.widget.AppCompatTextView android:textSize="16.0sp" android:textColor="@color/white" android:id="@id/cps" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/bbl" />
+    <androidx.appcompat.widget.AppCompatTextView android:textSize="14.0sp" android:textColor="@color/white" android:gravity="center" android:id="@id/cpt" android:background="@drawable/folder_template_empty_add_song_bg_white" android:paddingLeft="25.0dp" android:paddingRight="25.0dp" android:layout_width="wrap_content" android:layout_height="30.0dp" android:layout_marginTop="15.0dp" android:text="@string/eet" android:paddingHorizontal="25.0dp" />
+</LinearLayout>

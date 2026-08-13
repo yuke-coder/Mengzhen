@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout android:gravity="bottom" android:orientation="vertical" android:id="@id/gem" android:fitsSystemWindows="true" android:layout_width="match_parent" android:layout_height="match_parent"
+  xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">
+    <RelativeLayout android:id="@id/lvc" android:background="#f3f3f3" android:paddingLeft="14.0dp" android:paddingTop="12.0dp" android:paddingRight="14.0dp" android:paddingBottom="12.0dp" android:layout_width="match_parent" android:layout_height="wrap_content" android:paddingHorizontal="14.0dp" android:paddingVertical="12.0dp">
+        <com.tencent.qqmusic.ui.RoundedRelativeLayout android:id="@id/dwk" android:background="@color/white" android:paddingLeft="14.0dp" android:paddingTop="8.0dp" android:paddingRight="14.0dp" android:paddingBottom="8.0dp" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_alignParentLeft="true" android:layout_alignParentTop="true" android:paddingHorizontal="14.0dp" android:paddingVertical="8.0dp" app:ado="12.0dp">
+            <EditText android:textSize="14.0sp" android:textColor="@color/black" android:textColorHint="@color/search_box_hint_text_color" android:id="@id/dwf" android:background="@null" android:layout_width="match_parent" android:layout_height="wrap_content" android:hint="@string/e7s" android:includeFontPadding="false" android:lineSpacingExtra="1.2999878dp" android:inputType="text" android:imeOptions="actionSend" android:textCursorDrawable="@drawable/color_cursor" android:importantForAccessibility="yes" android:fontFamily="PingFang SC" style="@style/a3d" />
+        </com.tencent.qqmusic.ui.RoundedRelativeLayout>
+    </RelativeLayout>
+</LinearLayout>

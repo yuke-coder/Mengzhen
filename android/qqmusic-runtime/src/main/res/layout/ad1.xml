@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout android:paddingTop="7.0dp" android:paddingRight="18.0dp" android:paddingBottom="7.0dp" android:layout_width="match_parent" android:layout_height="wrap_content" android:paddingVertical="7.0dp"
+  xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">
+    <androidx.appcompat.widget.AppCompatTextView android:textSize="14.0sp" android:textColor="@color/skin_text_main_color" android:ellipsize="end" android:id="@id/m0n" android:layout_width="0.0dp" android:layout_height="wrap_content" android:maxLines="1" app:a1t="0.0" app:a1x="hnz" app:a20="@id/m0b" app:a27="hnz" app:a2b="kqe" />
+    <androidx.appcompat.widget.AppCompatTextView android:textSize="12.0sp" android:textColor="@color/skin_text_sub_color" android:ellipsize="end" android:id="@id/m0l" android:layout_width="0.0dp" android:layout_height="wrap_content" android:maxLines="1" app:a1t="0.0" app:a1x="hnz" app:a20="@id/m0b" app:a26="@id/m0n" app:a2b="kqe" />
+    <androidx.appcompat.widget.AppCompatTextView android:textColor="@color/skin_text_main_color" android:id="@id/m0b" android:paddingLeft="14.5dp" android:paddingTop="7.5dp" android:paddingRight="14.5dp" android:paddingBottom="7.5dp" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/gn_" android:paddingHorizontal="14.5dp" android:paddingVertical="7.5dp" app:a1d="hnz" app:a21="hnz" app:a27="hnz" />
+</androidx.constraintlayout.widget.ConstraintLayout>

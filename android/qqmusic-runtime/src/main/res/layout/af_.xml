@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout android:gravity="center" android:orientation="horizontal" android:id="@id/ctm" android:background="@drawable/following_btn_bolder_homepage" android:descendantFocusability="blocksDescendants" android:layout_width="@dimen/a0_" android:layout_height="@dimen/a09"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <ImageView android:id="@id/ctl" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginRight="4.0dp" android:src="@drawable/follow_plus_homepage" />
+    <TextView android:textSize="14.0sp" android:textStyle="bold" android:textColor="@color/black" android:id="@id/ctk" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/bcs" />
+</LinearLayout>

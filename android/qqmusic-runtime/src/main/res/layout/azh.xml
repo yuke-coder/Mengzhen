@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout android:id="@id/hz9" android:visibility="gone" android:layout_width="match_parent" android:layout_height="match_parent"
+  xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">
+    <ImageView android:id="@id/dxp" android:visibility="gone" android:layout_width="0.0dp" android:layout_height="0.0dp" android:src="@drawable/player_btn_top_back_normal" android:scaleType="fitCenter" app:a1i="H,1:1" app:a23="hnz" app:a27="hnz" />
+    <ImageView android:id="@id/dxq" android:visibility="gone" android:layout_width="0.0dp" android:layout_height="wrap_content" android:scaleType="fitStart" android:adjustViewBounds="true" app:a1j="hnz" app:a23="hnz" app:a27="hnz" />
+    <ImageView android:id="@id/dxr" android:visibility="gone" android:layout_width="@dimen/rv" android:layout_height="@dimen/rv" android:scaleType="fitCenter" app:a1j="hnz" app:a1t="0.8" app:a23="hnz" app:a27="hnz" />
+    <View android:id="@id/dxo" android:background="@android:color/transparent" android:visibility="gone" android:layout_width="0.0dp" android:layout_height="0.0dp" app:a1d="hnz" app:a23="hnz" />
+</androidx.constraintlayout.widget.ConstraintLayout>

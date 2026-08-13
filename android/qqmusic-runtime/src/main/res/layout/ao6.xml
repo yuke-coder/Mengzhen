@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<merge android:layout_width="match_parent" android:layout_height="wrap_content" android:minHeight="@dimen/a5w"
+  xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">
+    <kk.design.compose.KKPortraitView android:id="@id/eo9" android:layout_width="wrap_content" android:layout_height="wrap_content" app:kkPortraitTheme="g7e" app:a1d="hnz" app:a23="hnz" app:a27="hnz" />
+    <kk.design.compose.KKNicknameView android:ellipsize="end" android:gravity="center_vertical" android:id="@id/eo8" android:layout_width="0.0dp" android:layout_height="wrap_content" android:minHeight="@dimen/a5x" android:lines="1" android:layout_marginStart="@dimen/a5u" android:layout_marginEnd="@dimen/a5t" app:a0f="a9k" app:a1e="@id/eo7" app:a1k="@id/eo6" app:a22="@id/eo9" app:a27="hnz" app:a29="hmg" />
+    <kk.design.KKTextView android:ellipsize="end" android:gravity="center_vertical" android:id="@id/eo7" android:layout_width="0.0dp" android:layout_height="wrap_content" android:minHeight="@dimen/a5v" android:lines="1" app:a0b="a3|cbm" app:a0f="g7z" app:a1d="hnz" app:a1j="@id/eo8" app:a23="@id/eo8" app:a26="@id/eo8" />
+    <kk.design.KKButton android:id="@id/eo6" android:layout_width="wrap_content" android:layout_height="wrap_content" android:minWidth="@dimen/a5s" app:xm="ka1" app:xr="c72" app:a1d="hnz" app:a1j="hnz" app:a27="hnz" />
+</merge>

@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layer-list
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <item android:id="@id/e5m">
+        <bitmap android:src="@drawable/icon_menu_recognize_front" />
+    </item>
+    <item android:id="@id/e5l">
+        <bitmap android:src="@drawable/icon_menu_recognize_back" />
+    </item>
+</layer-list>

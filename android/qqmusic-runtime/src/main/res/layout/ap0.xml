@@ -1,0 +1,3 @@
+<?xml version="1.0" encoding="utf-8"?>
+<kk.design.KKLineView android:background="@drawable/kk_dialog_line_background" android:layout_width="match_parent" android:layout_height="wrap_content" app:yr="dei" app:a0g="a2c"
+  xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto" />

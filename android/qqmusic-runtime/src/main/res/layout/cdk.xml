@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout android:layout_width="wrap_content" android:layout_height="wrap_content"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <com.tencent.qqmusic.business.timeline.ui.ClipPathRelativeLayout android:layout_gravity="center" android:id="@id/jdt" android:layout_width="20.0dp" android:layout_height="20.0dp">
+        <com.tencent.component.widget.AsyncEffectImageView android:id="@id/dne" android:layout_width="match_parent" android:layout_height="match_parent" android:scaleType="fitXY" />
+    </com.tencent.qqmusic.business.timeline.ui.ClipPathRelativeLayout>
+</FrameLayout>

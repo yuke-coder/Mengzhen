@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="c">48.0dp</dimen>
+    <dimen name="be">12.0dp</dimen>
+    <dimen name="bg">14.0dp</dimen>
+    <dimen name="tt">48.0dp</dimen>
+    <dimen name="axy">61.0dp</dimen>
+    <dimen name="axz">18.0dp</dimen>
+    <dimen name="ay0">132.0dp</dimen>
+    <dimen name="ay8">24.0dp</dimen>
+    <dimen name="aya">24.0dp</dimen>
+    <dimen name="azj">20.0dp</dimen>
+    <dimen name="azl">4.0dp</dimen>
+    <dimen name="azp">96.0dp</dimen>
+    <dimen name="azs">0.0dp</dimen>
+    <dimen name="azt">0.0dp</dimen>
+    <dimen name="azu">104.0dp</dimen>
+    <dimen name="b02">68.0dp</dimen>
+    <dimen name="b04">28.0dp</dimen>
+    <dimen name="b05">64.0dp</dimen>
+    <dimen name="b06">32.0dp</dimen>
+    <dimen name="b07">24.0dp</dimen>
+    <dimen name="b08">32.0dp</dimen>
+</resources>

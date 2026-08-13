@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout android:layout_width="wrap_content" android:layout_height="wrap_content"
+  xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">
+    <View android:id="@id/fr9" android:background="@drawable/button_mask_drawable" android:layout_width="150.0dp" android:layout_height="150.0dp" android:importantForAccessibility="no" app:a1x="hnz" app:a21="hnz" app:a27="hnz" />
+    <View android:id="@id/fr_" android:background="@drawable/button_mask_drawable" android:layout_width="150.0dp" android:layout_height="26.0dp" android:layout_marginTop="6.0dp" android:importantForAccessibility="no" app:a1x="@id/fr9" app:a21="@id/fr9" app:a26="@id/fr9" />
+</androidx.constraintlayout.widget.ConstraintLayout>

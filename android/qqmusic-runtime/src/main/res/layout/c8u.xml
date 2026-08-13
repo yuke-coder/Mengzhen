@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout android:layout_width="match_parent" android:layout_height="match_parent"
+  xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">
+    <ImageView android:id="@id/a63" android:layout_width="match_parent" android:layout_height="match_parent" android:scaleType="fitXY" app:a27="hnz" />
+    <ImageView android:id="@id/ly6" android:layout_width="match_parent" android:layout_height="0.0dp" app:a1s="0.2282" app:a27="hnz" />
+    <androidx.recyclerview.widget.RecyclerView android:orientation="horizontal" android:id="@id/ly_" android:layout_width="match_parent" android:layout_height="0.0dp" app:a1s="0.2282" app:a27="hnz" />
+    <ImageView android:id="@id/agj" android:layout_width="match_parent" android:layout_height="0.0dp" app:a1d="hnz" app:a1s="0.2282" />
+    <androidx.recyclerview.widget.RecyclerView android:orientation="horizontal" android:id="@id/agk" android:layout_width="match_parent" android:layout_height="0.0dp" app:a1d="hnz" app:a1s="0.2282" />
+</androidx.constraintlayout.widget.ConstraintLayout>

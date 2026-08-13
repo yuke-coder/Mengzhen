@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout android:layout_width="match_parent" android:layout_height="wrap_content"
+  xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">
+    <com.tencent.component.widget.AsyncEffectImageView android:id="@id/gga" android:layout_width="105.0dp" android:layout_height="105.0dp" android:scaleType="centerCrop" android:importantForAccessibility="no" app:a1x="hnz" app:a27="hnz" />
+    <ImageView android:id="@id/gfj" android:layout_width="10.0dp" android:layout_height="92.0dp" android:src="@drawable/module_musichall_vertical_folder_folder_mask_light" android:scaleType="fitCenter" android:importantForAccessibility="no" app:a1d="@id/gga" app:a1y="@id/gga" app:a27="@id/gga" />
+    <include android:layout_width="wrap_content" android:layout_height="wrap_content" app:a1d="@id/gga" app:a1x="@id/gga" layout="@layout/cu7" />
+    <LinearLayout android:orientation="vertical" android:id="@id/git" android:paddingRight="18.0dp" android:layout_width="0.0dp" android:layout_height="wrap_content" android:layout_marginLeft="8.5dp" app:a1d="@id/gga" app:a1y="@id/gfj" app:a21="hnz" app:a27="@id/gga">
+        <TextView android:textSize="15.0dp" android:textColor="@color/skin_text_main_color" android:ellipsize="end" android:gravity="left|center" android:id="@id/gkb" android:layout_width="match_parent" android:layout_height="wrap_content" android:maxLines="2" android:importantForAccessibility="no" />
+        <com.tencent.qqmusic.modular.framework.ui.text.SimpleTextView android:textColor="@color/skin_text_sub_color" android:id="@id/gjp" android:layout_width="match_parent" android:layout_height="18.0dp" android:layout_marginTop="5.0dp" android:importantForAccessibility="no" />
+        <com.tencent.qqmusic.modular.framework.ui.text.SimpleTextView android:textColor="@color/skin_text_sub_color" android:id="@id/ge5" android:layout_width="match_parent" android:layout_height="18.0dp" android:layout_marginTop="5.0dp" android:importantForAccessibility="no" />
+    </LinearLayout>
+    <ImageView android:id="@id/gis" android:paddingLeft="4.0dp" android:paddingBottom="4.0dp" android:layout_width="22.5dp" android:layout_height="17.5dp" android:src="@drawable/module_musichall_dislike_feedback" android:contentDescription="@string/e7e" app:a1d="hnz" app:a21="@id/git" />
+</androidx.constraintlayout.widget.ConstraintLayout>

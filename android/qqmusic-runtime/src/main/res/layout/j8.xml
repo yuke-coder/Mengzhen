@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout android:gravity="center_vertical" android:orientation="horizontal" android:id="@id/htk" android:paddingLeft="6.0dp" android:paddingRight="6.0dp" android:layout_width="match_parent" android:layout_height="48.0dp"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <ImageView android:id="@id/htj" android:layout_width="48.0dp" android:layout_height="48.0dp" android:src="@drawable/ic_bigfont_list_header_play" />
+    <com.tencent.qqmusic.bigfont.view.BigFontTextView android:textSize="@dimen/ht" android:textColor="@color/skin_text_main_color" android:id="@id/htn" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/a_d" />
+</LinearLayout>

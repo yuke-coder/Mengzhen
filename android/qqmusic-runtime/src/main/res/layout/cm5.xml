@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout android:gravity="center" android:orientation="vertical" android:paddingTop="30.0dp" android:paddingBottom="30.0dp" android:layout_width="match_parent" android:layout_height="match_parent"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <include android:id="@id/k49" android:visibility="gone" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="50.0dp" layout="@layout/mj" />
+    <LinearLayout android:gravity="center" android:orientation="vertical" android:id="@id/k4a" android:layout_width="match_parent" android:layout_height="wrap_content">
+        <ImageView android:id="@id/k48" android:background="@drawable/empty_music_list" android:layout_width="100.0dp" android:layout_height="100.0dp" android:layout_marginTop="50.0dp" />
+        <TextView android:textSize="16.0sp" android:textColor="@color/empty_view_color" android:gravity="center_horizontal" android:id="@id/k4_" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginTop="@dimen/tq" android:text="@string/cf2" android:maxLines="1" />
+        <TextView android:textSize="14.0sp" android:textColor="@drawable/skin_action_button_text" android:gravity="center" android:layout_gravity="center_horizontal" android:id="@id/k47" android:background="@drawable/empty_view_button_selector" android:paddingLeft="15.0dp" android:paddingRight="15.0dp" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="@dimen/tn" android:maxLines="1" />
+    </LinearLayout>
+</LinearLayout>

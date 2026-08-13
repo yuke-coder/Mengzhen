@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout android:layout_width="match_parent" android:layout_height="wrap_content"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <View android:id="@id/ddc" android:layout_width="match_parent" android:layout_height="@dimen/cau" />
+    <RelativeLayout android:id="@id/content" android:layout_width="match_parent" android:layout_height="300.0dp">
+        <com.tencent.qqmusic.fragment.radio.views.AntiRoundView android:id="@id/a9c" android:layout_width="match_parent" android:layout_height="220.0dp" android:scaleType="fitXY" android:layout_centerHorizontal="true" />
+        <ImageView android:id="@id/a20" android:layout_width="match_parent" android:layout_height="100.0dp" android:layout_marginBottom="120.0dp" android:scaleType="centerInside" android:layout_alignParentBottom="true" />
+        <com.tencent.qqmusic.fragment.radio.views.timeslot.CoverFlowRecyclerView android:layout_gravity="center" android:id="@id/j33" android:layout_width="match_parent" android:layout_height="165.0dp" android:layout_alignParentBottom="true" />
+        <com.tencent.qqmusic.ui.FontFitTextView android:textSize="16.0sp" android:textStyle="bold" android:textColor="#ffffff" android:ellipsize="end" android:id="@id/bn2" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginLeft="@dimen/bns" android:layout_marginRight="@dimen/bns" android:layout_marginBottom="30.0dp" android:maxLines="1" android:layout_above="@id/j33" android:layout_centerHorizontal="true" />
+    </RelativeLayout>
+</RelativeLayout>

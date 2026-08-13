@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout android:orientation="vertical" android:id="@id/fdl" android:background="@drawable/default_skin_mask_color_bg" android:paddingLeft="9.0dp" android:paddingRight="9.0dp" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginTop="11.0dp"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <TextView android:textSize="15.0sp" android:textColor="@color/skin_text_main_color" android:id="@id/m_3" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="25.0dp" android:text="@string/b_k" />
+    <RelativeLayout android:id="@id/esg" android:layout_width="162.0dp" android:layout_height="162.0dp" android:layout_marginTop="12.0dp" android:layout_marginBottom="67.0dp" android:layout_below="@id/m_3">
+        <ImageView android:id="@id/dp5" android:background="@drawable/time_line_add_pic_dark" android:layout_width="25.0dp" android:layout_height="25.0dp" android:layout_centerInParent="true" />
+        <TextView android:textSize="12.0sp" android:textColor="@color/skin_text_guide_color" android:gravity="center" android:id="@id/l96" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="23.0dp" android:text="@string/b_j" android:layout_below="@id/dp5" android:layout_centerHorizontal="true" />
+    </RelativeLayout>
+</RelativeLayout>

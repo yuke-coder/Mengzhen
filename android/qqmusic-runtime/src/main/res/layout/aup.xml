@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.tencent.qqmusic.ui.RoundedRelativeLayout android:orientation="vertical" android:id="@id/jel" android:layout_width="match_parent" android:layout_height="match_parent" app:jc="true" app:adm="fwy|je9" app:ado="20.0dp"
+  xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">
+    <ImageView android:id="@id/eau" android:layout_width="match_parent" android:layout_height="match_parent" />
+    <LinearLayout android:orientation="vertical" android:id="@id/fh0" android:layout_width="match_parent" android:layout_height="match_parent">
+        <LinearLayout android:orientation="vertical" android:id="@id/fcc" android:layout_width="match_parent" android:layout_height="wrap_content">
+            <View android:layout_gravity="center_horizontal" android:id="@id/n_j" android:background="@drawable/shape_roundrect_white_opacity_50" android:layout_width="40.0dp" android:layout_height="5.0dp" android:layout_marginTop="5.0dp" />
+            <TextView android:textSize="16.0sp" android:textStyle="bold" android:textColor="@color/white" android:gravity="center" android:layout_gravity="center_horizontal" android:id="@id/mmb" android:paddingTop="15.0dp" android:paddingBottom="15.0dp" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="歌曲列表" />
+        </LinearLayout>
+        <View android:id="@id/n_u" android:background="@color/white_10_opacity" android:layout_width="match_parent" android:layout_height="0.5dp" />
+        <androidx.recyclerview.widget.RecyclerView android:id="@id/jfm" android:paddingTop="8.0dp" android:clipToPadding="false" android:layout_width="match_parent" android:layout_height="0.0dp" android:layout_weight="1.0" />
+        <View android:background="@color/white_10_opacity" android:layout_width="match_parent" android:layout_height="0.5dp" android:layout_marginTop="15.0dp" />
+        <TextView android:textSize="16.0sp" android:textColor="@color/white" android:gravity="center" android:id="@id/m6l" android:layout_width="match_parent" android:layout_height="60.0dp" android:text="关闭" />
+    </LinearLayout>
+    <org.libpag.PAGView android:id="@id/hn5" android:visibility="gone" android:layout_width="match_parent" android:layout_height="25.0dp" />
+</com.tencent.qqmusic.ui.RoundedRelativeLayout>

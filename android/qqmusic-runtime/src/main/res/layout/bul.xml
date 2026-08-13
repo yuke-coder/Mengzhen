@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout android:gravity="bottom" android:orientation="vertical" android:id="@id/gpu" android:background="@color/black_10_transparent" android:fitsSystemWindows="true" android:layout_width="match_parent" android:layout_height="match_parent"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <LinearLayout android:gravity="center_vertical" android:orientation="horizontal" android:id="@id/gpv" android:background="@color/white" android:paddingLeft="15.0dp" android:paddingRight="15.0dp" android:layout_width="match_parent" android:layout_height="54.0dp">
+        <com.tencent.qqmusic.business.togetherroom.ui.input.TogetherEditView android:textSize="13.0sp" android:textColor="@color/color_1A1A1A" android:textColorHint="@color/together_input_hint_color" android:gravity="center_vertical" android:layout_gravity="center_vertical" android:id="@id/gpt" android:background="@drawable/bg_together_room_input" android:paddingLeft="23.0dp" android:paddingRight="23.0dp" android:layout_width="0.0dp" android:layout_height="34.0dp" android:hint="@string/idq" android:layout_weight="1.0" android:imeOptions="flagNoExtractUi" android:textCursorDrawable="@drawable/color_cursor" />
+        <ImageView android:layout_gravity="center_vertical" android:id="@id/gpx" android:layout_width="40.0dp" android:layout_height="40.0dp" android:layout_marginLeft="12.0dp" android:src="@drawable/ic_together_room_input_emoji" android:contentDescription="@null" />
+        <TextView android:textSize="13.0sp" android:textStyle="bold" android:textColor="@color/white" android:gravity="center" android:layout_gravity="center_vertical" android:id="@id/gpw" android:clickable="false" android:layout_width="60.0dp" android:layout_height="34.0dp" android:layout_marginLeft="12.0dp" android:text="@string/ecp" />
+    </LinearLayout>
+</LinearLayout>

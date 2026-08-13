@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.tencent.qqmusic.ui.UniversalPlayLayout android:id="@id/ewd" android:layout_width="wrap_content" android:layout_height="20.0dp" android:minWidth="26.0dp" android:minHeight="20.0dp"
+  xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">
+    <LinearLayout android:orientation="horizontal" android:id="@id/ewo" android:visibility="gone" android:layout_width="wrap_content" android:layout_height="wrap_content" app:a1d="hnz" app:a1x="hnz" app:a27="hnz">
+        <com.tencent.qqmusic.business.live.ui.view.RoundAvatarImage android:layout_gravity="center_vertical" android:id="@id/dsf" android:layout_width="20.0dp" android:layout_height="20.0dp" android:layout_marginLeft="2.5dp" />
+        <TextView android:textSize="11.0dp" android:textColor="@android:color/white" android:ellipsize="end" android:gravity="center_vertical" android:layout_gravity="center_vertical" android:id="@id/mfq" android:paddingBottom="2.0px" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginLeft="3.0dp" android:maxLines="1" android:singleLine="true" />
+    </LinearLayout>
+    <LinearLayout android:orientation="horizontal" android:id="@id/ewl" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginLeft="6.0dp" android:layout_marginRight="6.0dp" app:a1d="hnz" app:a1x="hnz" app:a21="hnz" app:a27="hnz">
+        <ImageView android:layout_gravity="center_vertical" android:id="@id/dse" android:layout_width="14.0dp" android:layout_height="14.0dp" android:src="@drawable/module_musichall_icon_play" />
+        <TextView android:textSize="10.0dp" android:textColor="@android:color/white" android:ellipsize="end" android:gravity="center_vertical" android:layout_gravity="center_vertical" android:id="@id/mfn" android:paddingBottom="1.0px" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginLeft="2.0dp" android:maxWidth="65.0dp" android:maxLines="1" />
+        <View android:layout_gravity="center_vertical" android:id="@id/dsx" android:background="@drawable/module_musichall_folder_notify_badge_red_dot" android:visibility="gone" android:layout_width="5.0dp" android:layout_height="5.0dp" android:layout_marginLeft="4.0dp" android:importantForAccessibility="no" />
+        <View android:id="@id/g14" android:layout_width="3.0dp" android:layout_height="1.0dp" />
+    </LinearLayout>
+</com.tencent.qqmusic.ui.UniversalPlayLayout>

@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout android:id="@id/h6b" android:visibility="gone" android:layout_width="match_parent" android:layout_height="match_parent"
+  xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">
+    <com.tencent.qqmusic.circularprogressbar.CircularProgressBar android:id="@id/h6a" android:layout_width="25.0dp" android:layout_height="25.0dp" android:indeterminate="true" android:indeterminateOnly="false" android:layout_centerInParent="true" app:m2="#ffffff" app:m8="3.0dp" />
+    <TextView android:textSize="12.0sp" android:textColor="@color/white" android:id="@id/h6c" android:visibility="gone" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="12.0dp" android:text="@string/ek5" android:layout_below="@id/h6a" android:layout_centerHorizontal="true" />
+</RelativeLayout>

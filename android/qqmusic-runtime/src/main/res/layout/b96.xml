@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout android:gravity="center" android:orientation="vertical" android:id="@android:id/background" android:layout_width="match_parent" android:layout_height="match_parent"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <LinearLayout android:orientation="horizontal" android:layout_width="match_parent" android:layout_height="0.0dp" android:layout_weight="2.0">
+        <RelativeLayout android:layout_width="0.0dp" android:layout_height="match_parent" android:layout_weight="1.0">
+            <ImageView android:id="@id/ius" android:layout_width="match_parent" android:layout_height="match_parent" android:src="@drawable/miui_widget_22_recent_play_default_dy" android:scaleType="centerCrop" />
+            <ImageView android:layout_width="0.0dp" android:layout_height="50.0dp" android:src="@drawable/miui_widget_half_mask" android:layout_alignLeft="@id/ius" android:layout_alignRight="@id/ius" android:layout_alignBottom="@id/ius" />
+            <TextView android:textSize="12.0dp" android:textStyle="bold" android:textColor="@color/white" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginLeft="20.0dp" android:layout_marginBottom="20.0dp" android:text="@string/csw" android:layout_alignLeft="@id/ius" android:layout_alignBottom="@id/ius" />
+        </RelativeLayout>
+        <ImageView android:id="@id/iut" android:layout_width="0.0dp" android:layout_height="match_parent" android:src="@drawable/miui_widget_44_1_default_dy" android:scaleType="centerCrop" android:layout_weight="1.0" />
+    </LinearLayout>
+    <LinearLayout android:orientation="horizontal" android:layout_width="match_parent" android:layout_height="0.0dp" android:layout_weight="1.0">
+        <ImageView android:id="@id/iuu" android:layout_width="0.0dp" android:layout_height="match_parent" android:src="@drawable/miui_widget_22_daily_30_default_dy" android:scaleType="centerCrop" android:layout_weight="1.0" />
+        <ImageView android:id="@id/iuv" android:layout_width="0.0dp" android:layout_height="match_parent" android:src="@drawable/miui_widget_22_search_default_dy" android:scaleType="centerCrop" android:layout_weight="1.0" />
+        <ImageView android:id="@id/iuw" android:layout_width="0.0dp" android:layout_height="match_parent" android:src="@drawable/miui_widget_22_i_like_default_dy" android:scaleType="centerCrop" android:layout_weight="1.0" />
+        <ImageView android:id="@id/iux" android:layout_width="0.0dp" android:layout_height="match_parent" android:src="@drawable/miui_widget_42_recent_play_default_dy" android:scaleType="centerCrop" android:layout_weight="1.0" />
+    </LinearLayout>
+    <LinearLayout android:orientation="horizontal" android:layout_width="match_parent" android:layout_height="0.0dp" android:layout_weight="1.0">
+        <ImageView android:id="@id/iuy" android:layout_width="0.0dp" android:layout_height="match_parent" android:src="@drawable/miui_widget_44_6_default_dy" android:scaleType="centerCrop" android:layout_weight="1.0" />
+        <ImageView android:id="@id/iuz" android:layout_width="0.0dp" android:layout_height="match_parent" android:src="@drawable/miui_widget_44_7_default_dy" android:scaleType="centerCrop" android:layout_weight="1.0" />
+        <ImageView android:id="@id/iv0" android:layout_width="0.0dp" android:layout_height="match_parent" android:src="@drawable/miui_widget_22_recognize_default_dy" android:scaleType="centerCrop" android:layout_weight="1.0" />
+        <ImageView android:id="@id/iv1" android:layout_width="0.0dp" android:layout_height="match_parent" android:src="@drawable/miui_widget_44_9_default_dy" android:scaleType="centerCrop" android:layout_weight="1.0" />
+    </LinearLayout>
+</LinearLayout>

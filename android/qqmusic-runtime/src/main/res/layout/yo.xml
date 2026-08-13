@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.tencent.qqmusic.ui.customview.CleanClipTopFrameLayout android:id="@id/b_r" android:clipChildren="false" android:layout_width="match_parent" android:layout_height="match_parent"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <com.tencent.qqmusic.ui.customview.CleanClipTopFrameLayout android:id="@id/b_x" android:clipChildren="false" android:layout_width="match_parent" android:layout_height="match_parent">
+        <com.tencent.qqmusic.ui.customview.viewpager.MainDesckChildViewPager android:id="@id/b_w" android:clipChildren="false" android:layout_width="match_parent" android:layout_height="match_parent" android:layout_marginBottom="@dimen/b3t" />
+    </com.tencent.qqmusic.ui.customview.CleanClipTopFrameLayout>
+    <ImageView android:id="@id/lwm" android:visibility="gone" android:layout_width="match_parent" android:layout_height="wrap_content" android:src="@drawable/video_discovery_top_gray_bg" android:scaleType="centerCrop" />
+    <LinearLayout android:orientation="vertical" android:id="@id/db9" android:layout_width="match_parent" android:layout_height="wrap_content" />
+    <FrameLayout android:id="@id/l3v" android:visibility="gone" android:layout_width="match_parent" android:layout_height="match_parent" android:layout_marginBottom="@dimen/b3t" />
+</com.tencent.qqmusic.ui.customview.CleanClipTopFrameLayout>

@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout android:id="@id/b8n" android:clipChildren="false" android:layout_width="match_parent" android:layout_height="match_parent"
+  xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">
+    <include android:id="@id/naf" android:layout_width="match_parent" android:layout_height="match_parent" layout="@layout/m6" />
+    <include android:id="@id/b8q" android:layout_width="match_parent" android:layout_height="@dimen/cau" app:a27="hnz" layout="@layout/mx" />
+    <com.tencent.qqmusic.ui.SimpleHorizontalScrollTab android:id="@id/b8p" android:background="@drawable/skin_sub_mask_img" android:layout_width="match_parent" android:layout_height="@dimen/lp" app:a26="@id/b8q" />
+    <com.tencent.qqmusic.ui.MusicHallsViewPager android:id="@id/b8o" android:layout_width="match_parent" android:layout_height="0.0dp" app:a1d="hnz" app:a26="@id/b8p" />
+</androidx.constraintlayout.widget.ConstraintLayout>

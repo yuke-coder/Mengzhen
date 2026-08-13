@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout android:layout_width="match_parent" android:layout_height="match_parent"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <ImageView android:layout_width="match_parent" android:layout_height="match_parent" android:src="@drawable/mlive_async_audio_background" android:scaleType="centerCrop" />
+    <com.tme.mlive.ui.custom.CustomScrollViewPager android:id="@id/mlive_live_root_pager" android:layout_width="match_parent" android:layout_height="match_parent" android:overScrollMode="never" />
+    <ImageView android:layout_gravity="end" android:id="@id/mlive_live_top_exit" android:padding="6.5dp" android:visibility="gone" android:layout_width="27.0dp" android:layout_height="27.0dp" android:layout_marginTop="3.5dp" android:src="@drawable/mlive_close" android:scaleType="center" android:contentDescription="@string/d5t" android:layout_marginEnd="9.5dp" />
+</FrameLayout>

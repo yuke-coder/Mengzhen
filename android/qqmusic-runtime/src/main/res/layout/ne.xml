@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout android:layout_width="153.0dp" android:layout_height="323.0dp"
+  xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">
+    <com.tencent.qqmusic.ui.RoundedConstraintLayout android:id="@id/cw_" android:layout_width="153.0dp" android:layout_height="323.0dp" app:a1x="hnz" app:a21="hnz" app:a27="hnz" app:a31="12.0dp">
+        <com.tencent.component.widget.AsyncImageView android:id="@id/dqg" android:layout_width="match_parent" android:layout_height="match_parent" android:scaleType="centerCrop" />
+    </com.tencent.qqmusic.ui.RoundedConstraintLayout>
+    <com.tencent.qqmusic.ui.RoundedConstraintLayout android:id="@id/cw8" android:visibility="gone" android:layout_width="153.0dp" android:layout_height="323.0dp" app:a1x="hnz" app:a21="hnz" app:a27="hnz" app:a31="12.0dp" />
+    <ImageView android:id="@id/dqe" android:layout_width="153.0dp" android:layout_height="323.0dp" android:src="@drawable/cs2_preview_default_no_color" android:importantForAccessibility="no" app:a1x="hnz" app:a21="hnz" app:a27="hnz" />
+    <ImageView android:id="@id/dqf" android:layout_width="153.0dp" android:layout_height="323.0dp" android:src="@drawable/cs2_preview_highlight_color" android:importantForAccessibility="no" app:a1x="hnz" app:a21="hnz" app:a27="hnz" />
+    <ImageView android:id="@id/dqh" android:layout_width="153.0dp" android:layout_height="323.0dp" android:src="@drawable/cs2_preview_text_color" android:importantForAccessibility="no" app:a1x="hnz" app:a21="hnz" app:a27="hnz" />
+</androidx.constraintlayout.widget.ConstraintLayout>

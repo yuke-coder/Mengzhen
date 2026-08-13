@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout android:id="@id/k8_" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginRight="10.0dp"
+  xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">
+    <com.tencent.qqmusic.ui.RoundedRelativeLayout android:id="@id/k8b" android:layout_width="@dimen/c33" android:layout_height="@dimen/c32" app:ado="4.0dp">
+        <com.tencent.component.widget.AsyncEffectImageView android:id="@id/k8a" android:background="@drawable/default_album_mid" android:layout_width="match_parent" android:layout_height="match_parent" android:scaleType="centerCrop" />
+        <TextView android:textSize="10.0sp" android:textStyle="bold" android:textColor="@color/white" android:id="@id/k8r" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginBottom="5.0dp" android:text="13.7W" android:layout_alignParentBottom="true" android:fontFamily="PingFangSC-Semibold" android:layout_marginEnd="9.0dp" android:layout_alignParentEnd="true" />
+    </com.tencent.qqmusic.ui.RoundedRelativeLayout>
+    <TextView android:textSize="11.0sp" android:textColor="@color/skin_text_main_color" android:ellipsize="end" android:id="@id/k8c" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="6.0dp" android:text="王嘉尔新歌《Papillon》舞台首 秀完整版" android:maxLines="2" android:layout_below="@id/k8b" android:fontFamily="PingFangSC-Regular" />
+</RelativeLayout>

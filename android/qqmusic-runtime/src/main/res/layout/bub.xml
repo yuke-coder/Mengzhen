@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout android:layout_width="match_parent" android:layout_height="match_parent"
+  xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">
+    <LinearLayout android:orientation="vertical" android:id="@id/ba0" android:background="@drawable/together_actionsheet_bg" android:layout_width="match_parent" android:layout_height="wrap_content" app:a1d="hnz" app:a1j="hnz" app:a23="hnz">
+        <LinearLayout android:orientation="horizontal" android:layout_width="match_parent" android:layout_height="wrap_content">
+            <TextView android:textSize="15.0sp" android:textStyle="bold" android:textColor="#1a1a1a" android:gravity="center" android:id="@id/ldr" android:paddingTop="15.0dp" android:paddingBottom="15.0dp" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/ic7" android:paddingStart="20.0dp" />
+            <TextView android:textSize="15.0sp" android:textStyle="bold" android:textColor="#1a1a1a" android:gravity="center" android:id="@id/lfn" android:layout_width="wrap_content" android:layout_height="wrap_content" android:paddingStart="6.0dp" android:paddingEnd="20.0dp" app:a27="@id/ldr" />
+        </LinearLayout>
+        <View android:id="@id/btw" android:background="@drawable/together_divider_img" android:layout_width="match_parent" android:layout_height="1.0dp" app:a1j="hnz" />
+        <LinearLayout android:orientation="vertical" android:layout_width="match_parent" android:layout_height="0.0dp" android:layout_weight="1.0">
+            <LinearLayout android:gravity="center" android:id="@id/lrn" android:layout_width="match_parent" android:layout_height="match_parent">
+                <com.airbnb.lottie.LottieAnimationView android:layout_gravity="center" android:id="@id/lr0" android:layout_width="48.0dp" android:layout_height="48.0dp" />
+            </LinearLayout>
+            <LinearLayout android:gravity="center_vertical" android:layout_gravity="center" android:orientation="vertical" android:id="@id/lqw" android:visibility="gone" android:layout_width="match_parent" android:layout_height="match_parent">
+                <TextView android:textSize="15.0sp" android:textStyle="bold" android:textColor="@color/color_1A1A1A" android:layout_gravity="center_horizontal" android:id="@id/lqv" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/idz" android:includeFontPadding="false" />
+                <TextView android:textSize="13.0sp" android:textColor="@color/color_1A1A1A" android:layout_gravity="center_horizontal" android:id="@id/lqu" android:background="@drawable/bg_together_room_emoji_error_click" android:paddingLeft="25.5dp" android:paddingTop="6.0dp" android:paddingRight="25.5dp" android:paddingBottom="6.0dp" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="15.0dp" android:text="@string/gec" android:includeFontPadding="false" />
+            </LinearLayout>
+            <include android:id="@id/c7g" android:visibility="gone" android:layout_width="match_parent" android:layout_height="match_parent" layout="@layout/buc" />
+            <com.tencent.qqmusic.business.timeline.ui.refreshable.RefreshableRecyclerViewNew android:id="@id/zr" android:visibility="gone" android:layout_width="match_parent" android:layout_height="match_parent" android:overScrollMode="never" android:layout_marginStart="20.0dp" android:layout_marginEnd="20.0dp" />
+        </LinearLayout>
+        <include android:layout_gravity="bottom" android:id="@id/close_btn" android:layout_width="match_parent" android:layout_height="57.5dp" layout="@layout/bui" />
+    </LinearLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>

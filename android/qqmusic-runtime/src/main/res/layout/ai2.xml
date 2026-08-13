@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout android:paddingLeft="7.0dp" android:paddingRight="7.0dp" android:layout_width="wrap_content" android:layout_height="wrap_content"
+  xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">
+    <com.tencent.component.widget.AsyncImageView android:id="@id/e5y" android:layout_width="@dimen/b6r" android:layout_height="@dimen/b6q" android:scaleType="centerCrop" />
+    <TextView android:textSize="14.0sp" android:textColor="@android:color/white" android:ellipsize="end" android:id="@id/e60" android:layout_width="@dimen/b6r" android:layout_height="wrap_content" android:layout_marginTop="4.0dp" android:maxLines="2" android:lines="2" app:a26="@id/e5y" />
+    <TextView android:textSize="12.0sp" android:textColor="@android:color/white" android:ellipsize="end" android:id="@id/e5z" android:layout_width="@dimen/b6r" android:layout_height="wrap_content" android:layout_marginTop="2.0dp" android:maxLines="1" app:a26="@id/e60" />
+    <View android:id="@id/f49" android:background="#b3000000" android:visibility="gone" android:layout_width="@dimen/b6r" android:layout_height="@dimen/b6q" />
+    <ImageView android:id="@id/f45" android:visibility="gone" android:layout_width="wrap_content" android:layout_height="wrap_content" android:src="@drawable/mv_playing_loading" app:a1e="@id/f46" app:a1x="@id/e5y" app:a21="@id/e5y" app:a27="@id/e5y" app:a29="hmg" />
+    <TextView android:textSize="12.0sp" android:textColor="@android:color/white" android:id="@id/f46" android:visibility="gone" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="7.0dp" android:text="@string/ej1" app:a1d="@id/e5y" app:a1x="@id/e5y" app:a21="@id/e5y" app:a26="@id/f45" />
+</androidx.constraintlayout.widget.ConstraintLayout>

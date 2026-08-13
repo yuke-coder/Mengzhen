@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout android:gravity="center_vertical" android:layout_gravity="center_vertical" android:id="@id/ik6" android:layout_width="wrap_content" android:layout_height="36.0dp"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <RelativeLayout android:id="@id/cuc" android:layout_width="wrap_content" android:layout_height="28.0dp" android:layout_marginLeft="3.0dp">
+        <com.tencent.qqmusic.homepage.putoo.PutooMarqueeTextView android:textSize="14.0sp" android:textStyle="bold" android:textColor="@color/white" android:ellipsize="marquee" android:gravity="center_vertical" android:id="@id/cud" android:background="@drawable/following_btn_bolder_homepage_airborne" android:paddingLeft="@dimen/a0f" android:focusable="true" android:focusableInTouchMode="true" android:layout_width="wrap_content" android:layout_height="28.0dp" android:maxWidth="@dimen/a0e" android:scrollHorizontally="true" android:singleLine="true" android:marqueeRepeatLimit="marquee_forever" />
+        <com.tencent.qqmusic.homepage.putoo.PutooLayoutLight android:id="@id/cua" android:layout_width="wrap_content" android:layout_height="match_parent" />
+    </RelativeLayout>
+    <FrameLayout android:id="@id/cu_" android:background="@drawable/following_bg_icon_airborne" android:padding="2.0dp" android:layout_width="28.0dp" android:layout_height="28.0dp" android:layout_marginLeft="3.0dp">
+        <com.tencent.qqmusic.business.live.ui.view.RoundAvatarImage android:id="@id/cub" android:layout_width="match_parent" android:layout_height="match_parent" />
+    </FrameLayout>
+</RelativeLayout>

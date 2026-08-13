@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout android:id="@id/n83" android:layout_width="match_parent" android:layout_height="match_parent"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <com.tencent.qqmusic.business.fullscreen.video.views.VideoInnerRecyclerView android:layout_gravity="bottom" android:id="@id/n85" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginTop="200.0dp" />
+    <androidx.appcompat.widget.AppCompatTextView android:textSize="13.0dp" android:textColor="@color/white" android:layout_gravity="right|bottom" android:id="@id/n84" android:visibility="gone" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginBottom="8.0dp" android:text="@string/iov" />
+</FrameLayout>

@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout android:orientation="vertical" android:background="@color/gray_f5" android:layout_width="match_parent" android:layout_height="match_parent"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <LinearLayout android:orientation="vertical" android:layout_width="match_parent" android:layout_height="wrap_content">
+        <include android:id="@id/lv1" android:layout_width="match_parent" android:layout_height="@dimen/cau" layout="@layout/mu" />
+    </LinearLayout>
+    <androidx.appcompat.widget.AppCompatTextView android:textSize="13.0dp" android:gravity="center_vertical" android:padding="8.0dp" android:layout_width="match_parent" android:layout_height="wrap_content" android:text="以下频控开关不会影响广告请求环境，如需请求广告测试环境，请打开【广告配置-TME广告SDK打开测试环境】开关" />
+    <androidx.recyclerview.widget.RecyclerView android:id="@id/hy" android:paddingLeft="8.0dp" android:paddingRight="8.0dp" android:layout_width="match_parent" android:layout_height="match_parent" android:layout_marginTop="8.0dp" android:layout_marginBottom="30.0dp" />
+</LinearLayout>

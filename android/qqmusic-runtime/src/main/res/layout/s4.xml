@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout android:id="@id/cag" android:clipChildren="false" android:layout_width="40.0dp" android:layout_height="40.0dp"
+  xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">
+    <ImageView android:id="@id/cad" android:background="@color/transparent" android:focusable="true" android:visibility="visible" android:clickable="true" android:layout_width="0.0dp" android:layout_height="0.0dp" android:scaleType="fitCenter" app:a1d="hnz" app:a1j="hnz" app:a23="hnz" app:a27="hnz" />
+    <ImageView android:id="@id/car" android:focusable="true" android:visibility="gone" android:clickable="true" android:layout_width="@dimen/b3v" android:layout_height="@dimen/b3v" android:src="@drawable/expand_minibar_ringtone" app:a1d="hnz" app:a1j="hnz" app:a23="hnz" app:a27="hnz" />
+    <TextView android:textSize="8.0dp" android:textColor="#99ffffff" android:id="@id/caf" android:visibility="gone" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginLeft="1.5dp" android:layout_marginTop="4.0dp" android:layout_marginBottom="2.5dp" android:singleLine="true" android:importantForAccessibility="no" app:a23="@id/cde" app:a27="@id/cad" />
+    <Space android:id="@id/cde" android:layout_width="0.0dp" android:layout_height="0.0dp" app:a1i="H,1:1" app:a1j="@id/cad" app:a27="@id/cad" app:a2e="0.3444" />
+</androidx.constraintlayout.widget.ConstraintLayout>

@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout android:gravity="center_vertical" android:orientation="horizontal" android:background="@drawable/kk_menu_side_item_bg" android:paddingTop="@dimen/a8h" android:paddingBottom="@dimen/a8h" android:focusable="true" android:clickable="true" android:layout_width="match_parent" android:layout_height="wrap_content" android:paddingStart="@dimen/a8g" android:paddingEnd="@dimen/a8g"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <kk.design.KKImageView android:layout_gravity="center_vertical" android:id="@id/did" android:layout_width="@dimen/a8f" android:layout_height="@dimen/a8f" android:importantForAccessibility="no" />
+    <TextView android:textSize="@dimen/a8l" android:textStyle="normal" android:textColor="@color/kk_text_primary" android:ellipsize="end" android:gravity="center_vertical" android:layout_gravity="center_vertical" android:id="@id/l8d" android:layout_width="wrap_content" android:layout_height="match_parent" android:maxLines="1" android:importantForAccessibility="no" android:layout_marginStart="@dimen/a8k" />
+</LinearLayout>

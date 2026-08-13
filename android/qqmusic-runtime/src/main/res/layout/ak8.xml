@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout android:background="#1a1a1a" android:paddingTop="10.0dp" android:paddingBottom="10.0dp" android:layout_width="match_parent" android:layout_height="wrap_content"
+  xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">
+    <TextView android:textSize="13.0dp" android:textColor="@color/white" android:gravity="center" android:id="@id/j9v" android:background="@drawable/ringtone_btn_bg_selector" android:layout_width="79.0dp" android:layout_height="40.0dp" android:text="@string/ggl" android:layout_marginStart="20.0dp" app:a1k="@id/j_9" app:a1u="kqf" app:a23="hnz" app:a27="hnz" />
+    <TextView android:textSize="13.0dp" android:textColor="@color/white" android:gravity="center" android:id="@id/j_9" android:background="@drawable/ringtone_btn_bg_selector" android:layout_width="79.0dp" android:layout_height="40.0dp" android:text="@string/gh1" app:a1k="@id/j_5" app:a22="@id/j9v" app:a27="hnz" />
+    <TextView android:textSize="13.0dp" android:textColor="@color/white" android:gravity="center" android:id="@id/j_5" android:background="@drawable/ringtone_btn_bg_selector" android:layout_width="79.0dp" android:layout_height="40.0dp" android:text="@string/ggy" app:a1k="@id/j__" app:a22="@id/j_9" app:a27="hnz" />
+    <TextView android:textSize="13.0dp" android:textColor="@color/white" android:gravity="center" android:id="@id/j__" android:background="@drawable/ringtone_btn_bg_selector" android:layout_width="79.0dp" android:layout_height="40.0dp" android:text="@string/gh3" android:layout_marginEnd="20.0dp" app:a1j="hnz" app:a22="@id/j_5" app:a27="hnz" />
+</androidx.constraintlayout.widget.ConstraintLayout>

@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout android:paddingBottom="40.0dp" android:layout_width="match_parent" android:layout_height="wrap_content"
+  xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">
+    <include android:id="@id/na4" android:layout_width="match_parent" android:layout_height="wrap_content" app:a27="hnz" layout="@layout/ais" />
+    <com.tencent.qqmusic.business.playernew.customlyric.TypeSeekbarView android:id="@id/nbd" android:paddingLeft="20.0dp" android:paddingTop="29.0dp" android:paddingRight="20.0dp" android:layout_width="match_parent" android:layout_height="wrap_content" app:u="#00f168" app:a1="#ffffff" app:a2="小,标准,大,超大" app:a3="14.0dp" app:a26="@id/na4" />
+</androidx.constraintlayout.widget.ConstraintLayout>

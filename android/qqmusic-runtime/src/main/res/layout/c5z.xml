@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout android:layout_width="match_parent" android:layout_height="wrap_content"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <LinearLayout android:gravity="center" android:orientation="horizontal" android:id="@id/i1a" android:fitsSystemWindows="true" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="20.0dp" android:layout_marginBottom="30.0dp" android:layout_centerHorizontal="true">
+        <TextView android:textSize="12.0dp" android:textColor="@color/skin_text_sub_color" android:gravity="center" android:id="@id/i1c" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginRight="2.0dp" android:layout_marginEnd="2.0dp" />
+        <ImageView android:id="@id/i1b" android:layout_width="24.0dp" android:layout_height="24.0dp" android:layout_marginLeft="2.0dp" android:src="@drawable/player_btn_top_back_other" android:scaleType="centerInside" android:layout_marginStart="2.0dp" />
+    </LinearLayout>
+    <LinearLayout android:gravity="center" android:orientation="horizontal" android:id="@id/i1e" android:background="@drawable/playlist_add_song_to_list" android:fitsSystemWindows="true" android:layout_width="122.0dp" android:layout_height="24.5dp" android:layout_marginTop="20.0dp" android:layout_marginBottom="30.0dp" android:layout_centerHorizontal="true">
+        <ImageView android:id="@id/i1d" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginRight="2.0dp" android:src="@drawable/current_playlist_add_song" android:scaleType="centerInside" android:layout_marginEnd="2.0dp" />
+        <TextView android:textSize="12.0dp" android:textColor="@color/skin_text_main_color" android:gravity="center" android:id="@id/i1f" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginLeft="2.0dp" android:text="@string/b0p" android:layout_marginStart="2.0dp" />
+    </LinearLayout>
+</RelativeLayout>

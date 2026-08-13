@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <style name="to" parent="@style/tm" />
+    <style name="tp" parent="@style/tm" />
+    <style name="tq" parent="@style/tv" />
+    <style name="tr" parent="@style/tw" />
+    <style name="ts" parent="@style/tx" />
+    <style name="tt" parent="@style/ty" />
+    <style name="tu" parent="@style/u7" />
+    <style name="ug" parent="@style/us">
+        <item name="android:statusBarColor">?k8</item>
+        <item name="k1">@color/black</item>
+        <item name="k3">@color/black</item>
+        <item name="k5">@color/purple_200</item>
+        <item name="k8">@color/purple_700</item>
+        <item name="k9">@color/teal_200</item>
+        <item name="k_">@color/teal_200</item>
+    </style>
+    <style name="uj" parent="@style/us">
+        <item name="android:statusBarColor">?k8</item>
+        <item name="k1">@color/black</item>
+        <item name="k3">@color/black</item>
+        <item name="k5">@color/purple_200</item>
+        <item name="k8">@color/purple_700</item>
+        <item name="k9">@color/teal_200</item>
+        <item name="k_">@color/teal_200</item>
+    </style>
+    <style name="uk" parent="@style/us">
+        <item name="android:statusBarColor">?k8</item>
+        <item name="k1">@color/black</item>
+        <item name="k3">@color/black</item>
+        <item name="k5">@color/purple_200</item>
+        <item name="k8">@color/purple_700</item>
+        <item name="k9">@color/teal_200</item>
+        <item name="k_">@color/teal_200</item>
+    </style>
+    <style name="up" parent="@style/ul" />
+    <style name="uq" parent="@style/um" />
+    <style name="ur" parent="@style/un" />
+    <style name="us" parent="@style/ul" />
+    <style name="ut" parent="@style/un" />
+    <style name="uu" parent="@style/v5" />
+    <style name="uv" parent="@style/v6" />
+    <style name="uw" parent="@style/v7" />
+    <style name="ux" parent="@style/v8" />
+    <style name="uy" parent="@style/v9" />
+    <style name="uz" parent="@style/v_" />
+    <style name="v0" parent="@style/va" />
+    <style name="v1" parent="@style/vb" />
+    <style name="v2" parent="@style/vc" />
+    <style name="v3" parent="@style/vv" />
+    <style name="v4" parent="@style/vw" />
+    <style name="w2" parent="@style/us">
+        <item name="android:statusBarColor">?k8</item>
+        <item name="k1">@color/black</item>
+        <item name="k3">@color/black</item>
+        <item name="k5">@color/purple_200</item>
+        <item name="k8">@color/purple_700</item>
+        <item name="k9">@color/teal_200</item>
+        <item name="k_">@color/teal_200</item>
+    </style>
+    <style name="w8" parent="@style/w6" />
+    <style name="wr" parent="@style/wo" />
+    <style name="a07" parent="@style/a09" />
+    <style name="a0a" parent="@style/a0b" />
+    <style name="a0j" parent="@style/a0h" />
+    <style name="a0m" parent="@style/a0k" />
+    <style name="a26" parent="@style/a24" />
+    <style name="a2l" parent="@style/a2m" />
+</resources>

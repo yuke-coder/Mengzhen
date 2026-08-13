@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<merge android:layout_width="match_parent" android:layout_height="48.0dp"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <include android:id="@id/lb1" layout="@layout/cul" />
+    <include android:id="@id/c9g" layout="@layout/cuj" />
+    <include android:id="@id/fi9" layout="@layout/cuk" />
+</merge>

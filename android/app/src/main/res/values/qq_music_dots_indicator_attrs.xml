@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <declare-styleable name="DotsIndicator">
+        <attr name="dotsClickable" format="boolean" />
+        <attr name="dotsColor" format="color" />
+        <attr name="dotsCornerRadius" format="dimension" />
+        <attr name="dotsSize" format="dimension" />
+        <attr name="dotsSpacing" format="dimension" />
+        <attr name="dotsWidthFactor" format="float" />
+        <attr name="progressMode" format="boolean" />
+        <attr name="selectedDotColor" format="color" />
+    </declare-styleable>
+</resources>

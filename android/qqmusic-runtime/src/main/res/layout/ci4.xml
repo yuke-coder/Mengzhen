@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout android:orientation="vertical" android:background="@color/transparent" android:layout_width="match_parent" android:layout_height="wrap_content"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <TextView android:textSize="14.0sp" android:textColor="@color/skin_text_sub_color" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_margin="10.0dp" android:text="@string/hah" />
+    <com.tencent.qqmusic.business.smartlabel.ui.SmartLabelContainer android:orientation="vertical" android:id="@id/eql" android:background="@drawable/skin_common_listitem_bg" android:layout_width="match_parent" android:layout_height="wrap_content" />
+</LinearLayout>

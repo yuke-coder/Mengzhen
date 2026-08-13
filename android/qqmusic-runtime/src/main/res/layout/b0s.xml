@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout android:layout_width="wrap_content" android:layout_height="wrap_content"
+  xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">
+    <TextView android:textSize="16.0dp" android:textColor="@color/guide_layer_pop_view_text_color" android:id="@id/d6k" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="喜欢" app:a1j="hnz" app:a1t="0.5" app:a23="hnz" app:a27="hnz" />
+    <com.tencent.qqmusic.ui.RepeatingImageButton android:id="@id/i22" android:background="@color/transparent" android:focusable="true" android:clickable="true" android:layout_width="2.0dp" android:layout_height="17.0dp" android:layout_marginTop="5.0dp" android:layout_marginBottom="12.0dp" android:src="@drawable/radio_player_new_user_guide_divider" android:scaleType="fitCenter" android:contentDescription="@string/f7v" app:a1d="hnz" app:a1j="hnz" app:a1t="0.5" app:a23="hnz" app:a26="@id/d6k" />
+</androidx.constraintlayout.widget.ConstraintLayout>

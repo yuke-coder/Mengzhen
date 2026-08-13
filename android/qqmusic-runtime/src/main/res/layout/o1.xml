@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout android:orientation="vertical" android:background="@drawable/main_bg" android:layout_width="match_parent" android:layout_height="match_parent"
+  xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">
+    <include android:id="@id/lv1" layout="@layout/mu" />
+    <TextView android:textSize="16.0sp" android:textColor="@color/skin_text_main_color" android:id="@id/bj_" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_margin="16.0dp" android:text="@string/ap_" android:layout_below="@id/lv1" android:lineSpacingMultiplier="1.1" />
+    <TextView android:textSize="16.0sp" android:textColor="@color/skin_text_main_color" android:id="@id/bja" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginLeft="16.0dp" android:text="@string/e_3" android:layout_below="@id/bj_" android:lineSpacingMultiplier="1.1" />
+    <RelativeLayout android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginRight="16.0dp" android:layout_toRightOf="@id/bja" android:layout_alignTop="@id/bja">
+        <TextView android:textSize="16.0sp" android:textColor="@color/skin_highlight_color" android:id="@id/bjc" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/af" android:lineSpacingMultiplier="1.1" />
+        <ImageView android:id="@id/bjb" android:visibility="gone" android:layout_width="@dimen/btd" android:layout_height="@dimen/btd" android:layout_marginLeft="2.0dp" android:src="@drawable/ic_red_dot" android:scaleType="fitXY" android:layout_toRightOf="@id/bjc" android:layout_alignTop="@id/bjc" />
+    </RelativeLayout>
+</RelativeLayout>

@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout android:layout_width="match_parent" android:layout_height="match_parent"
+  xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">
+    <include android:id="@id/naf" android:layout_width="match_parent" android:layout_height="match_parent" layout="@layout/m6" />
+    <include android:id="@id/lv1" android:layout_width="match_parent" android:layout_height="@dimen/cau" app:a1j="hnz" app:a23="hnz" app:a27="hnz" layout="@layout/mu" />
+    <ScrollView android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_below="@id/lv1">
+        <LinearLayout android:orientation="vertical" android:paddingBottom="30.0dp" android:layout_width="match_parent" android:layout_height="wrap_content">
+            <TextView android:textSize="12.0sp" android:textColor="@color/skin_text_sub_color" android:id="@id/bbm" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="28.0dp" android:text="@string/u2" android:layout_marginStart="20.0dp" app:a23="hnz" app:a27="hnz" />
+            <androidx.constraintlayout.widget.ConstraintLayout android:id="@id/bbj" android:background="@drawable/auto_close_item_bg" android:layout_width="match_parent" android:layout_height="97.0dp" android:layout_marginTop="7.0dp" android:layout_marginStart="20.0dp" android:layout_marginEnd="20.0dp">
+                <TextView android:textSize="36.0sp" android:textColor="@color/skin_text_main_color" android:id="@id/bbn" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/u5" android:layout_marginStart="14.0dp" app:a1d="@id/bbj" app:a23="@id/bbj" app:a27="@id/bbj" />
+                <TextView android:textSize="17.0sp" android:textColor="@color/skin_text_main_color" android:id="@id/kan" android:visibility="gone" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/ue" android:layout_marginStart="15.0dp" app:a1d="@id/bbj" app:a23="@id/bbj" app:a27="@id/bbj" />
+                <ImageView android:id="@id/kam" android:visibility="gone" android:layout_width="44.0dp" android:layout_height="44.0dp" android:src="@drawable/auto_close_smart_shut_down_icon" android:layout_marginEnd="27.0dp" app:a1d="hnz" app:a1j="hnz" app:a27="hnz" />
+                <TextView android:textSize="15.0sp" android:textColor="@color/skin_text_sub_color" android:id="@id/a2s" android:visibility="gone" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/ub" android:layout_marginEnd="16.0dp" app:a1d="hnz" app:a1j="hnz" app:a27="hnz" />
+            </androidx.constraintlayout.widget.ConstraintLayout>
+            <TextView android:textSize="12.0sp" android:textColor="@color/skin_text_sub_color" android:id="@id/ayz" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="27.0dp" android:text="@string/tz" android:layout_marginStart="20.0dp" />
+            <LinearLayout android:orientation="vertical" android:id="@id/ayy" android:background="@drawable/auto_close_item_bg" android:paddingTop="5.0dp" android:paddingBottom="5.0dp" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginTop="7.0dp" android:layout_marginStart="20.0dp" android:layout_marginEnd="20.0dp">
+                <include android:id="@id/a2m" layout="@layout/aca" />
+                <include android:id="@id/a2g" layout="@layout/aca" />
+                <include android:id="@id/a2h" layout="@layout/aca" />
+                <include android:id="@id/a2i" layout="@layout/aca" />
+                <include android:id="@id/a2j" layout="@layout/aca" />
+                <include android:id="@id/a2k" layout="@layout/aca" />
+            </LinearLayout>
+            <LinearLayout android:orientation="vertical" android:background="@drawable/auto_close_item_bg" android:paddingTop="5.0dp" android:paddingBottom="5.0dp" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginTop="10.0dp" android:layout_marginStart="20.0dp" android:layout_marginEnd="20.0dp">
+                <include android:id="@id/a2t" layout="@layout/aca" />
+            </LinearLayout>
+            <TextView android:textSize="12.0sp" android:textColor="@color/skin_text_sub_color" android:id="@id/hm3" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="32.0dp" android:text="@string/uc" android:layout_marginStart="20.0dp" />
+            <LinearLayout android:orientation="vertical" android:background="@drawable/auto_close_item_bg" android:paddingTop="5.0dp" android:paddingBottom="5.0dp" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginTop="7.0dp" android:layout_marginStart="20.0dp" android:layout_marginEnd="20.0dp">
+                <include android:id="@id/a2u" layout="@layout/aca" />
+            </LinearLayout>
+            <androidx.constraintlayout.widget.ConstraintLayout android:id="@id/a2o" android:visibility="gone" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginTop="27.0dp">
+                <TextView android:textSize="12.0sp" android:textColor="@color/skin_text_sub_color" android:id="@id/a2r" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/u_" android:layout_marginStart="20.0dp" app:a23="hnz" app:a27="hnz" />
+                <TextView android:textSize="12.0sp" android:textColor="@color/skin_text_sub_color" android:id="@id/a2p" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/u7" app:a1d="@id/a2r" app:a1k="@id/a2n" app:a27="@id/a2r" />
+                <ImageView android:id="@id/a2n" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginRight="12.0dp" android:src="@drawable/arrow_right_grey_text_main_color" android:importantForAccessibility="no" app:a1d="@id/a2r" app:a1j="hnz" app:a27="@id/a2r" />
+                <androidx.recyclerview.widget.RecyclerView android:orientation="horizontal" android:id="@id/a2q" android:layout_width="0.0dp" android:layout_height="wrap_content" android:layout_marginTop="12.0dp" android:layout_marginStart="20.0dp" app:a1j="hnz" app:a23="hnz" app:a26="@id/a2r" />
+            </androidx.constraintlayout.widget.ConstraintLayout>
+        </LinearLayout>
+    </ScrollView>
+</RelativeLayout>

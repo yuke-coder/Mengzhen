@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout android:id="@id/a_s" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="10.0dp" android:layout_marginRight="10.0dp"
+  xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">
+    <com.tencent.component.widget.AsyncEffectImageView android:id="@id/a8l" android:visibility="gone" android:layout_width="94.0dp" android:layout_height="94.0dp" android:scaleType="centerCrop" android:importantForAccessibility="no" app:a1x="hnz" app:a21="hnz" app:a27="hnz" />
+    <com.tencent.component.widget.AsyncEffectImageView android:id="@id/bdk" android:layout_width="94.0dp" android:layout_height="94.0dp" android:scaleType="centerCrop" android:importantForAccessibility="no" app:a1x="hnz" app:a21="hnz" app:a27="hnz" />
+    <com.tencent.component.widget.AsyncEffectImageView android:id="@id/diw" android:visibility="gone" android:layout_width="56.0dp" android:layout_height="56.0dp" android:scaleType="fitCenter" android:importantForAccessibility="no" app:a1d="@id/a8l" app:a1x="@id/a8l" app:a21="@id/a8l" app:a27="@id/a8l" />
+    <androidx.constraintlayout.widget.ConstraintLayout android:id="@id/htq" android:layout_width="42.0dp" android:layout_height="32.0dp" android:layout_marginLeft="4.0dp" android:layout_marginBottom="4.0dp" app:a1d="@id/bdk" app:a23="@id/bdk">
+        <androidx.constraintlayout.widget.ConstraintLayout android:id="@id/hva" android:background="@drawable/my_tab_folder_new_v13_play_btn_bg" android:layout_width="21.0dp" android:layout_height="16.0dp" app:a1d="hnz" app:a1x="hnz">
+            <ImageView android:id="@id/hv9" android:layout_width="10.0dp" android:layout_height="10.0dp" app:a1d="hnz" app:a1x="hnz" app:a21="hnz" app:a27="hnz" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </androidx.constraintlayout.widget.ConstraintLayout>
+    <androidx.appcompat.widget.AppCompatTextView android:textSize="12.0sp" android:textColor="@color/skin_text_main_color" android:ellipsize="end" android:id="@id/mrg" android:layout_width="0.0dp" android:layout_height="wrap_content" android:layout_marginTop="6.0dp" android:maxLines="1" android:importantForAccessibility="no" app:a1x="@id/bdk" app:a21="@id/bdk" app:a26="@id/bdk" />
+    <androidx.appcompat.widget.AppCompatTextView android:textSize="10.0sp" android:textColor="@color/skin_text_sub_color" android:ellipsize="end" android:id="@id/kzt" android:layout_width="0.0dp" android:layout_height="30.0dp" android:layout_marginTop="2.0dp" android:maxLines="2" android:importantForAccessibility="no" app:a1x="@id/bdk" app:a21="@id/bdk" app:a26="@id/mrg" />
+    <ViewFlipper android:id="@id/cjl" android:layout_width="0.0dp" android:layout_height="30.0dp" android:inAnimation="@anim/fg" android:outAnimation="@anim/fh" android:flipInterval="3000" app:a1d="@id/kzt" app:a1x="@id/kzt" app:a21="@id/kzt" app:a27="@id/kzt" />
+</androidx.constraintlayout.widget.ConstraintLayout>

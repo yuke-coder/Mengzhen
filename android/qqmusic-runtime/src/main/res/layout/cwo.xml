@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout android:background="@drawable/shape_long_audio_child_tab" android:paddingLeft="11.0dp" android:paddingRight="12.0dp" android:layout_width="wrap_content" android:layout_height="@dimen/c0l"
+  xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">
+    <com.tencent.component.widget.AsyncEffectImageView android:id="@id/fnc" android:visibility="gone" android:layout_width="21.0dp" android:layout_height="21.0dp" app:a1d="hnz" app:a23="hnz" app:a27="hnz" />
+    <TextView android:textSize="14.0dp" android:textColor="@color/skin_text_main_color" android:ellipsize="marquee" android:id="@id/fnd" android:focusable="true" android:focusableInTouchMode="true" android:visibility="gone" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginLeft="2.0dp" android:maxWidth="80.0dp" android:singleLine="true" app:a1d="hnz" app:a22="@id/fnc" app:a27="hnz" />
+</androidx.constraintlayout.widget.ConstraintLayout>

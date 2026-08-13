@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout android:state_window_focused="false" android:background="@color/transparent" android:paddingTop="@dimen/c_q" android:paddingBottom="5.0dp" android:layout_width="match_parent" android:layout_height="wrap_content"
+  xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">
+    <FrameLayout android:id="@id/lf5" android:layout_width="wrap_content" android:layout_height="match_parent" android:layout_marginLeft="25.0dp" android:layout_marginTop="28.0dp" app:a1x="hnz" app:a27="hnz">
+        <androidx.appcompat.widget.AppCompatTextView android:textSize="18.0sp" android:textColor="@color/white" android:ellipsize="end" android:layout_gravity="center" android:id="@id/ldr" android:visibility="visible" android:layout_width="wrap_content" android:layout_height="wrap_content" android:maxLines="1" android:singleLine="true" android:includeFontPadding="false" />
+    </FrameLayout>
+    <com.tencent.component.widget.AsyncImageView android:id="@id/sq" android:visibility="gone" android:layout_width="wrap_content" android:layout_height="32.0dp" android:layout_marginLeft="7.0dp" app:a1d="@id/lf5" app:a1y="@id/lf5" app:a27="@id/lf5" />
+    <FrameLayout android:id="@id/j7a" android:focusable="true" android:clickable="true" android:layout_width="35.0dp" android:layout_height="35.0dp" android:layout_marginRight="20.0dp" android:layout_alignParentRight="true" app:a1d="@id/lf5" app:a21="hnz" app:a27="@id/lf5">
+        <ImageView android:layout_gravity="left|center" android:id="@id/j7c" android:focusable="false" android:visibility="visible" android:layout_width="35.0dp" android:layout_height="35.0dp" android:src="@drawable/ai_interactive_top_close_icon" android:contentDescription="@string/e9w" />
+    </FrameLayout>
+    <FrameLayout android:id="@id/j75" android:focusable="true" android:visibility="gone" android:clickable="true" android:layout_width="68.5dp" android:layout_height="35.0dp" android:layout_marginRight="10.0dp" android:layout_alignParentRight="true" app:a1d="@id/j7a" app:a20="@id/j7a" app:a27="@id/j7a">
+        <ImageView android:layout_gravity="left|center" android:id="@id/j76" android:focusable="false" android:visibility="visible" android:layout_width="68.5dp" android:layout_height="35.0dp" android:src="@drawable/ai_interactive_draw_card_icon" android:contentDescription="抽卡" />
+    </FrameLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>

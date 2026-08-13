@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.appcompat.widget.LinearLayoutCompat android:gravity="center_horizontal" android:orientation="vertical" android:background="@drawable/letter_detail_top_card" android:layout_width="110.0dp" android:layout_height="150.0dp"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <androidx.appcompat.widget.LinearLayoutCompat android:orientation="horizontal" android:id="@id/c0o" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="6.0dp">
+        <androidx.appcompat.widget.AppCompatImageView android:layout_width="20.0dp" android:layout_height="20.0dp" android:src="@drawable/letter_edit" />
+        <androidx.appcompat.widget.AppCompatTextView android:textSize="14.0dp" android:textColor="@color/black" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginLeft="5.0dp" android:text="@string/fu7" />
+    </androidx.appcompat.widget.LinearLayoutCompat>
+    <androidx.appcompat.widget.LinearLayoutCompat android:orientation="horizontal" android:id="@id/h6q" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="22.0dp">
+        <androidx.appcompat.widget.AppCompatImageView android:layout_width="20.0dp" android:layout_height="20.0dp" android:src="@drawable/letter_my" />
+        <androidx.appcompat.widget.AppCompatTextView android:textSize="14.0dp" android:textColor="@color/black" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginLeft="5.0dp" android:text="@string/cpa" />
+    </androidx.appcompat.widget.LinearLayoutCompat>
+    <androidx.appcompat.widget.LinearLayoutCompat android:orientation="horizontal" android:id="@id/has" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="22.0dp">
+        <androidx.appcompat.widget.AppCompatImageView android:layout_width="20.0dp" android:layout_height="20.0dp" android:src="@drawable/letter_quota" />
+        <androidx.appcompat.widget.AppCompatTextView android:textSize="14.0dp" android:textColor="@color/black" android:id="@id/ioq" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginLeft="5.0dp" />
+    </androidx.appcompat.widget.LinearLayoutCompat>
+</androidx.appcompat.widget.LinearLayoutCompat>

@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout android:background="@drawable/transparent" android:layout_width="match_parent" android:layout_height="wrap_content"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <LinearLayout android:gravity="center" android:orientation="horizontal" android:id="@id/ig_" android:layout_width="match_parent" android:layout_height="wrap_content">
+        <LinearLayout android:gravity="center_horizontal" android:orientation="vertical" android:id="@id/a1i" android:background="@drawable/material_ripple_background" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_weight="1.0">
+            <TextView android:textSize="@dimen/bl9" android:textStyle="bold" android:textColor="@color/white" android:ellipsize="end" android:id="@id/a1j" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="0" android:singleLine="true" android:includeFontPadding="false" />
+            <TextView android:textSize="@dimen/bla" android:textColor="@color/white" android:id="@id/a1l" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="@dimen/bl_" android:text="关注" android:includeFontPadding="false" />
+            <View android:layout_width="match_parent" android:layout_height="12.0dp" />
+        </LinearLayout>
+        <ImageView android:background="@color/zero_point_six_opacity_white" android:layout_width="0.5dp" android:layout_height="25.0dp" android:layout_weight="0.0" />
+        <LinearLayout android:gravity="center_horizontal" android:orientation="vertical" android:id="@id/ccm" android:background="@drawable/material_ripple_background" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_weight="1.0">
+            <TextView android:textSize="@dimen/bl9" android:textStyle="bold" android:textColor="@color/white" android:ellipsize="end" android:id="@id/cct" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="0" android:singleLine="true" android:includeFontPadding="false" />
+            <TextView android:textSize="@dimen/bla" android:textColor="@color/white" android:id="@id/ccx" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="@dimen/bl_" android:text="粉丝" android:includeFontPadding="false" />
+            <View android:layout_width="match_parent" android:layout_height="12.0dp" />
+        </LinearLayout>
+        <ImageView android:background="@color/zero_point_six_opacity_white" android:layout_width="0.5dp" android:layout_height="25.0dp" android:layout_weight="0.0" />
+        <LinearLayout android:gravity="center_horizontal" android:orientation="vertical" android:id="@id/cyb" android:background="@drawable/material_ripple_background" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_weight="1.0">
+            <TextView android:textSize="@dimen/bl9" android:textStyle="bold" android:textColor="@color/white" android:ellipsize="end" android:id="@id/cyd" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="0" android:singleLine="true" android:includeFontPadding="false" />
+            <TextView android:textSize="@dimen/bla" android:textColor="@color/white" android:id="@id/cyf" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="@dimen/bl_" android:text="好友" android:includeFontPadding="false" />
+            <View android:layout_width="match_parent" android:layout_height="12.0dp" />
+        </LinearLayout>
+        <ImageView android:id="@id/a1k" android:background="@color/zero_point_six_opacity_white" android:layout_width="0.5dp" android:layout_height="25.0dp" android:layout_weight="0.0" />
+        <LinearLayout android:gravity="center_horizontal" android:orientation="vertical" android:id="@id/nkq" android:background="@drawable/material_ripple_background" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_weight="1.0">
+            <TextView android:textSize="@dimen/bl9" android:textStyle="bold" android:textColor="@color/white" android:ellipsize="end" android:id="@id/nkr" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="0" android:singleLine="true" android:includeFontPadding="false" />
+            <TextView android:textSize="@dimen/bla" android:textColor="@color/white" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="@dimen/bl_" android:text="访客" android:includeFontPadding="false" />
+            <View android:layout_width="match_parent" android:layout_height="12.0dp" />
+        </LinearLayout>
+    </LinearLayout>
+</RelativeLayout>

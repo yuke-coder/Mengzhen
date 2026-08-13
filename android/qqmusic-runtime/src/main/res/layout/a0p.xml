@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout android:layout_width="match_parent" android:layout_height="match_parent"
+  xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">
+    <androidx.recyclerview.widget.RecyclerView android:orientation="horizontal" android:id="@id/f3k" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginLeft="@dimen/n6" android:layout_marginRight="@dimen/n6" android:overScrollMode="never" app:a1j="hnz" app:a23="hnz" app:a27="hnz" />
+    <androidx.constraintlayout.widget.ConstraintLayout android:id="@id/evq" android:layout_width="match_parent" android:layout_height="match_parent" app:a1x="hnz" app:a21="hnz">
+        <com.tencent.qqmusic.pag.QQMusicPAGSafeView android:id="@id/fip" android:layout_width="50.0dp" android:layout_height="50.0dp" app:a1d="hnz" app:a1x="hnz" app:a21="hnz" app:a27="hnz" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+    <ViewStub android:id="@id/nf8" android:layout="@layout/mh" android:layout_width="match_parent" android:layout_height="match_parent" android:layout_marginTop="@dimen/cau" app:a1d="hnz" app:a1j="hnz" app:a23="hnz" app:a27="hnz" />
+</androidx.constraintlayout.widget.ConstraintLayout>

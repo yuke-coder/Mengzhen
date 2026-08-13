@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout android:gravity="center_vertical" android:orientation="horizontal" android:id="@id/ex6" android:layout_width="match_parent" android:layout_height="wrap_content"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <androidx.appcompat.widget.AppCompatTextView android:textSize="16.0dp" android:textStyle="bold" android:textColor="@color/skin_text_main_color" android:gravity="center" android:id="@id/mhl" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginLeft="20.0dp" android:text="@string/b7o" android:maxLines="1" android:singleLine="true" />
+    <androidx.appcompat.widget.AppCompatImageView android:id="@id/ehl" android:background="@drawable/album_detail_button_v2_bg" android:paddingLeft="12.0dp" android:paddingTop="7.5dp" android:paddingRight="12.0dp" android:paddingBottom="7.5dp" android:layout_width="36.0dp" android:layout_height="27.0dp" android:layout_marginLeft="10.0dp" android:src="@drawable/album_detail_button_play" android:paddingHorizontal="12.0dp" android:paddingVertical="7.5dp" />
+</LinearLayout>

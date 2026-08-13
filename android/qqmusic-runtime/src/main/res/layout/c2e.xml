@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.tencent.qqmusic.ui.TouchEventAwareFrameLayout android:id="@id/g0t" android:layout_width="match_parent" android:layout_height="match_parent"
+  xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">
+    <com.tencent.qqmusic.activity.base.StackLayout android:id="@id/g0e" android:layout_width="match_parent" android:layout_height="match_parent">
+        <fragment android:name="com.tencent.qqmusic.fragment.mainpage.MainDesktopFragment" android:id="@id/g0a" android:layout_width="match_parent" android:layout_height="match_parent" />
+    </com.tencent.qqmusic.activity.base.StackLayout>
+    <ViewStub android:id="@id/lnq" android:layout="@layout/cqf" android:inflatedId="@id/lh6" android:layout_width="match_parent" android:layout_height="match_parent" />
+    <ImageView android:layout_gravity="right|bottom" android:id="@id/ea_" android:visibility="invisible" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginRight="60.0dp" android:layout_marginBottom="70.0dp" android:src="@drawable/anchor_in_cell" android:contentDescription="@string/hbv" />
+    <FrameLayout android:layout_gravity="bottom" android:id="@id/g0r" android:layout_width="match_parent" android:layout_height="wrap_content" />
+    <RelativeLayout android:layout_gravity="right|bottom" android:id="@id/cjo" android:visibility="visible" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginBottom="@dimen/u_" />
+    <ViewStub android:id="@id/anf" android:layout="@layout/kd" android:layout_width="match_parent" android:layout_height="match_parent" />
+    <ViewStub android:id="@id/no6" android:layout="@layout/aws" android:layout_width="match_parent" android:layout_height="match_parent" />
+    <ViewStub android:id="@id/lji" android:layout="@layout/cqf" android:inflatedId="@id/ljg" android:layout_width="match_parent" android:layout_height="match_parent" />
+</com.tencent.qqmusic.ui.TouchEventAwareFrameLayout>

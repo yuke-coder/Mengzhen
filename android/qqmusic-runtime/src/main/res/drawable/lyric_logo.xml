@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<selector android:layout_width="match_parent" android:layout_height="match_parent"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <item android:state_pressed="true" android:drawable="@drawable/lyric_logo_hover" />
+    <item android:state_focused="true" android:state_window_focused="true" android:state_enabled="true" android:drawable="@drawable/lyric_logo_hover" />
+    <item android:drawable="@drawable/lyric_logo_normal" />
+</selector>

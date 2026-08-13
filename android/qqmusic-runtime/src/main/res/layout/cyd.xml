@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout android:layout_width="match_parent" android:layout_height="match_parent"
+  xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">
+    <com.tencent.qqmusic.pag.QQMusicPAGSafeView android:id="@id/i7t" android:visibility="gone" android:layout_width="50.0dp" android:layout_height="50.0dp" android:layout_centerHorizontal="true" app:a1d="hnz" app:a1j="hnz" app:a23="hnz" app:a27="hnz" />
+    <FrameLayout android:id="@id/cij" android:layout_width="match_parent" android:layout_height="0.0dp" app:a1d="hnz" app:a1i="W,1:1" app:a23="hnz" />
+    <ViewStub android:id="@id/i42" android:layout="@layout/b2_" android:inflatedId="@id/i40" android:layout_width="wrap_content" android:layout_height="wrap_content" app:a1j="hnz" app:a27="hnz" />
+    <TextView android:textColor="@color/colorAccent" android:id="@id/i46" android:visibility="gone" android:layout_width="wrap_content" android:layout_height="wrap_content" app:a1d="hnz" app:a1j="hnz" app:a23="hnz" app:a27="hnz" />
+</androidx.constraintlayout.widget.ConstraintLayout>

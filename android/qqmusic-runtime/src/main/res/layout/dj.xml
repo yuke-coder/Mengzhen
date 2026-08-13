@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout android:layout_width="match_parent" android:layout_height="match_parent"
+  xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">
+    <androidx.constraintlayout.widget.Guideline android:orientation="horizontal" android:id="@id/ba3" android:layout_width="wrap_content" android:layout_height="wrap_content" app:a1n="0.96" />
+    <androidx.constraintlayout.widget.Guideline android:orientation="vertical" android:id="@id/bad" android:layout_width="wrap_content" android:layout_height="wrap_content" app:a1n="0.11" />
+    <androidx.constraintlayout.widget.Guideline android:orientation="vertical" android:id="@id/ba7" android:layout_width="wrap_content" android:layout_height="wrap_content" app:a1n="0.89" />
+    <View android:id="@id/g1l" android:background="@drawable/musicworld_preview_mask" android:layout_width="0.0dp" android:layout_height="0.0dp" app:a1e="@id/cbr" app:a1j="hnz" app:a23="hnz" app:a27="hnz" />
+    <View android:id="@id/g1g" android:background="@drawable/musicworld_preview_mask" android:layout_width="0.0dp" android:layout_height="0.0dp" app:a1d="@id/cbr" app:a1k="@id/cbr" app:a23="hnz" app:a26="@id/g1l" />
+    <View android:id="@id/g1k" android:background="@drawable/musicworld_preview_mask" android:layout_width="0.0dp" android:layout_height="0.0dp" app:a1d="@id/cbr" app:a1j="hnz" app:a22="@id/cbr" app:a27="@id/cbr" />
+    <View android:id="@id/g1_" android:background="@drawable/musicworld_preview_mask" android:layout_width="0.0dp" android:layout_height="0.0dp" app:a1d="hnz" app:a1j="hnz" app:a23="hnz" app:a26="@id/cbr" />
+    <TextView android:textSize="22.0dp" android:textStyle="bold" android:textColor="@color/white" android:id="@id/cbs" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/frp" app:a1d="hnz" app:a1j="hnz" app:a23="hnz" app:a27="hnz" app:a28="0.144" />
+    <Space android:id="@id/dcx" android:layout_width="0.0dp" android:layout_height="0.0dp" app:a1s="0.066" app:a23="hnz" app:a26="@id/cbs" />
+    <ImageView android:id="@id/cbr" android:layout_width="0.0dp" android:layout_height="0.0dp" android:src="@drawable/musicworld_face_detect_frame" android:scaleType="fitXY" app:a1i="W,801:666" app:a1j="hnz" app:a23="hnz" app:a26="@id/dcx" app:a2e="0.77" />
+    <ImageView android:id="@id/l6m" android:layout_width="0.0dp" android:layout_height="wrap_content" android:src="@drawable/musicworld_take_picture" app:a1e="@id/ba3" app:a1j="hnz" app:a23="hnz" app:a2e="0.22" />
+    <ImageView android:id="@id/jqm" android:layout_width="0.0dp" android:layout_height="wrap_content" android:src="@drawable/musicworld_pick_image" app:a1d="@id/l6m" app:a23="@id/bad" app:a27="@id/l6m" app:a2e="0.12" />
+    <ImageView android:id="@id/jdk" android:layout_width="0.0dp" android:layout_height="wrap_content" android:src="@drawable/musicworld_rotate_camera" app:a1d="@id/l6m" app:a1j="@id/ba7" app:a27="@id/l6m" app:a2e="0.12" />
+    <ImageView android:id="@id/cgc" android:layout_width="25.0dp" android:layout_height="wrap_content" android:layout_marginTop="66.0dp" android:src="@drawable/musicworld_preview_close" android:layout_marginStart="28.0dp" app:a23="hnz" app:a27="hnz" />
+</androidx.constraintlayout.widget.ConstraintLayout>

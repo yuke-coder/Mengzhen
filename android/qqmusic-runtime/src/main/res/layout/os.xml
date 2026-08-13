@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout android:orientation="vertical" android:id="@id/bo8" android:background="@drawable/bg_bottom_dialog_check_in" android:paddingTop="20.0dp" android:paddingBottom="40.0dp" android:layout_width="match_parent" android:layout_height="176.0dp" android:paddingStart="20.0dp" android:paddingEnd="20.0dp"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <TextView android:textSize="18.0dp" android:textStyle="bold" android:textColor="#000000" android:gravity="center_vertical" android:id="@id/bp4" android:layout_width="match_parent" android:layout_height="26.0dp" android:text="@string/a4u" />
+    <LinearLayout android:id="@id/jto" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginTop="18.0dp">
+        <TextView android:textSize="14.0dp" android:textColor="#000000" android:gravity="center_vertical" android:id="@id/jtq" android:layout_width="0.0dp" android:layout_height="30.0dp" android:text="@string/a4x" android:layout_weight="1.0" />
+        <ImageView android:layout_gravity="center_vertical" android:id="@id/jtp" android:background="@drawable/action_item_select_icon" android:visibility="gone" android:layout_width="20.0dp" android:layout_height="20.0dp" />
+    </LinearLayout>
+    <LinearLayout android:id="@id/mu6" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginTop="18.0dp">
+        <TextView android:textSize="14.0dp" android:textColor="#000000" android:gravity="center_vertical" android:id="@id/mu8" android:layout_width="0.0dp" android:layout_height="30.0dp" android:text="@string/a52" android:layout_weight="1.0" />
+        <ImageView android:layout_gravity="center_vertical" android:id="@id/mu7" android:background="@drawable/action_item_select_icon" android:visibility="gone" android:layout_width="20.0dp" android:layout_height="20.0dp" />
+    </LinearLayout>
+</LinearLayout>

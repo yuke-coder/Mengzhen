@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<merge android:layout_width="match_parent" android:layout_height="match_parent"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <ImageView android:layout_width="match_parent" android:layout_height="match_parent" android:src="@drawable/bg_together_room" android:scaleType="centerCrop" />
+    <ImageView android:id="@id/hwn" android:layout_width="match_parent" android:layout_height="match_parent" android:scaleType="fitStart" />
+    <ImageView android:id="@id/i0i" android:layout_width="match_parent" android:layout_height="match_parent" android:scaleType="centerCrop" />
+</merge>

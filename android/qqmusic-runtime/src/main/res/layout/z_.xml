@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout android:orientation="vertical" android:id="@id/j43" android:layout_width="match_parent" android:layout_height="match_parent"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <FrameLayout android:id="@id/h9k" android:layout_width="match_parent" android:layout_height="wrap_content" />
+    <com.tencent.qqmusic.business.timeline.ui.RefreshableRecyclerView android:id="@id/h_y" android:layout_width="match_parent" android:layout_height="match_parent" />
+    <ViewStub android:id="@id/h_c" android:visibility="visible" android:layout="@layout/a_c" android:layout_width="match_parent" android:layout_height="match_parent" />
+</LinearLayout>

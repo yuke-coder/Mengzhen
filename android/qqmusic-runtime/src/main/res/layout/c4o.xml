@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout android:orientation="vertical" android:layout_width="match_parent" android:layout_height="match_parent"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <com.tencent.qqmusic.pag.QQMusicPAGSafeView android:layout_gravity="center" android:id="@id/dzt" android:visibility="gone" android:layout_width="50.0dp" android:layout_height="50.0dp" />
+    <ScrollView android:id="@id/jj2" android:scrollbars="none" android:fadingEdgeLength="200.0dp" android:layout_width="match_parent" android:layout_height="match_parent" android:layout_marginBottom="100.0dp" android:requiresFadingEdge="vertical">
+        <LinearLayout android:orientation="vertical" android:id="@id/feb" android:layout_width="match_parent" android:layout_height="match_parent">
+            <TextView android:textSize="14.0dp" android:textColor="@color/white" android:id="@id/mme" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginTop="10.0dp" android:singleLine="true" android:includeFontPadding="false" />
+            <com.tencent.qqmusic.ui.MarqueeTextView android:textSize="14.0dp" android:textColor="@color/white" android:ellipsize="marquee" android:id="@id/mmt" android:focusable="true" android:focusableInTouchMode="true" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginTop="10.0dp" android:singleLine="true" android:includeFontPadding="false" android:marqueeRepeatLimit="marquee_forever" />
+            <LinearLayout android:orientation="vertical" android:id="@id/fec" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginTop="12.0dp" android:minHeight="50.0dp" />
+        </LinearLayout>
+    </ScrollView>
+</FrameLayout>

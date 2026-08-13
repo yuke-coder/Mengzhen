@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="ac1">114.0dp</dimen>
+    <dimen name="ac2">115.0dp</dimen>
+    <dimen name="ac3">40.0dp</dimen>
+    <dimen name="ac4">6.0dp</dimen>
+    <dimen name="ac5">15.0dp</dimen>
+    <dimen name="ac6">15.0dp</dimen>
+    <dimen name="b9l">-71.0dp</dimen>
+    <dimen name="b9p">6.0dp</dimen>
+    <dimen name="ba1">12.0dp</dimen>
+    <dimen name="bds">14.0dp</dimen>
+    <dimen name="bun">110.0dp</dimen>
+    <dimen name="c12">40.0dp</dimen>
+</resources>

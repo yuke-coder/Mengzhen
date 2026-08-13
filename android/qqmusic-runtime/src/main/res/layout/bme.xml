@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout android:id="@id/mlive_red_packet_detail_result_others_root" android:layout_width="match_parent" android:layout_height="match_parent"
+  xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">
+    <TextView android:textSize="14.0dp" android:textColor="@color/mlive_red_packet_detail_result" android:gravity="center" android:id="@id/mlive_red_packet_detail_result_others_fold" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="14.0dp" android:text="@string/dvb" android:drawableLeft="@drawable/mlive_red_packet_detail_result_others_fold" android:drawablePadding="3.0dp" android:alpha="0.7" android:textAlignment="center" app:a1x="hnz" app:a21="hnz" app:a27="hnz" />
+    <com.tme.mlive.ui.custom.recycleview.LoadMoreRecycleView android:id="@id/mlive_red_packet_detail_result_others_list" android:layout_width="match_parent" android:layout_height="0.0dp" android:layout_marginTop="26.0dp" android:layout_marginBottom="26.0dp" app:a1d="hnz" app:a26="@id/mlive_red_packet_detail_result_others_fold" />
+</androidx.constraintlayout.widget.ConstraintLayout>

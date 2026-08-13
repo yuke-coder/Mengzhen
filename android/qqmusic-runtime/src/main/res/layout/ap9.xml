@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="utf-8"?>
+<kk.design.layout.KKFrameLayout android:layout_gravity="center_horizontal" android:background="@drawable/kk_toast_background" android:layout_width="wrap_content" android:layout_height="wrap_content" android:minWidth="@dimen/abi" android:minHeight="@dimen/abh" app:a0g="bj0"
+  xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">
+    <kk.design.KKTextView android:layout_gravity="center" android:id="@android:id/message" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginLeft="@dimen/abk" android:layout_marginTop="@dimen/abl" android:layout_marginRight="@dimen/abk" android:layout_marginBottom="@dimen/abl" android:layout_marginHorizontal="@dimen/abk" android:layout_marginVertical="@dimen/abl" app:a0f="ka8" />
+</kk.design.layout.KKFrameLayout>

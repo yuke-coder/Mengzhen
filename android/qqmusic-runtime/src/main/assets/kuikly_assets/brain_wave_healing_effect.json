@@ -1,0 +1,13 @@
+{
+  "router": "openPage",
+  "page_name": "brain_wave_healing_effect",
+  "container": {
+    "w_weight": "1",
+    "h_weight": "1",
+    "direction": "from-right"
+  },
+  "params": {
+    "page": [
+    ]
+  }
+}

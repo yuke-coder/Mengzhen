@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout android:orientation="vertical" android:background="@color/transparent" android:layout_width="match_parent" android:layout_height="match_parent"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <LinearLayout android:orientation="vertical" android:layout_width="match_parent" android:layout_height="400.0dp" android:layout_marginBottom="60.0dp" android:layout_alignParentBottom="true">
+        <View android:id="@id/c7g" android:background="@color/transparent" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_weight="1.0" android:contentDescription="关闭" />
+        <TextView android:textSize="15.0sp" android:textColor="@color/skin_text_main_color" android:gravity="center|bottom" android:id="@id/ldr" android:layout_width="match_parent" android:layout_height="40.0dp" android:text="选择集数" />
+        <com.tencent.qqmusic.ui.customview.GridViewWithHeaderAndFooter android:id="@id/d3a" android:paddingLeft="20.0dp" android:paddingTop="5.0dp" android:paddingRight="20.0dp" android:layout_width="match_parent" android:layout_height="wrap_content" android:numColumns="4" />
+    </LinearLayout>
+    <TextView android:textSize="15.0sp" android:textColor="@color/skin_text_main_color" android:gravity="center" android:id="@id/at0" android:visibility="visible" android:layout_width="match_parent" android:layout_height="59.0dp" android:text="@string/cancel" android:layout_alignParentBottom="true" />
+    <View android:id="@id/bu2" android:background="@color/divide_line_color" android:layout_width="match_parent" android:layout_height="1.0dp" android:layout_above="@id/at0" />
+</RelativeLayout>

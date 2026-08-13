@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout android:gravity="center_vertical" android:orientation="horizontal" android:layout_width="wrap_content" android:layout_height="match_parent"
+  xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">
+    <LinearLayout android:orientation="horizontal" android:id="@id/kjs" android:layout_width="wrap_content" android:layout_height="match_parent">
+        <TextView android:textSize="14.0sp" android:textStyle="bold" android:gravity="center_vertical" android:id="@id/kjr" android:paddingLeft="16.5dp" android:paddingRight="4.1999817dp" android:layout_width="wrap_content" android:layout_height="match_parent" />
+        <TextView android:textSize="14.0sp" android:textStyle="bold" android:ellipsize="end" android:gravity="center_vertical" android:id="@id/kje" android:paddingLeft="16.5dp" android:visibility="gone" android:layout_width="wrap_content" android:layout_height="match_parent" android:singleLine="true" />
+        <TextView android:textSize="14.0sp" android:textStyle="bold" android:ellipsize="end" android:gravity="center_vertical" android:id="@id/kjq" android:paddingRight="4.1999817dp" android:visibility="gone" android:layout_width="wrap_content" android:layout_height="match_parent" android:singleLine="true" />
+    </LinearLayout>
+    <ImageView android:id="@id/j37" android:visibility="gone" android:layout_width="10.5dp" android:layout_height="10.5dp" />
+    <View android:id="@id/kn8" android:layout_width="4.0dp" android:layout_height="match_parent" />
+    <com.tencent.qqmusic.ui.RoundedRelativeLayout android:layout_gravity="center_vertical" android:id="@id/kjy" android:layout_width="1.0dp" android:layout_height="11.0dp" android:layout_marginLeft="9.799988dp" app:ado="5.0dp">
+        <View android:id="@id/n1g" android:layout_width="match_parent" android:layout_height="match_parent" android:alpha="0.3" />
+    </com.tencent.qqmusic.ui.RoundedRelativeLayout>
+</LinearLayout>

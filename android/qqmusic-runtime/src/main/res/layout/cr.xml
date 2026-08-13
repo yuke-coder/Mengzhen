@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout android:background="@drawable/main_bg" android:layout_width="match_parent" android:layout_height="match_parent"
+  xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">
+    <include android:id="@id/lvi" android:layout_width="match_parent" android:layout_height="@dimen/cau" layout="@layout/mu" />
+    <RelativeLayout android:gravity="center_horizontal" android:id="@id/b_d" android:layout_width="match_parent" android:layout_height="500.0dp" app:a26="@id/lvi" />
+    <androidx.recyclerview.widget.RecyclerView android:id="@id/epx" android:layout_width="match_parent" android:layout_height="0.0dp" app:a1d="hnz" app:a26="@id/b_d" />
+</androidx.constraintlayout.widget.ConstraintLayout>

@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout android:layout_width="match_parent" android:layout_height="wrap_content"
+  xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">
+    <androidx.constraintlayout.widget.Guideline android:orientation="vertical" android:id="@id/f0p" android:layout_width="wrap_content" android:layout_height="wrap_content" app:a1n="0.212" />
+    <ImageView android:id="@id/al_" android:layout_width="126.5dp" android:layout_height="72.0dp" android:layout_marginTop="205.0dp" app:a1x="@id/f0p" app:a27="hnz" />
+    <androidx.appcompat.widget.AppCompatTextView android:textSize="10.0dp" android:ellipsize="end" android:gravity="center" android:id="@id/l8d" android:layout_width="84.0dp" android:layout_height="wrap_content" android:layout_marginLeft="22.5dp" android:lines="2" app:a1d="@id/al_" app:a1x="@id/al_" app:a27="@id/al_" />
+    <com.tencent.component.widget.AsyncImageView android:id="@id/did" android:layout_width="21.0dp" android:layout_height="21.0dp" android:layout_marginTop="9.0dp" app:a1x="@id/al_" app:a27="@id/al_" />
+    <ImageView android:id="@id/ka5" android:layout_width="21.0dp" android:layout_height="21.0dp" app:a1d="@id/al_" app:a1y="@id/al_" />
+</androidx.constraintlayout.widget.ConstraintLayout>

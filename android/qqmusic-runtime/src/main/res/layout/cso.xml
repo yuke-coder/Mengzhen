@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout android:paddingLeft="15.0dp" android:paddingRight="15.0dp" android:layout_width="match_parent" android:layout_height="match_parent"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <LinearLayout android:gravity="center_horizontal" android:orientation="vertical" android:id="@id/lrc" android:background="@drawable/bg_together_room_empty_add" android:paddingTop="63.0dp" android:paddingBottom="63.0dp" android:visibility="gone" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginTop="48.0dp">
+        <ImageView android:id="@id/lrb" android:layout_width="40.0dp" android:layout_height="40.0dp" android:src="@drawable/ic_together_room_empty_add_music" />
+        <TextView android:textSize="12.0sp" android:textColor="@color/black" android:id="@id/lrd" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginLeft="5.0dp" android:layout_marginTop="10.0dp" android:layout_marginRight="5.0dp" android:text="@string/id6" android:singleLine="true" />
+    </LinearLayout>
+    <LinearLayout android:orientation="horizontal" android:id="@id/lra" android:visibility="gone" android:layout_width="match_parent" android:layout_height="match_parent" android:layout_marginTop="58.0dp">
+        <LinearLayout android:gravity="center_horizontal" android:orientation="vertical" android:id="@id/lr6" android:background="@drawable/bg_together_room_empty_add" android:paddingTop="47.5dp" android:paddingBottom="47.5dp" android:layout_width="0.0dp" android:layout_height="wrap_content" android:layout_weight="1.0">
+            <ImageView android:id="@id/lr5" android:layout_width="40.0dp" android:layout_height="40.0dp" android:src="@drawable/ic_together_room_empty_add_music" />
+            <TextView android:textSize="12.0sp" android:textColor="@color/black" android:id="@id/lr7" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="10.0dp" android:text="@string/id4" android:singleLine="true" />
+        </LinearLayout>
+        <FrameLayout android:layout_width="8.0dp" android:layout_height="wrap_content" />
+        <LinearLayout android:gravity="center_horizontal" android:orientation="vertical" android:id="@id/lr9" android:background="@drawable/bg_together_room_empty_add" android:paddingTop="47.5dp" android:paddingBottom="47.5dp" android:layout_width="0.0dp" android:layout_height="wrap_content" android:layout_weight="1.0">
+            <ImageView android:id="@id/lr8" android:layout_width="40.0dp" android:layout_height="40.0dp" android:src="@drawable/ic_together_room_empty_add_video" />
+            <TextView android:textSize="12.0sp" android:textColor="@color/black" android:id="@id/lr_" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="10.0dp" android:text="@string/id5" android:singleLine="true" />
+        </LinearLayout>
+    </LinearLayout>
+</RelativeLayout>

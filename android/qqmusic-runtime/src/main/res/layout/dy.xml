@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout android:layout_width="match_parent" android:layout_height="match_parent"
+  xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">
+    <androidx.constraintlayout.widget.ConstraintLayout android:id="@id/ez1" android:layout_width="match_parent" android:layout_height="100.0dp" app:a1e="@id/esq" app:a1j="hnz" app:a23="hnz" app:a27="hnz" />
+    <androidx.constraintlayout.widget.ConstraintLayout android:id="@id/esq" android:layout_width="match_parent" android:layout_height="wrap_content" app:a1e="@id/eyy" app:a1j="hnz" app:a23="hnz" app:a26="@id/ez1" />
+    <LinearLayout android:orientation="vertical" android:background="@color/white" android:padding="16.0dp" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginTop="60.0dp" app:a1x="hnz" app:a21="hnz" app:a27="hnz">
+        <LinearLayout android:orientation="horizontal" android:layout_width="match_parent" android:layout_height="wrap_content">
+            <EditText android:id="@id/c_k" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="msg from tanny" />
+            <Button android:id="@id/akq" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="发送" />
+        </LinearLayout>
+        <LinearLayout android:orientation="horizontal" android:layout_width="match_parent" android:layout_height="wrap_content">
+            <EditText android:id="@id/c_o" android:layout_width="wrap_content" android:layout_height="wrap_content" android:hint="room id" />
+            <Button android:id="@id/aj4" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="进入" />
+        </LinearLayout>
+    </LinearLayout>
+    <androidx.constraintlayout.widget.ConstraintLayout android:id="@id/eyy" android:layout_width="match_parent" android:layout_height="wrap_content" app:a1d="hnz" app:a1j="hnz" app:a23="hnz">
+        <Button android:textSize="18.0sp" android:id="@id/mht" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="录音" app:a1d="hnz" app:a1k="@id/mfp" app:a23="hnz" app:a27="hnz" />
+        <Button android:textSize="18.0sp" android:id="@id/mfp" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="播放" app:a1d="hnz" app:a1k="@id/mqd" app:a22="@id/mht" app:a27="hnz" />
+        <Button android:textSize="18.0sp" android:id="@id/mqd" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="undo" app:a1d="hnz" app:a1k="@id/mi1" app:a22="@id/mfp" app:a27="hnz" />
+        <Button android:textSize="18.0sp" android:id="@id/mi1" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="redo" app:a1d="hnz" app:a1j="hnz" app:a22="@id/mqd" app:a27="hnz" />
+        <Button android:textSize="18.0sp" android:id="@id/m7p" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="删除" app:a1d="hnz" app:a1k="@id/mje" app:a23="hnz" app:a26="@id/mht" />
+        <Button android:textSize="18.0sp" android:id="@id/mje" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="保存" app:a1d="hnz" app:a1j="hnz" app:a22="@id/m7p" app:a26="@id/mht" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>

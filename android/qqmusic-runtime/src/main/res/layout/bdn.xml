@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<merge
+  xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">
+    <com.tme.qqmusic.widget.base.view.CornerConstraintLayout android:id="@id/mlive_gift_card_corner_color" android:background="@drawable/mlive_item_git_text_corner_bg" android:layout_width="wrap_content" android:layout_height="13.0dp" app:lg="10.0dp">
+        <com.tme.qqmusic.widget.base.view.GlideImageView android:layout_gravity="center" android:id="@id/mlive_gift_card_corner_avatar" android:visibility="gone" android:layout_width="11.0dp" android:layout_height="11.0dp" android:layout_marginStart="1.0dp" app:a1d="hnz" app:a1k="@id/mlive_gift_card_corner_text" app:a23="hnz" app:a27="hnz" />
+        <androidx.appcompat.widget.AppCompatTextView android:textSize="9.0dp" android:textColor="@color/white" android:gravity="center" android:layout_gravity="center" android:id="@id/mlive_gift_card_corner_text" android:visibility="gone" android:layout_width="wrap_content" android:layout_height="13.0dp" android:singleLine="true" android:includeFontPadding="false" android:layout_marginStart="4.0dp" android:layout_marginEnd="4.0dp" app:a1d="hnz" app:a1j="hnz" app:a22="@id/mlive_gift_card_corner_avatar" app:a27="hnz" />
+    </com.tme.qqmusic.widget.base.view.CornerConstraintLayout>
+    <com.tme.qqmusic.widget.base.view.GlideImageView android:layout_gravity="center" android:id="@id/mlive_gift_card_corner_icon" android:visibility="gone" android:layout_width="26.5dp" android:layout_height="13.0dp" />
+</merge>

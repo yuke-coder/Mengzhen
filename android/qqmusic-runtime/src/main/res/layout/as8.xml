@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout android:layout_width="match_parent" android:layout_height="match_parent"
+  xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">
+    <include android:id="@id/naf" android:layout_width="match_parent" android:layout_height="match_parent" layout="@layout/m6" />
+    <androidx.recyclerview.widget.RecyclerView android:id="@id/jen" android:paddingBottom="80.0dp" android:clipToPadding="false" android:layout_width="match_parent" android:layout_height="match_parent" />
+    <androidx.constraintlayout.widget.ConstraintLayout android:id="@id/ez0" android:background="@color/transparent" android:layout_width="match_parent" android:layout_height="@dimen/cau" app:a23="hnz" app:a27="hnz">
+        <androidx.appcompat.widget.AppCompatImageView android:id="@id/elr" android:layout_width="30.0dp" android:layout_height="30.0dp" android:layout_marginLeft="20.0dp" android:layout_marginBottom="10.0dp" android:src="@drawable/icon_buds_folder_back" android:scaleType="fitXY" app:a1d="hnz" app:a23="hnz" />
+        <androidx.appcompat.widget.AppCompatTextView android:textSize="11.0dp" android:gravity="center" android:id="@id/mq2" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginRight="6.0dp" android:layout_marginBottom="3.0dp" android:text="@string/a0m" app:a1d="@id/els" app:a1k="@id/els" app:a27="@id/els" />
+        <androidx.appcompat.widget.AppCompatImageView android:id="@id/els" android:layout_width="34.0dp" android:layout_height="20.0dp" android:layout_marginRight="16.0dp" android:src="@drawable/switch_off_new_default_skin" android:scaleType="fitCenter" android:layout_alignParentRight="true" android:layout_alignParentBottom="true" android:layout_centerVertical="true" app:a1d="@id/elr" app:a1j="hnz" app:a27="@id/elr" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</RelativeLayout>

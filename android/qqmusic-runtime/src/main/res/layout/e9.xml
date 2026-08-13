@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout android:id="@id/axc" android:background="@drawable/bg_status_check_in_page" android:layout_width="match_parent" android:layout_height="match_parent"
+  xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">
+    <ImageView android:id="@id/axb" android:background="@drawable/bg_check_in_page_back" android:layout_width="30.0dp" android:layout_height="30.0dp" android:layout_marginTop="51.0dp" android:layout_marginStart="20.0dp" app:a23="hnz" app:a27="hnz" />
+    <TextView android:textSize="18.0dp" android:textColor="#ffffff" android:id="@id/axd" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="55.0dp" android:text="@string/a4s" app:a1j="hnz" app:a23="hnz" app:a27="hnz" />
+    <TextView android:textSize="14.0dp" android:textColor="#000000" android:gravity="center" android:id="@id/axf" android:background="@drawable/button_status_check_in_release_bg" android:paddingLeft="14.0dp" android:paddingRight="14.0dp" android:layout_width="wrap_content" android:layout_height="30.0dp" android:text="@string/a50" android:layout_marginEnd="22.5dp" android:paddingHorizontal="14.0dp" app:a1d="@id/axd" app:a1j="hnz" app:a27="@id/axd" />
+    <FrameLayout android:id="@id/kx3" android:visibility="gone" android:layout_width="match_parent" android:layout_height="wrap_content" app:a1d="@id/axg" app:a27="@id/axg">
+        <include layout="@layout/mj" />
+    </FrameLayout>
+    <LinearLayout android:gravity="center_vertical" android:orientation="vertical" android:id="@id/c9u" android:visibility="gone" android:layout_width="match_parent" android:layout_height="0.0dp" android:layout_marginTop="18.0dp" android:layout_marginBottom="20.0dp" app:a1e="@id/kx0" app:a23="hnz" app:a26="@id/axd">
+        <TextView android:textSize="16.0dp" android:textColor="#ffffff" android:gravity="center" android:id="@id/c9s" android:layout_width="match_parent" android:layout_height="wrap_content" android:text="@string/b2o" />
+        <TextView android:textSize="14.0dp" android:textColor="#ffffff" android:gravity="center" android:id="@id/c9t" android:layout_width="match_parent" android:layout_height="wrap_content" android:text="@string/b2p" />
+    </LinearLayout>
+    <com.tencent.qqmusic.business.playernew.view.ui.StatusListViewPager android:id="@id/axg" android:layout_width="match_parent" android:layout_height="0.0dp" android:layout_marginTop="35.0dp" android:layout_marginBottom="20.0dp" app:a1e="@id/kx0" app:a23="hnz" app:a26="@id/axd" />
+    <LinearLayout android:gravity="center_vertical" android:id="@id/kx0" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginBottom="25.0dp" android:layout_marginStart="20.0dp" app:a1d="hnz" app:a23="hnz">
+        <ImageView android:layout_width="18.0dp" android:layout_height="18.0dp" android:src="@drawable/icon_check_in_status_keep_time" />
+        <TextView android:textColor="#ffffff" android:gravity="center" android:id="@id/kx1" android:layout_width="wrap_content" android:layout_height="30.0dp" android:text="@string/a4z" android:maxLines="1" android:drawableEnd="@drawable/action_more_icon" android:layout_marginStart="6.0dp" />
+    </LinearLayout>
+    <LinearLayout android:gravity="center_vertical" android:id="@id/crj" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginBottom="25.0dp" android:layout_marginStart="20.0dp" app:a1d="hnz" app:a22="@id/kx0">
+        <ImageView android:id="@id/cri" android:background="@drawable/icon_check_in_follow_status" android:layout_width="18.0dp" android:layout_height="18.0dp" />
+        <TextView android:textColor="#ffffff" android:gravity="center" android:id="@id/crk" android:layout_width="wrap_content" android:layout_height="30.0dp" android:text="@string/a4w" android:maxLines="1" android:layout_marginStart="6.0dp" />
+    </LinearLayout>
+    <LinearLayout android:id="@id/mx5" android:background="@drawable/bg_gender_switch" android:layout_width="60.0dp" android:layout_height="23.0dp" android:layout_marginBottom="28.5dp" android:layout_marginEnd="20.0dp" app:a1d="hnz" app:a1j="hnz">
+        <ImageView android:id="@id/czd" android:background="@drawable/button_gender_selected_bg" android:layout_width="30.0dp" android:layout_height="match_parent" android:src="@drawable/icon_switch_woman" />
+        <ImageView android:id="@id/cze" android:layout_width="30.0dp" android:layout_height="match_parent" android:src="@drawable/icon_switch_man" />
+    </LinearLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>

@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout android:background="@color/picture_selector_clip_bg_color" android:layout_width="match_parent" android:layout_height="match_parent"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <include android:id="@id/b3_" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_alignParentTop="true" layout="@layout/c39" />
+    <com.tencent.picker.VideoFragmentSelectorView android:id="@id/n44" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginLeft="37.0dp" android:layout_marginTop="6.0dp" android:layout_marginBottom="12.0dp" android:layout_alignParentBottom="true" />
+    <TextView android:textSize="14.0sp" android:textColor="@color/picture_selector_clip_duration_color" android:id="@id/n46" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginLeft="37.0dp" android:layout_marginTop="12.0dp" android:layout_above="@id/n44" />
+    <FrameLayout android:clickable="true" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_above="@id/n46" android:layout_below="@id/b3_">
+        <com.tencent.picker.AdaptiveVideoView android:layout_gravity="center" android:id="@id/n_1" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_centerHorizontal="true" />
+        <ImageView android:layout_gravity="center" android:id="@id/n5_" android:layout_width="50.0dp" android:layout_height="50.0dp" android:src="@drawable/timeline_pause" android:scaleType="fitXY" />
+        <FrameLayout android:id="@id/b35" android:background="@color/picture_selector_clip_ing_bg_color" android:visibility="invisible" android:layout_width="match_parent" android:layout_height="match_parent">
+            <LinearLayout android:layout_gravity="center" android:orientation="horizontal" android:layout_width="wrap_content" android:layout_height="wrap_content">
+                <ProgressBar android:layout_width="wrap_content" android:layout_height="wrap_content" />
+                <TextView android:textColor="@android:color/white" android:gravity="center" android:layout_width="wrap_content" android:layout_height="match_parent" android:layout_marginLeft="2.0dp" android:text="@string/e4z" />
+            </LinearLayout>
+        </FrameLayout>
+    </FrameLayout>
+</RelativeLayout>

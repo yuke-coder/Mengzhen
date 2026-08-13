@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout android:id="@id/b8n" android:background="@drawable/main_bg" android:layout_width="match_parent" android:layout_height="match_parent"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <RelativeLayout android:id="@id/b97" android:layout_width="match_parent" android:layout_height="wrap_content">
+        <ViewStub android:id="@id/b7k" android:layout="@layout/n5" android:layout_width="match_parent" android:layout_height="@dimen/cau" android:layout_alignParentTop="true" />
+    </RelativeLayout>
+    <LinearLayout android:orientation="vertical" android:id="@id/igi" android:layout_width="match_parent" android:layout_height="match_parent" android:layout_below="@id/b97" />
+</RelativeLayout>

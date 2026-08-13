@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout android:orientation="vertical" android:id="@id/n9_" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginBottom="10.0dp"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <androidx.constraintlayout.widget.ConstraintLayout android:id="@id/n98" android:layout_width="match_parent" android:layout_height="wrap_content"
+      xmlns:app="http://schemas.android.com/apk/res-auto">
+        <ImageView android:id="@id/n99" android:clickable="false" android:layout_width="18.0dp" android:layout_height="18.0dp" android:src="@drawable/video_tab_music_logo" app:a1d="hnz" app:a23="hnz" app:a27="hnz" />
+        <TextView android:textSize="14.0dp" android:textColor="@color/white" android:ellipsize="end" android:gravity="center_vertical" android:id="@id/n9a" android:layout_width="wrap_content" android:layout_height="wrap_content" android:maxLines="1" android:includeFontPadding="false" android:layout_marginStart="2.0dp" android:layout_marginEnd="4.0dp" app:a18="true" app:a1d="hnz" app:a1k="@id/n7v" app:a1t="0.0" app:a1u="hmg" app:a22="@id/n99" app:a27="hnz" />
+        <ImageView android:id="@id/n7v" android:layout_width="20.0dp" android:layout_height="20.0dp" android:src="@drawable/video_tab_not_fav" android:contentDescription="@string/g4r" app:a1d="hnz" app:a1j="hnz" app:a22="@id/n9a" app:a27="hnz" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+    <LinearLayout android:gravity="center_vertical" android:orientation="horizontal" android:id="@id/n81" android:visibility="gone" android:layout_width="match_parent" android:layout_height="wrap_content">
+        <ImageView android:clickable="false" android:layout_width="18.0dp" android:layout_height="18.0dp" android:src="@drawable/video_tab_music_logo" />
+        <TextView android:textSize="13.0dp" android:textColor="@color/white" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginLeft="2.0dp" android:text="相关歌曲" android:maxLines="1" />
+        <TextView android:textSize="13.0dp" android:textColor="#80ffffff" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginLeft="4.0dp" android:layout_marginRight="4.0dp" android:text="|" android:maxLines="1" />
+        <TextView android:textSize="13.0dp" android:textColor="@color/white" android:ellipsize="end" android:gravity="center_vertical" android:id="@id/n82" android:layout_width="0.0dp" android:layout_height="wrap_content" android:maxLines="1" android:layout_weight="1.0" />
+        <ImageView android:layout_gravity="center_vertical" android:layout_width="20.0dp" android:layout_height="20.0dp" android:src="@drawable/video_tab_arrow_right" />
+    </LinearLayout>
+</LinearLayout>

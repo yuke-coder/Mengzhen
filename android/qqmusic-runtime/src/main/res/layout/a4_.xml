@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout android:id="@id/nqe" android:layout_width="match_parent" android:layout_height="match_parent"
+  xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">
+    <View android:id="@id/nqf" android:layout_width="match_parent" android:layout_height="match_parent" />
+    <com.tencent.qqmusic.ui.RoundedConstraintLayout android:id="@id/nqi" android:layout_width="match_parent" android:layout_height="wrap_content" app:a1d="hnz" app:adm="fwy|je9" app:ado="12.0dp">
+        <FrameLayout android:id="@id/nqh" android:layout_width="match_parent" android:layout_height="wrap_content" />
+        <ProgressBar android:id="@id/nqg" android:visibility="gone" android:layout_width="30.0dp" android:layout_height="30.0dp" android:indeterminate="true" android:indeterminateOnly="true" android:indeterminateDrawable="@drawable/icn_loading_indicator" android:indeterminateDuration="2000" app:a1d="hnz" app:a1j="hnz" app:a23="hnz" app:a27="hnz" />
+    </com.tencent.qqmusic.ui.RoundedConstraintLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>

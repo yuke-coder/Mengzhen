@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout android:background="@color/transparent" android:paddingTop="20.0dp" android:paddingBottom="20.0dp" android:layout_width="match_parent" android:layout_height="wrap_content"
+  xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">
+    <LinearLayout android:gravity="center" android:orientation="horizontal" android:id="@id/vg" android:background="@drawable/album_detail_button_v2_bg" android:layout_width="0.0dp" android:layout_height="40.0dp" android:paddingStart="10.0dp" android:paddingEnd="10.0dp" android:layout_marginStart="@dimen/ep" android:layout_marginEnd="5.0dp" app:a1d="hnz" app:a1k="@id/uq" app:a23="hnz" app:a27="hnz">
+        <com.tencent.component.widget.AsyncEffectImageView android:id="@id/ve" android:layout_width="20.0dp" android:layout_height="20.0dp" android:src="@drawable/album_detail_button_radio" />
+        <TextView android:textSize="14.0dp" android:textColor="@color/skin_text_main_color" android:gravity="center" android:id="@id/vi" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginLeft="8.0dp" android:text="购买数专" android:maxLines="1" android:singleLine="true" />
+    </LinearLayout>
+    <androidx.constraintlayout.widget.Guideline android:orientation="vertical" android:id="@id/uq" android:layout_width="1.0dp" android:layout_height="wrap_content" app:a1n="0.5" />
+    <LinearLayout android:gravity="center" android:orientation="horizontal" android:id="@id/vh" android:background="@drawable/album_detail_button_v2_bg" android:layout_width="0.0dp" android:layout_height="40.0dp" android:paddingStart="10.0dp" android:paddingEnd="10.0dp" android:layout_marginStart="5.0dp" android:layout_marginEnd="@dimen/ep" app:a1d="hnz" app:a1j="hnz" app:a22="@id/uq" app:a27="hnz">
+        <com.tencent.component.widget.AsyncEffectImageView android:id="@id/vf" android:layout_width="20.0dp" android:layout_height="20.0dp" android:src="@drawable/album_detail_button_play" />
+        <TextView android:textSize="14.0dp" android:textColor="@color/skin_text_main_color" android:gravity="center" android:id="@id/vj" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginLeft="8.0dp" android:text="订阅" android:maxLines="1" android:singleLine="true" />
+    </LinearLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>

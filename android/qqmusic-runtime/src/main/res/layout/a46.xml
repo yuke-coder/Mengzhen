@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout android:layout_width="match_parent" android:layout_height="match_parent"
+  xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">
+    <include android:id="@id/naf" android:layout_width="match_parent" android:layout_height="match_parent" layout="@layout/m6" />
+    <FrameLayout android:id="@id/cvx" android:layout_width="match_parent" android:layout_height="wrap_content">
+        <include android:id="@id/cvw" android:layout_width="match_parent" android:layout_height="@dimen/cau" layout="@layout/mu" />
+    </FrameLayout>
+    <FrameLayout android:id="@id/cu4" android:layout_width="match_parent" android:layout_height="match_parent" android:layout_below="@id/cvx" />
+</RelativeLayout>

@@ -1,0 +1,7 @@
+{
+  "router": "openHalf",
+  "page_name": "dialog_pay_succ",
+  "params": {
+    "type": "2"
+  }
+}

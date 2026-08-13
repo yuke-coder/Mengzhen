@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout android:id="@id/gds" android:layout_width="wrap_content" android:layout_height="wrap_content"
+  xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">
+    <com.tencent.component.widget.AsyncEffectImageView android:id="@id/gga" android:layout_width="140.0dp" android:layout_height="140.0dp" android:scaleType="centerCrop" android:importantForAccessibility="no" app:a1x="hnz" app:a27="hnz" />
+    <com.tencent.qqmusic.modular.module.musichall.views.widget.CardTitleView android:id="@id/gde" android:visibility="visible" android:layout_width="0.0dp" android:layout_height="wrap_content" android:layout_marginTop="6.0dp" android:importantForAccessibility="no" app:a1x="@id/gga" app:a21="@id/gga" app:a26="@id/gga" />
+    <com.tencent.qqmusic.modular.module.musichall.views.widget.FolderMaskView android:id="@id/gex" android:layout_width="0.0dp" android:layout_height="0.0dp" app:a1d="@id/gga" app:a1x="@id/gga" app:a21="@id/gga" app:a27="@id/gga" />
+    <View android:id="@id/gf5" android:visibility="gone" android:layout_width="30.0dp" android:layout_height="30.0dp" app:a1d="@id/gex" app:a1j="@id/gex" />
+    <ImageView android:id="@id/gf4" android:visibility="gone" android:layout_width="14.0dp" android:layout_height="14.0dp" android:layout_marginBottom="5.0dp" android:layout_marginEnd="7.0dp" app:a1d="@id/gex" app:a1j="@id/gex" />
+</androidx.constraintlayout.widget.ConstraintLayout>

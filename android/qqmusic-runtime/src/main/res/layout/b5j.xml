@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout android:layout_width="match_parent" android:layout_height="match_parent"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <RelativeLayout android:id="@id/j4z" android:visibility="gone" android:layout_width="wrap_content" android:layout_height="match_parent" android:layout_centerVertical="true" android:layout_marginStart="16.0dp">
+        <ImageView android:id="@id/j4v" android:background="@drawable/lmf_beauty_item_reset" android:layout_width="50.0dp" android:layout_height="50.0dp" android:layout_marginTop="23.0dp" android:layout_marginRight="8.0dp" android:layout_marginBottom="3.0dp" android:scaleType="center" android:contentDescription="null" />
+        <TextView android:textSize="14.0sp" android:textColor="@drawable/lmf_beautify_lens_item_title_color" android:gravity="center" android:id="@id/j53" android:layout_width="50.0dp" android:layout_height="wrap_content" android:layout_marginTop="8.0dp" android:text="重置" android:singleLine="true" android:layout_below="@id/j4v" />
+        <View android:background="#4dffffff" android:layout_width="1.0dp" android:layout_height="wrap_content" android:layout_toRightOf="@id/j4v" android:layout_alignTop="@id/j4v" android:layout_alignBottom="@id/j53" />
+    </RelativeLayout>
+    <androidx.recyclerview.widget.RecyclerView android:id="@id/j33" android:clipChildren="false" android:clipToPadding="false" android:layout_width="match_parent" android:layout_height="match_parent" android:layout_toRightOf="@id/j4z" />
+</RelativeLayout>

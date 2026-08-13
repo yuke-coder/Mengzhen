@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout android:id="@id/n4k" android:background="@color/black" android:layout_width="match_parent" android:layout_height="wrap_content"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <RelativeLayout android:orientation="vertical" android:id="@id/n4j" android:layout_width="match_parent" android:layout_height="300.0dp">
+        <FrameLayout android:id="@id/n9w" android:layout_width="match_parent" android:layout_height="match_parent" />
+        <View android:id="@id/n9x" android:background="@drawable/black_color_without_alpha" android:layout_width="match_parent" android:layout_height="match_parent" />
+        <com.tencent.component.widget.AsyncImageView android:id="@id/dqc" android:visibility="gone" android:layout_width="match_parent" android:layout_height="match_parent" android:scaleType="centerCrop" />
+        <FrameLayout android:id="@id/esr" android:background="#201917" android:visibility="gone" android:layout_width="match_parent" android:layout_height="match_parent">
+            <com.tencent.component.widget.AsyncImageView android:layout_gravity="center" android:id="@id/dpj" android:layout_width="150.0dp" android:layout_height="150.0dp" />
+        </FrameLayout>
+        <include layout="@layout/b26" />
+        <include layout="@layout/b27" />
+        <TextView android:textSize="14.0sp" android:textColor="@color/white" android:ellipsize="end" android:gravity="center_horizontal" android:id="@id/bmc" android:visibility="gone" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginTop="48.0dp" android:maxLines="1" />
+        <FrameLayout android:id="@id/hu3" android:layout_width="match_parent" android:layout_height="match_parent" android:layout_centerHorizontal="true" />
+        <FrameLayout android:id="@id/hu4" android:layout_width="290.0dp" android:layout_height="28.0dp" android:layout_marginTop="7.5dp" android:layout_centerHorizontal="true" />
+        <include android:layout_width="match_parent" android:layout_height="match_parent" layout="@layout/cat" />
+        <ViewStub android:id="@id/ga6" android:layout="@layout/ay_" android:layout_width="match_parent" android:layout_height="match_parent" />
+        <ImageView android:id="@id/hts" android:layout_width="29.0dp" android:layout_height="29.0dp" android:layout_marginLeft="58.0dp" android:layout_marginTop="7.0dp" android:src="@drawable/tencent_video_back_btn" android:scaleType="centerInside" />
+        <com.tencent.qqmusic.ui.MarqueeTextView android:textSize="15.0sp" android:textColor="#fff" android:ellipsize="end" android:gravity="left|center" android:id="@id/n59" android:focusable="true" android:focusableInTouchMode="true" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginLeft="94.0dp" android:layout_marginTop="12.0dp" android:layout_marginRight="180.0dp" android:scrollHorizontally="true" android:singleLine="true" android:includeFontPadding="true" android:layout_alignParentLeft="true" android:marqueeRepeatLimit="marquee_forever" />
+    </RelativeLayout>
+</RelativeLayout>

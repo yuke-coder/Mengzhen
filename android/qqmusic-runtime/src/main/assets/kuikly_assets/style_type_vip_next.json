@@ -1,0 +1,408 @@
+{
+  "router": "openHalf",
+  "page_name": "dialog_universal_style",
+  "debug": 0,
+  "container": {},
+  "params": {
+    "id": "512",
+    "viewId": "23167",
+    "renderType": "RENDER_TYPE_KUIKLY",
+    "styleType": 7,
+    "styleItemType": "STYLE_ITEM_TYPE_COMMON",
+    "display": {
+      "title": "您的豪华绿钻即将过期",
+      "subTitle": "续费会员，享受继续领续费会员",
+      "buttons": [
+        {
+          "name": "MAIN",
+          "title": "%d元立即续费",
+          "description": "角标文案",
+          "link": {
+            "type": "LINK_TYPE_PAY"
+          },
+          "color": "#00F8AC",
+          "textColor": "#000000"
+        }
+      ],
+      "images": [
+        {
+          "name": "CORNERIMAGE",
+          "url": "https://y.qq.com/music/common/upload/new_remind_viewid_v2/6981942.png"
+        },
+        {
+          "name": "BACKGROUND",
+          "url": "https://y.qq.com/music/common/upload/t_cm3_photo_publish/6973207.png"
+        }
+      ],
+      "countdown": {
+        "endTime": "24: 00: 00"
+      },
+      "attributeList": [
+        {
+          "name": "FontColor",
+          "value": "#000000"
+        },
+        {
+          "name": "pop_url",
+          "value": {
+            "auto_rene_url": "https://y.qq.com/forest/R__a7LX00UtR-A2y/index.html",
+            "vip_argument": "https://y.qq.com/forest/ou5v6U56CuFum3Yz/index.html",
+            "pay_url": "https://fastest.y.qq.com/m/basic/client/kuikly_pay/vip_next/index.html?_tde_id=40017"
+          }
+        }
+      ]
+    },
+    "memberShipInfo": {
+      "vipType": "VIP_TYPE_SVIP",
+      "priceItem": {
+        "reportId": "music_hhlz_64276",
+        "price": 488,
+        "originalPrice": 1800,
+        "productPayType": 10
+      }
+    },
+    "report": {
+      "abt": {
+        "moduleKey": "0"
+      }
+    },
+    "cycle": {},
+    "styleId": 52,
+    "businessCode": 1,
+    "data": {
+      "banners": {
+        "music_hhlz_sync_2203_881548": {
+          "id": 1000236,
+          "styleInfo": {
+            "type": 2,
+            "songInfo": {
+              "songType": 0,
+              "songName": "",
+              "albumCover": "",
+              "content": ""
+            },
+            "rights": [
+            ],
+            "banners": [
+              {
+                "image": "https://y.qq.com/pangu-img/P15532388R670X150T0305184.png",
+                "jumpURL": ""
+              }
+            ],
+            "brandRightsPool": {
+              "title": "",
+              "rulesText": "",
+              "showNums": 0,
+              "brands": [
+              ]
+            }
+          },
+          "priority": 99
+        }
+      },
+      "offer": [
+        {
+          "id": 1000010,
+          "offers": [
+            {
+              "id": "music_hhlz_64276",
+              "type": 0,
+              "product": {
+                "business": "vip",
+                "productID": "5201713681640431",
+                "skuID": "6201713317622956",
+                "activityID": "31425032432232",
+                "periodUnit": 3,
+                "periodNumber": 1,
+                "marketPrice": 1800,
+                "price": 488,
+                "renewPrice": 1500,
+                "payType": 10,
+                "platform": 1,
+                "productExtraSpec": {
+                  "groupMemberNums": 0
+                },
+                "limit": {
+                  "limit": {
+                    "effectiveEndTime": 0,
+                    "availableStock": 0,
+                    "isShowStock": false
+                  },
+                  "isLimitStock": false
+                }
+              },
+              "pack": {
+                "name": "测试体验会员",
+                "group": "hhlz",
+                "text": "",
+                "icon": "",
+                "image": ""
+              },
+              "upgrade": {
+                "maxMonths": 0,
+                "maxDays": 0,
+                "defaultMonths": 0,
+                "defaultDays": 0
+              },
+              "paymentAction": {
+                "type": 0,
+                "jumpURL": ""
+              },
+              "incentive": {
+                "discountStyle": 1,
+                "discountText": "",
+                "buttonText": "",
+                "mainText": "",
+                "mainOperateText": "限定版体验会员",
+                "viceOperateText": "续费15元",
+                "icon": "",
+                "countdownDuration": 0,
+                "contractSignOperateText": "首月"
+              },
+              "abtStrategyID": "9499",
+              "categoryTag": "hhlz",
+              "gift": {
+                "gifts": [
+                ]
+              },
+              "deductionActivity": {
+                "deductionActivities": [
+                ]
+              },
+              "activityType": 2,
+              "rescissionConfig": {
+                "rescissionRecoveryDays": 0
+              },
+              "isContractTrial": false,
+              "priceOfferGroupID": 1000010,
+              "mutexType": 1,
+              "coupons": [
+              ],
+              "discountActivity": {
+                "activityID": "31425032432232",
+                "activityType": 2,
+                "limit": {
+                  "effectiveEndTime": 0,
+                  "availableStock": 0,
+                  "isShowStock": false
+                },
+                "isLimitStock": false
+              },
+              "conditionalActivity": {
+                "conditionalActivities": [
+                ]
+              }
+            },
+            {
+              "id": "music_hhlz_64758",
+              "type": 0,
+              "product": {
+                "business": "vip",
+                "productID": "1200121890487412",
+                "skuID": "2200120884105317",
+                "activityID": "0",
+                "periodUnit": 6,
+                "periodNumber": 1,
+                "marketPrice": 21600,
+                "price": 16800,
+                "renewPrice": 0,
+                "payType": 2,
+                "platform": 1,
+                "productExtraSpec": {
+                  "groupMemberNums": 0
+                },
+                "limit": {
+                  "limit": {
+                    "effectiveEndTime": 0,
+                    "availableStock": 0,
+                    "isShowStock": false
+                  },
+                  "isLimitStock": false
+                }
+              },
+              "pack": {
+                "name": "测试加购信息",
+                "group": "hhlz",
+                "text": "",
+                "icon": "",
+                "image": ""
+              },
+              "upgrade": {
+                "maxMonths": 0,
+                "maxDays": 0,
+                "defaultMonths": 1,
+                "defaultDays": 0
+              },
+              "paymentAction": {
+                "type": 0,
+                "jumpURL": ""
+              },
+              "incentive": {
+                "discountStyle": 0,
+                "discountText": "1",
+                "buttonText": "3",
+                "mainText": "12个月",
+                "mainOperateText": "立省48元",
+                "viceOperateText": "",
+                "icon": "",
+                "countdownDuration": 0,
+                "contractSignOperateText": "2"
+              },
+              "abtStrategyID": "9499",
+              "categoryTag": "hhlz",
+              "gift": {
+                "gifts": [
+                  {
+                    "activityID": "31025031900900",
+                    "quantity": 1,
+                    "operateText": "赠品在购买后自动下发",
+                    "items": [
+                      {
+                        "skuID": "2200182817788654",
+                        "title": "唯品会年卡",
+                        "description": "送唯品会年卡",
+                        "icon": "https://y.qq.com/pangu-img/P54327922R180X180T0217515.png",
+                        "jumpURL": "https://jzt-forest.woa.com/editor/#/edit/f6640b59-9327-4193-8c61-30a03250c1a8?folderId=",
+                        "marketPrice": 0,
+                        "qbNum": 0
+                      },
+                      {
+                        "skuID": "2200110127731468",
+                        "title": "肯德基月卡",
+                        "description": "送肯德基月卡",
+                        "icon": "https://y.qq.com/pangu-img/P86786357R90X90T1023677.png",
+                        "jumpURL": "",
+                        "marketPrice": 0,
+                        "qbNum": 0
+                      }
+                    ],
+                    "bindingMarketingActivityID": "",
+                    "title": "测试赠品活动标题",
+                    "banner": ""
+                  }
+                ]
+              },
+              "deductionActivity": {
+                "deductionActivities": [
+                ]
+              },
+              "activityType": 0,
+              "rescissionConfig": {
+                "rescissionRecoveryDays": 0
+              },
+              "isContractTrial": false,
+              "priceOfferGroupID": 1000010,
+              "mutexType": 1,
+              "coupons": [
+              ],
+              "discountActivity": {
+                "activityID": "0",
+                "activityType": 0,
+                "limit": {
+                  "effectiveEndTime": 0,
+                  "availableStock": 0,
+                  "isShowStock": false
+                },
+                "isLimitStock": false
+              },
+              "conditionalActivity": {
+                "conditionalActivities": [
+                ]
+              }
+            },
+            {
+              "id": "music_hhlz_sync_2203_881548",
+              "type": 0,
+              "product": {
+                "business": "vip",
+                "productID": "1201443877684254",
+                "skuID": "2201441141387532",
+                "activityID": "21425022510022",
+                "periodUnit": 6,
+                "periodNumber": 1,
+                "marketPrice": 21600,
+                "price": 8800,
+                "renewPrice": 15800,
+                "payType": 10,
+                "platform": 1,
+                "productExtraSpec": {
+                  "groupMemberNums": 0
+                },
+                "limit": {
+                  "limit": {
+                    "effectiveEndTime": 0,
+                    "availableStock": 0,
+                    "isShowStock": false
+                  },
+                  "isLimitStock": false
+                }
+              },
+              "pack": {
+                "name": "【H5】绿钻首开-连续包年88【老平台自动同步】itemTag:2203_881548",
+                "group": "hhlz",
+                "text": "",
+                "icon": "",
+                "image": ""
+              },
+              "upgrade": {
+                "maxMonths": 0,
+                "maxDays": 0,
+                "defaultMonths": 1,
+                "defaultDays": 0
+              },
+              "paymentAction": {
+                "type": 0,
+                "jumpURL": ""
+              },
+              "incentive": {
+                "discountStyle": 0,
+                "discountText": "",
+                "buttonText": "",
+                "mainText": "连续包年",
+                "mainOperateText": "春日好运年卡",
+                "viceOperateText": "享首年4折，仅需0.23元/天，到期自动续费158元，可随时取消",
+                "icon": "",
+                "countdownDuration": 0,
+                "contractSignOperateText": "首年"
+              },
+              "abtStrategyID": "9499",
+              "categoryTag": "hhlz",
+              "gift": {
+                "gifts": [
+                ]
+              },
+              "deductionActivity": {
+                "deductionActivities": [
+                ]
+              },
+              "activityType": 2,
+              "rescissionConfig": {
+                "rescissionRecoveryDays": 0
+              },
+              "isContractTrial": false,
+              "priceOfferGroupID": 1000010,
+              "mutexType": 1,
+              "coupons": [
+              ],
+              "discountActivity": {
+                "activityID": "21425022510022",
+                "activityType": 2,
+                "limit": {
+                  "effectiveEndTime": 0,
+                  "availableStock": 0,
+                  "isShowStock": false
+                },
+                "isLimitStock": false
+              },
+              "conditionalActivity": {
+                "conditionalActivities": [
+                ]
+              }
+            }
+          ],
+          "abtExperimentID": 0
+        }
+      ]
+    }
+  }
+}

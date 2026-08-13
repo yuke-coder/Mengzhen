@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.tencent.qqmusic.ui.RoundedConstraintLayout android:layout_width="match_parent" android:layout_height="311.0dp" app:ki="fwy|je9" app:kj="12.0dp"
+  xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">
+    <ImageView android:id="@id/a97" android:layout_width="match_parent" android:layout_height="match_parent" android:scaleType="centerCrop" />
+    <androidx.constraintlayout.widget.ConstraintLayout android:paddingTop="20.0dp" android:layout_width="match_parent" android:layout_height="match_parent">
+        <ImageView android:id="@id/m0c" android:layout_width="24.0dp" android:layout_height="24.0dp" android:layout_marginLeft="12.5dp" android:layout_marginTop="8.5dp" android:src="@drawable/action_folder_back_black" app:a1x="hnz" app:a27="hnz" />
+        <androidx.appcompat.widget.AppCompatTextView android:textSize="16.0sp" android:textColor="@color/skin_text_main_color" android:id="@id/m0f" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/go0" app:a1x="hnz" app:a21="hnz" app:a27="hnz" />
+        <androidx.appcompat.widget.AppCompatTextView android:textSize="12.0sp" android:textColor="@color/skin_text_sub_color" android:id="@id/m0e" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/a9a" app:a1x="@id/m0f" app:a21="@id/m0f" app:a26="@id/m0f" />
+        <androidx.recyclerview.widget.RecyclerView android:scrollbarSize="4.0dp" android:id="@id/m0d" android:scrollbars="vertical" android:layout_width="match_parent" android:layout_height="190.0dp" android:layout_marginLeft="20.0dp" android:layout_marginTop="16.0dp" android:scrollbarFadeDuration="0" app:a26="@id/m0e" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</com.tencent.qqmusic.ui.RoundedConstraintLayout>

@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout android:layout_width="match_parent" android:layout_height="match_parent"
+  xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">
+    <include android:id="@id/naf" android:layout_width="match_parent" android:layout_height="match_parent" app:a23="hnz" app:a27="hnz" layout="@layout/m6" />
+    <include android:id="@id/lv1" android:layout_width="match_parent" android:layout_height="@dimen/cau" app:a23="hnz" app:a27="hnz" layout="@layout/mu" />
+    <ScrollView android:layout_width="match_parent" android:layout_height="match_parent" android:layout_marginTop="@dimen/cau">
+        <androidx.constraintlayout.widget.ConstraintLayout android:layout_width="match_parent" android:layout_height="wrap_content">
+            <TextView android:textSize="15.0dp" android:textColor="@color/skin_text_main_color" android:id="@id/ma2" android:paddingLeft="@dimen/s1" android:paddingRight="@dimen/s1" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginTop="@dimen/rr" android:paddingHorizontal="@dimen/s1" app:a23="hnz" app:a27="hnz" />
+            <TextureView android:id="@id/las" android:layout_width="310.0dp" android:layout_height="700.0dp" android:layout_margin="@dimen/s1" app:a1d="hnz" app:a1j="hnz" app:a23="hnz" app:a26="@id/ma2" />
+            <ImageView android:id="@id/edl" android:layout_width="50.0dp" android:layout_height="50.0dp" android:src="@drawable/icon_vr_room_record_video_play" app:a1d="@id/las" app:a1j="@id/las" app:a23="@id/las" app:a27="@id/las" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </ScrollView>
+</androidx.constraintlayout.widget.ConstraintLayout>

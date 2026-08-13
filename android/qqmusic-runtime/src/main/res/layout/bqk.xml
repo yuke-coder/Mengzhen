@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout android:gravity="end" android:orientation="vertical" android:id="@id/gzw" android:layout_width="match_parent" android:layout_height="wrap_content"
+  xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">
+    <View android:layout_gravity="end" android:id="@id/h02" android:background="@drawable/music_hall_guide_banner_triangle_top" android:visibility="gone" android:layout_width="10.0dp" android:layout_height="10.0dp" android:layout_marginEnd="50.0dp" app:a1j="hnz" app:a27="hnz" />
+    <com.tencent.qqmusic.ui.RoundedConstraintLayout android:id="@id/gzy" android:layout_width="match_parent" android:layout_height="wrap_content" app:ado="4.0dp">
+        <androidx.constraintlayout.widget.ConstraintLayout android:id="@id/gzx" android:background="#ffffff" android:visibility="gone" android:layout_width="20.0dp" android:layout_height="10.0dp" app:a23="hnz" app:a27="hnz" />
+        <androidx.constraintlayout.widget.ConstraintLayout android:id="@id/h01" android:layout_width="match_parent" android:layout_height="wrap_content" android:alpha="0.0">
+            <FrameLayout android:id="@id/h00" android:layout_width="match_parent" android:layout_height="match_parent" app:a1d="hnz" app:a1j="hnz" app:a23="hnz" app:a27="hnz" />
+            <com.tencentmusic.ad.integration.nativead.TMENativeAdContainer android:id="@id/gzz" android:layout_width="match_parent" android:layout_height="match_parent" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </com.tencent.qqmusic.ui.RoundedConstraintLayout>
+    <Space android:layout_width="match_parent" android:layout_height="10.0dp" />
+</LinearLayout>

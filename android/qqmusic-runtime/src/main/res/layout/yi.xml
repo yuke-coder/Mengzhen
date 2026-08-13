@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView android:id="@id/ft2" android:focusable="true" android:clickable="true" android:layout_width="155.0dp" android:layout_height="196.0dp" android:layout_marginTop="20.0dp" app:gr="@android:color/transparent" app:gs="10.0dp" app:gt="0.0dp"
+  xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">
+    <androidx.constraintlayout.widget.ConstraintLayout android:focusable="true" android:clickable="true" android:layout_width="match_parent" android:layout_height="match_parent">
+        <com.tencent.component.widget.AsyncEffectImageView android:id="@id/ft3" android:layout_width="155.0dp" android:layout_height="155.0dp" android:src="@drawable/default_album_mid" android:scaleType="centerCrop" app:a23="hnz" app:a27="hnz" />
+        <ImageView android:id="@id/fta" android:layout_width="match_parent" android:layout_height="100.0dp" android:layout_marginTop="41.0dp" android:scaleType="fitXY" app:a1j="hnz" app:a23="hnz" app:a27="hnz" />
+        <View android:id="@id/ft4" android:layout_width="match_parent" android:layout_height="55.0dp" android:layout_marginTop="0.0dp" app:a1j="@id/fta" app:a23="@id/fta" app:a26="@id/fta" />
+        <androidx.appcompat.widget.AppCompatTextView android:textSize="20.0dp" android:textStyle="bold" android:textColor="#ffffff" android:ellipsize="end" android:id="@id/ft_" android:focusable="true" android:clickable="true" android:layout_width="0.0dp" android:layout_height="wrap_content" android:layout_marginTop="136.0dp" android:maxWidth="131.0dp" android:maxLines="1" android:includeFontPadding="false" android:layout_marginStart="12.0dp" android:layout_marginEnd="12.0dp" app:a1j="hnz" app:a23="hnz" app:a27="hnz" />
+        <com.tencent.qqmusic.ui.MarqueeTextView android:textSize="12.0dp" android:textColor="#ffffff" android:ellipsize="marquee" android:id="@id/ft8" android:focusable="true" android:focusableInTouchMode="true" android:clickable="true" android:layout_width="0.0dp" android:layout_height="wrap_content" android:layout_marginTop="1.0dp" android:maxWidth="108.0dp" android:singleLine="true" android:includeFontPadding="false" android:marqueeRepeatLimit="2" android:layout_marginStart="12.0dp" android:layout_marginEnd="35.0dp" app:a1j="hnz" app:a23="hnz" app:a26="@id/ft_" />
+        <View android:id="@id/ft9" android:layout_width="15.0dp" android:layout_height="0.0dp" app:a1d="@id/ft8" app:a1j="@id/ft8" app:a27="@id/ft8" />
+        <View android:id="@id/ft5" android:layout_width="match_parent" android:layout_height="match_parent" />
+        <androidx.constraintlayout.widget.ConstraintLayout android:id="@id/ft7" android:focusable="true" android:clickable="true" android:layout_width="40.0dp" android:layout_height="40.0dp" android:layout_marginTop="155.0dp" android:elevation="10.0dp" app:a1j="hnz" app:a27="hnz">
+            <ImageView android:id="@id/ft6" android:layout_width="22.0dp" android:layout_height="22.0dp" android:layout_marginTop="2.0dp" android:src="@drawable/module_musichall_icon_play_new" android:scaleType="fitXY" android:layout_marginEnd="12.0dp" app:a1j="hnz" app:a27="hnz" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</androidx.cardview.widget.CardView>

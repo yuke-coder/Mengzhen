@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout android:layout_width="match_parent" android:layout_height="match_parent"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <androidx.recyclerview.widget.RecyclerView android:id="@id/e25" android:paddingLeft="15.0dp" android:paddingBottom="@dimen/ait" android:visibility="gone" android:clipToPadding="false" android:layout_width="match_parent" android:layout_height="match_parent" android:overScrollMode="never" />
+    <com.tencent.qqmusic.ui.ObservableScrollView android:id="@id/hdu" android:paddingBottom="24.0dp" android:scrollbars="none" android:clipChildren="false" android:layout_width="match_parent" android:layout_height="match_parent">
+        <androidx.appcompat.widget.LinearLayoutCompat android:orientation="vertical" android:layout_width="match_parent" android:layout_height="wrap_content">
+            <FrameLayout android:id="@id/b9" android:paddingTop="10.0dp" android:visibility="gone" android:layout_width="match_parent" android:layout_height="wrap_content" />
+            <FrameLayout android:id="@id/mwy" android:layout_width="match_parent" android:layout_height="wrap_content" />
+        </androidx.appcompat.widget.LinearLayoutCompat>
+    </com.tencent.qqmusic.ui.ObservableScrollView>
+</FrameLayout>

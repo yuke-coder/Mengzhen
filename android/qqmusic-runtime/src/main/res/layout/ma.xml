@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout android:layout_width="match_parent" android:layout_height="wrap_content"
+  xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">
+    <androidx.constraintlayout.widget.ConstraintLayout android:id="@id/cse" android:paddingLeft="@dimen/b7r" android:paddingRight="@dimen/b7r" android:layout_width="match_parent" android:layout_height="72.0dp" android:paddingStart="@dimen/b7r" android:paddingEnd="@dimen/b7r">
+        <RelativeLayout android:id="@id/d3m" android:layout_width="65.0dp" android:layout_height="60.0dp" app:a1d="hnz" app:a1x="hnz" app:a27="hnz">
+            <com.tencent.qqmusic.ui.RoundedRelativeLayout android:id="@id/d3l" android:background="@drawable/skin_mask_img" android:layout_width="60.0dp" android:layout_height="60.0dp" />
+            <com.tencent.component.widget.AsyncEffectImageView android:id="@id/d3k" android:layout_width="60.0dp" android:layout_height="60.0dp" android:layout_marginRight="5.0dp" android:scaleType="centerInside" android:layout_alignParentLeft="true" android:layout_alignParentRight="true" android:layout_centerInParent="true" />
+            <ImageView android:layout_width="5.0dp" android:layout_height="50.0dp" android:src="@drawable/ic_folder_bg" android:layout_alignParentRight="true" android:layout_centerVertical="true" />
+        </RelativeLayout>
+        <ImageView android:id="@id/el" android:background="@drawable/arrow_right_grey" android:layout_width="wrap_content" android:layout_height="wrap_content" app:a1d="hnz" app:a21="hnz" app:a27="hnz" />
+        <TextView android:textColor="@color/skin_text_main_color" android:id="@id/d45" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginLeft="12.0dp" android:layout_marginRight="8.0dp" app:a1e="@id/cjl" app:a1y="@id/d3m" app:a27="@id/d3m" app:a29="hmg" style="@style/nc" />
+        <ViewFlipper android:id="@id/cjl" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginLeft="12.0dp" android:layout_marginTop="4.0dp" android:layout_marginRight="8.0dp" android:inAnimation="@anim/fg" android:outAnimation="@anim/fh" android:flipInterval="3000" app:a1d="@id/d3m" app:a1y="@id/d3m" app:a26="@id/d45" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</RelativeLayout>

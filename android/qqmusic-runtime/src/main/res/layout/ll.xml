@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout android:gravity="center_vertical" android:background="@drawable/common_list_item_selector" android:paddingLeft="40.0dp" android:paddingRight="40.0dp" android:layout_width="wrap_content" android:layout_height="wrap_content"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <TextView android:textSize="@dimen/b8x" android:textColor="@color/white" android:gravity="center" android:layout_gravity="center_vertical" android:id="@id/lfa" android:background="@drawable/cloud_local_new_num" android:layout_width="@dimen/bat" android:layout_height="@dimen/bas" android:text="99" android:singleLine="true" android:layout_alignParentRight="true" android:layout_centerVertical="true" android:layout_alignWithParentIfMissing="true" />
+    <TextView android:textSize="@dimen/aco" android:textColor="@color/skin_text_main_color" android:ellipsize="middle" android:gravity="left|center" android:layout_gravity="center_vertical" android:id="@id/lfc" android:fadingEdge="horizontal" android:layout_width="match_parent" android:layout_height="@dimen/c_u" android:layout_marginRight="10.0dp" android:text="机器" android:singleLine="true" android:layout_toLeftOf="@id/lfa" android:layout_alignParentLeft="true" android:layout_centerVertical="true" android:layout_alignWithParentIfMissing="true" />
+</RelativeLayout>

@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout android:id="@id/j42" android:layout_width="match_parent" android:layout_height="match_parent"
+  xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">
+    <com.tencent.qqmusic.ui.minibar.navigation.BottomNavigateBackView android:id="@id/fzn" android:visibility="gone" android:layout_width="@dimen/ah0" android:layout_height="@dimen/agz" app:a1x="hnz" app:a21="hnz" app:a27="hnz" />
+    <com.tencent.component.widget.AsyncImageView android:id="@id/fzo" android:visibility="gone" android:layout_width="@dimen/ah0" android:layout_height="@dimen/agz" app:a1x="hnz" app:a21="hnz" app:a27="hnz" />
+    <com.tencent.component.widget.AsyncImageView android:id="@id/main_desk_bottom_navigate_item_img" android:layout_width="@dimen/ah2" android:layout_height="@dimen/ah2" android:layout_marginTop="@dimen/ah3" app:a1x="hnz" app:a21="hnz" app:a27="hnz" />
+    <com.tencent.qqmusic.pag.QQMusicPAGSafeView android:id="@id/fzt" android:visibility="gone" android:layout_width="@dimen/ah2" android:layout_height="@dimen/ah2" android:layout_marginTop="@dimen/ah3" app:a1x="hnz" app:a21="hnz" app:a27="hnz" />
+    <ProgressBar android:id="@id/fzv" android:padding="3.0dp" android:visibility="invisible" android:layout_width="@dimen/ah2" android:layout_height="@dimen/ah2" android:layout_marginTop="@dimen/ah3" android:indeterminate="true" android:indeterminateDrawable="@drawable/icn_loading_indicator" app:a1j="hnz" app:a23="hnz" app:a27="hnz" />
+    <com.tencent.qqmusic.pag.QQMusicPAGView android:id="@id/fzu" android:visibility="gone" android:layout_width="@dimen/ah2" android:layout_height="@dimen/ah2" android:layout_marginTop="@dimen/ah3" app:a1x="hnz" app:a21="hnz" app:a27="hnz" />
+    <ImageView android:id="@id/fzq" android:visibility="gone" android:layout_width="6.0dp" android:layout_height="6.0dp" android:layout_marginLeft="11.0dp" android:layout_marginTop="5.0dp" android:src="@drawable/red_dot" android:scaleType="fitXY" app:a1y="@id/d8f" app:a27="hnz" />
+    <View android:id="@id/d8f" android:layout_width="1.0dp" android:layout_height="match_parent" app:a1j="hnz" app:a23="hnz" />
+    <Space android:id="@id/chd" android:layout_width="0.0dp" android:layout_height="match_parent" app:a1j="hnz" app:a1t="1.0" app:a2e="0.1" />
+    <com.tencent.qqmusic.fragment.morefeatures.ui.BadgeViewNew android:id="@id/fzr" android:visibility="visible" android:layout_width="wrap_content" android:layout_height="15.0dp" app:cq="@color/red_dot_new" app:cx="99" app:a21="hnz" app:a27="hnz" />
+    <androidx.appcompat.widget.AppCompatTextView android:textSize="10.0dp" android:id="@id/fzw" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="4.0dp" app:a1x="hnz" app:a21="hnz" app:a26="@id/main_desk_bottom_navigate_item_img" app:a2r="@dimen/ah1" />
+    <org.libpag.PAGView android:id="@id/fzs" android:visibility="gone" android:layout_width="0.0dp" android:layout_height="0.0dp" app:a1i="w,1:1" app:a1x="hnz" app:a21="hnz" app:a27="hnz" />
+    <com.tencent.component.widget.AsyncImageView android:id="@id/fzp" android:visibility="gone" android:layout_width="@dimen/ah2" android:layout_height="@dimen/ah2" android:layout_marginTop="@dimen/ah3" app:a1x="hnz" app:a21="hnz" app:a27="hnz" />
+    <ImageView android:id="@id/fzm" android:visibility="gone" android:layout_width="19.0dp" android:layout_height="9.0dp" android:src="@drawable/icon_tab_alienation_new_tag" android:scaleType="fitXY" android:layout_marginEnd="-9.5dp" app:a1j="@id/main_desk_bottom_navigate_item_img" app:a27="@id/main_desk_bottom_navigate_item_img" />
+</androidx.constraintlayout.widget.ConstraintLayout>

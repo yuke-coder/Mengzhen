@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout android:layout_width="324.0dp" android:layout_height="52.0dp"
+  xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">
+    <com.lyricengine.ui.SingleLyricView android:id="@id/fx8" android:scrollbars="none" android:layout_width="match_parent" android:layout_height="22.0dp" app:a1x="hnz" app:a27="hnz" app:a6j="#ffb4b4b4" app:a6q="16.0dp" app:a6s="left" app:a7b="center" />
+    <com.tencent.qqmusic.business.fullscreen.video.cover.MySeekBar android:id="@id/jpb" android:background="@null" android:padding="0.0dp" android:layout_width="match_parent" android:layout_height="12.0dp" android:maxHeight="1080.0dp" android:max="100" android:progress="0" android:progressDrawable="@drawable/player_3d_model_fake_view_lyric_progress_seekbar" android:thumb="@null" android:thumbOffset="0.0dp" app:a26="@id/fx8" style="@style/a5_" />
+    <TextView android:textSize="12.0dp" android:textColor="#ff787878" android:ellipsize="end" android:id="@id/bf0" android:layout_width="match_parent" android:layout_height="wrap_content" android:text="" android:maxLines="1" app:a1x="hnz" app:a26="@id/jpb" />
+    <TextView android:textSize="12.0dp" android:textColor="#ff787878" android:ellipsize="end" android:id="@id/byp" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="" android:maxLines="1" app:a21="hnz" app:a26="@id/jpb" />
+</androidx.constraintlayout.widget.ConstraintLayout>

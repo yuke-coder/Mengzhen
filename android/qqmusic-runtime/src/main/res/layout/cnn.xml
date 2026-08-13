@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout android:layout_width="match_parent" android:layout_height="match_parent" android:layout_marginTop="4.0dp"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <com.tencent.qqmusic.business.timeline.ui.ClipPathRelativeLayout android:id="@id/iq6" android:layout_width="match_parent" android:layout_height="match_parent" android:layout_centerHorizontal="true">
+        <com.tencent.component.widget.AsyncEffectImageView android:layout_gravity="center" android:id="@id/iq4" android:layout_width="match_parent" android:layout_height="match_parent" android:scaleType="fitXY" android:layout_alignParentLeft="true" android:layout_alignParentTop="true" android:layout_alignParentStart="true" />
+        <ViewStub android:id="@id/bic" android:layout="@layout/cnm" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginLeft="11.0dp" />
+        <ImageView android:id="@id/iq8" android:layout_width="26.0dp" android:layout_height="26.0dp" android:layout_marginRight="10.0dp" android:layout_marginBottom="8.0dp" android:src="@drawable/sound_radio_banner_play_button" android:layout_alignParentRight="true" android:layout_alignParentBottom="true" />
+        <ImageView android:id="@id/iq9" android:layout_width="60.0dp" android:layout_height="60.0dp" android:layout_alignParentRight="true" android:layout_alignParentBottom="true" />
+    </com.tencent.qqmusic.business.timeline.ui.ClipPathRelativeLayout>
+</RelativeLayout>

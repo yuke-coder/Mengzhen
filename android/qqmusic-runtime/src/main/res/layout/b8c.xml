@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout android:gravity="center_vertical" android:id="@id/nu1" android:layout_width="match_parent" android:layout_height="wrap_content" android:contentDescription="@string/g32"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <LinearLayout android:orientation="horizontal" android:id="@id/ntg" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_centerVertical="true">
+        <ImageView android:id="@id/k74" android:layout_width="0.0dp" android:layout_height="match_parent" android:src="@drawable/medal_sign_in_default_singer" android:adjustViewBounds="true" android:layout_weight="316.0" />
+        <LinearLayout android:orientation="vertical" android:layout_width="0.0dp" android:layout_height="match_parent" android:layout_marginLeft="12.0dp" android:layout_marginTop="14.0dp" android:layout_marginRight="12.0dp" android:layout_marginBottom="14.0dp" android:layout_weight="360.0" android:layout_marginHorizontal="12.0dp">
+            <LinearLayout android:orientation="horizontal" android:layout_width="match_parent" android:layout_height="wrap_content">
+                <RelativeLayout android:layout_width="0.0dp" android:layout_height="wrap_content" android:layout_marginRight="4.0dp" android:layout_weight="1.0">
+                    <LinearLayout android:orientation="horizontal" android:id="@id/ldr" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_alignParentLeft="true" android:layout_alignParentTop="true">
+                        <LinearLayout android:layout_width="wrap_content" android:layout_height="wrap_content">
+                            <TextView android:textSize="12.0dp" android:textStyle="bold" android:textColor="@color/medal_widget_default_main_color" android:ellipsize="end" android:id="@id/k57" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/cqh" android:maxLines="1" android:includeFontPadding="false" android:layout_weight="1.0" />
+                            <TextView android:textSize="12.0dp" android:textStyle="bold" android:textColor="@color/medal_widget_default_main_color" android:id="@id/kzh" android:layout_width="wrap_content" android:layout_height="wrap_content" />
+                        </LinearLayout>
+                    </LinearLayout>
+                    <ImageView android:id="@id/bjj" android:layout_width="wrap_content" android:layout_height="35.0dp" android:layout_marginTop="6.0dp" android:src="@drawable/medal_widget_sign_default_day" android:adjustViewBounds="true" android:layout_below="@id/ldr" android:layout_alignParentLeft="true" />
+                    <TextView android:textSize="12.0dp" android:textStyle="bold" android:textColor="#45a0e5" android:id="@id/bji" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginLeft="4.0dp" android:text="@string/ag0" android:layout_toRightOf="@id/bjj" android:layout_alignBottom="@id/bjj" />
+                </RelativeLayout>
+                <RelativeLayout android:layout_width="27.0dp" android:layout_height="27.0dp">
+                    <ImageView android:id="@id/g35" android:layout_width="wrap_content" android:layout_height="match_parent" android:src="@drawable/medal_sign_widget_icon_bg_1" android:scaleType="centerCrop" android:adjustViewBounds="true" android:layout_centerInParent="true" />
+                    <ImageView android:layout_width="wrap_content" android:layout_height="match_parent" android:src="@drawable/medal_sign_widget_icon_bg_2" android:scaleType="centerCrop" android:adjustViewBounds="true" android:layout_centerInParent="true" />
+                    <ImageView android:id="@id/g36" android:layout_width="wrap_content" android:layout_height="match_parent" android:src="@drawable/medal_sign_widget_icon_bg_3" android:scaleType="centerCrop" android:adjustViewBounds="true" android:layout_centerInParent="true" />
+                    <ImageView android:layout_width="wrap_content" android:layout_height="match_parent" android:src="@drawable/medal_sign_widget_icon_stroke" android:scaleType="centerCrop" android:adjustViewBounds="true" android:layout_centerInParent="true" />
+                    <ImageView android:id="@id/g3e" android:layout_width="wrap_content" android:layout_height="10.5dp" android:adjustViewBounds="true" android:layout_centerInParent="true" />
+                </RelativeLayout>
+            </LinearLayout>
+            <FrameLayout android:layout_width="match_parent" android:layout_height="0.0dp" android:layout_weight="1.0" />
+            <TextView android:textSize="10.0dp" android:textColor="#9945a0e5" android:ellipsize="end" android:id="@id/lde" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginBottom="2.0dp" android:text="@string/cqi" android:maxLines="1" />
+            <LinearLayout android:orientation="horizontal" android:id="@id/bkc" android:visibility="gone" android:layout_width="match_parent" android:layout_height="wrap_content">
+                <LinearLayout android:gravity="center_horizontal" android:orientation="vertical" android:id="@id/bjl" android:layout_width="wrap_content" android:layout_height="wrap_content">
+                    <RelativeLayout android:layout_width="15.0dp" android:layout_height="15.0dp">
+                        <ImageView android:id="@id/bjm" android:layout_width="wrap_content" android:layout_height="match_parent" android:scaleType="centerCrop" android:adjustViewBounds="true" android:layout_centerInParent="true" />
+                        <ImageView android:id="@id/bjn" android:layout_width="wrap_content" android:layout_height="6.0dp" android:src="@drawable/medal_sign_widget_yes" android:adjustViewBounds="true" android:layout_centerInParent="true" />
+                    </RelativeLayout>
+                    <TextView android:textSize="6.0dp" android:id="@id/bjo" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="1.5dp" android:text="@string/aez" />
+                </LinearLayout>
+                <ImageView android:layout_width="0.0dp" android:layout_height="0.0dp" android:layout_weight="1.0" />
+                <LinearLayout android:gravity="center_horizontal" android:orientation="vertical" android:id="@id/bjp" android:layout_width="wrap_content" android:layout_height="wrap_content">
+                    <RelativeLayout android:layout_width="15.0dp" android:layout_height="15.0dp">
+                        <ImageView android:id="@id/bjq" android:layout_width="wrap_content" android:layout_height="match_parent" android:scaleType="centerCrop" android:adjustViewBounds="true" android:layout_centerInParent="true" />
+                        <ImageView android:id="@id/bjr" android:layout_width="wrap_content" android:layout_height="6.0dp" android:src="@drawable/medal_sign_widget_yes" android:adjustViewBounds="true" android:layout_centerInParent="true" />
+                    </RelativeLayout>
+                    <TextView android:textSize="6.0dp" android:id="@id/bjs" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="1.5dp" android:text="@string/af0" />
+                </LinearLayout>
+                <ImageView android:layout_width="0.0dp" android:layout_height="0.0dp" android:layout_weight="1.0" />
+                <LinearLayout android:gravity="center_horizontal" android:orientation="vertical" android:id="@id/bjt" android:layout_width="wrap_content" android:layout_height="wrap_content">
+                    <RelativeLayout android:layout_width="15.0dp" android:layout_height="15.0dp">
+                        <ImageView android:id="@id/bju" android:layout_width="wrap_content" android:layout_height="match_parent" android:scaleType="centerCrop" android:adjustViewBounds="true" android:layout_centerInParent="true" />
+                        <ImageView android:id="@id/bjv" android:layout_width="wrap_content" android:layout_height="6.0dp" android:src="@drawable/medal_sign_widget_yes" android:adjustViewBounds="true" android:layout_centerInParent="true" />
+                    </RelativeLayout>
+                    <TextView android:textSize="6.0dp" android:id="@id/bjw" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="1.5dp" android:text="@string/af1" />
+                </LinearLayout>
+                <ImageView android:layout_width="0.0dp" android:layout_height="0.0dp" android:layout_weight="1.0" />
+                <LinearLayout android:gravity="center_horizontal" android:orientation="vertical" android:id="@id/bjx" android:layout_width="wrap_content" android:layout_height="wrap_content">
+                    <RelativeLayout android:layout_width="15.0dp" android:layout_height="15.0dp">
+                        <ImageView android:id="@id/bjy" android:layout_width="wrap_content" android:layout_height="match_parent" android:scaleType="centerCrop" android:adjustViewBounds="true" android:layout_centerInParent="true" />
+                        <ImageView android:id="@id/bjz" android:layout_width="wrap_content" android:layout_height="6.0dp" android:src="@drawable/medal_sign_widget_yes" android:adjustViewBounds="true" android:layout_centerInParent="true" />
+                    </RelativeLayout>
+                    <TextView android:textSize="6.0dp" android:id="@id/bk0" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="1.5dp" android:text="@string/af2" />
+                </LinearLayout>
+                <ImageView android:layout_width="0.0dp" android:layout_height="0.0dp" android:layout_weight="1.0" />
+                <LinearLayout android:gravity="center_horizontal" android:orientation="vertical" android:id="@id/bk1" android:layout_width="wrap_content" android:layout_height="wrap_content">
+                    <RelativeLayout android:layout_width="15.0dp" android:layout_height="15.0dp">
+                        <ImageView android:id="@id/bk2" android:layout_width="wrap_content" android:layout_height="match_parent" android:scaleType="centerCrop" android:adjustViewBounds="true" android:layout_centerInParent="true" />
+                        <ImageView android:id="@id/bk3" android:layout_width="wrap_content" android:layout_height="6.0dp" android:src="@drawable/medal_sign_widget_yes" android:adjustViewBounds="true" android:layout_centerInParent="true" />
+                    </RelativeLayout>
+                    <TextView android:textSize="6.0dp" android:id="@id/bk4" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="1.5dp" android:text="@string/af3" />
+                </LinearLayout>
+                <ImageView android:layout_width="0.0dp" android:layout_height="0.0dp" android:layout_weight="1.0" />
+                <LinearLayout android:gravity="center_horizontal" android:orientation="vertical" android:id="@id/bk5" android:layout_width="wrap_content" android:layout_height="wrap_content">
+                    <RelativeLayout android:layout_width="15.0dp" android:layout_height="15.0dp">
+                        <ImageView android:id="@id/bk6" android:layout_width="wrap_content" android:layout_height="match_parent" android:scaleType="centerCrop" android:adjustViewBounds="true" android:layout_centerInParent="true" />
+                        <ImageView android:id="@id/bk7" android:layout_width="wrap_content" android:layout_height="6.0dp" android:src="@drawable/medal_sign_widget_yes" android:adjustViewBounds="true" android:layout_centerInParent="true" />
+                    </RelativeLayout>
+                    <TextView android:textSize="6.0dp" android:id="@id/bk8" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="1.5dp" android:text="@string/af4" />
+                </LinearLayout>
+                <ImageView android:layout_width="0.0dp" android:layout_height="0.0dp" android:layout_weight="1.0" />
+                <LinearLayout android:gravity="center_horizontal" android:orientation="vertical" android:id="@id/bk9" android:layout_width="wrap_content" android:layout_height="wrap_content">
+                    <RelativeLayout android:layout_width="15.0dp" android:layout_height="15.0dp">
+                        <ImageView android:id="@id/bk_" android:layout_width="wrap_content" android:layout_height="match_parent" android:scaleType="centerCrop" android:adjustViewBounds="true" android:layout_centerInParent="true" />
+                        <ImageView android:id="@id/bka" android:layout_width="wrap_content" android:layout_height="6.0dp" android:src="@drawable/medal_sign_widget_yes" android:adjustViewBounds="true" android:layout_centerInParent="true" />
+                    </RelativeLayout>
+                    <TextView android:textSize="6.0dp" android:id="@id/bkb" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="1.5dp" android:text="@string/af5" />
+                </LinearLayout>
+            </LinearLayout>
+        </LinearLayout>
+    </LinearLayout>
+    <ImageView android:id="@id/g3l" android:layout_width="wrap_content" android:layout_height="80.0dp" android:layout_marginLeft="65.0dp" android:scaleType="centerInside" android:adjustViewBounds="true" android:layout_alignBottom="@id/ntg" android:layout_alignParentLeft="true" />
+    <ImageView android:layout_width="match_parent" android:layout_height="match_parent" android:src="@drawable/bg_medal_sign_in_widget_1" android:adjustViewBounds="true" android:layout_alignTop="@id/ntg" android:layout_alignBottom="@id/ntg" android:translationZ="-101.0dp" />
+    <ImageView android:id="@id/nst" android:layout_width="match_parent" android:layout_height="match_parent" android:src="@drawable/bg_medal_sign_in_widget" android:scaleType="centerCrop" android:adjustViewBounds="true" android:layout_alignTop="@id/ntg" android:layout_alignBottom="@id/ntg" android:alpha="0.08" android:translationZ="-100.0dp" />
+</RelativeLayout>

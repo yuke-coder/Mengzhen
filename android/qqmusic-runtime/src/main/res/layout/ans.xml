@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout android:orientation="vertical" android:id="@id/jd3" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginLeft="20.0dp" android:layout_marginRight="20.0dp"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <LinearLayout android:orientation="horizontal" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginTop="26.0dp">
+        <ImageView android:layout_gravity="center_vertical" android:id="@id/ee_" android:background="@drawable/voice_assistant_help_item1_icon" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginLeft="20.0dp" android:scaleType="centerCrop" />
+        <TextView android:textSize="20.0sp" android:textColor="@color/voice_assistant_normal_text_color" android:gravity="center_vertical" android:layout_gravity="center_vertical" android:id="@id/mao" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginLeft="20.0dp" android:text="点播音乐" />
+    </LinearLayout>
+    <TextView android:textSize="16.0sp" android:textColor="@color/voice_assistant_desc_text_color" android:gravity="center_vertical" android:id="@id/mak" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginLeft="72.0dp" android:layout_marginTop="15.0dp" android:text="我想听周杰伦的歌" />
+    <TextView android:textSize="16.0sp" android:textColor="@color/voice_assistant_desc_text_color" android:gravity="center_vertical" android:id="@id/mal" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginLeft="72.0dp" android:layout_marginTop="11.0dp" android:text="我想听安静的歌" />
+    <TextView android:textSize="16.0sp" android:textColor="@color/voice_assistant_desc_text_color" android:gravity="center_vertical" android:id="@id/mam" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginLeft="72.0dp" android:layout_marginTop="11.0dp" android:layout_marginBottom="25.0dp" android:text="我想听摇滚的歌" />
+</LinearLayout>

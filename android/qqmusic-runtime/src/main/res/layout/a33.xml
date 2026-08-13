@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout android:layout_width="match_parent" android:layout_height="match_parent"
+  xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">
+    <ImageView android:id="@id/inv" android:layout_width="100.0dp" android:layout_height="100.0dp" android:layout_marginTop="120.0dp" android:src="@drawable/song_migration_tip_success" android:scaleType="fitXY" app:a1j="hnz" app:a23="hnz" app:a27="hnz" app:a2r="120.0dp" />
+    <androidx.appcompat.widget.AppCompatTextView android:textSize="18.0sp" android:textStyle="bold" android:textColor="@color/skin_text_main_color" android:id="@id/jsr" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="40.0dp" android:text="@string/hd1" app:a1j="hnz" app:a23="hnz" app:a26="@id/inv" />
+    <androidx.appcompat.widget.AppCompatTextView android:textSize="13.0sp" android:textColor="@color/skin_text_sub_color" android:id="@id/jsn" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="5.0dp" android:text="@string/hcx" app:a1j="hnz" app:a23="hnz" app:a26="@id/jsr" />
+    <androidx.appcompat.widget.AppCompatTextView android:textSize="14.0dp" android:textColor="@color/color_000000" android:gravity="center" android:id="@id/confirm_tv" android:background="@drawable/song_migration_tip_button_highlight_border" android:layout_width="180.0dp" android:layout_height="50.0dp" android:layout_marginBottom="121.5dp" android:text="@string/hcw" android:includeFontPadding="false" app:a1d="hnz" app:a1j="hnz" app:a23="hnz" />
+</androidx.constraintlayout.widget.ConstraintLayout>

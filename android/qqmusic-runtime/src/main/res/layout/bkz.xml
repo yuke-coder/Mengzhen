@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout android:background="@color/white" android:layout_width="match_parent" android:layout_height="285.0dp"
+  xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">
+    <RelativeLayout android:id="@id/mlive_voice_volume_frame" android:visibility="invisible" android:layout_width="match_parent" android:layout_height="wrap_content" app:a1j="hnz" app:a23="hnz" app:a27="hnz">
+        <TextView android:textSize="16.0sp" android:gravity="center" android:id="@id/mlive_voice_record_time" android:layout_width="60.0dp" android:layout_height="21.0dp" android:layout_marginTop="40.0dp" android:layout_marginBottom="70.0dp" android:layout_centerHorizontal="true" android:paddingStart="5.0dp" android:paddingEnd="5.0dp" />
+        <org.libpag.PAGView android:id="@id/mlive_voice_volume_pag_left" android:layout_width="105.0dp" android:layout_height="21.0dp" android:layout_alignTop="@id/mlive_voice_record_time" android:layout_alignBottom="@id/mlive_voice_record_time" android:layout_toStartOf="@id/mlive_voice_record_time" />
+        <org.libpag.PAGView android:id="@id/mlive_voice_volume_pag_right" android:layout_width="105.0dp" android:layout_height="21.0dp" android:layout_alignTop="@id/mlive_voice_record_time" android:layout_alignBottom="@id/mlive_voice_record_time" android:layout_toEndOf="@id/mlive_voice_record_time" />
+    </RelativeLayout>
+    <com.tme.mlive.ui.custom.voice.VoiceRecorderView android:id="@id/mlive_voice_recorder_view" android:layout_width="match_parent" android:layout_height="wrap_content" app:a1j="hnz" app:a23="hnz" app:a26="@id/mlive_voice_volume_frame" />
+</androidx.constraintlayout.widget.ConstraintLayout>

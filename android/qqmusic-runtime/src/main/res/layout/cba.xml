@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout android:layout_gravity="center" android:orientation="vertical" android:background="@drawable/publish_progress_background" android:paddingLeft="60.0dp" android:paddingTop="40.0dp" android:paddingRight="60.0dp" android:paddingBottom="40.0dp" android:layout_width="wrap_content" android:layout_height="wrap_content" android:paddingHorizontal="60.0dp" android:paddingVertical="40.0dp"
+  xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">
+    <FrameLayout android:layout_width="match_parent" android:layout_height="match_parent">
+        <com.tme.karaoka.previewui.widget.ProgressView android:layout_gravity="center_horizontal" android:id="@id/iih" android:layout_width="60.0dp" android:layout_height="60.0dp" app:afj="@color/black_10_transparent" app:afk="#fe4f4f" />
+        <TextView android:textColor="@color/black" android:gravity="center" android:layout_gravity="center" android:id="@id/iig" android:layout_width="match_parent" android:layout_height="match_parent" android:text="0%" />
+    </FrameLayout>
+    <TextView android:textSize="17.0sp" android:textStyle="bold" android:textColor="@color/black" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="10.0dp" android:text="@string/fuz" android:textFontWeight="600" />
+</LinearLayout>

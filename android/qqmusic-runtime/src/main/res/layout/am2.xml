@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout android:orientation="vertical" android:id="@id/k6p" android:paddingLeft="@dimen/c3h" android:paddingBottom="32.0dp" android:layout_width="match_parent" android:layout_height="wrap_content"
+  xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">
+    <LinearLayout android:gravity="center_vertical" android:orientation="horizontal" android:paddingRight="16.599976dp" android:layout_width="match_parent" android:layout_height="wrap_content">
+        <TextView android:textSize="16.0sp" android:textColor="@color/skin_text_main_color" android:ellipsize="end" android:id="@id/aum" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="" android:maxLines="1" android:fontFamily="PingFangSC-Regular" />
+        <LinearLayout android:id="@id/dpy" android:paddingLeft="5.0dp" android:paddingRight="10.0dp" android:visibility="gone" android:layout_width="wrap_content" android:layout_height="wrap_content">
+            <com.tencent.component.widget.AsyncImageView android:id="@id/auh" android:layout_width="30.0dp" android:layout_height="30.0dp" />
+        </LinearLayout>
+        <View android:layout_width="0.0dp" android:layout_height="0.0dp" android:layout_weight="1.0" />
+        <ImageView android:id="@id/aun" android:visibility="gone" android:layout_width="30.0dp" android:layout_height="30.0dp" android:src="@drawable/arrow_right_grey_newstyle" android:contentDescription="@string/abi" />
+    </LinearLayout>
+    <TextView android:textSize="13.0sp" android:textColor="@color/skin_text_sub_color" android:ellipsize="end" android:id="@id/k6q" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginTop="10.0dp" android:layout_marginRight="15.0dp" android:maxLines="3" android:lineSpacingExtra="5.0dp" android:fontFamily="PingFangSC-Regular" />
+    <LinearLayout android:orientation="horizontal" android:id="@id/k6o" android:visibility="gone" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginTop="10.0dp" />
+</LinearLayout>

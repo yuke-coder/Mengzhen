@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout android:orientation="vertical" android:id="@id/cpb" android:paddingLeft="16.0dp" android:paddingRight="16.0dp" android:paddingBottom="7.0dp" android:layout_width="match_parent" android:layout_height="wrap_content"
+  xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">
+    <FrameLayout android:id="@id/cok" android:visibility="gone" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginTop="16.0dp" android:layout_marginBottom="14.0dp">
+        <androidx.appcompat.widget.AppCompatTextView android:textSize="12.0sp" android:textColor="@color/black_50_opacity" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/cle" />
+    </FrameLayout>
+    <androidx.constraintlayout.widget.ConstraintLayout android:id="@id/cmm" android:visibility="gone" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginBottom="14.0dp">
+        <com.tencent.component.widget.AsyncEffectImageView android:id="@id/cmf" android:layout_width="20.0dp" android:layout_height="20.0dp" app:a1d="hnz" app:a1x="hnz" app:a27="hnz" />
+        <com.tencent.component.widget.AsyncEffectImageView android:id="@id/cmk" android:layout_width="9.0dp" android:layout_height="9.0dp" app:a1d="@id/cmf" app:a21="@id/cmf" />
+        <androidx.appcompat.widget.AppCompatTextView android:textSize="12.0sp" android:textColor="@color/white" android:ellipsize="end" android:id="@id/cmo" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginLeft="10.0dp" android:maxLines="1" app:a1d="hnz" app:a1y="@id/cmf" app:a27="hnz" />
+        <com.tencent.qqmusic.follow.FollowPlusButton android:id="@id/cmj" android:paddingLeft="8.0dp" android:layout_width="wrap_content" android:layout_height="wrap_content" app:a1d="hnz" app:a1y="@id/cmo" app:a27="hnz" app:aif="10" />
+        <androidx.appcompat.widget.AppCompatTextView android:textSize="12.0sp" android:textColor="@color/white_50_opacity" android:id="@id/cp9" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginLeft="16.0dp" app:a1d="hnz" app:a1y="@id/cmj" app:a27="hnz" />
+        <androidx.appcompat.widget.AppCompatTextView android:textSize="12.0sp" android:textColor="@color/white" android:gravity="center" android:id="@id/cph" android:background="@drawable/item_diy_folder_follow_bg_white" android:paddingLeft="10.0dp" android:paddingRight="10.0dp" android:layout_width="wrap_content" android:layout_height="20.0dp" android:text="@string/bcd" android:maxLength="10" android:paddingHorizontal="10.0dp" app:a1d="hnz" app:a21="hnz" app:a27="hnz" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+    <androidx.appcompat.widget.LinearLayoutCompat android:gravity="center_vertical" android:id="@id/cml" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginBottom="20.5dp">
+        <androidx.appcompat.widget.AppCompatTextView android:textSize="12.0dp" android:textColor="@color/white_50_opacity" android:id="@id/cmg" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Edited by" />
+        <androidx.appcompat.widget.AppCompatTextView android:textSize="12.0dp" android:textColor="@color/white" android:ellipsize="end" android:id="@id/cmn" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginLeft="6.0dp" android:maxLines="1" />
+        <com.tencent.qqmusic.follow.FollowPlusButton android:id="@id/cmi" android:paddingLeft="6.0dp" android:layout_width="wrap_content" android:layout_height="wrap_content" app:aif="13" />
+        <androidx.appcompat.widget.AppCompatTextView android:textSize="12.0dp" android:textColor="@color/white_50_opacity" android:id="@id/cp8" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginLeft="16.0dp" />
+        <androidx.appcompat.widget.AppCompatTextView android:textSize="12.0dp" android:textColor="@color/white" android:gravity="center" android:id="@id/cp_" android:background="@drawable/item_diy_folder_follow_bg_white" android:paddingLeft="10.0dp" android:paddingRight="10.0dp" android:layout_width="wrap_content" android:layout_height="20.0dp" android:layout_marginLeft="6.0dp" android:text="@string/eet" android:paddingHorizontal="10.0dp" />
+        <androidx.appcompat.widget.AppCompatTextView android:textSize="12.0dp" android:textColor="@color/white" android:gravity="right" android:id="@id/cnm" android:layout_width="0.0dp" android:layout_height="wrap_content" android:minWidth="40.0dp" android:text="@string/azv" android:maxLines="1" android:layout_weight="1.0" />
+        <androidx.appcompat.widget.AppCompatImageView android:layout_gravity="right|center" android:id="@id/cnk" android:layout_width="wrap_content" android:layout_height="10.0dp" android:scaleType="centerInside" android:importantForAccessibility="no" />
+    </androidx.appcompat.widget.LinearLayoutCompat>
+    <androidx.constraintlayout.widget.ConstraintLayout android:id="@id/nfq" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginBottom="20.5dp" />
+    <RelativeLayout android:layout_width="match_parent" android:layout_height="wrap_content">
+        <androidx.appcompat.widget.LinearLayoutCompat android:orientation="horizontal" android:id="@id/f2n" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_centerVertical="true">
+            <androidx.appcompat.widget.AppCompatImageView android:layout_gravity="center_vertical" android:id="@id/f2m" android:layout_width="30.0dp" android:layout_height="30.0dp" />
+            <androidx.appcompat.widget.AppCompatTextView android:textSize="18.0dp" android:layout_gravity="center_vertical" android:id="@id/f2o" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginLeft="3.0dp" />
+        </androidx.appcompat.widget.LinearLayoutCompat>
+        <androidx.appcompat.widget.LinearLayoutCompat android:orientation="horizontal" android:id="@id/b6f" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginLeft="20.0dp" android:layout_toRightOf="@id/f2n" android:layout_centerVertical="true">
+            <androidx.appcompat.widget.AppCompatImageView android:layout_gravity="center_vertical" android:id="@id/b6e" android:layout_width="30.0dp" android:layout_height="30.0dp" />
+            <androidx.appcompat.widget.AppCompatTextView android:textSize="18.0dp" android:layout_gravity="center_vertical" android:id="@id/b6g" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginLeft="3.0dp" />
+        </androidx.appcompat.widget.LinearLayoutCompat>
+        <androidx.appcompat.widget.LinearLayoutCompat android:orientation="horizontal" android:id="@id/jw_" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginLeft="20.0dp" android:layout_toRightOf="@id/b6f" android:layout_centerVertical="true">
+            <androidx.appcompat.widget.AppCompatImageView android:layout_gravity="center_vertical" android:id="@id/jw9" android:layout_width="30.0dp" android:layout_height="30.0dp" android:contentDescription="@string/share" />
+            <androidx.appcompat.widget.AppCompatTextView android:textSize="18.0dp" android:layout_gravity="center_vertical" android:id="@id/jwb" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginLeft="3.0dp" android:text="@string/share" />
+        </androidx.appcompat.widget.LinearLayoutCompat>
+        <com.tencent.component.widget.AsyncImageView android:id="@id/huf" android:layout_width="50.0dp" android:layout_height="40.0dp" android:layout_alignParentRight="true" android:contentDescription="@string/a_c" />
+    </RelativeLayout>
+</LinearLayout>

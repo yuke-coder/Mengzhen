@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout android:id="@id/asw" android:background="@drawable/color_b2_click" android:paddingLeft="@dimen/a0s" android:paddingRight="@dimen/a0t" android:layout_width="match_parent" android:layout_height="wrap_content"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <RelativeLayout android:id="@id/evc" android:layout_width="match_parent" android:layout_height="@dimen/a0r">
+        <TextView android:textSize="16.0sp" android:textColor="@color/skin_text_main_color" android:id="@id/ldr" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginBottom="5.0dp" android:layout_centerVertical="true" />
+        <ImageView android:id="@id/l2p" android:layout_width="55.0dp" android:layout_height="33.0dp" android:layout_alignParentRight="true" android:layout_centerVertical="true" />
+    </RelativeLayout>
+    <TextView android:textSize="14.0sp" android:textColor="@color/skin_text_sub_color" android:id="@id/kz2" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="4.0dp" android:layout_marginBottom="24.0dp" android:text="一键关闭与当前登录账号相关的内容与信息（不包含歌曲/专辑/视频/歌手资料/相关文章/相似歌手模块内容）。" android:layout_below="@id/evc" />
+    <View android:id="@id/bu2" android:background="@drawable/z_color_l1" android:layout_width="match_parent" android:layout_height="1.0px" android:layout_marginTop="4.0dp" android:layout_below="@id/kz2" />
+</RelativeLayout>

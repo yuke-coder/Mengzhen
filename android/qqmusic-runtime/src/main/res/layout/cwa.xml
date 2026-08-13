@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout android:state_window_focused="false" android:id="@id/cpv" android:layout_width="match_parent" android:layout_height="wrap_content"
+  xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">
+    <androidx.appcompat.widget.AppCompatTextView android:textSize="12.0sp" android:textColor="@color/white_60_opacity" android:id="@id/coh" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/bbf" android:layout_above="@id/coi" />
+    <androidx.appcompat.widget.AppCompatTextView android:textSize="30.0sp" android:textColor="@color/white" android:id="@id/coi" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="3.0dp" android:layout_marginBottom="-5.0dp" android:layout_alignBottom="@id/bc1" />
+    <RelativeLayout android:id="@id/bc1" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_alignParentTop="true" android:layout_alignParentRight="true">
+        <com.tencent.qqmusic.business.live.ui.view.RoundAvatarImage android:id="@id/bc2" android:layout_width="40.0dp" android:layout_height="40.0dp" android:layout_marginLeft="15.0dp" android:layout_marginTop="55.0dp" android:src="@drawable/default_avatar" />
+        <com.tencent.qqmusic.pag.QQMusicPAGSafeView android:id="@id/z2" android:layout_width="30.0dp" android:layout_height="75.0dp" />
+        <androidx.appcompat.widget.AppCompatTextView android:textSize="11.0dp" android:textColor="@color/white" android:ellipsize="end" android:id="@id/hbs" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="5.0dp" android:maxWidth="75.0dp" android:maxLines="1" android:layout_below="@id/bc2" android:fontFamily="PingFangSC-Medium" />
+        <androidx.appcompat.widget.AppCompatImageView android:id="@id/bc3" android:layout_width="36.0dp" android:layout_height="16.0dp" android:src="@drawable/couple_link_white" android:layout_toRightOf="@id/bc2" android:layout_alignTop="@id/bc2" android:layout_alignBottom="@id/bc2" />
+        <com.tencent.qqmusic.business.live.ui.view.RoundAvatarImage android:id="@id/bc4" android:layout_width="40.0dp" android:layout_height="40.0dp" android:layout_marginTop="55.0dp" android:layout_marginRight="15.0dp" android:src="@drawable/default_avatar" android:layout_toRightOf="@id/bc3" />
+        <com.tencent.qqmusic.pag.QQMusicPAGSafeView android:id="@id/z3" android:layout_width="30.0dp" android:layout_height="75.0dp" android:layout_marginRight="-15.0dp" android:layout_alignRight="@id/bc4" />
+        <androidx.appcompat.widget.AppCompatTextView android:textSize="11.0dp" android:textColor="@color/white" android:ellipsize="end" android:id="@id/hbt" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="5.0dp" android:maxWidth="70.0dp" android:maxLines="1" android:layout_below="@id/bc4" android:layout_alignRight="@id/bc4" android:fontFamily="PingFangSC-Medium" />
+    </RelativeLayout>
+</RelativeLayout>

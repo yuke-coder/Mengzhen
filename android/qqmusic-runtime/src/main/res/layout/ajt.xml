@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout android:layout_gravity="center" android:orientation="vertical" android:clickable="true" android:layout_width="match_parent" android:layout_height="match_parent"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <LinearLayout android:gravity="center_horizontal" android:layout_gravity="center_vertical" android:orientation="horizontal" android:layout_width="match_parent" android:layout_height="wrap_content">
+        <View android:gravity="center_vertical" android:layout_gravity="center_vertical" android:background="#979797" android:layout_width="103.0dp" android:layout_height="1.0dp" android:layout_centerVertical="true" android:alpha="0.2" />
+        <TextView android:textSize="15.0sp" android:textStyle="bold" android:textColor="#ffffff" android:ellipsize="end" android:gravity="center_vertical" android:layout_gravity="center_horizontal" android:id="@id/ldr" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginLeft="11.0dp" android:layout_marginRight="11.0dp" android:maxWidth="120.0dp" android:maxLines="1" />
+        <View android:gravity="center_vertical" android:layout_gravity="center_vertical" android:background="#979797" android:layout_width="103.0dp" android:layout_height="1.0dp" android:layout_centerVertical="true" android:alpha="0.2" />
+    </LinearLayout>
+    <LinearLayout android:gravity="center_horizontal" android:layout_gravity="center_vertical" android:orientation="horizontal" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginTop="19.0dp">
+        <TextView android:textSize="14.0sp" android:textColor="#ffffff" android:ellipsize="middle" android:gravity="center" android:id="@id/ieq" android:background="@drawable/personal_radio_pref_setting_selected" android:paddingLeft="5.0dp" android:paddingRight="5.0dp" android:layout_width="90.0dp" android:layout_height="25.0dp" android:singleLine="true" />
+        <TextView android:textSize="14.0sp" android:textColor="#ffffff" android:ellipsize="middle" android:gravity="center" android:id="@id/ier" android:background="@drawable/personal_radio_pref_setting_unselected" android:paddingLeft="5.0dp" android:paddingRight="5.0dp" android:layout_width="90.0dp" android:layout_height="25.0dp" android:layout_marginLeft="12.0dp" android:singleLine="true" />
+        <TextView android:textSize="14.0sp" android:textColor="#ffffff" android:ellipsize="middle" android:gravity="center" android:id="@id/ies" android:background="@drawable/personal_radio_pref_setting_unselected" android:paddingLeft="5.0dp" android:paddingRight="5.0dp" android:layout_width="90.0dp" android:layout_height="25.0dp" android:layout_marginLeft="12.0dp" android:singleLine="true" />
+    </LinearLayout>
+    <View android:layout_width="match_parent" android:layout_height="40.0dp" />
+</LinearLayout>

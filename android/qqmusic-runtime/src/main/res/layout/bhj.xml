@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout android:layout_width="match_parent" android:layout_height="wrap_content"
+  xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">
+    <androidx.constraintlayout.widget.ConstraintLayout android:id="@id/dg" android:background="@drawable/mlive_gift_wall_bottom_bar_bg" android:paddingTop="8.0dp" android:layout_width="0.0dp" android:layout_height="64.0dp" android:elevation="8.0dp" app:a1d="hnz" app:a1j="hnz" app:a23="hnz" app:a27="hnz">
+        <androidx.constraintlayout.widget.Guideline android:orientation="vertical" android:id="@id/d8f" android:layout_width="wrap_content" android:layout_height="wrap_content" app:a1n="0.5" />
+        <FrameLayout android:id="@id/akp" android:background="@drawable/mlive_gift_wall_btn_send_gift_bg" android:focusable="true" android:clickable="true" android:layout_width="0.0dp" android:layout_height="40.0dp" android:layout_marginStart="20.0dp" android:layout_marginEnd="10.0dp" app:a1k="@id/ajq" app:a1u="hmg" app:a23="hnz" app:a27="hnz">
+            <TextView android:textSize="15.0sp" android:textColor="#190d73" android:layout_gravity="center" android:id="@id/mk_" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="去送礼" android:includeFontPadding="false" android:lineHeight="20.0dp" />
+        </FrameLayout>
+        <FrameLayout android:id="@id/ajq" android:background="@drawable/mlive_gift_wall_btn_lottery_bg" android:focusable="true" android:clickable="true" android:layout_width="0.0dp" android:layout_height="40.0dp" android:layout_marginStart="10.0dp" android:layout_marginEnd="20.0dp" app:a1j="hnz" app:a22="@id/akp" app:a27="hnz" app:a2q="0.0dp">
+            <TextView android:textSize="15.0sp" android:textColor="#985712" android:layout_gravity="center" android:id="@id/mc5" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="去抽奖" android:includeFontPadding="false" android:fontFamily="sans-serif-medium" />
+        </FrameLayout>
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>

@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.tencent.qqmusic.ui.RoundedConstraintLayout android:id="@id/dl4" android:layout_width="wrap_content" android:layout_height="wrap_content"
+  xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">
+    <androidx.appcompat.widget.AppCompatTextView android:textSize="16.0dp" android:textColor="@color/skin_text_main_color" android:ellipsize="end" android:id="@id/g3k" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginLeft="16.0dp" android:layout_marginTop="10.0dp" android:layout_marginRight="16.0dp" android:maxLines="1" android:layout_marginHorizontal="16.0dp" app:a1x="hnz" app:a21="hnz" app:a27="hnz" />
+    <androidx.appcompat.widget.AppCompatTextView android:textSize="10.0dp" android:textColor="@color/skin_text_mid_color" android:ellipsize="end" android:id="@id/g3j" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="4.0dp" android:maxLines="1" app:a1x="hnz" app:a21="hnz" app:a26="@id/g3k" />
+    <FrameLayout android:id="@id/g2x" android:layout_width="90.0dp" android:layout_height="wrap_content" android:layout_marginTop="4.0dp" app:a1x="hnz" app:a21="hnz" app:a26="@id/g3j">
+        <com.tencent.component.widget.AsyncEffectImageView android:id="@id/g3f" android:layout_width="50.0dp" android:layout_height="50.0dp" />
+        <com.tencent.component.widget.AsyncEffectImageView android:layout_gravity="right|bottom" android:id="@id/g33" android:layout_width="30.0dp" android:layout_height="30.0dp" android:layout_marginBottom="3.0dp" />
+        <ImageView android:layout_gravity="center_horizontal" android:layout_width="30.0dp" android:layout_height="30.0dp" android:layout_marginLeft="5.0dp" android:src="@drawable/im_medal_level_down" android:rotation="4.26" />
+    </FrameLayout>
+    <FrameLayout android:id="@id/j47" android:layout_width="140.0dp" android:layout_height="24.0dp" android:layout_marginLeft="30.0dp" android:layout_marginTop="5.0dp" android:layout_marginRight="30.0dp" android:layout_marginHorizontal="30.0dp" app:a1x="hnz" app:a21="hnz" app:a26="@id/g2x">
+        <View android:background="@drawable/bg_im_remind_text" android:layout_width="match_parent" android:layout_height="match_parent" android:alpha="0.08" />
+        <androidx.appcompat.widget.AppCompatTextView android:textSize="10.0dp" android:textColor="@color/skin_text_main_color" android:layout_gravity="center" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/br_" android:alpha="0.3" />
+    </FrameLayout>
+</com.tencent.qqmusic.ui.RoundedConstraintLayout>

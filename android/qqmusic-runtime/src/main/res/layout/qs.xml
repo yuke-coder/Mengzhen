@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout android:layout_width="@dimen/c5m" android:layout_height="wrap_content"
+  xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">
+    <com.tencent.qqmusic.ui.RoundedRelativeLayout android:id="@id/kei" android:background="@drawable/skin_floor_img" android:layout_width="match_parent" android:layout_height="wrap_content" app:ado="5.0dp">
+        <TextView android:textSize="20.0dp" android:textStyle="bold" android:textColor="@color/skin_text_main_color" android:gravity="center" android:id="@id/ldr" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginTop="15.0dp" android:layout_marginBottom="8.0dp" android:text="防沉迷提示" />
+        <com.tencent.qqmusic.ui.XQJustifyTextView android:textSize="16.0dp" android:textColor="@color/skin_text_main_color" android:gravity="left|center" android:id="@id/content" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginLeft="12.0dp" android:layout_marginTop="15.0dp" android:layout_marginRight="12.0dp" android:text="为保证充足睡眠，每日22点到次日6点无法使用电台功能，请由监护人输入密码后继续使用。" android:layout_below="@id/ldr" android:lineSpacingMultiplier="1.2" />
+        <com.tencent.qqmusic.ui.VerificationCodeEditText android:textColor="@color/skin_text_main_color" android:id="@id/n29" android:background="@color/black" android:layout_width="214.0dp" android:layout_height="wrap_content" android:layout_marginTop="16.0dp" android:layout_marginBottom="20.0dp" android:layout_below="@id/content" android:layout_centerHorizontal="true" android:inputType="number" app:eh="@color/skin_text_sub_color" app:ei="@color/skin_text_main_color" app:mf="@color/skin_text_main_color" app:ai0="false" />
+    </com.tencent.qqmusic.ui.RoundedRelativeLayout>
+    <ImageView android:id="@id/close_btn" android:layout_width="35.0dp" android:layout_height="35.0dp" android:layout_marginTop="25.0dp" android:src="@drawable/dialog_fragment_btn_close" android:layout_below="@id/kei" android:layout_centerHorizontal="true" />
+</RelativeLayout>

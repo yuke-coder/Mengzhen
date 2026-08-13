@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout android:layout_width="match_parent" android:layout_height="40.0dp"
+  xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">
+    <View android:id="@id/e61" android:background="@drawable/button_mask_drawable" android:layout_width="110.0dp" android:layout_height="21.0dp" app:a1e="@id/e7c" app:a23="hnz" app:a27="hnz" />
+    <View android:id="@id/e7c" android:background="@drawable/button_mask_drawable" android:layout_width="200.0dp" android:layout_height="14.0dp" android:layout_marginTop="4.0dp" app:a23="hnz" app:a26="@id/e61" />
+    <View android:id="@id/c85" android:background="@drawable/button_mask_drawable" android:layout_width="20.0dp" android:layout_height="20.0dp" app:a1d="hnz" app:a1j="hnz" app:a27="hnz" />
+    <View android:id="@id/c86" android:background="@drawable/button_mask_drawable" android:layout_width="20.0dp" android:layout_height="20.0dp" android:layout_marginEnd="18.0dp" app:a1d="hnz" app:a1k="@id/c85" app:a27="hnz" />
+    <View android:id="@id/c87" android:background="@drawable/button_mask_drawable" android:layout_width="20.0dp" android:layout_height="20.0dp" android:layout_marginEnd="18.0dp" app:a1d="hnz" app:a1k="@id/c86" app:a27="hnz" />
+</androidx.constraintlayout.widget.ConstraintLayout>

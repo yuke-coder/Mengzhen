@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout android:layout_width="match_parent" android:layout_height="match_parent"
+  xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">
+    <LinearLayout android:orientation="vertical" android:id="@id/bah" android:background="@drawable/together_actionsheet_bg" android:layout_width="match_parent" android:layout_height="wrap_content" app:a1d="hnz" app:a1j="hnz" app:a23="hnz">
+        <TextView android:textSize="15.0sp" android:textStyle="bold" android:textColor="#1a1a1a" android:gravity="center" android:id="@id/ldr" android:paddingTop="15.0dp" android:paddingBottom="15.0dp" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/icz" android:paddingStart="20.0dp" />
+        <View android:id="@id/btw" android:background="@drawable/together_divider_img" android:layout_width="match_parent" android:layout_height="1.0dp" app:a1j="hnz" />
+        <androidx.constraintlayout.widget.ConstraintLayout android:id="@id/gps" android:layout_width="match_parent" android:layout_height="match_parent">
+            <androidx.recyclerview.widget.RecyclerView android:id="@id/gpr" android:layout_width="match_parent" android:layout_height="wrap_content" android:overScrollMode="never" app:a1j="hnz" app:a23="hnz" app:a27="hnz" />
+            <TextView android:textSize="12.0sp" android:textColor="@android:color/black" android:gravity="center" android:id="@id/grb" android:background="@drawable/module_together_room_at_bg" android:paddingLeft="16.0dp" android:paddingRight="16.0dp" android:visibility="gone" android:layout_width="wrap_content" android:layout_height="35.0dp" android:layout_marginBottom="45.0dp" android:drawableRight="@drawable/module_together_arrow_down" android:drawablePadding="7.0dp" android:drawableEnd="@drawable/module_together_arrow_down" app:a1d="hnz" app:a1x="hnz" app:a21="hnz" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
+        <FrameLayout android:id="@id/bir" android:visibility="gone" android:layout_width="match_parent" android:layout_height="match_parent">
+            <TextView android:textSize="14.0sp" android:textColor="#7f191919" android:gravity="center" android:layout_width="match_parent" android:layout_height="match_parent" android:text="@string/icy" android:singleLine="true" />
+        </FrameLayout>
+    </LinearLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>

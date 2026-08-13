@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout android:layout_width="wrap_content" android:layout_height="wrap_content"
+  xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">
+    <androidx.constraintlayout.widget.ConstraintLayout android:id="@id/goe" android:layout_width="match_parent" android:layout_height="match_parent" app:a1x="hnz" app:a21="hnz" app:a27="hnz">
+        <com.tencent.component.widget.AsyncEffectImageView android:id="@id/gmk" android:layout_width="0.0dp" android:layout_height="0.0dp" android:scaleType="centerCrop" android:importantForAccessibility="no" app:a1d="hnz" app:a1x="hnz" app:a21="hnz" app:a27="hnz" />
+        <com.tencent.component.widget.AsyncEffectImageView android:id="@id/gml" android:layout_width="0.0dp" android:layout_height="0.0dp" android:scaleType="centerCrop" android:importantForAccessibility="no" app:a1d="hnz" app:a1x="hnz" app:a21="hnz" app:a27="hnz" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+    <ViewFlipper android:id="@id/h1y" android:layout_width="0.0dp" android:layout_height="wrap_content" android:layout_marginTop="5.0dp" android:flipInterval="3000" android:animateFirstView="false" app:a1x="@id/goe" app:a21="@id/goe" app:a26="@id/goe">
+        <LinearLayout android:orientation="vertical" android:id="@id/h22" android:layout_width="match_parent" android:layout_height="match_parent">
+            <com.tencent.qqmusic.modular.module.musichall.views.viewholders.block.AutoTagTextView android:textSize="14.0dp" android:id="@id/gow" android:visibility="gone" android:layout_width="match_parent" android:layout_height="20.0dp" android:importantForAccessibility="no" />
+            <com.tencent.qqmusic.modular.framework.ui.text.SimpleTextView android:id="@id/gog" android:layout_width="match_parent" android:layout_height="20.0dp" android:importantForAccessibility="no" />
+            <com.tencent.qqmusic.modular.framework.ui.text.SimpleTextView android:id="@id/gof" android:layout_width="match_parent" android:layout_height="20.0dp" android:layout_marginTop="1.0dp" android:importantForAccessibility="no" />
+        </LinearLayout>
+        <TextView android:textSize="10.0dp" android:textStyle="bold" android:textColor="@color/skin_highlight_color" android:ellipsize="end" android:id="@id/h1w" android:background="@drawable/my_music_single_border" android:visibility="gone" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="3.0dp" android:maxLines="1" />
+    </ViewFlipper>
+</androidx.constraintlayout.widget.ConstraintLayout>

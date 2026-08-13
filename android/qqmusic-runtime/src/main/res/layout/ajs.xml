@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout android:layout_width="wrap_content" android:layout_height="wrap_content"
+  xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">
+    <RelativeLayout android:id="@id/fzh" android:layout_width="150.0dp" android:layout_height="150.0dp" android:importantForAccessibility="no">
+        <com.tencent.component.widget.AsyncEffectImageView android:id="@id/g0b" android:layout_width="150.0dp" android:layout_height="150.0dp" android:importantForAccessibility="no" />
+        <ImageView android:id="@id/f8a" android:visibility="gone" android:layout_width="25.0dp" android:layout_height="25.0dp" android:scaleType="fitCenter" android:layout_alignParentRight="true" android:layout_alignParentBottom="true" android:importantForAccessibility="no" />
+        <ImageView android:id="@id/f8b" android:visibility="gone" android:layout_width="25.0dp" android:layout_height="25.0dp" android:scaleType="fitCenter" android:layout_alignParentRight="true" android:layout_alignParentBottom="true" android:importantForAccessibility="no" />
+        <ImageView android:id="@id/f8c" android:visibility="gone" android:layout_width="25.0dp" android:layout_height="25.0dp" android:scaleType="fitCenter" android:layout_alignParentRight="true" android:layout_alignParentBottom="true" android:importantForAccessibility="no" />
+        <FrameLayout android:id="@id/fbe" android:visibility="gone" android:layout_width="150.0dp" android:layout_height="150.0dp" />
+        <LinearLayout android:orientation="horizontal" android:id="@id/f_a" android:background="@drawable/module_musichall_live_label_background" android:layout_width="wrap_content" android:layout_height="18.0dp">
+            <com.tencent.qqmusic.fragment.search.view.SearchLiveWaveView android:id="@id/f__" android:layout_width="18.0dp" android:layout_height="18.0dp" android:importantForAccessibility="no" />
+            <TextView android:textSize="11.0dp" android:textColor="@color/white" android:gravity="center" android:layout_gravity="center_vertical" android:id="@id/f_9" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginRight="6.0dp" android:text="@string/c5h" android:includeFontPadding="false" />
+        </LinearLayout>
+    </RelativeLayout>
+    <com.tencent.qqmusic.modular.framework.ui.text.SimpleTextView android:id="@id/lfw" android:layout_width="0.0dp" android:layout_height="60.0dp" android:layout_marginTop="5.0dp" android:layout_below="@id/fzh" android:layout_alignLeft="@id/fzh" android:layout_alignRight="@id/fzh" android:importantForAccessibility="no" android:layout_alignStart="@id/fzh" android:layout_alignEnd="@id/fzh" />
+    <LinearLayout android:gravity="center_vertical" android:orientation="horizontal" android:id="@id/f6d" android:paddingLeft="3.0dp" android:paddingRight="4.0dp" android:paddingBottom="5.0dp" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_alignLeft="@id/fzh" android:layout_alignBottom="@id/fzh">
+        <TextView android:textSize="10.0dp" android:textColor="@android:color/white" android:gravity="center" android:layout_gravity="center_vertical" android:id="@id/f6e" android:paddingLeft="3.0dp" android:paddingRight="5.0dp" android:paddingBottom="0.5dp" android:layout_width="wrap_content" android:layout_height="wrap_content" android:importantForAccessibility="no" />
+    </LinearLayout>
+</RelativeLayout>

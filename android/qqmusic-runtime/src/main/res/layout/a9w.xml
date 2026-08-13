@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout android:id="@id/aq_" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginStart="16.0dp" android:layout_marginEnd="16.0dp"
+  xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">
+    <TextView android:textSize="@dimen/j3" android:textStyle="bold" android:textColor="@android:color/black" android:gravity="center_horizontal" android:id="@id/arn" android:padding="20.0dp" android:layout_width="match_parent" android:layout_height="wrap_content" android:text="@string/a1s" app:a1j="hnz" app:a23="hnz" app:a27="hnz" />
+    <androidx.recyclerview.widget.RecyclerView android:id="@id/aqg" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginBottom="26.0dp" app:a1e="@id/ao9" app:a23="hnz" app:a26="@id/arn" />
+    <TextView android:textSize="@dimen/j3" android:textStyle="bold" android:textColor="@android:color/black" android:gravity="center_horizontal" android:id="@id/ao9" android:background="@drawable/call_selector_select_btn" android:padding="16.0dp" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_margin="16.0dp" android:text="@string/a1r" app:a1d="hnz" app:a1j="hnz" app:a23="hnz" />
+</androidx.constraintlayout.widget.ConstraintLayout>

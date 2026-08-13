@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout android:gravity="center" android:orientation="horizontal" android:background="@drawable/ringtone_default_control_bg" android:layout_width="75.0dp" android:layout_height="30.0dp"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <ImageView android:id="@id/l_" android:padding="4.0dp" android:layout_width="12.0dp" android:layout_height="17.5dp" android:src="@drawable/ringtone_trim_adjust_left" android:scaleType="fitCenter" />
+    <TextView android:textSize="12.0dp" android:textColor="@color/white" android:id="@id/ir5" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/ggj" android:layout_marginStart="4.0dp" />
+    <ImageView android:id="@id/l7" android:padding="4.0dp" android:layout_width="12.0dp" android:layout_height="17.5dp" android:src="@drawable/ringtone_trim_adjust_right" android:scaleType="fitCenter" android:layout_marginStart="4.0dp" />
+</LinearLayout>

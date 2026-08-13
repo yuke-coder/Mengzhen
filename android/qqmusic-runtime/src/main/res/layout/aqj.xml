@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout android:background="@drawable/skin_floor_img" android:layout_width="match_parent" android:layout_height="match_parent"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <FrameLayout android:id="@id/mz" android:layout_width="match_parent" android:layout_height="match_parent" />
+    <ViewStub android:id="@id/nnx" android:layout="@layout/aqk" android:inflatedId="@id/nnx" android:layout_width="match_parent" android:layout_height="match_parent" />
+</RelativeLayout>

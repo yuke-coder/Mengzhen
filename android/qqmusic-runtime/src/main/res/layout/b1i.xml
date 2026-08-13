@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.tencent.qqmusic.ui.RoundedRelativeLayout android:id="@id/nkk" android:layout_width="match_parent" android:layout_height="match_parent" app:ado="14.0dp"
+  xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">
+    <ImageView android:id="@id/ba9" android:layout_width="match_parent" android:layout_height="match_parent" />
+    <com.tencent.qqmusic.share.virtualaccompany.view.VirtualAccompanyPreviewTextureView android:id="@id/n3k" android:layout_width="match_parent" android:layout_height="match_parent" android:alpha="0.0" />
+    <com.tencent.qqmusic.share.virtualaccompany.view.VirtualAccShareWatermarkView android:id="@id/npw" android:visibility="gone" android:layout_width="match_parent" android:layout_height="match_parent" />
+    <include android:id="@id/ht0" android:layout_width="match_parent" android:layout_height="match_parent" layout="@layout/b1j" />
+</com.tencent.qqmusic.ui.RoundedRelativeLayout>

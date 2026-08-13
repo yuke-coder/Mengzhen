@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout android:id="@id/lei" android:focusable="true" android:clickable="true" android:layout_width="match_parent" android:layout_height="@dimen/cau" app:a1x="@id/jdj" app:a21="@id/jdj" app:a27="@id/jdj"
+  xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">
+    <LinearLayout android:gravity="center_vertical" android:orientation="horizontal" android:paddingTop="@dimen/c_q" android:layout_width="match_parent" android:layout_height="@dimen/cau">
+        <ImageView android:id="@id/a5h" android:layout_width="44.0dp" android:layout_height="44.0dp" android:src="@drawable/putoo_group_back_normal" android:scaleType="centerInside" android:contentDescription="@string/wf" />
+        <com.tencent.qqmusic.ui.MarqueeTextView android:textSize="18.0sp" android:textStyle="bold" android:textColor="@color/skin_button_text_color" android:ellipsize="marquee" android:gravity="center_vertical" android:layout_gravity="center_vertical" android:id="@id/lg1" android:focusable="true" android:focusableInTouchMode="true" android:layout_width="0.0dp" android:layout_height="match_parent" android:singleLine="true" android:layout_weight="1.0" android:marqueeRepeatLimit="marquee_forever" />
+        <ImageView android:id="@id/jvm" android:visibility="gone" android:layout_width="22.0dp" android:layout_height="22.0dp" android:src="@drawable/top_bar_share" android:scaleType="centerInside" android:contentDescription="分享" android:layout_marginEnd="22.0dp" />
+    </LinearLayout>
+</FrameLayout>

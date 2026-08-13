@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout android:orientation="vertical" android:id="@id/nu1" android:background="@drawable/desk_widget_card_bg" android:layout_width="match_parent" android:layout_height="match_parent"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <FrameLayout android:layout_width="match_parent" android:layout_height="0.0dp" android:layout_weight="11.0" />
+    <LinearLayout android:layout_width="match_parent" android:layout_height="0.0dp" android:layout_weight="18.0">
+        <FrameLayout android:layout_width="0.0dp" android:layout_height="match_parent" android:layout_weight="16.0" />
+        <FrameLayout android:id="@id/cjb" android:layout_width="0.0dp" android:layout_height="match_parent" android:layout_weight="56.0">
+            <TextView android:textSize="12.0dp" android:textColor="#1a1a1a" android:layout_gravity="center_vertical" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/hnl" />
+        </FrameLayout>
+        <FrameLayout android:layout_width="0.0dp" android:layout_height="match_parent" android:layout_weight="57.0" />
+    </LinearLayout>
+    <LinearLayout android:gravity="center_vertical" android:layout_gravity="bottom" android:orientation="horizontal" android:id="@id/fhl" android:layout_width="match_parent" android:layout_height="0.0dp" android:layout_weight="76.0">
+        <FrameLayout android:layout_width="0.0dp" android:layout_height="match_parent" android:layout_weight="21.5" />
+        <FrameLayout android:layout_width="0.0dp" android:layout_height="wrap_content" android:layout_weight="86.0">
+            <FrameLayout android:layout_gravity="center" android:layout_width="76.0dp" android:layout_height="76.0dp">
+                <ImageView android:layout_gravity="center" android:layout_width="76.0dp" android:layout_height="76.0dp" android:src="@drawable/icon_desk_widget_cover_bg_honor" />
+                <FrameLayout android:layout_width="60.0dp" android:layout_height="60.0dp" android:layout_marginTop="5.0dp" android:layout_marginStart="8.0dp">
+                    <ImageView android:id="@id/ud" android:layout_width="match_parent" android:layout_height="match_parent" android:src="@drawable/desk_widget_cover_default_bg_honor" android:scaleType="centerCrop" />
+                    <ImageView android:layout_gravity="start|bottom" android:layout_width="10.0dp" android:layout_height="10.0dp" android:layout_marginBottom="4.0dp" android:src="@drawable/icon_desk_widget_qqmusic_logo" android:layout_marginStart="4.0dp" />
+                </FrameLayout>
+            </FrameLayout>
+        </FrameLayout>
+        <FrameLayout android:layout_width="0.0dp" android:layout_height="match_parent" android:layout_weight="21.5" />
+    </LinearLayout>
+    <LinearLayout android:gravity="center_vertical" android:orientation="horizontal" android:layout_width="match_parent" android:layout_height="0.0dp" android:layout_weight="36.0">
+        <RelativeLayout android:layout_width="0.0dp" android:layout_height="wrap_content" android:layout_weight="40.0">
+            <ImageView android:id="@id/bav" android:layout_width="28.0dp" android:layout_height="28.0dp" android:src="@drawable/icon_desk_widget_grey_fav" android:layout_alignParentEnd="true" />
+        </RelativeLayout>
+        <FrameLayout android:layout_width="0.0dp" android:layout_height="wrap_content" android:layout_weight="49.0">
+            <ImageView android:layout_gravity="center_horizontal" android:id="@id/baz" android:layout_width="36.0dp" android:layout_height="36.0dp" android:src="@drawable/icon_desk_widget_play" />
+        </FrameLayout>
+        <RelativeLayout android:layout_width="0.0dp" android:layout_height="wrap_content" android:layout_weight="40.0">
+            <ImageView android:id="@id/bay" android:layout_width="28.0dp" android:layout_height="28.0dp" android:src="@drawable/selector_desk_widget_next" />
+        </RelativeLayout>
+    </LinearLayout>
+    <FrameLayout android:layout_width="match_parent" android:layout_height="0.0dp" android:layout_weight="12.0" />
+</LinearLayout>

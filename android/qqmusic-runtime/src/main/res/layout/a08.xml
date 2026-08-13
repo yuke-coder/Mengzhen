@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout android:id="@id/goz" android:layout_width="match_parent" android:layout_height="match_parent" android:layout_marginBottom="@dimen/b3t"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <com.tencent.qqmusic.ui.customview.ClipTopLinearLayout android:orientation="vertical" android:id="@id/h0y" android:layout_width="match_parent" android:layout_height="match_parent" />
+    <com.tencent.qqmusic.ui.customview.ClipTopLinearLayout android:id="@id/hdb" android:layout_width="match_parent" android:layout_height="wrap_content" />
+</FrameLayout>

@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout android:layout_gravity="start|bottom" android:id="@id/h2p" android:visibility="invisible" android:layout_width="wrap_content" android:layout_height="wrap_content" tools:visibility="visible"
+  xmlns:android="http://schemas.android.com/apk/res/android" xmlns:tools="http://schemas.android.com/apk/tools">
+    <LinearLayout android:gravity="center_vertical" android:layout_gravity="center" android:orientation="horizontal" android:id="@id/h2r" android:paddingLeft="10.0dp" android:paddingTop="3.5dp" android:paddingRight="10.0dp" android:paddingBottom="3.5dp" android:layout_width="wrap_content" android:layout_height="wrap_content" android:paddingHorizontal="10.0dp" tools:ignore="UselessParent">
+        <ImageView android:id="@id/h2q" android:layout_width="wrap_content" android:layout_height="20.0dp" android:layout_marginRight="5.0dp" android:scaleType="centerCrop" tools:src="@drawable/icon_musician_plan_activity_label" />
+        <TextView android:textSize="11.0sp" android:textColor="@color/white" android:ellipsize="end" android:gravity="center" android:id="@id/h2s" android:paddingBottom="1.0px" android:layout_width="wrap_content" android:layout_height="wrap_content" android:maxLines="1" tools:text="123400" />
+    </LinearLayout>
+</FrameLayout>

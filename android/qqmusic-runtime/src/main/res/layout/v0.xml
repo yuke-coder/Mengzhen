@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout android:id="@id/cpa" android:background="@drawable/main_bg" android:layout_width="match_parent" android:layout_height="wrap_content"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <RelativeLayout android:layout_gravity="bottom" android:paddingLeft="20.0dp" android:paddingRight="20.0dp" android:layout_width="match_parent" android:layout_height="wrap_content">
+        <View android:id="@id/cwa" android:background="@drawable/folder_frame_bg" android:layout_width="240.0dp" android:layout_height="21.0dp" />
+        <View android:background="@drawable/folder_frame_play_bg" android:layout_width="25.0dp" android:layout_height="25.0dp" android:layout_marginTop="29.0dp" />
+        <View android:background="@drawable/folder_frame_bg" android:layout_width="155.0dp" android:layout_height="23.0dp" android:layout_marginLeft="31.0dp" android:layout_marginTop="30.0dp" />
+        <View android:background="@drawable/folder_frame_bg" android:layout_width="match_parent" android:layout_height="14.0dp" android:layout_marginTop="67.5dp" />
+        <View android:background="@drawable/folder_frame_bg" android:layout_width="60.0dp" android:layout_height="20.0dp" android:layout_marginTop="105.0dp" />
+        <View android:background="@drawable/folder_frame_bg" android:layout_width="60.0dp" android:layout_height="20.0dp" android:layout_marginTop="105.0dp" android:layout_centerHorizontal="true" />
+        <View android:background="@drawable/folder_frame_bg" android:layout_width="60.0dp" android:layout_height="20.0dp" android:layout_marginTop="105.0dp" android:layout_alignParentRight="true" />
+    </RelativeLayout>
+</FrameLayout>

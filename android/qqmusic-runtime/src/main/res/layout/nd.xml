@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout android:layout_width="153.0dp" android:layout_height="323.0dp"
+  xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">
+    <com.tencent.qqmusic.ui.RoundedConstraintLayout android:id="@id/cw9" android:background="@drawable/pic_music_game_loading" android:layout_width="153.0dp" android:layout_height="323.0dp" app:a1x="hnz" app:a21="hnz" app:a27="hnz" app:a31="12.0dp" />
+</androidx.constraintlayout.widget.ConstraintLayout>

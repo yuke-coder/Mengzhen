@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout android:orientation="vertical" android:background="@drawable/main_bg" android:layout_width="match_parent" android:layout_height="match_parent"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <LinearLayout android:orientation="vertical" android:layout_width="match_parent" android:layout_height="wrap_content">
+        <include android:id="@id/lv1" android:layout_width="match_parent" android:layout_height="@dimen/cau" layout="@layout/mu" />
+    </LinearLayout>
+    <TextView android:textSize="14.0sp" android:textStyle="bold" android:textColor="@color/skin_text_main_color" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginLeft="14.0dp" android:layout_marginTop="10.0dp" android:text="@string/etd" android:layout_marginStart="14.0dp" />
+    <TextView android:textSize="12.0sp" android:textColor="@color/skin_text_main_color" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginLeft="14.0dp" android:layout_marginTop="12.0dp" android:text="@string/ete" android:layout_marginStart="14.0dp" />
+    <TextView android:textSize="12.0sp" android:textColor="@color/my_music_green" android:id="@id/aia" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginLeft="14.0dp" android:layout_marginTop="12.0dp" android:text="@string/etf" android:layout_marginStart="14.0dp" />
+    <TextView android:textSize="12.0sp" android:textColor="@color/skin_text_main_color" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginLeft="14.0dp" android:layout_marginTop="12.0dp" android:text="@string/etg" android:layout_marginStart="14.0dp" />
+    <TextView android:textSize="14.0sp" android:textStyle="bold" android:textColor="@color/skin_text_main_color" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginLeft="14.0dp" android:layout_marginTop="30.0dp" android:text="@string/eth" android:layout_marginStart="14.0dp" />
+    <TextView android:textSize="12.0sp" android:textColor="@color/skin_text_main_color" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginLeft="14.0dp" android:layout_marginTop="12.0dp" android:text="@string/eti" android:layout_marginStart="14.0dp" />
+    <TextView android:textSize="14.0sp" android:textStyle="bold" android:textColor="@color/skin_text_main_color" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginLeft="14.0dp" android:layout_marginTop="30.0dp" android:text="@string/etj" android:layout_marginStart="14.0dp" />
+    <TextView android:textSize="12.0sp" android:textColor="@color/skin_text_main_color" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginLeft="14.0dp" android:layout_marginTop="12.0dp" android:text="@string/etk" android:layout_marginStart="14.0dp" />
+</LinearLayout>

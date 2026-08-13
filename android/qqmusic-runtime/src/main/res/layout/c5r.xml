@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout android:layout_width="match_parent" android:layout_height="117.0dp"
+  xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">
+    <com.tencent.qqmusic.business.playernew.view.playersong.definedplayer.personalradio.blur.MaskBlurView android:id="@id/lys" android:layout_width="13.0dp" android:layout_height="7.0dp" app:e5="@drawable/pr_scene_guide_popup_tips_top_mask" app:e7="#33ffffff" app:a21="hnz" app:a27="hnz" />
+    <com.tencent.qqmusic.business.playernew.view.playersong.definedplayer.personalradio.blur.MaskBlurView android:id="@id/lyr" android:layout_width="match_parent" android:layout_height="110.0dp" app:e5="@drawable/pr_scene_guide_popup_tips_mask" app:e7="#33ffffff" app:a1d="hnz" />
+    <ImageView android:id="@id/lyq" android:padding="5.0dp" android:layout_width="30.0dp" android:layout_height="30.0dp" android:layout_marginRight="10.0dp" android:src="@drawable/icon_pr_scene_guide_close" app:a1d="@id/lyv" app:a21="hnz" app:a27="@id/lyv" />
+    <androidx.appcompat.widget.AppCompatTextView android:textSize="13.0dp" android:textColor="#ffffff" android:ellipsize="end" android:id="@id/lyv" android:layout_width="0.0dp" android:layout_height="wrap_content" android:layout_marginLeft="22.5dp" android:layout_marginTop="25.0dp" android:layout_marginRight="12.5dp" android:lines="1" android:includeFontPadding="false" app:a1x="hnz" app:a20="@id/lyq" app:a27="hnz" />
+    <androidx.recyclerview.widget.RecyclerView android:id="@id/lyt" android:layout_width="match_parent" android:layout_height="59.0dp" app:a1d="hnz" app:a26="@id/lyv" />
+</androidx.constraintlayout.widget.ConstraintLayout>

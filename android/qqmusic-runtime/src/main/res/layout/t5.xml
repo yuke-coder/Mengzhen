@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout android:paddingBottom="@dimen/c9e" android:layout_width="match_parent" android:layout_height="wrap_content"
+  xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">
+    <TextView android:textSize="10.0sp" android:textColor="@color/skin_floor_color" android:ellipsize="end" android:id="@id/ceo" android:background="@drawable/rounded_shape_black" android:paddingLeft="2.0dp" android:paddingRight="2.0dp" android:visibility="visible" android:layout_width="wrap_content" android:layout_height="14.0dp" android:layout_marginTop="1.0dp" android:layout_marginRight="6.0dp" android:text="视频" android:maxLength="10" app:a1d="@id/cee" app:a1x="hnz" app:a20="@id/cee" app:a27="@id/cee" />
+    <TextView android:textSize="15.0sp" android:textStyle="bold" android:textColor="@color/timeline_black_text" android:ellipsize="end" android:layout_gravity="center_vertical" android:id="@id/cee" android:layout_width="0.0dp" android:layout_height="wrap_content" android:text="" app:a1d="hnz" app:a1y="@id/ceo" app:a21="hnz" app:a27="hnz" />
+    <TextView android:textColor="@color/timeline_black_text" android:id="@id/lcr" android:background="@color/timeline_black_mask" android:layout_width="0.0dp" android:layout_height="0.0dp" app:a1d="hnz" app:a1x="hnz" app:a21="hnz" app:a27="hnz" />
+</androidx.constraintlayout.widget.ConstraintLayout>

@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout android:background="@color/bg_color" android:fitsSystemWindows="true" android:layout_width="match_parent" android:layout_height="match_parent"
+  xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">
+    <com.tencent.mobileqq.webviewplugin.LiteRelyWebView android:id="@id/nqk" android:visibility="visible" android:layout_width="match_parent" android:layout_height="match_parent" />
+    <LinearLayout android:gravity="center_horizontal" android:orientation="vertical" android:id="@id/nat" android:visibility="gone" android:layout_width="match_parent" android:layout_height="wrap_content" app:a1d="hnz" app:a27="hnz">
+        <ImageView android:background="@drawable/error_no_net" android:layout_width="@dimen/list_empty_image_length" android:layout_height="@dimen/list_empty_image_length" />
+        <TextView android:textSize="16.0sp" android:textColor="@color/empty_view_color" android:gravity="center_horizontal" android:id="@id/hgs" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginTop="@dimen/tq" android:text="@string/not_net_title" android:singleLine="true" />
+    </LinearLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>

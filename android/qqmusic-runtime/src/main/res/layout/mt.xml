@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout android:gravity="center_vertical" android:orientation="horizontal" android:layout_width="wrap_content" android:layout_height="wrap_content"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <ImageView android:id="@id/eg" android:visibility="gone" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginRight="@dimen/ll" android:src="@drawable/mv_label_light" android:contentDescription="@string/f91" />
+    <RelativeLayout android:layout_width="30.0dp" android:layout_height="30.0dp" android:layout_marginRight="8.0dp">
+        <ImageView android:id="@id/kbu" android:background="@null" android:visibility="gone" android:layout_width="30.0dp" android:layout_height="30.0dp" android:src="@drawable/rank_song_comment_icon" android:scaleType="fitCenter" android:contentDescription="@string/f80" />
+        <androidx.appcompat.widget.AppCompatTextView android:textSize="6.0dp" android:id="@id/kbv" android:visibility="gone" android:layout_width="16.0dp" android:layout_height="wrap_content" android:layout_marginTop="4.5dp" android:singleLine="true" android:includeFontPadding="false" android:layout_alignParentTop="true" android:layout_alignParentRight="true" />
+    </RelativeLayout>
+    <ImageView android:id="@id/ei" android:visibility="gone" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginRight="@dimen/lo" android:src="@drawable/icon_play_next_for_cell" android:contentDescription="@string/f3" />
+    <include android:id="@id/ek" android:layout_width="wrap_content" android:layout_height="wrap_content" layout="@layout/b4c" />
+</LinearLayout>

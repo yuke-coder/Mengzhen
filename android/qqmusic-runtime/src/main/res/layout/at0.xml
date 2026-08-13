@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout android:gravity="center_vertical" android:orientation="horizontal" android:id="@id/fd5" android:background="@drawable/bg_deeplink_back_btn" android:paddingLeft="3.0dp" android:layout_width="wrap_content" android:layout_height="30.0dp"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <ImageView android:id="@id/ebw" android:layout_width="16.0dp" android:layout_height="16.0dp" android:layout_marginLeft="3.0dp" android:layout_marginRight="2.0dp" android:src="@drawable/icon_deeplink_back_arrow" android:scaleType="fitCenter" />
+    <com.tencent.component.widget.AsyncEffectImageView android:id="@id/ebx" android:visibility="gone" android:layout_width="14.0dp" android:layout_height="14.0dp" android:layout_marginRight="5.0dp" />
+    <TextView android:textSize="12.0dp" android:textColor="@color/deeplink_back_text_color" android:layout_gravity="center_vertical" android:id="@id/m7o" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginRight="5.0dp" android:text="返回" />
+    <com.tencent.component.widget.AsyncEffectImageView android:id="@id/ebv" android:visibility="gone" android:layout_width="14.0dp" android:layout_height="14.0dp" android:layout_marginRight="10.0dp" />
+</LinearLayout>

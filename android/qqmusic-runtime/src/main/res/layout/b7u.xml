@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout android:gravity="center" android:orientation="horizontal" android:background="@drawable/callout_popup_bg" android:layout_width="wrap_content" android:layout_height="wrap_content"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <TextView android:textSize="12.0sp" android:textColor="@color/white" android:id="@id/l9l" android:padding="5.0dp" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="复制" />
+    <View android:background="@color/white" android:layout_width="0.5dp" android:layout_height="match_parent" android:layout_marginTop="5.0dp" android:layout_marginBottom="5.0dp" />
+    <TextView android:textSize="12.0sp" android:textColor="@color/white" android:id="@id/la4" android:padding="5.0dp" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="制作歌词海报" />
+</LinearLayout>

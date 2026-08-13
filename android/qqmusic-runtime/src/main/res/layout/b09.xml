@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout android:id="@id/lek" android:focusable="true" android:clickable="true" android:layout_width="match_parent" android:layout_height="@dimen/cau" app:a1x="@id/jdj" app:a21="@id/jdj" app:a27="@id/jdj"
+  xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">
+    <LinearLayout android:gravity="center_vertical" android:orientation="horizontal" android:paddingTop="@dimen/c_q" android:layout_width="match_parent" android:layout_height="@dimen/cau">
+        <ImageView android:id="@id/a5h" android:layout_width="44.0dp" android:layout_height="44.0dp" android:src="@drawable/putoo_group_back_normal" android:scaleType="centerInside" android:contentDescription="@string/wf" />
+        <com.tencent.qqmusic.ui.FansCommunityTextView android:textSize="18.0sp" android:textStyle="bold" android:ellipsize="end" android:gravity="center_vertical" android:layout_gravity="center_vertical" android:id="@id/lg1" android:layout_width="0.0dp" android:layout_height="match_parent" android:maxLines="1" android:layout_weight="1.0" />
+        <com.tencent.qqmusic.follow.FollowPlusButton android:id="@id/cq_" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginRight="12.0dp" app:aif="7" />
+        <include android:layout_width="30.0dp" android:layout_height="30.0dp" android:layout_marginEnd="10.0dp" layout="@layout/cc3" />
+        <include android:layout_width="wrap_content" android:layout_height="25.0dp" layout="@layout/cc2" />
+        <ImageView android:id="@id/jvm" android:visibility="gone" android:layout_width="22.0dp" android:layout_height="22.0dp" android:src="@drawable/top_bar_share" android:scaleType="centerInside" android:contentDescription="分享" />
+        <ImageView android:id="@id/gsg" android:visibility="gone" android:layout_width="@dimen/cao" android:layout_height="28.0dp" android:src="@drawable/group_button_more_normal" android:scaleType="centerInside" android:contentDescription="更多" />
+    </LinearLayout>
+</FrameLayout>

@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.tme.mlive.ui.custom.song.LiveSongRecommendView android:layout_width="match_parent" android:layout_height="match_parent"
+  xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">
+    <LinearLayout android:orientation="horizontal" android:id="@id/mlive_song_recommend_title" android:layout_width="match_parent" android:layout_height="40.0dp" android:paddingStart="16.0dp" android:paddingEnd="16.0dp" app:a1j="hnz" app:a23="hnz" app:a27="hnz">
+        <TextView android:textSize="14.0sp" android:textColor="@color/white_60_transparent" android:layout_gravity="center_vertical" android:layout_width="match_parent" android:layout_height="wrap_content" android:text="@string/d57" android:layout_weight="1.0" />
+        <ImageView android:layout_gravity="center_vertical" android:id="@id/mlive_song_recommend_refresh_icon" android:layout_width="24.0dp" android:layout_height="24.0dp" android:src="@drawable/mlive_song_content_refresh_icon" />
+        <TextView android:textColor="@color/white_60_transparent" android:gravity="center" android:layout_gravity="center_vertical" android:id="@id/mlive_song_recommend_update" android:layout_width="wrap_content" android:layout_height="24.0dp" android:text="@string/d56" android:layout_marginStart="4.0dp" />
+    </LinearLayout>
+    <com.tme.mlive.ui.custom.LiveFadingRecyclerView android:id="@id/mlive_song_recommend_list_rv" android:focusable="false" android:focusableInTouchMode="false" android:layout_width="match_parent" android:layout_height="0.0dp" android:paddingStart="16.0dp" android:paddingEnd="16.0dp" app:a1d="hnz" app:a1j="hnz" app:a23="hnz" app:a26="@id/mlive_song_recommend_title" />
+    <androidx.constraintlayout.widget.Group android:id="@id/mlive_song_recommend_empty_group" android:visibility="gone" android:layout_width="wrap_content" android:layout_height="wrap_content" app:ko="mlive_song_recommend_empty_pic, mlive_song_recommend_empty_text" />
+    <ImageView android:id="@id/mlive_song_recommend_empty_pic" android:layout_width="wrap_content" android:layout_height="wrap_content" android:src="@drawable/mlive_song_content_request_empty_icon" app:a1e="@id/mlive_song_recommend_empty_text" app:a1j="hnz" app:a23="hnz" app:a26="@id/mlive_song_recommend_title" app:a29="hmg" />
+    <TextView android:textSize="14.0sp" android:textColor="@color/white_60_transparent" android:id="@id/mlive_song_recommend_empty_text" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/cx2" app:a1d="hnz" app:a1j="hnz" app:a23="hnz" app:a26="@id/mlive_song_recommend_empty_pic" />
+</com.tme.mlive.ui.custom.song.LiveSongRecommendView>

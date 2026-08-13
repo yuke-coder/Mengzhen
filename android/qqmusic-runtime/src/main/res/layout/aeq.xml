@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.tencent.qqmusic.ui.RoundedConstraintLayout android:id="@id/hpk" android:layout_width="@dimen/b57" android:layout_height="@dimen/b56" android:layout_marginRight="14.0dp" app:kj="8.0dp"
+  xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">
+    <ImageView android:id="@id/hpi" android:layout_width="match_parent" android:layout_height="match_parent" />
+    <androidx.appcompat.widget.AppCompatTextView android:textSize="9.0sp" android:textColor="#fff" android:id="@id/hpl" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginLeft="7.0dp" android:layout_marginBottom="7.0dp" app:a1d="hnz" app:a1x="hnz" />
+    <View android:id="@id/hpj" android:background="@drawable/bg_pc_model_in_use_flag" android:visibility="invisible" android:layout_width="match_parent" android:layout_height="match_parent" />
+</com.tencent.qqmusic.ui.RoundedConstraintLayout>

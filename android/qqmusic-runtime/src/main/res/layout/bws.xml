@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout android:layout_gravity="center_horizontal" android:orientation="vertical" android:id="@id/mlive_dialog_single_btn_alert_root" android:background="@drawable/mstream_bg_round_all_x10" android:padding="30.0dp" android:layout_width="match_parent" android:layout_height="match_parent"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <TextView android:textSize="18.0sp" android:textColor="@color/black" android:ellipsize="end" android:gravity="center" android:id="@id/mlive_dialog_base_title_tv" android:layout_width="match_parent" android:layout_height="wrap_content" android:maxLines="1" android:singleLine="true" />
+    <ScrollView android:id="@id/mlive_dialog_single_btn_alert_content_sv" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginTop="16.0dp">
+        <TextView android:textSize="14.0sp" android:textColor="@color/black" android:ellipsize="end" android:gravity="center" android:id="@id/mlive_dialog_single_btn_alert_content_tv" android:layout_width="match_parent" android:layout_height="wrap_content" android:minHeight="45.0dp" android:textAlignment="center" />
+    </ScrollView>
+    <Button android:textSize="16.0sp" android:textColor="@color/white" android:gravity="center" android:layout_gravity="center_horizontal" android:id="@id/mlive_dialog_base_positive_btn" android:background="@drawable/mstream_bg_common_btn" android:layout_width="215.0dp" android:layout_height="40.0dp" android:layout_marginTop="30.0dp" android:text="@string/d1i" />
+</LinearLayout>

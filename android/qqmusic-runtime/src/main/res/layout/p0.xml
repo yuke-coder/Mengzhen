@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout android:background="@color/white" android:layout_width="match_parent" android:layout_height="162.0dp"
+  xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">
+    <SeekBar android:id="@id/jgv" android:duplicateParentState="true" android:layout_width="253.0dp" android:layout_height="wrap_content" android:layout_marginTop="40.0dp" android:maxHeight="2.0dp" android:max="200" android:progressDrawable="@drawable/bg_ae_volume_progress" android:minHeight="2.0dp" app:a1x="hnz" app:a21="hnz" app:a27="hnz" />
+    <TextView android:textSize="13.0sp" android:textColor="@color/black_50_opacity" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/hn9" app:a1d="@id/jgv" app:a20="@id/jgv" app:a27="@id/jgv" />
+    <TextView android:textSize="13.0sp" android:textColor="@color/black_50_opacity" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/hn8" app:a1d="@id/jgv" app:a1y="@id/jgv" app:a27="@id/jgv" />
+    <View android:id="@id/na9" android:background="@color/black_10_opacity" android:layout_width="0.0dp" android:layout_height="0.5dp" android:layout_marginTop="78.0dp" app:a1x="hnz" app:a21="hnz" app:a27="hnz" />
+    <TextView android:textSize="13.0sp" android:textColor="@color/black" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="18.5dp" android:text="@string/hn_" app:a1x="hnz" app:a21="hnz" app:a26="@id/na9" />
+    <TextView android:textSize="13.0sp" android:textColor="@color/black_50_opacity" android:id="@id/mgh" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginBottom="2.0dp" app:a1e="@id/jgv" app:a1x="@id/jgv" />
+    <View android:background="@color/colorAccent" android:visibility="gone" android:layout_width="30.0dp" android:layout_height="0.0dp" app:a1d="@id/jgv" app:a1y="@id/jgv" app:a27="@id/jgv" />
+</androidx.constraintlayout.widget.ConstraintLayout>

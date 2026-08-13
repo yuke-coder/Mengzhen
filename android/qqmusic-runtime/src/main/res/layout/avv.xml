@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout android:layout_gravity="center_horizontal" android:id="@id/cxl" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginLeft="14.0dp" android:layout_marginRight="14.0dp" android:elevation="10.0dp"
+  xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">
+    <ImageView android:id="@id/fl1" android:layout_width="30.0dp" android:layout_height="30.0dp" android:src="@drawable/ic_login_dialog_close" android:contentDescription="@string/a7j" app:a21="hnz" app:a27="hnz" />
+    <androidx.appcompat.widget.AppCompatImageView android:id="@id/fl3" android:layout_width="0.0dp" android:layout_height="0.0dp" android:src="@drawable/ic_login_dialog_head" app:a1i="350:99" app:a1x="hnz" app:a21="hnz" app:a26="@id/fl1" />
+    <androidx.constraintlayout.widget.ConstraintLayout android:background="@drawable/music_login_dialog_bg" android:paddingBottom="20.0dp" android:layout_width="0.0dp" android:layout_height="wrap_content" app:a1x="hnz" app:a21="hnz" app:a26="@id/fl3">
+        <androidx.appcompat.widget.AppCompatTextView android:textSize="20.0sp" android:textStyle="bold" android:textColor="@color/black" android:id="@id/fl8" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="15.0dp" android:text="登录立享新用户首开会员折扣" app:a1x="hnz" app:a21="hnz" app:a27="hnz" />
+        <androidx.appcompat.widget.AppCompatTextView android:textSize="14.0sp" android:textColor="@color/black_60_transparent" android:id="@id/fl7" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="6.0dp" android:text="畅享千万曲库" app:a1x="hnz" app:a21="hnz" app:a26="@id/fl8" />
+        <LinearLayout android:gravity="center_horizontal" android:orientation="horizontal" android:id="@id/fl2" android:layout_width="0.0dp" android:layout_height="wrap_content" android:layout_marginTop="15.0dp" app:a1j="hnz" app:a23="hnz" app:a26="@id/fl7">
+            <LinearLayout android:orientation="vertical" android:id="@id/fl6" android:layout_width="45.0dp" android:layout_height="wrap_content">
+                <ImageView android:layout_width="45.0dp" android:layout_height="45.0dp" android:src="@drawable/ic_login_dialog_qq" android:contentDescription="@string/g33" />
+                <TextView android:textSize="11.0sp" android:textColor="@color/black" android:gravity="center" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginTop="5.0dp" android:text="@string/g33" />
+            </LinearLayout>
+            <LinearLayout android:orientation="vertical" android:id="@id/fl9" android:layout_width="45.0dp" android:layout_height="wrap_content" android:layout_marginLeft="24.0dp">
+                <ImageView android:layout_width="45.0dp" android:layout_height="45.0dp" android:src="@drawable/ic_login_dialog_wx" android:contentDescription="微信登录" />
+                <TextView android:textSize="11.0sp" android:textColor="@color/black" android:gravity="center" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginTop="5.0dp" android:text="微信" />
+            </LinearLayout>
+            <LinearLayout android:orientation="vertical" android:id="@id/fl4" android:layout_width="45.0dp" android:layout_height="wrap_content" android:layout_marginLeft="24.0dp">
+                <ImageView android:layout_width="45.0dp" android:layout_height="45.0dp" android:src="@drawable/ic_login_dialog_phone" android:contentDescription="手机号登录" />
+                <TextView android:textSize="11.0sp" android:textColor="@color/black" android:gravity="center" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginTop="5.0dp" android:text="手机号" />
+            </LinearLayout>
+        </LinearLayout>
+        <androidx.constraintlayout.widget.ConstraintLayout android:orientation="horizontal" android:id="@id/fl5" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="16.0dp" app:a1j="hnz" app:a23="hnz" app:a26="@id/fl2">
+            <RelativeLayout android:layout_gravity="center_vertical" android:id="@id/mk" android:paddingTop="5.0dp" android:paddingBottom="5.0dp" android:layout_width="28.5dp" android:layout_height="26.0dp" app:a1k="@id/ml" app:a1u="hmg" app:a1x="hnz" app:a23="hnz" app:a27="hnz">
+                <CheckBox android:id="@id/mj" android:background="@drawable/user_agreement_and_policy_bg" android:focusable="false" android:focusableInTouchMode="false" android:clickable="false" android:layout_width="16.0dp" android:layout_height="16.0dp" android:checked="false" android:button="@null" android:layout_centerInParent="true" />
+            </RelativeLayout>
+            <androidx.appcompat.widget.AppCompatTextView android:textSize="11.0sp" android:textColor="@color/login_text_color" android:layout_gravity="center_vertical" android:id="@id/ml" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/cj9" android:includeFontPadding="false" app:a1d="@id/mk" app:a1k="@id/c1" app:a22="@id/mk" app:a27="@id/mk" />
+            <androidx.appcompat.widget.AppCompatTextView android:textSize="11.0sp" android:textStyle="bold" android:textColor="@color/login_text_color" android:id="@id/c1" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/ao" android:includeFontPadding="false" app:a1d="@id/mk" app:a1k="@id/bo" app:a22="@id/ml" app:a27="@id/mk" />
+            <androidx.appcompat.widget.AppCompatTextView android:textSize="11.0sp" android:textStyle="bold" android:textColor="@color/login_text_color" android:id="@id/bo" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/ag" android:includeFontPadding="false" app:a1d="@id/mk" app:a1j="hnz" app:a22="@id/c1" app:a27="@id/mk" />
+            <androidx.appcompat.widget.AppCompatTextView android:textSize="11.0sp" android:textStyle="bold" android:textColor="@color/login_text_color" android:id="@id/aya" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/a6" android:includeFontPadding="false" app:a1k="@id/lbo" app:a1u="hmg" app:a23="hnz" app:a26="@id/mk" />
+            <androidx.appcompat.widget.AppCompatTextView android:textSize="11.0sp" android:textStyle="bold" android:textColor="@color/login_text_color" android:id="@id/lbo" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/am" android:includeFontPadding="false" app:a1j="hnz" app:a22="@id/aya" app:a26="@id/mk" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>

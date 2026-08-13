@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout android:layout_width="match_parent" android:layout_height="match_parent" android:layout_centerHorizontal="true"
+  xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">
+    <ImageView android:layout_gravity="center_horizontal" android:id="@id/gat" android:layout_width="wrap_content" android:layout_height="wrap_content" android:src="@drawable/my_following_not_login_light" app:a1d="hnz" app:a1x="hnz" app:a21="hnz" app:a27="hnz" app:a28="0.3" />
+    <TextView android:textSize="16.0sp" android:textStyle="bold" android:textColor="@color/skin_text_main_color" android:id="@id/gav" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="30.0dp" android:text="@string/et8" android:includeFontPadding="false" app:a1x="hnz" app:a21="hnz" app:a26="@id/gat" />
+    <TextView android:textSize="14.0sp" android:textColor="@color/skin_text_sub_color" android:id="@id/gau" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="8.0dp" android:text="@string/et7" android:maxLines="1" android:includeFontPadding="false" app:a1x="hnz" app:a21="hnz" app:a26="@id/gav" />
+    <androidx.constraintlayout.widget.ConstraintLayout android:layout_width="match_parent" android:layout_height="match_parent" app:a26="@id/gau">
+        <com.tencent.qqmusic.ui.RoundedRelativeLayout android:gravity="center" android:orientation="horizontal" android:id="@id/fm8" android:layout_width="160.0dp" android:layout_height="30.0dp" android:layout_marginBottom="35.0dp" app:a1d="hnz" app:a1x="hnz" app:a21="hnz" app:ado="17.5dp">
+            <ImageView android:id="@id/mwe" android:layout_width="16.0dp" android:layout_height="16.0dp" android:layout_marginRight="10.0dp" android:src="@drawable/not_login_default_image" android:layout_centerVertical="true" />
+            <TextView android:textSize="16.0dp" android:textColor="@color/skin_button_text_color" android:id="@id/gaw" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="立 即 登 录" android:singleLine="true" android:layout_toRightOf="@id/mwe" android:layout_centerVertical="true" />
+        </com.tencent.qqmusic.ui.RoundedRelativeLayout>
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>

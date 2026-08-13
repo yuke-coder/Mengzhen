@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout android:layout_width="match_parent" android:layout_height="match_parent"
+  xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">
+    <ImageView android:id="@id/mlive_pendant_flow_card_bg" android:background="@drawable/mlive_flow_card_pendant_running_bg" android:layout_width="54.0dp" android:layout_height="55.0dp" app:a1d="hnz" app:a1j="hnz" app:a23="hnz" app:a27="hnz" />
+    <TextView android:textSize="10.0dp" android:textStyle="bold" android:textColor="@color/mlive_flow_card_pendant_text" android:gravity="center" android:id="@id/mlive_pendant_flow_card_number" android:layout_width="wrap_content" android:layout_height="18.0dp" android:layout_marginBottom="6.0dp" app:a1d="@id/mlive_pendant_flow_card_bg" app:a1j="@id/mlive_pendant_flow_card_bg" app:a23="@id/mlive_pendant_flow_card_bg" />
+    <TextView android:textSize="10.0dp" android:textStyle="bold" android:textColor="@color/mlive_flow_card_pendant_text" android:gravity="center" android:id="@id/mlive_pendant_flow_card_timer" android:background="@drawable/mlive_flow_card_pendant_timer_bg" android:layout_width="40.0dp" android:layout_height="15.0dp" app:a1j="@id/mlive_pendant_flow_card_bg" app:a23="@id/mlive_pendant_flow_card_bg" app:a26="@id/mlive_pendant_flow_card_number" />
+</androidx.constraintlayout.widget.ConstraintLayout>

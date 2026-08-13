@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout android:orientation="vertical" android:layout_width="match_parent" android:layout_height="match_parent"
+  xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">
+    <ViewStub android:id="@id/jv2" android:layout="@layout/mj" android:layout_width="match_parent" android:layout_height="match_parent" />
+    <LinearLayout android:gravity="center_horizontal" android:orientation="horizontal" android:id="@id/b8h" android:layout_width="match_parent" android:layout_height="60.0dp" android:layout_marginTop="10.0dp">
+        <TextView android:textSize="16.0sp" android:textColor="@color/white" android:gravity="center" android:id="@id/krs" android:background="@drawable/ss_device_type_highlight" android:layout_width="0.0dp" android:layout_height="match_parent" android:layout_marginLeft="16.0dp" android:text="@string/huv" android:singleLine="true" android:layout_weight="1.0" android:layout_marginStart="16.0dp" />
+        <TextView android:textSize="16.0sp" android:textColor="@color/white" android:gravity="center" android:id="@id/krr" android:background="@drawable/ss_device_type" android:layout_width="0.0dp" android:layout_height="match_parent" android:layout_marginLeft="9.0dp" android:layout_marginRight="16.0dp" android:text="@string/hus" android:singleLine="true" android:layout_weight="1.0" android:layout_marginStart="9.0dp" android:layout_marginEnd="16.0dp" />
+    </LinearLayout>
+    <RelativeLayout android:id="@id/a2v" android:layout_width="match_parent" android:layout_height="match_parent" android:layout_marginTop="15.0dp" />
+</LinearLayout>

@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout android:background="@color/black" android:layout_width="match_parent" android:layout_height="match_parent"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <FrameLayout android:orientation="horizontal" android:id="@id/f1s" android:paddingTop="@dimen/c_q" android:paddingRight="20.0dp" android:layout_width="match_parent" android:layout_height="@dimen/cau">
+        <FrameLayout android:layout_gravity="center_vertical" android:id="@id/bns" android:paddingLeft="20.0dp" android:layout_width="50.0dp" android:layout_height="30.0dp">
+            <androidx.appcompat.widget.AppCompatImageView android:layout_gravity="center_vertical" android:id="@id/bnr" android:layout_width="15.0dp" android:layout_height="15.0dp" android:src="@drawable/back_white_normal" />
+        </FrameLayout>
+        <androidx.appcompat.widget.AppCompatImageView android:layout_gravity="right|center" android:id="@id/f1b" android:visibility="gone" android:layout_width="30.0dp" android:layout_height="30.0dp" android:src="@drawable/letter_detail_edit" />
+    </FrameLayout>
+    <com.tencent.qqmusic.common.widgets.refreshviewpager2.RefreshViewPager2Layout android:id="@id/j3s" android:layout_width="match_parent" android:layout_height="match_parent" android:layout_marginTop="20.0dp" android:layout_below="@id/f1s" />
+    <LinearLayout android:gravity="center_horizontal" android:orientation="vertical" android:id="@id/h80" android:visibility="gone" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_centerInParent="true">
+        <ImageView android:layout_width="100.0dp" android:layout_height="100.0dp" android:src="@drawable/empty_music_list" />
+        <androidx.appcompat.widget.AppCompatTextView android:textSize="14.0sp" android:textColor="@color/white_90_opacity" android:gravity="center" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="25.0dp" android:text="@string/bnb" />
+    </LinearLayout>
+</RelativeLayout>

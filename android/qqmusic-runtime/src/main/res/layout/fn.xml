@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout android:id="@id/chj" android:clipChildren="true" android:layout_width="match_parent" android:layout_height="match_parent"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <View android:id="@id/n38" android:background="@color/white" android:layout_width="match_parent" android:layout_height="match_parent" />
+    <TextureView android:id="@id/jub" android:layout_width="match_parent" android:layout_height="match_parent" />
+    <ImageView android:id="@id/dum" android:visibility="gone" android:layout_width="match_parent" android:layout_height="match_parent" android:scaleType="centerCrop" />
+    <RelativeLayout android:id="@id/etf" android:paddingTop="72.0dp" android:layout_width="match_parent" android:layout_height="match_parent">
+        <ImageView android:id="@id/al7" android:layout_width="30.0dp" android:layout_height="30.0dp" android:layout_marginRight="20.0dp" android:src="@drawable/welcome_sound_enable" android:layout_toLeftOf="@id/al6" android:contentDescription="@string/eh2" />
+        <ImageView android:id="@id/al6" android:layout_width="58.0dp" android:layout_height="30.0dp" android:layout_marginRight="40.0dp" android:src="@drawable/welcome_jump_btn_icon" android:layout_alignParentTop="true" android:layout_alignParentRight="true" android:contentDescription="跳过" />
+        <ImageView android:id="@id/al8" android:visibility="gone" android:layout_width="58.0dp" android:layout_height="30.0dp" android:layout_marginRight="40.0dp" android:src="@drawable/welcome_save_btn_icon" android:layout_alignParentTop="true" android:layout_alignParentRight="true" android:contentDescription="保存" />
+        <ImageView android:id="@id/aji" android:background="@drawable/welcome_jump" android:visibility="gone" android:layout_width="207.0dp" android:layout_height="51.0dp" android:layout_marginBottom="150.0dp" android:layout_alignParentBottom="true" android:layout_centerHorizontal="true" android:contentDescription="查看年度听歌报告" />
+        <ImageView android:id="@id/aj3" android:visibility="gone" android:layout_width="202.0dp" android:layout_height="51.0dp" android:layout_marginBottom="240.0dp" android:src="@drawable/welcome_enter" android:layout_alignParentBottom="true" android:layout_centerHorizontal="true" android:contentDescription="进入QQ音乐" />
+    </RelativeLayout>
+</FrameLayout>

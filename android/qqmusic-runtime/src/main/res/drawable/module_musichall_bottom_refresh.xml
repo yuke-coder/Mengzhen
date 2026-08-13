@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<shape android:shape="rectangle"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <corners android:radius="10.299988dp" />
+    <size android:height="20.0dp" android:width="64.0dp" />
+    <stroke android:width="0.5dp" android:color="@color/skin_highlight_disabled_color" />
+</shape>

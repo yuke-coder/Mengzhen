@@ -1,0 +1,22 @@
+{
+  "router": "openPage",
+  "page_name": "vip_redeem",
+  "params": {
+    "type": "1",
+    "orderId": "1250804012177242182",
+    "offerId": "music_hhlz_1141520",
+    "premiumVipScore": "951",
+    "payType": "1",
+    "periodic": "1",
+    "months": "1",
+    "price": "100",
+    "renewPrice": "1000",
+    "userType": "2"
+  },
+  "container": {
+    "w_weight": "1",
+    "h_weight": "1",
+    "direction": "from-bottom",
+    "tabbar_mode": "4"
+  }
+}

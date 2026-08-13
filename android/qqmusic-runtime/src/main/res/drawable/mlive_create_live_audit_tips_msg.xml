@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<shape android:shape="rectangle"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <corners android:radius="@dimen/am4" />
+    <solid android:color="@color/mlive_create_live_audit_tips_bg" />
+    <padding android:left="@dimen/am6" android:right="@dimen/am6" />
+</shape>

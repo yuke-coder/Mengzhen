@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout android:id="@id/n0b" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginTop="-6.0dp" android:layout_marginBottom="2.0dp"
+  xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">
+    <com.tencent.component.widget.AsyncEffectImageView android:id="@id/n0a" android:layout_width="30.0dp" android:layout_height="30.0dp" android:layout_centerVertical="true" android:importantForAccessibility="no" />
+    <com.tencent.qqmusic.ui.customview.textview.ScrollTextView android:textSize="14.0dp" android:textColor="@color/skin_text_main_color" android:id="@id/n0c" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginLeft="8.0dp" android:maxLines="1" android:layout_centerVertical="true" android:layout_toStartOf="@id/n0_" android:layout_toEndOf="@id/n0a" />
+    <com.tencent.component.widget.AsyncEffectImageView android:id="@id/n0_" android:padding="2.0dp" android:layout_width="20.0dp" android:layout_height="20.0dp" android:src="@drawable/module_musichall_central_title_more" android:layout_centerVertical="true" android:importantForAccessibility="no" android:layout_alignParentEnd="true" />
+</RelativeLayout>

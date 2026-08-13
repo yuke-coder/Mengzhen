@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout android:layout_width="match_parent" android:layout_height="@dimen/asf" android:paddingStart="16.0dp" android:paddingEnd="16.0dp"
+  xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">
+    <androidx.recyclerview.widget.RecyclerView android:id="@id/mlive_layout_live_pendent_left_rv" android:layout_width="wrap_content" android:layout_height="match_parent" app:a1x="hnz" app:a27="hnz" />
+    <com.tme.qqmusic.widget.base.view.NestedScrollableLinearLayout android:gravity="center_horizontal" android:orientation="vertical" android:id="@id/mlive_layout_live_pendent_carousel_container" android:layout_width="@dimen/asi" android:layout_height="@dimen/ash" android:layout_marginEnd="3.0dp" app:a1d="hnz" app:a20="@id/mlive_layout_live_pendent_more_rv" app:a27="hnz">
+        <androidx.viewpager2.widget.ViewPager2 android:orientation="horizontal" android:id="@id/mlive_layout_live_pendent_carousel" android:visibility="gone" android:layout_width="match_parent" android:layout_height="match_parent" />
+        <androidx.recyclerview.widget.RecyclerView android:id="@id/mlive_layout_live_pendent_carousel_indicator" android:visibility="gone" android:layout_width="wrap_content" android:layout_height="0.0dp" />
+    </com.tme.qqmusic.widget.base.view.NestedScrollableLinearLayout>
+    <androidx.recyclerview.widget.RecyclerView android:id="@id/mlive_layout_live_pendent_more_rv" android:layout_width="wrap_content" android:layout_height="wrap_content" app:a21="hnz" app:a27="hnz" />
+    <androidx.constraintlayout.widget.Group android:id="@id/mlive_layout_live_pendent_group" android:layout_width="0.0dp" android:layout_height="0.0dp" app:ko="mlive_layout_live_pendent_left_rv,mlive_layout_live_pendent_more_rv,mlive_layout_live_pendent_carousel_container" />
+</androidx.constraintlayout.widget.ConstraintLayout>

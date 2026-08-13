@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout android:background="@drawable/music_quality_order_edit_bg_color" android:layout_width="match_parent" android:layout_height="60.0dp" android:layout_marginTop="5.0dp" android:layout_marginBottom="5.0dp"
+  xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">
+    <androidx.appcompat.widget.AppCompatTextView android:textSize="15.0sp" android:textStyle="bold" android:textColor="@color/skin_text_main_color" android:id="@id/h1d" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/ra" android:layout_marginStart="10.0dp" app:a1e="@id/h1c" app:a23="hnz" app:a27="hnz" app:a29="hmg" />
+    <androidx.appcompat.widget.AppCompatTextView android:textSize="12.0sp" android:textColor="@color/skin_text_sub_color" android:id="@id/h1c" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="4.0dp" android:text="@string/efl" android:layout_marginStart="10.0dp" app:a1d="hnz" app:a23="hnz" app:a26="@id/h1d" app:a29="hmg" />
+    <ImageView android:id="@id/h1b" android:layout_width="wrap_content" android:layout_height="wrap_content" android:src="@drawable/music_quality_order_edit_move" android:layout_marginEnd="10.0dp" app:a1d="hnz" app:a1j="hnz" app:a27="hnz" />
+</androidx.constraintlayout.widget.ConstraintLayout>

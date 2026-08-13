@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout android:paddingBottom="40.0dp" android:layout_width="wrap_content" android:layout_height="wrap_content" android:paddingStart="5.0dp" android:paddingEnd="5.0dp"
+  xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">
+    <kk.design.KKImageView android:id="@id/j66" android:layout_width="70.0dp" android:layout_height="70.0dp" android:src="@drawable/hunxiang_3d" app:kkImageRadiusDirection="xt" app:kkImageRadiusSize="4.0dp" app:a1d="hnz" app:a1j="hnz" app:a23="hnz" app:a27="hnz" />
+    <ImageView android:id="@id/j6g" android:visibility="gone" android:layout_width="70.0dp" android:layout_height="70.0dp" android:src="@drawable/reverb_selected" app:a1d="hnz" app:a1j="hnz" app:a23="hnz" app:a27="hnz" />
+    <ImageView android:id="@id/j6i" android:visibility="gone" android:layout_width="wrap_content" android:layout_height="wrap_content" app:a1j="@id/j66" app:a27="@id/j66" />
+    <TextView android:textSize="16.0dp" android:textStyle="bold" android:textColor="@android:color/white" android:id="@id/j67" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="剧场" app:a1d="@id/j66" app:a1j="@id/j66" app:a23="@id/j66" app:a27="@id/j66" />
+</androidx.constraintlayout.widget.ConstraintLayout>

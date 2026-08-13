@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout android:orientation="vertical" android:layout_width="match_parent" android:layout_height="match_parent"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <androidx.recyclerview.widget.RecyclerView android:orientation="horizontal" android:id="@id/ktd" android:layout_width="match_parent" android:layout_height="28.0dp" android:layout_marginLeft="16.0dp" android:layout_marginTop="20.0dp" />
+    <androidx.recyclerview.widget.RecyclerView android:id="@id/kte" android:layout_width="match_parent" android:layout_height="match_parent" android:layout_marginLeft="16.0dp" android:layout_marginTop="20.0dp" android:layout_marginRight="16.0dp" />
+</LinearLayout>

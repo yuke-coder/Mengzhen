@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout android:background="@drawable/player_activity_bottom_bg" android:layout_width="match_parent" android:layout_height="match_parent"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <include android:id="@id/aax" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_centerInParent="true" layout="@layout/c4c" />
+    <TextView android:id="@id/bey" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginLeft="5.0dp" android:layout_marginTop="5.0dp" android:layout_alignParentLeft="true" style="@style/a52" />
+    <TextView android:id="@id/m0q" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="5.0dp" android:layout_marginRight="5.0dp" android:layout_alignParentRight="true" style="@style/a52" />
+</RelativeLayout>

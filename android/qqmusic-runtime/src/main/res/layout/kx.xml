@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout android:background="@drawable/ss_official_effect_label_item_round_bg" android:layout_width="wrap_content" android:layout_height="28.0dp" android:layout_marginRight="10.0dp"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <TextView android:textSize="13.0sp" android:textColor="@color/ss_title_text_color" android:id="@id/ktc" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginLeft="12.0dp" android:layout_marginRight="12.0dp" android:text="环绕" android:layout_centerVertical="true" />
+</RelativeLayout>

@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.tencent.qqmusic.ui.SideSlipLayout android:background="@drawable/material_ripple_background" android:layout_width="match_parent" android:layout_height="55.0dp"
+  xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">
+    <androidx.appcompat.widget.AppCompatTextView android:textColor="@color/white" android:gravity="center" android:id="@id/dcn" android:background="@color/red_color_main_v8" android:layout_width="100.0dp" android:layout_height="wrap_content" android:minHeight="59.0dp" android:text="@string/aiq" app:a1d="hnz" app:a22="@id/jz3" app:a27="hnz" />
+    <include android:id="@id/jz3" android:layout_width="match_parent" android:layout_height="@dimen/cau" layout="@layout/aef" />
+</com.tencent.qqmusic.ui.SideSlipLayout>

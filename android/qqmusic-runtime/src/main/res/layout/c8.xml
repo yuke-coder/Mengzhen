@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.tencent.qqmusic.ui.TouchEventAwareRelativeLayout android:orientation="vertical" android:layout_width="match_parent" android:layout_height="match_parent"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <com.tencent.qqmusic.activity.base.StackLayout android:id="@id/cts" android:layout_width="match_parent" android:layout_height="match_parent" />
+    <ImageView android:layout_gravity="right|bottom" android:id="@id/ea_" android:visibility="invisible" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginRight="60.0dp" android:layout_marginBottom="70.0dp" android:src="@drawable/anchor_in_cell" android:layout_alignParentRight="true" android:layout_alignParentBottom="true" android:contentDescription="@string/hbv" />
+    <include android:id="@id/g0r" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_alignParentBottom="true" layout="@layout/b0" />
+</com.tencent.qqmusic.ui.TouchEventAwareRelativeLayout>

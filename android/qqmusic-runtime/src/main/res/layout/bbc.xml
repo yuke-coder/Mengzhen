@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.tme.qqmusic.widget.base.view.CornerConstraintLayout android:background="@color/white" android:layout_width="match_parent" android:layout_height="220.0dp" app:lm="10.0dp"
+  xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">
+    <TextView android:textSize="14.0sp" android:textColor="@color/black" android:id="@id/mlive_ugc_create_type_select_title" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="15.0dp" android:text="@string/e2n" app:a1j="hnz" app:a23="hnz" app:a27="hnz" />
+    <Button android:textSize="18.0sp" android:textColor="@color/white" android:id="@id/mlive_create_type_select_personal" android:background="@drawable/mlive_create_live_type_select" android:layout_width="96.0dp" android:layout_height="96.0dp" android:layout_marginTop="74.0dp" android:text="@string/e2o" android:layout_marginStart="56.0dp" app:a23="hnz" app:a27="hnz" />
+    <Button android:textSize="18.0sp" android:textColor="@color/mlive_qqmusic_green" android:id="@id/mlive_create_type_select_sign" android:background="@drawable/mlive_create_live_type_unselect" android:layout_width="96.0dp" android:layout_height="96.0dp" android:layout_marginTop="74.0dp" android:text="@string/e2p" android:layout_marginEnd="56.0dp" app:a1j="hnz" app:a27="hnz" />
+</com.tme.qqmusic.widget.base.view.CornerConstraintLayout>

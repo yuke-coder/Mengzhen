@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout android:orientation="vertical" android:layout_width="@dimen/c9j" android:layout_height="wrap_content" android:layout_marginTop="20.0dp" android:layout_marginBottom="15.0dp"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <com.tencent.qqmusic.business.live.ui.view.RoundAvatarImage android:id="@id/e8o" android:background="#0f0" android:layout_width="@dimen/c9j" android:layout_height="@dimen/c9j" />
+    <TextView android:textSize="12.0dp" android:textColor="#000000" android:ellipsize="end" android:gravity="center" android:layout_gravity="center_horizontal" android:id="@id/m2_" android:layout_width="@dimen/c9j" android:layout_height="wrap_content" android:layout_marginTop="4.0dp" android:text="哈哈" android:singleLine="true" />
+</LinearLayout>

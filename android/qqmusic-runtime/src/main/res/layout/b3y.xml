@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.tencent.qqmusic.ui.RoundedRelativeLayout android:id="@id/em" android:background="@drawable/bg_list_bottom_sheet_dialog" android:paddingTop="20.0dp" android:layout_width="match_parent" android:layout_height="wrap_content" app:ado="2.0dp"
+  xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">
+    <LinearLayout android:orientation="vertical" android:id="@id/fdx" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_alignParentTop="true" />
+    <androidx.recyclerview.widget.RecyclerView android:id="@id/jrw" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_below="@id/fdx" />
+</com.tencent.qqmusic.ui.RoundedRelativeLayout>

@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout android:id="@id/j32" android:layout_width="match_parent" android:layout_height="@dimen/by5"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <LinearLayout android:orientation="horizontal" android:id="@id/fdw" android:background="@color/transparent" android:paddingLeft="30.0dp" android:paddingTop="15.0dp" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginTop="@dimen/cau">
+        <com.tencent.qqmusic.ui.RoundedRelativeLayout android:layout_width="90.0dp" android:layout_height="90.0dp" android:layout_marginRight="18.0dp">
+            <com.tencent.component.widget.AsyncEffectImageView android:id="@id/e_w" android:layout_width="90.0dp" android:layout_height="90.0dp" android:src="@drawable/default_folder_small" />
+            <ImageView android:background="@drawable/album_folder_header_cover" android:focusable="false" android:layout_width="90.0dp" android:layout_height="90.0dp" />
+        </com.tencent.qqmusic.ui.RoundedRelativeLayout>
+        <RelativeLayout android:orientation="vertical" android:layout_width="match_parent" android:layout_height="90.0dp">
+            <TextView android:textSize="18.0sp" android:textStyle="bold" android:textColor="@color/skin_text_songlistheader_color" android:ellipsize="end" android:id="@id/m4r" android:focusable="true" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginTop="20.0dp" android:maxLines="2" />
+            <TextView android:textSize="14.0sp" android:textColor="@color/skin_text_songlistheader_color" android:ellipsize="end" android:id="@id/mbf" android:focusable="true" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="10.0dp" android:maxLines="2" android:layout_below="@id/m4r" android:alpha="0.5" />
+        </RelativeLayout>
+    </LinearLayout>
+</RelativeLayout>

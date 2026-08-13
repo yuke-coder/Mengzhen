@@ -1,0 +1,13 @@
+{
+  "router": "openHalf",
+  "page_name": "brain_healing_sleep_survey",
+  "container": {
+    "w_weight": "1",
+    "h_weight": "1",
+    "direction": "from-bottom"
+  },
+  "params": {
+    "page": [
+    ]
+  }
+}

@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout android:layout_width="match_parent" android:layout_height="65.0dp"
+  xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">
+    <CheckBox android:id="@id/iye" android:background="@drawable/ic_edit_song_checkbox" android:focusable="false" android:focusableInTouchMode="false" android:clickable="false" android:layout_width="24.0dp" android:layout_height="24.0dp" android:layout_marginLeft="12.0dp" android:checked="true" android:button="@null" app:a1d="hnz" app:a1x="hnz" app:a27="hnz" />
+    <ImageView android:id="@id/iyg" android:layout_width="30.0dp" android:layout_height="30.0dp" android:layout_marginLeft="12.0dp" android:src="@drawable/custom_file_type_dir" android:layout_centerVertical="true" app:a1d="hnz" app:a1y="@id/iye" app:a27="hnz" />
+    <TextView android:textSize="@dimen/b35" android:textColor="@color/skin_text_main_color" android:ellipsize="end" android:gravity="center_vertical" android:id="@id/iyf" android:layout_width="0.0dp" android:layout_height="0.0dp" android:layout_marginLeft="12.0dp" android:singleLine="true" app:a1d="hnz" app:a1y="@id/iyg" app:a21="hnz" app:a27="hnz" />
+</androidx.constraintlayout.widget.ConstraintLayout>

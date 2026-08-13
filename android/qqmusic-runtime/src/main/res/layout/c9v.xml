@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout android:focusable="true" android:focusableInTouchMode="true" android:layout_width="match_parent" android:layout_height="match_parent" android:contentDescription="@string/bkg" app:a1i="h,72:129"
+  xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">
+    <com.tencent.component.widget.AsyncImageView android:id="@id/i6i" android:layout_width="match_parent" android:layout_height="match_parent" android:scaleType="centerCrop" app:a1j="hnz" app:a23="hnz" app:a27="hnz" />
+    <com.tencent.component.widget.AsyncImageView android:id="@id/i69" android:layout_width="29.0dp" android:layout_height="15.0dp" android:scaleType="fitXY" app:a23="hnz" app:a27="hnz" />
+    <com.tencent.component.widget.AsyncImageView android:id="@id/i6a" android:visibility="gone" android:layout_width="28.0dp" android:layout_height="18.0dp" android:scaleType="centerCrop" app:a23="hnz" app:a27="hnz" />
+    <View android:id="@id/i6k" android:background="@drawable/module_musichall_mv_feeds_controller_bg" android:layout_width="0.0dp" android:layout_height="0.0dp" app:a1d="hnz" app:a1j="hnz" app:a23="hnz" app:a27="hnz" />
+    <ImageView android:id="@id/i6e" android:visibility="invisible" android:layout_width="match_parent" android:layout_height="match_parent" android:src="@drawable/player_song_video_item_outline" />
+    <ImageView android:id="@id/i6g" android:visibility="gone" android:layout_width="match_parent" android:layout_height="match_parent" android:src="@drawable/player_video_btn_close_play" android:scaleType="centerInside" />
+    <ImageView android:id="@id/i6h" android:visibility="gone" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginLeft="5.0dp" android:layout_marginBottom="4.5dp" android:src="@drawable/player_video_btn_play_volume" app:a1d="hnz" app:a1x="hnz" />
+    <TextView android:textSize="11.0sp" android:textColor="@color/white" android:id="@id/i6f" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginLeft="3.5dp" android:text="123" android:lines="1" android:includeFontPadding="false" app:a1d="@id/i6h" app:a1y="@id/i6h" app:a27="@id/i6h" />
+    <TextView android:textSize="11.0sp" android:textColor="@color/white" android:id="@id/i6d" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginRight="5.0dp" app:a1d="@id/i6f" app:a21="hnz" app:a27="@id/i6f" />
+</androidx.constraintlayout.widget.ConstraintLayout>

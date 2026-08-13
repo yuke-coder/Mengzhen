@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout android:orientation="vertical" android:background="@drawable/main_bg" android:layout_width="match_parent" android:layout_height="match_parent"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <include android:id="@id/hxb" android:layout_width="match_parent" android:layout_height="@dimen/cau" layout="@layout/mu" />
+    <Button android:id="@id/j3j" android:layout_width="match_parent" android:layout_height="wrap_content" android:text="仅查询当前播放歌曲的信息（会带上时间戳）" />
+    <Button android:id="@id/j3d" android:layout_width="match_parent" android:layout_height="wrap_content" android:text="请求并且刷新当前播放歌曲的权限信息（会带上时间戳）" />
+    <Button android:id="@id/ctb" android:layout_width="match_parent" android:layout_height="wrap_content" android:text="仅查询当前播放歌曲的全部信息" />
+    <CheckBox android:textColor="@color/skin_text_main_color" android:id="@id/io1" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="查询普通用户权限" />
+    <CheckBox android:textColor="@color/skin_text_main_color" android:id="@id/a16" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="是个人资产" />
+    <ScrollView android:layout_width="match_parent" android:layout_height="wrap_content">
+        <TextView android:textColor="@color/skin_text_main_color" android:id="@id/j3n" android:layout_width="match_parent" android:layout_height="wrap_content" android:text="暂无信息" />
+    </ScrollView>
+</LinearLayout>

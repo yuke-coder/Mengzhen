@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout android:id="@id/ccv" android:paddingTop="@dimen/c_q" android:layout_width="match_parent" android:layout_height="@dimen/cau"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <TextView android:textSize="15.0dp" android:textColor="@color/skin_text_sub_color" android:gravity="center" android:id="@id/cancel_tv" android:layout_width="60.0dp" android:layout_height="match_parent" android:text="取消" android:layout_alignParentLeft="true" />
+    <TextView android:textSize="18.0dp" android:textStyle="bold" android:textColor="@color/skin_text_main_color" android:gravity="center" android:id="@id/lg1" android:layout_width="wrap_content" android:layout_height="match_parent" android:text="发扑通动态" android:layout_centerHorizontal="true" />
+    <TextView android:textSize="15.0dp" android:textColor="@color/skin_text_main_color" android:gravity="center" android:id="@id/b9b" android:layout_width="60.0dp" android:layout_height="match_parent" android:text="完成" android:layout_alignParentRight="true" />
+</RelativeLayout>

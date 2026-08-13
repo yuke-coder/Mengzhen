@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout android:id="@id/gbm" android:background="@drawable/main_bg" android:layout_width="match_parent" android:layout_height="match_parent"
+  xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">
+    <include android:id="@id/lv1" android:layout_width="match_parent" android:layout_height="@dimen/cau" layout="@layout/mu" />
+    <RelativeLayout android:id="@id/jja" android:background="@drawable/putoo_ugc_video_search_input_bg" android:layout_width="match_parent" android:layout_height="@dimen/c0k" android:layout_marginLeft="15.0dp" android:layout_marginTop="15.0dp" android:layout_marginRight="15.0dp" android:layout_below="@id/lv1">
+        <ImageView android:id="@id/jj7" android:layout_width="@dimen/bct" android:layout_height="@dimen/bct" android:layout_marginLeft="2.0dp" android:layout_marginRight="2.0dp" android:src="@drawable/search_icon" android:scaleType="centerInside" android:layout_centerVertical="true" />
+        <TextView android:textSize="@dimen/bxf" android:textColorHint="@color/skin_text_sub_color" android:id="@id/searchItem" android:layout_width="wrap_content" android:layout_height="wrap_content" android:hint="@string/gl9" android:layout_toRightOf="@id/jj7" android:layout_centerVertical="true" />
+    </RelativeLayout>
+    <include android:id="@id/ilu" android:layout_width="match_parent" android:layout_height="64.5dp" android:layout_alignParentBottom="true" layout="@layout/b0f" />
+    <RelativeLayout android:id="@id/gbl" android:layout_width="match_parent" android:layout_height="match_parent" android:layout_above="@id/ilu" android:layout_below="@id/jja" />
+    <View android:background="@drawable/head_shadow" android:layout_width="match_parent" android:layout_height="@dimen/l9" android:layout_below="@id/lv1" />
+</RelativeLayout>

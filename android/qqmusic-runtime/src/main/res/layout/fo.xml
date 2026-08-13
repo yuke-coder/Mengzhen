@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout android:layout_width="match_parent" android:layout_height="match_parent"
+  xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">
+    <com.tencent.qqmusic.ui.dragtouchimageview.FixedViewPager android:id="@id/ns3" android:clipChildren="false" android:layout_width="match_parent" android:layout_height="match_parent" />
+    <com.tencent.qqmusic.modular.module.musichall.views.focus.IconPageIndicator android:id="@id/ns1" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginRight="37.5dp" android:layout_marginBottom="38.0dp" app:a1d="hnz" app:a21="hnz" />
+</androidx.constraintlayout.widget.ConstraintLayout>

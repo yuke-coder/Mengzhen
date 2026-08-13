@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout android:layout_width="269.0dp" android:layout_height="450.0dp"
+  xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">
+    <com.tencent.component.widget.AsyncEffectImageView android:id="@id/dpn" android:layout_width="match_parent" android:layout_height="match_parent" android:scaleType="fitXY" app:a1d="hnz" app:a1x="hnz" app:a21="hnz" app:a27="hnz" />
+    <View android:id="@id/dpl" android:background="@drawable/shape_command_dialog_avatar_bg" android:layout_width="@dimen/kh" android:layout_height="@dimen/kh" app:a1d="@id/dpk" app:a1x="hnz" app:a21="hnz" app:a27="@id/dpk" />
+    <com.tencent.qqmusic.business.live.ui.view.RoundAvatarImage android:id="@id/dpk" android:layout_width="@dimen/ki" android:layout_height="@dimen/ki" android:layout_marginTop="@dimen/kj" app:a1x="hnz" app:a21="hnz" app:a27="hnz" />
+    <LinearLayout android:gravity="center_horizontal" android:orientation="horizontal" android:id="@id/ff7" android:layout_width="125.0dp" android:layout_height="wrap_content" android:layout_marginTop="4.0dp" android:layout_below="@id/dpk" app:a1x="hnz" app:a21="hnz" app:a26="@id/dpk">
+        <TextView android:textSize="11.0sp" android:ellipsize="end" android:id="@id/mef" android:layout_width="wrap_content" android:layout_height="wrap_content" android:maxWidth="60.0dp" android:maxEms="6" android:singleLine="true" />
+        <TextView android:textSize="11.0sp" android:ellipsize="end" android:id="@id/mr_" android:layout_width="wrap_content" android:layout_height="wrap_content" android:maxLines="1" app:a1x="hnz" app:a21="hnz" />
+    </LinearLayout>
+    <TextView android:textSize="19.0sp" android:textStyle="bold" android:ellipsize="end" android:gravity="center_horizontal" android:id="@id/mpc" android:layout_width="195.0dp" android:layout_height="wrap_content" android:layout_marginTop="@dimen/kq" android:maxLines="1" app:a1x="hnz" app:a21="hnz" app:a26="@id/ff7" />
+    <TextView android:textSize="19.0sp" android:textStyle="bold" android:ellipsize="end" android:gravity="center_horizontal" android:id="@id/mns" android:layout_width="195.0dp" android:layout_height="wrap_content" android:maxLines="1" app:a1x="hnz" app:a21="hnz" app:a26="@id/mpc" />
+    <com.tencent.qqmusic.ui.RoundedRelativeLayout android:textStyle="bold" android:gravity="center" android:id="@id/je2" android:background="@color/red" android:layout_width="208.0dp" android:layout_height="@dimen/ke" android:layout_marginTop="@dimen/kf" app:a1x="hnz" app:a21="hnz" app:a26="@id/mns" app:ado="20.0dp">
+        <TextView android:textSize="16.0sp" android:textStyle="bold" android:ellipsize="end" android:gravity="center" android:id="@id/m5w" android:layout_width="wrap_content" android:layout_height="wrap_content" android:maxLines="1" />
+    </com.tencent.qqmusic.ui.RoundedRelativeLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>

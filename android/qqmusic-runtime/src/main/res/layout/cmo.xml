@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout android:id="@id/gdr" android:visibility="gone" android:layout_width="30.0dp" android:layout_height="30.0dp" android:layout_marginLeft="10.0dp" android:layout_marginRight="8.0dp" android:layout_marginStart="10.0dp" android:layout_marginEnd="8.0dp" app:a1d="hnz" app:a21="hnz" app:a27="hnz"
+  xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">
+    <ImageView android:id="@id/gj8" android:background="@null" android:layout_width="30.0dp" android:layout_height="30.0dp" android:src="@drawable/rank_song_comment_icon" android:scaleType="fitCenter" android:contentDescription="@string/f80" app:a1x="hnz" app:a27="hnz" />
+    <TextView android:textSize="6.0dp" android:id="@id/gj9" android:layout_width="16.0dp" android:layout_height="wrap_content" android:layout_marginTop="4.5dp" android:singleLine="true" android:includeFontPadding="false" app:a21="hnz" app:a27="hnz" />
+</androidx.constraintlayout.widget.ConstraintLayout>

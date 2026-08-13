@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout android:background="@color/transparent" android:layout_width="match_parent" android:layout_height="wrap_content"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <View android:id="@id/bu8" android:background="#0fffffff" android:visibility="gone" android:layout_width="match_parent" android:layout_height="0.5dp" android:layout_alignParentTop="true" />
+    <RelativeLayout android:id="@id/i_1" android:background="@drawable/common_list_item_selector" android:layout_width="match_parent" android:layout_height="wrap_content" android:minHeight="60.0dp">
+        <RelativeLayout android:id="@id/i_o" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_centerVertical="true">
+            <ImageView android:id="@id/dj9" android:visibility="visible" android:layout_width="35.0dp" android:layout_height="35.0dp" android:layout_marginLeft="17.0dp" android:layout_alignParentLeft="true" android:layout_centerVertical="true" />
+            <com.tencent.qqmusic.bigfont.view.BigFontTextView android:textSize="@dimen/ht" android:textColor="@color/common_grid_title_color_selector" android:ellipsize="end" android:gravity="left" android:id="@id/i_n" android:paddingTop="18.0dp" android:paddingBottom="18.0dp" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginLeft="15.0dp" android:maxWidth="300.0dp" android:lines="1" android:layout_toRightOf="@id/dj9" android:layout_centerVertical="true" android:layout_alignWithParentIfMissing="true" />
+        </RelativeLayout>
+        <TextView android:textSize="@dimen/b35" android:textColor="@color/skin_text_main_color" android:ellipsize="end" android:gravity="center" android:id="@id/i_3" android:layout_width="match_parent" android:layout_height="wrap_content" android:maxWidth="@dimen/lq" android:lines="1" android:layout_alignParentLeft="true" android:layout_centerInParent="true" android:layout_centerVertical="true" android:layout_alignWithParentIfMissing="true" />
+        <View android:id="@id/f42" android:background="@drawable/skin_divider_img" android:visibility="gone" android:layout_width="match_parent" android:layout_height="1.0dp" android:layout_alignParentBottom="true" />
+        <View android:id="@id/f43" android:background="@drawable/skin_divider_img" android:visibility="visible" android:layout_width="match_parent" android:layout_height="1.0dp" android:layout_marginLeft="16.0dp" android:layout_alignParentBottom="true" />
+        <View android:id="@id/bu4" android:background="#0fffffff" android:visibility="gone" android:layout_width="match_parent" android:layout_height="0.5dp" android:layout_alignParentBottom="true" />
+    </RelativeLayout>
+</RelativeLayout>

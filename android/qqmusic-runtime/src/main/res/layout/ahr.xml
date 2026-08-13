@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout android:layout_width="wrap_content" android:layout_height="wrap_content" android:minHeight="191.0dp" android:layout_marginEnd="15.0dp"
+  xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">
+    <com.tencent.qqmusic.ui.RoundedRelativeLayout android:id="@id/e5_" android:background="@color/share_song_dialog_lyric_card_bg_dark" android:layout_width="101.0dp" android:layout_height="161.0dp" app:a1j="hnz" app:a23="hnz" app:a27="hnz" app:ado="@dimen/afo">
+        <com.tencent.component.widget.AsyncEffectImageView android:id="@id/e57" android:layout_width="match_parent" android:layout_height="match_parent" android:scaleType="centerCrop" />
+        <View android:id="@id/e5b" android:background="@drawable/bg_item_lyric_dynamic_setting_selected" android:visibility="gone" android:layout_width="match_parent" android:layout_height="match_parent" />
+        <ImageView android:id="@id/e5f" android:visibility="gone" android:layout_width="wrap_content" android:layout_height="wrap_content" android:src="@drawable/icon_lyric_dynamic_none" android:layout_centerInParent="true" />
+        <com.tencent.component.widget.AsyncEffectImageView android:id="@id/e5d" android:layout_width="23.0dp" android:layout_height="16.0dp" android:layout_marginTop="5.0dp" android:layout_marginRight="5.0dp" android:scaleType="fitXY" android:layout_alignParentRight="true" />
+        <LinearLayout android:gravity="center" android:orientation="horizontal" android:id="@id/e58" android:background="@drawable/bg_lyric_dynamic_download" android:paddingTop="2.0dp" android:paddingBottom="2.0dp" android:visibility="gone" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginBottom="9.0dp" android:layout_alignParentBottom="true" android:layout_marginStart="15.0dp" android:layout_marginEnd="15.0dp">
+            <ImageView android:layout_width="wrap_content" android:layout_height="wrap_content" android:src="@drawable/icon_lyric_dynamic_download" android:scaleType="centerCrop" />
+            <TextView android:textSize="12.0sp" android:textColor="@color/white" android:id="@id/e59" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginStart="2.0dp" />
+        </LinearLayout>
+    </com.tencent.qqmusic.ui.RoundedRelativeLayout>
+    <com.tencent.qqmusic.ui.SquareRoundProgressView android:id="@id/e5a" android:visibility="gone" android:layout_width="101.0dp" android:layout_height="161.0dp" android:scaleType="fitXY" app:a1j="hnz" app:a23="hnz" app:a27="hnz" />
+    <TextView android:textSize="12.0sp" android:textColor="@color/white" android:gravity="center" android:id="@id/e5c" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="12.0dp" android:text="@string/cls" app:a1j="@id/e5_" app:a23="@id/e5_" app:a26="@id/e5_" />
+</androidx.constraintlayout.widget.ConstraintLayout>

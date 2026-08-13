@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout android:paddingTop="16.0dp" android:paddingBottom="50.0dp" android:layout_width="match_parent" android:layout_height="match_parent"
+  xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">
+    <View android:id="@id/qt" android:layout_width="50.0dp" android:layout_height="50.0dp" app:a1x="hnz" app:a27="hnz" />
+    <com.tencent.component.widget.AsyncEffectImageView android:id="@id/qs" android:layout_width="50.0dp" android:layout_height="50.0dp" android:src="@drawable/ai_listen_avatar_default" app:a1x="hnz" app:a27="hnz" />
+    <ImageView android:id="@id/qu" android:background="@drawable/ai_listen_companion_open_dialog_btn_bg" android:padding="5.0dp" android:layout_width="25.0dp" android:layout_height="25.0dp" android:src="@drawable/ai_listen_more" android:scaleType="centerInside" app:a1d="@id/qs" app:a21="hnz" />
+    <TextView android:textSize="12.0sp" android:textColor="@color/black_50_opacity" android:gravity="center" android:id="@id/qw" android:background="@drawable/ai_listen_companion_skip_btn_bg" android:layout_width="68.0dp" android:layout_height="25.0dp" android:layout_marginRight="10.0dp" android:text="@string/kg" app:a1d="@id/qs" app:a20="@id/qu" />
+    <com.tencent.qqmusic.business.playernew.ailisten.AiListenTextScrollView android:id="@id/qv" android:scrollbars="none" android:fadingEdge="vertical" android:fadingEdgeLength="78.0dp" android:layout_width="match_parent" android:layout_height="0.0dp" android:layout_marginTop="17.0dp" android:requiresFadingEdge="vertical" app:a1d="hnz" app:a1x="hnz" app:a21="hnz" app:a26="@id/qs" app:a2_="1.0">
+        <androidx.constraintlayout.widget.ConstraintLayout android:layout_width="match_parent" android:layout_height="wrap_content">
+            <TextView android:textSize="14.0sp" android:textColor="@color/black_50_opacity" android:id="@id/qy" android:layout_width="wrap_content" android:layout_height="wrap_content" app:a1x="hnz" app:a27="hnz" />
+            <TextView android:textSize="16.0sp" android:textColor="@color/black_80_opacity" android:id="@id/qx" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginTop="8.0dp" android:lineHeight="30.0dp" app:a1d="hnz" app:a1x="hnz" app:a26="@id/qy" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </com.tencent.qqmusic.business.playernew.ailisten.AiListenTextScrollView>
+</androidx.constraintlayout.widget.ConstraintLayout>

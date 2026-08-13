@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout android:layout_width="wrap_content" android:layout_height="wrap_content"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <LinearLayout android:orientation="horizontal" android:id="@id/fhz" android:layout_width="wrap_content" android:layout_height="wrap_content">
+        <ImageView android:id="@id/ee6" android:layout_width="wrap_content" android:layout_height="wrap_content" android:src="@drawable/album_folder_header_share" />
+        <TextView android:textSize="14.0sp" android:textColor="@color/skin_text_songlistheader_color" android:layout_gravity="center" android:id="@id/maf" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/ihk" />
+    </LinearLayout>
+    <ImageView android:id="@id/ilx" android:visibility="gone" android:layout_width="82.0dp" android:layout_height="29.0dp" />
+    <ImageView android:id="@id/ee3" android:visibility="gone" android:layout_width="82.0dp" android:layout_height="29.0dp" android:scaleType="centerCrop" />
+</FrameLayout>

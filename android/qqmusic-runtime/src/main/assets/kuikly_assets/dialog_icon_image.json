@@ -1,0 +1,56 @@
+{
+  "router": "openHalf",
+  "page_name": "dialog_icon_image",
+  "container": {
+    "w_weight": "0.95",
+    "h_weight": "0.95",
+    "dim_behind": 1
+  },
+  "params": {
+    "page": [
+      {
+        "topbar": {
+          "type": "",
+          "url": ""
+        },
+        "base": {
+          "title": "您的专属开机语音已到期",
+          "subtitle": "开通会员重拾程潇-陪你一直可爱开机语音",
+          "background": {
+            "type": "gradient",
+            "colors": [
+              "#FFFFF7E7",
+              "#FFFBDDA2"
+            ],
+            "direction": "to-top"
+          }
+        },
+        "buttons": [
+          {
+            "text": "30元开通会员",
+            "color": "#F49D17",
+            "url": "https://i.y.qq.com/n2/m/myservice/index.html?entry=27\u0026tab1=svip\u0026tab2=eight\u0026aid=music.tq.recent.vipsong\u0026_hidehd=1"
+          }
+        ],
+        "body": {
+          "images": [
+            {
+              "url": "http://y.gtimg.cn/music/common/upload/t_music_pendant_conf/3723999.gif",
+              "background": {
+                "type": "color",
+                "colors": [
+                  "#b9e6f3"
+                ]
+              }
+            }
+          ],
+          "icons": [
+            {
+              "url": "https://y.qq.com/music/common/upload/t_cm3_photo_publish/4622202.png"
+            }
+          ]
+        }
+      }
+    ]
+  }
+}

@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout android:background="@drawable/shape_long_audio_album_category_tag" android:layout_width="wrap_content" android:layout_height="wrap_content"
+  xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">
+    <ImageView android:id="@id/fo6" android:layout_width="25.0dp" android:layout_height="25.0dp" android:layout_marginLeft="14.0dp" android:layout_marginTop="14.0dp" app:a23="hnz" app:a27="hnz" />
+    <TextView android:textSize="12.0sp" android:textColor="@color/white_50_opacity" android:ellipsize="end" android:id="@id/fo5" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginLeft="9.0dp" android:layout_marginTop="20.0dp" android:layout_marginRight="14.0dp" android:text="萌术师爱听书" android:maxLines="1" app:a1j="hnz" app:a1t="0.0" app:a22="@id/fo6" app:a27="hnz" />
+    <TextView android:textSize="13.0sp" android:textColor="@color/white" android:id="@id/fo3" android:layout_width="234.0dp" android:layout_height="wrap_content" android:layout_marginTop="6.0dp" android:layout_marginRight="14.0dp" android:layout_marginBottom="14.0dp" android:text="太好听了！这书好就好在所有的人物个性鲜明，来去之间不拖泥带水，不是主角一个人的江湖，挂开的恰到好处。" android:maxLines="5" android:lines="5" android:lineSpacingMultiplier="1.2" app:a1d="hnz" app:a1j="hnz" app:a23="@id/fo6" app:a26="@id/fo6" />
+</androidx.constraintlayout.widget.ConstraintLayout>

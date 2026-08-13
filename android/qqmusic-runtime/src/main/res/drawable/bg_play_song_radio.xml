@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layer-list
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <item android:id="@id/a5y" android:drawable="@drawable/player_radio_alpha_bg" />
+    <item android:id="@id/g18" android:drawable="@drawable/player_radio_mode_base_map" />
+</layer-list>

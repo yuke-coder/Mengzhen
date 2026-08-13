@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout android:layout_width="match_parent" android:layout_height="285.0dp"
+  xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">
+    <RelativeLayout android:id="@id/j10" android:visibility="invisible" android:layout_width="match_parent" android:layout_height="wrap_content" app:a1j="hnz" app:a23="hnz" app:a27="hnz">
+        <TextView android:textSize="16.0sp" android:textColor="@color/skin_text_main_color" android:gravity="center" android:id="@id/j0z" android:layout_width="60.0dp" android:layout_height="21.0dp" android:layout_marginTop="40.0dp" android:layout_marginBottom="70.0dp" android:layout_centerHorizontal="true" android:paddingStart="5.0dp" android:paddingEnd="5.0dp" />
+        <com.tencent.qqmusic.pag.QQMusicPAGSafeView android:id="@id/j11" android:layout_width="105.0dp" android:layout_height="21.0dp" android:layout_alignTop="@id/j0z" android:layout_alignBottom="@id/j0z" android:layout_toStartOf="@id/j0z" />
+        <com.tencent.qqmusic.pag.QQMusicPAGSafeView android:id="@id/j12" android:layout_width="105.0dp" android:layout_height="21.0dp" android:layout_alignTop="@id/j0z" android:layout_alignBottom="@id/j0z" android:layout_toEndOf="@id/j0z" />
+    </RelativeLayout>
+    <com.tencent.qqmusic.fragment.message.views.VoiceRecorderView android:id="@id/nme" android:layout_width="match_parent" android:layout_height="wrap_content" app:a1j="hnz" app:a23="hnz" app:a26="@id/j10" />
+</androidx.constraintlayout.widget.ConstraintLayout>

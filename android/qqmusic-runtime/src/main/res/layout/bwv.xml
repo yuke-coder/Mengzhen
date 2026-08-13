@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout android:gravity="center" android:orientation="vertical" android:background="@color/transparent" android:layout_width="320.0dp" android:layout_height="wrap_content"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <View android:id="@id/mlive_dialog_green_hat_view" android:background="@drawable/mstream_rounded_dialog_top_background" android:layout_width="match_parent" android:layout_height="4.0dp" />
+    <RelativeLayout android:id="@id/mlive_pop_title_rl" android:background="@drawable/mstream_rounded_corners_dialog" android:focusable="false" android:layout_width="match_parent" android:layout_height="50.0dp" android:minHeight="50.0dp">
+        <TextView android:textSize="20.0sp" android:textColor="@color/black" android:ellipsize="end" android:id="@id/mlive_dialog_base_title_tv" android:focusable="false" android:fadingEdge="none" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginLeft="15.0dp" android:layout_marginRight="15.0dp" android:singleLine="true" android:layout_alignParentBottom="true" android:layout_centerHorizontal="true" android:layout_alignWithParentIfMissing="true" />
+    </RelativeLayout>
+    <LinearLayout android:gravity="left|center" android:orientation="horizontal" android:id="@id/mlive_dialog_outer_layout_ll" android:background="@color/white" android:focusable="true" android:layout_width="match_parent" android:layout_height="wrap_content">
+        <LinearLayout android:orientation="vertical" android:background="@color/white" android:focusable="true" android:nextFocusDown="@id/hkd" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginLeft="30.0dp" android:layout_marginTop="16.0dp" android:layout_marginRight="30.0dp" android:layout_marginBottom="20.0dp" android:layout_weight="1.0">
+            <TextView android:textSize="16.0sp" android:textColor="@color/black" android:textColorHighlight="#bbb9b0" android:gravity="start" android:layout_gravity="center" android:id="@id/mlive_dialog_single_btn_alert_content_tv" android:scrollbars="none" android:layout_width="match_parent" android:layout_height="wrap_content" android:maxLines="10" android:lineSpacingExtra="5.0dp" android:textAlignment="textStart" />
+        </LinearLayout>
+    </LinearLayout>
+    <ImageView android:background="@color/white" android:layout_width="match_parent" android:layout_height="0.5dp" android:src="#19000000" />
+    <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content">
+        <LinearLayout android:gravity="center_horizontal" android:orientation="horizontal" android:background="@color/transparent" android:visibility="visible" android:layout_width="match_parent" android:layout_height="45.0dp">
+            <Button android:textSize="16.0sp" android:textColor="@color/mlive_dialog_base_positive_btn_default_color" android:ellipsize="end" android:gravity="center" android:layout_gravity="center" android:id="@id/mlive_dialog_base_positive_btn" android:background="@drawable/mstream_control_btn_bottom_left_rounded" android:fadingEdge="horizontal" android:layout_width="wrap_content" android:layout_height="match_parent" android:maxWidth="320.0dp" android:minWidth="130.0dp" android:text="@string/d1i" android:singleLine="true" android:layout_weight="130.0" />
+            <ImageView android:background="@color/white" android:layout_width="0.5dp" android:layout_height="match_parent" android:src="#19000000" />
+            <Button android:textSize="16.0sp" android:textColor="@color/mlive_dialog_base_negative_btn_color" android:ellipsize="end" android:gravity="center" android:id="@id/mlive_dialog_base_negative_btn" android:background="@drawable/mstream_control_btn_bottom_right_rounded" android:fadingEdge="horizontal" android:layout_width="wrap_content" android:layout_height="match_parent" android:maxWidth="320.0dp" android:minWidth="130.0dp" android:text="@string/czv" android:singleLine="true" android:layout_weight="130.0" />
+        </LinearLayout>
+    </LinearLayout>
+</LinearLayout>

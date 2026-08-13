@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout android:id="@id/gyy" android:layout_width="wrap_content" android:layout_height="wrap_content"
+  xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">
+    <com.tencent.qqmusic.ui.RoundedConstraintLayout android:id="@id/gz5" android:layout_width="170.0dp" android:layout_height="170.0dp" app:a1i="1:1" app:a1x="hnz" app:a21="hnz" app:a27="hnz" />
+    <com.tencent.qqmusic.business.live.ui.view.RoundAvatarImage android:id="@id/gyx" android:layout_width="0.0dp" android:layout_height="0.0dp" app:a1d="@id/gz5" app:a1i="1:1" app:a1x="@id/gz5" app:a21="@id/gz5" app:a27="@id/gz5" />
+    <androidx.appcompat.widget.AppCompatTextView android:textSize="14.0dp" android:textColor="@color/skin_text_main_color" android:ellipsize="end" android:gravity="left" android:id="@id/gz4" android:layout_width="0.0dp" android:layout_height="wrap_content" android:layout_marginTop="8.0dp" android:maxLines="1" android:layout_marginStart="5.0dp" android:layout_marginEnd="5.0dp" app:a1x="hnz" app:a21="hnz" app:a26="@id/gz5" />
+    <androidx.appcompat.widget.AppCompatTextView android:textSize="12.0dp" android:textColor="@color/skin_button_icon_color" android:gravity="center" android:id="@id/gz3" android:layout_width="wrap_content" android:layout_height="32.0dp" android:layout_marginTop="13.0dp" android:text="立即支持" android:maxLines="1" android:paddingStart="14.0dp" android:paddingEnd="14.0dp" app:a1x="hnz" app:a26="@id/gz4" />
+</androidx.constraintlayout.widget.ConstraintLayout>

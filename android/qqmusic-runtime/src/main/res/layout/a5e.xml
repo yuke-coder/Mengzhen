@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout android:id="@id/os" android:layout_width="wrap_content" android:layout_height="wrap_content"
+  xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">
+    <com.tencent.qqmusic.ui.RoundedRelativeLayout android:id="@id/or" android:layout_width="60.0dp" android:layout_height="60.0dp" app:ado="8.0dp">
+        <com.tencent.component.widget.AsyncImageView android:id="@id/oq" android:layout_width="match_parent" android:layout_height="match_parent" />
+        <ImageView android:id="@id/blr" android:visibility="gone" android:layout_width="21.0dp" android:layout_height="21.0dp" android:layout_centerInParent="true" android:alpha="0.5" />
+        <View android:id="@id/jrz" android:layout_width="match_parent" android:layout_height="match_parent" />
+    </com.tencent.qqmusic.ui.RoundedRelativeLayout>
+</FrameLayout>

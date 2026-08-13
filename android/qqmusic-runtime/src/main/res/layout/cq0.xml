@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout android:layout_width="match_parent" android:layout_height="wrap_content"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <Button android:textSize="15.0sp" android:textColor="@color/skin_action_button_text" android:id="@id/k_3" android:background="@drawable/bg_stroke_button" android:layout_width="match_parent" android:layout_height="30.0dp" android:text="@string/ax_" />
+    <Button android:textSize="15.0sp" android:textColor="@color/skin_text_main_color" android:id="@id/k_9" android:background="@drawable/profile_use_bg" android:layout_width="match_parent" android:layout_height="30.0dp" android:text="@string/ha2" />
+    <Button android:textSize="15.0sp" android:textColor="@color/skin_action_button_text" android:id="@id/k_7" android:background="@drawable/bg_skin_in_use_button" android:layout_width="match_parent" android:layout_height="30.0dp" android:text="@string/ha3" />
+    <Button android:textSize="15.0sp" android:textColor="@color/skin_action_button_text" android:id="@id/k_8" android:background="@drawable/bg_stroke_button" android:layout_width="match_parent" android:layout_height="30.0dp" android:text="@string/ha5" />
+    <com.tencent.qqmusic.ui.customview.ImageTextButton android:textSize="15.0sp" android:textColor="@color/skin_action_button_text" android:id="@id/k_4" android:background="@drawable/bg_stroke_button" android:layout_width="match_parent" android:layout_height="30.0dp" android:text="@string/ax_" />
+    <com.tencent.qqmusic.ui.customview.ImageTextButton android:textSize="15.0sp" android:textColor="@color/skin_action_button_text" android:id="@id/k_6" android:background="@drawable/bg_stroke_button" android:layout_width="match_parent" android:layout_height="30.0dp" android:text="@string/ha2" />
+    <com.tencent.qqmusic.ui.customview.ImageTextButton android:textSize="15.0sp" android:textColor="@color/skin_action_button_text" android:id="@id/k_5" android:background="@drawable/bg_stroke_button" android:layout_width="match_parent" android:layout_height="30.0dp" android:text="@string/ha5" />
+    <include android:layout_width="match_parent" android:layout_height="30.0dp" layout="@layout/cmw" />
+</RelativeLayout>

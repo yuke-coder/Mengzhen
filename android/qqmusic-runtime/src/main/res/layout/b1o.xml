@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout android:background="@color/gray" android:layout_width="match_parent" android:layout_height="match_parent"
+  xmlns:app="http://schemas.android.com/apk/res-auto" xmlns:android="http://schemas.android.com/apk/res/android">
+    <androidx.constraintlayout.widget.ConstraintLayout android:layout_gravity="center" android:id="@id/c0y" android:layout_width="match_parent" android:layout_height="match_parent">
+        <FrameLayout android:id="@id/hs9" android:layout_width="0.0dp" android:layout_height="0.0dp" app:a1d="hnz" app:a1j="hnz" app:a23="hnz" app:a27="hnz" />
+        <androidx.appcompat.widget.AppCompatImageView android:id="@id/dnt" android:layout_width="21.0dp" android:layout_height="21.0dp" android:layout_marginTop="61.0dp" android:src="@drawable/image_crop_tip_image" android:layout_marginEnd="4.0dp" app:a1k="@id/dnu" app:a1u="hmg" app:a23="hnz" app:a27="hnz" />
+        <androidx.appcompat.widget.AppCompatTextView android:textSize="14.0dp" android:textColor="@color/white" android:id="@id/dnu" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="捏合以裁切" app:a1d="@id/dnt" app:a1j="hnz" app:a22="@id/dnt" app:a27="@id/dnt" />
+        <androidx.appcompat.widget.AppCompatTextView android:textColor="@color/black" android:gravity="center" android:id="@id/dnq" android:background="@drawable/player_view_crop_done_bg" android:layout_width="64.0dp" android:layout_height="30.0dp" android:layout_marginBottom="40.0dp" android:text="完成" android:layout_marginEnd="20.0dp" app:a1d="hnz" app:a1j="hnz" />
+        <androidx.appcompat.widget.AppCompatTextView android:textColor="@color/black" android:gravity="center" android:id="@id/dnp" android:background="@drawable/player_view_crop_cancel_bg" android:layout_width="64.0dp" android:layout_height="30.0dp" android:layout_marginBottom="40.0dp" android:text="取消" android:layout_marginStart="20.0dp" app:a1d="hnz" app:a23="hnz" />
+        <androidx.constraintlayout.widget.ConstraintLayout android:id="@id/cyp" android:background="#1f1f1f" android:visibility="gone" android:layout_width="match_parent" android:layout_height="match_parent">
+            <org.libpag.PAGView android:id="@id/cyo" android:visibility="gone" android:layout_width="50.0dp" android:layout_height="50.0dp" app:a1d="hnz" app:a1x="hnz" app:a21="hnz" app:a27="hnz" />
+            <androidx.appcompat.widget.AppCompatTextView android:textSize="15.0dp" android:textColor="@color/white" android:id="@id/fir" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="10.0dp" android:text="" app:a1j="@id/cyo" app:a23="@id/cyo" app:a26="@id/cyo" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</FrameLayout>

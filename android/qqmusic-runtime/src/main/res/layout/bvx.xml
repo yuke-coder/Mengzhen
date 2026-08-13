@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.tencent.lyric.widget.LyricViewScroll android:id="@id/gs2" android:scrollbars="none" android:layout_width="match_parent" android:layout_height="match_parent"
+  xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">
+    <FrameLayout android:layout_width="match_parent" android:layout_height="wrap_content">
+        <com.tencent.lyric.widget.LyricViewInternalPractice android:id="@id/gs1" android:layout_width="match_parent" android:layout_height="wrap_content" />
+    </FrameLayout>
+</com.tencent.lyric.widget.LyricViewScroll>

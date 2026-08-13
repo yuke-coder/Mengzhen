@@ -1,0 +1,10 @@
+{
+  "router": "openPage",
+  "page_name": "vip_tab",
+  "container": {
+    "w_weight": "1",
+    "h_weight": "1",
+    "direction": "from-bottom"
+  },
+  "params": {}
+}

@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.tencent.qqmusic.ui.RoundedConstraintLayout android:id="@id/nas" android:background="@drawable/skin_mask_img" android:layout_width="match_parent" android:layout_height="wrap_content" android:minHeight="127.0dp" app:a31="10.0dp"
+  xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">
+    <androidx.constraintlayout.widget.Guideline android:orientation="horizontal" android:id="@id/d9z" android:layout_width="wrap_content" android:layout_height="wrap_content" app:a1n="0.882" />
+    <androidx.constraintlayout.widget.Guideline android:orientation="horizontal" android:id="@id/d_0" android:layout_width="wrap_content" android:layout_height="wrap_content" app:a1n="0.118" />
+    <Space android:id="@id/knf" android:layout_width="0.0dp" android:layout_height="0.0dp" app:a1d="@id/d_0" app:a1i="1:1" app:a1x="hnz" app:a27="hnz" />
+    <com.tencent.qqmusic.ui.RoundedRelativeLayout android:id="@id/ew4" android:layout_width="0.0dp" android:layout_height="0.0dp" app:a1d="@id/d9z" app:a1i="1:1" app:a1y="@id/knf" app:a27="@id/d_0" app:ado="4.0dp">
+        <com.tencent.component.widget.AsyncEffectImageView android:id="@id/ds3" android:layout_width="match_parent" android:layout_height="match_parent" android:scaleType="fitXY" />
+        <ImageView android:id="@id/ds4" android:visibility="gone" android:layout_width="match_parent" android:layout_height="match_parent" android:scaleType="fitXY" />
+    </com.tencent.qqmusic.ui.RoundedRelativeLayout>
+    <TextView android:textSize="20.0dp" android:textColor="@color/skin_text_main_color" android:id="@id/med" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginLeft="19.0dp" android:text="雷达精选" android:includeFontPadding="false" app:a1d="@id/ds5" app:a1y="@id/ew4" app:a27="@id/ds5" />
+    <androidx.constraintlayout.widget.ConstraintLayout android:layout_width="0.0dp" android:layout_height="wrap_content" android:layout_marginLeft="19.0dp" app:a1y="@id/ew4" app:a21="@id/ds5" app:a26="@id/med">
+        <com.tencent.qqmusic.ui.customview.textview.ScrollTextView android:textSize="13.0dp" android:textColor="@color/skin_text_sub_color" android:ellipsize="end" android:gravity="left" android:id="@id/mec" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="8.0dp" android:scrollHorizontally="true" android:singleLine="true" android:includeFontPadding="false" android:marqueeRepeatLimit="marquee_forever" android:importantForAccessibility="no" app:a1x="hnz" app:a27="hnz" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+    <ImageView android:id="@id/ds6" android:layout_width="113.0dp" android:layout_height="32.5dp" android:layout_marginLeft="19.0dp" android:src="@drawable/icon_new_radar_spectrum" app:a1d="@id/ew4" app:a1y="@id/ew4" />
+    <ImageView android:id="@id/ds5" android:layout_width="38.0dp" android:layout_height="30.0dp" android:layout_marginTop="15.0dp" android:layout_marginRight="15.0dp" android:src="@drawable/new_radar_play_icon" app:a21="hnz" app:a27="hnz" />
+</com.tencent.qqmusic.ui.RoundedConstraintLayout>

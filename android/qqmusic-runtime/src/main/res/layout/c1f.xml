@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout android:id="@id/hg_" android:clickable="true" android:layout_width="match_parent" android:layout_height="@dimen/aiq"
+  xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">
+    <androidx.constraintlayout.widget.ConstraintLayout android:layout_gravity="bottom" android:id="@id/hg3" android:clickable="true" android:layout_width="match_parent" android:layout_height="@dimen/b3j">
+        <include android:id="@id/hg4" android:visibility="gone" android:layout_width="@dimen/b3v" android:layout_height="@dimen/b3v" android:layout_marginRight="@dimen/b43" app:a1d="@id/hg2" app:a20="@id/hga" app:a27="@id/hg2" layout="@layout/by_" />
+        <include android:id="@id/hga" android:layout_width="@dimen/b3v" android:layout_height="@dimen/b3v" android:layout_marginRight="@dimen/b43" app:a1d="@id/hg2" app:a20="@id/hg5" app:a27="@id/hg2" layout="@layout/bya" />
+        <ImageView android:id="@id/hg5" android:layout_width="@dimen/b3v" android:layout_height="@dimen/b3v" android:layout_marginRight="@dimen/b42" android:src="@drawable/minibar_btn_playlist_highlight" android:scaleType="fitXY" android:contentDescription="@string/f88" android:alpha="0.3" app:a1d="@id/hg2" app:a21="hnz" app:a27="@id/hg2" />
+        <FrameLayout android:id="@id/hg2" android:layout_width="0.0dp" android:layout_height="@dimen/aip" android:layout_marginLeft="7.5dp" android:layout_marginRight="3.0dp" android:layout_marginBottom="@dimen/aig" app:a1d="hnz" app:a1x="hnz" app:a20="@id/hg4">
+            <com.tencent.qqmusic.ui.minibar.music.view.MinibarViewPager android:id="@id/hg0" android:layout_width="match_parent" android:layout_height="@dimen/aip" />
+        </FrameLayout>
+        <ImageView android:id="@id/hg6" android:visibility="visible" android:layout_width="60.0dp" android:layout_height="60.0dp" android:layout_marginLeft="-5.0dp" android:layout_marginTop="5.0dp" android:src="@drawable/minibar_pic_lp_bottom_shadow" android:scaleType="fitXY" app:a1x="@id/hg1" app:a27="@id/hg1" />
+        <ImageView android:id="@id/hg7" android:visibility="visible" android:layout_width="@dimen/aic" android:layout_height="@dimen/aic" android:src="@drawable/normal_minibar_pic_right_album" app:a1d="@id/hg1" app:a1x="@id/hg1" />
+        <com.tencent.qqmusic.ui.minibar.MinibarRectProgressView android:id="@id/g9b" android:visibility="visible" android:layout_width="@dimen/aid" android:layout_height="@dimen/aid" app:a1d="@id/hg1" app:a1j="@id/hg1" app:a23="@id/hg1" app:a27="@id/hg1" />
+        <ImageView android:id="@id/hg1" android:layout_width="@dimen/aic" android:layout_height="@dimen/aic" android:layout_marginLeft="@dimen/b40" android:layout_marginBottom="@dimen/b40" android:importantForAccessibility="no" app:a1d="@id/hg2" app:a1x="hnz" />
+        <com.tencent.qqmusic.ui.RoundedRelativeLayout android:id="@id/hg9" android:layout_width="0.0dp" android:layout_height="0.0dp" android:importantForAccessibility="no" app:a1d="@id/hg1" app:a1j="@id/hg1" app:a23="@id/hg1" app:a27="@id/hg1">
+            <FrameLayout android:id="@id/hg8" android:layout_width="match_parent" android:layout_height="match_parent" android:importantForAccessibility="no" />
+        </com.tencent.qqmusic.ui.RoundedRelativeLayout>
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</FrameLayout>

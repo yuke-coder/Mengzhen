@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.tencent.picker.SquareFrameLayout android:layout_width="match_parent" android:layout_height="match_parent"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <ImageView android:id="@id/dne" android:layout_width="match_parent" android:layout_height="match_parent" android:scaleType="centerCrop" />
+    <View android:id="@id/g18" android:background="#53ffffff" android:layout_width="match_parent" android:layout_height="match_parent" />
+    <FrameLayout android:layout_gravity="right|bottom" android:id="@id/jry" android:layout_width="30.0dp" android:layout_height="30.0dp">
+        <com.tencent.picker.SelectionDotView android:layout_gravity="center" android:id="@id/jrz" android:layout_width="wrap_content" android:layout_height="wrap_content" />
+    </FrameLayout>
+</com.tencent.picker.SquareFrameLayout>

@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout android:id="@id/mlive_link_placeholder" android:layout_width="match_parent" android:layout_height="match_parent"
+  xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">
+    <androidx.constraintlayout.widget.Guideline android:orientation="vertical" android:id="@id/mlive_link_control_middle_line" android:layout_width="wrap_content" android:layout_height="wrap_content" app:a1n="0.5" />
+    <View android:id="@id/mlive_link_right_mask" android:layout_width="0.0dp" android:layout_height="0.0dp" app:a1d="hnz" app:a1y="@id/mlive_link_control_middle_line" app:a21="hnz" app:a27="hnz" />
+    <android.widget.Space android:orientation="vertical" android:id="@id/mlive_preview_guide" android:layout_width="0.0dp" android:layout_height="match_parent" app:a1n="0.5" />
+    <com.tme.mlive.ui.custom.preview.MLivePreviewAnchorLinkedView android:id="@id/mlive_preview_linked" android:layout_width="wrap_content" android:layout_height="wrap_content" app:a1d="hnz" app:a1y="@id/mlive_preview_guide" app:a21="hnz" app:a27="hnz" />
+    <com.tme.mlive.ui.custom.preview.MLivePreviewAnchorInfoLabelView android:id="@id/mlive_link_right_anchor_info_label" android:visibility="gone" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginBottom="11.0dp" app:a1d="hnz" app:a21="hnz" />
+</androidx.constraintlayout.widget.ConstraintLayout>

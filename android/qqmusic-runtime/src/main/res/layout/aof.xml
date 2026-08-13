@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout android:id="@id/eoa" android:layout_width="@dimen/a6g" android:layout_height="wrap_content"
+  xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">
+    <kk.design.compose.KKPortraitView android:layout_gravity="center_horizontal" android:id="@id/ibs" android:layout_width="wrap_content" android:layout_height="wrap_content" app:kkPortraitAbsoluteSize="48.0dp" app:kkPortraitTheme="g7e">
+        <kk.design.KKIconView android:layout_gravity="end|bottom" android:id="@id/kzz" android:layout_width="@dimen/a8w" android:layout_height="@dimen/a8w" app:yc="@null" />
+        <kk.design.KKImageView android:layout_gravity="end|bottom" android:id="@id/kz6" android:layout_width="@dimen/a6j" android:layout_height="@dimen/a6j" app:kkImageRadiusDirection="xt" app:kkImageRadiusSize="99.0dp" app:yk="hfs" />
+    </kk.design.compose.KKPortraitView>
+    <kk.design.KKTextView android:ellipsize="end" android:gravity="center" android:layout_gravity="center_horizontal" android:id="@id/mru" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="@dimen/a6k" android:minHeight="@dimen/a6l" android:maxLines="1" android:lines="1" android:singleLine="true" app:y4="bxb" app:a0c="ifr" app:a0d="ka1" app:a0e="j3u" />
+</FrameLayout>

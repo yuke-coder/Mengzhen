@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.drawerlayout.widget.DrawerLayout android:visibility="gone" android:layout_width="match_parent" android:layout_height="match_parent" app:a1d="hnz" app:a21="hnz" app:a27="hnz"
+  xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">
+    <View android:id="@id/a80" android:background="@color/black_30_opacity" android:layout_width="match_parent" android:layout_height="match_parent" />
+    <androidx.constraintlayout.widget.ConstraintLayout android:layout_gravity="end" android:id="@id/azm" android:background="@color/white" android:layout_width="@dimen/cq" android:layout_height="match_parent">
+        <LinearLayout android:gravity="center" android:orientation="horizontal" android:id="@id/fby" android:background="@drawable/bg_ai_agent_menu_new_session_light" android:layout_width="0.0dp" android:layout_height="40.0dp" android:layout_marginLeft="20.0dp" android:layout_marginTop="45.0dp" app:a1x="hnz" app:a20="@id/eju" app:a27="hnz">
+            <ImageView android:id="@id/egd" android:layout_width="11.0dp" android:layout_height="11.0dp" android:src="@drawable/icon_ai_agent_window_menu_new_session" />
+            <androidx.appcompat.widget.AppCompatTextView android:textSize="14.0dp" android:textColor="@color/ai_agent_text_subtitle_light" android:id="@id/md3" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginLeft="3.0dp" android:text="@string/fw" />
+        </LinearLayout>
+        <ImageView android:id="@id/eju" android:layout_width="30.0dp" android:layout_height="30.0dp" android:layout_marginLeft="5.0dp" android:layout_marginRight="15.0dp" android:src="@drawable/icon_ai_agent_window_setting" app:a1d="@id/fby" app:a1y="@id/fby" app:a21="hnz" app:a27="@id/fby" />
+        <com.tencent.qqmusic.business.aiagent.view.AiAgentRefreshableRecyclerView android:id="@id/jeh" android:layout_width="0.0dp" android:layout_height="0.0dp" android:layout_marginTop="20.0dp" app:a1d="hnz" app:a1x="hnz" app:a21="hnz" app:a26="@id/fby" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</androidx.drawerlayout.widget.DrawerLayout>

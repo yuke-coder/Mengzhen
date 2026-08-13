@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout android:background="@color/white" android:paddingLeft="16.0dp" android:paddingTop="10.0dp" android:paddingRight="16.0dp" android:paddingBottom="10.0dp" android:layout_width="match_parent" android:layout_height="wrap_content"
+  xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">
+    <RelativeLayout android:id="@id/h0a" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_alignParentLeft="true">
+        <com.tencent.component.widget.AsyncEffectImageView android:id="@id/ghx" android:layout_width="67.0dp" android:layout_height="67.0dp" android:scaleType="centerCrop" android:layout_alignParentLeft="true" android:layout_centerVertical="true" android:importantForAccessibility="no" />
+        <LinearLayout android:gravity="center_vertical" android:orientation="vertical" android:id="@id/h0_" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_toLeftOf="@id/h23" android:layout_toRightOf="@id/ghx" android:layout_centerVertical="true">
+            <TextView android:textSize="15.0sp" android:textStyle="bold" android:textColor="@color/skin_text_main_color" android:ellipsize="end" android:id="@id/gi2" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginLeft="10.0dp" android:maxLines="2" android:includeFontPadding="false" />
+            <TextView android:textSize="12.0sp" android:textColor="@color/skin_text_sub_color" android:id="@id/gi1" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginLeft="10.0dp" android:layout_marginTop="6.0dp" android:maxLines="1" android:singleLine="true" android:importantForAccessibility="no" />
+        </LinearLayout>
+        <ImageView android:id="@id/h23" android:layout_width="32.0dp" android:layout_height="32.0dp" android:layout_marginLeft="5.0dp" android:layout_marginTop="20.0dp" android:src="@drawable/icon_musichall_podcast_play_normal" android:layout_alignParentRight="true" android:importantForAccessibility="no" />
+    </RelativeLayout>
+    <TextView android:textSize="13.0sp" android:textColor="@color/skin_text_sub_color" android:ellipsize="end" android:gravity="center_vertical" android:id="@id/ghw" android:background="@drawable/musichall_podcast_desc_bg" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginTop="8.0dp" android:maxLines="2" android:layout_below="@id/h0a" android:lineSpacingExtra="2.0dp" android:importantForAccessibility="no" />
+</RelativeLayout>

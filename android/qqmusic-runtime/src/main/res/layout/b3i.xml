@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout android:layout_width="match_parent" android:layout_height="match_parent"
+  xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">
+    <androidx.constraintlayout.widget.Guideline android:orientation="vertical" android:id="@id/d5w" android:layout_width="wrap_content" android:layout_height="wrap_content" />
+    <androidx.constraintlayout.widget.Guideline android:orientation="horizontal" android:id="@id/d6n" android:layout_width="wrap_content" android:layout_height="wrap_content" />
+    <androidx.constraintlayout.widget.Guideline android:orientation="vertical" android:id="@id/d6i" android:layout_width="wrap_content" android:layout_height="wrap_content" />
+    <androidx.constraintlayout.widget.Guideline android:orientation="horizontal" android:id="@id/d5i" android:layout_width="wrap_content" android:layout_height="wrap_content" />
+    <LinearLayout android:orientation="vertical" android:id="@id/npv" android:layout_width="0.0dp" android:layout_height="0.0dp" app:a1d="@id/d5i" app:a1x="@id/d5w" app:a21="@id/d6i" app:a27="@id/d6n">
+        <ImageView android:id="@id/fmn" android:layout_width="49.0dp" android:layout_height="13.5dp" android:src="@drawable/logo_virtual_share" />
+        <View android:layout_width="match_parent" android:layout_height="0.0dp" android:layout_weight="1.0" />
+        <androidx.appcompat.widget.AppCompatTextView android:textSize="10.0dp" android:textColor="@color/white" android:ellipsize="middle" android:id="@id/mx3" android:layout_width="match_parent" android:layout_height="wrap_content" android:maxLines="1" app:c4="100.0dp" app:c5="1.0dp" app:c7="1.0dp" app:c8="mtc" />
+    </LinearLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>

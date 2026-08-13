@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:minHeight="60.0dp"
+  xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">
+    <com.tencent.qqmusic.ui.RoundedRelativeLayout android:id="@id/jty" android:background="@drawable/color_b2_click" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginLeft="@dimen/s8" android:layout_marginRight="@dimen/s8" android:minHeight="60.0dp" android:layout_marginHorizontal="@dimen/s8" app:jc="true" app:adm="ezp|isw" app:ado="10.0dp">
+        <LinearLayout android:orientation="vertical" android:id="@id/k1f" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginLeft="16.0dp" android:layout_marginRight="40.0dp" android:layout_centerVertical="true">
+            <TextView android:textColor="@color/skin_text_main_color" android:id="@id/k1d" android:layout_width="wrap_content" style="@style/ln" />
+            <TextView android:textColor="@color/skin_text_sub_color" android:id="@id/k1a" android:visibility="visible" android:layout_width="wrap_content" android:layout_marginTop="2.0dp" style="@style/ll" />
+        </LinearLayout>
+        <ImageButton android:id="@id/k1c" android:background="@null" android:focusable="false" android:visibility="visible" android:clickable="false" android:layout_width="20.0dp" android:layout_height="20.0dp" android:layout_marginRight="10.0dp" android:src="@drawable/pop_menu_item_mark" android:scaleType="centerInside" android:layout_alignParentRight="true" android:layout_centerVertical="true" />
+    </com.tencent.qqmusic.ui.RoundedRelativeLayout>
+</FrameLayout>

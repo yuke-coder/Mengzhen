@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout android:id="@id/et1" android:layout_width="match_parent" android:layout_height="match_parent"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <include android:id="@id/naf" android:layout_width="match_parent" android:layout_height="match_parent" layout="@layout/m6" />
+    <include android:id="@id/a6y" android:layout_width="match_parent" android:layout_height="wrap_content" layout="@layout/re" />
+    <com.tencent.qqmusic.activity.base.QMusicBaseViewPager android:id="@id/a70" android:layout_width="match_parent" android:layout_height="match_parent" android:layout_below="@id/a6y" />
+    <View android:id="@id/a6v" android:background="@drawable/head_shadow" android:layout_width="match_parent" android:layout_height="@dimen/l9" android:layout_below="@id/a6y" />
+</RelativeLayout>

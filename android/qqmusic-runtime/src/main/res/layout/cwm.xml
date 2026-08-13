@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout android:background="@drawable/bg_home_page_wx_video_info" android:paddingLeft="14.0dp" android:paddingRight="14.0dp" android:layout_width="wrap_content" android:layout_height="28.0dp"
+  xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">
+    <com.tencent.component.widget.AsyncEffectImageView android:id="@id/nus" android:layout_width="wrap_content" android:layout_height="wrap_content" android:src="@drawable/home_page_wx_profile" app:a1d="hnz" app:a1x="hnz" app:a27="hnz" />
+    <TextView android:textSize="14.0sp" android:textStyle="bold" android:textColor="@color/white" android:ellipsize="end" android:id="@id/nut" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginLeft="5.5dp" android:maxWidth="150.0dp" android:text="@string/ext" android:singleLine="true" app:a18="true" app:a1d="hnz" app:a1y="@id/nus" app:a27="hnz" />
+</androidx.constraintlayout.widget.ConstraintLayout>

@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout android:id="@id/abh" android:layout_width="match_parent" android:layout_height="match_parent" android:contentDescription="@string/f7p"
+  xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">
+    <com.tencent.qqmusic.ui.RepeatingImageButton android:id="@id/ad5" android:background="@null" android:layout_width="0.0dp" android:layout_height="0.0dp" android:scaleType="fitCenter" android:importantForAccessibility="no" app:a1d="hnz" app:a1x="hnz" app:a21="hnz" app:a27="hnz" />
+    <TextView android:textSize="9.0dp" android:textColor="@color/danmu_num_tv" android:ellipsize="end" android:id="@id/ad6" android:visibility="gone" android:layout_width="wrap_content" android:layout_height="wrap_content" android:maxLines="1" android:includeFontPadding="false" android:importantForAccessibility="no" app:a1_="@id/kuh" app:a23="@id/kug" />
+    <TextView android:textSize="9.0dp" android:textColor="#99ffffff" android:gravity="center" android:id="@id/kuh" android:layout_width="wrap_content" android:layout_height="wrap_content" android:singleLine="true" android:includeFontPadding="false" android:importantForAccessibility="no" app:a23="@id/kug" app:a26="@id/kug" />
+    <Space android:id="@id/kug" android:layout_width="0.0dp" android:layout_height="0.0dp" android:importantForAccessibility="no" app:a1i="H,12:3" app:a1j="hnz" app:a27="hnz" app:a2e="0.3" />
+</androidx.constraintlayout.widget.ConstraintLayout>

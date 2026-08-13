@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.tencent.qqmusic.ui.RoundedRelativeLayout android:id="@id/je7" android:background="@color/putoo_topic_text_bg_color" android:paddingTop="@dimen/bmv" android:paddingBottom="@dimen/bmv" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="@dimen/bmu" android:paddingStart="@dimen/bmr" android:paddingEnd="@dimen/bmr" app:ado="18.5dp"
+  xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">
+    <TextView android:textSize="13.0sp" android:textColor="@color/skin_text_main_color" android:ellipsize="end" android:gravity="center_vertical" android:id="@id/mq5" android:paddingBottom="1.0dp" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="#薛之薛之谦音乐#" android:maxLines="1" android:layout_centerVertical="true" />
+    <com.tencent.qqmusic.ui.customview.ScaleImageView android:id="@id/elv" android:layout_width="@dimen/bmt" android:layout_height="@dimen/bmt" android:layout_marginLeft="@dimen/bms" android:scaleType="centerCrop" android:layout_toRightOf="@id/mq5" android:layout_centerVertical="true" android:layout_marginStart="@dimen/bms" android:layout_toEndOf="@id/mq5" />
+</com.tencent.qqmusic.ui.RoundedRelativeLayout>

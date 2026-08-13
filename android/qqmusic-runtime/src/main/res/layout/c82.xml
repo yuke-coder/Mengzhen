@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout android:clipChildren="false" android:layout_width="match_parent" android:layout_height="match_parent"
+  xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">
+    <com.tencent.qqmusic.business.live.ui.view.RoundAvatarImage android:id="@id/hyp" android:background="@color/transparent" android:focusable="true" android:clickable="true" android:layout_width="0.0dp" android:layout_height="0.0dp" android:scaleType="fitCenter" android:layout_marginStart="4.0dp" app:a1d="hnz" app:a1i="H,1:1" app:a23="hnz" app:a27="hnz" app:a2e="0.102" />
+    <LinearLayout android:gravity="start|center" android:orientation="vertical" android:layout_width="0.0dp" android:layout_height="wrap_content" android:layout_marginStart="10.0dp" android:layout_marginEnd="10.0dp" app:a1d="@id/hyp" app:a1k="@id/hyn" app:a22="@id/hyp" app:a27="@id/hyp">
+        <TextView android:textSize="12.0sp" android:textColor="@color/white" android:ellipsize="end" android:gravity="center" android:id="@id/hyu" android:layout_width="wrap_content" android:layout_height="wrap_content" android:maxLines="1" android:includeFontPadding="false" />
+        <TextView android:textSize="11.0sp" android:textColor="@color/white_60_opacity" android:ellipsize="end" android:gravity="center" android:id="@id/hyo" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="0.5dp" android:text="@string/fex" android:maxLines="1" android:includeFontPadding="false" />
+    </LinearLayout>
+    <TextView android:textSize="12.0sp" android:textColor="@color/white_60_opacity" android:gravity="center" android:id="@id/hyn" android:background="@drawable/bg_player_follow_listen_switch_button" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/fer" app:a1d="hnz" app:a1j="hnz" app:a27="hnz" />
+</androidx.constraintlayout.widget.ConstraintLayout>

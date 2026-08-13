@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout android:layout_width="match_parent" android:layout_height="match_parent"
+  xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">
+    <ImageView android:id="@id/a5y" android:layout_width="match_parent" android:layout_height="match_parent" android:src="@drawable/bg_black_80" android:alpha="0.0" />
+    <androidx.constraintlayout.widget.Guideline android:orientation="horizontal" android:id="@id/be6" android:layout_width="wrap_content" android:layout_height="wrap_content" app:a1n="0.24" />
+    <com.tencent.qqmusic.ui.RoundedRelativeLayout android:id="@id/v0" android:layout_width="@dimen/beg" android:layout_height="@dimen/beg" android:alpha="0.0" app:a1x="hnz" app:a21="hnz" app:a26="@id/be6" app:ado="8.0dp">
+        <RelativeLayout android:id="@id/ue" android:layout_width="match_parent" android:layout_height="match_parent">
+            <ImageView android:id="@id/fzc" android:layout_width="match_parent" android:layout_height="match_parent" />
+            <ImageView android:id="@id/v3" android:layout_width="match_parent" android:layout_height="match_parent" android:scaleType="centerCrop" android:alpha="0.2" />
+            <FrameLayout android:id="@id/w1" android:layout_width="match_parent" android:layout_height="match_parent" />
+            <ImageView android:id="@id/v2" android:layout_width="match_parent" android:layout_height="match_parent" android:scaleType="centerCrop" />
+            <RelativeLayout android:id="@id/fim" android:background="@drawable/bg_black_20" android:visibility="gone" android:layout_width="match_parent" android:layout_height="match_parent">
+                <LinearLayout android:orientation="vertical" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_centerInParent="true">
+                    <com.airbnb.lottie.LottieAnimationView android:layout_gravity="center_horizontal" android:id="@id/yy" android:layout_width="50.0dp" android:layout_height="50.0dp" />
+                    <TextView android:textSize="13.0sp" android:textColor="#ffffff" android:layout_gravity="center_horizontal" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/fg1" />
+                </LinearLayout>
+            </RelativeLayout>
+            <ImageView android:layout_width="match_parent" android:layout_height="match_parent" android:src="@drawable/player_3d_album_packaging" />
+        </RelativeLayout>
+        <LinearLayout android:gravity="center" android:id="@id/ax7" android:paddingLeft="10.0dp" android:paddingTop="5.0dp" android:paddingRight="10.0dp" android:paddingBottom="5.0dp" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginRight="7.5dp" android:layout_marginBottom="7.5dp" android:layout_alignParentRight="true" android:layout_alignParentBottom="true" android:alpha="0.0" android:rotation="-3.0" android:paddingHorizontal="10.0dp" android:paddingVertical="5.0dp">
+            <TextView android:textSize="12.0sp" android:textStyle="bold" android:id="@id/ax8" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/a4o" />
+        </LinearLayout>
+    </com.tencent.qqmusic.ui.RoundedRelativeLayout>
+    <androidx.constraintlayout.widget.Guideline android:orientation="horizontal" android:id="@id/amj" android:layout_width="wrap_content" android:layout_height="wrap_content" app:a1n="0.788" />
+    <androidx.constraintlayout.widget.Guideline android:orientation="horizontal" android:id="@id/b3n" android:layout_width="wrap_content" android:layout_height="wrap_content" app:a1n="0.864" />
+    <LinearLayout android:orientation="horizontal" android:id="@id/amd" android:layout_width="wrap_content" android:layout_height="30.0dp" android:alpha="0.0" app:a1d="@id/amj" app:a1x="hnz" app:a21="hnz" app:a27="@id/amj">
+        <LinearLayout android:gravity="center" android:orientation="horizontal" android:id="@id/jg4" android:background="@drawable/bg_player_3d_lyric_page_button" android:paddingLeft="20.0dp" android:paddingRight="20.0dp" android:layout_width="105.0dp" android:layout_height="match_parent" android:layout_marginRight="15.0dp" android:contentDescription="@string/ght" android:paddingHorizontal="20.0dp">
+            <TextView android:textSize="14.0sp" android:textColor="#ffffff" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/ght" />
+        </LinearLayout>
+        <LinearLayout android:gravity="center" android:orientation="horizontal" android:id="@id/jvr" android:background="@drawable/bg_player_3d_lyric_page_button" android:paddingLeft="20.0dp" android:paddingRight="20.0dp" android:layout_width="105.0dp" android:layout_height="match_parent" android:contentDescription="@string/share" android:paddingHorizontal="20.0dp">
+            <TextView android:textSize="14.0sp" android:textColor="#ffffff" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/share" />
+        </LinearLayout>
+    </LinearLayout>
+    <ImageView android:id="@id/b3d" android:layout_width="30.0dp" android:layout_height="30.0dp" android:src="@drawable/player_3d_lyric_book_close" android:contentDescription="@string/a7j" android:alpha="0.0" app:a1d="@id/b3n" app:a1x="hnz" app:a21="hnz" app:a27="@id/b3n" />
+</androidx.constraintlayout.widget.ConstraintLayout>

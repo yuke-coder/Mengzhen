@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout android:layout_width="match_parent" android:layout_height="wrap_content"
+  xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">
+    <View android:id="@id/bu1" android:background="@drawable/skin_search_content_img" android:layout_width="match_parent" android:layout_height="8.0dp" app:a27="hnz" />
+    <TextView android:textSize="15.0dp" android:textColor="@color/skin_text_main_color" android:id="@id/cem" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginLeft="15.0dp" android:layout_marginTop="17.0dp" android:text="@string/b6b" app:a1x="hnz" app:a26="@id/bu1" />
+    <ImageView android:id="@id/kek" android:paddingLeft="2.0dp" android:paddingRight="15.0dp" android:visibility="gone" android:layout_width="wrap_content" android:layout_height="wrap_content" android:src="@drawable/feed_detail_song_list_unfold_icon" app:a1d="@id/cem" app:a21="hnz" app:a27="@id/cem" />
+    <TextView android:textSize="12.0dp" android:textColor="@color/skin_text_sub_color" android:id="@id/cel" android:visibility="gone" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/b6a" app:a1d="@id/cem" app:a20="@id/kek" app:a27="@id/cem" />
+    <com.tencent.qqmusic.business.timeline.ui.RefreshableRecyclerView android:id="@id/cek" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginLeft="15.0dp" android:layout_marginTop="8.0dp" android:layout_marginRight="15.0dp" android:layout_marginBottom="19.0dp" android:overScrollMode="never" app:a1d="hnz" app:a26="@id/cem" />
+</androidx.constraintlayout.widget.ConstraintLayout>

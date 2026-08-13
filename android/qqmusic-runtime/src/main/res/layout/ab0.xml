@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout android:paddingLeft="15.0dp" android:paddingTop="14.0dp" android:paddingRight="15.0dp" android:paddingBottom="14.0dp" android:layout_width="wrap_content" android:layout_height="wrap_content"
+  xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">
+    <com.tencent.qqmusic.business.aiassistant.view.AiResponseRichView android:gravity="center_vertical" android:id="@id/o2" android:layout_width="wrap_content" android:layout_height="wrap_content" app:a1e="@id/n_" app:a1x="hnz" app:a27="hnz" />
+    <ViewStub android:id="@id/n_" android:layout="@layout/fz" android:inflatedId="@id/n_" android:layout_width="match_parent" android:layout_height="wrap_content" app:a1x="hnz" app:a26="@id/o2" />
+</androidx.constraintlayout.widget.ConstraintLayout>

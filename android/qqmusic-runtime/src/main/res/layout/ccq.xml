@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout android:orientation="vertical" android:background="@drawable/material_ripple_background" android:layout_width="match_parent" android:layout_height="match_parent"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <include android:id="@id/jme" android:layout_width="match_parent" android:layout_height="@dimen/lh" android:layout_marginTop="10.0dp" android:layout_marginBottom="2.0dp" layout="@layout/c2f" />
+</LinearLayout>

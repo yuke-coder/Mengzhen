@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout android:gravity="center" android:orientation="horizontal" android:id="@id/ctm" android:background="@drawable/following_btn_as_unfollowed" android:descendantFocusability="blocksDescendants" android:layout_width="54.0dp" android:layout_height="30.0dp"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <TextView android:textSize="12.0dp" android:textColor="@color/follow_btn_b_text" android:id="@id/ctk" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/bcs" />
+</LinearLayout>

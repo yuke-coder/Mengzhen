@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout android:layout_gravity="center|top" android:layout_width="match_parent" android:layout_height="wrap_content" android:maxHeight="@dimen/bi1"
+  xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">
+    <androidx.constraintlayout.widget.ConstraintLayout android:gravity="center" android:layout_gravity="center" android:orientation="horizontal" android:layout_width="match_parent" android:layout_height="30.0dp" android:layout_marginStart="23.0dp" android:layout_marginEnd="23.0dp">
+        <com.tencent.component.widget.AsyncImageView android:id="@id/cyh" android:visibility="gone" android:layout_width="20.0dp" android:layout_height="20.0dp" android:layout_marginLeft="5.0dp" android:layout_marginBottom="1.0dp" android:scaleType="fitCenter" app:a1d="hnz" app:a1k="@id/hge" app:a1t="0.5" app:a1u="hmg" app:a23="hnz" app:a27="hnz" />
+        <TextView android:textSize="12.0dp" android:textColor="@color/skin_text_sub_color" android:ellipsize="end" android:layout_gravity="center" android:id="@id/hge" android:visibility="gone" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginLeft="5.0dp" android:text="@string/fzk" android:maxLines="1" android:includeFontPadding="false" app:a1d="hnz" app:a1j="hnz" app:a1t="0.5" app:a1u="hmg" app:a22="@id/cyh" app:a27="hnz" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</FrameLayout>

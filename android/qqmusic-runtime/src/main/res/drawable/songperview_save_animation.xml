@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<animation-list
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <item android:duration="100" android:drawable="@drawable/compose_01" />
+    <item android:duration="100" android:drawable="@drawable/compose_02" />
+    <item android:duration="100" android:drawable="@drawable/compose_03" />
+    <item android:duration="100" android:drawable="@drawable/compose_04" />
+    <item android:duration="100" android:drawable="@drawable/compose_05" />
+    <item android:duration="100" android:drawable="@drawable/compose_06" />
+    <item android:duration="100" android:drawable="@drawable/compose_07" />
+    <item android:duration="100" android:drawable="@drawable/compose_08" />
+    <item android:duration="100" android:drawable="@drawable/compose_09" />
+    <item android:duration="100" android:drawable="@drawable/compose_10" />
+    <item android:duration="100" android:drawable="@drawable/compose_11" />
+    <item android:duration="100" android:drawable="@drawable/compose_12" />
+    <item android:duration="100" android:drawable="@drawable/compose_13" />
+</animation-list>

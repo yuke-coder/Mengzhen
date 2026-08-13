@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout android:orientation="vertical" android:id="@id/nwo" android:paddingLeft="30.0dp" android:paddingTop="15.0dp" android:paddingRight="30.0dp" android:paddingBottom="30.0dp" android:layout_width="match_parent" android:layout_height="wrap_content"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <androidx.appcompat.widget.AppCompatTextView android:textSize="@dimen/h0" android:gravity="center_horizontal" android:id="@id/nwn" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginBottom="30.0dp" android:text="@string/up" />
+    <LinearLayout android:gravity="center_vertical" android:orientation="horizontal" android:layout_width="match_parent" android:layout_height="35.0dp" android:layout_marginBottom="10.0dp">
+        <androidx.appcompat.widget.AppCompatTextView android:textSize="16.0dp" android:textColor="@color/black" android:gravity="center" android:id="@id/kvv" android:layout_width="wrap_content" android:layout_height="match_parent" android:text="06:00" android:layout_weight="1.0" />
+        <ImageView android:id="@id/lci" android:layout_width="15.0dp" android:layout_height="2.0px" android:layout_marginStart="10.0dp" android:layout_marginEnd="10.0dp" />
+        <androidx.appcompat.widget.AppCompatTextView android:textSize="16.0dp" android:textColor="@color/black" android:gravity="center" android:id="@id/c8b" android:layout_width="wrap_content" android:layout_height="match_parent" android:text="22:00" android:layout_weight="1.0" />
+    </LinearLayout>
+    <LinearLayout android:gravity="center" android:orientation="horizontal" android:id="@id/lcx" android:layout_width="match_parent" android:layout_height="match_parent" android:layout_marginBottom="20.0dp" android:minHeight="100.0dp">
+        <com.tencent.qqmusic.common.pick.wheelview.WheelView android:id="@id/nwg" android:layout_width="0.0dp" android:layout_height="match_parent" android:layout_weight="0.96" />
+        <com.tencent.qqmusic.common.pick.wheelview.WheelView android:id="@id/gs8" android:layout_width="0.0dp" android:layout_height="match_parent" android:layout_weight="1.0" />
+        <com.tencent.qqmusic.common.pick.wheelview.WheelView android:id="@id/bji" android:layout_width="0.0dp" android:layout_height="match_parent" android:layout_weight="1.0" />
+        <com.tencent.qqmusic.common.pick.wheelview.WheelView android:id="@id/dg5" android:layout_width="0.0dp" android:layout_height="match_parent" android:layout_weight="1.0" />
+        <com.tencent.qqmusic.common.pick.wheelview.WheelView android:id="@id/g8d" android:layout_width="0.0dp" android:layout_height="match_parent" android:layout_weight="1.0" />
+        <com.tencent.qqmusic.common.pick.wheelview.WheelView android:id="@id/joi" android:layout_width="0.0dp" android:layout_height="match_parent" android:layout_weight="1.0" />
+    </LinearLayout>
+    <Button android:textSize="@dimen/gx" android:textColor="@color/white" android:id="@id/aku" android:background="@drawable/dialog_custom_auto_close_confirm_btn" android:layout_width="match_parent" android:layout_height="40.0dp" android:text="@string/uk" />
+</LinearLayout>

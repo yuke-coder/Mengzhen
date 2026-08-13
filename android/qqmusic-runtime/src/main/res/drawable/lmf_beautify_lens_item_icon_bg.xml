@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<selector
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <item android:state_selected="true" android:drawable="@drawable/lmf_beautify_lens_item_avatar_icon_selected_bg" />
+    <item android:drawable="@color/lmf_beautify_kk_color_transparent" />
+</selector>

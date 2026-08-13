@@ -145,7 +145,15 @@ data class UserInfo(
     val location: String? = null,
     val bio: String? = null,
     val signature: String? = null,
+    /** 喜马拉雅个人页的背景图；本地文件和服务端 URL 均可。 */
+    val backgroundUrl: String? = null,
     val createdAt: String = "",
+    /** API /api/profile 返回的绑定手机号。 */
+    val mobile: String? = null,
+    /** API /api/profile 返回的用户名修改次数。 */
+    val usernameChangeCount: Int? = null,
+    /** API /api/profile 返回的用户名修改次数重置时间。 */
+    val usernameChangeResetAt: String? = null,
 )
 
 // === JSON 序列化 ===
@@ -365,7 +373,9 @@ fun parseAudioList(json: JSONObject): List<TaskAudio> {
  * 从 Web API /api/auth/me 响应解析用户信息
  */
 fun parseUser(json: JSONObject): UserInfo? {
-    if (!json.optBoolean("authenticated", false)) return null
+    val authenticated = json.optBoolean("authenticated", false) ||
+        (json.optBoolean("success", false) && json.has("user"))
+    if (!authenticated) return null
     val user = json.optJSONObject("user") ?: return null
     return UserInfo(
         id = user.optString("id"),
@@ -378,6 +388,7 @@ fun parseUser(json: JSONObject): UserInfo? {
         location = user.optString("location", "").ifEmpty { null },
         bio = user.optString("bio", "").ifEmpty { null },
         signature = user.optString("signature", "").ifEmpty { null },
+        backgroundUrl = user.optString("background_url", "").ifEmpty { null },
         createdAt = user.optString("createdAt", user.optString("created_at", "")),
     )
 }
@@ -399,6 +410,9 @@ fun parseProfile(json: JSONObject): UserInfo? {
         location = profile.optString("location", "").ifEmpty { null },
         bio = profile.optString("bio", "").ifEmpty { null },
         signature = profile.optString("signature", "").ifEmpty { null },
+        backgroundUrl = profile.optString("background_url", "").ifEmpty { null },
         createdAt = profile.optString("createdAt", ""),
+        usernameChangeCount = if (profile.has("username_change_count")) profile.optInt("username_change_count") else null,
+        usernameChangeResetAt = profile.optString("username_change_reset_at", "").ifEmpty { null },
     )
 }

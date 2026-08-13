@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout android:layout_width="match_parent" android:layout_height="match_parent"
+  xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">
+    <com.tencent.component.widget.AsyncImageView android:id="@id/i7h" android:visibility="gone" android:layout_width="30.0dp" android:layout_height="30.0dp" android:importantForAccessibility="no" app:a1d="@id/i7j" app:a1k="@id/i7j" app:a1u="hmg" app:a23="hnz" app:a27="@id/i7j" />
+    <com.tencent.qqmusic.ui.MarqueeTextView android:textSize="13.0dp" android:textColor="@color/white_80_opacity" android:id="@id/i7j" android:visibility="gone" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginBottom="10.0dp" android:singleLine="true" app:a18="true" app:a1d="hnz" app:a1k="@id/i7f" app:a22="@id/i7h" />
+    <com.tencent.component.widget.AsyncImageView android:id="@id/i7f" android:visibility="gone" android:layout_width="13.0dp" android:layout_height="13.0dp" android:importantForAccessibility="no" app:a1d="@id/i7j" app:a1j="hnz" app:a22="@id/i7j" app:a27="@id/i7j" />
+</androidx.constraintlayout.widget.ConstraintLayout>

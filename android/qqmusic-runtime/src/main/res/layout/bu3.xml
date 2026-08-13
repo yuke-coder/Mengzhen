@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.tencentmusic.ad.integration.nativead.TMENativeAdContainer android:id="@id/gob" android:visibility="gone" android:layout_width="match_parent" android:layout_height="wrap_content"
+  xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">
+    <androidx.constraintlayout.widget.ConstraintLayout android:paddingTop="30.0dp" android:layout_width="match_parent" android:layout_height="wrap_content" android:paddingStart="16.0dp" android:paddingEnd="16.0dp">
+        <TextView android:textSize="16.0dp" android:textStyle="bold" android:textColor="@color/skin_text_main_color" android:id="@id/goc" android:layout_width="wrap_content" android:layout_height="wrap_content" app:a23="hnz" app:a27="hnz" />
+        <com.tencent.qqmusic.ui.RoundedRelativeLayout android:id="@id/go8" android:layout_width="match_parent" android:layout_height="193.0dp" android:layout_marginTop="10.0dp" app:a23="hnz" app:a26="@id/goc">
+            <com.tencent.component.widget.AsyncEffectImageView android:id="@id/go9" android:layout_width="match_parent" android:layout_height="match_parent" android:scaleType="fitXY" />
+            <View android:background="@drawable/gradient_black_0_to_50_bg" android:layout_width="match_parent" android:layout_height="50.0dp" android:layout_alignParentBottom="true" />
+            <LinearLayout android:gravity="center_vertical" android:orientation="horizontal" android:id="@id/gok" android:background="@drawable/bg_ad_close" android:paddingTop="2.0dp" android:paddingBottom="3.0dp" android:layout_width="wrap_content" android:layout_height="wrap_content" android:paddingStart="5.0dp" android:paddingEnd="3.0dp" android:layout_alignParentEnd="true">
+                <TextView android:textSize="@dimen/c8c" android:textColor="@color/white" android:id="@id/goo" android:layout_width="wrap_content" android:layout_height="wrap_content" />
+                <ImageView android:layout_width="wrap_content" android:layout_height="wrap_content" android:src="@drawable/ic_white_close" android:layout_marginStart="2.0dp" />
+            </LinearLayout>
+        </com.tencent.qqmusic.ui.RoundedRelativeLayout>
+        <com.tencent.qqmusic.business.live.ui.view.RoundAvatarImage android:id="@id/goa" android:layout_width="22.0dp" android:layout_height="22.0dp" android:layout_marginBottom="10.0dp" android:src="@drawable/default_user_avatar" android:layout_marginStart="10.0dp" app:a1d="hnz" app:a23="hnz" />
+        <TextView android:textSize="14.0dp" android:textColor="@color/white" android:ellipsize="end" android:id="@id/go_" android:layout_width="0.0dp" android:layout_height="wrap_content" android:layout_marginBottom="10.0dp" android:singleLine="true" android:layout_marginStart="6.0dp" app:a1d="hnz" app:a1j="hnz" app:a22="@id/goa" app:a27="@id/goa" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</com.tencentmusic.ad.integration.nativead.TMENativeAdContainer>

@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout android:id="@id/ibj" android:layout_width="wrap_content" android:layout_height="wrap_content"
+  xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">
+    <Space android:id="@id/n75" android:layout_width="match_parent" android:layout_height="0.0dp" app:a1d="hnz" app:a1j="hnz" app:a23="hnz" />
+    <LinearLayout android:gravity="center_horizontal" android:orientation="vertical" android:id="@id/n7s" android:layout_width="wrap_content" android:layout_height="wrap_content" app:a1e="@id/n75" app:a1x="hnz" app:a21="hnz">
+        <ImageButton android:id="@id/n7r" android:background="@drawable/video_tab_use_same_btn" android:layout_width="38.0dp" android:layout_height="38.0dp" android:contentDescription="@string/ir9" />
+        <TextView android:textSize="10.0dp" android:textColor="@color/white" android:ellipsize="end" android:id="@id/n7t" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="2.0dp" android:text="@string/ir9" android:singleLine="true" android:importantForAccessibility="no" />
+    </LinearLayout>
+    <LinearLayout android:gravity="center_horizontal" android:orientation="vertical" android:id="@id/n92" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginBottom="15.0dp" app:a1e="@id/n7s" app:a1x="hnz" app:a21="hnz">
+        <ImageButton android:id="@id/n91" android:background="@drawable/video_tab_set_ring_btn" android:layout_width="38.0dp" android:layout_height="38.0dp" android:contentDescription="@string/irg" />
+        <TextView android:textSize="10.0dp" android:textColor="@color/white" android:ellipsize="end" android:id="@id/n93" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="2.0dp" android:text="@string/irg" android:singleLine="true" android:importantForAccessibility="no" />
+    </LinearLayout>
+    <LinearLayout android:gravity="center_horizontal" android:orientation="vertical" android:id="@id/n95" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginBottom="15.0dp" app:a1e="@id/n92" app:a1x="hnz" app:a21="hnz">
+        <ImageButton android:id="@id/n94" android:background="@drawable/video_tab_share_btn_new" android:layout_width="38.0dp" android:layout_height="38.0dp" android:contentDescription="@string/share" />
+        <TextView android:textSize="10.0dp" android:textColor="@color/white" android:ellipsize="end" android:id="@id/n96" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="2.0dp" android:text="@string/share" android:singleLine="true" android:importantForAccessibility="no" />
+    </LinearLayout>
+    <LinearLayout android:gravity="center_horizontal" android:orientation="vertical" android:id="@id/n7p" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginBottom="15.0dp" app:a1e="@id/n7w" app:a1x="hnz" app:a21="hnz">
+        <ImageButton android:id="@id/n7o" android:background="@drawable/video_tab_comment_btn" android:layout_width="38.0dp" android:layout_height="38.0dp" android:contentDescription="@string/iqz" />
+        <TextView android:textSize="10.0dp" android:textColor="@color/white" android:ellipsize="end" android:id="@id/n7q" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="2.0dp" android:text="@string/iqy" android:singleLine="true" android:importantForAccessibility="no" />
+    </LinearLayout>
+    <LinearLayout android:gravity="center_horizontal" android:orientation="vertical" android:id="@id/n7w" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginBottom="15.0dp" app:a1e="@id/n95" app:a1x="hnz" app:a21="hnz">
+        <ImageButton android:id="@id/n7y" android:background="@drawable/video_tab_fav_video_white" android:layout_width="38.0dp" android:layout_height="38.0dp" android:scaleType="centerInside" android:contentDescription="@string/ir0" />
+        <TextView android:textSize="10.0dp" android:textColor="@color/white" android:ellipsize="end" android:id="@id/n7x" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="2.0dp" android:text="@string/ira" android:singleLine="true" android:importantForAccessibility="no" />
+    </LinearLayout>
+    <LinearLayout android:gravity="center_horizontal" android:orientation="vertical" android:id="@id/n80" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginBottom="15.0dp" app:a1e="@id/n7p" app:a1x="hnz" app:a21="hnz">
+        <FrameLayout android:id="@id/n4m" android:layout_width="wrap_content" android:layout_height="wrap_content">
+            <com.airbnb.lottie.LottieAnimationView android:layout_gravity="center" android:id="@id/n4l" android:visibility="gone" android:clipChildren="false" android:layout_width="38.0dp" android:layout_height="38.0dp" android:scaleType="centerCrop" app:a4s="lottie/video_tab_like.json" app:a4v="1.0" />
+        </FrameLayout>
+        <TextView android:textSize="10.0dp" android:textColor="@color/white" android:ellipsize="end" android:gravity="center" android:id="@id/n4n" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="2.0dp" android:text="@string/ir1" android:singleLine="true" android:importantForAccessibility="no" />
+    </LinearLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>

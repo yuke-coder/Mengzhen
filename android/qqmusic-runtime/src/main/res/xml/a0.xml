@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="utf-8"?>
+<paths>
+    <external-cache-path name="oppocard_shared_img" path="/file/image" />
+    <cache-path name="oppocard_shared_img_inner" path="/file/image" />
+</paths>

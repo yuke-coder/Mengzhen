@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout android:layout_width="match_parent" android:layout_height="wrap_content"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <com.tme.qqmusic.widget.base.view.GlideImageView android:layout_gravity="center" android:id="@id/mlive_emoji_panel_item_icon" android:layout_width="55.0dp" android:layout_height="55.0dp" />
+</FrameLayout>

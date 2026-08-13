@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout android:layout_width="match_parent" android:layout_height="match_parent"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <View android:id="@id/daj" android:layout_width="match_parent" android:layout_height="match_parent" />
+    <FrameLayout android:id="@id/dak" android:focusable="true" android:clickable="true" android:layout_width="match_parent" android:layout_height="match_parent">
+        <ImageView android:id="@id/dag" android:layout_width="match_parent" android:layout_height="match_parent" android:scaleType="centerCrop" />
+        <ProgressBar android:layout_gravity="center" android:id="@id/dai" android:layout_width="30.0dp" android:layout_height="30.0dp" android:indeterminate="true" android:indeterminateOnly="true" android:indeterminateDrawable="@drawable/icn_loading_indicator" android:indeterminateDuration="2000" android:layout_centerHorizontal="true" android:layout_centerVertical="true" />
+    </FrameLayout>
+</FrameLayout>

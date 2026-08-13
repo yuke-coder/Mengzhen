@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout android:gravity="center_horizontal" android:id="@id/jcg" android:background="@android:color/transparent" android:layout_width="match_parent" android:layout_height="match_parent"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <LinearLayout android:gravity="center_horizontal" android:layout_gravity="center_vertical" android:orientation="vertical" android:layout_width="wrap_content" android:layout_height="wrap_content">
+        <ImageView android:id="@id/f3q" android:background="@drawable/empty_music_list" android:layout_width="@dimen/bdw" android:layout_height="@dimen/bdw" />
+        <TextView android:textSize="14.0sp" android:textColor="@color/skin_text_sub_color" android:gravity="center_horizontal" android:id="@id/f3s" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="@dimen/bdx" android:text="@string/eyt" android:singleLine="true" />
+        <TextView android:textSize="14.0sp" android:textColor="@color/skin_text_sub_color" android:gravity="center" android:id="@id/f3o" android:paddingLeft="15.0dp" android:paddingRight="15.0dp" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="@dimen/bdu" android:lineSpacingExtra="4.0dp" />
+        <Button android:textSize="13.0sp" android:textColor="@color/skin_action_button_text" android:ellipsize="end" android:gravity="center" android:id="@id/f3m" android:background="@drawable/empty_view_round_button_border" android:visibility="invisible" android:layout_width="wrap_content" android:layout_height="30.0dp" android:layout_marginTop="25.0dp" android:text="2323" android:singleLine="true" android:includeFontPadding="false" android:stateListAnimator="@null" />
+        <Space android:id="@id/kng" android:visibility="gone" android:layout_width="@dimen/bdw" android:layout_height="30.0dp" />
+    </LinearLayout>
+</LinearLayout>

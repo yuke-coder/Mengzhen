@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout android:layout_width="wrap_content" android:layout_height="wrap_content"
+  xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">
+    <androidx.constraintlayout.widget.ConstraintLayout android:id="@id/cng" android:background="@drawable/bg_folder_edit_auto_mix_item_light" android:padding="10.0dp" android:layout_width="100.0dp" android:layout_height="70.0dp" app:a1d="hnz" app:a1x="hnz" app:a21="hnz" app:a27="hnz">
+        <TextView android:textSize="12.0sp" android:textColor="@color/black" android:id="@id/cnh" android:layout_width="wrap_content" android:layout_height="wrap_content" app:a1x="hnz" app:a27="hnz" />
+        <ImageView android:id="@id/cni" android:layout_width="15.0dp" android:layout_height="15.0dp" android:src="@drawable/folder_edit_auto_mix_select_icon" app:a21="hnz" app:a27="hnz" />
+        <TextView android:textSize="10.0sp" android:textColor="@color/edit_folder_auto_mix_try_listen_color_light" android:gravity="center" android:id="@id/cnj" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/v_" app:a1d="hnz" app:a1x="hnz" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>

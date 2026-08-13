@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout android:id="@id/cds" android:background="@drawable/color_b2_click" android:descendantFocusability="blocksDescendants" android:layout_width="match_parent" android:layout_height="wrap_content"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <LinearLayout android:gravity="center_vertical" android:orientation="horizontal" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginLeft="@dimen/c1_" android:layout_centerVertical="true" android:layout_marginStart="@dimen/c1_" android:layout_toEndOf="@id/cc2">
+        <TextView android:textSize="16.0sp" android:id="@id/ccy" android:layout_width="wrap_content" style="@style/ln" />
+        <TextView android:textColor="@color/skin_text_sub_color" android:ellipsize="end" android:id="@id/ccw" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginLeft="12.0dp" android:maxLines="1" />
+    </LinearLayout>
+    <CheckBox android:textSize="0.5dp" android:id="@id/cc2" android:background="@drawable/icon_setting_with_checkbox" android:focusable="false" android:focusableInTouchMode="false" android:clickable="true" android:layout_width="@dimen/c1f" android:layout_height="@dimen/c1f" android:layout_marginLeft="@dimen/c1a" android:checked="false" android:button="@null" android:layout_alignParentLeft="true" android:layout_centerVertical="true" />
+    <View android:background="@drawable/z_color_l1" android:layout_width="match_parent" android:layout_height="1.0px" android:layout_marginLeft="@dimen/c1_" android:scaleType="fitXY" android:layout_alignParentBottom="true" android:layout_marginStart="@dimen/c1_" />
+</RelativeLayout>

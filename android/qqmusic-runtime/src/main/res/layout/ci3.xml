@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout android:id="@id/jmd" android:paddingTop="9.0dp" android:layout_width="match_parent" android:layout_height="@dimen/lh"
+  xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">
+    <LinearLayout android:orientation="horizontal" android:id="@id/jj6" android:layout_width="match_parent" android:layout_height="match_parent" android:layout_marginLeft="10.0dp" android:layout_marginRight="10.0dp">
+        <com.tencent.qqmusic.ui.RoundedRelativeLayout android:layout_gravity="center" android:id="@id/ciq" android:layout_width="0.0dp" android:layout_height="wrap_content" android:layout_weight="1.0" android:contentDescription="@string/b96" app:ado="15.0dp">
+            <EditText android:textSize="14.0sp" android:textColor="@color/search_box_text_color" android:textColorHint="@color/search_box_hint_text_color" android:id="@id/searchItem" android:background="@drawable/skin_mask_img" android:paddingLeft="@dimen/c0e" android:paddingRight="@dimen/c0f" android:focusable="true" android:layout_width="match_parent" android:layout_height="30.0dp" android:layout_marginLeft="0.0dp" android:singleLine="true" android:imeOptions="actionDone" style="@style/a3d" />
+            <RelativeLayout android:id="@id/c0v" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginLeft="8.0dp" android:layout_marginRight="10.0dp" android:scaleType="centerInside" android:layout_centerInParent="true">
+                <ImageButton android:id="@id/c1w" android:background="@drawable/label_search_icon" android:layout_width="@dimen/byr" android:layout_height="@dimen/byr" android:scaleType="centerInside" android:layout_centerVertical="true" android:importantForAccessibility="no" />
+                <TextView android:textSize="14.0sp" android:textColor="@color/skin_text_sub_color" android:ellipsize="end" android:id="@id/c2g" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginLeft="4.0dp" android:maxWidth="200.0dp" android:text="搜索" android:maxLines="1" android:layout_toRightOf="@id/c1w" android:layout_centerVertical="true" android:importantForAccessibility="no" />
+            </RelativeLayout>
+            <FrameLayout android:id="@id/b1k" android:visibility="gone" android:layout_width="@dimen/c0p" android:layout_height="match_parent" android:layout_alignParentRight="true" android:layout_centerVertical="true">
+                <ImageView android:layout_gravity="center" android:background="@drawable/voice_search_clear_text_xml" android:layout_width="@dimen/bvg" android:layout_height="@dimen/bvg" android:scaleType="centerInside" />
+            </FrameLayout>
+        </com.tencent.qqmusic.ui.RoundedRelativeLayout>
+        <ImageButton android:layout_gravity="center_vertical" android:id="@id/h_o" android:background="@drawable/ic_my_music_recognize_small" android:visibility="gone" android:layout_width="@dimen/bzl" android:layout_height="@dimen/bzl" android:layout_marginLeft="@dimen/bzk" />
+        <ImageButton android:layout_gravity="center_vertical" android:id="@id/jj7" android:background="@drawable/search_button_xml" android:visibility="gone" android:layout_width="@dimen/bx9" android:layout_height="@dimen/bx6" android:layout_marginLeft="@dimen/c0a" />
+    </LinearLayout>
+</RelativeLayout>

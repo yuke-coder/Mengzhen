@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.appcompat.widget.LinearLayoutCompat android:orientation="vertical" android:layout_width="match_parent" android:layout_height="wrap_content"
+  xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">
+    <com.tme.mlive.ui.custom.gift.GiftBubbleView android:id="@id/mlive_gift_live_bubble_1" android:visibility="gone" android:layout_width="match_parent" android:layout_height="@dimen/ann" app:a1x="hnz" app:a27="hnz" />
+    <com.tme.mlive.ui.custom.gift.GiftBubbleView android:id="@id/mlive_gift_live_bubble_2" android:visibility="gone" android:layout_width="match_parent" android:layout_height="@dimen/ann" app:a1d="hnz" app:a1x="hnz" />
+</androidx.appcompat.widget.LinearLayoutCompat>

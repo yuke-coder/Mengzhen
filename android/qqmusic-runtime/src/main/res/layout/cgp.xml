@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout android:id="@id/jku" android:paddingBottom="12.0dp" android:layout_width="match_parent" android:layout_height="wrap_content"
+  xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">
+    <com.tencent.qqmusic.ui.RoundedRelativeLayout android:id="@id/brr" android:layout_width="99.0dp" android:layout_height="138.0dp" app:ado="5.0dp">
+        <com.tencent.component.widget.AsyncEffectImageView android:id="@id/brn" android:layout_width="match_parent" android:layout_height="match_parent" android:scaleType="centerCrop" />
+    </com.tencent.qqmusic.ui.RoundedRelativeLayout>
+    <LinearLayout android:orientation="vertical" android:id="@id/bs7" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginTop="4.0dp" android:layout_toRightOf="@id/brr" android:layout_marginStart="10.0dp">
+        <TextView android:textSize="17.0dp" android:textStyle="bold" android:textColor="@color/skin_text_main_color" android:ellipsize="end" android:id="@id/bs5" android:layout_width="wrap_content" android:layout_height="wrap_content" android:maxLines="1" android:lineHeight="21.0dp" />
+        <TextView android:textSize="12.0dp" android:textColor="@color/skin_text_sub_color" android:ellipsize="end" android:id="@id/bs1" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="5.0dp" android:maxLines="1" android:lineHeight="16.0dp" />
+        <TextView android:textSize="12.0dp" android:textColor="@color/skin_text_sub_color" android:ellipsize="end" android:id="@id/brj" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="5.0dp" android:maxLines="1" android:lineHeight="16.0dp" />
+        <TextView android:textSize="12.0dp" android:textColor="@color/skin_text_sub_color" android:ellipsize="end" android:id="@id/brk" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="5.0dp" android:maxLines="2" android:lineHeight="16.0dp" />
+    </LinearLayout>
+    <com.tencent.component.widget.AsyncEffectImageView android:id="@id/brs" android:layout_width="72.0dp" android:layout_height="15.0dp" android:layout_marginLeft="10.0dp" android:layout_marginBottom="3.0dp" android:scaleType="centerCrop" android:layout_toRightOf="@id/brr" android:layout_alignBottom="@id/brr" />
+</RelativeLayout>

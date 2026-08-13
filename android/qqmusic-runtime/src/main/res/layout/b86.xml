@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.tencent.qqmusic.ui.customview.CleanClipTopFrameLayout android:id="@id/ipp" android:layout_width="match_parent" android:layout_height="match_parent"
+  xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">
+    <com.tencent.qqmusic.fragment.newradarsearch.detail.view.RadarWebRecyclerView android:id="@id/ipn" android:clipChildren="false" android:layout_width="match_parent" android:layout_height="match_parent" android:nestedScrollingEnabled="true" />
+    <ViewStub android:id="@id/b7f" android:visibility="gone" android:layout="@layout/mj" android:layout_width="match_parent" android:layout_height="match_parent" />
+    <ViewStub android:id="@id/b7q" android:layout="@layout/mh" android:layout_width="match_parent" android:layout_height="match_parent" android:layout_marginTop="@dimen/cau" android:layout_alignWithParentIfMissing="true" />
+    <ViewStub android:id="@id/b7r" android:layout="@layout/yc" android:layout_width="match_parent" android:layout_height="match_parent" android:layout_marginTop="@dimen/cau" />
+</com.tencent.qqmusic.ui.customview.CleanClipTopFrameLayout>

@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout android:id="@id/dbz" android:layout_width="match_parent" android:layout_height="45.0dp"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <View android:id="@id/db0" android:background="@color/white" android:layout_width="match_parent" android:layout_height="match_parent" />
+    <androidx.appcompat.widget.Toolbar android:id="@id/luz" android:visibility="gone" android:layout_width="match_parent" android:layout_height="?a9" />
+    <RelativeLayout android:id="@id/dbh" android:layout_width="wrap_content" android:layout_height="match_parent">
+        <ImageView android:id="@id/dbg" android:layout_width="30.0dp" android:layout_height="30.0dp" android:src="@drawable/live_cover_back_black_ic" android:tint="#000000" android:layout_centerVertical="true" android:layout_marginStart="8.0dp" />
+        <TextView android:textColor="#000000" android:id="@id/dbj" android:visibility="invisible" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginLeft="8.0dp" android:text="返回" android:layout_toRightOf="@id/dbg" android:layout_centerVertical="true" />
+    </RelativeLayout>
+    <RelativeLayout android:id="@id/db4" android:layout_width="wrap_content" android:layout_height="match_parent" android:layout_centerHorizontal="true">
+        <TextView android:textSize="16.0sp" android:textColor="@android:color/black" android:layout_gravity="center" android:id="@id/db5" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_centerInParent="true" />
+        <RadioGroup android:layout_gravity="center" android:orientation="horizontal" android:id="@id/lux" android:visibility="gone" android:layout_width="wrap_content" android:layout_height="wrap_content">
+            <RadioButton android:textSize="13.0sp" android:textColor="@color/black" android:gravity="center" android:id="@id/luv" android:background="@null" android:padding="5.0dp" android:layout_width="70.0dp" android:layout_height="match_parent" android:checked="true" android:button="@null" android:text="进行中" />
+            <RadioButton android:textSize="13.0sp" android:textColor="@color/black" android:gravity="center" android:id="@id/luw" android:background="@null" android:padding="5.0dp" android:layout_width="70.0dp" android:layout_height="match_parent" android:button="@null" android:text="已结束" />
+        </RadioGroup>
+        <RelativeLayout android:id="@id/dbw" android:visibility="gone" android:layout_width="70.0dp" android:layout_height="match_parent" android:layout_alignParentEnd="true">
+            <ImageView android:layout_gravity="center" android:id="@id/dbv" android:visibility="gone" android:layout_width="30.0dp" android:layout_height="30.0dp" android:layout_centerHorizontal="true" android:layout_centerVertical="true" android:layout_marginEnd="15.0dp" />
+            <TextView android:textSize="12.0sp" android:textColor="@color/gray" android:gravity="center_vertical" android:id="@id/dby" android:visibility="gone" android:layout_width="wrap_content" android:layout_height="match_parent" android:text="明细" android:layout_alignParentRight="true" android:layout_marginEnd="15.0dp" />
+            <ImageView android:layout_gravity="right|top" android:id="@id/dbx" android:visibility="gone" android:layout_width="7.0dp" android:layout_height="7.0dp" android:layout_marginTop="6.0dp" android:src="@drawable/live_cover_ic_red_dot" android:layout_alignParentTop="true" android:layout_marginEnd="15.0dp" android:layout_alignParentEnd="true" />
+        </RelativeLayout>
+    </RelativeLayout>
+</RelativeLayout>

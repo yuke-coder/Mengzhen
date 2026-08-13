@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout android:orientation="horizontal" android:id="@id/bv0" android:background="@color/white" android:layout_width="match_parent" android:layout_height="45.0dp"
+  xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">
+    <ImageView android:id="@id/lwc" android:layout_width="match_parent" android:layout_height="1.0px" android:src="@color/white_12_transparent" app:a27="hnz" />
+    <ImageView android:id="@id/bun" android:layout_width="20.0dp" android:layout_height="20.0dp" android:layout_marginLeft="16.0dp" android:src="@drawable/dlna_device_selected" app:a1d="hnz" app:a1x="hnz" app:a27="hnz" />
+    <TextView android:textColor="@color/dlna_device_text_color" android:ellipsize="middle" android:id="@id/bul" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginLeft="6.0dp" android:text="" android:singleLine="true" android:layout_centerVertical="true" app:a18="true" app:a1d="hnz" app:a1t="0.0" app:a1u="hmg" app:a1y="@id/bun" app:a20="@id/bum" app:a27="hnz" />
+    <ImageView android:id="@id/bum" android:layout_width="34.0dp" android:layout_height="19.0dp" android:layout_marginLeft="6.0dp" android:layout_marginRight="16.0dp" android:src="@drawable/dlna_device_recommend" android:layout_centerVertical="true" app:a1d="hnz" app:a1y="@id/bul" app:a21="hnz" app:a27="hnz" />
+</androidx.constraintlayout.widget.ConstraintLayout>

@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout android:orientation="vertical" android:layout_width="match_parent" android:layout_height="wrap_content"
+  xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">
+    <View android:layout_width="match_parent" android:layout_height="1.0dp" />
+    <com.tencent.qqmusic.ui.RoundedConstraintLayout android:id="@id/b4" android:paddingLeft="15.0dp" android:paddingTop="10.0dp" android:paddingRight="15.0dp" android:paddingBottom="10.0dp" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginTop="13.0dp" android:layout_marginRight="@dimen/ld" android:layout_marginBottom="@dimen/zz">
+        <androidx.appcompat.widget.AppCompatTextView android:textSize="16.0sp" android:textStyle="bold" android:textColor="@color/skin_text_main_color" android:ellipsize="end" android:id="@id/lg3" android:layout_width="wrap_content" android:layout_height="match_parent" android:text="@string/bm7" android:maxLines="1" app:a1x="hnz" app:a27="hnz" />
+        <androidx.appcompat.widget.AppCompatTextView android:textSize="12.0sp" android:textColor="@color/skin_text_sub_color" android:ellipsize="end" android:id="@id/l76" android:paddingTop="6.0dp" android:visibility="gone" android:layout_width="wrap_content" android:layout_height="wrap_content" android:maxLines="3" app:a1x="@id/lg3" app:a26="@id/lg3" />
+        <androidx.appcompat.widget.AppCompatTextView android:textSize="12.0sp" android:textColor="@color/skin_text_sub_color" android:ellipsize="end" android:id="@id/bnc" android:paddingTop="6.0dp" android:visibility="gone" android:layout_width="match_parent" android:layout_height="wrap_content" android:maxLines="5" android:lineSpacingExtra="9.0dp" app:a1x="@id/lg3" app:a26="@id/l76" />
+        <com.tencent.qqmusic.homepage.header.viewdelegate.baseview.FlowLayout android:id="@id/ckd" android:paddingTop="6.0dp" android:visibility="gone" android:layout_width="match_parent" android:layout_height="wrap_content" app:a1x="@id/lg3" app:a26="@id/bnc" />
+    </com.tencent.qqmusic.ui.RoundedConstraintLayout>
+</LinearLayout>

@@ -14,9 +14,8 @@ android {
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
         aaptOptions {
             ignoreAssetsPattern = '!.svn:!.git:!.ds_store:!*.scc:.*:!CVS:!thumbs.db:!picasa.ini:!*~'
-            // QQ 音乐 pickview/wheelview 原始字节码内联了其资源整数。
-            // 保留这组源资源 ID，避免改写原滚轮实现。
-            additionalParameters "--stable-ids", file("qqmusic-profile-stable-ids.txt").absolutePath
+            // QQ 音乐原始字节码内联了完整资源表的整数 ID。
+            additionalParameters "--stable-ids", file("qqmusic-runtime-stable-ids.txt").absolutePath
         }
     }
 
@@ -42,6 +41,12 @@ android {
         buildConfig = true
     }
 
+    packaging {
+        jniLibs {
+            useLegacyPackaging = true
+        }
+    }
+
 
     compileOptions {
         sourceCompatibility JavaVersion.VERSION_17
@@ -58,13 +63,7 @@ android {
 
 dependencies {
     implementation fileTree(include: ['*.jar'], dir: 'libs')
-    implementation files("vendor/qqmusic-20.6.5.8/profile/original/libs/qqmusic-profile-picker-direct.jar")
-    implementation files("vendor/qqmusic-20.6.5.8/profile/original/libs/qqmusic-profile-text-counter-direct.jar")
-    implementation files("vendor/qqmusic-20.6.5.8/profile/original/libs/qqmusic-profile-kotlin-hash-direct.jar")
-    implementation files("vendor/qqmusic-20.6.5.8/profile/original/libs/qqmusic-profile-gender-direct.jar")
-    implementation files("vendor/qqmusic-20.6.5.8/profile/original/libs/qqmusic-profile-crop-direct.jar")
-    implementation files("vendor/qqmusic-20.6.5.8/lyricengine/original/libs/qqmusic-lyric-engine-direct.jar")
-    implementation files("vendor/qqmusic-20.6.5.8/mediaplayer/original/libs/qqmusic-mediaplayer-direct.jar")
+    implementation project(':qqmusic-runtime')
     
     // AndroidX core
     implementation "androidx.appcompat:appcompat:$androidxAppCompatVersion"
@@ -73,7 +72,12 @@ dependencies {
     implementation "androidx.activity:activity-compose:1.13.0"
     implementation "androidx.lifecycle:lifecycle-runtime-ktx:2.11.0"
     implementation "androidx.lifecycle:lifecycle-viewmodel-compose:2.11.0"
-    implementation "androidx.constraintlayout:constraintlayout:2.2.1"
+    implementation("androidx.constraintlayout:constraintlayout:2.1.4") {
+        version { strictly "2.1.4" }
+    }
+    implementation("androidx.constraintlayout:constraintlayout-core:1.0.4") {
+        version { strictly "1.0.4" }
+    }
     implementation "androidx.recyclerview:recyclerview:1.4.0"
     implementation "androidx.viewpager:viewpager:1.1.0"
     implementation "androidx.palette:palette-ktx:1.0.0"
@@ -106,7 +110,6 @@ dependencies {
     // 喜马拉雅 9.4.95.3 播放控制区使用的原始 Lottie 动画。
     implementation "com.airbnb.android:lottie:6.7.1"
     // QQ 音乐播放列表当前项使用的原始 PAG 动画运行时。
-    implementation "com.tencent.tav:libpag:4.5.85-noffavc"
 
     // Image loading
     implementation "io.coil-kt.coil3:coil:3.5.0"

@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout android:id="@id/anl" android:layout_width="match_parent" android:layout_height="59.0dp"
+  xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">
+    <View android:id="@id/aan" android:background="@drawable/default_skin_divider_color_bg" android:layout_width="1.0dp" android:layout_height="match_parent" />
+    <View android:id="@id/aam" android:background="@drawable/default_skin_divider_color_bg" android:layout_width="match_parent" android:layout_height="1.0dp" android:layout_alignParentBottom="true" />
+    <View android:id="@id/aao" android:background="@drawable/default_skin_divider_color_bg" android:visibility="gone" android:layout_width="1.0dp" android:layout_height="match_parent" android:layout_alignParentRight="true" />
+    <androidx.appcompat.widget.AppCompatTextView android:textSize="14.0dp" android:textColor="@color/skin_text_main_color" android:gravity="center" android:id="@id/bkd" android:layout_width="18.0dp" android:layout_height="18.0dp" android:layout_margin="2.5dp" android:includeFontPadding="false" />
+    <com.tencent.component.widget.AsyncEffectImageView android:id="@id/ano" android:layout_width="27.0dp" android:layout_height="27.0dp" android:scaleType="fitCenter" android:layout_centerInParent="true" />
+    <FrameLayout android:id="@id/anp" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_centerInParent="true">
+        <com.tencent.component.widget.AsyncEffectImageView android:layout_gravity="right|center" android:id="@id/ann" android:layout_width="18.5dp" android:layout_height="18.5dp" android:layout_marginLeft="7.5dp" android:scaleType="fitCenter" />
+        <com.tme.qqmusic.widget.base.view.RoundedFrameLayout android:layout_gravity="center_vertical" android:layout_width="wrap_content" android:layout_height="wrap_content" app:t_="2.5dp">
+            <com.tencent.component.widget.AsyncEffectImageView android:id="@id/anm" android:layout_width="22.0dp" android:layout_height="22.0dp" android:scaleType="centerInside" />
+        </com.tme.qqmusic.widget.base.view.RoundedFrameLayout>
+    </FrameLayout>
+    <com.tencent.component.widget.AsyncEffectImageView android:id="@id/anq" android:layout_width="30.0dp" android:layout_height="30.0dp" android:scaleType="fitCenter" android:layout_centerInParent="true" />
+    <com.tencent.component.widget.AsyncEffectImageView android:id="@id/anr" android:layout_width="59.0dp" android:layout_height="18.22998dp" android:scaleType="fitCenter" android:layout_alignParentBottom="true" android:layout_centerHorizontal="true" />
+    <androidx.appcompat.widget.AppCompatImageView android:id="@id/ans" android:visibility="gone" android:layout_width="12.0dp" android:layout_height="12.0dp" android:layout_margin="2.5dp" android:src="@drawable/calendar_day_event_more" android:scaleType="centerInside" android:layout_alignParentRight="true" />
+</RelativeLayout>

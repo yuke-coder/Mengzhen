@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout android:layout_width="match_parent" android:layout_height="match_parent" android:minHeight="@dimen/bus"
+  xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">
+    <RelativeLayout android:id="@id/jic" android:layout_width="match_parent" android:layout_height="wrap_content" app:a1j="hnz" app:a23="hnz" app:a27="hnz">
+        <com.tme.karaoke.recordui.widget.ScoreProgressView android:id="@id/jid" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_centerVertical="true" android:layout_marginStart="30.0dp" android:layout_marginEnd="30.0dp" />
+        <com.tme.pag.ui.PAGLayout android:id="@id/ji_" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_alignParentTop="true" android:layout_alignParentEnd="true" />
+        <com.tme.pag.ui.PAGLayout android:id="@id/ji9" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_alignParentTop="true" android:layout_alignParentEnd="true" />
+    </RelativeLayout>
+    <com.tme.karaoke.recordui.widget.ScoreOverTakeView android:id="@id/jia" android:visibility="visible" android:layout_width="match_parent" android:layout_height="match_parent" android:layout_marginStart="20.0dp" android:layout_marginEnd="20.0dp" app:a1d="hnz" app:a1j="@id/jic" app:a23="@id/jic" />
+</androidx.constraintlayout.widget.ConstraintLayout>

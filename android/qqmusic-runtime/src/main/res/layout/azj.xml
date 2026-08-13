@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout android:id="@id/hs_" android:clipChildren="false" android:layout_width="match_parent" android:layout_height="match_parent"
+  xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">
+    <com.tencent.qqmusic.business.customskin.player.picturesetting.PictureCropImageView android:id="@id/hsa" android:layout_width="0.0dp" android:layout_height="0.0dp" app:a1d="hnz" app:a1j="hnz" app:a23="hnz" app:a27="hnz" />
+    <androidx.appcompat.widget.AppCompatImageView android:id="@id/hse" android:layout_width="300.0dp" android:layout_height="300.0dp" android:scaleType="centerCrop" app:a1x="hnz" app:a21="hnz" app:a27="hnz" />
+    <androidx.appcompat.widget.AppCompatImageView android:id="@id/hsd" android:visibility="gone" android:layout_width="0.0dp" android:layout_height="0.0dp" android:scaleType="centerCrop" app:a1d="@id/hse" app:a1j="@id/hse" app:a23="@id/hse" app:a27="@id/hse" />
+    <com.tencent.qqmusic.business.customskin.player.picturesetting.PictureCropImageView android:id="@id/hsg" android:layout_width="0.0dp" android:layout_height="0.0dp" app:a1d="hnz" app:a1j="hnz" app:a23="hnz" app:a27="hnz" />
+    <androidx.appcompat.widget.AppCompatImageView android:id="@id/a5r" android:visibility="gone" android:layout_width="35.0dp" android:layout_height="35.0dp" android:src="@drawable/bring_to_front_icon" app:a1e="@id/hse" app:a1k="@id/hse" app:a23="@id/hse" app:a27="@id/hse" />
+    <androidx.constraintlayout.widget.ConstraintLayout android:id="@id/a5p" android:layout_width="0.0dp" android:layout_height="0.0dp" app:a1d="@id/hse" app:a1j="@id/hse" app:a23="@id/hse" app:a27="@id/hse">
+        <View android:id="@id/a5s" android:layout_width="0.0dp" android:layout_height="0.0dp" app:a1i="h,1:1" app:a23="hnz" app:a27="hnz" app:a2e="0.1313" />
+        <androidx.appcompat.widget.AppCompatImageView android:id="@id/a5q" android:visibility="gone" android:layout_width="35.0dp" android:layout_height="35.0dp" android:src="@drawable/bring_to_front_icon" app:a1d="@id/a5s" app:a1j="@id/a5s" app:a22="@id/a5s" app:a26="@id/a5s" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>

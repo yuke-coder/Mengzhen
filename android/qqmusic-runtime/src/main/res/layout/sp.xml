@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout android:paddingTop="10.0dp" android:layout_width="match_parent" android:layout_height="wrap_content"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <LinearLayout android:orientation="horizontal" android:id="@id/hrw" android:layout_width="match_parent" android:layout_height="wrap_content">
+        <com.tencent.qqmusic.ui.customview.SquareImageView android:id="@id/hrt" android:layout_width="100.0dp" android:layout_height="100.0dp" android:scaleType="centerCrop" />
+        <com.tencent.qqmusic.ui.customview.SquareImageView android:id="@id/hru" android:layout_width="100.0dp" android:layout_height="100.0dp" android:layout_marginLeft="8.0dp" android:scaleType="centerCrop" />
+        <com.tencent.qqmusic.ui.customview.SquareImageView android:id="@id/hrv" android:layout_width="100.0dp" android:layout_height="100.0dp" android:layout_marginLeft="8.0dp" android:scaleType="centerCrop" />
+    </LinearLayout>
+    <TextView android:textSize="21.0sp" android:textColor="@color/white" android:gravity="center" android:id="@id/hrs" android:background="@drawable/feed_cell_pic_text_bg" android:layout_width="100.0dp" android:layout_height="100.0dp" android:text="5+" android:layout_alignTop="@id/hrw" android:layout_alignRight="@id/hrw" android:layout_alignBottom="@id/hrw" android:layout_alignEnd="@id/hrw" />
+</RelativeLayout>

@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout android:id="@id/b_c" android:layout_width="match_parent" android:layout_height="match_parent"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <include android:layout_width="match_parent" android:layout_height="match_parent" layout="@layout/m6" />
+    <include android:id="@id/b9_" android:layout_width="match_parent" android:layout_height="@dimen/hb" android:layout_marginTop="36.0dp" layout="@layout/jp" />
+    <com.tencent.qqmusic.business.timeline.ui.refreshable.RefreshableRecyclerViewNew android:id="@id/b7i" android:visibility="visible" android:scrollbars="none" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_below="@id/b9_" />
+    <ViewStub android:id="@id/b7f" android:visibility="gone" android:layout="@layout/mj" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_centerHorizontal="true" android:layout_centerVertical="true" />
+    <ViewStub android:id="@id/b7q" android:layout="@layout/mh" android:layout_width="match_parent" android:layout_height="match_parent" android:layout_below="@id/b9_" android:layout_alignWithParentIfMissing="true" />
+    <ViewStub android:id="@id/b7r" android:layout="@layout/yc" android:layout_width="match_parent" android:layout_height="match_parent" android:layout_below="@id/b9_" android:layout_alignWithParentIfMissing="true" />
+    <ViewStub android:id="@id/b7x" android:layout="@layout/ye" android:layout_width="match_parent" android:layout_height="match_parent" android:layout_below="@id/b9_" android:layout_alignWithParentIfMissing="true" />
+    <ViewStub android:id="@id/b7v" android:layout="@layout/a_c" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_below="@id/b9_" />
+    <ViewStub android:id="@id/b7u" android:layout="@layout/vi" android:layout_width="match_parent" android:layout_height="match_parent" android:layout_below="@id/b9_" />
+    <ViewStub android:id="@id/b7w" android:visibility="gone" android:layout="@layout/n8" android:layout_width="match_parent" android:layout_height="match_parent" android:layout_below="@id/b9_" />
+</RelativeLayout>

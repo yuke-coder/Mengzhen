@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout android:orientation="horizontal" android:paddingTop="15.0dp" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginLeft="20.0dp" android:layout_marginRight="20.0dp"
+  xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">
+    <androidx.constraintlayout.widget.ConstraintLayout android:id="@id/km4" android:layout_width="0.0dp" android:layout_height="wrap_content" android:layout_weight="1.0" android:contentDescription="@string/hg1">
+        <ImageView android:id="@id/my_music_my_favorite_img" android:src="@drawable/sound_radio_entrance_rank" android:contentDescription="@string/hg1" app:a1x="hnz" app:a21="hnz" app:a27="hnz" style="@style/a4_" />
+        <com.tencent.qqmusic.ui.DigitalRedDot android:id="@id/h9y" android:visibility="gone" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="@dimen/b7i" app:a21="@id/my_music_my_favorite_img" app:a27="@id/my_music_my_favorite_img" />
+        <TextView android:id="@id/h9z" android:layout_marginTop="0.0dp" android:text="@string/hg1" android:layout_alignWithParentIfMissing="true" app:a1x="hnz" app:a21="hnz" app:a26="@id/my_music_my_favorite_img" style="@style/a4e" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+    <androidx.constraintlayout.widget.ConstraintLayout android:id="@id/klp" android:layout_width="0.0dp" android:layout_height="wrap_content" android:layout_weight="1.0" android:contentDescription="@string/g0r">
+        <ImageView android:id="@id/h9o" android:src="@drawable/sound_radio_entrance_category" android:contentDescription="@string/g0r" app:a1x="hnz" app:a21="hnz" app:a27="hnz" style="@style/a4_" />
+        <com.tencent.qqmusic.ui.DigitalRedDot android:id="@id/h9p" android:visibility="gone" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="@dimen/b7i" app:a21="@id/h9o" app:a27="@id/h9o" />
+        <TextView android:id="@id/h9q" android:layout_marginTop="0.0dp" android:text="@string/g0r" android:layout_alignWithParentIfMissing="true" app:a1x="hnz" app:a21="hnz" app:a26="@id/h9o" style="@style/a4e" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+    <androidx.constraintlayout.widget.ConstraintLayout android:id="@id/klu" android:layout_width="0.0dp" android:layout_height="wrap_content" android:layout_weight="1.0" android:contentDescription="@string/hfz">
+        <ImageView android:id="@id/h98" android:src="@drawable/sound_radio_entrance_member" android:contentDescription="@string/hfz" app:a1x="hnz" app:a21="hnz" app:a27="hnz" style="@style/a4_" />
+        <com.tencent.qqmusic.ui.DigitalRedDot android:id="@id/h9b" android:visibility="gone" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="@dimen/b7i" app:a21="@id/h98" app:a27="@id/h98" />
+        <TextView android:id="@id/h9c" android:layout_marginTop="0.0dp" android:text="@string/hfz" android:layout_alignWithParentIfMissing="true" app:a1x="hnz" app:a21="hnz" app:a26="@id/h98" style="@style/a4e" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+    <androidx.constraintlayout.widget.ConstraintLayout android:id="@id/klo" android:layout_width="0.0dp" android:layout_height="wrap_content" android:layout_weight="1.0" android:contentDescription="@string/hfy">
+        <ImageView android:id="@id/h_g" android:src="@drawable/sound_radio_entrance_book" android:contentDescription="@string/hfy" app:a1x="hnz" app:a21="hnz" app:a27="hnz" style="@style/a4_" />
+        <com.tencent.qqmusic.ui.DigitalRedDot android:id="@id/h_h" android:visibility="gone" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="@dimen/b7i" app:a21="@id/h_g" app:a27="@id/h_g" />
+        <TextView android:id="@id/h_i" android:layout_marginTop="0.0dp" android:text="@string/hfy" android:layout_alignWithParentIfMissing="true" app:a1x="hnz" app:a21="hnz" app:a26="@id/h_g" style="@style/a4e" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</LinearLayout>

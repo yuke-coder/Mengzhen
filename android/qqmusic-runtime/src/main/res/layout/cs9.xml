@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout android:layout_width="wrap_content" android:layout_height="wrap_content"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <RelativeLayout android:gravity="center" android:background="@drawable/toast_download_mv_background" android:padding="@dimen/c_x" android:layout_width="wrap_content" android:layout_height="wrap_content" android:minWidth="136.0dp" android:minHeight="61.0dp" android:layout_centerInParent="true">
+        <ImageView android:id="@id/h4b" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginBottom="15.0dp" android:layout_centerHorizontal="true" android:contentDescription="@string/app_name" />
+        <TextView android:textSize="19.0sp" android:textColor="@color/mv_toast_text_color" android:gravity="center_horizontal" android:id="@id/h6i" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="已加入下载列表" android:shadowColor="@color/black" android:shadowDx="2.0" android:shadowDy="2.0" android:layout_below="@id/h4b" android:layout_centerHorizontal="true" />
+    </RelativeLayout>
+</RelativeLayout>

@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout android:layout_width="match_parent" android:layout_height="match_parent"
+  xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">
+    <ImageView android:id="@id/mlive_audience_request_empty_icon" android:layout_width="110.0dp" android:layout_height="110.0dp" android:layout_marginTop="95.0dp" android:src="@drawable/mlive_song_content_play_empty_icon" android:scaleType="centerInside" app:a1x="hnz" app:a21="hnz" app:a27="hnz" />
+    <TextView android:textSize="14.0sp" android:textColor="@color/white_50_transparent" android:id="@id/mlive_audience_request_empty_desc" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="5.0dp" android:text="@string/dge" app:a1x="hnz" app:a21="hnz" app:a26="@id/mlive_audience_request_empty_icon" />
+</androidx.constraintlayout.widget.ConstraintLayout>

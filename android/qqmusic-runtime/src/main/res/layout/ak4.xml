@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout android:layout_width="match_parent" android:layout_height="64.0dp"
+  xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">
+    <kk.design.KKImageView android:id="@id/kc1" android:layout_width="48.0dp" android:layout_height="48.0dp" android:layout_marginStart="15.0dp" app:kkImageRadiusDirection="xt" app:kkImageRadiusSize="8.0dp" app:a23="hnz" app:a27="hnz" />
+    <TextView android:textSize="16.0dp" android:textColor="#111111" android:ellipsize="end" android:id="@id/kfb" android:layout_width="0.0dp" android:layout_height="wrap_content" android:layout_marginTop="4.0dp" android:text="这是一首歌的名称" android:maxLines="1" android:layout_marginStart="12.0dp" android:layout_marginEnd="10.0dp" app:a1k="@id/en4" app:a22="@id/kc1" app:a27="hnz" />
+    <TextView android:textSize="14.0dp" android:textColor="#80111111" android:ellipsize="end" android:id="@id/k57" android:layout_width="0.0dp" android:layout_height="wrap_content" android:text="这是歌手的名称" android:maxLines="1" android:layout_marginStart="12.0dp" android:layout_marginEnd="10.0dp" app:a1k="@id/en4" app:a22="@id/kc1" app:a26="@id/kfb" />
+    <TextView android:textSize="14.0dp" android:textColor="#fe4f4f" android:gravity="center" android:id="@id/en4" android:background="@drawable/karaoke_btn_bg" android:layout_width="64.0dp" android:layout_height="32.0dp" android:text="K歌" android:layout_marginEnd="17.0dp" app:a1d="@id/kc1" app:a1j="hnz" app:a27="@id/kc1" />
+</androidx.constraintlayout.widget.ConstraintLayout>

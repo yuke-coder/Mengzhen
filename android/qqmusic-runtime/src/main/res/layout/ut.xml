@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout android:orientation="vertical" android:layout_width="match_parent" android:layout_height="wrap_content"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <LinearLayout android:orientation="horizontal" android:paddingLeft="@dimen/bsf" android:paddingRight="@dimen/bsf" android:paddingBottom="@dimen/bse" android:layout_width="match_parent" android:layout_height="wrap_content" android:baselineAligned="false" android:minHeight="0.0dp" android:layout_weight="1.0">
+        <include android:id="@id/izl" android:layout_width="0.0dp" android:layout_height="match_parent" android:layout_marginRight="@dimen/bsa" android:layout_weight="0.33" layout="@layout/uu" />
+        <include android:id="@id/izt" android:layout_width="0.0dp" android:layout_height="match_parent" android:layout_marginLeft="@dimen/bsa" android:layout_marginRight="@dimen/bsa" android:layout_weight="0.33" layout="@layout/uu" />
+        <include android:id="@id/izw" android:layout_width="0.0dp" android:layout_height="match_parent" android:layout_marginLeft="@dimen/bsa" android:layout_weight="0.33" layout="@layout/uu" />
+    </LinearLayout>
+    <LinearLayout android:orientation="horizontal" android:id="@id/izi" android:paddingLeft="@dimen/bsf" android:paddingRight="@dimen/bsf" android:paddingBottom="@dimen/bse" android:layout_width="match_parent" android:layout_height="match_parent" android:baselineAligned="false" android:minHeight="0.0dp" android:layout_weight="1.0">
+        <include android:id="@id/izm" android:layout_width="0.0dp" android:layout_height="match_parent" android:layout_marginRight="@dimen/bsa" android:layout_weight="0.33" layout="@layout/uu" />
+        <include android:id="@id/izu" android:layout_width="0.0dp" android:layout_height="match_parent" android:layout_marginLeft="@dimen/bsa" android:layout_marginRight="@dimen/bsa" android:layout_weight="0.33" layout="@layout/uu" />
+        <include android:id="@id/izx" android:layout_width="0.0dp" android:layout_height="match_parent" android:layout_marginLeft="@dimen/bsa" android:layout_weight="0.33" layout="@layout/uu" />
+    </LinearLayout>
+</LinearLayout>

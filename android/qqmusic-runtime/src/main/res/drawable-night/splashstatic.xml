@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layer-list
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <item>
+        <color android:color="@color/black" />
+    </item>
+    <item android:bottom="127.0dp">
+        <bitmap android:gravity="center" android:src="@drawable/logo_s_top_night" />
+    </item>
+    <item android:id="@id/diz" android:bottom="93.0dp">
+        <bitmap android:gravity="center|bottom" android:src="@drawable/logo_s_middle_normal" />
+    </item>
+    <item android:bottom="47.0dp">
+        <bitmap android:gravity="center|bottom" android:src="@drawable/logo_s_bottom" />
+    </item>
+</layer-list>

@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<shape android:shape="rectangle"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <size android:height="200.0dp" android:width="200.0dp" />
+    <solid android:color="@color/focus_radio_share_change_btn" />
+    <corners android:radius="13.0dp" />
+</shape>

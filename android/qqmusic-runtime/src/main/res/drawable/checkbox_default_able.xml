@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layer-list
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <item android:id="@id/es6" android:height="20.0dp" android:width="20.0dp" android:drawable="@drawable/checkbox_check_default_bg" />
+    <item android:gravity="center" android:id="@id/es7" android:height="16.0dp" android:width="16.0dp" android:drawable="@drawable/checkbox_fg_new" />
+</layer-list>

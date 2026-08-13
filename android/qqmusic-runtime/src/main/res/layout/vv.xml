@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout android:id="@id/kvx" android:background="@drawable/main_bg" android:layout_width="match_parent" android:layout_height="match_parent"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <com.tencent.qqmusic.business.timeline.ui.SongRefreshableRecycleView android:id="@id/cu2" android:paddingBottom="@dimen/ait" android:focusable="false" android:focusableInTouchMode="false" android:scrollbars="none" android:clipToPadding="false" android:layout_width="match_parent" android:layout_height="match_parent" android:overScrollMode="never" />
+    <ImageView android:id="@id/cu3" android:visibility="gone" android:layout_width="100.0dp" android:layout_height="100.0dp" android:layout_marginBottom="40.0dp" android:src="@drawable/ic_bigfont_to_top" android:layout_alignParentRight="true" android:layout_alignParentBottom="true" />
+    <include layout="@layout/vs" />
+</RelativeLayout>

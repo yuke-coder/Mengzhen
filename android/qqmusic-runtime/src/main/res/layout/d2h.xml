@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout android:id="@id/hd_" android:clipChildren="false" android:layout_width="match_parent" android:layout_height="match_parent"
+  xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">
+    <ImageView android:id="@id/hd9" android:layout_width="match_parent" android:layout_height="match_parent" android:src="@drawable/main_bg" android:scaleType="centerCrop" />
+    <androidx.constraintlayout.widget.ConstraintLayout android:layout_gravity="top" android:id="@id/lvn" android:layout_width="match_parent" android:layout_height="44.0dp" android:layout_marginTop="@dimen/si" android:elevation="10.0dp">
+        <ImageView android:id="@id/a5o" android:padding="6.0dp" android:layout_width="30.0dp" android:layout_height="30.0dp" android:src="@drawable/activity_back_selector_white" android:contentDescription="返回" android:layout_marginStart="12.0dp" app:a1d="hnz" app:a23="hnz" app:a27="hnz" />
+        <androidx.appcompat.widget.AppCompatTextView android:textSize="18.0sp" android:textStyle="normal" android:textColor="@color/skin_text_main_color" android:ellipsize="end" android:gravity="center" android:id="@id/lfw" android:layout_width="0.0dp" android:layout_height="wrap_content" android:text="搜索" android:singleLine="true" android:layout_marginStart="60.0dp" android:layout_marginEnd="60.0dp" app:a1d="hnz" app:a1j="hnz" app:a23="hnz" app:a27="hnz" />
+        <LinearLayout android:gravity="center_vertical" android:orientation="horizontal" android:id="@id/bnt" android:background="@drawable/young_mode_detail_action_container_bg" android:layout_width="wrap_content" android:layout_height="28.0dp" android:layout_marginEnd="20.0dp" app:a1d="hnz" app:a1j="hnz" app:a27="hnz">
+            <TextView android:textSize="12.0dp" android:textColor="@color/white" android:gravity="center" android:id="@id/nf1" android:layout_width="wrap_content" android:layout_height="match_parent" android:paddingStart="12.0dp" android:paddingEnd="7.0dp" />
+            <View android:id="@id/ne1" android:background="@color/white_60_opacity" android:layout_width="0.5dp" android:layout_height="16.0dp" />
+            <ImageView android:id="@id/n_o" android:paddingTop="6.0dp" android:paddingBottom="6.0dp" android:layout_width="38.0dp" android:layout_height="28.0dp" android:src="@drawable/young_mode_detail_close_img" android:paddingStart="11.0dp" android:paddingEnd="11.0dp" />
+        </LinearLayout>
+    </androidx.constraintlayout.widget.ConstraintLayout>
+    <LinearLayout android:orientation="vertical" android:id="@id/jmf" android:background="@color/transparent" android:paddingTop="20.0dp" android:paddingRight="20.0dp" android:paddingBottom="20.0dp" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_below="@id/lvn" android:elevation="10.0dp">
+        <include android:id="@id/dwk" android:layout_width="wrap_content" android:layout_height="wrap_content" layout="@layout/i6" />
+    </LinearLayout>
+    <FrameLayout android:id="@id/ba4" android:layout_width="match_parent" android:layout_height="match_parent" android:layout_below="@id/jmf"> > 
+        <androidx.recyclerview.widget.RecyclerView android:id="@id/jfe" android:paddingBottom="20.0dp" android:scrollbars="vertical" android:clipToPadding="false" android:layout_width="match_parent" android:layout_height="match_parent" />
+    </FrameLayout>
+    <ViewStub android:id="@id/b7f" android:layout="@layout/mj" android:layout_width="match_parent" android:layout_height="match_parent" android:layout_below="@id/jmf" />
+    <ViewStub android:id="@id/b7q" android:layout="@layout/mh" android:layout_width="match_parent" android:layout_height="match_parent" android:layout_below="@id/jmf" />
+    <ViewStub android:id="@id/b7x" android:layout="@layout/ye" android:layout_width="match_parent" android:layout_height="match_parent" android:layout_below="@id/jmf" />
+</RelativeLayout>

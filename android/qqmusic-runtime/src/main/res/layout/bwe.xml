@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <LinearLayout android:orientation="vertical" android:id="@id/nmv" android:paddingLeft="24.0dp" android:paddingRight="60.0dp" android:paddingBottom="8.0dp" android:layout_width="match_parent" android:layout_height="@dimen/axy" android:paddingStart="24.0dp" android:paddingEnd="60.0dp">
+        <TextView android:textAppearance="@style/tf" android:gravity="start" android:id="@id/guu" android:layout_width="wrap_content" android:layout_height="wrap_content" android:singleLine="true" android:textAlignment="viewStart" />
+        <LinearLayout android:gravity="center_vertical" android:orientation="horizontal" android:layout_width="match_parent" android:layout_height="wrap_content">
+            <ImageView android:id="@id/gv5" android:layout_width="@dimen/axz" android:layout_height="@dimen/axz" android:layout_marginTop="8.0dp" android:layout_marginBottom="8.0dp" android:src="?a8l" android:scaleType="fitCenter" />
+            <androidx.mediarouter.app.MediaRouteVolumeSlider android:id="@id/gv6" android:layout_width="match_parent" android:layout_height="40.0dp" android:maxHeight="40.0dp" android:minHeight="40.0dp" android:contentDescription="@string/e_r" />
+        </LinearLayout>
+    </LinearLayout>
+</LinearLayout>

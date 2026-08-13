@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout android:layout_gravity="center_vertical" android:background="@color/transparent" android:layout_width="wrap_content" android:layout_height="match_parent" android:layout_marginLeft="10.0dp" android:layout_marginRight="10.0dp"
+  xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">
+    <TextView android:textSize="@dimen/ar1" android:textColor="@color/white_50_transparent" android:gravity="center" android:id="@id/mlive_red_packet_tab_title" android:layout_width="90.0dp" android:layout_height="wrap_content" android:textAlignment="center" app:a1d="hnz" app:a1x="hnz" app:a21="hnz" app:a27="hnz" />
+    <View android:id="@id/mlive_red_packet_tab_underline" android:background="@drawable/mlive_red_packet_record_tab_underline_bg" android:layout_width="18.0dp" android:layout_height="3.0dp" app:a1d="hnz" app:a1x="@id/mlive_red_packet_tab_title" app:a21="@id/mlive_red_packet_tab_title" />
+</androidx.constraintlayout.widget.ConstraintLayout>

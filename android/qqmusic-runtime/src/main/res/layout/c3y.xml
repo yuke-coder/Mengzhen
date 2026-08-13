@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout android:background="@color/black_80_opacity" android:layout_width="match_parent" android:layout_height="match_parent"
+  xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">
+    <androidx.constraintlayout.widget.Guideline android:orientation="vertical" android:id="@id/evw" android:layout_width="wrap_content" android:layout_height="match_parent" app:a1n="0.923" />
+    <androidx.constraintlayout.widget.Guideline android:orientation="vertical" android:id="@id/evv" android:layout_width="wrap_content" android:layout_height="match_parent" app:a1n="0.077" />
+    <androidx.constraintlayout.widget.Guideline android:orientation="horizontal" android:id="@id/evx" android:layout_width="match_parent" android:layout_height="wrap_content" app:a1n="0.104" />
+    <com.tencent.qqmusic.business.playernew.view.playersong.tme3dplayer.layer.drawable.QQShowDressView android:id="@id/d6h" android:layout_width="wrap_content" android:layout_height="wrap_content" app:a1j="@id/evw" app:a26="@id/evx" />
+    <com.tencent.component.widget.AsyncEffectImageView android:id="@id/dr_" android:layout_width="50.0dp" android:layout_height="93.0dp" android:layout_marginTop="13.0dp" android:layout_marginRight="8.799988dp" android:scaleType="fitXY" app:a21="@id/d6h" app:a26="@id/d6h" />
+    <TextView android:textSize="22.0dp" android:textColor="@color/white" android:id="@id/l_0" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="2.0dp" android:layout_marginRight="45.0dp" android:text="点击更换 QQ 秀" app:a21="@id/d6h" app:a26="@id/dr_" />
+</androidx.constraintlayout.widget.ConstraintLayout>

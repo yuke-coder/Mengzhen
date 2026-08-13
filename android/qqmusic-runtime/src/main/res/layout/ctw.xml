@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout android:id="@id/mt6" android:layout_width="match_parent" android:layout_height="match_parent"
+  xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">
+    <androidx.appcompat.widget.Toolbar android:id="@id/luu" android:background="@color/ucrop_color_toolbar" android:layout_width="match_parent" android:layout_height="wrap_content" android:minHeight="?a9">
+        <TextView android:textColor="@color/ucrop_color_toolbar_widget" android:layout_gravity="start" android:id="@id/luy" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/il7" style="@style/tj" />
+    </androidx.appcompat.widget.Toolbar>
+    <FrameLayout android:id="@id/mt5" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_above="@id/bb5" android:layout_below="@id/luu">
+        <ImageView android:layout_gravity="center" android:id="@id/doi" android:layout_width="@dimen/cbm" android:layout_height="@dimen/cbm" app:aj8="@drawable/ucrop_vector_ic_crop" />
+        <com.yalantis.ucrop.view.UCropView android:id="@id/mt4" android:layout_width="match_parent" android:layout_height="wrap_content" android:alpha="0.0" />
+    </FrameLayout>
+    <FrameLayout android:id="@id/bb5" android:background="@android:color/black" android:visibility="gone" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_alignParentBottom="true" />
+</RelativeLayout>

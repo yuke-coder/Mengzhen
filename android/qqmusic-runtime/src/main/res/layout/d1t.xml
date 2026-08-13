@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout android:background="@drawable/base_select_dialog_bottom_button_click" android:layout_width="164.0dp" android:layout_height="44.0dp"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <com.tencent.component.widget.AsyncImageView android:id="@id/bnn" android:layout_width="30.0dp" android:layout_height="30.0dp" android:layout_marginLeft="12.0dp" android:layout_marginRight="12.0dp" android:layout_centerVertical="true" />
+    <TextView android:textSize="16.0sp" android:textColor="@color/skin_text_main_color" android:id="@id/bno" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="听歌识曲" android:lines="1" android:layout_toRightOf="@id/bnn" android:layout_centerVertical="true" />
+    <View android:id="@id/bnm" android:background="@color/selected_item_text_color" android:layout_width="match_parent" android:layout_height="@dimen/rh" />
+</RelativeLayout>

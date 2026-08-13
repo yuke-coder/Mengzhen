@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout android:layout_width="match_parent" android:layout_height="match_parent"
+  xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">
+    <ImageView android:id="@id/mso" android:layout_width="25.0dp" android:layout_height="wrap_content" android:layout_marginTop="18.0dp" android:src="@drawable/txy_huiyan_icon_back" android:layout_alignParentTop="true" android:layout_marginStart="@dimen/cbd" android:layout_alignParentStart="true" />
+    <TextView android:textSize="16.0sp" android:textStyle="bold" android:textColor="@color/txy_black" android:id="@id/msp" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="18.0dp" android:text="@string/ikp" android:layout_alignParentTop="true" android:layout_centerHorizontal="true" />
+    <ScrollView android:layout_width="match_parent" android:layout_height="match_parent" android:layout_marginLeft="@dimen/cbj" android:layout_marginTop="@dimen/cbd" android:layout_marginRight="@dimen/cbj" android:layout_marginBottom="@dimen/cbd" android:layout_above="@android:id/content" android:layout_below="@id/msp" android:layout_marginHorizontal="@dimen/cbj" android:layout_marginVertical="@dimen/cbd">
+        <TextView android:textColor="@color/txy_black" android:id="@id/msl" android:layout_width="match_parent" android:layout_height="match_parent" android:lineSpacingMultiplier="1.7" />
+    </ScrollView>
+</RelativeLayout>

@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout android:id="@id/aqh" android:background="@drawable/shape_call_preview_background" android:layout_width="match_parent" android:layout_height="match_parent"
+  xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">
+    <include android:id="@id/aq2" android:visibility="visible" android:layout_width="match_parent" android:layout_height="0.0dp" app:a1j="hnz" app:a23="hnz" app:a27="hnz" layout="@layout/a9s" />
+    <androidx.constraintlayout.widget.Guideline android:orientation="horizontal" android:id="@id/aqe" android:layout_width="wrap_content" android:layout_height="wrap_content" app:a1n="0.08" />
+    <androidx.constraintlayout.widget.ConstraintLayout android:id="@id/aq0" android:visibility="visible" android:layout_width="270.0dp" android:layout_height="0.0dp" android:layout_marginTop="36.0dp" app:a1e="@id/aqc" app:a1j="hnz" app:a23="hnz" app:a26="@id/aq2">
+        <FrameLayout android:id="@id/apz" android:background="@drawable/call_shape_dialpad_panel_backgournd" android:layout_width="match_parent" android:layout_height="match_parent" android:alpha="0.3" app:a1j="hnz" app:a23="hnz" />
+        <ViewStub android:id="@id/hy9" android:visibility="visible" android:layout="@layout/c51" android:inflatedId="@id/hy8" android:layout_width="match_parent" android:layout_height="match_parent" app:a1k="hnz" app:a23="hnz" />
+        <include android:id="@id/apx" android:visibility="visible" android:layout_width="match_parent" android:layout_height="match_parent" app:a1j="hnz" app:a23="hnz" layout="@layout/a9r" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+    <androidx.constraintlayout.widget.Guideline android:orientation="horizontal" android:id="@id/aqc" android:layout_width="wrap_content" android:layout_height="wrap_content" app:a1n="0.75" />
+    <androidx.constraintlayout.widget.Guideline android:orientation="horizontal" android:id="@id/aqd" android:layout_width="wrap_content" android:layout_height="wrap_content" app:a1n="0.85" />
+    <Button android:textStyle="bold" android:textColor="@android:color/black" android:id="@id/ao8" android:background="@drawable/call_selector_btn_ring_call_setings" android:layout_width="240.0dp" android:layout_height="wrap_content" android:text="确认设置" app:a1j="hnz" app:a23="hnz" app:a26="@id/aqd" />
+    <androidx.constraintlayout.widget.ConstraintLayout android:id="@id/apy" android:visibility="gone" android:layout_width="wrap_content" android:layout_height="wrap_content" app:a1d="hnz" app:a1j="hnz" app:a23="hnz" app:a27="hnz">
+        <androidx.appcompat.widget.AppCompatTextView android:textColor="@android:color/white" android:id="@id/aqj" android:layout_width="wrap_content" android:layout_height="wrap_content" android:maxLines="1" android:layout_centerHorizontal="true" app:a1d="hnz" app:a1j="hnz" app:a23="hnz" app:a27="hnz" />
+        <com.airbnb.lottie.LottieAnimationView android:id="@id/aqf" android:layout_width="50.0dp" android:layout_height="50.0dp" android:layout_centerHorizontal="true" app:a1e="@id/aqj" app:a1j="hnz" app:a23="hnz" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>

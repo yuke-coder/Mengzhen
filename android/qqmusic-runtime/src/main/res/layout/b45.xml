@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout android:orientation="vertical" android:paddingLeft="16.0dp" android:paddingRight="26.0dp" android:layout_width="match_parent" android:layout_height="wrap_content"
+  xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">
+    <androidx.appcompat.widget.AppCompatTextView android:textSize="16.0dp" android:textStyle="bold" android:textColor="@color/skin_text_main_color" android:id="@id/ldr" android:layout_width="wrap_content" android:layout_height="wrap_content" />
+    <com.tencent.qqmusic.fragment.search.ExtendFlowLayout android:id="@id/df6" android:padding="0.0dp" android:layout_width="match_parent" android:layout_height="wrap_content" app:gp="false" app:a8_="5" app:agj="true" />
+</LinearLayout>

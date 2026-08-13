@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout android:background="@color/white" android:layout_width="match_parent" android:layout_height="wrap_content"
+  xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">
+    <com.tencent.qqmusic.business.live.ui.view.RoundAvatarImage android:id="@id/eaf" android:layout_width="68.0dp" android:layout_height="68.0dp" android:layout_marginTop="33.0dp" app:a1x="hnz" app:a21="hnz" app:a27="hnz" />
+    <TextView android:textSize="15.0sp" android:textColor="@color/black" android:id="@id/mef" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="7.0dp" app:a1x="hnz" app:a21="hnz" app:a26="@id/eaf" />
+    <ImageView android:id="@id/ecw" android:layout_width="107.0dp" android:layout_height="39.0dp" android:layout_marginTop="31.0dp" android:layout_marginBottom="43.0dp" android:src="@drawable/ic_multi_record_user_unfollow" app:a1d="hnz" app:a1x="hnz" app:a21="hnz" app:a26="@id/mef" />
+</androidx.constraintlayout.widget.ConstraintLayout>

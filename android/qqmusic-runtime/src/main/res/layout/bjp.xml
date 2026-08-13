@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout android:gravity="center" android:orientation="vertical" android:background="@color/black_60_transparent" android:layout_width="match_parent" android:layout_height="match_parent"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <ImageView android:id="@id/mlive_preview_status_icon" android:layout_width="60.0dp" android:layout_height="60.0dp" android:src="@drawable/mlive_link_anchor_icon" />
+    <TextView android:textColor="@color/white_50_transparent" android:id="@id/mlive_preview_status_message" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/dhc" />
+</LinearLayout>

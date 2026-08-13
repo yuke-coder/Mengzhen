@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout android:background="@color/white" android:layout_width="match_parent" android:layout_height="match_parent"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <include android:id="@id/lv1" layout="@layout/mu" />
+    <ScrollView android:layout_width="match_parent" android:layout_height="match_parent" android:layout_below="@id/lv1">
+        <androidx.appcompat.widget.LinearLayoutCompat android:orientation="vertical" android:padding="16.0dp" android:layout_width="match_parent" android:layout_height="match_parent">
+            <Button android:textSize="14.0sp" android:textColor="@color/default_text_main_color" android:gravity="center_vertical" android:id="@id/b1l" android:layout_width="wrap_content" android:layout_height="45.0dp" android:text="清除缓存" />
+            <Button android:textSize="14.0sp" android:textColor="@color/default_text_main_color" android:gravity="center_vertical" android:id="@id/kvq" android:layout_width="wrap_content" android:layout_height="45.0dp" android:text="启动阈值分析" />
+            <Button android:textSize="14.0sp" android:textColor="@color/default_text_main_color" android:gravity="center_vertical" android:id="@id/ctd" android:layout_width="wrap_content" android:layout_height="45.0dp" android:text="fork dump内存快照" />
+            <Button android:textSize="14.0sp" android:textColor="@color/default_text_main_color" android:gravity="center_vertical" android:id="@id/kyo" android:layout_width="wrap_content" android:layout_height="45.0dp" android:text="裁剪 dump内存快照" />
+            <Button android:textSize="14.0sp" android:textColor="@color/default_text_main_color" android:gravity="center_vertical" android:id="@id/l3c" android:layout_width="wrap_content" android:layout_height="45.0dp" android:text="原生dump内存快照" />
+            <Button android:textSize="14.0sp" android:textColor="@color/default_text_main_color" android:gravity="center_vertical" android:id="@id/bef" android:layout_width="wrap_content" android:layout_height="45.0dp" android:text="分配50M堆内存（多次点击可触发OOM）" />
+            <Button android:textSize="14.0sp" android:textColor="@color/default_text_main_color" android:gravity="center_vertical" android:id="@id/bym" android:layout_width="wrap_content" android:layout_height="45.0dp" android:text="dump原生smaps文件" />
+            <Button android:textSize="14.0sp" android:textColor="@color/default_text_main_color" android:gravity="center_vertical" android:id="@id/byn" android:layout_width="wrap_content" android:layout_height="45.0dp" android:text="dump所有线程" />
+            <Button android:textSize="14.0sp" android:textColor="@color/default_text_main_color" android:gravity="center_vertical" android:id="@id/ezs" android:layout_width="wrap_content" android:layout_height="45.0dp" android:text="模拟Activity/Fragment泄漏" />
+            <androidx.appcompat.widget.LinearLayoutCompat android:gravity="center_vertical" android:orientation="horizontal" android:id="@id/ezu" android:visibility="gone" android:layout_width="match_parent" android:layout_height="50.0dp">
+                <androidx.appcompat.widget.AppCompatTextView android:textSize="15.0sp" android:textColor="@color/default_text_main_color" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="是否开启LeakCanary" />
+                <ImageView android:id="@id/ezt" android:focusable="false" android:clickable="false" android:layout_width="55.0dp" android:layout_height="33.0dp" android:layout_marginRight="12.0dp" android:src="@drawable/switch_off" android:scaleType="centerCrop" />
+            </androidx.appcompat.widget.LinearLayoutCompat>
+            <androidx.appcompat.widget.LinearLayoutCompat android:gravity="center_vertical" android:orientation="horizontal" android:layout_width="match_parent" android:layout_height="50.0dp">
+                <androidx.appcompat.widget.AppCompatTextView android:textSize="15.0sp" android:textColor="@color/default_text_main_color" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="是否开启BitmapProfiler监控" />
+                <ImageView android:id="@id/a_j" android:focusable="false" android:clickable="false" android:layout_width="55.0dp" android:layout_height="33.0dp" android:layout_marginRight="12.0dp" android:src="@drawable/switch_off" android:scaleType="centerCrop" />
+            </androidx.appcompat.widget.LinearLayoutCompat>
+            <Button android:textSize="14.0sp" android:textColor="@color/default_text_main_color" android:gravity="center_vertical" android:id="@id/jys" android:layout_width="wrap_content" android:layout_height="45.0dp" android:text="显示Bitmap监控悬浮窗" />
+            <Button android:textSize="14.0sp" android:textColor="@color/default_text_main_color" android:gravity="center_vertical" android:id="@id/n_b" android:layout_width="wrap_content" android:layout_height="45.0dp" android:text="查看所有Bitmap" />
+            <Button android:textSize="14.0sp" android:textColor="@color/default_text_main_color" android:gravity="center_vertical" android:id="@id/cdt" android:layout_width="wrap_content" android:layout_height="45.0dp" android:text="fd泄漏" />
+            <androidx.appcompat.widget.AppCompatTextView android:textSize="15.0sp" android:textStyle="normal" android:textColor="@color/default_text_main_color" android:id="@id/g5o" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginTop="12.0dp" />
+            <androidx.appcompat.widget.LinearLayoutCompat android:gravity="center_vertical" android:orientation="horizontal" android:layout_width="match_parent" android:layout_height="50.0dp">
+                <androidx.appcompat.widget.AppCompatTextView android:textSize="15.0sp" android:textColor="@color/default_text_main_color" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="是否dump启动类" />
+                <EditText android:textSize="15.0sp" android:textColor="@color/default_text_main_color" android:id="@id/bye" android:layout_width="50.0dp" android:layout_height="wrap_content" />
+                <ImageView android:id="@id/byf" android:focusable="false" android:clickable="false" android:layout_width="55.0dp" android:layout_height="33.0dp" android:layout_marginRight="12.0dp" android:src="@drawable/switch_off" android:scaleType="centerCrop" />
+            </androidx.appcompat.widget.LinearLayoutCompat>
+        </androidx.appcompat.widget.LinearLayoutCompat>
+    </ScrollView>
+</RelativeLayout>

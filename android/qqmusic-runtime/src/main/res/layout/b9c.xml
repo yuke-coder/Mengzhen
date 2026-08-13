@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.tme.qqmusic.widget.base.view.RoundedFrameLayout android:id="@id/mlive_pendant_round_container_rfl" android:layout_width="@dimen/ask" android:layout_height="@dimen/ask" app:t_="4.0dp"
+  xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">
+    <androidx.constraintlayout.widget.ConstraintLayout android:layout_gravity="center" android:id="@id/mlive_pendant_content_cl" android:background="@drawable/mive_pendant_left_item_bg" android:layout_width="@dimen/asj" android:layout_height="@dimen/asj">
+        <com.tme.qqmusic.widget.base.view.GlideImageView android:id="@id/mlive_normal_pendent_src" android:layout_width="match_parent" android:layout_height="match_parent" app:a1d="hnz" app:a1x="hnz" />
+        <androidx.constraintlayout.widget.ConstraintLayout android:background="@drawable/mive_pendant_left_item_text_bg" android:layout_width="match_parent" android:layout_height="10.0dp" app:a1d="hnz" app:a1x="hnz" app:a21="hnz">
+            <androidx.constraintlayout.widget.ConstraintLayout android:id="@id/mlive_mlive_pendent_anim_wrapper" android:layout_width="0.0dp" android:layout_height="0.0dp" app:a1d="hnz" app:a1x="hnz" app:a21="hnz" app:a27="hnz">
+                <ImageView android:id="@id/mlive_mlive_normal_pendent_icon" android:layout_width="8.0dp" android:layout_height="8.0dp" android:scaleType="centerInside" app:a1d="hnz" app:a1u="hmg" app:a1x="hnz" app:a20="@id/mlive_normal_pendent_tv" app:a27="hnz" />
+                <TextView android:textSize="8.0dp" android:textStyle="bold" android:textColor="@color/white" android:gravity="center" android:id="@id/mlive_normal_pendent_tv" android:paddingLeft="1.0dp" android:paddingRight="1.0dp" android:layout_width="wrap_content" android:layout_height="10.0dp" android:includeFontPadding="false" app:a1d="hnz" app:a1y="@id/mlive_mlive_normal_pendent_icon" app:a21="hnz" app:a27="hnz" />
+            </androidx.constraintlayout.widget.ConstraintLayout>
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</com.tme.qqmusic.widget.base.view.RoundedFrameLayout>

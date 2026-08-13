@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout android:layout_width="match_parent" android:layout_height="wrap_content"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <com.tencent.qqmusic.ui.FlowLayout android:id="@id/c1h" android:paddingTop="25.0dp" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginLeft="@dimen/ld" android:minHeight="55.0dp" android:layout_alignParentTop="true" android:layout_centerVertical="true" />
+    <androidx.appcompat.widget.AppCompatTextView android:textSize="12.0sp" android:textColor="@color/skin_text_main_color" android:id="@id/c1i" android:paddingTop="8.0dp" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginLeft="@dimen/ld" android:layout_below="@id/c1h" android:alpha="0.5" />
+</RelativeLayout>

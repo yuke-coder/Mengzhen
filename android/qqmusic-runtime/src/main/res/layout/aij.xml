@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout android:layout_width="match_parent" android:layout_height="match_parent"
+  xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">
+    <androidx.constraintlayout.widget.Guideline android:orientation="vertical" android:id="@id/dvy" android:layout_width="wrap_content" android:layout_height="wrap_content" app:a1n="0.05" />
+    <androidx.constraintlayout.widget.Guideline android:orientation="horizontal" android:id="@id/dw2" android:layout_width="wrap_content" android:layout_height="wrap_content" app:a1n="0.04" />
+    <androidx.constraintlayout.widget.Guideline android:orientation="vertical" android:id="@id/dw0" android:layout_width="wrap_content" android:layout_height="wrap_content" app:a1n="0.845" />
+    <LinearLayout android:orientation="vertical" android:layout_width="0.0dp" android:layout_height="wrap_content" app:a1t="0.0" app:a1y="@id/dvy" app:a20="@id/dw0" app:a26="@id/dw2" app:a2b="kqe">
+        <TextView android:textSize="25.0sp" android:textStyle="bold" android:ellipsize="end" android:id="@id/we" android:layout_width="wrap_content" android:layout_height="wrap_content" android:maxLines="2" />
+        <TextView android:textSize="12.0sp" android:ellipsize="end" android:id="@id/a27" android:layout_width="wrap_content" android:layout_height="wrap_content" android:maxLines="1" />
+    </LinearLayout>
+    <androidx.constraintlayout.widget.Guideline android:orientation="horizontal" android:id="@id/bn3" android:layout_width="wrap_content" android:layout_height="wrap_content" app:a1n="0.321" />
+    <TextView android:textSize="15.0sp" android:ellipsize="end" android:id="@id/bn4" android:layout_width="0.0dp" android:layout_height="wrap_content" android:maxLines="7" app:a1t="0.0" app:a1y="@id/dvy" app:a20="@id/dw0" app:a26="@id/bn3" app:a2b="kqe" />
+    <androidx.constraintlayout.widget.Guideline android:orientation="horizontal" android:id="@id/bn5" android:layout_width="wrap_content" android:layout_height="wrap_content" app:a1n="0.787" />
+    <TextView android:textSize="10.0sp" android:ellipsize="end" android:id="@id/bn6" android:layout_width="0.0dp" android:layout_height="wrap_content" android:maxLines="2" app:a1t="0.0" app:a1y="@id/dvy" app:a20="@id/dw0" app:a26="@id/bn5" app:a2b="kqe" />
+    <androidx.constraintlayout.widget.Guideline android:orientation="horizontal" android:id="@id/lcp" android:layout_width="wrap_content" android:layout_height="wrap_content" app:a1n="0.924" />
+    <include android:layout_width="match_parent" android:layout_height="0.0dp" app:a1d="hnz" app:a1x="hnz" app:a21="hnz" app:a26="@id/lcp" layout="@layout/aik" />
+</androidx.constraintlayout.widget.ConstraintLayout>

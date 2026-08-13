@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout android:layout_width="match_parent" android:layout_height="wrap_content"
+  xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">
+    <androidx.constraintlayout.widget.ConstraintLayout android:id="@id/mgi" android:background="@drawable/ss_device_easy_car_round_bg" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginLeft="15.0dp" android:layout_marginRight="15.0dp" app:a23="hnz" app:a27="hnz">
+        <TextView android:textSize="14.0sp" android:textColor="@color/ss_detail_hp_cert_title_color" android:layout_gravity="left|center" android:id="@id/mgj" android:layout_width="wrap_content" android:layout_height="20.0dp" android:layout_marginLeft="15.0dp" android:layout_marginTop="15.0dp" android:text="@string/hjn" app:a23="hnz" app:a27="hnz" />
+        <TextView android:textSize="14.0sp" android:textColor="@color/ss_detail_hp_cert_title_color" android:id="@id/mr2" android:visibility="gone" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="15.0dp" android:layout_marginRight="15.0dp" android:text="@string/hjo" app:a1j="hnz" app:a27="hnz" />
+        <androidx.constraintlayout.widget.Guideline android:orientation="vertical" android:id="@id/d_u" android:layout_width="wrap_content" android:layout_height="wrap_content" app:a1n="0.5" />
+        <LinearLayout android:gravity="center" android:orientation="vertical" android:id="@id/b_o" android:layout_width="0.0dp" android:layout_height="match_parent" android:layout_marginLeft="15.0dp" android:layout_marginTop="15.0dp" android:layout_marginBottom="15.0dp" app:a1d="hnz" app:a1k="@id/d_u" app:a1t="1.0" app:a23="hnz" app:a26="@id/mgj">
+            <ImageView android:id="@id/ei8" android:layout_width="150.0dp" android:layout_height="116.5dp" android:src="@drawable/ss_detail_hp_cert_logo_left" android:scaleType="centerCrop" />
+        </LinearLayout>
+        <LinearLayout android:gravity="center" android:orientation="vertical" android:id="@id/b_q" android:layout_width="0.0dp" android:layout_height="match_parent" android:layout_marginTop="15.0dp" android:layout_marginRight="15.0dp" android:layout_marginBottom="15.0dp" app:a1d="hnz" app:a1j="hnz" app:a22="@id/d_u" app:a26="@id/mgj">
+            <ImageView android:layout_gravity="center_horizontal" android:id="@id/ei9" android:layout_width="150.0dp" android:layout_height="116.5dp" android:src="@drawable/ss_detail_hp_cert_logo_right" android:scaleType="centerCrop" />
+        </LinearLayout>
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>

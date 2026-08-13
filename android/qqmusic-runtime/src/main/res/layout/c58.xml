@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.tencent.qqmusic.business.playernew.view.playerlyric.PlayerLyricSongIntroductionScrollView android:id="@id/f4q" android:visibility="gone" android:scrollbars="none" android:fadingEdgeLength="@dimen/bgg" android:layout_width="match_parent" android:layout_height="match_parent" android:fillViewport="true" android:overScrollMode="never" android:requiresFadingEdge="vertical"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <TextView android:textSize="14.0dp" android:textColor="@color/white" android:gravity="start" android:id="@id/f4r" android:layout_width="match_parent" android:layout_height="wrap_content" android:includeFontPadding="false" android:lineSpacingExtra="8.0dp" android:paddingStart="@dimen/bgn" android:paddingEnd="@dimen/bgn" />
+</com.tencent.qqmusic.business.playernew.view.playerlyric.PlayerLyricSongIntroductionScrollView>

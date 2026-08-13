@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- QQ Music IconPageIndicatorNew 的原始属性顺序。 -->
+    <declare-styleable name="IconPageIndicatorNew">
+        <attr name="it" />
+        <attr name="iu" />
+        <attr name="iv" />
+        <attr name="iw" />
+        <attr name="ix" />
+        <attr name="uf" />
+        <attr name="a_q" />
+        <attr name="aak" />
+        <attr name="ae5" />
+        <attr name="ae6" />
+        <attr name="ae7" />
+        <attr name="ah7" />
+        <attr name="aip" />
+    </declare-styleable>
+</resources>

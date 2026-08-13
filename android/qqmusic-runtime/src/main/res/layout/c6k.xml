@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout android:gravity="center" android:orientation="vertical" android:padding="10.0dp" android:layout_width="match_parent" android:layout_height="match_parent"
+  xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">
+    <com.tencent.qqmusic.ui.RoundedConstraintLayout android:background="@drawable/bg_round_white_room_chat_content" android:layout_width="300.0dp" android:layout_height="wrap_content" android:maxHeight="530.0dp" android:minHeight="235.0dp" app:kj="18.0dp">
+        <View android:id="@id/a95" android:background="@drawable/bg_round_top_gray" android:layout_width="match_parent" android:layout_height="70.0dp" app:a1j="hnz" app:a23="hnz" app:a27="hnz" />
+        <com.tencent.qqmusic.business.live.ui.view.RoundAvatarImage android:id="@id/dpk" android:background="@drawable/shared_putoo_ugc_user_bg" android:layout_width="40.0dp" android:layout_height="40.0dp" android:layout_marginStart="22.5dp" app:a1d="@id/a95" app:a23="hnz" app:a27="@id/a95" />
+        <TextView android:textSize="15.0dp" android:textColor="@color/black" android:gravity="center_vertical" android:id="@id/me6" android:layout_width="wrap_content" android:layout_height="0.0dp" android:singleLine="true" android:layout_marginStart="10.0dp" app:a1d="@id/dpk" app:a22="@id/dpk" app:a27="@id/dpk" />
+        <View android:background="@drawable/player_room_content_dialog_triangle_bg" android:layout_width="14.0dp" android:layout_height="wrap_content" android:layout_below="@id/dpk" app:a1d="@id/a95" app:a1j="@id/dpk" app:a23="@id/dpk" />
+        <com.tencent.qqmusic.community.putoo.concern.MaxHeightScrollView android:paddingTop="13.0dp" android:paddingBottom="25.0dp" android:scrollbars="vertical" android:layout_width="match_parent" android:layout_height="wrap_content" app:a1j="hnz" app:a23="hnz" app:a26="@id/a95" app:a98="425.0dp">
+            <TextView android:textSize="14.0sp" android:textColor="@color/black" android:id="@id/m72" android:paddingLeft="25.0dp" android:paddingRight="25.0dp" android:layout_width="match_parent" android:layout_height="wrap_content" android:lineSpacingMultiplier="1.35" />
+        </com.tencent.qqmusic.community.putoo.concern.MaxHeightScrollView>
+    </com.tencent.qqmusic.ui.RoundedConstraintLayout>
+    <ImageView android:id="@id/close_btn" android:padding="30.0dp" android:layout_width="94.0dp" android:layout_height="94.0dp" android:layout_marginTop="30.0dp" android:src="@drawable/dialog_fragment_btn_close" android:contentDescription="@string/a_6" />
+</LinearLayout>

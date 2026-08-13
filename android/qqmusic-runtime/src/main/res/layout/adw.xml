@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout android:paddingBottom="25.0dp" android:layout_width="match_parent" android:layout_height="wrap_content" android:paddingStart="20.0dp" android:paddingEnd="20.0dp"
+  xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">
+    <TextView android:textSize="18.0dp" android:textColor="@color/white" android:id="@id/mbc" android:layout_width="wrap_content" android:layout_height="wrap_content" app:a1d="hnz" app:a23="hnz" app:a27="hnz" />
+    <ImageView android:id="@id/dj3" android:visibility="gone" android:layout_width="16.0dp" android:layout_height="16.0dp" android:src="@drawable/icon_player_submission" android:layout_marginStart="5.0dp" app:a1d="hnz" app:a22="@id/mbc" app:a27="hnz" />
+    <ImageView android:id="@id/ds1" android:paddingLeft="4.0dp" android:layout_width="13.0dp" android:layout_height="13.0dp" android:src="@drawable/custom_player_item_header_enter" android:alpha="0.7" app:a1d="hnz" app:a21="hnz" app:a27="hnz" />
+    <TextView android:textSize="14.0dp" android:textColor="@color/white" android:id="@id/mbb" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="去看看" android:alpha="0.7" app:a1d="hnz" app:a20="@id/ds1" app:a27="hnz" />
+</androidx.constraintlayout.widget.ConstraintLayout>

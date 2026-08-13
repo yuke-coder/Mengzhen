@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<shape
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <corners android:topRightRadius="13.0dp" android:bottomRightRadius="13.0dp" />
+    <solid android:color="@color/minibar_bg_white_color" />
+</shape>

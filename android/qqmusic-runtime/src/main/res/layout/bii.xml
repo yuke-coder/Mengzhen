@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout android:id="@id/mlive_decor" android:background="@drawable/mlive_room_bg_mask_video_room" android:clipChildren="false" android:layout_width="match_parent" android:layout_height="match_parent"
+  xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">
+    <android.widget.Space android:id="@id/mlive_top_space" android:layout_width="match_parent" android:layout_height="0.0dp" app:a27="hnz" />
+    <include android:id="@id/mlive_layout_live_module_top_info_disco" android:layout_width="match_parent" android:layout_height="wrap_content" app:a1x="hnz" app:a21="hnz" app:a26="@id/mlive_top_space" layout="@layout/bk2" />
+    <android.widget.Space android:id="@id/mlive_preview_space" android:layout_width="match_parent" android:layout_height="0.0dp" android:layout_marginTop="@dimen/asp" app:a26="@id/mlive_layout_live_module_top_info_disco" />
+    <android.widget.Space android:id="@id/mlive_comment_space" android:layout_width="match_parent" android:layout_height="wrap_content" app:a1d="hnz" app:a27="hnz" app:a28="0.6" />
+    <include android:id="@id/mlive_layout_live_module_comment" android:layout_width="0.0dp" android:layout_height="0.0dp" android:layout_marginLeft="9.0dp" android:layout_marginRight="16.0dp" app:a1e="@id/mlive_layout_live_module_bottom_operate_disco" app:a1x="hnz" app:a26="@id/mlive_comment_space" app:a2e="0.66" layout="@layout/bie" />
+    <com.tme.mlive.ui.custom.UnreadMsgView android:id="@id/mlive_unread_container" android:visibility="gone" android:layout_width="127.0dp" android:layout_height="25.0dp" app:a1e="@id/mu4" app:a1j="@id/mlive_layout_live_module_comment" app:a23="@id/mlive_layout_live_module_comment" />
+    <android.widget.Space android:id="@id/mu4" android:layout_width="match_parent" android:layout_height="12.5dp" app:a1e="@id/mlive_layout_live_module_bottom_operate_disco" app:a23="hnz" />
+    <com.tme.mlive.viewdelegate.test.DebugInfoPanel android:gravity="end|center" android:id="@id/mlive_layout_live_module_debug" android:visibility="gone" android:layout_width="wrap_content" android:layout_height="wrap_content" app:a1e="hnz" app:a21="hnz" app:a26="hnz" />
+    <FrameLayout android:id="@id/mlive_layout_live_module_anim" android:layout_width="match_parent" android:layout_height="match_parent" app:a1d="hnz" app:a1x="hnz" app:a21="hnz" app:a27="hnz" />
+    <include android:id="@id/mlive_layout_live_module_bottom_operate_disco" android:layout_width="match_parent" android:layout_height="wrap_content" app:a1d="hnz" app:a1x="hnz" app:a21="hnz" layout="@layout/bi_" />
+</androidx.constraintlayout.widget.ConstraintLayout>

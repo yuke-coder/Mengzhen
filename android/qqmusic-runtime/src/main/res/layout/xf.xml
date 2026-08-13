@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout android:gravity="center_vertical" android:orientation="horizontal" android:layout_width="wrap_content" android:layout_height="match_parent"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <TextView android:id="@id/ddr" style="@style/a39" />
+    <TextView android:id="@id/dds" style="@style/a39" />
+    <TextView android:id="@id/ddt" android:text="@string/bmw" style="@style/a38" />
+</LinearLayout>

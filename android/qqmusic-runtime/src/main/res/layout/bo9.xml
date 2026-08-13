@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout android:layout_width="match_parent" android:layout_height="match_parent"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <ImageView android:id="@id/mlive_avatar_bg1" android:layout_width="match_parent" android:layout_height="match_parent" android:src="@drawable/mlive_wave" android:scaleType="centerCrop" android:contentDescription="@null" />
+    <ImageView android:id="@id/mlive_avatar_bg2" android:layout_width="match_parent" android:layout_height="match_parent" android:src="@drawable/mlive_wave" android:scaleType="centerCrop" android:contentDescription="@null" android:alpha="0.0" />
+</FrameLayout>

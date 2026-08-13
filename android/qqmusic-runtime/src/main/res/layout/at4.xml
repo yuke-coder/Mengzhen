@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout android:layout_width="wrap_content" android:layout_height="wrap_content"
+  xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">
+    <LinearLayout android:gravity="center_vertical" android:orientation="horizontal" android:id="@id/bxx" android:background="@drawable/drive_mode_bubble_bg" android:paddingLeft="8.0dp" android:paddingRight="8.0dp" android:layout_width="wrap_content" android:layout_height="30.0dp" app:a1d="hnz" app:a1k="@id/by1" app:a22="@id/by0" app:a27="hnz">
+        <com.tencent.component.widget.AsyncImageView android:layout_gravity="center_vertical" android:id="@id/bxz" android:layout_width="16.0dp" android:layout_height="16.0dp" android:layout_marginRight="3.0dp" android:scaleType="fitCenter" />
+        <androidx.appcompat.widget.AppCompatTextView android:textSize="12.0sp" android:textColor="@color/white" android:ellipsize="end" android:gravity="center_vertical" android:id="@id/bxy" android:layout_width="wrap_content" android:layout_height="match_parent" android:maxLines="1" android:singleLine="true" />
+    </LinearLayout>
+    <View android:id="@id/by0" android:background="@drawable/drive_mode_bubble_triangle_left" android:visibility="gone" android:layout_width="10.0dp" android:layout_height="10.0dp" app:a1d="hnz" app:a1k="@id/bxx" app:a23="hnz" app:a27="hnz" />
+    <View android:id="@id/by1" android:background="@drawable/drive_mode_bubble_triangle_right" android:visibility="gone" android:layout_width="10.0dp" android:layout_height="10.0dp" android:layout_toRightOf="@id/bxx" app:a1d="hnz" app:a1j="hnz" app:a22="@id/bxx" app:a27="hnz" />
+</androidx.constraintlayout.widget.ConstraintLayout>

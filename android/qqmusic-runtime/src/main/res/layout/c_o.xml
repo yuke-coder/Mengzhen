@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout android:gravity="center_horizontal" android:orientation="vertical" android:id="@id/am3" android:background="@color/transparent" android:visibility="visible" android:layout_width="match_parent" android:layout_height="wrap_content"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <Button android:textSize="@dimen/ky" android:textColor="@color/common_dialog_button_text_color" android:ellipsize="end" android:gravity="center" android:id="@id/hkd" android:background="@drawable/control_btn_bottom" android:fadingEdge="horizontal" android:layout_width="match_parent" android:layout_height="@dimen/biv" android:maxWidth="@dimen/biz" android:minWidth="@dimen/biu" android:text="@string/evy" android:singleLine="true" />
+    <include layout="@layout/m7" />
+    <Button android:textSize="@dimen/ky" android:textColor="@color/black" android:ellipsize="end" android:gravity="center" android:id="@id/g84" android:background="@drawable/control_btn_bottom" android:fadingEdge="horizontal" android:layout_width="match_parent" android:layout_height="@dimen/biv" android:maxWidth="@dimen/biz" android:minWidth="@dimen/biu" android:text="@string/cancel" android:singleLine="true" />
+    <include layout="@layout/m7" />
+    <Button android:textSize="@dimen/ky" android:textColor="@color/black" android:ellipsize="end" android:gravity="center" android:id="@id/at9" android:background="@drawable/control_btn_bottom_rounded" android:fadingEdge="horizontal" android:layout_width="match_parent" android:layout_height="@dimen/biv" android:maxWidth="@dimen/biz" android:minWidth="@dimen/biu" android:text="@string/cancel" android:singleLine="true" />
+</LinearLayout>

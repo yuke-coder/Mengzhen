@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout android:background="#2a2a2a" android:layout_width="match_parent" android:layout_height="match_parent"
+  xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">
+    <com.tencent.qqmusic.game.ui.view.GameLightEffectView android:id="@id/f2g" android:layout_width="match_parent" android:layout_height="match_parent" />
+    <androidx.constraintlayout.widget.ConstraintLayout android:id="@id/b0r" android:layout_width="match_parent" android:layout_height="match_parent">
+        <ImageView android:id="@id/eah" android:layout_width="30.0dp" android:layout_height="30.0dp" android:layout_marginLeft="18.0dp" android:layout_marginTop="51.0dp" android:src="@drawable/ic_game_back" app:a1x="hnz" app:a27="hnz" />
+        <ImageView android:id="@id/ell" android:layout_width="132.0dp" android:layout_height="27.5dp" android:layout_marginTop="88.5dp" android:src="@drawable/game_delay_setting_title" app:a1x="hnz" app:a21="hnz" app:a27="hnz" />
+        <androidx.constraintlayout.widget.ConstraintLayout android:id="@id/b0n" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginLeft="16.0dp" android:layout_marginTop="13.0dp" android:layout_marginRight="16.0dp" app:a1x="hnz" app:a21="hnz" app:a26="@id/ell">
+            <TextView android:textSize="14.0sp" android:textColor="@color/white_60_opacity" android:id="@id/mke" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/big" app:a1d="hnz" app:a1u="hmg" app:a1x="hnz" app:a20="@id/ec3" app:a27="hnz" />
+            <ImageView android:id="@id/ec3" android:layout_width="16.0dp" android:layout_height="16.0dp" android:layout_marginLeft="4.0dp" android:layout_marginRight="4.0dp" android:src="@drawable/ic_game_bluetooth" app:a1d="hnz" app:a1y="@id/mke" app:a20="@id/m7w" app:a27="hnz" />
+            <TextView android:textSize="14.0sp" android:textColor="@color/white_60_opacity" android:id="@id/m7w" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/bij" android:singleLine="true" app:a18="true" app:a1d="hnz" app:a1y="@id/ec3" app:a21="hnz" app:a27="hnz" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
+        <RelativeLayout android:id="@id/jbd" android:background="@drawable/bg_game_round_white_transparent_5" android:layout_width="0.0dp" android:layout_height="0.0dp" android:layout_marginLeft="20.0dp" android:layout_marginRight="20.0dp" app:a1d="hnz" app:a1s="0.4" app:a1x="hnz" app:a21="hnz" app:a26="@id/b0n" app:a28="0.1">
+            <ImageView android:id="@id/eh_" android:layout_width="220.0dp" android:layout_height="94.0dp" android:layout_marginBottom="30.0dp" android:src="@drawable/game_note_white" android:layout_alignParentBottom="true" android:layout_centerHorizontal="true" />
+            <ImageView android:id="@id/eaw" android:visibility="visible" android:layout_width="68.0dp" android:layout_height="85.0dp" android:layout_marginTop="-100.0dp" android:layout_marginBottom="225.0dp" android:src="@drawable/game_note_blue" android:scaleType="fitXY" android:cropToPadding="false" android:layout_alignParentBottom="true" android:layout_centerHorizontal="true" />
+            <ImageView android:id="@id/ei4" android:visibility="gone" android:layout_width="68.0dp" android:layout_height="85.0dp" android:layout_marginBottom="30.0dp" android:src="@drawable/bg_game_press_note" android:scaleType="fitXY" android:layout_alignParentBottom="true" android:layout_centerHorizontal="true" />
+            <com.tencent.qqmusic.game.ui.view.GameWaveViewWhite android:id="@id/nf0" android:visibility="gone" android:layout_width="150.0dp" android:layout_height="150.0dp" android:layout_alignParentBottom="true" android:layout_centerHorizontal="true" />
+        </RelativeLayout>
+        <ImageView android:id="@id/ejx" android:layout_width="288.0dp" android:layout_height="22.5dp" android:src="@drawable/game_delay_setting_tip" app:a1d="hnz" app:a1x="hnz" app:a21="hnz" app:a26="@id/jbd" app:a28="0.12" />
+        <RelativeLayout android:id="@id/jbe" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginLeft="75.0dp" android:layout_marginRight="75.0dp" app:a1d="hnz" app:a1x="@id/hnz" app:a21="hnz" app:a26="@id/ejx" app:a28="0.157">
+            <SeekBar android:id="@id/jpk" android:background="@null" android:layout_width="match_parent" android:layout_height="24.0dp" android:layout_marginLeft="5.0dp" android:layout_marginRight="5.0dp" android:maxHeight="4.0dp" android:max="1000" android:progress="500" android:progressDrawable="@drawable/game_delay_setting_bar" android:minHeight="4.0dp" android:thumb="@drawable/ic_game_seek_bar" android:thumbOffset="0.0dp" android:splitTrack="false" />
+            <ImageView android:id="@id/egl" android:padding="2.0dp" android:layout_width="24.0dp" android:layout_height="24.0dp" android:src="@drawable/ic_game_seek_bar_minus" />
+            <ImageView android:id="@id/ehu" android:padding="2.0dp" android:layout_width="24.0dp" android:layout_height="24.0dp" android:src="@drawable/ic_game_seek_bar_plus" android:layout_alignParentRight="true" />
+            <LinearLayout android:orientation="horizontal" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="4.0dp" android:layout_below="@id/ehu" android:layout_centerHorizontal="true" android:layout_centerVertical="true">
+                <TextView android:textSize="30.0dp" android:textStyle="bold" android:textColor="@color/white" android:id="@id/mk0" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="0" />
+                <TextView android:textSize="16.0dp" android:textStyle="bold" android:textColor="@color/white" android:id="@id/mk1" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="ms" />
+            </LinearLayout>
+        </RelativeLayout>
+        <ImageView android:id="@id/ebo" android:layout_width="227.0dp" android:layout_height="55.0dp" android:src="@drawable/ic_game_complete" app:a1d="hnz" app:a1x="hnz" app:a21="hnz" app:a26="@id/jbe" app:a28="0.4" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+    <androidx.constraintlayout.widget.ConstraintLayout android:id="@id/b02" android:visibility="gone" android:layout_width="match_parent" android:layout_height="match_parent">
+        <ImageView android:layout_width="126.0dp" android:layout_height="108.0dp" android:src="@drawable/game_delay_setting_done" app:a1d="hnz" app:a1x="hnz" app:a21="hnz" app:a27="hnz" app:a28="0.4" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>

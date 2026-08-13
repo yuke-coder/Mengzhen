@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout android:id="@id/eeo" android:clipChildren="false" android:layout_width="match_parent" android:layout_height="match_parent" app:a1i="H,1:1"
+  xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">
+    <ImageView android:id="@id/een" android:layout_width="0.0dp" android:layout_height="0.0dp" android:src="@drawable/hs_player_btn_style" android:contentDescription="播放器模板选择" app:a1d="hnz" app:a1i="H,1:1" app:a1j="hnz" app:a1s="0.6667" app:a23="hnz" app:a27="hnz" />
+    <ImageView android:id="@id/eep" android:visibility="gone" android:layout_width="0.0dp" android:layout_height="0.0dp" android:src="@drawable/ic_red_dot_normal" android:scaleType="centerCrop" app:a1i="H,1:1" app:a1j="hnz" app:a27="hnz" app:a2e="0.1375" />
+    <androidx.constraintlayout.widget.ConstraintLayout android:id="@id/ees" android:background="@drawable/bg_player_more_tip" android:paddingLeft="4.0dp" android:paddingTop="2.0dp" android:paddingRight="4.0dp" android:paddingBottom="2.0dp" android:visibility="gone" android:layout_width="wrap_content" android:layout_height="wrap_content" app:a22="@id/eer" app:a27="hnz">
+        <androidx.appcompat.widget.AppCompatTextView android:textSize="8.0sp" android:textColor="@color/white" android:ellipsize="none" android:id="@id/eeq" android:fadingEdge="none" android:layout_width="wrap_content" android:layout_height="wrap_content" android:includeFontPadding="false" android:lineSpacingExtra="0.0dp" app:a1d="hnz" app:a1x="hnz" app:a21="hnz" app:a27="hnz" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+    <androidx.constraintlayout.widget.Guideline android:orientation="vertical" android:id="@id/eer" android:layout_width="wrap_content" android:layout_height="wrap_content" app:a1n="0.675" />
+</androidx.constraintlayout.widget.ConstraintLayout>

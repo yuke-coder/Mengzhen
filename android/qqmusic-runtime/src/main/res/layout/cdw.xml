@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout android:id="@id/huq" android:paddingBottom="7.0dp" android:layout_width="match_parent" android:layout_height="wrap_content" android:importantForAccessibility="yes"
+  xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">
+    <FrameLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:minWidth="27.0dp" android:importantForAccessibility="no">
+        <RelativeLayout android:layout_gravity="bottom" android:id="@id/ges" android:paddingLeft="7.0dp" android:paddingRight="7.0dp" android:layout_width="wrap_content" android:layout_height="wrap_content" android:importantForAccessibility="no">
+            <RelativeLayout android:id="@id/geu" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_alignParentLeft="true" android:layout_centerVertical="true">
+                <ImageView android:layout_gravity="center_vertical" android:id="@id/gf6" android:layout_width="10.0dp" android:layout_height="10.0dp" android:src="@drawable/rank_card_play_count" android:scaleType="fitXY" android:layout_alignParentLeft="true" android:layout_centerVertical="true" android:importantForAccessibility="no" />
+                <TextView android:textSize="11.0dp" android:textColor="@android:color/white" android:gravity="center" android:layout_gravity="center_vertical" android:id="@id/is0" android:paddingBottom="1.0dp" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginLeft="4.0dp" android:layout_marginRight="4.0dp" android:layout_toRightOf="@id/gf6" android:layout_centerVertical="true" android:importantForAccessibility="no" />
+            </RelativeLayout>
+            <ImageView android:layout_gravity="center_vertical" android:id="@id/is6" android:layout_width="22.0dp" android:layout_height="22.0dp" android:layout_marginLeft="4.0dp" android:src="@drawable/rank_card_play_button_test" android:layout_alignParentRight="true" android:layout_centerVertical="true" android:importantForAccessibility="no" />
+        </RelativeLayout>
+    </FrameLayout>
+</FrameLayout>

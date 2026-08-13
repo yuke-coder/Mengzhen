@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout android:id="@id/item_layout" android:paddingLeft="20.0dp" android:paddingRight="20.0dp" android:paddingBottom="20.0dp" android:layout_width="match_parent" android:layout_height="match_parent"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <View android:id="@id/cwf" android:background="@drawable/folder_frame_play_bg" android:layout_width="25.0dp" android:layout_height="25.0dp" />
+    <View android:id="@id/cw7" android:background="@drawable/folder_frame_bg" android:layout_width="96.0dp" android:layout_height="14.0dp" android:layout_marginLeft="30.5dp" android:layout_marginTop="5.5dp" />
+</FrameLayout>

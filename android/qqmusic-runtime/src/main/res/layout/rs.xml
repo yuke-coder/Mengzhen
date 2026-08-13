@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout android:background="@drawable/main_bg" android:layout_width="match_parent" android:layout_height="match_parent"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <include android:id="@id/lv1" android:layout_width="match_parent" android:layout_height="@dimen/cau" layout="@layout/mu" />
+    <ListView android:id="@id/c1x" android:layout_width="match_parent" android:layout_height="match_parent" android:layout_marginTop="14.0dp" android:cacheColorHint="#00000000" android:divider="@null" android:layout_weight="1.0" android:layout_below="@id/lv1" android:overScrollMode="never" />
+    <include android:id="@id/e8n" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_alignParentBottom="true" layout="@layout/ru" />
+    <View android:id="@id/f42" android:background="@drawable/skin_divider_img" android:visibility="visible" android:layout_width="match_parent" android:layout_height="0.5dp" android:layout_above="@id/e8n" />
+    <View android:background="@drawable/head_shadow" android:layout_width="match_parent" android:layout_height="@dimen/l9" android:layout_below="@id/lv1" />
+</RelativeLayout>

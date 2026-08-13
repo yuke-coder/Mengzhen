@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout android:layout_width="match_parent" android:layout_height="match_parent"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <include android:id="@id/naf" android:layout_width="match_parent" android:layout_height="match_parent" layout="@layout/m6" />
+    <androidx.recyclerview.widget.RecyclerView android:id="@id/cp0" android:layout_width="match_parent" android:layout_height="match_parent" />
+    <LinearLayout android:gravity="center_horizontal" android:orientation="vertical" android:id="@id/jli" android:visibility="gone" android:layout_width="match_parent" android:layout_height="match_parent">
+        <ImageView android:background="@drawable/search_empty_icon" android:layout_width="@dimen/list_empty_image_length" android:layout_height="@dimen/list_empty_image_length" android:layout_marginTop="@dimen/to" />
+        <androidx.appcompat.widget.AppCompatTextView android:textSize="16.0sp" android:textColor="@color/empty_view_color" android:gravity="center_horizontal" android:id="@id/jlh" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginTop="@dimen/tq" android:text="@string/cf2" android:singleLine="true" />
+    </LinearLayout>
+</FrameLayout>

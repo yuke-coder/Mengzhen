@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layer-list
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <item>
+        <color android:color="@color/float_window_bg" />
+    </item>
+    <item android:gravity="bottom" android:height="30.0dp">
+        <shape>
+            <gradient android:startColor="#33fc1717" android:endColor="@android:color/transparent" android:angle="90.0" />
+        </shape>
+    </item>
+</layer-list>

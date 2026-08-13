@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout android:visibility="gone" android:layout_width="match_parent" android:layout_height="wrap_content"
+  xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">
+    <TextView android:textSize="16.0sp" android:textStyle="bold" android:textColor="#ccffffff" android:id="@id/l1o" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/hy4" app:a23="hnz" app:a27="hnz" />
+    <TextView android:textSize="13.0sp" android:textColor="@color/white" android:gravity="center" android:id="@id/l1n" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/e8e" app:a1d="@id/l1o" app:a1k="@id/l1m" app:a27="@id/l1o" />
+    <ImageView android:id="@id/l1m" android:layout_width="wrap_content" android:layout_height="wrap_content" android:src="@drawable/sleep_effect_more" android:scaleType="centerInside" android:contentDescription="@string/e8e" app:a1d="@id/l1o" app:a1j="hnz" app:a27="@id/l1o" />
+    <androidx.recyclerview.widget.RecyclerView android:orientation="horizontal" android:id="@id/j00" android:visibility="visible" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginTop="12.5dp" app:a1j="hnz" app:a23="hnz" app:a26="@id/l1o" />
+    <androidx.recyclerview.widget.RecyclerView android:orientation="horizontal" android:id="@id/j01" android:visibility="visible" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginTop="12.5dp" app:a1j="hnz" app:a23="hnz" app:a26="@id/j00" />
+</androidx.constraintlayout.widget.ConstraintLayout>

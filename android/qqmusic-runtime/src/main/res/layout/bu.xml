@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout android:id="@id/fo" android:background="#232828" android:layout_width="match_parent" android:layout_height="match_parent"
+  xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">
+    <RelativeLayout android:id="@id/lvi" android:paddingTop="@dimen/c_q" android:layout_width="match_parent" android:layout_height="@dimen/cau" app:a1x="hnz" app:a21="hnz" app:a27="hnz">
+        <RelativeLayout android:id="@id/hgf" android:layout_width="match_parent" android:layout_height="match_parent">
+            <ImageView android:id="@id/a5u" android:background="@drawable/material_ripple_background_circle" android:layout_width="@dimen/cao" android:layout_height="@dimen/cao" android:src="@drawable/back_normal_white" android:scaleType="centerInside" android:layout_alignParentLeft="true" android:layout_centerVertical="true" android:contentDescription="@string/wf" />
+            <androidx.appcompat.widget.AppCompatTextView android:textSize="18.0sp" android:textStyle="bold" android:textColor="@color/white" android:ellipsize="end" android:gravity="center" android:id="@id/le5" android:layout_width="wrap_content" android:layout_height="wrap_content" android:singleLine="true" android:layout_centerInParent="true" />
+        </RelativeLayout>
+        <RelativeLayout android:id="@id/c2w" android:visibility="gone" android:layout_width="match_parent" android:layout_height="match_parent">
+            <androidx.appcompat.widget.AppCompatTextView android:textSize="16.0sp" android:textColor="@color/white" android:ellipsize="end" android:gravity="center" android:id="@id/at7" android:layout_width="wrap_content" android:layout_height="match_parent" android:layout_marginLeft="15.0dp" android:text="@string/cancel" android:singleLine="true" android:layout_alignParentLeft="true" android:layout_centerVertical="true" />
+            <androidx.appcompat.widget.AppCompatTextView android:textSize="15.0sp" android:textColor="@color/white" android:gravity="center" android:id="@id/cge" android:background="@drawable/edit_folder_dynamic_head_pic_card_btn_bg" android:layout_width="60.0dp" android:layout_height="30.0dp" android:layout_marginRight="15.0dp" android:text="@string/aui" android:layout_alignParentRight="true" android:layout_centerVertical="true" />
+        </RelativeLayout>
+    </RelativeLayout>
+    <FrameLayout android:id="@id/if8" android:layout_width="0.0dp" android:layout_height="0.0dp" android:layout_marginBottom="20.0dp" app:a1d="hnz" app:a1i="1" app:a1x="hnz" app:a21="hnz" app:a27="hnz">
+        <com.tencent.component.widget.AsyncImageView android:id="@id/bdv" android:layout_width="match_parent" android:layout_height="match_parent" android:scaleType="centerCrop" />
+        <com.tencent.qqmusic.fragment.folderalbum.folder.personalize.component.FolderCoverTemplateComponent android:id="@id/be2" android:visibility="gone" android:layout_width="match_parent" android:layout_height="match_parent" />
+    </FrameLayout>
+    <androidx.appcompat.widget.AppCompatTextView android:textSize="16.0sp" android:textColor="@color/white" android:gravity="center" android:id="@id/mud" android:background="@drawable/folder_cover_edit_btn_bg" android:layout_width="0.0dp" android:layout_height="40.0dp" android:layout_marginLeft="40.0dp" android:layout_marginBottom="54.0dp" android:text="@string/b_1" app:a1d="hnz" app:a1x="hnz" app:a20="@id/c14" />
+    <androidx.appcompat.widget.AppCompatTextView android:textSize="16.0sp" android:textColor="@color/white" android:gravity="center" android:id="@id/c14" android:background="@drawable/folder_cover_edit_btn_bg" android:layout_width="0.0dp" android:layout_height="40.0dp" android:layout_marginLeft="20.0dp" android:layout_marginRight="40.0dp" android:layout_marginBottom="54.0dp" android:text="@string/b9y" app:a1d="hnz" app:a1y="@id/mud" app:a21="hnz" />
+    <androidx.constraintlayout.widget.ConstraintLayout android:id="@id/be1" android:visibility="gone" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginTop="20.0dp" app:a1x="hnz" app:a21="hnz" app:a26="@id/if8">
+        <androidx.appcompat.widget.AppCompatTextView android:textSize="15.0sp" android:textColor="@color/white" android:gravity="center" android:id="@id/ox" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginLeft="15.0dp" android:text="@string/j2" app:a1x="hnz" app:a27="hnz" />
+        <View android:id="@id/ow" android:layout_width="45.0dp" android:layout_height="2.0dp" android:layout_marginTop="2.0dp" app:a1x="@id/ox" app:a21="@id/ox" app:a26="@id/ox" />
+        <androidx.appcompat.widget.AppCompatTextView android:textSize="15.0sp" android:textColor="@color/white_50_opacity" android:gravity="center" android:id="@id/be5" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginLeft="22.0dp" android:text="@string/b9z" app:a1y="@id/ox" app:a27="hnz" app:a2o="15.0dp" />
+        <View android:id="@id/be4" android:visibility="gone" android:layout_width="60.0dp" android:layout_height="2.0dp" android:layout_marginTop="2.0dp" app:a1x="@id/be5" app:a21="@id/be5" app:a26="@id/be5" />
+        <FrameLayout android:id="@id/ot" android:visibility="gone" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginTop="25.0dp" app:a1x="hnz" app:a21="hnz" app:a26="@id/ox">
+            <LinearLayout android:gravity="center" android:orientation="horizontal" android:id="@id/ou" android:visibility="gone" android:layout_width="match_parent" android:layout_height="70.0dp">
+                <ProgressBar android:id="@id/clu" android:layout_width="15.0dp" android:layout_height="15.0dp" android:indeterminate="true" android:indeterminateOnly="true" android:indeterminateDrawable="@drawable/icn_loading_indicator" android:indeterminateDuration="2000" />
+                <androidx.appcompat.widget.AppCompatTextView android:textSize="12.0sp" android:textColor="@color/white" android:id="@id/clv" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginLeft="4.0dp" android:text="@string/j6" android:maxLines="1" />
+            </LinearLayout>
+            <androidx.recyclerview.widget.RecyclerView android:id="@id/ov" android:layout_width="match_parent" android:layout_height="70.0dp" android:layout_marginLeft="12.0dp" android:overScrollMode="never" />
+            <LinearLayout android:gravity="center_vertical" android:layout_gravity="center_horizontal" android:id="@id/l9u" android:visibility="gone" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="100.0dp">
+                <androidx.appcompat.widget.AppCompatTextView android:textSize="14.0sp" android:textColor="@color/white_50_opacity" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/j3" />
+                <ImageView android:layout_gravity="right|center" android:id="@id/clw" android:layout_width="7.5dp" android:layout_height="11.5dp" android:layout_marginLeft="4.0dp" android:layout_marginTop="1.0dp" android:src="@drawable/arrow_right_normal" android:alpha="0.7" />
+            </LinearLayout>
+        </FrameLayout>
+        <androidx.recyclerview.widget.RecyclerView android:id="@id/be3" android:visibility="gone" android:layout_width="match_parent" android:layout_height="70.0dp" android:layout_marginLeft="12.0dp" android:layout_marginTop="25.0dp" android:overScrollMode="never" app:a1x="hnz" app:a26="@id/be5" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>

@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout android:clipChildren="false" android:layout_width="match_parent" android:layout_height="wrap_content"
+  xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">
+    <ImageView android:id="@id/mlive_bottom_disco_comment_type" android:layout_width="41.0dp" android:layout_height="41.0dp" android:layout_marginBottom="@dimen/aqs" android:src="@drawable/mlive_disco_voice" android:layout_marginStart="@dimen/aqw" app:a1d="hnz" app:a23="hnz" />
+    <TextView android:textStyle="bold" android:textColor="@color/white" android:gravity="start|center" android:id="@id/mlive_bottom_disco_comment_text" android:background="@drawable/mlive_comment_text_disco_bg" android:layout_width="@dimen/aqx" android:layout_height="@dimen/aqt" android:layout_marginBottom="@dimen/aqs" android:text="@string/d15" android:paddingStart="19.0dp" android:paddingEnd="7.5dp" android:layout_marginStart="15.0dp" app:a1d="hnz" app:a22="@id/mlive_bottom_disco_comment_type" app:a2q="@dimen/aqw" />
+    <ImageView android:id="@id/mlive_bottom_disco_play" android:layout_width="51.0dp" android:layout_height="51.0dp" android:layout_marginBottom="@dimen/aqs" android:src="@drawable/mlive_disco_play" android:layout_marginEnd="16.0dp" app:a1d="hnz" app:a21="hnz" />
+</androidx.constraintlayout.widget.ConstraintLayout>

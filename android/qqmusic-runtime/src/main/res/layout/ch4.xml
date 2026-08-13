@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout android:id="@id/jl5" android:clipChildren="false" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginTop="@dimen/s8" android:layout_marginBottom="@dimen/s8"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <FrameLayout android:layout_gravity="right" android:id="@id/bse" android:visibility="visible" android:layout_width="195.0dp" android:layout_height="195.0dp" android:layout_marginTop="-20.0dp" android:layout_marginBottom="-80.0dp">
+        <com.tencent.qqmusic.fragment.search.view.MaskGradientImageView android:id="@id/ecb" android:layout_width="match_parent" android:layout_height="match_parent" android:scaleType="centerCrop" />
+    </FrameLayout>
+    <LinearLayout android:orientation="vertical" android:paddingTop="16.0dp" android:paddingBottom="16.0dp" android:layout_width="match_parent" android:layout_height="wrap_content" android:paddingStart="16.0dp">
+        <LinearLayout android:gravity="center_vertical" android:orientation="horizontal" android:layout_width="wrap_content" android:layout_height="wrap_content">
+            <androidx.appcompat.widget.AppCompatTextView android:textSize="20.0dp" android:textStyle="bold" android:textColor="@color/skin_text_main_color" android:ellipsize="end" android:id="@id/mjr" android:layout_width="wrap_content" android:layout_height="wrap_content" android:maxLines="1" android:fontFamily="PingFangSC-Semibold" android:textFontWeight="600" />
+            <androidx.appcompat.widget.AppCompatImageView android:id="@id/ejm" android:layout_width="@dimen/ga" android:layout_height="@dimen/ga" android:src="@drawable/icon_search_direct_arrow_right" android:layout_marginStart="-8.0dp" />
+        </LinearLayout>
+        <androidx.appcompat.widget.AppCompatTextView android:textSize="12.0dp" android:textColor="@color/skin_text_main_color" android:ellipsize="end" android:id="@id/mjp" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginTop="10.0dp" android:maxLines="1" android:lineSpacingExtra="4.0dp" android:fontFamily="PingFangSC-Regular" android:layout_marginEnd="195.0dp" />
+        <androidx.appcompat.widget.AppCompatTextView android:textSize="12.0dp" android:textColor="@color/skin_text_main_color" android:ellipsize="end" android:id="@id/mjq" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginTop="2.0dp" android:maxLines="1" android:lineSpacingExtra="4.0dp" android:fontFamily="PingFangSC-Regular" android:layout_marginEnd="195.0dp" />
+    </LinearLayout>
+</FrameLayout>

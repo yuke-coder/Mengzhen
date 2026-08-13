@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout android:gravity="center_vertical" android:orientation="horizontal" android:background="@drawable/color_b2_click" android:layout_width="match_parent" android:layout_height="40.0dp"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <CheckBox android:id="@id/bbv" android:background="@drawable/ic_edit_song_checkbox" android:focusable="false" android:focusableInTouchMode="false" android:clickable="false" android:layout_width="24.0dp" android:layout_height="24.0dp" android:layout_marginLeft="16.0dp" android:layout_marginRight="16.0dp" android:checked="false" android:button="@null" />
+    <TextView android:textSize="14.0sp" android:textColor="@color/skin_text_main_color" android:ellipsize="end" android:gravity="center_vertical" android:id="@id/bbx" android:layout_width="match_parent" android:layout_height="match_parent" android:singleLine="true" />
+</LinearLayout>

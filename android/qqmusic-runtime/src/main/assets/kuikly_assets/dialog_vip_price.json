@@ -1,0 +1,60 @@
+{
+  "router": "openHalf",
+  "page_name": "dialog_vip_price",
+  "debug": 0,
+  "container": {
+    "w_weight": "1",
+    "h_weight": "1",
+    "gravity": "bottom",
+    "direction": "from-bottom"
+  },
+  "params": {
+    "page": [
+      {
+        "base": {
+          "title": "您的免费时长已用完",
+          "subtitle": "您收藏的VIP歌曲 免费畅听将会受阻",
+          "background": {
+            "type": "gradient",
+            "colors": [
+              "#FFFFF7E7",
+              "#FFFBDDA2"
+            ],
+            "direction": "to-top"
+          }
+        },
+        "body": {
+          "atoms": [
+            {
+              "design": "vip_price",
+              "rules": {
+                "vipType": "vip",
+                "title": "豪华绿钻连续包月",
+                "titleIconUrl": "https://musicx.y.qq.com/kuikly/assets/ic_vip_icon.png",
+                "price": 1.88,
+                "originPrice": 15.0,
+                "countdown": 1800,
+                "isFirstMonthPrice": false
+              }
+            }
+          ]
+        },
+        "buttons": [
+          {
+            "text": "看广告续时长",
+            "text_color": "#00F8AC",
+            "color": "#00000000",
+            "border_color": "#FF00E29D",
+            "url": "https://i.y.qq.com/n2/m/myservice/index.html?entry=27&tab1=svip&tab2=eight&aid=music.tq.recent.vipsong&_hidehd=1"
+          },
+          {
+            "text": "开通豪华绿钻",
+            "text_color": "#FF000000",
+            "color": "#00F8AC",
+            "url": "https://i.y.qq.com/n2/m/myservice/index.html?entry=27&tab1=svip&tab2=eight&aid=music.tq.recent.vipsong&_hidehd=1"
+          }
+        ]
+      }
+    ]
+  }
+}

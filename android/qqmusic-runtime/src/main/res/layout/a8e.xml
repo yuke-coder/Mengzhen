@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout android:layout_width="match_parent" android:layout_height="match_parent"
+  xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">
+    <com.tencent.component.widget.AsyncImageView android:id="@id/dos" android:layout_width="match_parent" android:layout_height="match_parent" android:scaleType="fitCenter" />
+    <FrameLayout android:id="@id/lau" android:layout_width="match_parent" android:layout_height="match_parent" />
+    <include android:id="@id/hfy" android:visibility="gone" android:layout_width="match_parent" android:layout_height="match_parent" app:a1d="hnz" app:a1x="hnz" app:a21="hnz" layout="@layout/a8b" />
+    <include android:id="@id/eri" android:visibility="gone" android:layout_width="match_parent" android:layout_height="match_parent" app:a1d="hnz" app:a1x="hnz" app:a21="hnz" layout="@layout/a8_" />
+    <include android:id="@id/hfz" android:visibility="gone" android:layout_width="match_parent" android:layout_height="match_parent" app:a1d="hnz" app:a1x="hnz" app:a21="hnz" layout="@layout/a8c" />
+    <include android:id="@id/erj" android:visibility="gone" android:layout_width="match_parent" android:layout_height="match_parent" app:a1d="hnz" app:a1x="hnz" app:a21="hnz" layout="@layout/a8a" />
+</androidx.constraintlayout.widget.ConstraintLayout>

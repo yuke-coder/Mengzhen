@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout android:background="#ff000000" android:layout_width="match_parent" android:layout_height="match_parent"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <com.tencent.qqmusic.homepage.header.viewdelegate.portrait.SingerPortraitCropView android:id="@id/k7d" android:layout_width="match_parent" android:layout_height="match_parent" />
+    <TextView android:textSize="18.0dp" android:textColor="#ffffff" android:gravity="center" android:id="@id/k7c" android:background="#ff000000" android:layout_width="match_parent" android:layout_height="132.0dp" />
+    <LinearLayout android:gravity="center_vertical" android:layout_gravity="bottom" android:orientation="horizontal" android:id="@id/k7_" android:background="#ff000000" android:paddingLeft="20.0dp" android:paddingRight="20.0dp" android:layout_width="match_parent" android:layout_height="132.0dp" android:paddingHorizontal="20.0dp">
+        <TextView android:textSize="13.0dp" android:textColor="#000000" android:gravity="center" android:id="@id/k7a" android:background="@drawable/player_view_crop_cancel_bg" android:layout_width="64.0dp" android:layout_height="30.0dp" android:text="取消" />
+        <View android:layout_width="0.0dp" android:layout_height="1.0dp" android:layout_weight="1.0" />
+        <LinearLayout android:gravity="center_vertical" android:orientation="horizontal" android:layout_width="wrap_content" android:layout_height="wrap_content">
+            <ImageView android:layout_width="21.0dp" android:layout_height="21.0dp" android:src="@drawable/singer_portrait_crop_icon" android:scaleType="fitCenter" />
+            <TextView android:textSize="14.0dp" android:textColor="#ffffff" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="捏合以裁切" android:layout_marginStart="9.0dp" />
+        </LinearLayout>
+        <View android:layout_width="0.0dp" android:layout_height="1.0dp" android:layout_weight="1.0" />
+        <TextView android:textSize="13.0dp" android:textColor="#000000" android:gravity="center" android:id="@id/k7b" android:background="@drawable/singer_portrait_crop_confirm_bg" android:layout_width="64.0dp" android:layout_height="30.0dp" android:text="完成" />
+    </LinearLayout>
+</FrameLayout>

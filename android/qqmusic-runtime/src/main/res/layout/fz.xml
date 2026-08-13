@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout android:gravity="center_vertical" android:orientation="horizontal" android:paddingTop="15.0dp" android:layout_width="wrap_content" android:layout_height="wrap_content"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <ImageView android:id="@id/ng" android:layout_width="@dimen/e7" android:layout_height="@dimen/e7" android:layout_marginRight="@dimen/dt" android:src="@drawable/ai_assistant_chat_item_bottom_function_copy" android:contentDescription="@string/hf" />
+    <ImageView android:id="@id/nj" android:layout_width="@dimen/e7" android:layout_height="@dimen/e7" android:layout_marginRight="@dimen/dt" android:src="@drawable/ai_assistant_chat_item_bottom_function_thumb_up" android:contentDescription="@string/hh" />
+    <ImageView android:id="@id/ni" android:layout_width="@dimen/e7" android:layout_height="@dimen/e7" android:src="@drawable/ai_assistant_chat_item_bottom_function_thumb_down" android:contentDescription="@string/hg" />
+    <View android:layout_width="0.0dp" android:layout_height="match_parent" android:layout_weight="1.0" />
+    <ImageView android:id="@id/nh" android:layout_width="@dimen/e7" android:layout_height="@dimen/e7" android:layout_marginRight="@dimen/ds" android:src="@drawable/ai_assistant_chat_item_bottom_function_regenerate" />
+</LinearLayout>

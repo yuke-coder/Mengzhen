@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.tencent.qqmusic.ui.RoundedConstraintLayout android:id="@id/lwn" android:layout_width="match_parent" android:layout_height="match_parent"
+  xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">
+    <ImageView android:id="@id/duj" android:layout_width="0.0dp" android:layout_height="match_parent" android:src="@drawable/icon_top_record_setting_entrance_guide" android:scaleType="centerInside" android:contentDescription="@string/i1c" app:a1d="hnz" app:a1i="1:1" app:a1j="hnz" app:a27="hnz" />
+    <TextView android:textSize="14.0dp" android:ellipsize="end" android:gravity="center" android:id="@id/lag" android:paddingLeft="12.0dp" android:paddingRight="12.0dp" android:clipChildren="false" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="经典3D版本上新，快来体验" android:maxLines="1" android:singleLine="true" app:a1d="hnz" app:a1k="@id/duj" app:a23="hnz" app:a27="hnz" />
+</com.tencent.qqmusic.ui.RoundedConstraintLayout>

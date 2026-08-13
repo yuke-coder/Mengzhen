@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout android:background="@android:color/white" android:layout_width="match_parent" android:layout_height="65.0dp"
+  xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">
+    <androidx.constraintlayout.widget.Guideline android:orientation="horizontal" android:id="@id/l85" android:layout_width="wrap_content" android:layout_height="wrap_content" app:a1n="0.5" />
+    <TextView android:textSize="18.0sp" android:textColor="@android:color/black" android:gravity="center" android:id="@id/l89" android:layout_width="50.0dp" android:layout_height="50.0dp" />
+    <View android:id="@id/l84" android:background="#ffe7e7e7" android:layout_width="0.5dp" android:layout_height="40.0dp" app:a1d="hnz" app:a1y="@id/l89" app:a27="hnz" />
+    <TextView android:textColor="@android:color/black" android:id="@id/l8_" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginLeft="10.0dp" app:a1e="@id/l85" app:a1y="@id/l84" />
+    <ImageView android:id="@id/l88" android:visibility="gone" android:layout_width="15.0dp" android:layout_height="15.0dp" android:layout_marginLeft="10.0dp" android:src="@drawable/music_offline_sign_normal" app:a1y="@id/l84" app:a26="@id/l85" />
+    <ProgressBar android:id="@id/l86" android:visibility="gone" android:layout_width="15.0dp" android:layout_height="15.0dp" android:layout_marginLeft="10.0dp" android:indeterminate="true" android:indeterminateOnly="true" android:indeterminateDrawable="@drawable/icn_loading_indicator" android:indeterminateDuration="2000" app:a1y="@id/l84" app:a26="@id/l85" />
+    <TextView android:textSize="12.0sp" android:textColor="@android:color/black" android:id="@id/l87" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginLeft="33.0dp" app:a1y="@id/l84" app:a26="@id/l85" />
+</androidx.constraintlayout.widget.ConstraintLayout>

@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout android:id="@id/ia5" android:background="@drawable/rounded_corners_dialog" android:focusable="false" android:layout_width="match_parent" android:layout_height="@dimen/bj7" android:minHeight="@dimen/bj7"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <RelativeLayout android:id="@id/lfx" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginLeft="15.0dp" android:layout_marginRight="15.0dp" android:layout_alignParentBottom="true">
+        <ImageView android:id="@id/ldx" android:focusable="false" android:visibility="gone" android:layout_width="23.0dp" android:layout_height="23.0dp" android:layout_marginRight="4.0dp" android:src="@drawable/pop_menu_title_icon" android:layout_alignParentLeft="true" android:layout_centerVertical="true" />
+        <TextView android:textSize="@dimen/l1" android:textColor="@color/black" android:ellipsize="end" android:id="@id/le4" android:focusable="false" android:fadingEdge="none" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="111111111" android:singleLine="true" android:layout_centerHorizontal="true" android:layout_alignWithParentIfMissing="true" />
+        <TextView android:textSize="@dimen/l0" android:textColor="@color/skin_text_sub_color" android:ellipsize="end" android:id="@id/l03" android:focusable="false" android:visibility="gone" android:fadingEdge="none" android:layout_width="wrap_content" android:layout_height="wrap_content" android:singleLine="true" android:layout_below="@id/le4" android:layout_centerHorizontal="true" android:layout_alignWithParentIfMissing="true" />
+    </RelativeLayout>
+</RelativeLayout>

@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
-<manifest xmlns:android="http://schemas.android.com/apk/res/android">
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools">
 
     <queries>
         <package android:name="tv.danmaku.bili" />
@@ -8,12 +9,25 @@
     </queries>
 
     <application
+        android:name=".MengzhenMusicApplication"
+        android:appComponentFactory=".QqMusicAppComponentFactory"
+        tools:replace="android:appComponentFactory"
         android:allowBackup="true"
+        android:hardwareAccelerated="true"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
+        android:largeHeap="true"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
-        android:theme="@style/AppTheme">
+        android:theme="@style/AppTheme"
+        android:usesCleartextTraffic="true">
+
+        <meta-data
+            android:name="tinker_version"
+            android:value="1.9.15.2" />
+        <meta-data
+            android:name="TINKER_ID"
+            android:value="tinker_id_qqmusic_20.6.5.8.r084ec4a8_20260714153130_64" />
 
         <activity
             android:configChanges="orientation|keyboardHidden|keyboard|screenSize|locale|smallestScreenSize|screenLayout|uiMode|navigation|density"
@@ -49,19 +63,18 @@
             android:exported="false"
             android:theme="@style/AppTheme.TransparentChallenge" />
 
+        <!-- QQ Music lock screen Activity (not declared by qqmusic-runtime manifest) -->
         <activity
-            android:name="com.tencent.qqmusic.activity.UserNicknameModifyActivity"
-            android:exported="false"
-            android:theme="@style/AppTheme.NoActionBar"
-            android:windowSoftInputMode="adjustResize" />
-
-        <activity
-            android:name="com.tencent.qqmusic.activity.ImageCropActivity"
+            android:name="com.tencent.qqmusic.business.lockscreennew.LockScreenActivity"
             android:configChanges="keyboardHidden|orientation|screenLayout|screenSize|smallestScreenSize"
+            android:excludeFromRecents="true"
             android:exported="false"
+            android:hardwareAccelerated="true"
+            android:launchMode="singleInstance"
+            android:resizeableActivity="true"
             android:screenOrientation="portrait"
-            android:theme="@style/os"
-            android:windowSoftInputMode="stateHidden|adjustResize" />
+            android:taskAffinity="android.task.qqmusiclock"
+            android:theme="@style/ol" />
 
         <!-- Foreground Service for audio playback -->
         <service
@@ -69,6 +82,10 @@
             android:enabled="true"
             android:exported="false"
             android:foregroundServiceType="mediaPlayback" />
+
+        <!-- QQPlayerServiceNew is declared by qqmusic-runtime manifest
+             (process=:QQPlayerService, foregroundServiceType=mediaPlayback).
+             QqMusicAppComponentFactory redirects instantiation to QqMusicServiceCompat. -->
 
         <!-- 喜马拉雅播放器使用的普通绑定式 SustainedListenService -->
         <service
@@ -100,17 +117,17 @@
         <!-- Note: ScreenStatusReceiver is dynamically registered in AudioPlaybackService.onCreate(),
              do NOT statically register here to avoid duplicate reception -->
 
-        <!-- Note: WireControlReceiver is replaced by MediaSession in AudioPlaybackService.
-             MediaSession handles MEDIA_BUTTON events natively. -->
+        <!-- MediaButtonReceiver is declared by qqmusic-runtime manifest
+             (process=:QQPlayerService, exported=false). -->
 
         <provider
             android:name="androidx.core.content.FileProvider"
-            android:authorities="${applicationId}.fileprovider"
+            android:authorities="${applicationId}.fileprovider;${applicationId}.fileProvider"
             android:exported="false"
             android:grantUriPermissions="true">
             <meta-data
                 android:name="android.support.FILE_PROVIDER_PATHS"
-                android:resource="@xml/file_paths" />
+                android:resource="@xml/a3" />
         </provider>
 
         <provider
@@ -150,8 +167,14 @@
     <uses-permission android:name="android.permission.RECORD_AUDIO" />
     <!-- Modify audio settings (ExoPlayer volume control) - 对标喜马拉雅 -->
     <uses-permission android:name="android.permission.MODIFY_AUDIO_SETTINGS" />
+    <uses-permission android:name="android.permission.WRITE_SETTINGS" />
     <!-- Vibrate for alarm trigger - 对标喜马拉雅 -->
     <uses-permission android:name="android.permission.VIBRATE" />
+    <!-- Disable keyguard for QQ Music lock screen Activity -->
+    <uses-permission android:name="android.permission.DISABLE_KEYGUARD" />
+    <!-- Bluetooth for QQ Music MediaSessionController and AudioPlaybackService A2DP receiver -->
+    <uses-permission android:name="android.permission.BLUETOOTH" />
+    <uses-permission android:name="android.permission.BLUETOOTH_CONNECT" />
     <uses-permission android:name="moe.shizuku.manager.permission.API_V23" />
 
 </manifest>

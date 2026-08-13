@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout android:id="@id/item_layout" android:background="@drawable/material_ripple_background" android:paddingTop="8.0dp" android:paddingBottom="8.0dp" android:layout_width="match_parent" android:layout_height="wrap_content"
+  xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">
+    <include android:id="@id/iep" android:layout_width="wrap_content" android:layout_height="wrap_content" app:a1d="hnz" app:a1x="hnz" app:a20="@id/b8_" app:a27="hnz" layout="@layout/cb9" />
+    <include android:id="@id/b8_" android:layout_width="0.0dp" android:layout_height="wrap_content" app:a1d="hnz" app:a1y="@id/iep" app:a20="@id/l0b" app:a27="hnz" layout="@layout/mo" />
+    <include android:id="@id/l0b" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginLeft="5.0dp" android:layout_marginRight="16.0dp" app:a1d="hnz" app:a1y="@id/b8_" app:a21="hnz" app:a27="hnz" layout="@layout/cof" />
+    <include android:id="@id/b8c" android:visibility="gone" android:layout_width="wrap_content" android:layout_height="wrap_content" app:a1d="hnz" app:a21="hnz" app:a27="hnz" layout="@layout/mt" />
+</androidx.constraintlayout.widget.ConstraintLayout>

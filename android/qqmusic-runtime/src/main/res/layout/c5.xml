@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout android:orientation="vertical" android:id="@id/clq" android:background="@drawable/main_bg" android:layout_width="match_parent" android:layout_height="match_parent"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <View android:id="@id/m1o" android:background="@drawable/skin_sub_mask_img" android:visibility="visible" android:layout_width="match_parent" android:layout_height="@dimen/bcp" />
+    <RelativeLayout android:id="@id/nsf" android:layout_width="match_parent" android:layout_height="match_parent" android:layout_below="@id/m1o">
+        <ViewStub android:id="@id/b78" android:layout="@layout/mh" android:layout_width="match_parent" android:layout_height="match_parent" />
+        <ViewStub android:id="@id/b79" android:layout="@layout/vi" android:layout_width="match_parent" android:layout_height="match_parent" />
+        <include android:id="@id/b9_" android:background="@drawable/skin_sub_mask_img" android:visibility="visible" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_alignParentTop="true" layout="@layout/ctj" />
+        <ViewStub android:id="@id/b7_" android:layout="@layout/a_c" android:layout_width="match_parent" android:layout_height="match_parent" android:layout_below="@id/b9_" />
+        <include android:id="@id/dfk" android:visibility="visible" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_below="@id/b9_" layout="@layout/chx" />
+        <FrameLayout android:id="@id/cu4" android:layout_width="match_parent" android:layout_height="match_parent" android:layout_below="@id/b9_" />
+    </RelativeLayout>
+</RelativeLayout>

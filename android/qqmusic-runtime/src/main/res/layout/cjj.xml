@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout android:id="@id/gt0" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_below="@id/g7u"
+  xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">
+    <RelativeLayout android:id="@id/gtn" android:visibility="visible" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="5.0dp">
+        <TextView android:textSize="@dimen/bxv" android:textColor="@color/skin_text_sub_color" android:id="@id/gtm" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/e_6" android:includeFontPadding="false" />
+        <ImageView android:id="@id/gtl" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginLeft="3.0dp" android:src="@drawable/search_icon_open_more" android:layout_toRightOf="@id/gtm" android:layout_centerInParent="true" />
+    </RelativeLayout>
+    <LinearLayout android:gravity="center_vertical" android:id="@id/f7i" android:visibility="gone" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="5.0dp">
+        <ImageView android:id="@id/f7h" android:layout_width="1.0dp" android:layout_height="10.0dp" android:layout_marginLeft="10.0dp" android:layout_marginRight="10.0dp" android:src="@drawable/skin_search_more_divider_img" android:scaleType="fitXY" />
+        <com.tencent.qqmusic.ui.RoundedRelativeLayout android:layout_width="wrap_content" android:layout_height="wrap_content" app:ado="@dimen/byb">
+            <com.tencent.component.widget.AsyncEffectImageView android:id="@id/f7j" android:layout_width="16.0dp" android:layout_height="16.0dp" android:scaleType="fitCenter" />
+        </com.tencent.qqmusic.ui.RoundedRelativeLayout>
+        <com.tencent.qqmusic.ui.FitWithIconLinearLayout android:gravity="center_vertical" android:layout_width="wrap_content" android:layout_height="wrap_content">
+            <TextView android:textSize="12.0dp" android:textColor="@color/skin_text_sub_color" android:ellipsize="end" android:gravity="center_vertical" android:id="@id/f7l" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginLeft="5.0dp" android:singleLine="true" android:includeFontPadding="false" android:layout_marginStart="5.0dp" />
+            <ImageView android:id="@id/f7k" android:layout_width="5.0dp" android:layout_height="wrap_content" android:layout_marginLeft="5.0dp" android:src="@drawable/arrow_right_kge" android:scaleType="fitCenter" android:layout_marginStart="5.0dp" />
+        </com.tencent.qqmusic.ui.FitWithIconLinearLayout>
+    </LinearLayout>
+    <LinearLayout android:gravity="center_vertical" android:id="@id/enp" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="5.0dp" android:layout_alignWithParentIfMissing="true">
+        <ImageView android:id="@id/enn" android:layout_width="1.0dp" android:layout_height="10.0dp" android:layout_marginLeft="10.0dp" android:layout_marginRight="10.0dp" android:src="@drawable/skin_search_more_divider_img" android:scaleType="fitXY" />
+        <com.tencent.component.widget.AsyncEffectImageView android:id="@id/eno" android:layout_width="14.0dp" android:layout_height="14.0dp" android:src="@drawable/logo_kge" android:scaleType="fitCenter" />
+        <com.tencent.qqmusic.ui.FitWithIconLinearLayout android:gravity="center_vertical" android:layout_width="wrap_content" android:layout_height="wrap_content">
+            <TextView android:textSize="@dimen/bxv" android:textColor="@color/skin_text_sub_color" android:ellipsize="end" android:gravity="center_vertical" android:id="@id/enr" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginLeft="4.0dp" android:text="@string/by9" android:singleLine="true" android:includeFontPadding="false" android:layout_marginStart="4.0dp" />
+            <ImageView android:id="@id/enq" android:layout_width="5.0dp" android:layout_height="wrap_content" android:layout_marginLeft="4.0dp" android:src="@drawable/arrow_right_kge" android:scaleType="fitCenter" android:layout_marginStart="4.0dp" />
+        </com.tencent.qqmusic.ui.FitWithIconLinearLayout>
+    </LinearLayout>
+</LinearLayout>

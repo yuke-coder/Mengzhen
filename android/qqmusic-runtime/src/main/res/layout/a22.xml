@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout android:id="@id/jdj" android:background="@drawable/main_bg" android:layout_width="match_parent" android:layout_height="match_parent"
+  xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">
+    <include android:id="@id/b7m" android:layout_width="match_parent" android:layout_height="@dimen/cau" app:a27="hnz" layout="@layout/mu" />
+    <com.tencent.qqmusic.modular.module.musichall.views.recycler.CellRecyclerView android:id="@id/f4d" android:paddingBottom="60.0dp" android:clipToPadding="false" android:layout_width="match_parent" android:layout_height="match_parent" android:layout_marginTop="@dimen/cau" />
+    <ViewStub android:id="@id/b7x" android:layout="@layout/ye" android:layout_width="match_parent" android:layout_height="match_parent" />
+    <ViewStub android:id="@id/b7f" android:layout_width="match_parent" android:layout_height="match_parent" />
+    <ViewStub android:id="@id/b7q" android:layout_width="match_parent" android:layout_height="match_parent" />
+    <ViewStub android:id="@id/b7r" android:layout_width="match_parent" android:layout_height="match_parent" />
+</androidx.constraintlayout.widget.ConstraintLayout>

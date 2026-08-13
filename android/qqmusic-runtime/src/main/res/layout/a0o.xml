@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.tencent.qqmusic.business.togetherroom.view.CustomScrollView android:id="@id/jd3" android:layout_width="match_parent" android:layout_height="match_parent"
+  xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">
+    <androidx.constraintlayout.widget.ConstraintLayout android:gravity="center_vertical" android:layout_width="match_parent" android:layout_height="match_parent">
+        <androidx.recyclerview.widget.RecyclerView android:orientation="horizontal" android:id="@id/f4a" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginLeft="@dimen/n6" android:layout_marginRight="@dimen/n6" android:overScrollMode="never" app:a1j="hnz" app:a23="hnz" app:a27="hnz" />
+        <View android:id="@id/b34" android:background="@drawable/bg_skin_main_text_color" android:layout_width="match_parent" android:layout_height="1.0dp" android:layout_marginTop="15.0dp" android:alpha="0.03" android:layout_marginStart="@dimen/n5" app:a1j="hnz" app:a23="hnz" app:a26="@id/f4a" />
+        <TextView android:textSize="@dimen/c8c" android:textStyle="normal" android:textColor="@color/skin_text_sub_color" android:gravity="start|center" android:id="@id/m2y" android:paddingTop="15.0dp" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/fbq" android:layout_marginStart="@dimen/n5" app:a23="hnz" app:a26="@id/b34" />
+        <androidx.recyclerview.widget.RecyclerView android:orientation="horizontal" android:id="@id/f3c" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginLeft="@dimen/n6" android:layout_marginTop="13.0dp" android:layout_marginRight="@dimen/n6" android:overScrollMode="never" app:a26="@id/m2y" />
+        <ViewStub android:id="@id/nf8" android:layout="@layout/mh" android:layout_width="match_parent" android:layout_height="match_parent" app:a1d="hnz" app:a1j="hnz" app:a23="hnz" app:a27="hnz" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</com.tencent.qqmusic.business.togetherroom.view.CustomScrollView>

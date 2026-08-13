@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout android:orientation="vertical" android:layout_width="match_parent" android:layout_height="match_parent"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <include android:id="@id/naf" android:layout_width="match_parent" android:layout_height="match_parent" layout="@layout/m6" />
+    <include android:id="@id/lei" layout="@layout/rq" />
+    <View android:id="@id/len" android:background="#dddddd" android:visibility="gone" android:layout_width="match_parent" android:layout_height="1.0px" android:layout_below="@id/lei" />
+    <EditText android:textSize="14.0sp" android:textColor="@color/skin_text_main_color" android:id="@id/c2j" android:background="@drawable/default_skin_mask_color_bg" android:paddingLeft="16.0dp" android:paddingRight="16.0dp" android:layout_width="match_parent" android:layout_height="50.0dp" android:maxLength="20" android:layout_below="@id/len" />
+    <ImageView android:id="@id/dpx" android:layout_width="16.0dp" android:layout_height="16.0dp" android:layout_marginTop="20.0dp" android:layout_marginRight="16.0dp" android:src="@drawable/icon_edit_folder_detail_text_clear" android:layout_below="@id/len" android:layout_alignParentRight="true" />
+    <TextView android:textColor="@color/skin_text_sub_color" android:layout_gravity="right" android:id="@id/m73" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="11.0dp" android:layout_marginRight="16.0dp" android:text="@string/bax" android:layout_below="@id/c2j" android:layout_alignParentRight="true" />
+    <RelativeLayout android:id="@id/t_" android:visibility="gone" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginTop="30.0dp" android:layout_below="@id/m73">
+        <com.tencent.qqmusic.business.live.ui.view.RoundAvatarImage android:id="@id/t9" android:layout_width="30.0dp" android:layout_height="30.0dp" android:layout_marginLeft="16.0dp" android:src="@drawable/default_avatar" android:layout_centerVertical="true" />
+        <TextView android:textSize="15.0sp" android:textStyle="bold" android:textColor="@color/skin_text_main_color" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginLeft="10.0dp" android:text="@string/b9g" android:layout_toRightOf="@id/t9" android:layout_centerVertical="true" />
+        <LinearLayout android:gravity="center_vertical" android:orientation="horizontal" android:id="@id/si" android:background="@drawable/folder_ai_title_create_btn_bg" android:layout_width="82.0dp" android:layout_height="30.0dp" android:layout_marginRight="15.0dp" android:layout_alignParentRight="true" android:layout_centerVertical="true">
+            <ImageView android:id="@id/sj" android:layout_width="15.0dp" android:layout_height="15.0dp" android:layout_marginLeft="10.0dp" android:src="@drawable/folder_ai_create_icon" />
+            <TextView android:textSize="11.0sp" android:textColor="@color/skin_text_main_color" android:id="@id/sk" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginLeft="3.0dp" android:text="@string/b9e" />
+        </LinearLayout>
+    </RelativeLayout>
+    <LinearLayout android:gravity="center" android:orientation="horizontal" android:id="@id/ta" android:visibility="gone" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginTop="20.0dp" android:layout_below="@id/t_">
+        <ProgressBar android:id="@id/cm2" android:layout_width="15.0dp" android:layout_height="15.0dp" android:indeterminate="true" android:indeterminateOnly="true" android:indeterminateDrawable="@drawable/icn_loading_indicator" android:indeterminateDuration="2000" />
+        <androidx.appcompat.widget.AppCompatTextView android:textSize="12.0sp" android:textColor="@color/skin_text_sub_color" android:id="@id/cm3" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginLeft="4.0dp" android:text="@string/j6" android:maxLines="1" />
+    </LinearLayout>
+    <androidx.recyclerview.widget.RecyclerView android:id="@id/tb" android:visibility="gone" android:layout_width="match_parent" android:layout_height="match_parent" android:layout_marginTop="10.0dp" android:layout_below="@id/t_" android:overScrollMode="never" />
+</RelativeLayout>

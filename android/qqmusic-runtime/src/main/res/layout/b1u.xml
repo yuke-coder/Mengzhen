@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout android:orientation="vertical" android:id="@id/jq1" android:layout_width="match_parent" android:layout_height="wrap_content"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <View android:background="@drawable/post_moment_bottom_bar_bg" android:layout_width="match_parent" android:layout_height="20.0dp" android:layout_above="@id/jq1" />
+    <FrameLayout android:focusable="true" android:clickable="true" android:layout_width="match_parent" android:layout_height="58.0dp">
+        <LinearLayout android:gravity="center_vertical" android:orientation="horizontal" android:id="@id/cp3" android:layout_width="wrap_content" android:layout_height="match_parent" android:layout_marginLeft="16.0dp">
+            <androidx.appcompat.widget.AppCompatTextView android:textSize="16.0sp" android:textColor="@color/skin_text_sub_color" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="已选 " />
+            <androidx.appcompat.widget.AppCompatTextView android:textSize="16.0sp" android:textColor="@color/skin_text_sub_color" android:id="@id/kf8" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="0" />
+            <androidx.appcompat.widget.AppCompatTextView android:textSize="16.0sp" android:textColor="@color/skin_text_sub_color" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text=" 首" />
+        </LinearLayout>
+        <androidx.appcompat.widget.AppCompatTextView android:enabled="false" android:textSize="14.0sp" android:textColor="@color/color_000000" android:gravity="center" android:layout_gravity="right|center" android:id="@id/kf7" android:background="@drawable/song_migration_button_bg" android:layout_width="50.0dp" android:layout_height="30.0dp" android:layout_marginRight="16.0dp" android:text="@string/hl7" />
+    </FrameLayout>
+</LinearLayout>

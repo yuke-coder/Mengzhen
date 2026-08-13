@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<animation-list android:oneshot="true"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <item android:duration="10" android:drawable="@drawable/vectorlayout_component_res__fullplayer_progress_point" />
+    <item android:duration="50" android:drawable="@drawable/vectorlayout_component_res__thumb_1" />
+    <item android:duration="50" android:drawable="@drawable/vectorlayout_component_res__thumb_2" />
+    <item android:duration="50" android:drawable="@drawable/vectorlayout_component_res__thumb_3" />
+    <item android:duration="50" android:drawable="@drawable/vectorlayout_component_res__thumb_4" />
+    <item android:duration="10" android:drawable="@drawable/vectorlayout_component_res__thumb_5" />
+</animation-list>

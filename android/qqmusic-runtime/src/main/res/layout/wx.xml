@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout android:clipChildren="false" android:layout_width="match_parent" android:layout_height="match_parent"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <View android:id="@id/hqo" android:visibility="gone" android:layout_width="match_parent" android:layout_height="match_parent" />
+    <FrameLayout android:id="@id/hqp" android:visibility="gone" android:layout_width="match_parent" android:layout_height="match_parent" android:layout_centerInParent="true" />
+    <FrameLayout android:id="@id/hqq" android:visibility="gone" android:layout_width="match_parent" android:layout_height="match_parent" android:layout_centerInParent="true" />
+    <FrameLayout android:id="@id/hqs" android:visibility="gone" android:layout_width="match_parent" android:layout_height="match_parent" android:layout_centerInParent="true">
+        <com.airbnb.lottie.LottieAnimationView android:layout_gravity="center" android:id="@id/dv4" android:layout_width="42.0dp" android:layout_height="42.0dp" />
+    </FrameLayout>
+    <ViewStub android:id="@id/hqy" android:layout="@layout/ax8" android:inflatedId="@id/hqx" android:layout_width="match_parent" android:layout_height="match_parent" />
+</FrameLayout>

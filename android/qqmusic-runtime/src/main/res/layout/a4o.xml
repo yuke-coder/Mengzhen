@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout android:gravity="center" android:orientation="vertical" android:layout_width="45.0dp" android:layout_height="wrap_content"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <ImageView android:id="@id/erc" android:layout_width="45.0dp" android:layout_height="45.0dp" android:src="@drawable/action_icon_qq" />
+    <TextView android:textSize="10.0dp" android:textColor="@color/white" android:id="@id/erd" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="8.0dp" android:text="@string/h14" android:lines="1" />
+</LinearLayout>

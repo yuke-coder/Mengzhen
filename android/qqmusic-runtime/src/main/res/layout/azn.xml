@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout android:orientation="vertical" android:background="@color/transparent" android:layout_width="302.0dp" android:layout_height="wrap_content"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <LinearLayout android:orientation="vertical" android:background="@drawable/bg_round_white" android:layout_width="302.0dp" android:layout_height="wrap_content">
+        <androidx.appcompat.widget.AppCompatTextView android:textSize="17.0sp" android:textColor="@color/black" android:layout_gravity="center_horizontal" android:id="@id/i2i" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="23.0dp" android:text="@string/fj2" />
+        <androidx.recyclerview.widget.RecyclerView android:id="@id/i2h" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginTop="15.0dp" android:layout_marginBottom="15.0dp" />
+    </LinearLayout>
+    <ImageView android:layout_gravity="center" android:id="@id/i2g" android:visibility="visible" android:layout_width="34.0dp" android:layout_height="34.0dp" android:layout_marginTop="26.0dp" android:src="@drawable/mlive_dialog_close" />
+</LinearLayout>

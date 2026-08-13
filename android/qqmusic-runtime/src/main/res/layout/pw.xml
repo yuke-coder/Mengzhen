@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout android:orientation="vertical" android:background="@drawable/color_b15" android:fitsSystemWindows="true" android:layout_width="match_parent" android:layout_height="wrap_content"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <com.tencent.qqmusic.fragment.singer.SingerFilterTableView android:id="@id/k3j" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginTop="8.0dp" android:layout_marginBottom="8.0dp" />
+    <ImageView android:id="@id/at5" android:background="@drawable/color_b17" android:layout_width="match_parent" android:layout_height="1.0px" android:layout_below="@id/g5p" />
+    <TextView android:textSize="16.0dp" android:textStyle="normal" android:textColor="@color/common_grid_title_color_selector" android:gravity="center" android:id="@id/d38" android:layout_width="match_parent" android:layout_height="50.0dp" android:text="@string/cancel" />
+</LinearLayout>

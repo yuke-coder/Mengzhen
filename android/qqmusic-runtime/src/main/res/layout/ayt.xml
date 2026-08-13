@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout android:gravity="center_vertical" android:id="@id/hkq" android:layout_width="match_parent" android:layout_height="wrap_content" android:paddingStart="12.0dp"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <com.tencent.component.widget.AsyncImageView android:id="@id/hkt" android:layout_width="20.0dp" android:layout_height="20.0dp" android:layout_marginRight="5.0dp" />
+    <androidx.appcompat.widget.AppCompatTextView android:textSize="13.0dp" android:textColor="@color/black" android:id="@id/hks" android:layout_width="0.0dp" android:layout_height="wrap_content" android:layout_marginTop="12.0dp" android:layout_marginBottom="12.0dp" android:singleLine="true" android:layout_weight="1.0" android:paddingEnd="15.0dp" />
+    <androidx.appcompat.widget.AppCompatTextView android:textSize="11.0dp" android:textColor="#050505" android:gravity="center" android:id="@id/hku" android:background="@drawable/one_day_reward_bubble_btn_bg" android:layout_width="wrap_content" android:layout_height="22.0dp" android:text="@string/hga" android:paddingStart="12.0dp" android:paddingEnd="12.0dp" android:layout_marginEnd="7.0dp" />
+    <ImageView android:id="@id/hkr" android:padding="2.0dp" android:layout_width="28.0dp" android:layout_height="28.0dp" android:src="@drawable/icon_close_sp_free" android:contentDescription="@string/a_6" android:layout_marginEnd="5.0dp" />
+</LinearLayout>

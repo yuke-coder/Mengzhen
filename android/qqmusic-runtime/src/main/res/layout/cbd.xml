@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout android:layout_width="match_parent" android:layout_height="match_parent"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <include android:layout_width="match_parent" android:layout_height="match_parent" layout="@layout/m6" />
+    <include android:id="@id/lv1" android:layout_width="match_parent" android:layout_height="@dimen/cau" layout="@layout/mu" />
+    <RelativeLayout android:orientation="vertical" android:background="@drawable/skin_common_listitem_bg" android:layout_width="match_parent" android:layout_height="match_parent" android:layout_below="@id/lv1">
+        <androidx.recyclerview.widget.RecyclerView android:id="@id/a60" android:paddingBottom="@dimen/ait" android:clipToPadding="false" android:layout_width="match_parent" android:layout_height="match_parent" android:layout_alignParentTop="true" android:overScrollMode="never" />
+        <include android:id="@id/igj" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_centerHorizontal="true" android:layout_centerVertical="true" layout="@layout/mj" />
+        <include android:id="@id/igl" android:visibility="gone" android:layout_width="match_parent" android:layout_height="match_parent" android:layout_marginTop="202.0dp" android:layout_centerHorizontal="true" android:layout_centerVertical="true" layout="@layout/yc" />
+    </RelativeLayout>
+    <include android:id="@id/b7f" android:visibility="gone" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginTop="50.0dp" layout="@layout/mj" />
+    <ViewStub android:id="@id/b7q" android:layout="@layout/mh" android:layout_width="match_parent" android:layout_height="match_parent" />
+</RelativeLayout>

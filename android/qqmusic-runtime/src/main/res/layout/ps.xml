@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout android:layout_width="match_parent" android:layout_height="match_parent"
+  xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">
+    <View android:id="@id/ndb" android:focusable="true" android:clickable="true" android:layout_width="match_parent" android:layout_height="match_parent" android:layout_above="@id/exr" android:importantForAccessibility="no" />
+    <androidx.constraintlayout.widget.ConstraintLayout android:layout_gravity="bottom" android:id="@id/exr" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_alignParentBottom="true">
+        <RelativeLayout android:id="@id/exq" android:background="@color/transparent" android:focusable="false" android:visibility="gone" android:layout_width="match_parent" android:layout_height="wrap_content" app:a1e="@id/ndc" app:a1x="hnz">
+            <com.tencent.component.widget.AsyncEffectImageView android:id="@id/hbw" android:layout_width="match_parent" android:layout_height="@dimen/bu" android:scaleType="fitStart" android:maxHeight="@dimen/bu" android:layout_alignParentLeft="true" android:layout_alignWithParentIfMissing="true" />
+            <ImageView android:layout_width="8.0dp" android:layout_height="7.5dp" android:layout_marginTop="2.5dp" android:layout_marginRight="2.0dp" android:src="@drawable/ic_share_ad_close" android:scaleType="fitXY" android:layout_alignParentTop="true" android:layout_alignParentRight="true" />
+        </RelativeLayout>
+        <View android:id="@id/ndc" android:layout_width="match_parent" android:layout_height="12.0dp" app:a1e="@id/etp" />
+        <androidx.constraintlayout.widget.ConstraintLayout android:id="@id/etp" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginLeft="20.0dp" android:layout_marginRight="20.0dp" app:a1e="@id/mks">
+            <androidx.constraintlayout.widget.ConstraintLayout android:id="@id/etq" android:background="@drawable/share_combined_bg" android:visibility="gone" android:layout_width="match_parent" android:layout_height="47.5dp" app:a1x="hnz" app:a27="hnz">
+                <ImageView android:id="@id/dq7" android:layout_width="22.5dp" android:layout_height="15.0dp" android:layout_marginLeft="10.0dp" android:src="@drawable/share_combined_vip_icon_no_login" app:a1d="hnz" app:a1x="hnz" app:a27="hnz" />
+                <TextView android:textSize="12.0dp" android:textColor="#b3ffffff" android:id="@id/mky" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginLeft="7.5dp" android:text="登录分享歌曲，领豪华绿钻" app:a1d="hnz" app:a1y="@id/dq7" app:a27="hnz" />
+                <ImageView android:id="@id/dq6" android:layout_width="10.5dp" android:layout_height="10.0dp" android:layout_marginRight="10.0dp" android:src="@drawable/share_combined_close_btn" app:a1d="hnz" app:a21="hnz" app:a27="hnz" />
+                <ImageView android:id="@id/dtb" android:layout_width="66.0dp" android:layout_height="22.0dp" android:layout_marginRight="15.0dp" android:src="@drawable/share_combined_no_login_login_btn" app:a1d="hnz" app:a20="@id/dq6" app:a27="hnz" />
+            </androidx.constraintlayout.widget.ConstraintLayout>
+            <androidx.constraintlayout.widget.ConstraintLayout android:id="@id/etr" android:background="@drawable/share_combined_bg" android:visibility="gone" android:layout_width="match_parent" android:layout_height="98.0dp" app:a1x="hnz" app:a27="hnz">
+                <TextView android:textSize="12.0dp" android:textColor="#b3ffffff" android:id="@id/mkx" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginLeft="11.5dp" android:layout_marginTop="12.0dp" android:text="连续分享7天领豪华绿钻" app:a1x="hnz" app:a27="hnz" />
+                <com.tencent.qqmusic.share.customview.ComboShareProgressView android:id="@id/jxm" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginTop="2.0dp" app:a1d="hnz" app:a1x="hnz" app:a21="hnz" app:a27="hnz" />
+                <ImageView android:id="@id/dq5" android:layout_width="10.5dp" android:layout_height="10.0dp" android:layout_marginTop="15.0dp" android:layout_marginRight="10.0dp" android:src="@drawable/share_combined_close_btn" app:a21="hnz" app:a27="hnz" />
+            </androidx.constraintlayout.widget.ConstraintLayout>
+        </androidx.constraintlayout.widget.ConstraintLayout>
+        <TextView android:textSize="16.0dp" android:textColor="@color/share_song_dialog_title_dark" android:id="@id/mks" android:paddingTop="7.0dp" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginLeft="20.0dp" android:text="分享到" app:a1x="hnz" app:a26="@id/exq" />
+        <androidx.recyclerview.widget.RecyclerView android:id="@id/itd" android:layout_width="wrap_content" android:layout_height="wrap_content" app:a1x="hnz" app:a26="@id/mks" />
+        <TextView android:textSize="16.0dp" android:textColor="@color/share_song_dialog_title_dark" android:id="@id/mkr" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginLeft="20.0dp" android:layout_marginTop="20.0dp" android:text="你还可以分享" app:a1x="hnz" app:a26="@id/itd" />
+        <androidx.recyclerview.widget.RecyclerView android:id="@id/ite" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginBottom="20.0dp" app:a1x="hnz" app:a26="@id/mkr" />
+        <ImageView android:id="@id/dte" android:background="@color/share_song_dialog_divider_dark" android:layout_width="match_parent" android:layout_height="0.5dp" android:layout_marginTop="20.0dp" app:a26="@id/ite" />
+        <TextView android:textSize="16.0dp" android:textColor="@color/share_song_dialog_title_dark" android:gravity="center" android:id="@id/akr" android:paddingTop="18.5dp" android:paddingBottom="18.5dp" android:layout_width="match_parent" android:layout_height="wrap_content" android:text="取消" app:a26="@id/dte" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</RelativeLayout>

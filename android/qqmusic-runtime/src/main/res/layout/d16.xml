@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<merge
+  xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">
+    <androidx.constraintlayout.widget.ConstraintLayout android:background="@drawable/vip_return_gift_icon_bg" android:padding="2.0dp" android:layout_width="42.0dp" android:layout_height="53.0dp">
+        <kk.design.KKImageView android:id="@id/j5w" android:layout_width="35.0dp" android:layout_height="38.0dp" app:a1x="hnz" app:a21="hnz" app:a27="hnz" />
+        <TextView android:textSize="9.0sp" android:textColor="#795833" android:ellipsize="end" android:id="@id/j5x" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginBottom="2.0dp" android:text="99kb" android:maxLines="1" app:a1d="hnz" app:a1x="hnz" app:a21="hnz" app:a26="@id/j5w" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</merge>

@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout android:layout_width="wrap_content" android:layout_height="wrap_content"
+  xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">
+    <com.tencent.component.widget.AsyncEffectImageView android:id="@id/dne" android:visibility="gone" android:layout_width="match_parent" android:layout_height="match_parent" android:scaleType="fitXY" app:a1j="hnz" app:a23="hnz" />
+    <androidx.constraintlayout.widget.ConstraintLayout android:id="@id/b03" android:background="@drawable/ss_official_effect_item_round_bg" android:layout_width="match_parent" android:layout_height="match_parent" android:layout_marginLeft="16.0dp" android:layout_marginRight="16.0dp">
+        <com.tencent.component.widget.AsyncEffectImageView android:id="@id/drp" android:layout_width="40.0dp" android:layout_height="40.0dp" android:layout_marginLeft="16.0dp" android:layout_marginBottom="6.0dp" app:a1d="hnz" app:a1x="hnz" app:a27="hnz" />
+        <TextView android:textSize="16.0sp" android:textColor="#ffffff" android:id="@id/mcc" android:layout_width="wrap_content" android:layout_height="22.5dp" android:layout_marginLeft="16.0dp" android:text="歌手专属音效" app:a1y="@id/drp" app:a27="@id/drp" />
+        <com.tencent.component.widget.AsyncEffectImageView android:id="@id/efs" android:layout_width="wrap_content" android:layout_height="13.0dp" android:layout_marginLeft="4.0dp" android:scaleType="fitCenter" app:a1d="@id/mcc" app:a1y="@id/mcc" app:a27="@id/mcc" />
+        <TextView android:textSize="12.0sp" android:textColor="@color/white_60_opacity" android:id="@id/mnm" android:layout_width="wrap_content" android:layout_height="16.5dp" android:layout_marginLeft="16.0dp" android:text="支持更多歌手，快来使用吧" app:a1d="@id/drp" app:a1y="@id/drp" />
+        <ImageView android:id="@id/eja" android:layout_width="wrap_content" android:layout_height="wrap_content" android:src="@drawable/ss_impl_all_arrow" android:layout_marginEnd="18.0dp" app:a1d="hnz" app:a1j="hnz" app:a27="hnz" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>

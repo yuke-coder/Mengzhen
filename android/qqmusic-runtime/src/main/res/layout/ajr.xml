@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout android:id="@id/nsb" android:layout_width="wrap_content" android:layout_height="wrap_content"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <RelativeLayout android:id="@id/iqk" android:focusable="true" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_centerHorizontal="true">
+        <com.tencent.component.widget.AsyncEffectImageView android:id="@id/e6i" android:layout_width="65.0dp" android:layout_height="65.0dp" android:src="@drawable/default_folder_mid" android:scaleType="centerCrop" />
+        <com.tencent.component.widget.AsyncEffectImageView android:id="@id/e6k" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="@dimen/boz" android:scaleType="fitXY" android:adjustViewBounds="true" android:layout_alignParentLeft="true" android:layout_alignParentTop="true" />
+        <ImageView android:id="@id/e6j" android:layout_width="@dimen/bnt" android:layout_height="@dimen/bnt" android:src="@drawable/radio_large_play_icon" android:layout_centerInParent="true" android:contentDescription="@string/acf" />
+    </RelativeLayout>
+    <com.tencent.qqmusic.ui.FontFitTextView android:textSize="@dimen/bom" android:textColor="@color/skin_text_main_color" android:ellipsize="end" android:gravity="center" android:id="@id/d3_" android:paddingTop="6.0dp" android:layout_width="65.0dp" android:layout_height="24.0dp" android:text="GAP" android:maxLines="1" android:layout_below="@id/iqk" android:layout_centerHorizontal="true" />
+</RelativeLayout>

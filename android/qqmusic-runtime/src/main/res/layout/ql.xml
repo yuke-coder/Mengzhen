@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout android:background="@color/divider_ten_percent_white" android:layout_width="match_parent" android:layout_height="wrap_content"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <RelativeLayout android:id="@id/bql" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginLeft="10.0dp" android:layout_marginTop="15.0dp" android:layout_marginRight="10.0dp" android:layout_marginBottom="15.0dp">
+        <ImageView android:id="@id/bqu" android:layout_width="18.0dp" android:layout_height="18.0dp" android:src="@drawable/volume_adjust" android:layout_alignParentRight="true" android:layout_centerVertical="true" />
+        <RelativeLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_toLeftOf="@id/bqu" android:layout_centerVertical="true">
+            <LinearLayout android:id="@id/bqj" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_alignParentLeft="true" android:layout_centerVertical="true">
+                <TextView android:textSize="16.0sp" android:textColor="@android:color/white" android:ellipsize="end" android:id="@id/bqk" android:layout_width="0.0dp" android:layout_height="wrap_content" android:lines="1" android:singleLine="true" android:includeFontPadding="false" android:layout_weight="1.0" />
+                <ImageView android:layout_gravity="center_vertical" android:id="@id/bq0" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginLeft="10.0dp" android:src="@drawable/arrow_gdt_go" android:includeFontPadding="false" android:layout_centerVertical="true" />
+            </LinearLayout>
+        </RelativeLayout>
+    </RelativeLayout>
+    <FrameLayout android:id="@id/bqm" android:layout_width="match_parent" android:layout_height="@dimen/cdw" android:layout_marginLeft="10.0dp" android:layout_marginRight="10.0dp" android:layout_marginBottom="15.0dp" android:layout_weight="1.0" android:layout_below="@id/bql" />
+    <LinearLayout android:orientation="vertical" android:id="@id/bqt" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_below="@id/bqm">
+        <ImageView android:id="@id/bqn" android:layout_width="match_parent" android:layout_height="@dimen/cdx" android:src="@color/video_poster_player_select_video_line_bg" android:layout_weight="0.0" android:contentDescription="分割线" />
+        <FrameLayout android:id="@id/bqo" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginLeft="10.0dp" android:layout_marginRight="10.0dp" android:layout_weight="0.0">
+            <TextView android:textSize="16.0sp" android:textColor="@color/white" android:layout_gravity="left|center" android:id="@id/bqq" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/ipq" />
+            <ImageView android:layout_gravity="right|center" android:id="@id/bqp" android:layout_width="wrap_content" android:layout_height="wrap_content" android:src="@drawable/switch_on" android:scaleType="centerCrop" />
+        </FrameLayout>
+    </LinearLayout>
+    <TextView android:textSize="14.0sp" android:textColor="@color/white" android:id="@id/n5e" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginLeft="30.0dp" android:layout_marginTop="-5.0dp" android:layout_below="@id/bql" />
+</RelativeLayout>

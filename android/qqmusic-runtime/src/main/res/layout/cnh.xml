@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout android:orientation="vertical" android:id="@id/if3" android:visibility="visible" android:layout_width="match_parent" android:layout_height="wrap_content"
+  xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">
+    <RelativeLayout android:id="@id/if4" android:layout_width="match_parent" android:layout_height="40.0dp">
+        <kk.design.KKTextView android:id="@id/max" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/karaoke_songedit_volume_voice" android:layout_alignParentBottom="true" android:contentDescription="@string/karaoke_songedit_volume_voice" app:a0f="g7y" app:a0g="bj0" />
+        <com.tme.karaoka.previewui.volume.CustomSeekbar android:id="@id/if5" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginLeft="8.0dp" android:layout_marginBottom="2.0dp" android:layout_toRightOf="@id/max" android:layout_alignParentRight="true" android:layout_alignParentBottom="true" app:f3="#ee666666" app:f8="100.0" app:f9="0.0" app:fb="#99ffffff" app:fo="#99ffffff" app:fu="#26ffffff" app:fv="3.0dp" app:agy="erk" />
+    </RelativeLayout>
+    <RelativeLayout android:id="@id/if1" android:layout_width="match_parent" android:layout_height="40.0dp">
+        <kk.design.KKTextView android:id="@id/m3h" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/karaoke_songedit_volume_accompaniment" android:layout_alignParentBottom="true" android:layout_centerVertical="true" android:contentDescription="@string/karaoke_songedit_volume_accompaniment" app:a0f="g7y" app:a0g="bj0" />
+        <com.tme.karaoka.previewui.volume.CustomSeekbar android:id="@id/if2" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginLeft="8.0dp" android:layout_marginBottom="2.0dp" android:layout_toRightOf="@id/m3h" android:layout_alignParentRight="true" android:layout_alignParentBottom="true" app:f3="#ee666666" app:f8="100.0" app:f9="0.0" app:fb="#99ffffff" app:fo="#99ffffff" app:fu="#26ffffff" app:fv="3.0dp" app:agy="erk" />
+    </RelativeLayout>
+</LinearLayout>

@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout android:layout_gravity="center_vertical" android:id="@id/id5" android:layout_width="match_parent" android:layout_height="49.0dp" android:minHeight="49.0dp"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <LinearLayout android:gravity="center_vertical" android:orientation="horizontal" android:layout_width="match_parent" android:layout_height="49.0dp">
+        <ImageView android:layout_gravity="center_vertical" android:id="@id/dso" android:layout_width="18.0dp" android:layout_height="18.0dp" android:src="@drawable/time_line_add_putong_light" android:scaleType="centerCrop" />
+        <TextView android:textSize="14.0sp" android:textColor="@color/skin_text_main_color" android:gravity="right|center" android:layout_gravity="center_vertical" android:id="@id/ijq" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginLeft="5.0dp" android:layout_marginRight="6.0dp" android:text="@string/fqp" />
+        <LinearLayout android:gravity="right|center" android:orientation="horizontal" android:id="@id/esh" android:background="@color/transparent" android:layout_width="0.0dp" android:layout_height="wrap_content" android:layout_marginLeft="16.0dp" android:layout_marginRight="4.0dp" android:layout_weight="1.0">
+            <TextView android:textSize="12.0sp" android:textColor="@color/skin_text_sub_color" android:layout_gravity="right|center" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/fqq" />
+        </LinearLayout>
+        <ImageView android:layout_gravity="right|center" android:id="@id/dp6" android:background="@drawable/post_moment_arrow_right_normal" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginRight="5.0dp" />
+        <ImageView android:layout_gravity="right|center" android:id="@id/dql" android:visibility="gone" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginRight="5.0dp" android:contentDescription="@string/fqv" />
+    </LinearLayout>
+</FrameLayout>

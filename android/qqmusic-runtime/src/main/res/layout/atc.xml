@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout android:id="@id/lx0" android:layout_width="match_parent" android:layout_height="wrap_content"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <RelativeLayout android:layout_width="match_parent" android:layout_height="45.0dp">
+        <ImageView android:id="@id/er1" android:layout_width="44.0dp" android:layout_height="44.0dp" android:src="@drawable/port_mv_top_close_a" android:scaleType="centerInside" android:layout_alignParentBottom="true" android:contentDescription="关闭" android:layout_marginStart="30.0dp" />
+        <TextView android:textSize="14.0sp" android:textColor="@color/white" android:gravity="center" android:id="@id/er3" android:layout_width="wrap_content" android:layout_height="44.0dp" android:singleLine="true" android:layout_toRightOf="@id/er1" android:layout_alignParentBottom="true" android:layout_toStartOf="@id/er2" />
+        <ImageView android:id="@id/er2" android:visibility="gone" android:layout_width="44.0dp" android:layout_height="44.0dp" android:src="@drawable/port_mv_top_more_bar_b" android:scaleType="centerInside" android:layout_alignParentRight="true" android:layout_alignParentBottom="true" android:contentDescription="更多" />
+    </RelativeLayout>
+</FrameLayout>

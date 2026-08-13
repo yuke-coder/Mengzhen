@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout android:id="@id/acb" android:focusable="false" android:layout_width="match_parent" android:layout_height="match_parent" android:contentDescription="@string/f8v"
+  xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">
+    <ImageView android:id="@id/aca" android:focusable="false" android:visibility="gone" android:layout_width="match_parent" android:layout_height="match_parent" android:contentDescription="@string/f8v" />
+    <ImageView android:id="@id/acf" android:focusable="false" android:visibility="gone" android:layout_width="match_parent" android:layout_height="match_parent" android:contentDescription="@string/f8t" />
+    <com.tencent.qqmusic.pag.QQMusicPAGView android:id="@id/ace" android:focusable="false" android:visibility="gone" android:layout_width="match_parent" android:layout_height="match_parent" android:contentDescription="@string/f8t" />
+    <TextView android:textSize="9.0dp" android:textColor="@color/danmu_num_tv" android:ellipsize="end" android:id="@id/acg" android:visibility="gone" android:layout_width="wrap_content" android:layout_height="wrap_content" android:maxLines="1" android:includeFontPadding="false" android:importantForAccessibility="no" app:a1_="@id/kuh" app:a23="@id/kug" />
+    <FrameLayout android:id="@id/acd" android:visibility="gone" android:layout_width="wrap_content" android:layout_height="wrap_content" app:a1_="@id/kuh" app:a23="@id/kug">
+        <com.tencent.qqmusic.ui.customview.textview.MarqueeExtendTextView android:id="@id/acc" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="3.0dp" android:importantForAccessibility="no" />
+    </FrameLayout>
+    <TextView android:textSize="9.0dp" android:textColor="#99ffffff" android:gravity="center" android:id="@id/kuh" android:layout_width="wrap_content" android:layout_height="wrap_content" android:singleLine="true" android:includeFontPadding="false" android:importantForAccessibility="no" app:a23="@id/kug" app:a26="@id/kug" />
+    <Space android:id="@id/kug" android:layout_width="0.0dp" android:layout_height="0.0dp" android:importantForAccessibility="no" app:a1i="H,12:3" app:a1j="hnz" app:a27="hnz" app:a2e="0.3" />
+</androidx.constraintlayout.widget.ConstraintLayout>

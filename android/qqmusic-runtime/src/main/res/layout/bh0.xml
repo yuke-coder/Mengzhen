@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.tme.qqmusic.widget.base.view.CornerConstraintLayout android:id="@id/ch3" android:background="@drawable/mlive_fish_pind_bubbel" android:layout_width="match_parent" android:layout_height="60.0dp" app:lg="6.0dp"
+  xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">
+    <com.tme.qqmusic.widget.base.view.GlideImageView android:id="@id/ch4" android:layout_width="51.0dp" android:layout_height="51.0dp" android:layout_marginStart="7.0dp" app:a1d="hnz" app:a23="hnz" app:a27="hnz" />
+    <TextView android:textSize="13.0sp" android:textColor="@color/white" android:ellipsize="end" android:id="@id/ch5" android:layout_width="0.0dp" android:layout_height="wrap_content" android:maxLines="2" android:minLines="2" android:includeFontPadding="false" android:layout_marginStart="6.0dp" android:layout_marginEnd="30.0dp" app:a1d="hnz" app:a1j="hnz" app:a22="@id/ch4" app:a27="hnz" />
+    <ImageView android:id="@id/ch2" android:layout_width="20.0dp" android:layout_height="20.0dp" android:src="@drawable/ic_room_bottom_guide_close" android:scaleType="centerInside" android:tint="@color/white" app:a1j="hnz" app:a27="hnz" />
+</com.tme.qqmusic.widget.base.view.CornerConstraintLayout>

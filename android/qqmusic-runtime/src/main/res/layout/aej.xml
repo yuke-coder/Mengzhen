@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout android:background="@color/transparent" android:layout_width="match_parent" android:layout_height="wrap_content" android:minHeight="55.0dp"
+  xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">
+    <com.tencent.qqmusic.ui.RoundedRelativeLayout android:id="@id/hp9" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginLeft="16.0dp" android:layout_marginTop="15.0dp" android:layout_marginRight="16.0dp" android:minHeight="40.0dp" android:layout_alignParentTop="true" app:ado="3.0dp">
+        <com.tencent.qqmusic.ui.RoundedRelativeLayout android:layout_gravity="center_vertical" android:id="@id/bwf" android:visibility="gone" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginRight="16.0dp" android:minHeight="25.0dp" android:layout_alignParentRight="true" android:layout_centerVertical="true" app:ado="12.5dp">
+            <TextView android:textSize="12.0sp" android:textStyle="bold" android:textColor="@color/skin_text_main_color" android:ellipsize="end" android:gravity="center" android:id="@id/bwg" android:paddingLeft="13.0dp" android:paddingRight="13.0dp" android:layout_width="wrap_content" android:layout_height="wrap_content" android:maxLines="1" android:layout_centerInParent="true" />
+        </com.tencent.qqmusic.ui.RoundedRelativeLayout>
+        <TextView android:textSize="12.0sp" android:textColor="@color/skin_text_main_color" android:ellipsize="end" android:gravity="center_vertical" android:layout_gravity="center_vertical" android:id="@id/bwh" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginLeft="10.0dp" android:layout_marginTop="@dimen/rl" android:layout_marginRight="10.0dp" android:layout_marginBottom="@dimen/rl" android:maxLines="2" android:layout_toLeftOf="@id/bwf" android:layout_centerVertical="true" />
+    </com.tencent.qqmusic.ui.RoundedRelativeLayout>
+</RelativeLayout>

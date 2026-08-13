@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout android:id="@id/jd3" android:background="@drawable/material_ripple_background" android:layout_width="match_parent" android:layout_height="@dimen/bl0" android:minHeight="@dimen/bl0"
+  xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">
+    <RelativeLayout android:id="@id/hq7" android:layout_width="@dimen/bkn" android:layout_height="@dimen/bkn" android:layout_marginLeft="12.0dp" android:layout_marginRight="12.0dp" android:layout_alignParentLeft="true" android:layout_centerVertical="true">
+        <com.tencent.component.widget.AsyncEffectImageView android:id="@id/hq6" android:layout_width="@dimen/bkn" android:layout_height="@dimen/bkn" android:src="@drawable/default_avatar" />
+        <com.tencent.component.widget.AsyncImageView android:id="@id/hq4" android:visibility="gone" android:layout_width="@dimen/blc" android:layout_height="@dimen/blc" android:layout_marginRight="5.0dp" android:scaleType="fitXY" android:layout_alignParentRight="true" android:layout_alignParentBottom="true" />
+        <ImageView android:id="@id/nhc" android:visibility="gone" android:layout_width="18.0dp" android:layout_height="20.0dp" android:layout_marginRight="5.0dp" android:src="@drawable/singer_vip_icon" android:layout_alignParentRight="true" android:layout_alignParentBottom="true" />
+    </RelativeLayout>
+    <ImageView android:id="@id/gss" android:background="@drawable/arrow_right_grey" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginLeft="12.0dp" android:layout_marginRight="16.0dp" android:layout_alignParentRight="true" android:layout_centerVertical="true" />
+    <RelativeLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_toLeftOf="@id/gss" android:layout_toRightOf="@id/hq7" android:layout_centerVertical="true">
+        <LinearLayout android:gravity="center_vertical" android:orientation="horizontal" android:id="@id/nh5" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginRight="12.0dp">
+            <TextView android:textSize="15.0sp" android:textStyle="normal" android:textColor="@color/skin_text_main_color" android:ellipsize="end" android:id="@id/hq5" android:fadingEdge="none" android:layout_width="0.0dp" android:layout_height="wrap_content" android:layout_marginBottom="2.0dp" android:text="测试测试测试测试" android:singleLine="true" android:layout_weight="1.0" />
+            <com.tencent.qqmusic.ui.commercial.IconListView android:orientation="horizontal" android:id="@id/hd5" android:visibility="gone" android:layout_width="wrap_content" android:layout_height="23.0dp" android:layout_marginLeft="@dimen/cep" android:layout_marginBottom="2.0dp" app:uk="4.0dp" />
+        </LinearLayout>
+        <com.tencent.component.widget.AsyncImageView android:id="@id/k51" android:visibility="gone" android:layout_width="12.0dp" android:layout_height="12.0dp" android:layout_marginTop="6.0dp" android:layout_marginRight="2.0dp" android:layout_below="@id/nh5" android:layout_alignParentLeft="true" />
+        <TextView android:textColor="@color/skin_text_mid_color" android:id="@id/hq8" android:visibility="gone" android:layout_width="wrap_content" android:layout_marginTop="4.0dp" android:layout_toRightOf="@id/k51" android:layout_below="@id/nh5" style="@style/ll" />
+    </RelativeLayout>
+</RelativeLayout>

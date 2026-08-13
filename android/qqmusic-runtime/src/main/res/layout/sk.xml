@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout android:layout_width="wrap_content" android:layout_height="wrap_content"
+  xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">
+    <com.tencent.qqmusic.ui.customview.ScaleImageView android:layout_gravity="center" android:id="@id/ce5" android:layout_width="@dimen/bm4" android:layout_height="@dimen/bm4" android:scaleType="centerCrop" app:afv="@dimen/kx" />
+    <com.tencent.qqmusic.ui.customview.ScaleImageView android:layout_gravity="center" android:id="@id/ce6" android:visibility="gone" android:layout_width="@dimen/bm4" android:layout_height="@dimen/bm4" android:scaleType="fitXY" app:afv="@dimen/kx" />
+    <TextView android:textSize="24.0sp" android:textStyle="bold" android:textColor="@color/white" android:gravity="center" android:layout_gravity="center" android:id="@id/ce7" android:visibility="gone" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="+5" />
+    <TextView android:textSize="10.0sp" android:textColor="#fff" android:gravity="center" android:layout_gravity="right|bottom" android:id="@id/k8w" android:background="@drawable/rounded_shape_alpha_black" android:visibility="gone" android:layout_width="28.0dp" android:layout_height="15.0dp" android:layout_margin="5.0dp" android:text="动图" />
+</FrameLayout>

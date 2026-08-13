@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout android:layout_width="35.0dp" android:layout_height="42.0dp" android:layout_marginLeft="1.5dp" android:layout_marginRight="1.5dp"
+  xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">
+    <com.tencent.component.widget.AsyncEffectImageView android:id="@id/hod" android:layout_width="35.0dp" android:layout_height="35.0dp" />
+    <View android:id="@id/hob" android:background="@drawable/interactive_folder_header_participant_bg" android:layout_width="35.0dp" android:layout_height="35.0dp" />
+    <TextView android:textSize="8.0sp" android:textColor="@color/white" android:gravity="center" android:id="@id/hoc" android:background="@drawable/interactive_folder_header_creator_bg" android:visibility="gone" android:layout_width="33.0dp" android:layout_height="14.0dp" android:text="创建者" android:layout_alignParentBottom="true" android:layout_centerHorizontal="true" />
+</RelativeLayout>

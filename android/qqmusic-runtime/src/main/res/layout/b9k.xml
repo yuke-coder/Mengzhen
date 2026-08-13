@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout android:paddingBottom="@dimen/bxy" android:layout_width="match_parent" android:layout_height="wrap_content" android:paddingStart="@dimen/bxz" android:paddingEnd="@dimen/by0" android:layout_toStartOf="@id/d3n"
+  xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">
+    <com.tencent.component.widget.AsyncEffectImageView android:id="@id/d3k" android:visibility="gone" android:layout_width="24.0dp" android:layout_height="24.0dp" android:layout_marginRight="6.0dp" android:scaleType="fitCenter" android:importantForAccessibility="no" app:a1d="hnz" app:a1t="0.0" app:a1u="hmg" app:a1x="hnz" app:a20="@id/d45" app:a27="hnz" />
+    <TextView android:textSize="18.0dp" android:textStyle="bold" android:textColor="@color/skin_text_main_color" android:ellipsize="end" android:id="@id/d45" android:layout_width="0.0dp" android:layout_height="wrap_content" android:singleLine="true" app:a1d="hnz" app:a1t="0.0" app:a1u="hmg" app:a1y="@id/d3k" app:a20="@id/jn4" app:a27="hnz" app:a2b="nug" />
+    <LinearLayout android:gravity="center" android:orientation="horizontal" android:id="@id/jn4" android:background="@drawable/search_hot_word_play_bg" android:paddingLeft="10.0dp" android:paddingTop="5.0dp" android:paddingRight="10.0dp" android:paddingBottom="5.0dp" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginLeft="12.0dp" android:layout_centerInParent="true" android:layout_marginStart="12.0dp" app:a1d="hnz" app:a1y="@id/d45" app:a20="@id/a6i" app:a27="hnz">
+        <ImageView android:id="@id/jn3" android:layout_width="12.0dp" android:layout_height="12.0dp" android:src="@drawable/search_item_play_all" android:adjustViewBounds="true" />
+        <TextView android:textSize="10.0dp" android:textStyle="bold" android:textColor="@color/skin_text_main_color" android:gravity="center" android:id="@id/jn5" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginLeft="4.0dp" android:text="@string/acf" android:layout_marginStart="4.0dp" />
+    </LinearLayout>
+    <androidx.constraintlayout.widget.Barrier android:id="@id/a6i" android:layout_width="wrap_content" android:layout_height="wrap_content" app:d8="kvm" app:ko="ll_search_group_title_close,all_versions_ll,ll_reset_filter,item_go_to_quick_listen_layout" />
+    <LinearLayout android:gravity="right|center" android:orientation="vertical" android:id="@id/fgn" android:visibility="gone" android:layout_width="30.0dp" android:layout_height="30.0dp" android:contentDescription="@string/gmu" app:a1d="hnz" app:a21="hnz" app:a27="hnz">
+        <ImageView android:id="@id/ejn" android:layout_width="22.0dp" android:layout_height="22.0dp" android:src="@drawable/icon_search_group_title_close" />
+    </LinearLayout>
+    <LinearLayout android:gravity="center_vertical" android:id="@id/y7" android:visibility="visible" android:layout_width="wrap_content" android:layout_height="wrap_content" app:a1d="hnz" app:a1t="0.0" app:a1u="hmg" app:a21="hnz" app:a27="hnz" app:a2b="nug">
+        <TextView android:textSize="12.0dp" android:textColor="@color/skin_text_sub_color" android:ellipsize="end" android:id="@id/y8" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/glg" android:singleLine="true" />
+        <ImageView android:id="@id/y6" android:layout_width="wrap_content" android:layout_height="wrap_content" android:src="@drawable/search_all_filter_tags_arrow_fold" />
+    </LinearLayout>
+    <LinearLayout android:gravity="center" android:orientation="horizontal" android:id="@id/fgh" android:visibility="gone" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginRight="20.0dp" app:a1d="hnz" app:a20="@id/y7" app:a27="hnz">
+        <ImageView android:id="@id/j4w" android:layout_width="15.0dp" android:layout_height="15.0dp" android:src="@drawable/search_reset_filter" android:scaleType="fitCenter" android:importantForAccessibility="no" />
+        <TextView android:textSize="12.0dp" android:textColor="@color/skin_text_sub_color" android:id="@id/j4x" android:focusable="false" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginLeft="5.0dp" android:text="@string/ge8" android:importantForAccessibility="no" />
+    </LinearLayout>
+    <androidx.constraintlayout.widget.ConstraintLayout android:id="@id/e3k" android:visibility="gone" android:clickable="true" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginRight="5.0dp" app:a1d="hnz" app:a20="@id/fgh" app:a27="hnz">
+        <ImageView android:id="@id/e3j" android:layout_width="30.0dp" android:layout_height="30.0dp" android:contentDescription="@string/epe" app:a1d="hnz" app:a21="hnz" app:a27="hnz" />
+        <com.tencent.qqmusic.pag.BasePAGImageView android:id="@id/e3l" android:visibility="gone" android:layout_width="40.0dp" android:layout_height="40.0dp" android:layout_alignTop="@id/e3j" app:a1d="@id/e3j" app:a21="hnz" app:a27="@id/e3j" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>

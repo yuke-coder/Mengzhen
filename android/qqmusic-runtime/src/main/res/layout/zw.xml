@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout android:layout_width="wrap_content" android:layout_height="wrap_content"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <LinearLayout android:orientation="horizontal" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_centerVertical="true">
+        <com.tencent.component.widget.AsyncEffectImageView android:id="@id/my7" android:visibility="gone" android:layout_width="wrap_content" android:layout_height="24.0dp" android:layout_marginLeft="8.0dp" android:scaleType="fitCenter" />
+        <com.tencent.component.widget.AsyncEffectImageView android:id="@id/my8" android:visibility="gone" android:layout_width="wrap_content" android:layout_height="24.0dp" android:layout_marginLeft="4.0dp" android:scaleType="fitCenter" />
+        <com.tencent.component.widget.AsyncEffectImageView android:id="@id/my9" android:visibility="gone" android:layout_width="wrap_content" android:layout_height="24.0dp" android:layout_marginLeft="4.0dp" android:scaleType="fitCenter" />
+        <com.tencent.component.widget.AsyncEffectImageView android:id="@id/my_" android:visibility="gone" android:layout_width="wrap_content" android:layout_height="24.0dp" android:layout_marginLeft="4.0dp" android:scaleType="fitCenter" />
+        <com.tencent.component.widget.AsyncEffectImageView android:id="@id/mya" android:visibility="gone" android:layout_width="wrap_content" android:layout_height="24.0dp" android:layout_marginLeft="4.0dp" android:scaleType="fitCenter" />
+    </LinearLayout>
+    <com.tencent.qqmusic.shimmer.ShimmerFrameLayout android:orientation="horizontal" android:id="@id/jyk" android:layout_width="wrap_content" android:layout_height="27.0dp" android:layout_centerVertical="true">
+        <LinearLayout android:layout_gravity="right|center" android:orientation="horizontal" android:id="@id/haf" android:layout_width="wrap_content" android:layout_height="wrap_content">
+            <com.tencent.component.widget.AsyncEffectImageView android:id="@id/my2" android:visibility="gone" android:layout_width="wrap_content" android:layout_height="24.0dp" android:layout_marginLeft="8.0dp" android:scaleType="fitCenter" />
+            <com.tencent.component.widget.AsyncEffectImageView android:id="@id/my3" android:visibility="gone" android:layout_width="wrap_content" android:layout_height="24.0dp" android:layout_marginLeft="4.0dp" android:scaleType="fitCenter" />
+            <com.tencent.component.widget.AsyncEffectImageView android:id="@id/my4" android:visibility="gone" android:layout_width="wrap_content" android:layout_height="24.0dp" android:layout_marginLeft="4.0dp" android:scaleType="fitCenter" />
+            <com.tencent.component.widget.AsyncEffectImageView android:id="@id/my5" android:visibility="gone" android:layout_width="wrap_content" android:layout_height="24.0dp" android:layout_marginLeft="4.0dp" android:scaleType="fitCenter" />
+            <com.tencent.component.widget.AsyncEffectImageView android:id="@id/my6" android:visibility="gone" android:layout_width="wrap_content" android:layout_height="24.0dp" android:layout_marginLeft="4.0dp" android:scaleType="fitCenter" />
+        </LinearLayout>
+    </com.tencent.qqmusic.shimmer.ShimmerFrameLayout>
+</RelativeLayout>

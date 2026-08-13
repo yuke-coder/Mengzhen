@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<kk.design.layout.KKLinearLayout android:gravity="center" android:orientation="vertical" android:background="@drawable/kk_progress_dialog_bg" android:paddingLeft="28.0dp" android:paddingTop="20.0dp" android:paddingRight="28.0dp" android:paddingBottom="20.0dp" android:layout_width="wrap_content" android:layout_height="wrap_content" android:minWidth="@dimen/a_6" android:minHeight="@dimen/a_4" app:a0g="bj0"
+  xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">
+    <kk.design.layout.KKFrameLayout android:layout_width="42.0dp" android:layout_height="42.0dp">
+        <kk.design.KKProgressView android:id="@id/ii5" android:layout_width="42.0dp" android:layout_height="42.0dp" app:x2="false" app:x3="#26ffffff" app:x4="3.0dp" app:y8="@color/kk_color_white" />
+        <kk.design.KKTextView android:textStyle="bold" android:textColor="#ffffff" android:gravity="center" android:layout_gravity="center" android:id="@id/mgh" android:layout_width="wrap_content" android:layout_height="wrap_content" android:minHeight="21.0dp" android:text="0%" app:y4="bxb" app:a0d="ka1" app:a0f="hfs" />
+        <kk.design.layout.KKFrameLayout android:layout_gravity="center_vertical" android:id="@id/ets" android:layout_width="36.0dp" android:layout_height="36.0dp" android:layout_marginLeft="3.0dp">
+            <kk.design.KKImageView android:id="@id/ebo" android:layout_width="36.0dp" android:layout_height="36.0dp" android:src="@drawable/kk_progress_dialog_ic_complete" />
+        </kk.design.layout.KKFrameLayout>
+    </kk.design.layout.KKFrameLayout>
+    <kk.design.KKTextView android:textStyle="bold" android:textColor="#ffffff" android:gravity="center" android:id="@id/mnk" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="11.0dp" android:minWidth="80.0dp" android:minHeight="20.0dp" android:text="正在下载中..." app:a0d="g7e" app:a0f="hfs" />
+    <kk.design.layout.KKFrameLayout android:id="@id/eut" android:layout_width="wrap_content" android:layout_height="wrap_content">
+        <kk.design.KKButton android:id="@id/aih" android:visibility="gone" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="@dimen/a_3" android:text="取消" app:xm="ka1" app:xr="nq4" />
+    </kk.design.layout.KKFrameLayout>
+</kk.design.layout.KKLinearLayout>

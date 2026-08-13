@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout android:background="@drawable/bg_song_operator_window" android:layout_width="wrap_content" android:layout_height="@dimen/c59"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <TextView android:textSize="@dimen/c5d" android:textColor="@color/color_song_operator_text" android:gravity="center_vertical" android:id="@id/m75" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/acm" android:drawableLeft="@drawable/cell_copy" android:layout_centerVertical="true" />
+    <View android:id="@id/bu2" android:layout_width="1.0px" android:layout_height="@dimen/c58" android:layout_marginLeft="@dimen/c5_" android:layout_marginRight="@dimen/c5a" android:layout_toRightOf="@id/m75" android:layout_centerInParent="true" />
+    <TextView android:textSize="@dimen/c5d" android:textColor="@color/color_song_operator_text" android:gravity="center_vertical" android:id="@id/me0" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/wl" android:drawableLeft="@drawable/cell_multiselect" android:layout_toRightOf="@id/bu2" android:layout_centerVertical="true" />
+</RelativeLayout>

@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout android:orientation="horizontal" android:paddingTop="21.0dp" android:paddingBottom="10.0dp" android:layout_width="match_parent" android:layout_height="wrap_content"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <TextView android:textSize="16.0sp" android:textColor="@color/white" android:id="@id/mqp" android:paddingLeft="12.0dp" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="用户投稿榜" android:layout_alignParentLeft="true" />
+    <ImageView android:id="@id/ibu" android:focusable="true" android:layout_width="7.0dp" android:layout_height="15.0dp" android:src="@drawable/portrait_arrow" android:layout_alignBottom="@id/mqp" android:layout_alignParentRight="true" />
+    <TextView android:textSize="12.0sp" android:textColor="@color/white" android:gravity="bottom" android:id="@id/m_r" android:paddingLeft="30.0dp" android:paddingTop="6.0dp" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginRight="4.0dp" android:text="我要投稿" android:layout_toLeftOf="@id/ibu" android:layout_alignBottom="@id/mqp" />
+</RelativeLayout>

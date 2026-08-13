@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.tencent.qqmusic.ui.RoundedRelativeLayout android:id="@id/l7n" android:layout_width="match_parent" android:layout_height="48.0dp" android:layout_marginTop="14.0dp" android:layout_marginBottom="10.0dp" android:layout_marginStart="14.0dp" android:layout_marginEnd="15.0dp" app:ado="5.0dp"
+  xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">
+    <com.tencent.component.widget.AsyncEffectImageView android:id="@id/n49" android:layout_width="57.5dp" android:layout_height="33.0dp" android:layout_centerVertical="true" android:layout_marginStart="8.0dp" app:afv="3.0dp" />
+    <LinearLayout android:orientation="vertical" android:id="@id/n4_" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_centerVertical="true" android:layout_marginStart="8.5dp" android:layout_toStartOf="@id/en0" android:layout_toEndOf="@id/n49">
+        <TextView android:textSize="13.0sp" android:textStyle="bold" android:textColor="@color/skin_text_main_color" android:id="@id/n58" android:layout_width="wrap_content" android:layout_height="wrap_content" android:singleLine="true" />
+        <TextView android:textSize="11.0sp" android:textColor="@color/skin_text_sub_color" android:id="@id/n6m" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="2.0dp" android:singleLine="true" />
+    </LinearLayout>
+    <TextView android:textStyle="bold" android:textColor="@color/skin_text_main_color" android:id="@id/en0" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/bko" android:drawablePadding="5.0dp" android:layout_centerVertical="true" android:layout_marginEnd="1.0dp" android:layout_toStartOf="@id/a6g" />
+    <ImageView android:id="@id/a6g" android:layout_width="15.0dp" android:layout_height="15.0dp" android:src="@drawable/skin_video_banner_arrow_right" android:layout_centerVertical="true" android:layout_marginEnd="8.0dp" android:layout_alignParentEnd="true" />
+</com.tencent.qqmusic.ui.RoundedRelativeLayout>

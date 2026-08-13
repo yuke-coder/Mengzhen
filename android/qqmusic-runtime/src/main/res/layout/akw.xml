@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout android:layout_width="wrap_content" android:layout_height="wrap_content"
+  xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">
+    <com.tencent.qqmusic.ui.RoundedRelativeLayout android:id="@id/exx" android:layout_width="@dimen/c1u" android:layout_height="@dimen/c1q" app:a1x="hnz" app:a27="hnz" app:ado="4.0dp">
+        <com.tencent.component.widget.AsyncEffectImageView android:id="@id/dtm" android:layout_width="match_parent" android:layout_height="match_parent" android:src="@drawable/couple_widget_share_card_background" android:scaleType="centerCrop" />
+        <ImageView android:id="@id/ebs" android:visibility="gone" android:layout_width="wrap_content" android:layout_height="wrap_content" android:src="@drawable/icon_share_card_new" android:layout_alignParentLeft="true" android:layout_alignParentTop="true" android:importantForAccessibility="no" />
+        <LinearLayout android:orientation="horizontal" android:layout_width="match_parent" android:layout_height="60.0dp" android:layout_alignParentTop="true" android:layout_alignParentStart="true">
+            <RelativeLayout android:layout_width="0.0dp" android:layout_height="match_parent" android:layout_weight="1.0">
+                <RelativeLayout android:layout_width="42.0dp" android:layout_height="42.0dp" android:layout_centerInParent="true">
+                    <com.tencent.component.widget.AsyncEffectImageView android:id="@id/bc5" android:layout_width="match_parent" android:layout_height="match_parent" android:scaleType="centerCrop" android:layout_centerInParent="true" />
+                    <LinearLayout android:gravity="center_vertical" android:orientation="vertical" android:id="@id/bda" android:paddingBottom="2.0dp" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_alignParentBottom="true" android:paddingStart="2.0dp" android:paddingEnd="6.0dp">
+                        <TextView android:textSize="4.0sp" android:textColor="@android:color/white" android:ellipsize="marquee" android:id="@id/bce" android:layout_width="match_parent" android:layout_height="wrap_content" android:singleLine="true" />
+                        <TextView android:textSize="4.0sp" android:textStyle="bold" android:textColor="@android:color/white" android:id="@id/bcg" android:layout_width="wrap_content" android:layout_height="wrap_content" android:singleLine="true" />
+                        <TextView android:textSize="4.0sp" android:textColor="@android:color/white" android:ellipsize="end" android:id="@id/bcf" android:layout_width="wrap_content" android:layout_height="wrap_content" android:singleLine="true" />
+                    </LinearLayout>
+                    <ImageView android:id="@id/bc_" android:layout_width="10.0dp" android:layout_height="10.0dp" android:layout_marginBottom="3.0dp" android:src="@drawable/couple_widget_play_white" android:scaleType="centerCrop" android:layout_alignParentBottom="true" android:layout_alignParentEnd="true" />
+                </RelativeLayout>
+            </RelativeLayout>
+            <RelativeLayout android:paddingTop="7.0dp" android:layout_width="0.0dp" android:layout_height="match_parent" android:layout_weight="1.0" android:paddingStart="2.0dp" android:paddingEnd="2.0dp">
+                <ImageView android:id="@id/bca" android:visibility="visible" android:layout_width="19.0dp" android:layout_height="19.0dp" android:layout_margin="2.0dp" android:src="@drawable/shape_couple_share_card_background" android:layout_alignParentTop="true" android:layout_alignParentEnd="true" />
+                <ImageView android:id="@id/bcb" android:visibility="visible" android:layout_width="19.0dp" android:layout_height="19.0dp" android:layout_margin="2.0dp" android:src="@drawable/shape_couple_share_card_background" android:layout_below="@id/bca" android:layout_alignParentEnd="true" />
+                <ImageView android:id="@id/bcc" android:visibility="visible" android:layout_width="19.0dp" android:layout_height="19.0dp" android:layout_margin="2.0dp" android:src="@drawable/shape_couple_share_card_background" android:layout_toStartOf="@id/bca" />
+                <ImageView android:id="@id/bcd" android:visibility="visible" android:layout_width="19.0dp" android:layout_height="19.0dp" android:layout_margin="2.0dp" android:src="@drawable/shape_couple_share_card_background" android:layout_below="@id/bca" android:layout_toStartOf="@id/bcb" />
+            </RelativeLayout>
+        </LinearLayout>
+        <TextView android:textSize="10.0sp" android:textColor="@color/white" android:ellipsize="end" android:gravity="center" android:id="@id/bch" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="11.5dp" android:text="分享在\nTA的桌面上" android:layout_centerInParent="true" />
+        <LinearLayout android:orientation="horizontal" android:background="@drawable/shape_couple_share_card_grid_background" android:layout_width="match_parent" android:layout_height="26.0dp" android:layout_marginBottom="6.0dp" android:layout_alignParentBottom="true" android:layout_marginStart="3.0dp" android:layout_marginEnd="3.0dp">
+            <ImageView android:id="@id/bc6" android:layout_width="0.0dp" android:layout_height="match_parent" android:layout_marginTop="3.0dp" android:layout_marginBottom="3.0dp" android:src="@drawable/shape_couple_share_card_background" android:layout_weight="1.0" android:layout_marginStart="5.0dp" android:layout_marginEnd="2.0dp" />
+            <ImageView android:id="@id/bc7" android:layout_width="0.0dp" android:layout_height="match_parent" android:layout_marginTop="3.0dp" android:layout_marginBottom="3.0dp" android:src="@drawable/shape_couple_share_card_background" android:layout_weight="1.0" android:layout_marginStart="2.0dp" android:layout_marginEnd="2.0dp" />
+            <ImageView android:id="@id/bc8" android:layout_width="0.0dp" android:layout_height="match_parent" android:layout_marginTop="3.0dp" android:layout_marginBottom="3.0dp" android:src="@drawable/shape_couple_share_card_background" android:layout_weight="1.0" android:layout_marginStart="2.0dp" android:layout_marginEnd="2.0dp" />
+            <ImageView android:id="@id/bc9" android:layout_width="0.0dp" android:layout_height="match_parent" android:layout_marginTop="3.0dp" android:layout_marginBottom="3.0dp" android:src="@drawable/shape_couple_share_card_background" android:layout_weight="1.0" android:layout_marginStart="2.0dp" android:layout_marginEnd="5.0dp" />
+        </LinearLayout>
+    </com.tencent.qqmusic.ui.RoundedRelativeLayout>
+    <TextView android:textSize="12.0dp" android:textColor="@color/common_grid_title_color_selector" android:ellipsize="end" android:id="@id/ml6" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="9.5dp" android:text="@string/h2u" app:a1x="hnz" app:a21="hnz" app:a26="@id/exx" />
+</androidx.constraintlayout.widget.ConstraintLayout>

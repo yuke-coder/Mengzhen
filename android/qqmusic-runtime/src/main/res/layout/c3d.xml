@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout android:background="@color/transparent" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_alignWithParentIfMissing="true"
+  xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">
+    <com.tencent.qqmusic.ui.RoundedRelativeLayout android:gravity="center_horizontal" android:id="@id/iw6" android:background="@color/recognize_desk_bg_color" android:layout_width="wrap_content" android:layout_height="@dimen/bpo" android:minWidth="@dimen/bpo" android:layout_centerHorizontal="true" app:ado="@dimen/bpr">
+        <ImageView android:layout_width="@dimen/bpp" android:layout_height="@dimen/bpp" android:src="@drawable/recognize_desk_logo" android:scaleType="fitCenter" android:layout_centerVertical="true" />
+    </com.tencent.qqmusic.ui.RoundedRelativeLayout>
+</RelativeLayout>

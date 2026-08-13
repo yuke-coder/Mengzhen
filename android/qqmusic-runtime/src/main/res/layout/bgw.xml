@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.tme.qqmusic.widget.base.view.CornerConstraintLayout android:background="@color/black_70_transparent" android:layout_width="match_parent" android:layout_height="272.0dp" app:lm="10.0dp"
+  xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">
+    <TextView android:textSize="16.0sp" android:textColor="@color/white" android:id="@id/mlive_emoji_panel_title_view" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="16.0dp" android:text="@string/d5l" app:a1x="hnz" app:a21="hnz" app:a27="hnz" />
+    <androidx.recyclerview.widget.RecyclerView android:id="@id/mlive_emoji_panle_list_view" android:layout_width="0.0dp" android:layout_height="0.0dp" android:layout_marginTop="20.0dp" android:layout_marginBottom="20.0dp" app:a1d="hnz" app:a1x="hnz" app:a21="hnz" app:a26="@id/mlive_emoji_panel_title_view" />
+</com.tme.qqmusic.widget.base.view.CornerConstraintLayout>

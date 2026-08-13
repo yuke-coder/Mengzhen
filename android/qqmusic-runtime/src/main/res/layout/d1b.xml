@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout android:layout_gravity="center_vertical" android:id="@id/nmy" android:layout_width="match_parent" android:layout_height="match_parent"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <SeekBar android:id="@id/nn0" android:focusable="false" android:layout_width="@dimen/bf5" android:layout_height="wrap_content" android:maxHeight="8.0dp" android:progressDrawable="@drawable/voice_progress_bar" android:minHeight="8.0dp" android:thumb="@drawable/progress_thum_selector" android:thumbOffset="0.0dp" android:layout_centerInParent="true" />
+</RelativeLayout>

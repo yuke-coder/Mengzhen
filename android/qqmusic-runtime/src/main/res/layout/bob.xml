@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginTop="20.0dp"
+  xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">
+    <ImageView android:id="@id/gb1" android:layout_width="40.0dp" android:layout_height="40.0dp" android:src="@drawable/live_home_audio_icon" app:a1k="@id/module_live_entrance_2" app:a23="hnz" app:a27="hnz" />
+    <TextView android:textSize="13.0sp" android:textColor="@color/skin_text_main_color" android:id="@id/gb2" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/c4l" app:a1j="@id/gb1" app:a23="@id/gb1" app:a26="@id/gb1" />
+    <ImageView android:id="@id/module_live_entrance_2" android:layout_width="40.0dp" android:layout_height="40.0dp" android:src="@drawable/live_home_video_icon" app:a1k="@id/gb4" app:a22="@id/gb1" app:a27="hnz" />
+    <TextView android:textSize="13.0sp" android:textColor="@color/skin_text_main_color" android:id="@id/gb3" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/c4p" app:a1j="@id/module_live_entrance_2" app:a23="@id/module_live_entrance_2" app:a26="@id/module_live_entrance_2" />
+    <ImageView android:id="@id/gb4" android:layout_width="40.0dp" android:layout_height="40.0dp" android:src="@drawable/live_home_friend_icon" app:a1k="@id/gb6" app:a22="@id/module_live_entrance_2" app:a27="hnz" />
+    <TextView android:textSize="13.0sp" android:textColor="@color/skin_text_main_color" android:id="@id/gb5" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/c4n" app:a1j="@id/gb4" app:a23="@id/gb4" app:a26="@id/gb4" />
+    <ImageView android:id="@id/gb6" android:layout_width="40.0dp" android:layout_height="40.0dp" android:src="@drawable/live_home_rank_icon" app:a1j="hnz" app:a22="@id/gb4" app:a27="hnz" />
+    <TextView android:textSize="13.0sp" android:textColor="@color/skin_text_main_color" android:id="@id/gb7" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/c4o" app:a1j="@id/gb6" app:a23="@id/gb6" app:a26="@id/gb6" />
+</androidx.constraintlayout.widget.ConstraintLayout>

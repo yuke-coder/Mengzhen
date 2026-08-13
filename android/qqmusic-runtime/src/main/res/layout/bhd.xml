@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout android:orientation="vertical" android:background="@color/transparent" android:layout_width="match_parent" android:layout_height="wrap_content"
+  xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">
+    <com.tme.mlive.ui.animation.NewPagView android:id="@id/mlive_id_relation_anim_view" android:background="@color/transparent" android:layout_width="0.0dp" android:layout_height="0.0dp" android:layout_marginTop="150.0dp" app:a1i="h,75:56" app:a1j="hnz" app:a23="hnz" app:a27="hnz" />
+</androidx.constraintlayout.widget.ConstraintLayout>

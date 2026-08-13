@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<animation-list
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <item android:duration="30" android:drawable="@drawable/live_home_follow_anim_00" />
+    <item android:duration="30" android:drawable="@drawable/live_home_follow_anim_01" />
+    <item android:duration="30" android:drawable="@drawable/live_home_follow_anim_02" />
+    <item android:duration="30" android:drawable="@drawable/live_home_follow_anim_03" />
+    <item android:duration="30" android:drawable="@drawable/live_home_follow_anim_04" />
+    <item android:duration="30" android:drawable="@drawable/live_home_follow_anim_05" />
+    <item android:duration="30" android:drawable="@drawable/live_home_follow_anim_06" />
+    <item android:duration="30" android:drawable="@drawable/live_home_follow_anim_07" />
+    <item android:duration="30" android:drawable="@drawable/live_home_follow_anim_08" />
+    <item android:duration="30" android:drawable="@drawable/live_home_follow_anim_09" />
+    <item android:duration="30" android:drawable="@drawable/live_home_follow_anim_10" />
+    <item android:duration="30" android:drawable="@drawable/live_home_follow_anim_11" />
+    <item android:duration="30" android:drawable="@drawable/live_home_follow_anim_12" />
+    <item android:duration="30" android:drawable="@drawable/live_home_follow_anim_13" />
+    <item android:duration="30" android:drawable="@drawable/live_home_follow_anim_14" />
+    <item android:duration="30" android:drawable="@drawable/live_home_follow_anim_15" />
+    <item android:duration="30" android:drawable="@drawable/live_home_follow_anim_16" />
+    <item android:duration="30" android:drawable="@drawable/live_home_follow_anim_17" />
+    <item android:duration="30" android:drawable="@drawable/live_home_follow_anim_18" />
+    <item android:duration="30" android:drawable="@drawable/live_home_follow_anim_19" />
+</animation-list>

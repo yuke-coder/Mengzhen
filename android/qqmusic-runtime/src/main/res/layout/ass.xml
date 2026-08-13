@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.tencent.qqmusiccommon.hippy.commentinput.voiceinput.CommentVoiceRecordOverlayView android:layout_gravity="bottom" android:paddingLeft="16.0dp" android:paddingRight="16.0dp" android:clipChildren="false" android:clipToPadding="false" android:layout_width="match_parent" android:layout_height="match_parent"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <LinearLayout android:layout_gravity="bottom" android:orientation="vertical" android:clipChildren="false" android:clipToPadding="false" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginBottom="1.0dp">
+        <com.tencent.qqmusiccommon.hippy.commentinput.voiceinput.CommentVoiceRecognizerTextView android:textSize="16.0dp" android:textStyle="bold" android:gravity="center" android:id="@id/b6r" android:visibility="gone" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginBottom="20.0dp" android:maxLines="3" android:minLines="3" android:includeFontPadding="false" />
+        <androidx.appcompat.widget.AppCompatTextView android:textSize="12.0dp" android:gravity="center" android:layout_gravity="center_horizontal" android:id="@id/b6q" android:layout_width="wrap_content" android:layout_height="wrap_content" android:includeFontPadding="false" />
+        <Space android:layout_width="match_parent" android:layout_height="22.0dp" />
+        <FrameLayout android:padding="0.0dp" android:clipChildren="false" android:clipToPadding="false" android:layout_width="match_parent" android:layout_height="128.0dp" android:layout_marginLeft="-56.0dp" android:layout_marginTop="-46.0dp" android:layout_marginRight="-56.0dp">
+            <View android:id="@id/b6t" android:layout_width="match_parent" android:layout_height="128.0dp" android:layout_marginLeft="12.0dp" android:layout_marginTop="5.0dp" android:layout_marginRight="12.0dp" />
+            <com.tencent.qqmusiccommon.hippy.commentinput.voiceinput.CommentVoiceWaveformBarView android:id="@id/b6s" android:paddingLeft="12.0dp" android:paddingRight="12.0dp" android:layout_width="match_parent" android:layout_height="35.0dp" android:layout_marginLeft="56.0dp" android:layout_marginTop="46.0dp" android:layout_marginRight="56.0dp" />
+        </FrameLayout>
+    </LinearLayout>
+</com.tencent.qqmusiccommon.hippy.commentinput.voiceinput.CommentVoiceRecordOverlayView>

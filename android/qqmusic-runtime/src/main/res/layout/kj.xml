@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout android:orientation="vertical" android:id="@id/fcy" android:clipChildren="false" android:layout_width="match_parent" android:layout_height="match_parent"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <include android:id="@id/asv" android:background="@color/transparent" android:layout_width="match_parent" android:layout_height="@dimen/cau" android:layout_alignParentTop="true" layout="@layout/mu" />
+    <TextView android:textSize="14.0sp" android:textColor="#99ffffff" android:ellipsize="end" android:gravity="center" android:id="@id/m7s" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginBottom="20.0dp" android:lines="1" android:layout_below="@id/asv" />
+    <Button android:textSize="16.0sp" android:textColor="@color/white" android:gravity="center" android:layout_gravity="center" android:id="@id/ajc" android:background="@drawable/drawable_bottom_button_shape" android:layout_width="180.0dp" android:layout_height="40.0dp" android:layout_marginTop="10.0dp" android:layout_marginBottom="30.0dp" android:text="立即拍摄" android:layout_alignParentBottom="true" android:layout_centerHorizontal="true" />
+    <LinearLayout android:orientation="horizontal" android:id="@id/fcz" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="10.0dp" android:layout_above="@id/ajc" android:layout_centerInParent="true" />
+    <androidx.viewpager.widget.ViewPager android:id="@id/nn2" android:clipChildren="false" android:layout_width="match_parent" android:layout_height="match_parent" android:layout_above="@id/fcz" android:layout_below="@id/m7s" android:overScrollMode="never" />
+</RelativeLayout>

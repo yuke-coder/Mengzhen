@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout android:id="@id/jke" android:clickable="true" android:descendantFocusability="afterDescendants" android:layout_width="match_parent" android:layout_height="match_parent"
+  xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">
+    <include android:id="@id/ebn" android:layout_width="match_parent" android:layout_height="match_parent" layout="@layout/m6" />
+    <com.tencent.qqmusic.business.ad.search.banner.BannerAdTopCropImageView android:id="@id/jne" android:visibility="gone" android:layout_width="match_parent" android:layout_height="match_parent" />
+    <View android:id="@id/m1o" android:background="@drawable/skin_sub_mask_img" android:visibility="visible" android:layout_width="match_parent" android:layout_height="@dimen/bcp" />
+    <ImageView android:id="@id/yv" android:visibility="invisible" android:layout_width="match_parent" android:layout_height="wrap_content" />
+    <com.tencent.qqmusic.ui.TopAlignedImageView android:id="@id/brc" android:background="@color/color_501A1A1A" android:visibility="gone" android:layout_width="match_parent" android:layout_height="404.0dp" android:scaleType="fitXY" />
+    <FrameLayout android:id="@id/bre" android:visibility="gone" android:layout_width="match_parent" android:layout_height="404.0dp">
+        <View android:id="@id/brf" android:background="@drawable/bg_direct_custom_video_gradient_mask" android:visibility="gone" android:layout_width="match_parent" android:layout_height="match_parent" />
+    </FrameLayout>
+    <ImageView android:id="@id/brd" android:visibility="gone" android:layout_width="match_parent" android:layout_height="wrap_content" />
+    <RelativeLayout android:id="@id/nsf" android:layout_width="match_parent" android:layout_height="match_parent" android:layout_below="@id/m1o">
+        <include android:id="@id/b9_" android:background="@drawable/skin_sub_mask_img" android:visibility="visible" android:layout_width="match_parent" android:layout_height="wrap_content" layout="@layout/ctj" />
+        <ImageView android:id="@id/jmk" android:visibility="gone" android:layout_width="match_parent" android:layout_height="@dimen/c0i" android:layout_marginTop="@dimen/c0d" android:src="@drawable/search_item_top_shadow" android:scaleType="fitXY" android:layout_below="@id/b9_" />
+        <ViewStub android:id="@id/b78" android:layout="@layout/mh" android:layout_width="match_parent" android:layout_height="match_parent" android:layout_below="@id/b9_" />
+        <ViewStub android:id="@id/b79" android:layout="@layout/vi" android:layout_width="match_parent" android:layout_height="match_parent" android:layout_below="@id/b9_" />
+        <ViewStub android:id="@id/b7_" android:layout="@layout/a_c" android:layout_width="match_parent" android:layout_height="match_parent" android:layout_below="@id/b9_" />
+        <include android:id="@id/dfk" android:visibility="visible" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_below="@id/b9_" layout="@layout/chx" />
+        <ViewStub android:id="@id/hl0" android:layout="@layout/b1c" android:layout_width="match_parent" android:layout_height="match_parent" android:layout_below="@id/dfk" />
+        <LinearLayout android:orientation="vertical" android:id="@id/cez" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginBottom="@dimen/ait" android:layout_alignParentBottom="true">
+            <androidx.constraintlayout.widget.ConstraintLayout android:id="@id/cey" android:background="@drawable/skin_floor_img" android:paddingLeft="20.0dp" android:paddingTop="11.5dp" android:paddingRight="20.0dp" android:paddingBottom="11.5dp" android:visibility="gone" android:layout_width="match_parent" android:layout_height="wrap_content">
+                <TextView android:textSize="12.0sp" android:textColor="@color/skin_text_sub_color" android:id="@id/cf4" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/ews" app:a1d="hnz" app:a1x="hnz" app:a27="hnz" />
+                <TextView android:textSize="12.0sp" android:textColor="@color/skin_text_main_color" android:id="@id/cf6" android:paddingLeft="12.5dp" android:paddingTop="4.0dp" android:paddingRight="12.5dp" android:paddingBottom="4.0dp" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginLeft="10.0dp" android:text="@string/ewu" app:a1d="hnz" app:a1y="@id/cf4" app:a27="hnz" />
+                <TextView android:textSize="12.0sp" android:textColor="@color/skin_text_main_color" android:id="@id/cf5" android:paddingLeft="12.5dp" android:paddingTop="4.0dp" android:paddingRight="12.5dp" android:paddingBottom="4.0dp" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginLeft="10.0dp" android:text="@string/ewt" app:a1d="hnz" app:a1y="@id/cf6" app:a27="hnz" />
+                <LinearLayout android:gravity="right|center" android:orientation="vertical" android:id="@id/fcs" android:layout_width="wrap_content" android:layout_height="match_parent" app:a21="hnz" app:a27="hnz">
+                    <ImageView android:id="@id/ebi" android:layout_width="20.0dp" android:layout_height="20.0dp" android:src="@drawable/icon_close_online_search_feedback" />
+                </LinearLayout>
+            </androidx.constraintlayout.widget.ConstraintLayout>
+        </LinearLayout>
+        <ViewStub android:id="@id/exj" android:layout="@layout/b1b" android:layout_width="match_parent" android:layout_height="match_parent" android:layout_above="@id/cez" android:layout_below="@id/b9_" />
+    </RelativeLayout>
+</RelativeLayout>

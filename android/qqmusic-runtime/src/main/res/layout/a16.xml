@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout android:layout_width="match_parent" android:layout_height="match_parent"
+  xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">
+    <include android:layout_width="match_parent" android:layout_height="match_parent" layout="@layout/m6" />
+    <ScrollView android:paddingBottom="@dimen/ait" android:layout_width="match_parent" android:layout_height="match_parent">
+        <RelativeLayout android:layout_width="match_parent" android:layout_height="match_parent">
+            <androidx.constraintlayout.widget.ConstraintLayout android:id="@id/ja1" android:background="@drawable/qmbluetooth_setting_fragment_background" android:paddingBottom="@dimen/rr" android:layout_width="match_parent" android:layout_height="328.0dp">
+                <ImageView android:id="@id/eew" android:background="@drawable/qmbluetooth_icon_open" android:visibility="gone" android:layout_width="80.0dp" android:layout_height="128.0dp" android:layout_marginBottom="15.0dp" android:layout_centerInParent="true" app:a1e="@id/m7i" app:a1j="hnz" app:a23="hnz" />
+                <ImageView android:id="@id/eev" android:background="@drawable/qmbluetooth_icon" android:layout_width="100.0dp" android:layout_height="100.0dp" android:layout_marginBottom="15.0dp" android:layout_centerInParent="true" app:a1e="@id/m7i" app:a1j="hnz" app:a23="hnz" />
+                <TextView android:textSize="14.0sp" android:textColor="@color/white" android:gravity="center" android:id="@id/m7i" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginBottom="15.0dp" android:text="当前版本: V1.0.0" app:a1e="@id/ew9" app:a1j="hnz" app:a23="hnz" />
+                <FrameLayout android:id="@id/ew9" android:layout_width="150.0dp" android:layout_height="35.0dp" android:layout_marginBottom="10.0dp" app:a1e="@id/mqh" app:a1j="hnz" app:a23="hnz">
+                    <TextView android:textColor="@color/white" android:gravity="center" android:id="@id/mee" android:background="@drawable/bg_qm_ota_newest_version" android:visibility="gone" android:layout_width="match_parent" android:layout_height="match_parent" android:text="@string/fyj" />
+                    <com.tencent.qqmusic.business.bluetooth.qmbox.OTAProgressView android:id="@id/ihx" android:background="@drawable/bg_qm_ota_progressbar" android:layout_width="match_parent" android:layout_height="match_parent" android:max="100" android:indeterminate="false" android:progressDrawable="@drawable/bg_qm_ota_progressbar_style" app:acl="@color/skin_text_main_color" app:acm="@string/fys" app:acn="@color/skin_highlight_color" app:aco="15.0sp" style="?android:progressBarStyleHorizontal" />
+                </FrameLayout>
+                <TextView android:textSize="11.0sp" android:textColor="@color/white" android:gravity="center" android:id="@id/mqh" android:visibility="gone" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/fyw" app:a1d="hnz" app:a1j="hnz" app:a23="hnz" />
+            </androidx.constraintlayout.widget.ConstraintLayout>
+            <RelativeLayout android:id="@id/jan" android:paddingLeft="20.0dp" android:paddingRight="20.0dp" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginTop="20.0dp" android:layout_below="@id/ja1" android:paddingHorizontal="20.0dp">
+                <TextView android:textSize="15.0sp" android:textStyle="bold" android:textColor="@color/skin_text_main_color" android:id="@id/mf8" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="最新版本v2.1.0" android:layout_alignParentLeft="true" />
+                <TextView android:textSize="12.0sp" android:textColor="@color/skin_text_sub_color" android:id="@id/mf7" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="2023-08-28" android:layout_alignBottom="@id/mf8" android:layout_alignParentRight="true" />
+                <TextView android:textSize="14.0sp" android:textColor="@color/skin_text_main_color" android:id="@id/mf6" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="10.0dp" android:text="更新文案\n更新文案" android:layout_below="@id/mf8" android:layout_alignParentLeft="true" />
+            </RelativeLayout>
+        </RelativeLayout>
+    </ScrollView>
+    <include android:id="@id/lv1" layout="@layout/mu" />
+</RelativeLayout>

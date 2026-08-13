@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout android:background="@drawable/transparent" android:clickable="true" android:layout_width="match_parent" android:layout_height="wrap_content"
+  xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">
+    <com.tencent.qqmusic.ui.MiniBarContentChangeImageView android:id="@id/g02" android:focusableInTouchMode="false" android:visibility="invisible" android:layout_width="match_parent" android:layout_height="@dimen/aip" android:src="@drawable/skin_mini_player_bg" android:scaleType="fitXY" android:layout_alignParentBottom="true" />
+    <LinearLayout android:gravity="center_vertical" android:id="@id/fey" android:layout_width="wrap_content" android:layout_height="@dimen/aip" android:layout_alignParentRight="true" android:layout_alignParentBottom="true">
+        <RelativeLayout android:id="@id/jak" android:layout_width="wrap_content" android:layout_height="@dimen/aip" android:layout_marginLeft="5.0dp" android:layout_marginRight="10.0dp">
+            <ImageView android:id="@id/egi" android:visibility="invisible" android:layout_width="@dimen/b3v" android:layout_height="@dimen/b3v" android:src="@drawable/minibar_circle" android:scaleType="centerCrop" android:layout_centerVertical="true" />
+            <com.tencent.qqmusic.ui.minibar.ArcImageView android:id="@id/tz" android:visibility="invisible" android:layout_width="@dimen/b3v" android:layout_height="@dimen/b3v" android:layout_centerVertical="true" />
+            <TextView android:textSize="9.0sp" android:textColor="@color/black" android:gravity="center" android:id="@id/mdg" android:layout_width="@dimen/b3v" android:layout_height="match_parent" android:layout_centerInParent="true" />
+            <ImageView android:id="@id/egk" android:visibility="gone" android:layout_width="@dimen/b3v" android:layout_height="@dimen/b3v" android:src="@drawable/minibar_btn_play" android:scaleType="centerCrop" android:layout_centerInParent="true" android:contentDescription="@string/f7t" android:alpha="0.3" />
+        </RelativeLayout>
+        <ImageView android:id="@id/egj" android:layout_width="@dimen/b3v" android:layout_height="@dimen/b3v" android:layout_marginRight="@dimen/b42" android:src="@drawable/minibar_btn_playlist_highlight" android:scaleType="fitXY" android:contentDescription="@string/f88" android:alpha="0.3" />
+    </LinearLayout>
+    <com.tencent.qqmusic.ui.RoundedRelativeLayout android:id="@id/jah" android:background="@color/black" android:layout_width="@dimen/b3_" android:layout_height="@dimen/b39" android:layout_alignParentBottom="true" app:ado="2.0dp">
+        <com.tencent.qqmusic.ui.minibar.AdContainerFrameLayout android:id="@id/ci5" android:layout_width="@dimen/b3_" android:layout_height="@dimen/b39" android:layout_alignParentBottom="true" android:layout_centerInParent="true" />
+        <TextView android:scrollbarSize="13.0sp" android:textSize="9.0sp" android:textColor="@color/white_60_transparent" android:ellipsize="end" android:id="@id/mcg" android:background="@drawable/bg_minibar_media_ad_flag" android:paddingLeft="4.0dp" android:paddingRight="4.0dp" android:visibility="gone" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/cv" android:maxLines="1" android:layout_alignParentRight="true" android:layout_alignParentBottom="true" />
+    </com.tencent.qqmusic.ui.RoundedRelativeLayout>
+    <LinearLayout android:gravity="center" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_toLeftOf="@id/fey" android:layout_toRightOf="@id/jah" android:layout_alignParentBottom="true">
+        <com.tencent.qqmusic.ui.minibar.MinibarMarqueeTextView android:textSize="14.0dp" android:textColor="@color/white" android:ellipsize="marquee" android:gravity="center_vertical" android:id="@id/mci" android:focusable="true" android:focusableInTouchMode="true" android:layout_width="match_parent" android:layout_height="@dimen/aip" android:layout_marginLeft="@dimen/b3s" android:layout_marginRight="@dimen/b3e" android:singleLine="true" android:includeFontPadding="false" android:marqueeRepeatLimit="marquee_forever" />
+    </LinearLayout>
+    <androidx.constraintlayout.widget.ConstraintLayout android:id="@id/id" android:layout_width="wrap_content" android:layout_height="@dimen/aj5" android:layout_marginBottom="10.0dp" android:layout_above="@id/jah">
+        <ImageView android:id="@id/qq_kw_if" android:layout_width="0.0dp" android:layout_height="0.0dp" android:scaleType="fitXY" app:a1d="hnz" app:a1j="hnz" app:a23="hnz" app:a27="hnz" />
+        <TextView android:textSize="12.0dp" android:textColor="@color/skin_text_main_color" android:gravity="center_vertical" android:id="@id/ig" android:layout_width="wrap_content" android:layout_height="match_parent" android:text="开通听书会员享免广告特权" android:maxLines="1" android:singleLine="true" android:paddingStart="10.0dp" android:paddingEnd="10.0dp" app:a1d="hnz" app:a1k="@id/ie" app:a27="hnz" />
+        <ImageView android:id="@id/ie" android:layout_width="3.0dp" android:layout_height="6.0dp" android:src="@drawable/minibar_vip_guide_arrow" android:layout_marginEnd="7.0dp" app:a1d="hnz" app:a1j="hnz" app:a27="hnz" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</RelativeLayout>

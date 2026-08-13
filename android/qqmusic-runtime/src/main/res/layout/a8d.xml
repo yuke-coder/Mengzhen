@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout android:layout_width="match_parent" android:layout_height="match_parent"
+  xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">
+    <com.tencent.qqmusic.ui.dragtouchimageview.RecordTouchInfoLargeImageView android:id="@id/dos" android:layout_width="match_parent" android:layout_height="match_parent" />
+    <ImageView android:id="@id/b2" android:visibility="gone" android:layout_width="60.0dp" android:layout_height="52.0dp" app:a1d="hnz" app:a1x="hnz" app:a21="hnz" app:a27="hnz" />
+    <include android:id="@id/hfy" android:visibility="gone" android:layout_width="match_parent" android:layout_height="match_parent" app:a1d="hnz" app:a1x="hnz" app:a21="hnz" layout="@layout/a8b" />
+    <include android:id="@id/eri" android:visibility="gone" android:layout_width="match_parent" android:layout_height="match_parent" app:a1d="hnz" app:a1x="hnz" app:a21="hnz" layout="@layout/a8_" />
+</androidx.constraintlayout.widget.ConstraintLayout>

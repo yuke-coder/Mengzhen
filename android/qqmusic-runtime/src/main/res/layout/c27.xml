@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout android:gravity="center" android:layout_gravity="center" android:orientation="vertical" android:id="@id/f3l" android:layout_width="match_parent" android:layout_height="600.0dp" android:layout_centerInParent="true"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <TextView android:textSize="18.0sp" android:textColor="@color/skin_text_main_color" android:gravity="center" android:id="@id/f3s" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginTop="65.0dp" android:text="数据错误" android:singleLine="true" android:layout_alignParentTop="true" />
+    <TextView android:textSize="12.0sp" android:textColor="@color/skin_text_sub_color" android:gravity="center" android:id="@id/f3o" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginTop="11.0dp" android:text="很抱歉，数据错误，请稍后再试" android:maxLines="2" android:layout_below="@id/f3s" android:lineSpacingExtra="2.0dp" />
+</RelativeLayout>

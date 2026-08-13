@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<selector
+  xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">
+    <item app:alj="true">
+        <shape>
+            <solid android:color="@color/kk_color_dark_bg_surface" />
+            <corners android:topLeftRadius="24.0dp" android:topRightRadius="24.0dp" />
+        </shape>
+    </item>
+    <item>
+        <shape>
+            <solid android:color="@color/kk_color_light_bg_surface" />
+            <corners android:topLeftRadius="24.0dp" android:topRightRadius="24.0dp" />
+        </shape>
+    </item>
+</selector>

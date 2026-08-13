@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout android:layout_width="match_parent" android:layout_height="match_parent"
+  xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">
+    <include android:layout_width="match_parent" android:layout_height="match_parent" layout="@layout/m6" />
+    <include android:id="@id/lvi" layout="@layout/mu" />
+    <LinearLayout android:orientation="vertical" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_below="@id/lvi">
+        <androidx.constraintlayout.widget.ConstraintLayout android:gravity="center_vertical" android:orientation="horizontal" android:id="@id/b4f" android:background="@drawable/color_b2_click" android:focusable="true" android:layout_width="match_parent" android:layout_height="75.0dp">
+            <ImageButton android:id="@id/ju9" android:background="@drawable/switch_off" android:layout_width="55.0dp" android:layout_height="33.0dp" android:layout_marginRight="4.0dp" app:a1d="hnz" app:a1j="hnz" app:a27="hnz" />
+            <TextView android:textSize="12.0sp" android:textColor="@color/skin_text_sub_color" android:ellipsize="end" android:id="@id/ju8" android:visibility="visible" android:layout_width="0.0dp" android:layout_height="wrap_content" android:layout_marginTop="2.0dp" android:text="@string/gxv" android:singleLine="true" app:a1d="hnz" app:a1k="@id/ju9" app:a23="@id/ju5" app:a26="@id/ju5" app:a29="hmg" />
+            <TextView android:textSize="16.0sp" android:textColor="@color/skin_text_main_color" android:ellipsize="end" android:gravity="center_vertical" android:id="@id/ju5" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/gxu" android:singleLine="true" android:layout_marginStart="@dimen/c16" app:a1e="@id/ju8" app:a23="hnz" app:a27="hnz" app:a29="hmg" />
+            <ImageView android:id="@id/ego" android:layout_width="17.5dp" android:layout_height="14.5dp" android:src="@drawable/ic_setting_msg_notify" android:scaleType="centerCrop" android:layout_marginStart="11.5dp" app:a1d="@id/ju5" app:a22="@id/ju5" app:a27="@id/ju5" />
+            <FrameLayout android:layout_width="16.0dp" android:layout_height="16.0dp" android:translationX="-9.0dp" android:translationY="-7.0dp" app:a22="@id/ego" app:a27="@id/ego">
+                <TextView android:textSize="8.0dp" android:textColor="@color/white" android:gravity="center" android:layout_gravity="center" android:id="@id/mdo" android:background="@drawable/ic_red_dot" android:layout_width="11.0dp" android:layout_height="11.0dp" android:text="9" android:includeFontPadding="false" />
+            </FrameLayout>
+        </androidx.constraintlayout.widget.ConstraintLayout>
+        <include android:id="@id/dm6" android:layout_width="match_parent" android:layout_height="wrap_content" layout="@layout/a8w" />
+    </LinearLayout>
+</RelativeLayout>

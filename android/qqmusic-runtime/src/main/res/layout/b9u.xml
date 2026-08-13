@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout android:id="@id/mlive_anchor_works" android:background="@color/white" android:layout_width="match_parent" android:layout_height="match_parent"
+  xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">
+    <FrameLayout android:id="@id/mlive_anchor_works_title_container" android:layout_width="match_parent" android:layout_height="45.0dp">
+        <com.google.android.material.tabs.TabLayout android:layout_gravity="center" android:id="@id/mlive_anchor_works_tab_layout" android:layout_width="match_parent" android:layout_height="wrap_content" app:an3="@style/m0" style="@style/lz" />
+        <ImageView android:layout_gravity="start|center" android:id="@id/mlive_anchor_works_back_btn" android:background="@drawable/mlive_audio_history_back" android:layout_width="30.0dp" android:layout_height="30.0dp" />
+    </FrameLayout>
+    <androidx.viewpager2.widget.ViewPager2 android:id="@id/mlive_anchor_works_viewpager" android:layout_width="match_parent" android:layout_height="match_parent" android:layout_below="@id/mlive_anchor_works_title_container" />
+</RelativeLayout>

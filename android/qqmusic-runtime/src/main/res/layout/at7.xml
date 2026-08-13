@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout android:layout_width="wrap_content" android:layout_height="wrap_content"
+  xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">
+    <TextView android:textSize="11.0sp" android:textColor="@color/white" android:gravity="center" android:id="@id/mpc" android:background="@drawable/bg_import_folder_bubble" android:paddingLeft="10.0dp" android:paddingTop="7.0dp" android:paddingRight="10.0dp" android:paddingBottom="7.0dp" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="歌单支持个性化模式啦" app:a23="hnz" app:a27="hnz" />
+    <View android:id="@id/a08" android:background="@drawable/bg_edit_folder_triangle" android:layout_width="12.0dp" android:layout_height="12.0dp" app:a1d="@id/mpc" app:a22="@id/mpc" app:a27="@id/mpc" />
+</androidx.constraintlayout.widget.ConstraintLayout>

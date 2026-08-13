@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout android:orientation="horizontal" android:layout_width="match_parent" android:layout_height="wrap_content"
+  xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">
+    <ImageView android:id="@id/iar" android:background="@drawable/quick_listen_alblum_right_pic" android:layout_width="46.0dp" android:layout_height="46.0dp" android:layout_marginLeft="17.5dp" android:scaleType="fitXY" app:a1d="hnz" app:a1x="hnz" app:a27="hnz" />
+    <com.tencent.qqmusic.ui.RoundedConstraintLayout android:id="@id/ex2" android:layout_width="50.0dp" android:layout_height="50.0dp" app:kj="5.0dp" app:a1d="hnz" app:a1x="hnz" app:a27="hnz">
+        <com.tencent.component.widget.AsyncEffectImageView android:id="@id/dst" android:layout_width="@dimen/si" android:layout_height="@dimen/si" android:importantForAccessibility="no" app:a1d="hnz" app:a1x="hnz" app:a27="hnz" />
+    </com.tencent.qqmusic.ui.RoundedConstraintLayout>
+    <androidx.constraintlayout.widget.ConstraintLayout android:orientation="vertical" android:id="@id/kdp" android:layout_width="0.0dp" android:layout_height="wrap_content" android:layout_marginLeft="10.0dp" android:layout_marginRight="15.0dp" app:a1d="@id/ex2" app:a1y="@id/iar" app:a20="@id/b4o" app:a27="@id/ex2">
+        <LinearLayout android:orientation="vertical" android:layout_width="match_parent" android:layout_height="match_parent" app:a1d="hnz" app:a1x="hnz" app:a21="hnz" app:a27="hnz" app:a2b="kqe">
+            <com.tencent.qqmusic.ui.customview.textview.ScrollTextView android:textSize="14.0dp" android:textColor="@color/white" android:id="@id/kdy" android:layout_width="match_parent" android:layout_height="wrap_content" />
+            <com.tencent.qqmusic.ui.customview.textview.ScrollTextView android:textSize="14.0dp" android:textColor="@color/white_60_transparent" android:id="@id/k3z" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginTop="2.5dp" />
+        </LinearLayout>
+    </androidx.constraintlayout.widget.ConstraintLayout>
+    <ImageView android:id="@id/b4o" android:layout_width="25.0dp" android:layout_height="25.0dp" android:layout_marginRight="17.0dp" app:a1d="hnz" app:a1y="@id/kdp" app:a20="@id/j9t" app:a27="hnz" />
+    <TextView android:textSize="7.0sp" android:textStyle="bold" android:textColor="#fafafa" android:id="@id/kcf" android:visibility="gone" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginLeft="19.0dp" android:layout_marginTop="0.5dp" android:singleLine="true" android:importantForAccessibility="no" app:a23="@id/b4o" app:a27="@id/b4o" />
+    <ImageView android:id="@id/j9t" android:layout_width="25.0dp" android:layout_height="25.0dp" android:layout_marginRight="10.0dp" android:src="@drawable/expand_minibar_ringtone" app:a1d="hnz" app:a1y="@id/b4o" app:a20="@id/evg" app:a27="hnz" />
+    <androidx.constraintlayout.widget.ConstraintLayout android:id="@id/evg" android:background="@drawable/shape_quick_listen_listen_full" android:paddingLeft="@dimen/rr" android:paddingRight="@dimen/rr" android:layout_width="wrap_content" android:layout_height="25.0dp" app:a1d="@id/ex2" app:a21="hnz" app:a27="@id/ex2">
+        <LinearLayout android:orientation="horizontal" android:layout_width="wrap_content" android:layout_height="wrap_content" app:a1d="hnz" app:a1x="hnz" app:a21="hnz" app:a27="hnz">
+            <com.airbnb.lottie.LottieAnimationView android:layout_gravity="center_vertical" android:id="@id/dsi" android:visibility="gone" android:layout_width="8.5dp" android:layout_height="8.5dp" android:layout_marginRight="5.0dp" app:a4n="true" app:a4u="true" />
+            <TextView android:textSize="@dimen/rz" android:textColor="@color/white" android:layout_gravity="center_vertical" android:id="@id/ajo" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/g4s" />
+        </LinearLayout>
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>

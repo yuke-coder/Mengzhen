@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout android:id="@id/b_d" android:layout_width="wrap_content" android:layout_height="wrap_content"
+  xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">
+    <com.tencent.qqmusic.ui.RoundedRelativeLayout android:id="@id/g_r" android:layout_width="120.0dp" android:layout_height="68.0dp">
+        <com.tencent.component.widget.AsyncEffectImageView android:id="@id/g_q" android:layout_width="match_parent" android:layout_height="match_parent" android:scaleType="centerCrop" android:importantForAccessibility="no" />
+        <FrameLayout android:id="@id/n9w" android:layout_width="match_parent" android:layout_height="match_parent" android:importantForAccessibility="no" />
+        <com.tencent.component.widget.AsyncEffectImageView android:id="@id/g_p" android:layout_width="match_parent" android:layout_height="match_parent" android:scaleType="fitCenter" android:importantForAccessibility="no" />
+        <ImageView android:id="@id/h4x" android:visibility="invisible" android:layout_width="wrap_content" android:layout_height="wrap_content" android:scaleType="centerCrop" android:importantForAccessibility="no" />
+        <ImageView android:id="@id/h4t" android:layout_width="match_parent" android:layout_height="match_parent" android:src="@color/mv_item_mask_color" android:scaleType="fitXY" android:importantForAccessibility="no" />
+        <View android:id="@id/agm" android:background="@drawable/bg_30_percent_shadow_bottom" android:layout_width="match_parent" android:layout_height="23.0dp" android:layout_alignParentBottom="true" android:importantForAccessibility="no" />
+    </com.tencent.qqmusic.ui.RoundedRelativeLayout>
+    <RelativeLayout android:gravity="center" android:id="@id/h6j" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginLeft="6.0dp" android:layout_marginRight="6.0dp" android:layout_marginBottom="4.0dp" android:layout_alignRight="@id/g_r" android:layout_alignBottom="@id/g_r" android:layout_marginEnd="6.0dp">
+        <com.tencent.component.widget.AsyncEffectImageView android:id="@id/h5_" android:layout_width="16.0dp" android:layout_height="16.0dp" android:src="@drawable/ic_search_mv_btn" android:scaleType="fitCenter" android:layout_alignParentLeft="true" android:layout_centerVertical="true" android:layout_alignParentStart="true" />
+        <TextView android:textSize="10.0dp" android:gravity="center" android:id="@id/h56" android:layout_marginLeft="6.0dp" android:layout_toRightOf="@id/h5_" android:layout_centerVertical="true" android:layout_marginStart="6.0dp" android:layout_toEndOf="@id/h5_" style="@style/na" />
+        <TextView android:textSize="10.0dp" android:gravity="center" android:id="@id/g_o" android:layout_marginLeft="2.0dp" android:layout_alignParentRight="true" android:layout_centerVertical="true" android:layout_marginStart="2.0dp" style="@style/na" />
+    </RelativeLayout>
+    <RelativeLayout android:id="@id/g_t" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginTop="8.0dp" android:layout_below="@id/g_r">
+        <TextView android:textSize="12.0dp" android:textColor="@color/skin_text_main_color" android:ellipsize="end" android:id="@id/g_s" android:layout_width="wrap_content" android:layout_height="@dimen/ak6" android:maxLines="2" android:layout_toLeftOf="@id/g_m" android:layout_alignParentLeft="true" />
+        <ImageView android:id="@id/g_m" android:visibility="gone" android:layout_width="20.0dp" android:layout_height="20.0dp" android:src="@drawable/item_more_icon" android:layout_alignParentRight="true" android:layout_centerVertical="true" android:contentDescription="@string/e9w" />
+    </RelativeLayout>
+    <androidx.constraintlayout.widget.ConstraintLayout android:id="@id/g_e" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="4.0dp" android:layout_below="@id/g_t">
+        <ImageView android:id="@id/h6e" android:visibility="gone" android:layout_width="17.0dp" android:layout_height="9.0dp" android:layout_marginRight="6.0dp" android:src="@drawable/mv_video_list_tip_icon" android:scaleType="fitXY" app:a1d="hnz" app:a1x="hnz" app:a20="@id/g_c" app:a27="hnz" />
+        <TextView android:textSize="12.0dp" android:textColor="@color/skin_text_sub_color" android:ellipsize="end" android:id="@id/g_c" android:layout_width="0.0dp" android:layout_height="wrap_content" android:singleLine="true" android:layout_alignWithParentIfMissing="true" app:a1d="hnz" app:a1t="0.0" app:a1u="hmg" app:a1y="@id/h6e" app:a20="@id/ld4" app:a27="hnz" app:a2b="nug" />
+        <RelativeLayout android:id="@id/ld4" android:layout_width="wrap_content" android:layout_height="wrap_content" app:a1d="hnz" app:a1y="@id/g_c" app:a21="hnz" app:a27="hnz">
+            <TextView android:textSize="10.0dp" android:textColor="@color/color_FF8848" android:id="@id/df3" android:background="@drawable/search_hot_desc_bg" android:paddingLeft="@dimen/bwm" android:paddingTop="1.0dp" android:paddingRight="@dimen/bwm" android:paddingBottom="1.0dp" android:visibility="gone" android:layout_width="wrap_content" android:layout_marginLeft="@dimen/bwk" android:paddingStart="@dimen/bwm" android:paddingEnd="@dimen/bwm" android:layout_marginStart="@dimen/bwk" style="@style/ln" />
+            <RelativeLayout android:id="@id/f7e" android:visibility="gone" android:layout_width="wrap_content" android:layout_height="13.0dp" android:layout_marginLeft="7.5dp">
+                <com.tencent.qqmusic.fragment.search.view.SearchLiveEnterWaveView android:gravity="center_vertical" android:id="@id/f7g" android:layout_width="wrap_content" android:layout_height="10.0dp" android:layout_marginLeft="3.0dp" android:layout_marginRight="2.0dp" android:layout_centerVertical="true" android:importantForAccessibility="no" />
+                <TextView android:textSize="8.0dp" android:textColor="@color/skin_text_main_color" android:id="@id/f7f" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginRight="3.0dp" android:text="@string/gm6" android:includeFontPadding="false" android:layout_toRightOf="@id/f7g" android:layout_centerVertical="true" />
+            </RelativeLayout>
+        </RelativeLayout>
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</RelativeLayout>

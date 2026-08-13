@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout android:orientation="vertical" android:id="@id/id_" android:layout_width="match_parent" android:layout_height="wrap_content"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <FrameLayout android:layout_gravity="center_vertical" android:id="@id/id9" android:layout_width="match_parent" android:layout_height="53.5dp">
+        <View android:layout_gravity="top" android:id="@id/d3c" android:layout_width="match_parent" android:layout_height="0.5dp" android:layout_marginStart="16.0dp" android:layout_marginEnd="16.0dp" />
+        <androidx.recyclerview.widget.RecyclerView android:id="@id/d3d" android:paddingLeft="16.0dp" android:layout_width="match_parent" android:layout_height="match_parent" />
+    </FrameLayout>
+    <FrameLayout android:layout_gravity="center_vertical" android:id="@id/ida" android:paddingLeft="16.0dp" android:paddingRight="16.0dp" android:visibility="gone" android:layout_width="match_parent" android:layout_height="49.5dp">
+        <View android:layout_gravity="top" android:id="@id/d3g" android:layout_width="match_parent" android:layout_height="0.5dp" />
+        <LinearLayout android:gravity="center_vertical" android:orientation="horizontal" android:layout_width="match_parent" android:layout_height="match_parent">
+            <TextView android:textSize="13.0sp" android:textColor="@color/skin_text_sub_color" android:id="@id/d3f" android:layout_width="wrap_content" android:layout_height="wrap_content" android:maxWidth="154.0dp" />
+            <TextView android:textSize="13.0sp" android:textColor="@color/skin_text_sub_color" android:ellipsize="end" android:gravity="right|center" android:id="@id/d3e" android:layout_width="0.0dp" android:layout_height="match_parent" android:layout_marginLeft="12.0dp" android:text="@string/fnc" android:maxLines="1" android:layout_weight="1.0" />
+            <ImageView android:layout_gravity="center" android:id="@id/d3h" android:background="@drawable/arrow_right_grey" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginLeft="3.0dp" android:layout_marginTop="1.0dp" />
+        </LinearLayout>
+    </FrameLayout>
+</LinearLayout>

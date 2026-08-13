@@ -1,31 +1,31 @@
 package com.mengzhen.app
 
-import android.content.Intent
 import android.content.Context
+import android.content.Intent
 import android.content.res.Configuration
 import android.graphics.Color
 import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
-import androidx.core.splashscreen.SplashScreen.Companion.installSplashScreen
 import androidx.compose.runtime.CompositionLocalProvider
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.setValue
-import androidx.lifecycle.lifecycleScope
+import androidx.core.splashscreen.SplashScreen.Companion.installSplashScreen
 import androidx.core.view.WindowCompat
+import androidx.lifecycle.lifecycleScope
 import com.mengzhen.app.audio.AudioPlaybackService
 import com.mengzhen.app.audio.PlayProgressStore
 import com.mengzhen.app.data.api.ApiClient
 import com.mengzhen.app.data.model.parseUser
 import com.mengzhen.app.data.store.TaskStore
 import com.mengzhen.app.scheduler.AlarmScheduler
+import com.mengzhen.app.ui.navigation.MengZhenApp
 import com.mengzhen.app.ui.theme.LocalIsDarkTheme
 import com.mengzhen.app.ui.theme.LocalThemeMode
 import com.mengzhen.app.ui.theme.MengZhenTheme
 import com.mengzhen.app.ui.theme.ThemeMode
 import com.mengzhen.app.ui.theme.ThemeModeStore
-import com.mengzhen.app.ui.navigation.MengZhenApp
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.flow.first
 import kotlinx.coroutines.launch
@@ -60,22 +60,18 @@ class MainActivity : ComponentActivity() {
         openPlaybackTaskId = intent.getStringExtra(EXTRA_OPEN_PLAYBACK_TASK_ID)
         sharedBiliVideo = extractSharedBiliVideo(intent)
 
-        // 保留已完成与已关闭任务供任务列表追溯，仅清理过期播放进度并恢复闹钟。
         val taskStore = TaskStore.get(this)
         val api = ApiClient.get(this)
-        taskStore.cleanupTransientPlaybackSessions(
-            AudioPlaybackService.getCurrentTaskId(),
-        )
+        taskStore.cleanupTransientPlaybackSessions(AudioPlaybackService.getCurrentTaskId())
         PlayProgressStore.get(this).cleanupExpired()
         AlarmScheduler.get(this).restoreAllAlarms()
 
-        // 恢复持久化 Cookie 后校验真实会话；断网时保留本地状态，避免误退出。
         lifecycleScope.launch(Dispatchers.IO) {
             val response = runCatching { api.me() }.getOrNull()
-            if (response?.optBoolean("success", false) == true) {
-                val user = parseUser(response)
-                if (user == null) taskStore.clearSession()
-                else taskStore.saveUserSession("cookie_session", user)
+            if (response?.optBoolean("authenticated", false) == true) {
+                parseUser(response)?.let { taskStore.saveUserSession("cookie_session", it) }
+            } else if (response?.optBoolean("authenticated", true) == false) {
+                taskStore.clearSession()
             }
             if (taskStore.getSession() != null) {
                 PlayProgressStore.get(this@MainActivity).syncFromCloud()
@@ -107,13 +103,9 @@ class MainActivity : ComponentActivity() {
                                 showLandingOnStart = false
                             },
                             openPlaybackTaskId = openPlaybackTaskId,
-                            onPlaybackNavigationConsumed = {
-                                openPlaybackTaskId = null
-                            },
+                            onPlaybackNavigationConsumed = { openPlaybackTaskId = null },
                             sharedBiliVideo = sharedBiliVideo,
-                            onSharedBiliVideoConsumed = {
-                                sharedBiliVideo = null
-                            },
+                            onSharedBiliVideoConsumed = { sharedBiliVideo = null },
                         )
                     }
                 }

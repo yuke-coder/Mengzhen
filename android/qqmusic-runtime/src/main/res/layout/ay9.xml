@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout android:layout_width="match_parent" android:layout_height="match_parent"
+  xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">
+    <TextView android:textSize="20.0sp" android:textColor="@color/white" android:id="@id/m__" android:padding="20.0dp" android:visibility="gone" android:layout_width="match_parent" android:layout_height="wrap_content" />
+    <com.airbnb.lottie.LottieAnimationView android:id="@id/j3r" android:layout_width="40.0dp" android:layout_height="40.0dp" android:layout_centerInParent="true" android:alpha="0.7" />
+    <LinearLayout android:orientation="vertical" android:id="@id/hhn" android:visibility="gone" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_centerInParent="true">
+        <com.tencent.qqmusic.ui.FontFitTextView android:textSize="14.0dp" android:textColor="@color/white" android:ellipsize="end" android:gravity="center" android:id="@id/hhm" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="1.0dp" android:text="@string/b67" android:maxLines="1" />
+        <TextView android:textSize="14.0sp" android:textColor="@color/white" android:ellipsize="end" android:gravity="center" android:layout_gravity="center_horizontal" android:id="@id/j5o" android:background="@drawable/semi_round_white_line_backgroud" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="10.0dp" android:minWidth="80.0dp" android:minHeight="30.0dp" android:text="@string/ged" android:maxLines="1" />
+    </LinearLayout>
+    <RelativeLayout android:id="@id/j_s" android:layout_width="match_parent" android:layout_height="match_parent">
+        <androidx.constraintlayout.widget.ConstraintLayout android:layout_width="272.0dp" android:layout_height="wrap_content" android:layout_centerInParent="true">
+            <Button android:id="@id/ak2" android:background="@drawable/btn_mv_landscape_pre" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginRight="43.0dp" android:layout_centerVertical="true" android:contentDescription="播放" app:a1d="hnz" app:a1x="hnz" app:a27="hnz" />
+            <Button android:id="@id/ak0" android:background="@drawable/btn_mv_landscape_pause" android:layout_width="wrap_content" android:layout_height="wrap_content" android:contentDescription="播放" app:a1d="hnz" app:a1x="hnz" app:a21="hnz" app:a27="hnz" />
+            <Button android:id="@id/ak3" android:background="@drawable/btn_mv_landscape_next" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginLeft="43.0dp" android:layout_centerVertical="true" android:contentDescription="播放" app:a1d="hnz" app:a21="hnz" app:a27="hnz" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
+        <ImageView android:id="@id/ej8" android:background="@drawable/btn_mv_landscape_replay" android:visibility="gone" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_centerInParent="true" android:contentDescription="重新播放" />
+        <LinearLayout android:id="@id/agq" android:visibility="gone" android:layout_width="wrap_content" android:layout_height="20.0dp" android:layout_marginBottom="9.0dp" android:layout_above="@id/h39" android:layout_centerHorizontal="true">
+            <ImageView android:layout_gravity="center_vertical" android:id="@id/agr" android:background="@drawable/black_pull_more" android:layout_width="14.0dp" android:layout_height="14.0dp" />
+            <TextView android:textSize="14.0dp" android:textColor="#99ffffff" android:id="@id/agp" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginLeft="10.0dp" android:text="上滑切换视频" />
+        </LinearLayout>
+        <RelativeLayout android:id="@id/h39" android:background="@drawable/mv_feeds_controller_bg" android:paddingRight="5.0dp" android:layout_width="match_parent" android:layout_height="40.0dp" android:layout_alignParentBottom="true" android:layout_alignWithParentIfMissing="true">
+            <TextView android:textSize="12.0dp" android:id="@id/h3a" android:layout_width="36.0dp" android:layout_height="wrap_content" android:layout_marginLeft="12.0dp" android:layout_centerVertical="true" style="@style/a52" />
+            <ImageView android:id="@id/h3f" android:background="@drawable/mv_exit_full_screen" android:padding="2.5dp" android:layout_width="26.0dp" android:layout_height="26.0dp" android:layout_marginRight="10.0dp" android:layout_alignParentRight="true" android:layout_centerVertical="true" android:contentDescription="@string/ehp" />
+            <TextView android:textSize="12.0dp" android:id="@id/h3q" android:layout_width="36.0dp" android:layout_height="wrap_content" android:layout_marginTop="2.0dp" android:layout_marginRight="12.0dp" android:layout_toLeftOf="@id/h3f" android:layout_centerVertical="true" android:layout_alignWithParentIfMissing="true" style="@style/a52" />
+            <SeekBar android:id="@id/h3j" android:focusable="false" android:clickable="true" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginLeft="5.0dp" android:layout_marginRight="5.0dp" android:progressDrawable="@drawable/mv_feeds_seekbar_xml" android:thumb="@drawable/drawable_mv_feeds_dot" android:thumbOffset="0.0dp" android:layout_toLeftOf="@id/h3q" android:layout_toRightOf="@id/h3a" android:layout_centerVertical="true" />
+        </RelativeLayout>
+    </RelativeLayout>
+</RelativeLayout>

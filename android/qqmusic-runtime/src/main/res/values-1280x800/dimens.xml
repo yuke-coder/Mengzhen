@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="f5">80.0dp</dimen>
+    <dimen name="f7">25.0dp</dimen>
+    <dimen name="ac1">136.0dp</dimen>
+    <dimen name="ac2">137.0dp</dimen>
+    <dimen name="ac4">14.0dp</dimen>
+    <dimen name="ac5">25.0dp</dimen>
+    <dimen name="ac6">25.0dp</dimen>
+    <dimen name="aev">96.0dp</dimen>
+    <dimen name="b8p">24.0dp</dimen>
+    <dimen name="beq">800.0px</dimen>
+    <dimen name="ci7">600.0px</dimen>
+    <dimen name="cie">342.0dp</dimen>
+    <dimen name="cif">60.0dp</dimen>
+    <dimen name="c12">80.0dp</dimen>
+</resources>

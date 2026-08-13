@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout android:layout_width="wrap_content" android:layout_height="wrap_content"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <LinearLayout android:gravity="center" android:layout_gravity="center_vertical" android:orientation="horizontal" android:id="@id/jz7" android:background="@drawable/bg_main_desk_title_side_icon" android:layout_width="wrap_content" android:layout_height="16.0dp" android:paddingStart="5.0dp" android:paddingEnd="5.0dp">
+        <com.tencent.component.widget.AsyncEffectImageView android:layout_gravity="center_vertical" android:id="@id/jz6" android:layout_width="14.0dp" android:layout_height="10.5dp" android:src="@drawable/default_icon" android:scaleType="fitXY" />
+        <TextView android:textSize="8.0dp" android:textColor="@color/skin_text_sub_color" android:layout_gravity="center_vertical" android:id="@id/jz8" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginStart="1.0dp" />
+    </LinearLayout>
+</FrameLayout>

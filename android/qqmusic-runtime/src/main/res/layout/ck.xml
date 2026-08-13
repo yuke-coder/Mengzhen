@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout android:id="@id/dib" android:background="@color/gray" android:layout_width="match_parent" android:layout_height="match_parent"
+  xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">
+    <include android:id="@id/dic" android:visibility="invisible" android:layout_width="match_parent" android:layout_height="match_parent" layout="@layout/a7x" />
+    <TextView android:textSize="30.0dp" android:textColor="@color/white" android:id="@id/m9k" android:visibility="visible" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/hno" app:a1d="hnz" app:a1x="hnz" app:a21="hnz" app:a27="hnz" />
+</androidx.constraintlayout.widget.ConstraintLayout>

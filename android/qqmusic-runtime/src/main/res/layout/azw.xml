@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout android:gravity="center" android:layout_gravity="center" android:id="@id/nwy" android:layout_width="wrap_content" android:layout_height="wrap_content"
+  xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">
+    <TextView android:textSize="12.0sp" android:gravity="center" android:layout_gravity="center" android:id="@id/nwx" android:layout_width="wrap_content" android:layout_height="wrap_content" />
+    <com.tencent.qqmusic.fragment.mymusic.my.musicworld.CustomShineTextview android:textSize="12.0sp" android:gravity="center" android:layout_gravity="center" android:id="@id/nwz" android:layout_width="wrap_content" android:layout_height="wrap_content" app:a_3="eqh" app:afy="2000" app:afz="1" app:ag0="j6k" app:ahg="jea" app:ahm="#ccffffff" />
+</FrameLayout>

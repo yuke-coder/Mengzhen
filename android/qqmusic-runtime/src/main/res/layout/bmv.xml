@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout android:id="@id/jly" android:layout_width="match_parent" android:layout_height="wrap_content"
+  xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">
+    <RelativeLayout android:id="@id/jm5" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginBottom="2.0dp">
+        <TextView android:textSize="16.0sp" android:textStyle="bold" android:textColor="@color/white" android:ellipsize="end" android:id="@id/jm4" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/e0i" android:lines="1" android:layout_centerVertical="true" />
+        <TextView android:textSize="16.0sp" android:textStyle="bold" android:textColor="@color/white" android:ellipsize="end" android:id="@id/jlx" android:focusable="true" android:clickable="true" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/e0j" android:lines="1" android:layout_alignParentRight="true" android:layout_centerVertical="true" />
+    </RelativeLayout>
+    <com.tme.mlive.ui.custom.LiveExtendFlowLayout android:id="@id/jm3" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginTop="15.0dp" android:layout_below="@id/jm5" />
+</RelativeLayout>

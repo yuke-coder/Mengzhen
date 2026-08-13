@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.tencent.qqmusic.ui.customview.SquareLayout android:id="@id/nsd" android:background="@color/white_10_transparent" android:layout_width="81.0dp" android:layout_height="81.0dp" android:layout_margin="2.5dp"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <ImageView android:id="@id/fw4" android:layout_width="30.0dp" android:layout_height="30.0dp" android:layout_marginTop="16.299988dp" android:src="@drawable/lp_icon_add_pic" android:layout_centerHorizontal="true" />
+    <TextView android:textColor="#fff" android:id="@id/fw5" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="47.0dp" android:text="相册图片" android:layout_centerHorizontal="true" />
+    <View android:id="@id/e53" android:background="@drawable/bg_lp_pic_in_use_flag" android:visibility="invisible" android:layout_width="81.0dp" android:layout_height="81.0dp" android:layout_centerInParent="true" />
+</com.tencent.qqmusic.ui.customview.SquareLayout>

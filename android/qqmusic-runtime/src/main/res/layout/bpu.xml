@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.tencent.qqmusic.ui.RoundedConstraintLayout android:id="@id/gc9" android:layout_width="335.0dp" android:layout_height="514.0dp" app:a31="10.0dp"
+  xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">
+    <androidx.viewpager2.widget.ViewPager2 android:id="@id/gcb" android:layout_width="match_parent" android:layout_height="match_parent" />
+    <com.google.android.material.tabs.TabLayout android:id="@id/gc_" android:layout_width="wrap_content" android:layout_height="8.0dp" android:layout_marginBottom="10.0dp" android:layout_centerHorizontal="true" app:a1d="hnz" app:a1j="hnz" app:a23="hnz" app:ami="auo" app:amq="0.0dp" app:amx="0.0dp" app:amy="0.0dp" />
+    <androidx.appcompat.widget.AppCompatTextView android:textSize="10.0dp" android:textColor="@color/white" android:gravity="center" android:id="@id/gca" android:paddingLeft="5.0dp" android:paddingTop="3.0dp" android:paddingRight="5.0dp" android:paddingBottom="3.0dp" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="10.0dp" android:layout_marginStart="12.0dp" android:paddingHorizontal="5.0dp" android:paddingVertical="3.0dp" app:a23="hnz" app:a27="hnz" />
+</com.tencent.qqmusic.ui.RoundedConstraintLayout>

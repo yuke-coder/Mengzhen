@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout android:gravity="center" android:layout_gravity="center_vertical" android:orientation="horizontal" android:background="@color/transparent" android:layout_width="match_parent" android:layout_height="89.0dp"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <ImageView android:id="@id/mlive_song_list_request_item_empty_icon" android:layout_width="25.0dp" android:layout_height="25.0dp" android:src="@drawable/mlive_song_content_request_operate_add" android:tint="@color/white" />
+    <TextView android:textSize="@dimen/ar3" android:textColor="@color/white" android:gravity="center" android:id="@id/mlive_song_list_request_item_empty_desc" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/dyl" android:textAlignment="center" />
+</LinearLayout>

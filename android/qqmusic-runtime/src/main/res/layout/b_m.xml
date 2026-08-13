@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout android:background="@color/black" android:layout_width="match_parent" android:layout_height="match_parent"
+  xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto" xmlns:seekbar="http://schemas.android.com/apk/res-auto">
+    <FrameLayout android:id="@id/mlive_video_edit_player_fl" android:visibility="gone" android:layout_width="0.0dp" android:layout_height="0.0dp" seekbar:a1j="hnz" seekbar:a23="hnz" seekbar:a27="hnz" />
+    <VideoView android:id="@id/mlive_video_edit_player_view" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginBottom="16.0dp" seekbar:a1e="@id/b30" seekbar:a1j="hnz" seekbar:a23="hnz" seekbar:a27="hnz" seekbar:a28="0.5" />
+    <com.tme.mlive.ui.custom.MliveLoadStateView android:id="@id/mlive_video_loading_view" android:visibility="gone" android:layout_width="wrap_content" android:layout_height="wrap_content" seekbar:a1d="@id/mlive_video_edit_player_view" seekbar:a1j="@id/mlive_video_edit_player_view" seekbar:a23="@id/mlive_video_edit_player_view" seekbar:a27="@id/mlive_video_edit_player_view" />
+    <ImageView android:id="@id/mlive_video_edit_play_btn" android:visibility="gone" android:layout_width="28.0dp" android:layout_height="28.0dp" android:src="@drawable/mlive_cover_play" seekbar:a1d="@id/mlive_video_edit_player_view" seekbar:a1j="@id/mlive_video_edit_player_view" seekbar:a23="@id/mlive_video_edit_player_view" seekbar:a27="@id/mlive_video_edit_player_view" />
+    <com.tme.mlive.ui.activity.covermv.fragment.videocrop.VideoRangeCropContainerView android:id="@id/b30" android:layout_width="match_parent" android:layout_height="60.0dp" seekbar:a1e="@id/mlive_video_edit_control_rl" seekbar:a1j="hnz" seekbar:a23="hnz">
+        <androidx.recyclerview.widget.RecyclerView android:id="@id/j34" android:paddingLeft="@dimen/ame" android:paddingRight="@dimen/ame" android:clipToPadding="false" android:layout_width="match_parent" android:layout_height="match_parent" android:layout_marginTop="3.0dp" android:layout_marginBottom="3.0dp" />
+        <RelativeLayout android:layout_gravity="left" android:id="@id/cwd" android:layout_width="@dimen/ama" android:layout_height="match_parent">
+            <ImageView android:id="@id/cwe" android:layout_width="@dimen/am_" android:layout_height="match_parent" android:src="@drawable/mlive_crop_bar_left" android:scaleType="fitXY" android:layout_alignParentRight="true" />
+        </RelativeLayout>
+        <RelativeLayout android:layout_gravity="right" android:id="@id/cwi" android:layout_width="@dimen/ama" android:layout_height="match_parent">
+            <ImageView android:id="@id/cwj" android:layout_width="@dimen/am_" android:layout_height="match_parent" android:src="@drawable/mlive_crop_bar_right" android:scaleType="fitXY" android:layout_alignParentLeft="true" />
+        </RelativeLayout>
+        <LinearLayout android:orientation="vertical" android:id="@id/b37" android:paddingTop="@dimen/am9" android:paddingBottom="@dimen/am9" android:visibility="invisible" android:layout_width="16.0dp" android:layout_height="match_parent">
+            <ImageView android:id="@id/b36" android:background="@color/white" android:layout_width="2.0dp" android:layout_height="match_parent" />
+        </LinearLayout>
+    </com.tme.mlive.ui.activity.covermv.fragment.videocrop.VideoRangeCropContainerView>
+    <RelativeLayout android:id="@id/mlive_video_edit_control_rl" android:layout_width="match_parent" android:layout_height="64.0dp" seekbar:a1d="hnz">
+        <TextView android:textSize="14.0sp" android:textColor="@color/mlive_gray_136" android:gravity="center" android:id="@id/mlive_video_edit_duration_tip_tv" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/e41" android:layout_centerVertical="true" android:layout_marginStart="16.0dp" android:layout_alignParentStart="true" />
+        <TextView android:textSize="14.0sp" android:textColor="@android:color/white" android:gravity="center" android:id="@id/mlive_video_edit_control_ok_btn" android:background="@drawable/mlive_button_bg_black_green" android:layout_width="117.0dp" android:layout_height="30.0dp" android:layout_marginRight="16.0dp" android:text="@string/e42" android:layout_alignParentRight="true" android:layout_centerVertical="true" />
+    </RelativeLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>

@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout android:orientation="vertical" android:background="@drawable/skin_mask_img" android:layout_width="match_parent" android:layout_height="match_parent"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <EditText android:id="@id/bms" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginTop="100.0dp" android:hint="请输入要删除的资源" />
+    <androidx.appcompat.widget.AppCompatButton android:id="@id/bmr" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginBottom="30.0dp" android:text="删除指定资源" />
+    <androidx.appcompat.widget.AppCompatButton android:id="@id/bmd" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginBottom="30.0dp" android:text="清理全部资源数据" />
+    <androidx.appcompat.widget.AppCompatButton android:id="@id/jz1" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginBottom="30.0dp" android:text="打印当前资源信息" />
+    <EditText android:id="@id/fi6" android:layout_width="match_parent" android:layout_height="wrap_content" android:hint="请输入要加载的资源" />
+    <androidx.appcompat.widget.AppCompatButton android:id="@id/fi5" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginBottom="30.0dp" android:text="加载资源（本地有则无需下载，本地无则下载）" />
+    <EditText android:id="@id/d0d" android:layout_width="match_parent" android:layout_height="wrap_content" android:hint="请输入要加载的资源" />
+    <androidx.appcompat.widget.AppCompatButton android:id="@id/d0c" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="加载资源（不下载）" />
+</LinearLayout>

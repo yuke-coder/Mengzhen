@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.tencent.qqmusic.ui.actionsheet.RoundCornorLinearLayout android:orientation="vertical" android:background="@drawable/background_user_pendant_card" android:layout_width="match_parent" android:layout_height="wrap_content" app:kj="@dimen/kx"
+  xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">
+    <LinearLayout android:gravity="center_vertical" android:orientation="horizontal" android:id="@id/of" android:visibility="gone" android:layout_width="match_parent" android:layout_height="65.0dp">
+        <com.tencent.component.widget.AsyncEffectImageView android:layout_gravity="center" android:id="@id/og" android:layout_width="@dimen/be2" android:layout_height="@dimen/be2" android:layout_marginLeft="21.5dp" android:scaleType="fitXY" />
+        <TextView android:textSize="16.0sp" android:textColor="@color/white" android:ellipsize="end" android:id="@id/oh" android:layout_width="0.0dp" android:layout_height="wrap_content" android:layout_marginLeft="19.5dp" android:layout_marginRight="12.0dp" android:maxLines="1" android:layout_weight="1.0" android:fontFamily="PingFang-SC-Regular" />
+        <ImageView android:layout_width="7.5dp" android:layout_height="15.0dp" android:layout_marginRight="25.0dp" android:src="@drawable/more_right_normal" />
+    </LinearLayout>
+    <LinearLayout android:gravity="center_vertical" android:orientation="horizontal" android:id="@id/d0k" android:visibility="gone" android:layout_width="match_parent" android:layout_height="65.0dp">
+        <com.tencent.component.widget.AsyncEffectImageView android:layout_gravity="center" android:id="@id/d0l" android:layout_width="@dimen/be2" android:layout_height="@dimen/be2" android:layout_marginLeft="21.5dp" android:scaleType="fitXY" />
+        <TextView android:textSize="16.0sp" android:textColor="@color/white" android:ellipsize="end" android:id="@id/d0m" android:layout_width="0.0dp" android:layout_height="wrap_content" android:layout_marginLeft="19.5dp" android:layout_marginRight="12.0dp" android:maxLines="1" android:layout_weight="1.0" android:fontFamily="PingFang-SC-Regular" />
+        <ImageView android:layout_width="7.5dp" android:layout_height="15.0dp" android:layout_marginRight="25.0dp" android:src="@drawable/more_right_normal" />
+    </LinearLayout>
+    <LinearLayout android:gravity="center_vertical" android:orientation="horizontal" android:layout_width="match_parent" android:layout_height="65.0dp">
+        <FrameLayout android:id="@id/mwi" android:layout_width="@dimen/be3" android:layout_height="@dimen/be3" android:layout_marginLeft="13.0dp">
+            <com.tencent.component.widget.AsyncEffectImageView android:layout_gravity="center" android:id="@id/mwe" android:layout_width="@dimen/be2" android:layout_height="@dimen/be2" android:src="@drawable/homepage_default_user_bg_small" android:scaleType="fitXY" android:contentDescription="@string/ftx" />
+            <ImageView android:id="@id/mzd" android:layout_width="match_parent" android:layout_height="match_parent" android:scaleType="fitXY" />
+        </FrameLayout>
+        <TextView android:textSize="16.0sp" android:textColor="@color/white" android:ellipsize="end" android:id="@id/hpy" android:layout_width="0.0dp" android:layout_height="wrap_content" android:layout_marginLeft="12.0dp" android:layout_marginRight="12.0dp" android:maxLines="1" android:layout_weight="1.0" android:fontFamily="PingFang-SC-Regular" android:layout_marginHorizontal="12.0dp" />
+        <ImageView android:layout_width="7.5dp" android:layout_height="15.0dp" android:layout_marginRight="25.0dp" android:src="@drawable/more_right_normal" />
+    </LinearLayout>
+</com.tencent.qqmusic.ui.actionsheet.RoundCornorLinearLayout>

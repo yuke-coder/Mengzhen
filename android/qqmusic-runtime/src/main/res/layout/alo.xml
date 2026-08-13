@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout android:id="@id/k36" android:layout_width="match_parent" android:layout_height="32.0dp"
+  xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">
+    <LinearLayout android:orientation="horizontal" android:id="@id/jj6" android:layout_width="match_parent" android:layout_height="match_parent">
+        <com.tencent.qqmusic.ui.RoundedRelativeLayout android:layout_gravity="center" android:id="@id/ciq" android:background="@drawable/skin_mask_img" android:layout_width="0.0dp" android:layout_height="wrap_content" android:layout_weight="1.0" android:contentDescription="@string/b96" app:ado="15.0dp">
+            <RelativeLayout android:id="@id/c0v" android:layout_width="wrap_content" android:layout_height="wrap_content" android:scaleType="centerInside">
+                <ImageButton android:id="@id/c1w" android:background="@drawable/label_search_icon" android:layout_width="@dimen/byr" android:layout_height="@dimen/byr" android:layout_marginLeft="8.0dp" android:scaleType="centerInside" android:importantForAccessibility="no" />
+                <TextView android:textSize="14.0sp" android:textColor="@color/skin_text_sub_color" android:ellipsize="end" android:id="@id/c2g" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginLeft="8.5dp" android:maxWidth="200.0dp" android:text="@string/h9u" android:maxLines="1" android:layout_toRightOf="@id/c1w" android:layout_centerVertical="true" android:importantForAccessibility="no" />
+            </RelativeLayout>
+        </com.tencent.qqmusic.ui.RoundedRelativeLayout>
+    </LinearLayout>
+</RelativeLayout>

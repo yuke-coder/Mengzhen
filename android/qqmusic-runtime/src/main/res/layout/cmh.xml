@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout android:orientation="vertical" android:background="@color/transparent" android:paddingLeft="12.0dp" android:paddingTop="10.0dp" android:layout_width="match_parent" android:layout_height="match_parent"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <com.tencent.qqmusic.fragment.singerlist.SingerListScrollTab android:id="@id/k4e" android:background="@color/transparent" android:layout_width="match_parent" android:layout_height="@dimen/lp" />
+    <com.tencent.qqmusic.fragment.singerlist.SingerListScrollTab android:id="@id/k4g" android:background="@color/transparent" android:layout_width="match_parent" android:layout_height="@dimen/lp" />
+    <com.tencent.qqmusic.fragment.singerlist.SingerListScrollTab android:id="@id/k4f" android:background="@color/transparent" android:layout_width="match_parent" android:layout_height="@dimen/lp" />
+</LinearLayout>

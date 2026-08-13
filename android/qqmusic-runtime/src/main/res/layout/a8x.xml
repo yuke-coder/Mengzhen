@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout android:background="@drawable/color_b2_click" android:layout_width="match_parent" android:layout_height="60.0dp"
+  xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">
+    <ProgressBar android:id="@id/fi8" android:visibility="visible" android:layout_width="25.0dp" android:layout_height="25.0dp" android:layout_marginLeft="10.0dp" android:layout_marginRight="10.0dp" android:indeterminate="true" android:indeterminateOnly="true" android:indeterminateDrawable="@drawable/im_session_icn_loading_indicator" android:indeterminateDuration="2000" app:a1d="hnz" app:a1x="hnz" app:a21="hnz" app:a27="hnz" />
+    <ImageView android:id="@id/f0s" android:layout_width="14.0dp" android:layout_height="14.0dp" android:src="@drawable/color_b9" app:a1d="hnz" app:a1u="hmg" app:a1x="hnz" app:a20="@id/f14" app:a27="hnz" />
+    <TextView android:textSize="14.0dp" android:textColor="#80000000" android:id="@id/f14" android:visibility="visible" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginLeft="13.0dp" android:text="正在刷新" app:a1d="hnz" app:a1y="@id/f0s" app:a21="hnz" app:a27="hnz" />
+</androidx.constraintlayout.widget.ConstraintLayout>

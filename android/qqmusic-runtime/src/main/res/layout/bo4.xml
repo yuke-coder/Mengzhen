@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout android:layout_width="match_parent" android:layout_height="match_parent"
+  xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">
+    <TextView android:textSize="14.0sp" android:textColor="@color/white" android:id="@id/mlive_comment_voice_duration" android:layout_width="wrap_content" android:layout_height="20.0dp" app:a23="hnz" app:a27="hnz" />
+    <org.libpag.PAGView android:id="@id/mlive_comment_voice_rhythm" android:layout_width="16.0dp" android:layout_height="16.0dp" android:layout_marginStart="2.5dp" app:a1d="@id/mlive_comment_voice_duration" app:a22="@id/mlive_comment_voice_duration" app:a27="@id/mlive_comment_voice_duration" />
+    <TextView android:textSize="14.0sp" android:textColor="@color/white" android:gravity="start" android:id="@id/mlive_comment_voice_translation" android:layout_width="wrap_content" android:layout_height="wrap_content" app:a23="hnz" app:a26="@id/mlive_comment_voice_duration" />
+</androidx.constraintlayout.widget.ConstraintLayout>

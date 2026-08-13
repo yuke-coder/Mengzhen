@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout android:orientation="vertical" android:id="@id/jd3" android:layout_width="match_parent" android:layout_height="wrap_content"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <RelativeLayout android:id="@id/h7o" android:visibility="gone" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginTop="45.0dp" android:layout_marginBottom="7.0dp">
+        <TextView android:textSize="15.0sp" android:textColor="@color/skin_text_main_color" android:id="@id/h7b" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/elm" android:layout_below="@id/h7_" android:layout_centerInParent="true" />
+        <View android:id="@id/f0w" android:background="#cccccc" android:layout_width="25.0dp" android:layout_height="1.0dp" android:layout_marginRight="12.0dp" android:layout_toLeftOf="@id/h7b" android:layout_centerVertical="true" />
+        <View android:id="@id/j8p" android:background="#cccccc" android:layout_width="25.0dp" android:layout_height="1.0dp" android:layout_marginLeft="12.0dp" android:layout_toRightOf="@id/h7b" android:layout_centerVertical="true" />
+    </RelativeLayout>
+    <RelativeLayout android:gravity="center" android:id="@id/h7q" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginTop="26.0dp" android:layout_marginBottom="26.0dp">
+        <TextView android:textSize="15.0sp" android:textColor="@color/skin_text_main_color" android:gravity="center" android:id="@id/h7p" android:layout_width="match_parent" android:layout_height="wrap_content" android:text="@string/eln" />
+    </RelativeLayout>
+</RelativeLayout>

@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout android:layout_width="@dimen/as8" android:layout_height="@dimen/as8"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <com.tme.qqmusic.widget.base.view.GlideImageView android:layout_gravity="center" android:id="@id/mlive_bottom_link_anchor" android:visibility="gone" android:layout_width="@dimen/as7" android:layout_height="@dimen/as7" android:src="@drawable/mlive_default_avatar" />
+    <View android:layout_gravity="center" android:id="@id/mlive_bottom_multi_link_border" android:background="@drawable/mlive_layout_live_bottom_multi_link_avatar_bg" android:visibility="invisible" android:layout_width="@dimen/as7" android:layout_height="@dimen/as7" />
+    <com.tme.qqmusic.widget.base.view.GlideImageView android:layout_gravity="center" android:id="@id/mlive_oper_button_icon" android:layout_width="@dimen/as7" android:layout_height="@dimen/as7" />
+    <TextView android:textSize="8.0dp" android:textColor="@color/white" android:gravity="center" android:layout_gravity="right" android:id="@id/mlive_bottom_link_counter" android:background="@drawable/mlive_layout_live_bottom_num_bg" android:visibility="gone" android:layout_width="wrap_content" android:layout_height="13.0dp" android:layout_marginTop="5.0dp" android:maxWidth="30.0dp" android:minWidth="13.0dp" android:text="10" android:layout_marginEnd="5.0dp" />
+    <TextView android:textSize="8.0sp" android:textColor="@color/white" android:gravity="center" android:layout_gravity="right" android:id="@id/mlive_bottom_multi_link_counter" android:background="@drawable/mlive_layout_live_bottom_multi_link_num_bg" android:visibility="gone" android:layout_width="wrap_content" android:layout_height="13.0dp" android:layout_marginTop="5.0dp" android:maxWidth="30.0dp" android:minWidth="19.0dp" android:layout_marginEnd="5.0dp" />
+</FrameLayout>

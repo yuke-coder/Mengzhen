@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout android:background="@drawable/mlive_fish_rank_index_black_bg" android:layout_width="wrap_content" android:layout_height="11.0dp" android:paddingEnd="1.0dp"
+  xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">
+    <ImageView android:gravity="center" android:id="@id/mlive_fish_rank_index_iv" android:layout_width="10.0dp" android:layout_height="10.0dp" android:layout_marginStart="1.0dp" app:a1d="hnz" app:a23="hnz" app:a27="hnz" />
+    <TextView android:textSize="8.0dp" android:textColor="#ffffff" android:ellipsize="end" android:id="@id/mlive_fish_rank_index_name_str_tv" android:layout_width="wrap_content" android:layout_height="wrap_content" android:maxLines="1" android:singleLine="true" android:includeFontPadding="false" android:layout_marginStart="3.0dp" android:layout_marginEnd="8.0dp" app:a1d="hnz" app:a22="@id/mlive_fish_rank_index_iv" app:a27="hnz" />
+</androidx.constraintlayout.widget.ConstraintLayout>

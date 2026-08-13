@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout android:id="@id/i9j" android:layout_width="match_parent" android:layout_height="192.5dp"
+  xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">
+    <com.tencent.qqmusic.ui.RoundedRelativeLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginLeft="16.0dp" android:layout_marginRight="16.0dp" app:a1x="hnz" app:a27="hnz">
+        <com.tencentmusic.ad.integration.nativead.TMENativeAdContainer android:id="@id/i9i" android:layout_width="match_parent" android:layout_height="192.5dp" />
+    </com.tencent.qqmusic.ui.RoundedRelativeLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>

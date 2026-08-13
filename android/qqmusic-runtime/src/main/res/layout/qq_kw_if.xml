@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.tencent.qqmusic.ui.RoundedConstraintLayout android:background="#33000000" android:layout_width="wrap_content" android:layout_height="30.0dp" android:paddingStart="11.0dp" android:paddingEnd="11.0dp" app:kj="15.0dp"
+  xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">
+    <com.tencent.component.widget.AsyncImageView android:id="@id/i7g" android:visibility="gone" android:layout_width="30.0dp" android:layout_height="30.0dp" android:importantForAccessibility="no" app:a1d="@id/i7i" app:a1k="@id/i7i" app:a1u="hmg" app:a23="hnz" app:a27="@id/i7i" />
+    <com.tencent.qqmusic.ui.MarqueeTextView android:textSize="13.0dp" android:textColor="@color/white" android:id="@id/i7i" android:visibility="gone" android:layout_width="wrap_content" android:layout_height="wrap_content" android:singleLine="true" app:a18="true" app:a1d="hnz" app:a1k="@id/i7e" app:a22="@id/i7g" app:a27="hnz" />
+    <com.tencent.component.widget.AsyncImageView android:id="@id/i7e" android:visibility="gone" android:layout_width="13.0dp" android:layout_height="13.0dp" android:importantForAccessibility="no" app:a1d="@id/i7i" app:a1j="hnz" app:a22="@id/i7i" app:a27="@id/i7i" />
+</com.tencent.qqmusic.ui.RoundedConstraintLayout>

@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout android:id="@id/ja5" android:layout_width="wrap_content" android:layout_height="wrap_content"
+  xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">
+    <com.tencent.qqmusic.ui.RoundedRelativeLayout android:layout_width="@dimen/cf" android:layout_height="@dimen/cf" android:layout_margin="1.0px" app:ado="10.0dp">
+        <ImageView android:id="@id/eey" android:layout_width="@dimen/cf" android:layout_height="@dimen/cf" android:scaleType="centerCrop" android:layout_centerInParent="true" />
+        <LinearLayout android:gravity="center" android:orientation="horizontal" android:id="@id/fd6" android:background="@drawable/icon_ai_agent_delete_input_image_bg" android:layout_width="20.0dp" android:layout_height="20.0dp" android:layout_marginTop="5.0dp" android:layout_alignParentTop="true" android:layout_alignParentRight="true" android:layout_marginEnd="5.0dp">
+            <ImageView android:layout_width="12.0dp" android:layout_height="12.0dp" android:src="@drawable/icon_ai_agent_delete_input_image" />
+        </LinearLayout>
+        <LinearLayout android:gravity="center" android:orientation="vertical" android:id="@id/fe9" android:background="@color/black_30_opacity" android:layout_width="@dimen/cf" android:layout_height="@dimen/cf" android:layout_centerInParent="true">
+            <ProgressBar android:id="@id/e9z" android:visibility="visible" android:layout_width="24.0dp" android:layout_height="24.0dp" android:indeterminate="true" android:indeterminateOnly="true" android:indeterminateDrawable="@drawable/im_session_icn_loading_indicator" android:indeterminateDuration="2000" android:layout_centerInParent="true" />
+        </LinearLayout>
+        <ImageView android:id="@id/e9y" android:visibility="gone" android:layout_width="24.0dp" android:layout_height="24.0dp" android:src="@drawable/icon_ai_agent_image_re_upload" android:layout_centerInParent="true" />
+    </com.tencent.qqmusic.ui.RoundedRelativeLayout>
+</RelativeLayout>

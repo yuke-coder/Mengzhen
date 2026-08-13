@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout android:orientation="horizontal" android:id="@id/ivh" android:layout_width="wrap_content" android:layout_height="wrap_content"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <ImageView android:layout_width="5.0dp" android:layout_height="5.0dp" android:layout_marginLeft="3.0dp" android:layout_marginRight="3.0dp" android:src="@drawable/recording_reciprocal_circle" />
+    <ImageView android:layout_width="5.0dp" android:layout_height="5.0dp" android:layout_marginLeft="3.0dp" android:layout_marginRight="3.0dp" android:src="@drawable/recording_reciprocal_circle" />
+    <ImageView android:layout_width="5.0dp" android:layout_height="5.0dp" android:layout_marginLeft="3.0dp" android:layout_marginRight="3.0dp" android:src="@drawable/recording_reciprocal_circle" />
+    <ImageView android:layout_width="5.0dp" android:layout_height="5.0dp" android:layout_marginLeft="3.0dp" android:layout_marginRight="3.0dp" android:src="@drawable/recording_reciprocal_circle" />
+    <ImageView android:layout_width="5.0dp" android:layout_height="5.0dp" android:layout_marginLeft="3.0dp" android:layout_marginRight="3.0dp" android:src="@drawable/recording_reciprocal_circle" />
+    <ImageView android:layout_width="7.0dp" android:layout_height="7.0dp" android:layout_marginLeft="3.0dp" android:layout_marginRight="3.0dp" android:src="@drawable/recording_reciprocal_circle" />
+    <ImageView android:layout_width="5.0dp" android:layout_height="5.0dp" android:layout_marginLeft="3.0dp" android:layout_marginRight="3.0dp" android:src="@drawable/recording_reciprocal_circle" />
+    <ImageView android:layout_width="5.0dp" android:layout_height="5.0dp" android:layout_marginLeft="3.0dp" android:layout_marginRight="3.0dp" android:src="@drawable/recording_reciprocal_circle" />
+</LinearLayout>

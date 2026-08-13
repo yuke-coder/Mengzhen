@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout android:id="@id/jb9" android:background="@color/black_50_transparent" android:layout_width="match_parent" android:layout_height="match_parent"
+  xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">
+    <com.tencent.qqmusic.ui.RoundedRelativeLayout android:orientation="vertical" android:id="@id/jel" android:clickable="true" android:layout_width="match_parent" android:layout_height="match_parent" android:layout_marginTop="162.0dp" app:jc="true" app:adm="fwy|je9" app:ado="20.0dp">
+        <ImageView android:id="@id/eau" android:background="@color/black_50_opacity" android:layout_width="match_parent" android:layout_height="match_parent" />
+        <LinearLayout android:orientation="vertical" android:id="@id/fh0" android:layout_width="match_parent" android:layout_height="match_parent">
+            <LinearLayout android:orientation="vertical" android:id="@id/fcc" android:layout_width="match_parent" android:layout_height="wrap_content">
+                <View android:layout_gravity="center_horizontal" android:background="@drawable/shape_roundrect_white_opacity_50" android:layout_width="40.0dp" android:layout_height="5.0dp" android:layout_marginTop="5.0dp" />
+                <TextView android:textSize="16.0sp" android:textStyle="bold" android:textColor="@color/white" android:gravity="center" android:layout_gravity="center_horizontal" android:id="@id/mmb" android:paddingTop="15.0dp" android:paddingBottom="15.0dp" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="歌曲好友榜" />
+            </LinearLayout>
+            <View android:id="@id/n_u" android:background="@color/white_10_opacity" android:layout_width="match_parent" android:layout_height="0.5dp" />
+            <RelativeLayout android:layout_width="match_parent" android:layout_height="0.0dp" android:layout_weight="1.0">
+                <RelativeLayout android:gravity="center_vertical" android:id="@id/j_o" android:background="@drawable/shape_game_song_rank_tip" android:visibility="gone" android:layout_width="match_parent" android:layout_height="40.0dp" android:layout_marginLeft="20.0dp" android:layout_marginTop="14.0dp" android:layout_marginRight="20.0dp" android:layout_marginBottom="6.0dp">
+                    <TextView android:textSize="12.0sp" android:textColor="@color/white" android:id="@id/mp8" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginLeft="16.0dp" android:text="@string/bi6" android:singleLine="true" android:layout_centerVertical="true" />
+                    <TextView android:textSize="11.0sp" android:textColor="@color/black_70_opacity" android:gravity="center" android:id="@id/m_v" android:background="@drawable/shape_roundrect_white_50" android:layout_width="51.0dp" android:layout_height="21.0dp" android:layout_marginLeft="11.0dp" android:layout_marginRight="50.0dp" android:text="@string/bi4" android:layout_toRightOf="@id/mp8" android:layout_centerVertical="true" />
+                    <ImageView android:id="@id/ebj" android:background="@drawable/game_tip_close" android:layout_width="25.0dp" android:layout_height="25.0dp" android:layout_marginRight="15.0dp" android:layout_alignParentRight="true" android:layout_centerVertical="true" />
+                </RelativeLayout>
+                <androidx.recyclerview.widget.RecyclerView android:id="@id/jf1" android:clipToPadding="false" android:layout_width="match_parent" android:layout_height="match_parent" android:layout_above="@id/jbx" android:layout_below="@id/j_o" />
+                <com.tencent.qqmusic.game.ui.view.GameEmptyView android:id="@id/c7g" android:visibility="gone" android:layout_width="match_parent" android:layout_height="match_parent" android:layout_alignTop="@id/jf1" android:layout_alignBottom="@id/jf1" />
+                <RelativeLayout android:id="@id/jbx" android:background="@color/white_10_transparent" android:layout_width="match_parent" android:layout_height="65.0dp" android:layout_alignParentBottom="true">
+                    <include layout="@layout/afn" />
+                </RelativeLayout>
+            </RelativeLayout>
+            <TextView android:textSize="16.0sp" android:textColor="@color/white" android:gravity="center" android:id="@id/m6l" android:layout_width="match_parent" android:layout_height="60.0dp" android:text="关闭" />
+        </LinearLayout>
+    </com.tencent.qqmusic.ui.RoundedRelativeLayout>
+</RelativeLayout>

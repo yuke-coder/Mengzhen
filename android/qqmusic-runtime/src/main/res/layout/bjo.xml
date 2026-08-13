@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout android:background="@drawable/mlive_bg_preview_right_anchor_info_label" android:layout_width="wrap_content" android:layout_height="27.0dp"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <com.tme.qqmusic.widget.base.view.GlideImageView android:id="@id/mlive_preview_right_anchor_info_label_avatar" android:layout_width="25.0dp" android:layout_height="25.0dp" android:layout_marginLeft="1.0dp" android:src="@drawable/mlive_default_avatar" android:layout_centerVertical="true" />
+    <TextView android:textSize="12.0sp" android:textColor="@color/white" android:ellipsize="end" android:id="@id/mlive_preview_right_anchor_info_label_name" android:layout_width="wrap_content" android:layout_height="wrap_content" android:maxWidth="52.0dp" android:singleLine="true" android:layout_centerVertical="true" android:layout_marginStart="2.5dp" android:layout_marginEnd="2.5dp" android:layout_toEndOf="@id/mlive_preview_right_anchor_info_label_avatar" />
+    <ImageView android:id="@id/mlive_link_mute_sound" android:visibility="visible" android:layout_width="17.0dp" android:layout_height="12.0dp" android:src="@drawable/mlive_link_sound_mute" android:scaleType="centerInside" android:layout_centerVertical="true" android:layout_marginStart="5.0dp" />
+</RelativeLayout>

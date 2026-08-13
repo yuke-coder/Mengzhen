@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout android:layout_gravity="center_vertical" android:id="@id/b_a" android:layout_width="@dimen/c25" android:layout_height="wrap_content"
+  xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">
+    <ImageButton android:id="@id/jx9" android:background="@drawable/transparent" android:clickable="false" android:layout_width="0.0dp" android:layout_height="0.0dp" android:importantForAccessibility="no" app:a1i="h,1:1" app:a1x="hnz" app:a21="hnz" app:a27="hnz" />
+    <TextView android:textSize="11.0dp" android:textColor="@color/white_60_transparent" android:id="@id/l_u" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="4.0dp" android:text="保存图片" app:a1d="hnz" app:a1x="hnz" app:a21="hnz" app:a26="@id/jx9" />
+</androidx.constraintlayout.widget.ConstraintLayout>

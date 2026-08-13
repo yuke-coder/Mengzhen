@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout android:visibility="gone" android:layout_width="match_parent" android:layout_height="match_parent"
+  xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">
+    <androidx.constraintlayout.widget.Guideline android:orientation="vertical" android:id="@id/evv" android:layout_width="wrap_content" android:layout_height="match_parent" app:a1n="0.077" />
+    <androidx.constraintlayout.widget.ConstraintLayout android:id="@id/b_s" android:layout_width="wrap_content" android:layout_height="wrap_content" app:a1d="hnz" app:a1y="@id/evv" app:a27="hnz" app:a28="0.349">
+        <androidx.constraintlayout.widget.ConstraintLayout android:background="@drawable/bg_birth_day_star_bless_entrance" android:layout_width="149.0dp" android:layout_height="32.0dp" android:layout_marginLeft="26.0dp" app:a1d="@id/a8n" app:a1x="@id/a8n">
+            <TextView android:textSize="11.0dp" android:ellipsize="marquee" android:id="@id/mpa" android:layout_width="91.0dp" android:layout_height="wrap_content" android:layout_marginLeft="26.0dp" android:text="" android:singleLine="true" android:includeFontPadding="false" android:marqueeRepeatLimit="marquee_forever" app:a1d="hnz" app:a1x="hnz" app:a27="hnz" />
+            <ImageView android:id="@id/dt2" android:layout_width="28.0dp" android:layout_height="28.0dp" android:layout_marginRight="2.0dp" android:src="@drawable/icon_birth_day_star_bless_ring" app:a1d="hnz" app:a21="hnz" app:a27="hnz" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
+        <View android:id="@id/a8n" android:background="@drawable/bg_birth_day_star_avatar" android:layout_width="52.0dp" android:layout_height="52.0dp" app:a1d="hnz" app:a1x="hnz" app:a27="hnz" />
+        <com.tencent.component.widget.AsyncEffectImageView android:id="@id/du9" android:layout_width="45.0dp" android:layout_height="45.0dp" app:a1d="@id/a8n" app:a1x="@id/a8n" app:a21="@id/a8n" app:a27="@id/a8n" app:afv="32.5dp" />
+        <com.tencent.component.widget.AsyncEffectImageView android:id="@id/du_" android:layout_width="27.0dp" android:layout_height="21.0dp" android:src="@drawable/icon_super_vip_birth_day_star_bless" app:a1d="@id/a8n" app:a21="@id/a8n" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>

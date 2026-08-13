@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout android:orientation="vertical" android:layout_width="match_parent" android:layout_height="match_parent"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <ScrollView android:layout_width="match_parent" android:layout_height="wrap_content">
+        <LinearLayout android:orientation="vertical" android:layout_width="match_parent" android:layout_height="match_parent">
+            <TextView android:textSize="16.0dp" android:textColor="@color/skin_text_main_color" android:gravity="center" android:id="@id/ldr" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginLeft="45.0dp" android:layout_marginTop="54.0dp" android:layout_marginRight="45.0dp" android:layout_marginBottom="12.0dp" android:text="标题" />
+            <TextView android:textSize="14.0dp" android:textColor="@color/skin_text_sub_color" android:id="@id/content" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginLeft="45.0dp" android:layout_marginRight="45.0dp" />
+        </LinearLayout>
+    </ScrollView>
+</LinearLayout>

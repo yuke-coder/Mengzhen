@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout android:layout_width="172.0dp" android:layout_height="wrap_content"
+  xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">
+    <com.tme.qqmusic.widget.base.view.TriangleView android:id="@id/mlive_pop_menu_arrow" android:layout_width="@dimen/asn" android:layout_height="5.0dp" app:vf="false" app:a1j="hnz" app:a23="hnz" app:aay="@color/white" />
+    <TextView android:textSize="10.0sp" android:textColor="@color/black" android:id="@id/mlive_popup_content" android:background="@drawable/mlive_shape_live_pk_prop_tips_bg" android:paddingTop="5.0dp" android:paddingBottom="5.0dp" android:layout_width="172.0dp" android:layout_height="wrap_content" android:paddingStart="10.0dp" android:paddingEnd="10.0dp" app:a1j="hnz" app:a23="hnz" app:a26="@id/mlive_pop_menu_arrow" />
+</androidx.constraintlayout.widget.ConstraintLayout>

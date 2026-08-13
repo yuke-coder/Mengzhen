@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout android:clipChildren="false" android:layout_width="match_parent" android:layout_height="match_parent"
+  xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">
+    <ImageView android:id="@id/aax" android:layout_width="match_parent" android:layout_height="wrap_content" app:a1d="hnz" app:a1j="hnz" app:a23="hnz" />
+    <Space android:id="@id/nfk" android:layout_width="match_parent" android:layout_height="1.0dp" app:a1d="@id/aax" app:a23="hnz" app:a27="@id/aax" app:a28="0.3" />
+    <ImageView android:id="@id/nfj" android:layout_width="wrap_content" android:layout_height="wrap_content" app:a1e="@id/nfk" app:a1j="@id/aax" app:a23="@id/aax" />
+    <androidx.constraintlayout.widget.ConstraintLayout android:id="@id/kd3" android:layout_width="0.0dp" android:layout_height="0.0dp" app:a1d="@id/nfj" app:a1j="@id/nfj" app:a23="@id/nfj" app:a27="@id/nfj">
+        <ImageView android:id="@id/kd2" android:layout_width="0.0dp" android:layout_height="0.0dp" app:a1d="hnz" app:a1j="hnz" app:a1s="0.4" app:a23="hnz" app:a27="hnz" app:a2e="0.4" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+    <com.tencent.component.widget.AsyncImageView android:id="@id/av3" android:layout_width="4.0dp" android:layout_height="0.0dp" app:a1d="@id/nfj" app:a1i="h,1:1" app:a1j="@id/nfj" app:a23="@id/nfj" app:a27="@id/nfj" />
+    <com.tencent.qqmusic.business.playernew.view.playersong.musicworld.MusicWorldPlayerPlayArrowView android:id="@id/htr" android:layout_width="0.0dp" android:layout_height="0.0dp" app:a1d="@id/aax" app:a1i="h,17:66" app:a1j="@id/nfj" app:a2e="0.2" />
+</androidx.constraintlayout.widget.ConstraintLayout>

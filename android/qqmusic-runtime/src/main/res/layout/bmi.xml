@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<merge android:layout_width="37.0dp" android:layout_height="37.0dp" app:lg="5.0dp"
+  xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">
+    <com.tme.mlive.ui.custom.CornerFrameLayout android:background="@drawable/mive_pendant_left_item_bg" android:layout_width="33.0dp" android:layout_height="33.0dp" app:lg="5.0dp" app:a1d="hnz" app:a1j="hnz" app:a23="hnz" app:a27="hnz">
+        <ImageView android:layout_gravity="start|bottom" android:id="@id/mlive_red_packet_pendent_cover" android:layout_width="27.0dp" android:layout_height="31.0dp" android:src="@drawable/mlive_red_packet_gd_pendent" />
+        <TextView android:textSize="8.0dp" android:textStyle="bold" android:textColor="@color/white" android:gravity="center" android:layout_gravity="center|bottom" android:id="@id/mlive_red_packet_pendent_countdown" android:background="@drawable/mive_pendant_left_item_bg" android:layout_width="match_parent" android:layout_height="10.0dp" android:includeFontPadding="false" />
+    </com.tme.mlive.ui.custom.CornerFrameLayout>
+    <TextView android:textSize="7.0dp" android:textStyle="bold" android:textColor="@color/white" android:gravity="center" android:id="@id/mlive_red_packet_pendent_count" android:background="@drawable/mlive_penadant_red_packet_count_bg" android:layout_width="wrap_content" android:layout_height="10.0dp" android:minWidth="10.0dp" android:includeFontPadding="false" app:a1j="hnz" app:a27="hnz" />
+</merge>

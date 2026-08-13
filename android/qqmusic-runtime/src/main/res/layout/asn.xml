@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout android:gravity="center_horizontal" android:orientation="vertical" android:paddingTop="100.0dp" android:layout_width="match_parent" android:layout_height="match_parent"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <ImageView android:id="@id/ecq" android:layout_width="100.0dp" android:layout_height="100.0dp" android:src="@drawable/ic_clip_error" />
+    <TextView android:textSize="15.0sp" android:textStyle="bold" android:textColor="@color/black_50_opacity" android:id="@id/mpc" android:visibility="gone" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="12.0dp" />
+    <TextView android:textSize="12.0sp" android:textColor="@color/black_50_opacity" android:gravity="center" android:id="@id/mdn" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="11.0dp" android:text="@string/msg_clip_empty_list" />
+    <TextView android:textSize="14.0sp" android:textColor="@color/black_90_opacity" android:gravity="center" android:id="@id/mi3" android:visibility="gone" android:layout_width="160.0dp" android:layout_height="38.0dp" android:layout_marginTop="20.0dp" />
+</LinearLayout>

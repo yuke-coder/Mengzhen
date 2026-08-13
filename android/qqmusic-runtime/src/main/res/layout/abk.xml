@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout android:layout_width="match_parent" android:layout_height="wrap_content"
+  xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">
+    <com.tencent.qqmusic.business.aiassistant.view.AiMessageWaitingView android:id="@id/qq" android:visibility="gone" android:layout_width="wrap_content" android:layout_height="wrap_content" app:a1x="hnz" app:a27="hnz" />
+    <FrameLayout android:id="@id/q9" android:layout_width="wrap_content" android:layout_height="wrap_content" app:a1x="hnz" app:a27="hnz">
+        <com.tencent.qqmusic.business.aiassistant.view.AiResponseLinkTextView android:textSize="16.0sp" android:textColor="@color/black_80_opacity" android:gravity="center_vertical" android:id="@id/q8" android:layout_width="wrap_content" android:layout_height="wrap_content" />
+        <androidx.constraintlayout.widget.ConstraintLayout android:id="@id/q_" android:paddingTop="4.0dp" android:paddingBottom="4.0dp" android:visibility="gone" android:layout_width="wrap_content" android:layout_height="wrap_content">
+            <ImageView android:id="@id/qa" android:layout_width="14.0dp" android:layout_height="14.0dp" android:layout_marginRight="4.5dp" android:src="@drawable/ai_interactive_msg_voice_icon" app:a1d="hnz" app:a1x="hnz" app:a20="@id/qd" app:a27="hnz" />
+            <ProgressBar android:id="@id/qb" android:visibility="gone" android:layout_width="14.0dp" android:layout_height="14.0dp" android:layout_marginRight="4.5dp" android:indeterminate="true" android:indeterminateOnly="true" android:indeterminateDrawable="@drawable/ai_interactive_msg_voice_loading_indicator" android:indeterminateDuration="1000" app:a1d="hnz" app:a1x="hnz" app:a20="@id/qd" app:a27="hnz" />
+            <com.tencent.qqmusic.pag.BasePAGView android:id="@id/qc" android:layout_width="14.0dp" android:layout_height="14.0dp" android:layout_marginRight="4.5dp" app:a1d="hnz" app:a1x="hnz" app:a20="@id/qd" app:a27="hnz" />
+            <View android:id="@id/qd" android:background="@color/black_50_transparent" android:layout_width="1.0dp" android:layout_height="12.0dp" app:a1d="hnz" app:a21="hnz" app:a27="hnz" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </FrameLayout>
+    <androidx.recyclerview.widget.RecyclerView android:id="@id/q7" android:focusableInTouchMode="false" android:visibility="gone" android:layout_width="0.0dp" android:layout_height="wrap_content" android:layout_marginTop="10.0dp" app:a1e="@id/q4" app:a1v="1.0" app:a1x="hnz" app:a21="hnz" app:a26="@id/q9" />
+    <androidx.constraintlayout.widget.ConstraintLayout android:id="@id/q4" android:visibility="gone" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="10.0dp" app:a1d="hnz" app:a1x="hnz" app:a21="hnz" app:a26="@id/q7">
+        <androidx.appcompat.widget.AppCompatTextView android:textSize="12.0sp" android:textColor="@color/black_60_opacity" android:id="@id/q6" android:layout_width="wrap_content" android:layout_height="wrap_content" android:singleLine="true" app:a1d="hnz" app:a20="@id/q5" app:a27="hnz" />
+        <ImageView android:id="@id/q5" android:layout_width="15.0dp" android:layout_height="15.0dp" android:src="@drawable/ai_assistant_music_item_down_arrow" app:a1d="hnz" app:a1y="@id/q6" app:a27="hnz" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>

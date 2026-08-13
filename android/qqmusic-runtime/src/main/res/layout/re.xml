@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout android:layout_width="match_parent" android:layout_height="wrap_content"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <RelativeLayout android:id="@id/a6x" android:background="@drawable/skin_sub_mask_img" android:layout_width="match_parent" android:layout_height="@dimen/cau">
+        <RelativeLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginTop="@dimen/c_q">
+            <ImageView android:id="@id/a6w" android:background="@drawable/material_ripple_background_circle" android:layout_width="@dimen/cao" android:layout_height="@dimen/cao" android:src="@drawable/ic_download_list_tital_bar_back_selector" android:scaleType="centerInside" android:layout_alignParentLeft="true" android:layout_centerVertical="true" android:contentDescription="@string/wf" />
+            <com.tencent.qqmusic.ui.CenterHorizontalScrollView android:layout_width="match_parent" android:layout_height="match_parent" android:layout_toLeftOf="@id/a6u" android:layout_toRightOf="@id/a6w" android:layout_toStartOf="@id/a6u" android:layout_toEndOf="@id/a6w">
+                <LinearLayout android:gravity="center_vertical" android:orientation="horizontal" android:id="@id/a6z" android:layout_width="wrap_content" android:layout_height="match_parent">
+                    <LinearLayout android:gravity="center_vertical" android:orientation="horizontal" android:id="@id/a6l" android:paddingRight="14.0dp" android:layout_width="wrap_content" android:layout_height="wrap_content">
+                        <TextView android:textSize="18.0sp" android:textColor="@color/skin_text_main_color" android:gravity="center" android:id="@id/a6m" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="可以" android:lines="1" />
+                        <ImageView android:layout_gravity="center_vertical" android:id="@id/a6n" android:visibility="gone" android:layout_width="8.0dp" android:layout_height="6.0dp" android:layout_marginLeft="8.0dp" android:src="@drawable/local_page_tab_menu_down" />
+                    </LinearLayout>
+                    <View android:layout_gravity="center_vertical" android:id="@id/f0o" android:background="@drawable/skin_text_sub_color_shape" android:layout_width="2.0px" android:layout_height="10.0dp" />
+                    <RelativeLayout android:paddingLeft="14.0dp" android:paddingRight="14.0dp" android:layout_width="wrap_content" android:layout_height="wrap_content">
+                        <TextView android:textSize="18.0sp" android:textColor="@color/skin_text_sub_color" android:gravity="center" android:id="@id/a6t" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="可以" android:lines="1" />
+                        <ImageView android:id="@id/lfp" android:background="@drawable/ic_red_dot" android:focusable="false" android:visibility="gone" android:clickable="false" android:layout_width="@dimen/btd" android:layout_height="@dimen/btd" android:layout_marginTop="2.0dp" android:layout_toRightOf="@id/a6t" android:layout_alignParentTop="true" android:layout_centerVertical="true" />
+                    </RelativeLayout>
+                    <View android:layout_gravity="center_vertical" android:id="@id/j8d" android:background="@drawable/skin_text_sub_color_shape" android:layout_width="1.0dp" android:layout_height="10.0dp" />
+                    <RelativeLayout android:paddingLeft="14.0dp" android:paddingRight="14.0dp" android:layout_width="wrap_content" android:layout_height="wrap_content">
+                        <TextView android:textSize="18.0sp" android:textColor="@color/skin_text_sub_color" android:gravity="center" android:id="@id/a6q" android:layout_width="wrap_content" android:layout_height="wrap_content" android:lines="1" />
+                        <ImageView android:id="@id/a6p" android:background="@drawable/ic_red_dot" android:focusable="false" android:visibility="gone" android:clickable="false" android:layout_width="@dimen/btd" android:layout_height="@dimen/btd" android:layout_marginTop="2.0dp" android:layout_toRightOf="@id/a6q" android:layout_alignParentTop="true" android:layout_centerVertical="true" />
+                    </RelativeLayout>
+                </LinearLayout>
+            </com.tencent.qqmusic.ui.CenterHorizontalScrollView>
+            <TextView android:textSize="18.0sp" android:textColor="@color/skin_text_main_color" android:id="@id/a6o" android:visibility="gone" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_centerInParent="true" />
+            <FrameLayout android:id="@id/a6u" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginRight="4.0dp" android:layout_alignParentRight="true" android:layout_centerVertical="true">
+                <ImageView android:layout_gravity="left" android:id="@id/a6r" android:background="@drawable/material_ripple_background_circle" android:layout_width="@dimen/cao" android:layout_height="@dimen/cao" android:src="@drawable/maintabbar_button_more_selector" android:scaleType="centerInside" android:contentDescription="@string/ihj" />
+                <TextView android:textSize="10.0sp" android:textColor="@color/skin_text_main_color" android:gravity="left|bottom" android:id="@id/a6s" android:visibility="invisible" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginLeft="25.0dp" android:layout_marginTop="9.0dp" android:maxLines="1" />
+                <ImageView android:layout_gravity="right" android:id="@id/ju6" android:background="@drawable/ic_red_dot" android:focusable="false" android:visibility="gone" android:clickable="false" android:layout_width="@dimen/btd" android:layout_height="@dimen/btd" android:layout_marginTop="5.0dp" android:layout_marginRight="5.0dp" />
+            </FrameLayout>
+        </RelativeLayout>
+    </RelativeLayout>
+</FrameLayout>

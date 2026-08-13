@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout android:orientation="vertical" android:layout_width="match_parent" android:layout_height="match_parent"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <FrameLayout android:gravity="center_vertical" android:background="@android:color/white" android:layout_width="match_parent" android:layout_height="45.0dp">
+        <ImageView android:id="@id/lgs" android:layout_width="45.0dp" android:layout_height="45.0dp" android:src="@drawable/tme_ad_back" android:scaleType="centerInside" android:contentDescription="@null" />
+        <TextView android:textSize="15.0sp" android:textColor="#333333" android:ellipsize="end" android:gravity="center" android:layout_gravity="center" android:id="@id/lnl" android:layout_width="wrap_content" android:layout_height="wrap_content" android:maxLines="1" android:layout_marginStart="45.0dp" android:layout_marginEnd="45.0dp" />
+    </FrameLayout>
+    <FrameLayout android:id="@id/loy" android:layout_width="match_parent" android:layout_height="match_parent">
+        <WebView android:id="@id/loz" android:layout_width="match_parent" android:layout_height="match_parent" />
+        <ProgressBar android:layout_gravity="bottom" android:id="@id/lkt" android:layout_width="match_parent" android:layout_height="4.0dp" android:indeterminate="false" style="@style/xf" />
+    </FrameLayout>
+</LinearLayout>

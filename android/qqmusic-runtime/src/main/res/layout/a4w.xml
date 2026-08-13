@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout android:id="@id/hda" android:background="@color/black" android:layout_width="match_parent" android:layout_height="match_parent"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <ViewStub android:id="@id/nfa" android:layout="@layout/auw" android:layout_width="match_parent" android:layout_height="match_parent" />
+    <ViewStub android:id="@id/nfd" android:layout="@layout/auy" android:layout_width="match_parent" android:layout_height="match_parent" />
+</FrameLayout>

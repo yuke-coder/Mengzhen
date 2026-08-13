@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout android:orientation="vertical" android:id="@id/bpn" android:background="@drawable/together_actionsheet_bg" android:layout_width="match_parent" android:layout_height="wrap_content"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <TextView android:textSize="15.0dp" android:textStyle="bold" android:textColor="@color/color_1A1A1A" android:id="@id/bpi" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginLeft="19.0dp" android:layout_marginTop="14.5dp" android:layout_marginBottom="14.5dp" android:text="@string/ibq" android:singleLine="true" />
+    <View android:id="@id/bpg" android:background="@drawable/together_divider_img" android:layout_width="match_parent" android:layout_height="1.0dp" />
+    <TextView android:textSize="14.0dp" android:textColor="@color/color_1A1A1A" android:id="@id/bpe" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_margin="19.0dp" android:lineSpacingExtra="4.0dp" />
+    <View android:id="@id/bph" android:background="@drawable/together_divider_img" android:layout_width="match_parent" android:layout_height="1.0dp" />
+    <TextView android:textSize="15.0dp" android:textColor="@color/color_1A1A1A" android:gravity="center_horizontal" android:id="@id/bpf" android:paddingTop="19.0dp" android:paddingBottom="19.0dp" android:layout_width="match_parent" android:layout_height="wrap_content" android:text="@string/idp" android:singleLine="true" />
+</LinearLayout>

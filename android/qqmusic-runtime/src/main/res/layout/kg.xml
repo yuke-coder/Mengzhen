@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout android:orientation="vertical" android:layout_width="match_parent" android:layout_height="match_parent"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <RelativeLayout android:id="@id/as7" android:layout_width="@dimen/j8" android:layout_height="@dimen/j8" android:layout_below="@id/asu" android:layout_centerInParent="true">
+        <ImageView android:id="@id/as5" android:layout_width="match_parent" android:layout_height="wrap_content" android:src="@drawable/camera_scan_box_anim" android:scaleType="fitXY" />
+        <View android:id="@id/as6" android:background="@drawable/camera_scan_box" android:layout_width="match_parent" android:layout_height="match_parent" />
+    </RelativeLayout>
+    <View android:id="@id/asu" android:background="@color/camera_scan_mask_color" android:layout_width="match_parent" android:layout_height="@dimen/bum" />
+    <View android:id="@id/as4" android:background="@color/camera_scan_mask_color" android:layout_width="match_parent" android:layout_height="match_parent" android:layout_below="@id/as7" />
+    <View android:background="@color/camera_scan_mask_color" android:layout_width="match_parent" android:layout_height="match_parent" android:layout_toLeftOf="@id/as7" android:layout_above="@id/as4" android:layout_below="@id/asu" />
+    <View android:background="@color/camera_scan_mask_color" android:layout_width="match_parent" android:layout_height="match_parent" android:layout_toRightOf="@id/as7" android:layout_above="@id/as4" android:layout_below="@id/asu" />
+    <TextView android:textSize="12.0sp" android:textColor="@color/white" android:id="@id/asr" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="18.0dp" android:text="@string/gjq" android:layout_below="@id/as7" android:layout_centerHorizontal="true" />
+    <TextView android:textSize="12.0sp" android:textColor="@color/my_music_green" android:id="@id/ase" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="8.0dp" android:text="@string/gj6" android:layout_below="@id/asr" android:layout_centerHorizontal="true" />
+    <com.tencent.qqmusic.camerascan.arcard.view.CameraScanBubbleView android:id="@id/as0" android:visibility="gone" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_above="@id/as4" android:layout_centerInParent="true" />
+</RelativeLayout>

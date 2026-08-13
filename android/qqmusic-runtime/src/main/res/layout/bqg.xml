@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout android:id="@id/gd6" android:layout_width="150.0dp" android:layout_height="150.0dp"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <com.tencent.component.widget.AsyncEffectImageView android:id="@id/ggi" android:layout_width="150.0dp" android:layout_height="150.0dp" android:importantForAccessibility="no" />
+    <com.tencent.component.widget.AsyncEffectImageView android:layout_gravity="center" android:id="@id/ggn" android:visibility="gone" android:layout_width="150.0dp" android:layout_height="150.0dp" android:scaleType="fitCenter" android:importantForAccessibility="no" />
+    <ImageView android:layout_gravity="bottom" android:id="@id/gk2" android:layout_width="150.0dp" android:layout_height="12.0dp" android:scaleType="fitCenter" android:importantForAccessibility="no" />
+    <com.tencent.component.widget.AsyncEffectImageView android:layout_gravity="center" android:id="@id/gep" android:visibility="gone" android:layout_width="100.0dp" android:layout_height="100.0dp" android:scaleType="centerCrop" android:importantForAccessibility="no" />
+    <TextView android:textSize="12.0dp" android:textStyle="bold" android:ellipsize="none" android:gravity="left|top" android:layout_gravity="left|top" android:id="@id/geq" android:visibility="gone" android:layout_width="100.0dp" android:layout_height="20.0dp" android:singleLine="true" android:importantForAccessibility="no" />
+</FrameLayout>

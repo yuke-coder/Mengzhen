@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout android:gravity="center_vertical" android:layout_gravity="bottom" android:background="@drawable/color_b15_dark_theme" android:layout_width="match_parent" android:layout_height="wrap_content" android:minHeight="355.0dp"
+  xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">
+    <TextView android:textSize="16.0sp" android:textColor="@color/share_song_dialog_title_dark" android:id="@id/lg1" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginTop="20.0dp" android:text="@string/ihl" android:layout_marginStart="20.0dp" app:a23="hnz" app:a27="hnz" />
+    <androidx.recyclerview.widget.RecyclerView android:id="@id/ita" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginTop="12.0dp" android:layout_marginBottom="20.0dp" android:minHeight="189.0dp" app:a1e="@id/htb" app:a23="hnz" app:a26="@id/lg1" />
+    <ImageView android:id="@id/htb" android:background="@color/white_10_opacity" android:layout_width="match_parent" android:layout_height="0.5dp" app:a1e="@id/d38" />
+    <TextView android:textSize="15.0sp" android:textStyle="normal" android:textColor="@color/common_grid_title_color_selector_dark_theme" android:gravity="center" android:id="@id/d38" android:layout_width="match_parent" android:layout_height="70.0dp" android:text="@string/cancel" app:a1d="hnz" app:a1j="hnz" app:a23="hnz" />
+</androidx.constraintlayout.widget.ConstraintLayout>

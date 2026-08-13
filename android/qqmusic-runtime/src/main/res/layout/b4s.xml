@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout android:background="@color/black" android:layout_width="match_parent" android:layout_height="match_parent"
+  xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto" xmlns:seekbar="http://schemas.android.com/apk/res-auto">
+    <FrameLayout android:id="@id/f70" android:visibility="gone" android:layout_width="0.0dp" android:layout_height="0.0dp" seekbar:a1j="hnz" seekbar:a23="hnz" seekbar:a27="hnz" />
+    <SurfaceView android:id="@id/f73" android:visibility="visible" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="100.0dp" seekbar:a1j="hnz" seekbar:a23="hnz" seekbar:a27="hnz" />
+    <VideoView android:id="@id/f71" android:visibility="gone" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginBottom="316.0dp" seekbar:a1d="hnz" seekbar:a1j="hnz" seekbar:a23="hnz" seekbar:a27="hnz" seekbar:a28="0.5" />
+    <com.tme.karaoke.lib_livecover.business.videocroppage.v.MliveLoadStateView android:id="@id/f72" android:visibility="gone" android:layout_width="wrap_content" android:layout_height="wrap_content" seekbar:a1d="@id/f73" seekbar:a1j="@id/f73" seekbar:a23="@id/f73" seekbar:a27="@id/f73" />
+    <ImageView android:id="@id/f6z" android:visibility="gone" android:layout_width="28.0dp" android:layout_height="28.0dp" android:src="@drawable/live_cover_play" seekbar:a1d="@id/f73" seekbar:a1j="@id/f73" seekbar:a23="@id/f73" seekbar:a27="@id/f73" />
+    <LinearLayout android:id="@id/f74" android:visibility="gone" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginLeft="20.0dp" android:layout_marginTop="16.0dp" android:layout_marginRight="20.0dp" seekbar:a26="@id/f73">
+        <ToggleButton android:id="@id/f76" android:background="#00000000" android:layout_width="30.0dp" android:layout_height="30.0dp" android:layout_marginRight="10.0dp" android:checked="true" android:button="@drawable/live_cover_chorus_video_bar_toggle_button_play" android:textOn="" android:textOff="" android:contentDescription="暂停" />
+        <kk.design.KKTextView android:id="@id/f78" android:layout_width="wrap_content" android:layout_height="wrap_content" android:minHeight="18.0dp" seekbar:a0f="ka3" seekbar:a0g="bj0" />
+        <com.tme.karaoke.lib_livecover.common.widget.ProhibitedSeekBar android:layout_gravity="center_vertical" android:id="@id/f77" android:paddingLeft="12.0dp" android:paddingRight="12.0dp" android:layout_width="0.0dp" android:layout_height="wrap_content" android:maxHeight="2.0dp" android:progressDrawable="@drawable/live_cover_chorus_preview_video_progressbar_bg" android:minHeight="2.0dp" android:thumb="@drawable/live_cover_chorus_preview_seek_bar_thumb" android:layout_weight="1.0" />
+        <kk.design.KKTextView android:id="@id/f75" android:layout_width="wrap_content" android:layout_height="wrap_content" android:minHeight="18.0dp" seekbar:a0f="ka3" seekbar:a0g="bj0" />
+    </LinearLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>

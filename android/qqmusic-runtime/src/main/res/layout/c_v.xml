@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout android:layout_width="wrap_content" android:layout_height="wrap_content"
+  xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">
+    <FrameLayout android:id="@id/chv" android:background="@drawable/bg_delete_history_bubble" android:paddingLeft="14.0dp" android:paddingRight="14.0dp" android:paddingBottom="8.0dp" android:layout_width="wrap_content" android:layout_height="wrap_content" app:a1x="hnz" app:a21="hnz" app:a27="hnz">
+        <LinearLayout android:gravity="center_horizontal" android:orientation="vertical" android:layout_width="wrap_content" android:layout_height="wrap_content">
+            <ImageView android:id="@id/eby" android:layout_width="30.0dp" android:layout_height="30.0dp" android:layout_marginTop="9.0dp" android:layout_marginBottom="5.0dp" android:src="@drawable/player_together_history_delete" />
+            <TextView android:textSize="14.0dp" android:textColor="@color/white" android:gravity="center" android:id="@id/m7p" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/fjj" />
+        </LinearLayout>
+    </FrameLayout>
+    <View android:id="@id/a0a" android:background="@drawable/bg_delete_history_bubble_triangle" android:layout_width="12.0dp" android:layout_height="12.0dp" app:a1x="@id/chv" app:a21="@id/chv" app:a26="@id/chv" />
+</androidx.constraintlayout.widget.ConstraintLayout>

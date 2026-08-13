@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout android:orientation="vertical" android:id="@id/k34" android:background="@drawable/transparent" android:paddingTop="20.0dp" android:paddingBottom="20.0dp" android:layout_width="match_parent" android:layout_height="wrap_content"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginBottom="6.5dp">
+        <include android:id="@id/k5s" android:layout_width="match_parent" android:layout_height="wrap_content" layout="@layout/alw" />
+    </LinearLayout>
+    <RelativeLayout android:id="@id/k5r" android:visibility="gone" android:layout_width="match_parent" android:layout_height="129.0dp" android:layout_marginLeft="16.0dp" android:layout_marginTop="8.5dp" android:layout_marginRight="16.0dp">
+        <ImageView android:id="@id/dp3" android:background="@drawable/time_line_add_pic_dark" android:layout_width="23.5dp" android:layout_height="23.5dp" android:layout_marginTop="38.69998dp" android:layout_centerHorizontal="true" android:contentDescription="@string/dw" />
+        <TextView android:textSize="12.0sp" android:textColor="@color/skin_text_guide_color" android:ellipsize="end" android:id="@id/l95" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginLeft="16.0dp" android:layout_marginTop="73.69998dp" android:layout_marginRight="16.0dp" android:maxLines="1" android:layout_centerHorizontal="true" />
+    </RelativeLayout>
+    <LinearLayout android:orientation="vertical" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginLeft="16.0dp" android:layout_marginRight="16.0dp">
+        <TextView android:textSize="13.0sp" android:textColor="@color/skin_text_sub_color" android:ellipsize="end" android:id="@id/k63" android:visibility="gone" android:layout_width="match_parent" android:layout_height="wrap_content" android:maxLines="4" android:lineSpacingExtra="3.0dp" android:fontFamily="PingFang-SC-Regular" />
+    </LinearLayout>
+    <LinearLayout android:orientation="vertical" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginTop="8.5dp">
+        <androidx.recyclerview.widget.RecyclerView android:id="@id/k62" android:visibility="gone" android:layout_width="match_parent" android:layout_height="wrap_content" android:overScrollMode="never" />
+        <androidx.recyclerview.widget.RecyclerView android:id="@id/k64" android:visibility="gone" android:layout_width="match_parent" android:layout_height="wrap_content" android:overScrollMode="never" />
+        <TextView android:textSize="11.0sp" android:textColor="@color/skin_text_main_color" android:ellipsize="end" android:id="@id/mu9" android:visibility="gone" android:layout_width="match_parent" android:layout_height="wrap_content" android:maxLines="2" android:fontFamily="PingFangSC-Regular" />
+    </LinearLayout>
+</LinearLayout>

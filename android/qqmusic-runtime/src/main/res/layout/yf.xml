@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout android:layout_width="match_parent" android:layout_height="match_parent"
+  xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">
+    <LinearLayout android:gravity="center_horizontal" android:orientation="vertical" android:layout_width="match_parent" android:layout_height="wrap_content" app:a1d="hnz" app:a1j="hnz" app:a23="hnz" app:a27="hnz">
+        <ImageView android:id="@id/nwm" android:layout_width="wrap_content" android:layout_height="wrap_content" android:src="@drawable/skin_icon_young_mode" />
+        <TextView android:textSize="18.0sp" android:textStyle="bold" android:textColor="@color/skin_text_main_color" android:id="@id/nwr" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="10.0dp" android:text="@string/be8" />
+        <TextView android:textSize="14.0sp" android:textColor="@color/skin_text_main_color" android:id="@id/nwq" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="8.0dp" android:text="@string/be7" />
+        <TextView android:textSize="13.0sp" android:textColor="@color/skin_highlight_color" android:gravity="center" android:id="@id/nwk" android:background="@drawable/skin_bg_young_mode_desc" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="24.0dp" android:text="@string/be6" android:includeFontPadding="false" />
+    </LinearLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>

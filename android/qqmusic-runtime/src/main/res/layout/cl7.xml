@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout android:id="@id/q" android:layout_width="match_parent" android:layout_height="match_parent"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <include android:id="@id/naf" android:layout_width="match_parent" android:layout_height="match_parent" layout="@layout/m6" />
+    <LinearLayout android:orientation="vertical" android:id="@id/fx7" android:layout_width="match_parent" android:layout_height="wrap_content">
+        <include android:id="@id/lv1" android:layout_width="match_parent" android:layout_height="@dimen/cau" layout="@layout/mu" />
+    </LinearLayout>
+    <ListView android:id="@id/gy8" android:paddingLeft="@dimen/acj" android:paddingTop="@dimen/acl" android:paddingRight="@dimen/acj" android:paddingBottom="@dimen/ach" android:scrollbars="none" android:layout_width="match_parent" android:layout_height="match_parent" android:layout_marginLeft="@dimen/c18" android:layout_marginRight="@dimen/c19" android:cacheColorHint="#00000000" android:divider="#00000000" android:layout_below="@id/fx7" android:overScrollMode="never" />
+    <ScrollView android:scrollbarStyle="outsideInset" android:id="@id/jio" android:paddingLeft="14.0dp" android:paddingTop="@dimen/acl" android:paddingRight="14.0dp" android:paddingBottom="@dimen/ach" android:visibility="gone" android:layout_width="match_parent" android:layout_height="match_parent" android:layout_marginLeft="@dimen/acd" android:layout_marginRight="@dimen/acd" android:layout_below="@id/fx7" android:overScrollMode="never">
+        <RelativeLayout android:id="@id/a5" android:layout_width="match_parent" android:layout_height="wrap_content">
+            <TextView android:textSize="18.0sp" android:textColor="#d7d7d7" android:id="@id/b3" android:layout_width="match_parent" android:layout_height="wrap_content" android:text="@string/a_" android:lineSpacingExtra="5.0dp" style="@style/a5b" />
+        </RelativeLayout>
+    </ScrollView>
+</RelativeLayout>

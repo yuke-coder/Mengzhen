@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout android:layout_width="match_parent" android:layout_height="match_parent"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <include android:id="@id/naf" android:layout_width="match_parent" android:layout_height="match_parent" layout="@layout/m6" />
+    <include android:id="@id/lv1" layout="@layout/mu" />
+    <ViewStub android:id="@id/nf8" android:layout="@layout/mh" android:layout_width="match_parent" android:layout_height="match_parent" android:layout_below="@id/lv1" />
+    <include android:id="@id/c7a" android:visibility="gone" android:layout_width="match_parent" android:layout_height="match_parent" android:layout_below="@id/lv1" layout="@layout/mj" />
+    <include android:id="@id/jqh" android:layout_width="match_parent" android:layout_height="50.0dp" android:layout_below="@id/lv1" layout="@layout/mr" />
+    <ListView android:id="@id/gy8" android:paddingTop="@dimen/acl" android:paddingBottom="@dimen/ait" android:clipToPadding="false" android:layout_width="match_parent" android:layout_height="match_parent" android:cacheColorHint="#00000000" android:divider="@null" android:layout_below="@id/jqh" android:overScrollMode="never" />
+</RelativeLayout>

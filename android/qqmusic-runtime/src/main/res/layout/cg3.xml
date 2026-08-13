@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout android:gravity="center_vertical" android:layout_width="wrap_content" android:layout_height="wrap_content"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <TextView android:textSize="@dimen/bxu" android:textColor="@color/skin_text_sub_color" android:gravity="center_vertical" android:layout_width="wrap_content" android:layout_height="wrap_content" />
+    <TextView android:textSize="@dimen/bxu" android:textColor="@color/search_hot_word_text_color" android:ellipsize="end" android:gravity="center" android:id="@id/baj" android:background="@drawable/search_hot_word" android:paddingLeft="12.0dp" android:paddingTop="2.0dp" android:paddingRight="12.0dp" android:paddingBottom="2.0dp" android:layout_width="wrap_content" android:layout_height="wrap_content" android:singleLine="true" />
+</LinearLayout>

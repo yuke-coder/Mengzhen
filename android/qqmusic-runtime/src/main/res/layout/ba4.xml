@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout android:layout_width="match_parent" android:layout_height="match_parent"
+  xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">
+    <com.tme.qqmusic.widget.base.view.GlideImageView android:id="@id/mlive_circle_btn_gv" android:layout_width="25.0dp" android:layout_height="25.0dp" app:a1d="hnz" app:a1j="hnz" app:a23="hnz" app:a27="hnz" />
+    <com.tme.mlive.ui.custom.CircleProgressBar android:id="@id/mlive_circle_btn_pb" android:visibility="gone" android:layout_width="30.0dp" android:layout_height="30.0dp" app:a1d="hnz" app:a1j="hnz" app:a23="hnz" app:a27="hnz" app:acw="jdn" app:acx="1.5dp" app:acy="kba" />
+</androidx.constraintlayout.widget.ConstraintLayout>

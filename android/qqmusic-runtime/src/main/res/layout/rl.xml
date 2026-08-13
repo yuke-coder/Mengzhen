@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<merge android:id="@id/j1e" android:visibility="visible" android:layout_width="wrap_content" android:layout_height="50.0dp"
+  xmlns:app="http://schemas.android.com/apk/res-auto" xmlns:android="http://schemas.android.com/apk/res/android">
+    <com.tme.karaoke.recordui.widget.InterceptToastLinearLayout android:orientation="horizontal" android:id="@id/bzx" android:clickable="true" android:layout_width="match_parent" android:layout_height="60.0dp">
+        <LinearLayout android:layout_gravity="center_vertical" android:orientation="vertical" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_weight="1.0">
+            <kk.design.KKTextView android:id="@id/j1f" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/gd3" android:layout_centerVertical="true" android:contentDescription="@string/gd3" android:importantForAccessibility="yes" app:a0f="g7m" app:a0g="bj0" />
+            <kk.design.KKTextView android:id="@id/j1c" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="5.0dp" android:minHeight="18.0dp" android:text="实时听到自己歌声，及时调整演唱" app:a0f="ka9" app:a0g="bj0" />
+        </LinearLayout>
+        <RadioButton android:textColor="@color/transparent" android:layout_gravity="center_vertical" android:id="@id/j1g" android:background="@drawable/record_toggle_switch_bg" android:layout_width="40.0dp" android:layout_height="25.0dp" android:layout_marginLeft="20.0dp" android:button="@null" android:textOn="" android:textOff="" android:layout_centerVertical="true" />
+        <ImageView android:layout_gravity="center_vertical" android:id="@id/j1d" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginLeft="20.0dp" android:src="@drawable/new_config_arrow" android:layout_alignParentRight="true" android:layout_centerVertical="true" android:alpha="0.85" />
+    </com.tme.karaoke.recordui.widget.InterceptToastLinearLayout>
+    <com.tme.karaoke.recordui.widget.InterceptToastLinearLayout android:gravity="center_vertical" android:orientation="horizontal" android:id="@id/c08" android:focusable="true" android:focusableInTouchMode="true" android:layout_width="match_parent" android:layout_height="50.0dp" android:layout_below="@id/bzx">
+        <kk.design.KKTextView android:layout_gravity="center_vertical" android:id="@id/m9z" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/gd6" android:layout_centerVertical="true" app:a0f="g7m" app:a0g="bj0" />
+        <SeekBar android:layout_gravity="center_vertical" android:id="@id/jgw" android:padding="0.0dp" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginLeft="20.0dp" android:layout_centerVertical="true" style="@style/a5u" />
+    </com.tme.karaoke.recordui.widget.InterceptToastLinearLayout>
+</merge>

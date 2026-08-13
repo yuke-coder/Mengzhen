@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout android:id="@id/ng_" android:visibility="gone" android:clipChildren="false" android:layout_width="match_parent" android:layout_height="match_parent"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <com.tencent.qqmusic.business.ad.vipearningmode.VipEarningModeEntranceView android:layout_gravity="center" android:id="@id/ng9" android:visibility="gone" android:layout_width="30.0dp" android:layout_height="30.0dp" android:contentDescription="@string/it0" />
+    <com.tencent.qqmusic.business.ad.vipearningmode.VipEarningModeEntrancePagView android:layout_gravity="center" android:id="@id/nga" android:visibility="gone" android:layout_width="40.0dp" android:layout_height="40.0dp" android:contentDescription="@string/it0" />
+    <ImageView android:layout_gravity="center" android:id="@id/jo6" android:visibility="gone" android:layout_width="40.0dp" android:layout_height="40.0dp" />
+</FrameLayout>

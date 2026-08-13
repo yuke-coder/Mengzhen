@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout android:layout_width="match_parent" android:layout_height="wrap_content"
+  xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">
+    <com.tme.mlive.module.multi.view.MultiLinkSeatView android:id="@id/mlive_friend_room_pk_seat_view" android:paddingTop="20.0dp" android:layout_width="match_parent" android:layout_height="wrap_content" app:a1j="hnz" app:a23="hnz" app:a27="hnz" />
+    <com.tme.mlive.module.multi.view.FriendPKProgressView android:id="@id/mlive_friend_room_pk_process_view" android:visibility="gone" android:layout_width="match_parent" android:layout_height="wrap_content" app:a1j="hnz" app:a23="hnz" app:a26="@id/mlive_friend_room_pk_seat_view" />
+</androidx.constraintlayout.widget.ConstraintLayout>

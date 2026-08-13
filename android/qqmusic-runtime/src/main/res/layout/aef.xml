@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout android:background="@drawable/material_ripple_background" android:layout_width="match_parent" android:layout_height="55.0dp" android:minHeight="55.0dp"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <include android:id="@id/bvu" android:layout_width="wrap_content" android:layout_height="match_parent" android:layout_marginLeft="10.0dp" android:layout_alignParentRight="true" android:layout_centerVertical="true" layout="@layout/b40" />
+    <RelativeLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginLeft="20.0dp" android:layout_toLeftOf="@id/bvu" android:layout_alignParentLeft="true" android:layout_centerVertical="true">
+        <LinearLayout android:id="@id/bw4" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_alignParentTop="true">
+            <TextView android:textSize="@dimen/b35" android:textColor="@color/skin_text_main_color" android:ellipsize="end" android:id="@id/bw3" android:fadingEdge="none" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="不见得" android:maxLines="1" android:layout_weight="1.0" />
+            <ImageView android:layout_gravity="center_vertical" android:id="@id/bvz" android:visibility="visible" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginLeft="4.0dp" android:src="@drawable/hq_icon" android:scaleType="fitXY" />
+            <ImageView android:layout_gravity="center_vertical" android:id="@id/bw0" android:background="@drawable/mv_song_list_tip_icon" android:visibility="gone" android:layout_width="18.0dp" android:layout_height="10.0dp" android:layout_marginLeft="4.0dp" />
+            <ImageView android:layout_gravity="center_vertical" android:id="@id/bvy" android:background="@drawable/exclusive_song_list_tip_icon" android:visibility="gone" android:layout_width="18.0dp" android:layout_height="10.0dp" android:layout_marginLeft="3.0dp" />
+            <ImageView android:layout_gravity="center_vertical" android:id="@id/bw1" android:visibility="gone" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginLeft="3.0dp" />
+        </LinearLayout>
+        <RelativeLayout android:id="@id/bw6" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginTop="3.0dp" android:layout_marginRight="3.0dp" android:layout_below="@id/bw4">
+            <TextView android:textSize="12.0sp" android:textColor="@color/skin_text_sub_color" android:id="@id/bw2" android:text="点击继续下载" android:layout_alignParentLeft="true" style="@style/ll" />
+            <RelativeLayout android:id="@id/bvx" android:layout_width="match_parent" android:layout_height="wrap_content">
+                <ProgressBar android:id="@id/bvw" android:focusable="false" android:visibility="visible" android:clickable="false" android:layout_width="match_parent" android:layout_height="2.0dp" android:progressDrawable="@drawable/download_activity_progressbar_xml" android:layout_alignParentTop="true" style="?android:progressBarStyleHorizontal" />
+                <TextView android:textSize="12.0sp" android:textColor="@color/skin_text_sub_color" android:gravity="right" android:id="@id/bvv" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="3.0dp" android:text="2.1MB/4.0MB" android:singleLine="true" android:layout_below="@id/bvw" android:layout_alignParentRight="true" />
+                <TextView android:textSize="12.0sp" android:textColor="@color/skin_text_sub_color" android:gravity="left" android:id="@id/bw5" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="3.0dp" android:text="842.3K/s" android:singleLine="true" android:layout_below="@id/bvw" android:layout_alignParentLeft="true" />
+            </RelativeLayout>
+        </RelativeLayout>
+    </RelativeLayout>
+</RelativeLayout>

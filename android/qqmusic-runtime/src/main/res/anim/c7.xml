@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<set android:fillAfter="true"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <translate android:duration="100" android:fromXDelta="29.999996%" android:toXDelta="-22.000004%" />
+    <translate android:duration="100" android:startOffset="100" android:fromXDelta="-22.000004%" android:toXDelta="22.000004%" />
+    <translate android:duration="100" android:startOffset="200" android:fromXDelta="22.000004%" android:toXDelta="-17.999994%" />
+    <translate android:duration="100" android:startOffset="300" android:fromXDelta="-17.999994%" android:toXDelta="17.999994%" />
+    <translate android:duration="100" android:startOffset="400" android:fromXDelta="17.999994%" android:toXDelta="-13.999998%" />
+    <translate android:duration="100" android:startOffset="500" android:fromXDelta="-13.999998%" android:toXDelta="10.000002%" />
+    <translate android:duration="100" android:startOffset="600" android:fromXDelta="10.000002%" android:toXDelta="-10.000002%" />
+    <translate android:duration="100" android:startOffset="700" android:fromXDelta="-10.000002%" android:toXDelta="5.9999943%" />
+    <translate android:duration="100" android:startOffset="800" android:fromXDelta="5.9999943%" android:toXDelta="-5.9999943%" />
+    <translate android:duration="100" android:startOffset="900" android:fromXDelta="-5.9999943%" android:toXDelta="3.9999962%" />
+    <translate android:duration="100" android:startOffset="1000" android:fromXDelta="3.9999962%" android:toXDelta="-3.9999962%" />
+    <translate android:duration="100" android:startOffset="1100" android:fromXDelta="-3.9999962%" android:toXDelta="1.9999981%" />
+    <translate android:duration="100" android:startOffset="1200" android:fromXDelta="1.9999981%" android:toXDelta="0.0" />
+    <alpha android:interpolator="@android:anim/accelerate_interpolator" android:duration="200" android:startOffset="1500" android:fromAlpha="1.0" android:toAlpha="0.0" />
+</set>

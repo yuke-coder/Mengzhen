@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout android:id="@id/mt6" android:layout_width="match_parent" android:layout_height="match_parent"
+  xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">
+    <FrameLayout android:id="@id/mt5" android:background="@color/ucrop_color_crop_background" android:layout_width="match_parent" android:layout_height="match_parent" android:layout_above="@id/bb5">
+        <ImageView android:layout_gravity="center" android:id="@id/doi" android:layout_width="@dimen/cbm" android:layout_height="@dimen/cbm" app:aj8="@drawable/ucrop_vector_ic_crop" />
+        <com.yalantis.ucrop.view.UCropView android:id="@id/mt4" android:layout_width="match_parent" android:layout_height="match_parent" android:alpha="0.0" />
+    </FrameLayout>
+    <FrameLayout android:id="@id/bb5" android:background="@android:color/black" android:visibility="gone" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_alignParentBottom="true" />
+</RelativeLayout>

@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout android:background="@android:color/transparent" android:layout_width="match_parent" android:layout_height="36.0dp"
+  xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">
+    <com.tencent.component.widget.AsyncImageView android:id="@id/lni" android:layout_width="85.0dp" android:layout_height="25.0dp" android:scaleType="fitXY" android:contentDescription="brand_logo" app:a1d="hnz" app:a1k="@id/lnk" app:a23="hnz" app:a27="hnz" />
+    <TextView android:textSize="12.0sp" android:textColor="#1a1a1a" android:ellipsize="end" android:gravity="end" android:id="@id/lnk" android:layout_width="0.0dp" android:layout_height="wrap_content" android:maxLines="1" app:a1d="hnz" app:a1k="@id/lnj" app:a1t="1.0" app:a22="@id/lni" app:a27="hnz" />
+    <TextView android:textSize="12.0sp" android:textColor="#1a1a1a" android:id="@id/lnj" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginRight="10.0dp" android:singleLine="true" android:layout_marginEnd="10.0dp" app:a1d="hnz" app:a1k="@id/lnh" app:a1t="1.0" app:a22="@id/lnk" app:a27="hnz" />
+    <TextView android:textSize="12.0sp" android:textColor="#000000" android:gravity="center" android:id="@id/lnh" android:background="@drawable/tme_ad_gradient_btn_background" android:clickable="false" android:layout_width="62.0dp" android:layout_height="22.0dp" android:maxLines="1" android:maxEms="2" android:maxLength="4" app:a1d="hnz" app:a1j="hnz" app:a27="hnz" />
+</androidx.constraintlayout.widget.ConstraintLayout>

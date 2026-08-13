@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout android:id="@id/jbd" android:background="@drawable/color_b2_click" android:descendantFocusability="blocksDescendants" android:layout_width="match_parent" android:layout_height="wrap_content"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <LinearLayout android:orientation="vertical" android:id="@id/fce" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginLeft="@dimen/c1_" android:layout_alignParentLeft="true" android:layout_centerVertical="true" android:layout_marginStart="@dimen/c1_" android:layout_alignParentStart="true">
+        <TextView android:textSize="16.0sp" android:textColor="@color/skin_text_main_color" android:id="@id/mpc" android:layout_width="wrap_content" style="@style/ln" />
+        <TextView android:textSize="12.0sp" android:textColor="@color/skin_text_sub_color" android:id="@id/mnm" android:visibility="gone" android:layout_width="wrap_content" android:layout_marginTop="2.0dp" style="@style/ll" />
+    </LinearLayout>
+    <TextView android:textSize="12.0sp" android:textColor="@color/skin_text_sub_color" android:id="@id/mb3" android:visibility="gone" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginLeft="20.0dp" android:text="1G" android:layout_toRightOf="@id/fce" android:layout_centerVertical="true" android:layout_marginStart="20.0dp" style="@style/ln" />
+    <CheckBox android:id="@id/au8" android:background="@drawable/icon_setting_with_checkbox" android:focusable="false" android:focusableInTouchMode="false" android:clickable="false" android:layout_width="15.0dp" android:layout_height="15.0dp" android:layout_marginRight="@dimen/c1a" android:checked="false" android:button="@null" android:layout_alignParentRight="true" android:layout_centerVertical="true" android:layout_marginEnd="@dimen/c1a" android:layout_alignParentEnd="true" />
+    <View android:background="@drawable/z_color_l1" android:layout_width="match_parent" android:layout_height="1.0px" android:layout_marginLeft="@dimen/c1_" android:scaleType="fitXY" android:layout_alignParentBottom="true" android:layout_marginStart="@dimen/c1_" />
+</RelativeLayout>

@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <style name="bw" parent="@style/a63" />
+    <style name="c3" parent="@style/a64" />
+    <style name="dc" parent="@style/wa">
+        <item name="android:backgroundDimAmount">0.32</item>
+        <item name="android:checkedTextViewStyle">@style/a12</item>
+        <item name="android:dialogCornerRadius">@null</item>
+        <item name="ba">@style/my</item>
+        <item name="gc">@style/a0u</item>
+        <item name="gd">@style/a0u</item>
+        <item name="ge">@style/a0v</item>
+        <item name="gf">@style/a0u</item>
+        <item name="a7h">@style/mz</item>
+    </style>
+    <style name="a63" parent="@style/a60">
+        <item name="nl">?android:dialogCornerRadius</item>
+    </style>
+    <style name="a64" parent="@style/a61">
+        <item name="nl">?android:dialogCornerRadius</item>
+    </style>
+    <style name="mv" parent="@style/u7">
+        <item name="android:windowBackground">@color/black</item>
+        <item name="android:windowNoTitle">true</item>
+        <item name="android:windowIsTranslucent">false</item>
+        <item name="android:windowFullscreen">true</item>
+        <item name="android:windowTranslucentStatus">true</item>
+        <item name="android:windowLayoutInDisplayCutoutMode">shortEdges</item>
+    </style>
+    <style name="o_" parent="@style/os">
+        <item name="android:windowBackground">@drawable/splashstatic</item>
+        <item name="android:windowNoTitle">true</item>
+        <item name="android:windowAnimationStyle">@null</item>
+        <item name="android:windowFullscreen">true</item>
+        <item name="android:windowDisablePreview">false</item>
+        <item name="android:windowTranslucentStatus">true</item>
+        <item name="android:windowLayoutInDisplayCutoutMode">shortEdges</item>
+    </style>
+</resources>

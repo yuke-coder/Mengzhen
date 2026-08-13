@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout android:orientation="vertical" android:layout_width="match_parent" android:layout_height="wrap_content"
+  xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">
+    <com.tencent.qqmusic.fragment.mainpage.DeskPlusTriangleView android:layout_gravity="end" android:id="@id/ix4" android:layout_width="18.0dp" android:layout_height="10.0dp" android:layout_marginEnd="15.0dp" app:oa="@color/white" app:ob="mu_" />
+    <LinearLayout android:orientation="vertical" android:id="@id/ix2" android:background="@drawable/bg_recognize_menu" android:layout_width="match_parent" android:layout_height="wrap_content">
+        <include android:id="@id/ix3" layout="@layout/pm" />
+        <include android:id="@id/iwy" layout="@layout/pm" />
+        <include android:id="@id/iwx" android:visibility="gone" layout="@layout/pm" />
+    </LinearLayout>
+</LinearLayout>

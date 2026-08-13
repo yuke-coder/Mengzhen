@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout android:paddingLeft="20.0dp" android:paddingTop="7.799988dp" android:paddingRight="20.0dp" android:layout_width="match_parent" android:layout_height="wrap_content" android:paddingHorizontal="20.0dp"
+  xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">
+    <androidx.constraintlayout.widget.ConstraintLayout android:layout_width="match_parent" android:layout_height="18.0dp" app:a23="hnz" app:a27="hnz">
+        <ImageView android:id="@id/d2u" android:layout_width="18.0dp" android:layout_height="18.0dp" android:src="@drawable/album_golden_right_icon" app:a1d="hnz" app:a23="hnz" app:a27="hnz" />
+        <TextView android:textSize="9.0dp" android:textColor="@color/skin_text_main_color" android:ellipsize="end" android:id="@id/d2w" android:layout_width="wrap_content" android:layout_height="wrap_content" android:maxLines="1" android:includeFontPadding="false" android:layout_marginStart="3.7999878dp" app:a18="true" app:a1d="hnz" app:a1k="@id/d2v" app:a1t="0.0" app:a1u="hmg" app:a22="@id/d2u" app:a27="hnz" />
+        <ImageView android:id="@id/d2v" android:layout_width="14.0dp" android:layout_height="14.0dp" android:src="@drawable/album_golden_right_more_icon" app:a18="true" app:a1d="hnz" app:a1j="hnz" app:a1t="0.0" app:a1u="hmg" app:a22="@id/d2w" app:a27="hnz" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>

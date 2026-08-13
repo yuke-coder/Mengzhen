@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout android:paddingLeft="@dimen/ct" android:paddingTop="@dimen/dj" android:paddingRight="@dimen/ct" android:paddingBottom="@dimen/dj" android:layout_width="match_parent" android:layout_height="wrap_content" android:paddingHorizontal="@dimen/ct"
+  xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">
+    <androidx.appcompat.widget.AppCompatTextView android:textSize="11.0dp" android:textColor="@color/ai_agent_safe_tips_color_light_new" android:id="@id/n3" android:paddingBottom="15.0dp" android:visibility="gone" android:layout_width="wrap_content" android:layout_height="wrap_content" android:singleLine="true" app:a1x="hnz" app:a21="hnz" app:a27="hnz" />
+    <FrameLayout android:id="@id/n1" android:visibility="gone" android:layout_width="0.0dp" android:layout_height="wrap_content" app:a1x="hnz" app:a21="hnz" app:a26="@id/n3" app:a2r="0.0dp" />
+    <FrameLayout android:id="@id/ms" android:layout_width="0.0dp" android:layout_height="wrap_content" android:layout_marginTop="@dimen/a1z" app:a1d="hnz" app:a1x="hnz" app:a21="hnz" app:a26="@id/n1" app:a2r="0.0dp" />
+</androidx.constraintlayout.widget.ConstraintLayout>

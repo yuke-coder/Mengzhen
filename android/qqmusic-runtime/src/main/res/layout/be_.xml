@@ -1,0 +1,3 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout android:id="@id/mlive_item_comment_video_task_container" android:paddingLeft="6.0dp" android:paddingRight="6.0dp" android:layout_width="match_parent" android:layout_height="wrap_content" android:paddingHorizontal="6.0dp"
+  xmlns:android="http://schemas.android.com/apk/res/android" />

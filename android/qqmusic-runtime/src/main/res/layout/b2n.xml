@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout android:layout_width="match_parent" android:layout_height="match_parent"
+  xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">
+    <include android:id="@id/naf" android:layout_width="match_parent" android:layout_height="match_parent" layout="@layout/m6" />
+    <androidx.recyclerview.widget.RecyclerView android:id="@id/jen" android:paddingBottom="40.0dp" android:clipToPadding="false" android:layout_width="match_parent" android:layout_height="match_parent" />
+    <View android:id="@id/nep" android:background="@drawable/main_bg" android:layout_width="match_parent" android:layout_height="44.0dp" android:layout_alignParentTop="true" android:alpha="0.0" />
+    <View android:id="@id/neq" android:layout_width="match_parent" android:layout_height="80.0dp" android:layout_alignParentTop="true" android:alpha="1.0" />
+    <androidx.constraintlayout.widget.ConstraintLayout android:id="@id/ez0" android:background="@color/transparent" android:layout_width="match_parent" android:layout_height="44.0dp" app:a23="hnz" app:a27="hnz">
+        <androidx.appcompat.widget.AppCompatImageView android:id="@id/elr" android:layout_width="30.0dp" android:layout_height="30.0dp" android:layout_marginLeft="20.0dp" android:src="@drawable/icon_tuning_back" android:scaleType="fitXY" app:a1d="hnz" app:a23="hnz" app:a27="hnz" />
+        <TextView android:textSize="18.0dp" android:textStyle="bold" android:textColor="@color/skin_text_main_color" android:ellipsize="end" android:gravity="center" android:id="@id/elt" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/ijc" android:singleLine="true" android:layout_centerVertical="true" app:a1d="hnz" app:a1j="hnz" app:a23="hnz" app:a27="hnz" style="@style/a4s" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+    <LinearLayout android:orientation="horizontal" android:id="@id/eyl" android:background="@drawable/main_bg" android:visibility="invisible" android:layout_width="match_parent" android:layout_height="40.0dp" android:layout_below="@id/ez0" />
+</RelativeLayout>

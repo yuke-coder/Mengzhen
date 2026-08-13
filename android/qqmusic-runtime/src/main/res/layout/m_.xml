@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout android:background="@drawable/transparent" android:paddingBottom="5.0dp" android:layout_width="match_parent" android:layout_height="wrap_content"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <TextView android:textSize="15.0sp" android:textColor="@color/skin_text_main_color" android:gravity="center_vertical" android:id="@id/j4t" android:layout_width="wrap_content" android:layout_height="31.0dp" android:layout_marginLeft="16.0dp" android:text="x个视频" android:layout_centerVertical="true" />
+    <ImageView android:id="@id/e77" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginRight="16.0dp" android:src="@drawable/common_list_header_sort" android:layout_alignParentRight="true" android:layout_centerVertical="true" />
+    <LinearLayout android:gravity="center_vertical" android:orientation="horizontal" android:id="@id/kjn" android:visibility="gone" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="10.0dp" android:layout_marginRight="16.0dp" android:layout_alignParentRight="true">
+        <TextView android:textSize="13.0sp" android:textColor="@color/skin_text_sub_color" android:id="@id/igh" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginRight="2.0dp" />
+        <ImageView android:id="@id/igg" android:layout_width="wrap_content" android:layout_height="wrap_content" android:src="@drawable/profile_list_header_sort" />
+    </LinearLayout>
+    <RelativeLayout android:id="@id/cg4" android:layout_width="wrap_content" android:layout_height="31.0dp" android:layout_marginRight="10.0dp" android:layout_toLeftOf="@id/e77" android:layout_centerVertical="true">
+        <TextView android:textSize="15.0sp" android:textColor="@color/skin_text_sub_color" android:gravity="center" android:id="@id/e39" android:layout_width="wrap_content" android:layout_height="match_parent" android:layout_marginRight="2.0dp" android:text="@string/bwf" android:layout_centerVertical="true" />
+        <ImageView android:id="@id/e38" android:layout_width="wrap_content" android:layout_height="wrap_content" android:src="@drawable/singer_filter_arrow" android:layout_toRightOf="@id/e39" android:layout_centerVertical="true" android:layout_toEndOf="@id/e39" />
+    </RelativeLayout>
+</RelativeLayout>

@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout android:orientation="vertical" android:id="@id/hvw" android:background="@drawable/widget_bg_color_deep_shadow" android:layout_width="match_parent" android:layout_height="@dimen/chj"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <RelativeLayout android:layout_width="match_parent" android:layout_height="@dimen/chc" android:layout_marginLeft="@dimen/chr" android:layout_marginTop="@dimen/chr" android:layout_marginRight="@dimen/chr">
+        <ImageButton android:id="@id/ud" android:background="@drawable/appwidget_button_center" android:layout_width="@dimen/chc" android:layout_height="@dimen/chc" android:src="@drawable/widget_qqmusic_default_album_middle" android:scaleType="fitXY" android:layout_alignParentLeft="true" />
+        <RelativeLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginLeft="7.0dp" android:layout_toRightOf="@id/ud">
+            <RelativeLayout android:id="@id/fmp" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_alignParentLeft="true" android:layout_alignParentTop="true">
+                <ImageView android:layout_width="wrap_content" android:layout_height="wrap_content" android:src="@drawable/widget_qqmusic_logo" android:layout_alignParentLeft="true" />
+                <ImageView android:id="@id/awe" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginRight="7.0dp" android:src="@drawable/app_widget_background_button" android:layout_alignParentRight="true" />
+            </RelativeLayout>
+            <TextView android:textSize="@dimen/chy" android:textStyle="bold" android:textColor="@color/appwidget_text" android:ellipsize="end" android:gravity="left|center" android:id="@id/ldr" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="15.0dp" android:text="@string/iws" android:singleLine="true" android:shadowDx="5.0" android:layout_below="@id/fmp" android:layout_alignParentLeft="true" />
+            <TextView android:textSize="@dimen/chx" android:textStyle="bold" android:textColor="@color/appwidget_text" android:ellipsize="end" android:gravity="left|center" android:id="@id/a0e" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="7.5dp" android:text="@string/iwt" android:singleLine="true" android:shadowDx="5.0" android:layout_below="@id/ldr" android:layout_alignParentLeft="true" />
+        </RelativeLayout>
+    </RelativeLayout>
+    <ProgressBar android:id="@id/ntu" android:layout_width="match_parent" android:layout_height="1.5dp" android:layout_marginLeft="@dimen/chr" android:layout_marginTop="5.0dp" android:layout_marginRight="@dimen/chr" android:max="1000" android:progress="0" android:secondaryProgress="0" android:indeterminate="false" android:progressDrawable="@drawable/widgetprogressbar_xml" style="?android:progressBarStyleHorizontal" />
+    <RelativeLayout android:id="@id/ntn" android:layout_width="match_parent" android:layout_height="@dimen/che" android:layout_marginLeft="17.0dp" android:layout_marginTop="4.0dp" android:layout_marginRight="16.0dp" android:layout_marginBottom="11.0dp">
+        <ImageView android:id="@id/bb0" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginLeft="4.0dp" android:src="@drawable/app_widget_circle_repeat_button" android:layout_alignParentLeft="true" android:layout_centerVertical="true" />
+        <ImageView android:id="@id/akt" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginRight="3.0dp" android:src="@drawable/app_widget_dl_close_button" android:layout_alignParentRight="true" android:layout_centerVertical="true" />
+        <ImageView android:id="@id/baz" android:layout_width="wrap_content" android:layout_height="wrap_content" android:src="@drawable/app_widget_play_button" android:layout_centerHorizontal="true" />
+        <ImageView android:id="@id/bb1" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginRight="19.0dp" android:src="@drawable/app_widget_prev_button" android:layout_toLeftOf="@id/baz" />
+        <ImageView android:id="@id/bay" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginLeft="19.0dp" android:src="@drawable/app_widget_next_button" android:layout_toRightOf="@id/baz" />
+    </RelativeLayout>
+</LinearLayout>

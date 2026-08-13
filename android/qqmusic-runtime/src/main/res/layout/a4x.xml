@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout android:layout_width="match_parent" android:layout_height="214.0dp"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <com.tencent.component.widget.AsyncImageView android:id="@id/dbd" android:layout_width="match_parent" android:layout_height="214.0dp" android:src="@drawable/video_topic_header_default" android:scaleType="centerCrop" />
+    <Button android:textSize="12.0sp" android:textColor="#ffffff" android:gravity="center" android:id="@id/ai0" android:background="@drawable/video_topic_header_btn" android:layout_width="80.0dp" android:layout_height="30.0dp" android:layout_marginRight="15.0dp" android:layout_marginBottom="20.0dp" android:text="参与话题" android:layout_alignParentRight="true" android:layout_alignParentBottom="true" />
+    <View android:id="@id/htx" android:layout_width="46.0dp" android:layout_height="55.0dp" android:layout_alignParentLeft="true" android:layout_alignParentBottom="true" />
+    <LinearLayout android:orientation="vertical" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginLeft="13.0dp" android:layout_marginRight="5.0dp" android:layout_marginBottom="21.0dp" android:layout_toLeftOf="@id/ai0" android:layout_alignParentBottom="true">
+        <com.tencent.qqmusic.ui.MarqueeTextView android:textSize="22.0sp" android:textColor="#ffffff" android:ellipsize="marquee" android:id="@id/ldr" android:focusable="true" android:focusableInTouchMode="true" android:layout_width="match_parent" android:layout_height="wrap_content" android:text="#我们这一代我们这一代我们这一代我们这一代我们这一代" android:singleLine="true" android:marqueeRepeatLimit="marquee_forever" />
+        <LinearLayout android:layout_gravity="center_vertical" android:orientation="horizontal" android:id="@id/l0_" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginTop="5.0dp">
+            <ImageView android:layout_gravity="center_vertical" android:id="@id/l09" android:visibility="visible" android:layout_width="14.0dp" android:layout_height="14.0dp" android:layout_marginRight="5.0dp" android:src="@drawable/video_topic_header_song_play" android:scaleType="fitXY" />
+            <com.tencent.qqmusic.ui.MarqueeTextView android:textSize="12.0sp" android:textColor="#ffffff" android:ellipsize="marquee" android:gravity="center_vertical" android:id="@id/l02" android:focusable="true" android:focusableInTouchMode="true" android:layout_width="wrap_content" android:layout_height="wrap_content" android:maxWidth="180.0dp" android:text="锄禾日当午锄禾日当午锄禾日当午锄禾日当午锄禾日当午锄禾日当午" android:singleLine="true" android:marqueeRepeatLimit="marquee_forever" />
+            <ImageView android:layout_gravity="center_vertical" android:id="@id/l04" android:visibility="visible" android:layout_width="14.0dp" android:layout_height="14.0dp" android:layout_marginRight="5.0dp" android:src="@drawable/timeline_video_topic_sub_title_arrow" android:scaleType="center" />
+        </LinearLayout>
+    </LinearLayout>
+</RelativeLayout>

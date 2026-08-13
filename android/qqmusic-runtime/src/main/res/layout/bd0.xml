@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout android:layout_width="match_parent" android:layout_height="match_parent"
+  xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">
+    <androidx.constraintlayout.widget.Guideline android:orientation="horizontal" android:id="@id/mlive_friend_match_seats_tips_guide_line" android:layout_width="match_parent" android:layout_height="wrap_content" app:a1l="57.0dp" />
+    <androidx.constraintlayout.widget.Guideline android:orientation="vertical" android:id="@id/ga1" android:layout_width="wrap_content" android:layout_height="match_parent" app:a1n="0.25" />
+    <androidx.constraintlayout.widget.Guideline android:orientation="vertical" android:id="@id/ga2" android:layout_width="wrap_content" android:layout_height="match_parent" app:a1n="0.75" />
+    <androidx.constraintlayout.widget.ConstraintLayout android:id="@id/mlive_friend_match_seats_value_view" android:layout_width="0.0dp" android:layout_height="0.0dp" app:a1e="@id/mlive_friend_match_seats_tips_guide_line" app:a1k="@id/ga2" app:a23="@id/ga1" app:a27="hnz">
+        <ImageView android:id="@id/mlive_friend_match_seats_value_bg" android:background="@drawable/mlive_friend_match_seats_value_bg" android:layout_width="match_parent" android:layout_height="35.0dp" app:a1d="hnz" app:a1j="hnz" app:a23="hnz" />
+        <TextView android:textSize="10.0sp" android:textColor="@color/white" android:gravity="center" android:id="@id/mlive_friend_match_seats_value" android:layout_width="match_parent" android:layout_height="wrap_content" app:a1e="@id/mlive_friend_match_seats_tips" />
+        <TextView android:textSize="8.5sp" android:textColor="@color/white" android:gravity="center" android:id="@id/mlive_friend_match_seats_tips" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginBottom="6.0dp" android:text="@string/d8_" app:a1d="hnz" />
+        <com.tme.mlive.ui.animation.NewPagView android:id="@id/mlive_friend_match_seats_anim" android:layout_width="42.0dp" android:layout_height="35.0dp" app:a1e="@id/mlive_friend_match_seats_value" app:a1j="hnz" app:a23="hnz" app:a27="hnz" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+    <com.tme.mlive.module.multi.view.cell.MatchSeatCellView android:id="@id/mlive_friend_match_seats_item_left" android:layout_width="wrap_content" android:layout_height="wrap_content" app:a1d="hnz" app:a1k="@id/ga0" app:a23="hnz" app:a27="hnz" />
+    <com.tme.mlive.module.multi.view.cell.MatchSeatCellView android:id="@id/mlive_friend_match_seats_item_right" android:layout_width="wrap_content" android:layout_height="wrap_content" app:a1d="hnz" app:a1j="hnz" app:a22="@id/ga0" app:a27="hnz" />
+    <androidx.constraintlayout.widget.Guideline android:orientation="vertical" android:id="@id/ga0" android:layout_width="wrap_content" android:layout_height="match_parent" app:a1n="0.5" />
+</androidx.constraintlayout.widget.ConstraintLayout>

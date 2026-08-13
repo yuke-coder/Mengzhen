@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout android:id="@id/gaq" android:layout_width="match_parent" android:layout_height="wrap_content"
+  xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">
+    <com.tencent.qqmusic.ui.RoundedRelativeLayout android:layout_gravity="center|top" android:id="@id/gcg" android:layout_width="300.0dp" android:layout_height="100.0dp" app:ado="4.0dp">
+        <ImageView android:id="@id/gch" android:layout_width="300.0dp" android:layout_height="100.0dp" android:scaleType="fitXY" android:layout_centerInParent="true" android:contentDescription="@string/e73" />
+        <LinearLayout android:gravity="center_vertical" android:orientation="horizontal" android:id="@id/gcf" android:background="@drawable/bg_ad_close" android:paddingTop="4.0dp" android:paddingBottom="4.0dp" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_alignTop="@id/gch" android:layout_alignRight="@id/gch" android:contentDescription="@string/e7c" android:paddingStart="6.0dp" android:paddingEnd="3.5dp">
+            <TextView android:textSize="10.0dp" android:textColor="@color/white" android:id="@id/goo" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="广告" />
+            <ImageView android:layout_width="wrap_content" android:layout_height="wrap_content" android:src="@drawable/ic_white_close" android:layout_marginStart="2.0dp" />
+        </LinearLayout>
+    </com.tencent.qqmusic.ui.RoundedRelativeLayout>
+</FrameLayout>

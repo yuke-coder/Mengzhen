@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout android:background="@drawable/skin_common_listitem_bg" android:paddingLeft="5.0dp" android:layout_width="match_parent" android:layout_height="wrap_content"
+  xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">
+    <com.tencent.qqmusic.fragment.search.FlowLayout android:id="@id/cg_" android:visibility="invisible" android:layout_width="match_parent" android:layout_height="wrap_content" app:a8_="3" />
+</FrameLayout>

@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout android:gravity="center" android:orientation="vertical" android:layout_width="match_parent" android:layout_height="wrap_content"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <androidx.appcompat.widget.AppCompatTextView android:textSize="10.0dp" android:textColor="@color/white_50_transparent" android:id="@id/mlive_red_packet_dialog_description" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginBottom="8.0dp" />
+    <androidx.viewpager2.widget.ViewPager2 android:id="@id/mlive_red_packet_pager" android:layout_width="match_parent" android:layout_height="371.0dp" />
+    <ImageView android:id="@id/mlive_red_packet_close_btn" android:layout_width="30.0dp" android:layout_height="30.0dp" android:layout_marginTop="20.0dp" android:src="@drawable/mlive_dialog_fragment_btn_close" android:contentDescription="@string/d0_" />
+</LinearLayout>

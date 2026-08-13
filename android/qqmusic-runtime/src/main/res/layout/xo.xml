@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout android:layout_width="match_parent" android:layout_height="match_parent"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <include android:id="@id/naf" android:layout_width="match_parent" android:layout_height="match_parent" layout="@layout/m6" />
+    <include android:id="@id/b7m" android:background="@color/transparent" android:layout_width="match_parent" android:layout_height="@dimen/cau" android:layout_alignParentTop="true" layout="@layout/mu" />
+    <androidx.recyclerview.widget.RecyclerView android:id="@id/b88" android:clipChildren="false" android:layout_width="match_parent" android:layout_height="match_parent" android:layout_below="@id/b7m" android:overScrollMode="never" />
+    <include android:layout_width="match_parent" android:layout_height="match_parent" layout="@layout/cxm" />
+</RelativeLayout>

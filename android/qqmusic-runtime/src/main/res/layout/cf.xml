@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.tencent.qqmusic.ui.FitSystemLinearLayout android:gravity="right|bottom" android:orientation="vertical" android:id="@id/nsc" android:fitsSystemWindows="true" android:layout_width="match_parent" android:layout_height="match_parent"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <LinearLayout android:gravity="center_vertical" android:orientation="horizontal" android:background="#232425" android:paddingLeft="10.0dp" android:paddingTop="8.0dp" android:paddingRight="10.0dp" android:paddingBottom="8.0dp" android:layout_width="match_parent" android:layout_height="wrap_content">
+        <EditText android:textSize="16.0sp" android:textColor="@color/white" android:textColorHint="#e0ffffff" android:id="@id/hif" android:background="@drawable/live_gift_select_num_edit_bg" android:paddingLeft="8.0dp" android:paddingRight="8.0dp" android:layout_width="0.0dp" android:layout_height="29.0dp" android:hint="输入赠送数量" android:maxLength="10" android:layout_weight="1.0" android:inputType="numberSigned" />
+        <Button android:textSize="16.0sp" android:textColor="@color/white" android:id="@id/hkc" android:background="@drawable/live_gift_select_num_bg" android:layout_width="55.0dp" android:layout_height="30.0dp" android:layout_margin="9.0dp" android:text="@string/evy" />
+    </LinearLayout>
+</com.tencent.qqmusic.ui.FitSystemLinearLayout>

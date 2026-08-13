@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.tencent.qqmusic.ui.customview.SquareLayout android:padding="4.5dp" android:layout_width="match_parent" android:layout_height="match_parent"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <com.tencent.component.widget.AsyncImageView android:id="@id/fwr" android:layout_width="match_parent" android:layout_height="match_parent" />
+    <ImageView android:id="@id/fwt" android:visibility="gone" android:layout_width="match_parent" android:layout_height="match_parent" android:src="@drawable/bg_lp_pic_in_use_flag" />
+    <ProgressBar android:id="@id/fwm" android:visibility="gone" android:layout_width="match_parent" android:layout_height="4.0dp" android:max="100" android:progress="0" android:progressDrawable="@drawable/download_activity_progressbar_xml" android:layout_alignParentBottom="true" style="?android:progressBarStyleHorizontal" />
+    <LinearLayout android:gravity="center" android:id="@id/fww" android:background="@drawable/bg_round" android:layout_width="17.0dp" android:layout_height="17.0dp" android:layout_marginTop="4.0dp" android:layout_marginRight="4.0dp" android:layout_alignParentTop="true" android:layout_alignParentRight="true">
+        <ImageView android:id="@id/fwv" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="1.0dp" />
+    </LinearLayout>
+</com.tencent.qqmusic.ui.customview.SquareLayout>

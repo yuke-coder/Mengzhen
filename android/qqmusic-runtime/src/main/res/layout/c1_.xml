@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout android:layout_gravity="bottom" android:orientation="vertical" android:layout_width="match_parent" android:layout_height="wrap_content" app:a1d="hnz"
+  xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">
+    <LinearLayout android:orientation="horizontal" android:paddingLeft="8.0dp" android:paddingRight="8.0dp" android:layout_width="match_parent" android:layout_height="wrap_content">
+        <LinearLayout android:gravity="center_horizontal" android:layout_gravity="center_vertical" android:orientation="vertical" android:id="@id/j1a" android:background="#00ffffff" android:clickable="true" android:layout_width="0.0dp" android:layout_height="wrap_content" android:layout_weight="1.0">
+            <androidx.constraintlayout.widget.ConstraintLayout android:layout_width="24.0dp" android:layout_height="24.0dp">
+                <ImageView android:id="@id/j19" android:duplicateParentState="true" android:layout_width="24.0dp" android:layout_height="24.0dp" android:src="@drawable/icon_yuanchang80" android:scaleType="fitXY" app:a1x="hnz" app:a27="hnz" />
+                <ImageView android:id="@id/j1_" android:visibility="gone" android:layout_width="10.0dp" android:layout_height="10.0dp" android:src="@drawable/recording_channel_indicator_red_dot" app:a21="@id/j19" app:a27="@id/j19" />
+            </androidx.constraintlayout.widget.ConstraintLayout>
+            <androidx.constraintlayout.widget.ConstraintLayout android:layout_gravity="bottom" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginTop="8.0dp">
+                <kk.design.KKTextView android:textSize="12.0sp" android:textColor="@color/white_transparent_60_percent" android:gravity="center" android:id="@id/j1b" android:duplicateParentState="true" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/ey5" app:a0f="hfs" app:a1d="hnz" app:a1x="hnz" app:a21="hnz" />
+                <ImageView android:id="@id/su" android:visibility="invisible" android:layout_width="wrap_content" android:layout_height="16.0dp" android:src="@drawable/icon_ai_self_voice_guider" android:scaleType="fitCenter" app:a1d="hnz" app:a1x="hnz" app:a21="hnz" app:a27="hnz" />
+            </androidx.constraintlayout.widget.ConstraintLayout>
+        </LinearLayout>
+        <LinearLayout android:gravity="center_horizontal" android:layout_gravity="center_vertical" android:orientation="vertical" android:id="@id/j2b" android:background="#00ffffff" android:clickable="true" android:layout_width="0.0dp" android:layout_height="wrap_content" android:layout_weight="1.0">
+            <ImageView android:id="@id/j2c" android:duplicateParentState="true" android:layout_width="24.0dp" android:layout_height="24.0dp" android:src="@drawable/icon_tiaoyin80" android:scaleType="fitXY" />
+            <kk.design.KKTextView android:textSize="12.0sp" android:textColor="@color/white_transparent_60_percent" android:id="@id/j2d" android:duplicateParentState="true" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="8.0dp" android:text="@string/ij6" app:a0f="hfs" />
+        </LinearLayout>
+        <FrameLayout android:layout_gravity="center|bottom" android:id="@id/j08" android:clipChildren="false" android:layout_width="0.0dp" android:layout_height="96.0dp" android:layout_weight="1.5">
+            <ImageView android:layout_gravity="center" android:id="@id/j1u" android:padding="16.0dp" android:visibility="gone" android:layout_width="68.0dp" android:layout_height="68.0dp" android:src="@drawable/icon_recording_v8" android:scaleType="fitCenter" android:layout_centerInParent="true" android:contentDescription="暂停录制" />
+            <com.tme.karaoke.recordui.widget.ProgressBarView android:layout_gravity="center" android:id="@id/ii5" android:layout_width="68.0dp" android:layout_height="68.0dp" android:layout_centerInParent="true" app:afj="#33ffffff" />
+            <ImageView android:layout_gravity="center" android:id="@id/j1v" android:visibility="visible" android:layout_width="wrap_content" android:layout_height="68.0dp" android:src="@drawable/luchang_icon_changge_v8" android:scaleType="center" android:layout_centerInParent="true" android:contentDescription="继续录制" />
+        </FrameLayout>
+        <LinearLayout android:gravity="center_horizontal" android:layout_gravity="center_vertical" android:orientation="vertical" android:id="@id/j22" android:background="#00ffffff" android:clickable="true" android:layout_width="0.0dp" android:layout_height="wrap_content" android:layout_weight="1.0">
+            <ImageView android:id="@id/hat" android:duplicateParentState="true" android:layout_width="24.0dp" android:layout_height="24.0dp" android:src="@drawable/icon_chongchang80" android:scaleType="fitXY" />
+            <kk.design.KKTextView android:textSize="12.0sp" android:textColor="@color/white_transparent_60_percent" android:id="@id/j0t" android:duplicateParentState="true" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="8.0dp" android:text="@string/h7p" app:a0f="hfs" />
+        </LinearLayout>
+        <LinearLayout android:gravity="center_horizontal" android:layout_gravity="center_vertical" android:orientation="vertical" android:id="@id/j1k" android:background="#00ffffff" android:clickable="true" android:layout_width="0.0dp" android:layout_height="wrap_content" android:layout_weight="1.0">
+            <ImageView android:id="@id/h75" android:padding="1.5dp" android:duplicateParentState="true" android:layout_width="24.0dp" android:layout_height="24.0dp" android:src="@drawable/icon_finish80" android:scaleType="fitXY" />
+            <kk.design.KKTextView android:textSize="12.0sp" android:textColor="@color/white_transparent_60_percent" android:id="@id/j0b" android:duplicateParentState="true" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="8.0dp" android:text="@string/complete" app:a0f="hfs" />
+        </LinearLayout>
+        <LinearLayout android:gravity="center_horizontal" android:layout_gravity="bottom" android:orientation="vertical" android:id="@id/j1y" android:background="#00ffffff" android:visibility="gone" android:clickable="true" android:layout_width="0.0dp" android:layout_height="wrap_content" android:layout_marginBottom="27.5dp" android:layout_weight="1.0">
+            <ImageView android:id="@id/j1z" android:duplicateParentState="true" android:layout_width="wrap_content" android:layout_height="wrap_content" android:src="@drawable/btn_duanluo_normal" android:scaleType="fitXY" />
+            <kk.design.KKTextView android:id="@id/j20" android:duplicateParentState="true" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="5.0dp" android:text="@string/fr5" app:a0f="g8k" />
+        </LinearLayout>
+    </LinearLayout>
+    <LinearLayout android:gravity="center_vertical" android:layout_gravity="center_horizontal" android:orientation="horizontal" android:id="@id/j26" android:paddingBottom="30.0dp" android:visibility="invisible" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="8.0dp">
+        <kk.design.KKTextView android:textSize="12.0dp" android:textColor="#ffffff" android:gravity="center" android:id="@id/j27" android:layout_width="wrap_content" android:layout_height="20.0dp" android:text="00:00" app:a0f="hfs" />
+        <kk.design.KKTextView android:textColor="#80ffffff" android:gravity="center" android:layout_width="wrap_content" android:layout_height="20.0dp" android:layout_marginLeft="4.0dp" android:text="/" app:a0f="hfs" />
+        <kk.design.KKTextView android:textSize="12.0dp" android:textColor="#80ffffff" android:gravity="center" android:id="@id/j25" android:layout_width="wrap_content" android:layout_height="20.0dp" android:layout_marginLeft="4.5dp" android:text="--:--" app:a0f="hfs" />
+    </LinearLayout>
+</LinearLayout>

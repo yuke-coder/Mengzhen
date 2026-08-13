@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout android:background="@drawable/main_bg" android:layout_width="match_parent" android:layout_height="match_parent"
+  xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">
+    <include android:id="@id/jj" android:layout_width="match_parent" android:layout_height="@dimen/cau" layout="@layout/mu" />
+    <LinearLayout android:gravity="center" android:orientation="vertical" android:id="@id/fik" android:background="@color/black" android:visibility="gone" android:layout_width="match_parent" android:layout_height="match_parent">
+        <ProgressBar android:layout_gravity="center" android:id="@id/ih6" android:layout_width="30.0dp" android:layout_height="30.0dp" android:layout_marginBottom="10.0dp" android:indeterminate="true" android:indeterminateOnly="true" android:indeterminateDrawable="@drawable/icn_loading_indicator" android:indeterminateDuration="2000" />
+    </LinearLayout>
+    <androidx.constraintlayout.widget.ConstraintLayout android:layout_width="wrap_content" android:layout_height="wrap_content" app:a1d="hnz" app:a1x="hnz" app:a21="hnz" app:a26="@id/jj">
+        <include android:id="@id/fiu" android:visibility="gone" app:a1d="hnz" app:a1x="hnz" app:a21="hnz" app:a27="hnz" layout="@layout/mj" />
+        <LinearLayout android:gravity="center_horizontal" android:orientation="vertical" android:id="@id/j5v" android:visibility="gone" android:layout_width="match_parent" android:layout_height="wrap_content" app:a1d="hnz" app:a1x="hnz" app:a21="hnz" app:a27="hnz">
+            <ImageView android:id="@id/hgr" android:background="@drawable/error_no_net" android:layout_width="@dimen/list_empty_image_length" android:layout_height="@dimen/list_empty_image_length" />
+            <TextView android:textSize="16.0sp" android:textColor="@color/skin_text_sub_color" android:gravity="center_horizontal" android:id="@id/hgs" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="24.0dp" android:text="@string/gf8" android:singleLine="true" />
+            <TextView android:textSize="16.0sp" android:textColor="@drawable/skin_action_button_text" android:id="@id/hgq" android:background="@drawable/empty_view_button_selector" android:paddingLeft="15.0dp" android:paddingRight="15.0dp" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="20.0dp" android:text="点击重试" android:maxLines="2" />
+        </LinearLayout>
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>

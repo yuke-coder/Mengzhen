@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout android:background="@drawable/material_ripple_background" android:paddingTop="10.0dp" android:layout_width="match_parent" android:layout_height="wrap_content"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <RelativeLayout android:id="@id/h4v" android:layout_width="match_parent" android:layout_height="wrap_content">
+        <com.tencent.qqmusic.ui.customview.ProfileImageView android:id="@id/h4q" android:background="@drawable/mv_item_default_img" android:layout_width="match_parent" android:layout_height="match_parent" android:scaleType="centerCrop" android:layout_alignParentTop="true" android:layout_centerVertical="true" />
+        <TextView android:textSize="14.0sp" android:textColor="@color/skin_text_main_color" android:ellipsize="end" android:id="@id/n9y" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginTop="10.0dp" android:text="蓝调偏执狂 无处安放慌张" android:singleLine="true" android:layout_below="@id/h4q" />
+        <RelativeLayout android:id="@id/h6j" android:background="@drawable/bg_gradient" android:layout_width="match_parent" android:layout_height="40.0dp" android:layout_above="@id/n9y">
+            <TextView android:textSize="15.0sp" android:textColor="@color/white" android:gravity="center_vertical" android:id="@id/h3u" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginRight="9.0dp" android:layout_alignParentRight="true" android:layout_centerVertical="true" style="@style/na" />
+            <ImageView android:id="@id/h5_" android:background="@drawable/big_video_icon" android:layout_width="20.0dp" android:layout_height="15.0dp" android:layout_marginRight="5.0dp" android:scaleType="centerCrop" android:layout_toLeftOf="@id/h3u" android:layout_centerVertical="true" />
+        </RelativeLayout>
+    </RelativeLayout>
+</RelativeLayout>

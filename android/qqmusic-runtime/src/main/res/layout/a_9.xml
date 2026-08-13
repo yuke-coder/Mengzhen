@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout android:orientation="vertical" android:id="@id/item_layout" android:paddingTop="2.0dp" android:paddingBottom="10.0dp" android:layout_width="match_parent" android:layout_height="wrap_content"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <include android:id="@id/kgd" android:background="@drawable/material_ripple_background" android:layout_width="match_parent" android:layout_height="wrap_content" layout="@layout/a_8" />
+    <include android:id="@id/dxy" android:layout_width="match_parent" android:layout_height="wrap_content" layout="@layout/a_7" />
+</LinearLayout>

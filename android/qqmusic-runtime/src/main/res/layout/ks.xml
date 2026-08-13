@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.tencent.qqmusic.ui.RoundedRelativeLayout android:id="@id/js9" android:background="@drawable/skin_sub_mask_img" android:layout_width="match_parent" android:layout_height="45.0dp" android:layout_marginLeft="16.0dp" android:layout_marginTop="15.0dp" android:layout_marginRight="16.0dp" app:ado="22.5dp"
+  xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">
+    <ViewFlipper android:id="@id/na1" android:layout_width="match_parent" android:layout_height="match_parent" android:inAnimation="@anim/fg" android:outAnimation="@anim/fh" android:flipInterval="5000" android:autoStart="false" />
+</com.tencent.qqmusic.ui.RoundedRelativeLayout>

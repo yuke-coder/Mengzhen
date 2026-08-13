@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout android:id="@id/n71" android:background="@drawable/bg_video_tab_collection_50_opacity_percent" android:paddingBottom="2.5dp" android:clipToPadding="false" android:layout_width="match_parent" android:layout_height="35.0dp"
+  xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">
+    <ImageView android:id="@id/dq3" android:layout_width="15.0dp" android:layout_height="12.0dp" android:layout_marginLeft="20.0dp" app:a1d="hnz" app:a1x="hnz" app:a27="hnz" />
+    <TextView android:textSize="12.0dp" android:textColor="@color/white" android:ellipsize="end" android:id="@id/m6t" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginLeft="6.0dp" android:maxLines="1" android:includeFontPadding="false" app:a18="true" app:a1d="hnz" app:a1k="@id/m6s" app:a1t="0.0" app:a1u="hmg" app:a22="@id/dq3" app:a27="hnz" />
+    <TextView android:textSize="12.0dp" android:textColor="@color/white" android:id="@id/m6s" android:layout_width="wrap_content" android:layout_height="wrap_content" android:maxLines="1" android:includeFontPadding="false" app:a1_="@id/m6t" app:a1k="@id/eja" app:a22="@id/m6t" />
+    <ImageView android:id="@id/eja" android:layout_width="20.0dp" android:layout_height="20.0dp" android:layout_marginRight="16.0dp" android:src="@drawable/icon_port_video_tab_bottom_arrow" app:a1d="hnz" app:a1j="hnz" app:a22="@id/m6s" app:a27="hnz" />
+</androidx.constraintlayout.widget.ConstraintLayout>

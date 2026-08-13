@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout android:id="@id/bw_" android:background="@drawable/skin_sub_mask_img" android:paddingTop="@dimen/c_q" android:layout_width="match_parent" android:layout_height="@dimen/cau"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <ImageView android:layout_gravity="left|center" android:id="@id/h7s" android:background="@drawable/material_ripple_background_circle" android:layout_width="@dimen/cao" android:layout_height="@dimen/cao" android:src="@drawable/back_normal_black" android:scaleType="centerInside" android:contentDescription="@string/wf" />
+    <ImageView android:layout_gravity="right|center" android:id="@id/h7x" android:background="@drawable/material_ripple_background_circle" android:layout_width="30.0dp" android:layout_height="30.0dp" android:layout_marginRight="14.0dp" android:src="@drawable/my_following_list_entry" android:scaleType="centerInside" android:contentDescription="@string/wf" android:layout_marginEnd="14.0dp" />
+    <RelativeLayout android:layout_gravity="center" android:layout_width="wrap_content" android:layout_height="match_parent">
+        <TextView android:textSize="18.0sp" android:textStyle="bold" android:textColor="@color/skin_text_main_color" android:id="@id/h7v" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/ell" android:maxLines="1" android:layout_centerVertical="true" android:contentDescription="@string/ell" />
+        <View android:id="@id/kp1" android:background="@drawable/skin_text_sub_color_shape" android:layout_width="1.0dp" android:layout_height="10.0dp" android:layout_marginLeft="20.0dp" android:layout_toRightOf="@id/h7v" android:layout_centerInParent="true" />
+        <ImageView android:id="@id/h7w" android:visibility="gone" android:layout_width="@dimen/btd" android:layout_height="@dimen/btd" android:layout_marginRight="-10.0dp" android:src="@drawable/ic_red_dot" android:scaleType="fitXY" android:layout_alignTop="@id/h7v" android:layout_alignRight="@id/h7v" />
+        <TextView android:textSize="18.0sp" android:textColor="@color/skin_text_main_color" android:id="@id/h7t" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginLeft="20.0dp" android:text="@string/el1" android:maxLines="1" android:layout_toRightOf="@id/kp1" android:layout_centerVertical="true" android:contentDescription="@string/el1" />
+        <ImageView android:id="@id/h7u" android:visibility="gone" android:layout_width="@dimen/btd" android:layout_height="@dimen/btd" android:layout_marginRight="-10.0dp" android:src="@drawable/ic_red_dot" android:scaleType="fitXY" android:layout_alignTop="@id/h7t" android:layout_alignRight="@id/h7t" />
+    </RelativeLayout>
+</FrameLayout>

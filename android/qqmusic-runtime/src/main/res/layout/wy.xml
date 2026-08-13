@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout android:layout_width="match_parent" android:layout_height="match_parent"
+  xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">
+    <com.tencent.qqmusic.qvp.kit.widget.QMVideoView android:layout_gravity="center" android:id="@id/qq_kw_new" android:background="@color/transparent" android:layout_width="match_parent" android:layout_height="match_parent" />
+    <FrameLayout android:id="@id/h6_" android:layout_width="match_parent" android:layout_height="match_parent">
+        <com.tencent.component.widget.AsyncImageView android:layout_gravity="center" android:id="@id/h6d" android:visibility="gone" android:layout_width="match_parent" android:layout_height="match_parent" android:src="@drawable/black_color" android:scaleType="fitCenter" />
+    </FrameLayout>
+    <RelativeLayout android:id="@id/h3x" android:layout_width="match_parent" android:layout_height="match_parent">
+        <View android:id="@id/h3p" android:background="@drawable/focus_radio_top_bg" android:padding="0.0dp" android:layout_width="match_parent" android:layout_height="150.0dp" android:layout_alignParentTop="true" android:layout_alignParentStart="true" android:layout_alignParentEnd="true" />
+        <View android:id="@id/h4a" android:background="@color/black_30_transparent" android:padding="0.0dp" android:visibility="gone" android:layout_width="match_parent" android:layout_height="match_parent" />
+        <View android:id="@id/h3_" android:background="@drawable/mv_portal_bottom_bg" android:padding="0.0dp" android:layout_width="match_parent" android:layout_height="360.0dp" android:layout_alignParentBottom="true" />
+    </RelativeLayout>
+    <ViewStub android:id="@id/nor" android:layout="@layout/cad" android:layout_width="match_parent" android:layout_height="match_parent" />
+    <include android:id="@id/lvq" android:visibility="gone" app:a1j="hnz" app:a23="hnz" app:a27="hnz" layout="@layout/atc" />
+    <include android:id="@id/cl4" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginLeft="20.0dp" android:layout_marginRight="20.0dp" android:layout_marginBottom="20.0dp" app:a1d="hnz" app:a1j="hnz" app:a23="hnz" layout="@layout/ty" />
+    <include android:id="@id/ag9" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginLeft="20.0dp" android:layout_marginRight="20.0dp" app:a1e="@id/cl4" app:a23="hnz" layout="@layout/cax" />
+    <include android:id="@id/ib_" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginLeft="20.0dp" android:layout_marginRight="152.0dp" android:layout_above="@id/ag9" app:a1e="@id/ag9" app:a1j="hnz" app:a23="hnz" layout="@layout/caq" />
+    <include android:id="@id/ckq" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginEnd="20.0dp" app:a1e="@id/ag9" app:a1j="hnz" layout="@layout/tz" />
+    <ViewStub android:id="@id/h6g" android:layout="@layout/cb0" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginStart="14.0dp" app:a1d="hnz" app:a23="hnz" app:a27="hnz" />
+    <FrameLayout android:id="@id/hp1" android:layout_width="match_parent" android:layout_height="match_parent" app:a1d="hnz" app:a1j="hnz" app:a23="hnz" app:a27="hnz">
+        <ViewStub android:layout_gravity="center" android:id="@id/ib4" android:layout="@layout/caf" android:layout_width="100.0dp" android:layout_height="100.0dp" />
+    </FrameLayout>
+    <ViewStub android:id="@id/no1" android:layout="@layout/cat" android:layout_width="match_parent" android:layout_height="match_parent" />
+    <FrameLayout android:id="@id/cko" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginTop="200.0dp" app:a1j="hnz" app:a23="hnz" app:a27="hnz">
+        <ViewStub android:id="@id/no0" android:layout="@layout/csl" android:layout_width="match_parent" android:layout_height="wrap_content" />
+    </FrameLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>

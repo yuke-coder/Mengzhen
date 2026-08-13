@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout android:layout_width="match_parent" android:layout_height="wrap_content"
+  xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">
+    <com.tencent.qqmusic.fragment.mymusic.recommend.EntranceScrollView android:id="@id/h_p" android:scrollbars="none" android:layout_width="match_parent" android:layout_height="wrap_content" android:fillViewport="true" android:overScrollMode="never">
+        <LinearLayout android:layout_gravity="center_horizontal" android:orientation="horizontal" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginTop="12.0dp" android:layout_marginStart="20.0dp" android:layout_marginEnd="20.0dp">
+            <include android:id="@id/h9w" android:layout_width="0.0dp" android:layout_height="wrap_content" android:layout_weight="1.0" android:contentDescription="@string/emc" layout="@layout/c0d" />
+            <include android:id="@id/h9m" android:layout_width="0.0dp" android:layout_height="wrap_content" android:layout_weight="1.0" android:contentDescription="@string/emd" layout="@layout/c0d" />
+            <include android:id="@id/h89" android:layout_width="0.0dp" android:layout_height="wrap_content" android:layout_weight="1.0" android:contentDescription="@string/eme" layout="@layout/c0d" />
+            <include android:id="@id/hb1" android:visibility="gone" android:layout_width="0.0dp" android:layout_height="wrap_content" android:layout_weight="1.0" android:contentDescription="@string/emg" layout="@layout/c0d" />
+            <include android:id="@id/h_e" android:layout_width="0.0dp" android:layout_height="wrap_content" android:layout_weight="1.0" android:contentDescription="@string/emf" layout="@layout/c0d" />
+        </LinearLayout>
+    </com.tencent.qqmusic.fragment.mymusic.recommend.EntranceScrollView>
+    <com.tencent.qqmusic.ui.RoundedConstraintLayout android:orientation="vertical" android:id="@id/c8x" android:background="@drawable/skin_mask_img" android:visibility="gone" android:layout_width="match_parent" android:layout_height="70.0dp" android:layout_marginLeft="20.0dp" android:layout_marginTop="15.0dp" android:layout_marginRight="20.0dp" app:ado="4.0dp">
+        <com.tencent.component.widget.AsyncImageView android:id="@id/c8y" android:layout_width="40.0dp" android:layout_height="40.0dp" android:layout_marginLeft="14.0dp" app:a1d="hnz" app:a1x="hnz" app:a27="hnz" />
+        <androidx.appcompat.widget.AppCompatTextView android:textSize="14.0dp" android:textColor="@color/skin_text_main_color" android:id="@id/c92" android:layout_marginLeft="6.0dp" android:layout_marginTop="16.0dp" android:text="@string/ih_" app:a1y="@id/c8y" app:a27="hnz" style="@style/a4e" />
+        <ImageView android:id="@id/c90" android:background="@drawable/folder_update_dot" android:visibility="gone" android:layout_width="6.0dp" android:layout_height="6.0dp" app:a1d="@id/c91" app:a1x="@id/c92" app:a20="@id/c91" app:a27="@id/c91" />
+        <androidx.appcompat.widget.AppCompatTextView android:textSize="12.0dp" android:textColor="@color/skin_text_mid_color" android:ellipsize="end" android:gravity="left" android:id="@id/c91" android:layout_width="0.0dp" android:layout_height="wrap_content" android:layout_marginLeft="4.5dp" android:layout_marginRight="20.0dp" android:layout_marginBottom="16.0dp" android:maxLines="1" app:a18="true" app:a1d="hnz" app:a1y="@id/c90" app:a20="@id/c8z" app:a2o="0.0dp" app:a2p="20.0dp" />
+        <ImageView android:id="@id/c8z" android:background="@drawable/my_music_entrance_single_play_bg" android:paddingLeft="8.0dp" android:paddingTop="8.0dp" android:paddingRight="8.0dp" android:paddingBottom="8.0dp" android:layout_width="30.0dp" android:layout_height="30.0dp" android:layout_marginRight="20.0dp" android:src="@drawable/my_music_entrance_single_play_icon_play" android:scaleType="fitXY" app:a1d="hnz" app:a21="hnz" app:a27="hnz" />
+    </com.tencent.qqmusic.ui.RoundedConstraintLayout>
+    <View android:layout_width="match_parent" android:layout_height="0.100000024dp" />
+</FrameLayout>

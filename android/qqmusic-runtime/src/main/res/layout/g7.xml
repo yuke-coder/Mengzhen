@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout android:id="@id/j32" android:layout_width="match_parent" android:layout_height="400.0dp"
+  xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">
+    <View android:id="@id/buf" android:layout_width="match_parent" android:layout_height="match_parent" android:layout_alignParentTop="true" android:contentDescription="@string/b_0" android:layout_alignParentStart="true" />
+    <FrameLayout android:id="@id/iod" android:layout_width="match_parent" android:layout_height="match_parent" />
+    <androidx.constraintlayout.widget.ConstraintLayout android:id="@id/fdz" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_above="@id/fdy" android:paddingStart="20.0dp" android:paddingEnd="20.0dp">
+        <com.tencent.qqmusic.ui.MarqueeTextView android:textSize="20.0sp" android:textStyle="bold" android:textColor="@color/skin_text_main_color" android:ellipsize="marquee" android:gravity="center_vertical" android:id="@id/p2" android:focusable="true" android:focusableInTouchMode="true" android:layout_width="match_parent" android:layout_height="wrap_content" android:scrollHorizontally="true" android:singleLine="true" android:marqueeRepeatLimit="marquee_forever" app:a1x="hnz" app:a21="hnz" app:a27="hnz" />
+        <LinearLayout android:orientation="horizontal" android:id="@id/cne" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginTop="15.0dp" app:a1x="hnz" app:a26="@id/p2">
+            <LinearLayout android:gravity="center_vertical" android:layout_width="wrap_content" android:layout_height="wrap_content">
+                <androidx.appcompat.widget.AppCompatTextView android:textSize="12.0sp" android:textStyle="bold" android:textColor="@color/skin_text_main_color" android:id="@id/pc" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="AI歌单·每日更新" android:includeFontPadding="false" />
+                <androidx.appcompat.widget.AppCompatTextView android:textSize="@dimen/c8c" android:textColor="@color/skin_text_sub_color" android:ellipsize="end" android:id="@id/p1" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginLeft="10.0dp" android:text="@string/bb0" android:singleLine="true" android:includeFontPadding="false" android:layout_weight="1.0" />
+                <ImageView android:id="@id/ec2" android:visibility="visible" android:layout_width="5.0dp" android:layout_height="8.0dp" android:layout_marginLeft="4.0dp" android:layout_marginTop="1.0dp" android:src="@drawable/interactive_folder_users_detail_more" android:scaleType="centerCrop" />
+            </LinearLayout>
+        </LinearLayout>
+    </androidx.constraintlayout.widget.ConstraintLayout>
+    <androidx.constraintlayout.widget.ConstraintLayout android:id="@id/fdy" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginTop="15.0dp" android:layout_marginBottom="9.5dp" android:layout_alignParentBottom="true" android:layout_marginStart="16.5dp" android:layout_marginEnd="21.0dp">
+        <androidx.constraintlayout.widget.Guideline android:orientation="vertical" android:id="@id/av9" android:layout_width="wrap_content" android:layout_height="wrap_content" app:a1n="0.5" />
+        <LinearLayout android:orientation="horizontal" android:id="@id/fe2" android:focusable="true" android:focusableInTouchMode="false" android:layout_width="wrap_content" android:layout_height="wrap_content" android:contentDescription="@string/bzd" app:a1d="hnz" app:a1k="@id/fe0" app:a1u="kqf" app:a23="hnz" app:a27="hnz">
+            <ImageView android:id="@id/edz" android:layout_width="30.0dp" android:layout_height="30.0dp" android:layout_marginRight="5.0dp" android:src="@drawable/diy_folder_like_not" />
+            <androidx.appcompat.widget.AppCompatTextView android:textSize="12.0sp" android:textColor="@color/skin_text_main_color" android:layout_gravity="center" android:id="@id/mac" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginBottom="1.0dp" />
+        </LinearLayout>
+        <LinearLayout android:orientation="horizontal" android:id="@id/fe0" android:layout_width="wrap_content" android:layout_height="wrap_content" app:a1d="hnz" app:a1k="@id/dv_" app:a1u="kqf" app:a22="@id/fe2" app:a27="hnz">
+            <ImageView android:id="@id/edv" android:layout_width="30.0dp" android:layout_height="30.0dp" android:layout_marginRight="5.0dp" android:src="@drawable/diy_folder_comment_icon" android:contentDescription="@string/n0" />
+            <androidx.appcompat.widget.AppCompatTextView android:textSize="12.0sp" android:textColor="@color/skin_text_main_color" android:layout_gravity="center" android:id="@id/maa" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginBottom="1.0dp" />
+        </LinearLayout>
+        <include android:id="@id/dv_" android:layout_width="wrap_content" android:layout_height="wrap_content" app:a1d="hnz" app:a1j="hnz" app:a1u="kqf" app:a22="@id/fe0" app:a27="hnz" layout="@layout/ua" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</RelativeLayout>

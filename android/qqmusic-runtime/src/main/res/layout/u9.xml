@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout android:layout_width="match_parent" android:layout_height="wrap_content"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <TextView android:textSize="14.0sp" android:textColor="@color/skin_text_sub_color" android:ellipsize="end" android:gravity="center_vertical" android:id="@id/sh" android:background="@drawable/folder_ai_title_create_item_bg" android:paddingLeft="10.0dp" android:layout_width="match_parent" android:layout_height="37.0dp" android:layout_marginLeft="15.0dp" android:layout_marginTop="5.0dp" android:layout_marginRight="15.0dp" android:layout_marginBottom="5.0dp" android:maxLines="1" />
+</FrameLayout>

@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.tme.qqmusic.widget.base.view.CornerConstraintLayout android:id="@id/mlive_gift_card_fragment_gift_banner_tip_bar_fl" android:background="@color/black_50_transparent" android:layout_width="200.0dp" android:layout_height="40.0dp" app:ln="13.0dp" app:lo="13.0dp" app:a1d="hnz" app:a1j="hnz" app:a27="hnz"
+  xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">
+    <com.tme.qqmusic.widget.base.view.GlideImageView android:id="@id/mlive_gift_card_fragment_gift_banner_tip_bar_bg" android:layout_width="200.0dp" android:layout_height="40.0dp" android:scaleType="fitXY" app:a1d="hnz" app:a1j="hnz" app:a27="hnz" />
+    <androidx.constraintlayout.widget.ConstraintLayout android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginStart="76.0dp" app:a1d="hnz" app:a23="hnz" app:a27="hnz">
+        <TextView android:textSize="10.0dp" android:textStyle="bold" android:textColor="#ffeac5" android:ellipsize="end" android:id="@id/mlive_gift_card_fragment_gift_banner_tip_bar_title" android:layout_width="wrap_content" android:layout_height="wrap_content" android:maxWidth="120.0dp" android:maxLines="1" android:includeFontPadding="false" app:a1x="hnz" app:a27="hnz" />
+        <TextView android:textSize="9.0dp" android:textColor="#ffeac5" android:ellipsize="end" android:id="@id/mlive_gift_card_fragment_gift_banner_tip_bar_subtitle" android:layout_width="wrap_content" android:layout_height="wrap_content" android:maxLines="1" android:includeFontPadding="false" android:textDirection="ltr" app:a1d="hnz" app:a23="hnz" app:a26="@id/mlive_gift_card_fragment_gift_banner_tip_bar_title" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+    <com.tme.mlive.ui.custom.gift.GiftBannerPavilionLeftView android:id="@id/mlive_gift_card_fragment_gift_banner_pavilion_tip_bar" android:layout_width="wrap_content" android:layout_height="wrap_content" app:a1d="hnz" app:a23="hnz" app:a27="hnz" />
+</com.tme.qqmusic.widget.base.view.CornerConstraintLayout>

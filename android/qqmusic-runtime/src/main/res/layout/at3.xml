@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout android:orientation="vertical" android:paddingLeft="15.0dp" android:paddingTop="8.0dp" android:paddingRight="15.0dp" android:paddingBottom="8.0dp" android:layout_width="match_parent" android:layout_height="wrap_content"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <LinearLayout android:gravity="center" android:orientation="vertical" android:id="@id/eu9" android:background="@drawable/shape_download_action_btn_dark" android:paddingLeft="16.0dp" android:paddingTop="10.0dp" android:paddingRight="16.0dp" android:paddingBottom="10.0dp" android:focusable="true" android:clickable="true" android:layout_width="match_parent" android:layout_height="wrap_content" android:minHeight="58.0dp">
+        <LinearLayout android:gravity="center" android:layout_width="wrap_content" android:layout_height="wrap_content">
+            <ImageView android:layout_width="20.0dp" android:layout_height="20.0dp" android:layout_marginLeft="5.0dp" android:layout_marginRight="5.0dp" android:src="@drawable/super_green_user" />
+            <TextView android:textSize="14.0dp" android:textStyle="bold" android:textColor="@color/white" android:ellipsize="end" android:id="@id/m8u" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/fo6" android:singleLine="true" />
+        </LinearLayout>
+        <TextView android:textSize="11.0dp" android:textColor="#99ffffff" android:ellipsize="end" android:id="@id/m8t" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="2.0dp" android:text="仅支持会员期间本平台播放" android:singleLine="true" />
+    </LinearLayout>
+    <LinearLayout android:gravity="center" android:orientation="vertical" android:id="@id/eu8" android:background="@drawable/shape_download_action_btn_dark" android:paddingLeft="16.0dp" android:paddingTop="8.0dp" android:paddingRight="16.0dp" android:paddingBottom="8.0dp" android:focusable="true" android:clickable="true" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginTop="8.0dp" android:minHeight="58.0dp">
+        <LinearLayout android:gravity="center" android:layout_width="wrap_content" android:layout_height="wrap_content">
+            <ImageView android:layout_width="20.0dp" android:layout_height="20.0dp" android:layout_marginLeft="5.0dp" android:layout_marginRight="5.0dp" android:src="@drawable/super_vip_user" />
+            <TextView android:textSize="14.0dp" android:textStyle="bold" android:textColor="@color/white" android:ellipsize="end" android:id="@id/m8r" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="歌曲下载券" android:singleLine="true" />
+            <TextView android:textSize="11.0dp" android:textColor="@color/white" android:ellipsize="end" android:id="@id/m8s" android:layout_width="wrap_content" android:layout_height="wrap_content" android:singleLine="true" />
+        </LinearLayout>
+        <TextView android:textSize="11.0dp" android:textColor="#99ffffff" android:ellipsize="end" android:id="@id/m8q" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="2.0dp" android:text="下载成功后永久可听，不限平台及设备" android:singleLine="true" />
+    </LinearLayout>
+</LinearLayout>

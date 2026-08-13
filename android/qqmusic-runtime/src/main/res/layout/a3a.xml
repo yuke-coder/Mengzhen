@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout android:orientation="vertical" android:layout_width="match_parent" android:layout_height="match_parent"
+  xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">
+    <ViewStub android:id="@id/jv2" android:layout="@layout/mj" android:layout_width="match_parent" android:layout_height="match_parent" />
+    <LinearLayout android:gravity="center_horizontal" android:orientation="horizontal" android:id="@id/b8h" android:layout_width="match_parent" android:layout_height="60.0dp" android:layout_marginTop="10.0dp">
+        <TextView android:textSize="16.0sp" android:textColor="@color/white" android:gravity="center" android:id="@id/ks6" android:background="@drawable/ss_device_type_highlight" android:layout_width="0.0dp" android:layout_height="match_parent" android:layout_marginLeft="16.0dp" android:text="@string/huv" android:singleLine="true" android:layout_weight="1.0" android:layout_marginStart="16.0dp" />
+        <TextView android:textSize="16.0sp" android:textColor="@color/white" android:gravity="center" android:id="@id/ks4" android:background="@drawable/ss_device_type" android:layout_width="0.0dp" android:layout_height="match_parent" android:layout_marginLeft="9.0dp" android:text="@string/huu" android:singleLine="true" android:layout_weight="1.0" android:layout_marginStart="9.0dp" />
+        <TextView android:textSize="16.0sp" android:textColor="@color/white" android:gravity="center" android:id="@id/ks5" android:background="@drawable/ss_device_type" android:layout_width="0.0dp" android:layout_height="match_parent" android:layout_marginLeft="9.0dp" android:layout_marginRight="16.0dp" android:text="@string/hus" android:singleLine="true" android:layout_weight="1.0" android:layout_marginStart="9.0dp" android:layout_marginEnd="16.0dp" />
+    </LinearLayout>
+    <RelativeLayout android:id="@id/ba4" android:layout_width="match_parent" android:layout_height="match_parent" android:layout_marginTop="15.0dp">
+        <LinearLayout android:gravity="center" android:orientation="horizontal" android:id="@id/kt_" android:background="@drawable/ss_official_effect_item_round_bg" android:layout_width="match_parent" android:layout_height="40.0dp" android:layout_marginLeft="16.0dp" android:layout_marginRight="16.0dp">
+            <TextView android:textSize="12.0sp" android:textColor="@color/white_60_transparent" android:gravity="center_vertical" android:id="@id/l8x" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginLeft="10.0dp" android:layout_marginRight="5.0dp" android:text="@string/hpj" app:a1d="hnz" app:a1j="hnz" app:a23="hnz" />
+            <ImageView android:gravity="center_vertical" android:id="@id/kta" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginRight="5.0dp" />
+            <TextView android:textSize="12.0sp" android:textColor="@color/white_60_transparent" android:gravity="center_vertical" android:id="@id/ktb" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginRight="10.0dp" android:text="" android:singleLine="true" app:a1d="hnz" app:a1j="hnz" app:a23="hnz" />
+        </LinearLayout>
+        <ListView android:id="@id/l1i" android:background="@android:color/transparent" android:layout_width="match_parent" android:layout_height="match_parent" android:cacheColorHint="#00000000" android:divider="@null" android:dividerHeight="0.0dp" android:layout_below="@id/kt_" android:layout_alignWithParentIfMissing="true" />
+        <include android:id="@id/yf" android:layout_width="@dimen/li" android:layout_height="match_parent" android:layout_marginRight="4.0dp" android:layout_below="@id/kt_" android:layout_alignParentRight="true" android:layout_centerVertical="true" android:layout_marginEnd="4.0dp" android:layout_alignParentEnd="true" layout="@layout/hv" />
+        <include android:id="@id/cd9" layout="@layout/hw" />
+    </RelativeLayout>
+</LinearLayout>

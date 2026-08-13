@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<selector
+  xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">
+    <item android:state_selected="true" android:color="@color/kk_color_dark_text_primary" app:alj="true" />
+    <item android:state_selected="true" android:color="@color/kk_color_light_text_primary" />
+    <item android:color="@color/kk_color_dark_text_secondary" app:alj="true" />
+    <item android:color="@color/kk_color_light_text_secondary" />
+</selector>

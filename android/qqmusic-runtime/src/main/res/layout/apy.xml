@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout android:layout_width="match_parent" android:layout_height="match_parent"
+  xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">
+    <include android:id="@id/naf" android:layout_width="match_parent" android:layout_height="match_parent" layout="@layout/m6" />
+    <include android:id="@id/lv1" android:layout_width="match_parent" android:layout_height="@dimen/cau" layout="@layout/mu" />
+    <RelativeLayout android:id="@id/ez5" android:background="@drawable/skin_common_listitem_bg" android:layout_width="match_parent" android:layout_height="50.5dp" app:a26="@id/lv1">
+        <TextView android:textSize="16.0sp" android:textColor="@color/skin_text_main_color" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginLeft="@dimen/c16" android:text="@string/a01" android:layout_centerVertical="true" />
+        <ImageView android:id="@id/el8" android:background="@drawable/switch_off" android:layout_width="55.0dp" android:layout_height="33.0dp" android:layout_marginRight="12.5dp" android:layout_alignParentRight="true" android:layout_centerVertical="true" android:contentDescription="@string/a01" />
+    </RelativeLayout>
+    <TextView android:textSize="12.0sp" android:textColor="@color/skin_text_sub_color" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="15.0dp" android:text="@string/grv" android:paddingStart="@dimen/c16" android:paddingEnd="@dimen/c17" app:a1j="hnz" app:a23="hnz" app:a26="@id/ez5" />
+</androidx.constraintlayout.widget.ConstraintLayout>

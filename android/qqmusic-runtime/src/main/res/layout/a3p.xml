@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout android:orientation="vertical" android:id="@id/jd3" android:background="@drawable/main_bg" android:layout_width="match_parent" android:layout_height="match_parent"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <RelativeLayout android:state_window_focused="false" android:id="@id/lei" android:background="@drawable/skin_topbar_bg_img" android:paddingTop="@dimen/c_q" android:clickable="true" android:layout_width="match_parent" android:layout_height="@dimen/cau">
+        <ImageView android:id="@id/at2" android:layout_width="44.0dp" android:layout_height="44.0dp" android:src="@drawable/back_normal_black" android:scaleType="centerInside" android:layout_alignParentLeft="true" android:contentDescription="@string/wf" />
+        <TextView android:textSize="18.0sp" android:textColor="@color/skin_text_main_color" android:gravity="center" android:id="@id/lg1" android:layout_width="wrap_content" android:layout_height="match_parent" android:text="@string/fqz" android:layout_centerHorizontal="true" />
+        <TextView android:textSize="16.0sp" android:textColor="@color/skin_text_main_color" android:gravity="center" android:id="@id/bbq" android:layout_width="60.0dp" android:layout_height="match_parent" android:text="0/20" android:layout_alignParentRight="true" />
+    </RelativeLayout>
+    <View android:id="@id/leo" android:background="#dddddd" android:layout_width="match_parent" android:layout_height="1.0px" />
+    <FrameLayout android:layout_width="match_parent" android:layout_height="0.0dp" android:layout_weight="1.0">
+        <LinearLayout android:layout_gravity="center" android:orientation="vertical" android:id="@id/c7g" android:layout_width="match_parent" android:layout_height="wrap_content">
+            <ImageView android:layout_gravity="center_horizontal" android:id="@id/c7l" android:background="@drawable/timeline_video_contains_music_empty_dark" android:layout_width="93.0dp" android:layout_height="83.0dp" />
+            <TextView android:textSize="16.0sp" android:textColor="@color/skin_text_main_color" android:gravity="center" android:layout_gravity="center_horizontal" android:id="@id/c7o" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginTop="15.0dp" android:text="给观看视频的人介绍视频内\n的音乐，推荐好歌" />
+        </LinearLayout>
+        <androidx.recyclerview.widget.RecyclerView android:id="@id/kei" android:layout_width="match_parent" android:layout_height="match_parent" />
+    </FrameLayout>
+    <View android:id="@id/lep" android:background="#dddddd" android:layout_width="match_parent" android:layout_height="1.0px" />
+    <FrameLayout android:layout_width="match_parent" android:layout_height="60.0dp">
+        <TextView android:textSize="14.0sp" android:textColor="#ffffff" android:gravity="center" android:layout_gravity="center" android:id="@id/ks" android:background="@drawable/timeline_video_contains_music_add_bg" android:layout_width="match_parent" android:layout_height="40.0dp" android:layout_marginLeft="97.5dp" android:layout_marginRight="97.5dp" android:text="添加音乐" />
+    </FrameLayout>
+</LinearLayout>

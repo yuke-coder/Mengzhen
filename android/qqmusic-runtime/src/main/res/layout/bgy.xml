@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout android:background="@drawable/mlive_offical_tips_background" android:layout_width="wrap_content" android:layout_height="wrap_content"
+  xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">
+    <com.tme.mlive.ui.custom.BlinkView android:id="@id/mlive_blink" android:layout_width="0.0dp" android:layout_height="25.0dp" app:dw="2" app:dx="@color/enter_official_message_block_new_end" app:dy="12.0dp" app:dz="@color/enter_official_message_block_new_start" app:a1j="hnz" app:a23="hnz" app:a27="hnz" />
+    <LinearLayout android:gravity="center" android:layout_width="wrap_content" android:layout_height="25.0dp" android:paddingEnd="10.5dp" app:a23="hnz" app:a27="hnz">
+        <ImageView android:id="@id/mlive_official_horn_image" android:layout_width="wrap_content" android:layout_height="wrap_content" android:src="@drawable/mlive_switch_horn" android:layout_marginStart="10.0dp" android:layout_marginEnd="5.0dp" />
+        <TextView android:textSize="12.0dp" android:textColor="@color/white" android:id="@id/mlive_official_horn_text" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/d5n" />
+        <TextView android:textSize="12.0dp" android:textColor="@color/white" android:gravity="end" android:id="@id/mlive_official_horn_count" android:layout_width="22.0dp" android:layout_height="wrap_content" android:text="99S" />
+        <TextView android:textSize="12.0dp" android:textColor="@color/white" android:id="@id/mlive_official_horn_cancel" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/dr0" android:layout_marginStart="10.0dp" />
+    </LinearLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>

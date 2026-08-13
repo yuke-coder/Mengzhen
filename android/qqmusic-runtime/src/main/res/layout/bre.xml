@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout android:layout_width="match_parent" android:layout_height="60.0dp"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <include android:id="@id/f0j" android:layout_width="150.0dp" android:layout_height="match_parent" android:layout_alignParentLeft="true" android:layout_alignParentStart="true" layout="@layout/bs4" />
+    <include android:id="@id/j87" android:layout_width="150.0dp" android:layout_height="match_parent" android:layout_alignParentRight="true" android:layout_alignParentEnd="true" layout="@layout/bs4" />
+</RelativeLayout>

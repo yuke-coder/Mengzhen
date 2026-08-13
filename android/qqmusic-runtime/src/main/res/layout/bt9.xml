@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout android:id="@id/ns_" android:layout_width="wrap_content" android:layout_height="wrap_content"
+  xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">
+    <com.tencent.qqmusic.ui.RoundedDeviceLevelLayout android:id="@id/module_musichall_main_layout" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginBottom="8.0dp" app:a1d="hnz" app:a23="hnz" app:a27="hnz" app:ado="7.5dp">
+        <FrameLayout android:id="@id/gkq" android:layout_width="match_parent" android:layout_height="wrap_content">
+            <View android:id="@id/c9h" android:background="@color/black" android:layout_width="match_parent" android:layout_height="match_parent" android:layout_alignParentBottom="true" />
+            <FrameLayout android:layout_gravity="center" android:id="@id/video_tab_video_view" android:layout_width="match_parent" android:layout_height="match_parent" />
+            <com.tencent.component.widget.AsyncEffectImageView android:id="@id/gd9" android:layout_width="match_parent" android:layout_height="match_parent" android:scaleType="centerCrop" android:importantForAccessibility="no" />
+            <ImageView android:id="@id/gga" android:layout_width="match_parent" android:layout_height="match_parent" android:scaleType="centerCrop" android:importantForAccessibility="no" />
+            <ImageView android:id="@id/geo" android:visibility="gone" android:layout_width="wrap_content" android:layout_height="wrap_content" />
+            <ImageView android:layout_gravity="center" android:id="@id/n88" android:visibility="gone" android:layout_width="wrap_content" android:layout_height="wrap_content" android:src="@drawable/timeline_header_play" />
+            <RelativeLayout android:id="@id/bth" android:visibility="gone" android:layout_width="match_parent" android:layout_height="match_parent">
+                <ImageView android:id="@id/ge9" android:background="@color/timeline_tab_color_normal" android:layout_width="match_parent" android:layout_height="match_parent" android:importantForAccessibility="no" />
+                <LinearLayout android:gravity="center" android:orientation="vertical" android:id="@id/btf" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_centerHorizontal="true">
+                    <ImageView android:layout_width="45.0dp" android:layout_height="45.0dp" android:src="@drawable/module_musichall_video_dislike_icon" />
+                    <TextView android:textSize="14.0dp" android:textColor="@color/white" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/epm" />
+                    <TextView android:textSize="10.0dp" android:textColor="@color/video_tab_card_dislike_subtitle" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="2.0dp" android:text="将减少此类内容推荐" />
+                </LinearLayout>
+            </RelativeLayout>
+            <TextView android:textSize="16.0sp" android:textColor="@color/white" android:gravity="center" android:id="@id/n7u" android:visibility="gone" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_centerInParent="true" />
+        </FrameLayout>
+        <LinearLayout android:orientation="horizontal" android:id="@id/is1" android:paddingLeft="8.0dp" android:paddingRight="8.0dp" android:visibility="gone" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginBottom="4.0dp" android:layout_toLeftOf="@id/ge_" android:layout_alignLeft="@id/gkq" android:layout_alignBottom="@id/gkq" android:importantForAccessibility="no">
+            <TextView android:textSize="30.0dp" android:textColor="@color/white" android:id="@id/is4" android:layout_width="wrap_content" android:layout_height="wrap_content" />
+            <TextView android:textSize="10.0dp" android:textColor="@color/white" android:ellipsize="end" android:id="@id/is7" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginLeft="3.0dp" android:maxLines="1" />
+        </LinearLayout>
+        <View android:background="@drawable/video_tab_video_gradient" android:layout_width="match_parent" android:layout_height="24.0dp" android:layout_alignBottom="@id/gkq" />
+        <LinearLayout android:gravity="center_vertical" android:orientation="horizontal" android:id="@id/gdz" android:paddingLeft="8.0dp" android:paddingRight="8.0dp" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginBottom="4.5dp" android:layout_toLeftOf="@id/ge_" android:layout_alignLeft="@id/gkq" android:layout_alignBottom="@id/gkq">
+            <ImageView android:layout_gravity="center_vertical" android:layout_width="16.0dp" android:layout_height="16.0dp" android:layout_marginRight="5.0dp" android:src="@drawable/module_musichall_video_tab_watch_icon" android:importantForAccessibility="no" />
+            <TextView android:textSize="10.0dp" android:textStyle="bold" android:textColor="@android:color/white" android:gravity="center" android:layout_gravity="center_vertical" android:id="@id/ge0" android:paddingBottom="0.5dp" android:layout_width="wrap_content" android:layout_height="wrap_content" android:importantForAccessibility="no" />
+        </LinearLayout>
+        <TextView android:textSize="10.0dp" android:textStyle="bold" android:textColor="@android:color/white" android:id="@id/ge_" android:paddingRight="8.0dp" android:paddingBottom="0.5dp" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginBottom="4.5dp" android:text="00:00" android:layout_alignRight="@id/gkq" android:layout_alignBottom="@id/gkq" android:importantForAccessibility="no" />
+        <androidx.constraintlayout.widget.ConstraintLayout android:id="@id/n3o" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="24.0dp" android:layout_below="@id/gkq" android:layout_centerHorizontal="true">
+            <ImageView android:id="@id/btc" android:layout_width="wrap_content" android:layout_height="wrap_content" android:src="@drawable/module_musichall_video_dislike_cancel" app:a1d="hnz" app:a1x="hnz" app:a27="hnz" />
+            <TextView android:textSize="13.0dp" android:textColor="@color/skin_text_sub_color" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginLeft="3.0dp" android:text="撤销" app:a1d="hnz" app:a1y="@id/btc" app:a27="hnz" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
+        <TextView android:textSize="13.0dp" android:textColor="@color/skin_text_main_color" android:ellipsize="end" android:id="@id/gkb" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginLeft="8.0dp" android:layout_marginTop="6.0dp" android:layout_marginRight="8.0dp" android:layout_marginBottom="3.0dp" android:maxLines="2" android:layout_below="@id/gkq" android:layout_alignLeft="@id/gkq" android:layout_alignRight="@id/gkq" android:importantForAccessibility="no" android:layout_alignStart="@id/gkq" android:layout_alignEnd="@id/gkq" />
+        <RelativeLayout android:layout_width="match_parent" android:layout_height="match_parent" android:layout_below="@id/gkb" android:layout_alignLeft="@id/gkq" android:layout_alignRight="@id/gkq" android:layout_alignStart="@id/gkq" android:layout_alignEnd="@id/gkq">
+            <ImageView android:id="@id/gks" android:paddingRight="8.0dp" android:paddingBottom="8.0dp" android:layout_width="24.0dp" android:layout_height="wrap_content" android:scaleType="centerInside" android:layout_alignParentRight="true" android:layout_centerVertical="true" android:contentDescription="@string/ihk" />
+            <LinearLayout android:orientation="horizontal" android:id="@id/f13" android:layout_width="match_parent" android:layout_height="match_parent" android:layout_marginLeft="8.0dp" android:layout_toLeftOf="@id/gks" android:layout_alignParentLeft="true">
+                <LinearLayout android:id="@id/ghq" android:layout_width="wrap_content" android:layout_height="24.0dp" android:layout_marginRight="6.0dp">
+                    <LinearLayout android:gravity="bottom" android:orientation="horizontal" android:layout_width="match_parent" android:layout_height="wrap_content">
+                        <TextView android:textSize="12.0dp" android:textColor="@color/skin_text_sub_color" android:ellipsize="end" android:id="@id/ghr" android:layout_width="wrap_content" android:layout_height="wrap_content" android:maxLines="1" android:includeFontPadding="false" android:importantForAccessibility="no" />
+                        <com.tencent.component.widget.AsyncEffectImageView android:id="@id/ghp" android:layout_width="13.0dp" android:layout_height="13.0dp" android:layout_marginLeft="2.0dp" android:scaleType="centerInside" />
+                    </LinearLayout>
+                </LinearLayout>
+                <TextView android:textSize="10.0dp" android:textColor="@color/skin_highlight_color" android:ellipsize="end" android:gravity="center_vertical" android:id="@id/gja" android:background="@drawable/video_tab_video_special_text_bg" android:layout_width="wrap_content" android:layout_height="wrap_content" android:maxLines="1" android:includeFontPadding="false" android:importantForAccessibility="no" />
+            </LinearLayout>
+        </RelativeLayout>
+    </com.tencent.qqmusic.ui.RoundedDeviceLevelLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>

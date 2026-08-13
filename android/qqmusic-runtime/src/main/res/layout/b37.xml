@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout android:orientation="horizontal" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginTop="10.0dp"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <TextView android:textSize="13.0sp" android:textColor="@color/skin_text_main_color" android:ellipsize="end" android:gravity="center" android:id="@id/bab" android:layout_width="wrap_content" android:layout_height="40.0dp" android:text="视频" android:maxLines="1" android:maxLength="10" />
+    <TextView android:textSize="13.0sp" android:textColor="@color/skin_text_sub_color" android:ellipsize="end" android:gravity="center" android:id="@id/ba5" android:layout_width="wrap_content" android:layout_height="40.0dp" android:layout_marginLeft="6.0dp" android:text="312" android:maxLines="1" android:maxLength="20" android:layout_toRightOf="@id/bab" />
+    <LinearLayout android:layout_width="wrap_content" android:layout_height="40.0dp" android:layout_alignParentRight="true">
+        <TextView android:textSize="13.0sp" android:textColor="@color/skin_text_main_color" android:gravity="center" android:layout_gravity="center_vertical" android:id="@id/kjf" android:layout_width="50.0dp" android:layout_height="match_parent" android:text="最热" />
+        <View android:layout_gravity="center_vertical" android:id="@id/kjy" android:background="#ffffff" android:layout_width="1.0dp" android:layout_height="10.0dp" />
+        <TextView android:textSize="13.0sp" android:textColor="@color/skin_text_main_color" android:gravity="center" android:layout_gravity="center_vertical" android:id="@id/kjt" android:layout_width="50.0dp" android:layout_height="match_parent" android:text="最新" />
+    </LinearLayout>
+</RelativeLayout>

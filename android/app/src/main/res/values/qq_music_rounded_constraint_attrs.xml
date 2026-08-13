@@ -2,8 +2,13 @@
 <resources>
     <!-- QQ 音乐 20.6.5.8 RoundedConstraintLayout 的原 styleable 顺序。 -->
     <declare-styleable name="RoundedConstraintLayout">
-        <attr name="constraintLayout_clipBackground" format="boolean" />
-        <attr name="constraintLayout_radiusMode" format="integer" />
-        <attr name="constraintLayout_radiusNew" format="dimension" />
+        <attr name="kh" />
+        <attr name="ki" />
+        <attr name="kj" />
+        <attr name="a31" />
+        <attr name="a32" />
+        <attr name="a33" />
+        <attr name="a34" />
+        <attr name="a35" />
     </declare-styleable>
 </resources>

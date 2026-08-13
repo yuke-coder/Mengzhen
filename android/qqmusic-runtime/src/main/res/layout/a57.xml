@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout android:id="@id/jd3" android:background="@color/album_default_bg_color" android:layout_width="match_parent" android:layout_height="wrap_content"
+  xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">
+    <TextView android:textSize="14.0sp" android:textColor="@color/album_base_info_dark_color" android:gravity="start|bottom" android:id="@id/m3b" android:paddingTop="25.0dp" android:layout_width="match_parent" android:layout_height="wrap_content" android:text="奖项荣誉" android:paddingStart="@dimen/eo" app:a23="hnz" app:a27="hnz" />
+    <androidx.recyclerview.widget.RecyclerView android:id="@id/jeg" android:layout_width="match_parent" android:layout_height="wrap_content" app:a10="androidx.recyclerview.widget.LinearLayoutManager" app:a26="@id/m3b" />
+    <TextView android:textSize="12.0sp" android:textColor="@color/album_base_info_dark_color" android:id="@id/m2w" android:paddingTop="10.0dp" android:paddingBottom="10.0dp" android:layout_width="wrap_content" android:layout_height="wrap_content" android:paddingStart="10.0dp" android:paddingEnd="5.0dp" app:a1_="@id/m3b" app:a1k="@id/e90" />
+    <ImageView android:id="@id/e90" android:paddingTop="10.0dp" android:paddingBottom="10.0dp" android:layout_width="24.0dp" android:layout_height="24.0dp" android:src="@drawable/album_icon_more" android:layout_marginEnd="@dimen/eo" app:a1d="@id/m2w" app:a1j="hnz" app:a27="@id/m2w" />
+    <androidx.legacy.widget.Space android:layout_width="match_parent" android:layout_height="12.0dp" app:a26="@id/jeg" />
+</androidx.constraintlayout.widget.ConstraintLayout>

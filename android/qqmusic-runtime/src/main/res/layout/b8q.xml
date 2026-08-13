@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<merge
+  xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">
+    <androidx.constraintlayout.widget.ConstraintLayout android:id="@id/dl3" android:paddingLeft="12.0dp" android:paddingTop="12.0dp" android:paddingBottom="12.0dp" android:focusable="true" android:focusableInTouchMode="true" android:layout_width="match_parent" android:layout_height="wrap_content">
+        <com.tencent.qqmusic.ui.RoundedConstraintLayout android:id="@id/dl2" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginEnd="90.0dp" app:kj="5.0dp" app:a1j="hnz" app:a23="hnz" app:a27="hnz" app:a28="0.0">
+            <EditText android:textSize="14.0sp" android:textColor="@color/im_input_color" android:id="@id/dl1" android:background="@drawable/skin_mask_img" android:padding="8.0dp" android:layout_width="match_parent" android:layout_height="wrap_content" android:maxLines="4" app:a1j="hnz" app:a23="hnz" />
+        </com.tencent.qqmusic.ui.RoundedConstraintLayout>
+        <ImageView android:id="@id/dmd" android:layout_width="35.0dp" android:layout_height="29.0dp" android:src="@drawable/im_send_emoji" android:layout_marginStart="10.0dp" app:a1d="@id/dl2" app:a1y="@id/dl2" app:a20="@id/dmf" app:a27="@id/dl2" app:a2p="60.0dp" />
+        <ImageView android:id="@id/dmf" android:visibility="visible" android:layout_width="35.0dp" android:layout_height="29.0dp" android:src="@drawable/im_send_song" android:layout_marginEnd="10.0dp" app:a1d="@id/dmd" app:a21="hnz" app:a27="@id/dmd" />
+        <TextView android:textSize="14.0sp" android:textStyle="bold" android:textColor="@color/white" android:gravity="center" android:id="@id/dmg" android:background="@drawable/im_input_send_bg" android:visibility="gone" android:layout_width="40.0dp" android:layout_height="30.0dp" android:text="@string/bs6" app:a1d="@id/dmd" app:a1y="@id/dmd" app:a21="hnz" app:a27="@id/dmd" />
+        <TextView android:textSize="12.0sp" android:textColor="@color/im_input_color" android:id="@id/dl_" android:paddingLeft="8.0dp" android:paddingTop="8.0dp" android:visibility="gone" android:layout_width="wrap_content" android:layout_height="wrap_content" app:a1y="@id/dl2" app:a27="@id/dl2" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+    <LinearLayout android:orientation="vertical" android:id="@id/hnk" android:layout_width="match_parent" android:layout_height="wrap_content" />
+</merge>

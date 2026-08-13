@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layer-list
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <item android:id="@id/e5k">
+        <bitmap android:src="@drawable/icon_menu_notification_front" />
+    </item>
+    <item android:id="@id/e5j">
+        <bitmap android:src="@drawable/icon_menu_notification_back" />
+    </item>
+</layer-list>

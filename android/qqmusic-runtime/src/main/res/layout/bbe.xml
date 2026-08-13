@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout android:orientation="horizontal" android:id="@id/mlive_fans_bottom_tip_layout" android:background="@drawable/mlive_fans_tip_gray_bg" android:layout_width="wrap_content" android:layout_height="30.0dp"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <TextView android:textSize="16.0dp" android:textColor="@color/white" android:gravity="center_vertical" android:layout_gravity="center_vertical" android:id="@id/mlive_fans_bottom_tip_text" android:layout_width="wrap_content" android:layout_height="30.0dp" android:includeFontPadding="false" android:layout_marginStart="12.0dp" android:layout_marginEnd="12.0dp" />
+    <TextView android:textSize="12.0dp" android:textStyle="bold" android:textColor="@color/mlive_fans_bottom_tip_button_color" android:gravity="center" android:layout_gravity="center_vertical" android:id="@id/mlive_fans_bottom_tip_button" android:background="@drawable/mlive_fans_tip_button_bg" android:layout_width="45.0dp" android:layout_height="20.0dp" android:text="@string/d6i" android:layout_marginEnd="5.0dp" />
+</LinearLayout>

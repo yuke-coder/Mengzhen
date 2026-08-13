@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout android:orientation="vertical" android:id="@id/j9p" android:visibility="visible" android:layout_width="match_parent" android:layout_height="match_parent"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <View android:id="@id/ec" android:layout_width="match_parent" android:layout_height="0.0dp" android:layout_weight="1.0" />
+    <RelativeLayout android:id="@id/j9r" android:background="@drawable/color_b15" android:layout_width="match_parent" android:layout_height="wrap_content">
+        <com.tencent.qqmusic.ui.customview.viewpager.PopMenuViewPager android:id="@id/j_8" android:visibility="visible" android:scrollbars="none" android:fadingEdge="none" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginLeft="6.0dp" android:layout_marginTop="20.0dp" android:layout_marginRight="6.0dp" android:verticalSpacing="0.0dp" android:fadeScrollbars="false" />
+        <ImageView android:id="@id/j9q" android:background="@drawable/color_b17" android:layout_width="match_parent" android:layout_height="1.0px" android:layout_below="@id/j_8" />
+        <TextView android:textSize="15.0sp" android:textStyle="normal" android:textColor="@color/common_grid_title_color_selector" android:gravity="center" android:id="@id/d38" android:layout_width="match_parent" android:layout_height="70.0dp" android:text="@string/cancel" android:layout_below="@id/j9q" />
+    </RelativeLayout>
+</LinearLayout>

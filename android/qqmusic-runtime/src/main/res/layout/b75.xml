@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<merge
+  xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">
+    <Space android:id="@id/lve" android:layout_width="0.0dp" android:layout_height="0.0dp" android:layout_marginTop="@dimen/ben" app:a1i="H,1:1" app:a23="hnz" app:a27="hnz" app:a2e="0.1" />
+    <ImageView android:id="@id/fr7" android:layout_width="30.0dp" android:layout_height="30.0dp" android:src="@drawable/long_audio_exclusive_top_hide_button" app:a1d="@id/lve" app:a23="@id/d6y" app:a27="@id/lve" />
+    <TextView android:ellipsize="end" android:gravity="center_vertical" android:id="@id/fr0" android:visibility="invisible" android:layout_width="0.0dp" android:layout_height="wrap_content" android:maxLines="1" android:includeFontPadding="false" android:layout_marginStart="2.0dp" app:a1d="@id/lve" app:a1k="@id/fr5" app:a1t="0.0" app:a22="@id/fr7" app:a27="@id/lve" />
+    <com.tencent.qqmusic.bigfont.view.BigFontTextView android:ellipsize="end" android:gravity="center_vertical" android:id="@id/fqz" android:visibility="invisible" android:layout_width="0.0dp" android:layout_height="wrap_content" android:maxLines="1" android:includeFontPadding="false" app:a1d="@id/lve" app:a1k="@id/fr5" app:a1t="0.0" app:a22="@id/fr7" app:a27="@id/lve" />
+    <androidx.constraintlayout.widget.Guideline android:orientation="vertical" android:id="@id/d6y" android:layout_width="wrap_content" android:layout_height="wrap_content" app:a1n="0.08" />
+    <LinearLayout android:gravity="center_vertical" android:orientation="horizontal" android:id="@id/fr5" android:background="@drawable/long_audio_exclusive_top_area_background" android:layout_width="0.0dp" android:layout_height="0.0dp" android:layout_marginLeft="15.0dp" app:a1d="@id/lve" app:a1j="@id/d6z" app:a27="@id/lve" app:a2e="0.229">
+        <Space android:layout_width="0.0dp" android:layout_height="1.0dp" android:layout_weight="0.1465" />
+        <ImageView android:id="@id/fr8" android:layout_width="0.0dp" android:layout_height="wrap_content" android:src="@drawable/long_audio_exclusive_top_more" android:layout_weight="0.2326" android:contentDescription="更多" />
+        <Space android:layout_width="0.0dp" android:layout_height="1.0dp" android:layout_weight="0.1465" />
+        <View android:id="@id/fr6" android:background="@color/white" android:layout_width="0.0dp" android:layout_height="match_parent" android:layout_marginTop="6.0dp" android:layout_marginBottom="6.0dp" android:layout_weight="0.0058" android:layout_marginVertical="6.0dp" />
+        <Space android:layout_width="0.0dp" android:layout_height="1.0dp" android:layout_weight="0.1465" />
+        <ImageView android:id="@id/fu6" android:layout_width="0.0dp" android:layout_height="wrap_content" android:src="@drawable/long_audio_exclusive_top_close" android:layout_weight="0.2326" android:contentDescription="关闭" />
+        <Space android:layout_width="0.0dp" android:layout_height="1.0dp" android:layout_weight="0.1465" />
+    </LinearLayout>
+    <androidx.constraintlayout.widget.Guideline android:orientation="vertical" android:id="@id/d6z" android:layout_width="wrap_content" android:layout_height="wrap_content" app:a1n="0.952" />
+</merge>

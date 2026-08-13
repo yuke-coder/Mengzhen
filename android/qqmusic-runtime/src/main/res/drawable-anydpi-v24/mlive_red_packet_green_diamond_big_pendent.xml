@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<vector android:height="95.0dp" android:width="74.0dp" android:viewportWidth="148.0" android:viewportHeight="190.0"
+  xmlns:aapt="http://schemas.android.com/aapt" xmlns:android="http://schemas.android.com/apk/res/android">
+    <group>
+        <clip-path android:pathData="M17.55,0L130.45,0A17.55,17.55 0,0 1,148 17.55L148,172.45A17.55,17.55 0,0 1,130.45 190L17.55,190A17.55,17.55 0,0 1,0 172.45L0,17.55A17.55,17.55 0,0 1,17.55 0z" />
+        <path android:fillColor="@drawable/qq_generated_mlive_red_packet_green_diamond_big_pendent__0" android:pathData="M6,0L142,0A6,6 0,0 1,148 6L148,184A6,6 0,0 1,142 190L6,190A6,6 0,0 1,0 184L0,6A6,6 0,0 1,6 0z" />
+        <path android:fillColor="@drawable/qq_generated_mlive_red_packet_green_diamond_big_pendent__1" android:pathData="M73.5,-96m-195,0a195,195 0,1 1,390 0a195,195 0,1 1,-390 0" />
+    </group>
+</vector>

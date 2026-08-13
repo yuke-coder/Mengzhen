@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout android:layout_width="wrap_content" android:layout_height="70.0dp" android:minHeight="70.0dp"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <include android:id="@id/jz5" android:clickable="true" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_margin="15.0dp" layout="@layout/c3j" />
+</RelativeLayout>

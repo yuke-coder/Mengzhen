@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout android:layout_width="match_parent" android:layout_height="match_parent"
+  xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">
+    <com.tme.qqmusic.widget.base.view.GlideImageView android:id="@id/mlive_bg_gift_wall_contribution_bg_view" android:background="@drawable/mlive_gift_wall_pager_default_bg" android:layout_width="match_parent" android:layout_height="match_parent" android:scaleType="fitXY" />
+    <com.tme.mlive.ui.custom.recycleview.LoadMoreRecycleView android:id="@id/mlive_layout_gift_wall_contribution_rv" android:paddingTop="10.0dp" android:paddingBottom="64.0dp" android:layout_width="match_parent" android:layout_height="0.0dp" android:paddingStart="10.0dp" android:paddingEnd="10.0dp" app:a1d="hnz" app:a27="hnz" />
+    <include android:id="@id/mlive_layout_gift_wall_bottom_action_bar" android:layout_width="0.0dp" android:layout_height="64.0dp" app:a1d="hnz" app:a1j="hnz" app:a23="hnz" layout="@layout/bhj" />
+    <com.tme.qqmusic.widget.base.view.GlideImageView android:id="@id/mlive_layout_gift_wall_single_top_bg_iv" android:layout_width="match_parent" android:layout_height="80.0dp" android:scaleType="fitXY" app:a1j="hnz" app:a23="hnz" app:a27="hnz" />
+    <ImageView android:id="@id/mlive_layout_gift_wall_single_close_icon_iv" android:padding="@dimen/rr" android:layout_width="32.0dp" android:layout_height="32.0dp" android:layout_marginTop="5.0dp" android:src="@drawable/mlive_icon_gift_wall_contribution_close" android:layout_marginEnd="5.0dp" app:a1j="hnz" app:a27="hnz" />
+    <TextView android:textSize="12.0sp" android:textColor="@color/white_80_transparent" android:gravity="center" android:layout_gravity="center_horizontal" android:id="@id/d1l" android:visibility="gone" android:layout_width="0.0dp" android:layout_height="wrap_content" android:text="网络错误，请稍后重试" app:a1d="hnz" app:a1j="hnz" app:a23="hnz" app:a27="hnz" />
+</androidx.constraintlayout.widget.ConstraintLayout>

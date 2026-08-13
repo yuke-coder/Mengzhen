@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout android:layout_width="match_parent" android:layout_height="match_parent"
+  xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">
+    <androidx.constraintlayout.widget.ConstraintLayout android:id="@id/gqe" android:layout_width="match_parent" android:layout_height="match_parent">
+        <com.tencent.qqmusic.business.togetherroom.ui.background.TogetherRoomBackgroundView android:id="@id/gq2" android:layout_width="match_parent" android:layout_height="match_parent" />
+        <com.tencent.qqmusic.business.togetherroom.ui.toolbar.TogetherRoomTopBarView android:id="@id/gqg" android:layout_width="match_parent" android:layout_height="wrap_content" app:a1x="hnz" app:a27="hnz" />
+        <com.tencent.qqmusic.business.togetherroom.ui.main.TogetherRoomLoadingView android:id="@id/gqd" android:layout_width="match_parent" android:layout_height="wrap_content" app:a1x="hnz" app:a26="@id/gqg" />
+        <ViewStub android:id="@id/gqc" android:layout="@layout/csp" android:inflatedId="@id/gqb" android:layout_width="match_parent" android:layout_height="wrap_content" app:a1x="hnz" app:a26="@id/gqg" />
+        <com.tencent.qqmusic.business.togetherroom.ui.stage.StageChoreographerView android:id="@id/gqf" android:layout_width="match_parent" android:layout_height="wrap_content" app:a1x="hnz" app:a26="@id/gqg" />
+        <FrameLayout android:id="@id/gq8" android:layout_width="match_parent" android:layout_height="wrap_content" app:a1j="hnz" app:a23="hnz" app:a26="@id/gqg">
+            <ViewStub android:id="@id/gq_" android:layout="@layout/csl" android:layout_width="match_parent" android:layout_height="wrap_content" />
+            <ViewStub android:id="@id/gqa" android:layout="@layout/csk" android:layout_width="match_parent" android:layout_height="wrap_content" />
+        </FrameLayout>
+        <com.tencent.qqmusic.business.togetherroom.view.scrolllayout.ScrollLayout android:id="@id/gpy" android:background="@android:color/transparent" android:visibility="invisible" android:layout_width="match_parent" android:layout_height="0.0dp" app:ks="@layout/bum" app:ts="@layout/bun" app:a1e="@id/gq3" app:a26="@id/gqg" />
+        <com.tencent.qqmusic.business.togetherroom.ui.bottombar.TogetherRoomBottomBarView android:id="@id/gq3" android:layout_width="match_parent" android:layout_height="wrap_content" app:a1d="hnz" app:a1x="hnz" />
+        <FrameLayout android:id="@id/lpt" android:layout_width="wrap_content" android:layout_height="40.0dp" app:a1x="hnz" app:a27="@id/gq3" />
+        <ViewStub android:id="@id/gq5" android:layout="@layout/buf" android:layout_width="match_parent" android:layout_height="wrap_content" app:a1j="hnz" app:a23="hnz" app:a27="hnz" />
+        <FrameLayout android:id="@id/gq4" android:layout_width="match_parent" android:layout_height="match_parent" />
+        <FrameLayout android:id="@id/lur" android:clickable="false" android:layout_width="@dimen/ca9" android:layout_height="wrap_content" app:a21="hnz" app:a26="@id/gqg" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>

@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout android:layout_width="match_parent" android:layout_height="55.0dp"
+  xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">
+    <com.tencent.qqmusic.business.live.ui.view.RoundAvatarImage android:id="@id/mwe" android:layout_width="41.0dp" android:layout_height="41.0dp" android:layout_marginStart="16.0dp" app:a1d="hnz" app:a23="hnz" app:a27="hnz" />
+    <TextView android:textSize="14.0dp" android:textColor="@color/skin_text_main_color" android:ellipsize="end" android:id="@id/mz_" android:layout_width="wrap_content" android:layout_height="wrap_content" android:maxWidth="200.0dp" android:maxLines="1" android:layout_marginStart="13.0dp" app:a1e="@id/bal" app:a22="@id/mwe" app:a27="hnz" app:a28="0.5" app:a29="hmg" />
+    <TextView android:textSize="12.0dp" android:textColor="@color/skin_text_sub_color" android:id="@id/bal" android:layout_width="wrap_content" android:layout_height="wrap_content" app:a1d="hnz" app:a23="@id/mz_" app:a26="@id/mz_" />
+    <ImageView android:id="@id/dyc" android:layout_width="wrap_content" android:layout_height="wrap_content" android:src="@drawable/interactive_folder_users_detail_more" android:layout_marginEnd="16.0dp" app:a1d="hnz" app:a1j="hnz" app:a27="hnz" />
+</androidx.constraintlayout.widget.ConstraintLayout>

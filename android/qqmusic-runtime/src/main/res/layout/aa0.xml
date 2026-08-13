@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout android:id="@id/ev5" android:layout_width="match_parent" android:layout_height="wrap_content"
+  xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">
+    <androidx.constraintlayout.widget.ConstraintLayout android:id="@id/ev6" android:layout_width="wrap_content" android:layout_height="wrap_content" android:minWidth="142.0dp" app:a21="hnz" app:a27="hnz">
+        <ImageView android:id="@id/dra" android:layout_width="65.0dp" android:layout_height="60.0dp" android:layout_marginTop="5.73999dp" android:src="@drawable/item_achi_card_cumulative_honor_list_left_icon" app:a1x="hnz" app:a27="hnz" />
+        <androidx.appcompat.widget.AppCompatTextView android:textSize="18.0dp" android:textStyle="bold" android:textColor="@color/white" android:ellipsize="end" android:gravity="center_horizontal" android:id="@id/mar" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginLeft="27.0dp" android:layout_marginTop="9.439972dp" android:layout_marginRight="27.0dp" android:maxLines="1" android:includeFontPadding="false" app:a1x="hnz" app:a21="hnz" app:a27="hnz" />
+        <androidx.appcompat.widget.AppCompatTextView android:textSize="13.0dp" android:textStyle="bold" android:textColor="@color/white" android:ellipsize="end" android:gravity="center_horizontal" android:id="@id/maq" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginLeft="27.0dp" android:layout_marginTop="34.0dp" android:layout_marginRight="27.0dp" android:maxLines="1" android:includeFontPadding="false" android:textAllCaps="true" app:a1x="@id/mar" app:a21="@id/mar" app:a27="hnz" />
+        <ImageView android:id="@id/drb" android:layout_width="65.0dp" android:layout_height="60.0dp" android:layout_marginTop="5.73999dp" android:src="@drawable/item_achi_card_cumulative_honor_list_right_icon" app:a21="hnz" app:a27="hnz" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>

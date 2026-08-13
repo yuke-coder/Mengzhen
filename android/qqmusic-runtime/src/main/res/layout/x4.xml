@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout android:orientation="vertical" android:layout_width="match_parent" android:layout_height="match_parent"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <LinearLayout android:gravity="center" android:layout_gravity="center" android:orientation="horizontal" android:id="@id/b8h" android:paddingLeft="50.0dp" android:paddingTop="7.0dp" android:paddingRight="50.0dp" android:paddingBottom="7.0dp" android:visibility="gone" android:layout_width="match_parent" android:layout_height="wrap_content">
+        <TextView android:textSize="16.0sp" android:gravity="center" android:id="@id/b8g" android:background="@drawable/ic_segment_left_fill" android:padding="7.0dp" android:layout_width="0.0dp" android:layout_height="wrap_content" android:text="@string/gmg" android:layout_weight="1.0" />
+        <TextView android:textSize="16.0sp" android:textColor="@color/skin_button_text_color" android:gravity="center" android:id="@id/b8e" android:background="@drawable/ic_segment_right_frame" android:padding="7.0dp" android:layout_width="0.0dp" android:layout_height="wrap_content" android:text="@string/gm7" android:layout_weight="1.0" />
+    </LinearLayout>
+    <RelativeLayout android:id="@id/jns" android:visibility="gone" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginLeft="12.0dp" android:layout_marginTop="10.0dp" android:layout_marginBottom="10.0dp">
+        <LinearLayout android:orientation="horizontal" android:id="@id/l0c" android:visibility="gone" android:layout_width="match_parent" android:layout_height="wrap_content">
+            <TextView android:textSize="16.0sp" android:textColor="@color/skin_text_sub_color" android:id="@id/jo1" android:layout_width="wrap_content" android:layout_height="wrap_content" />
+        </LinearLayout>
+        <LinearLayout android:orientation="vertical" android:id="@id/a37" android:visibility="gone" android:layout_width="match_parent" android:layout_height="wrap_content">
+            <TextView android:textSize="16.0sp" android:textColor="@color/skin_text_sub_color" android:id="@id/l0f" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginBottom="5.0dp" />
+            <TextView android:textSize="16.0sp" android:textColor="@color/skin_text_sub_color" android:id="@id/baj" android:layout_width="wrap_content" android:layout_height="wrap_content" />
+        </LinearLayout>
+    </RelativeLayout>
+    <androidx.viewpager.widget.ViewPager android:id="@id/kal" android:visibility="visible" android:layout_width="match_parent" android:layout_height="0.0dp" android:layout_weight="1.0" />
+    <LinearLayout android:orientation="vertical" android:id="@id/jq1" android:visibility="gone" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginTop="-20.0dp">
+        <View android:background="@drawable/post_moment_bottom_bar_bg" android:layout_width="match_parent" android:layout_height="20.0dp" android:layout_above="@id/jq1" />
+        <FrameLayout android:focusable="true" android:clickable="true" android:layout_width="match_parent" android:layout_height="58.0dp">
+            <LinearLayout android:gravity="center_vertical" android:orientation="horizontal" android:layout_width="wrap_content" android:layout_height="match_parent" android:layout_marginLeft="16.0dp">
+                <TextView android:textSize="16.0sp" android:textColor="@color/skin_text_sub_color" android:id="@id/jqi" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="已选 " />
+                <TextView android:textSize="16.0sp" android:textColor="@color/skin_highlight_color" android:id="@id/kc0" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="0" />
+                <TextView android:textSize="16.0sp" android:textColor="@color/skin_text_sub_color" android:id="@id/jqj" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text=" 首" />
+            </LinearLayout>
+            <TextView android:enabled="false" android:textSize="14.0sp" android:textColor="#ffffff" android:gravity="center" android:layout_gravity="right|center" android:id="@id/b_5" android:background="@drawable/timeline_video_contains_music_add_bg" android:layout_width="74.0dp" android:layout_height="30.0dp" android:layout_marginRight="16.0dp" android:text="@string/evy" />
+        </FrameLayout>
+    </LinearLayout>
+</LinearLayout>

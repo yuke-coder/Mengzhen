@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout android:id="@id/ngc" android:layout_width="140.0dp" android:layout_height="165.5dp"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <com.tencent.component.widget.AsyncEffectImageView android:layout_gravity="center_horizontal" android:id="@id/ngh" android:layout_width="100.0dp" android:layout_height="100.0dp" android:layout_marginTop="18.0dp" />
+    <androidx.appcompat.widget.AppCompatTextView android:textColor="@color/skin_text_main_color" android:layout_gravity="center_horizontal" android:id="@id/ngi" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="125.0dp" android:alpha="0.5" />
+    <com.tencent.component.widget.AsyncEffectImageView android:layout_gravity="right|top" android:id="@id/ngg" android:layout_width="25.5dp" android:layout_height="25.5dp" />
+</FrameLayout>

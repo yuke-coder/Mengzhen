@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout android:layout_width="match_parent" android:layout_height="wrap_content"
+  xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">
+    <androidx.constraintlayout.widget.ConstraintLayout android:id="@id/ad7" android:layout_width="match_parent" android:layout_height="wrap_content" app:a1e="@id/ago" app:a1x="hnz" app:a21="hnz">
+        <androidx.constraintlayout.widget.ConstraintLayout android:id="@id/l31" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginRight="67.5dp" app:a1d="hnz" app:a20="@id/l2x" app:a27="hnz">
+            <ImageView android:id="@id/l32" android:layout_width="30.0dp" android:layout_height="30.0dp" android:src="@drawable/player_card_switch_qrcode" android:importantForAccessibility="no" app:a1e="@id/l33" app:a1x="hnz" app:a21="hnz" app:a27="hnz" />
+            <androidx.appcompat.widget.AppCompatTextView android:textSize="11.0sp" android:textColor="@color/white_50_opacity" android:gravity="center" android:id="@id/l33" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="添加二维码" app:a1d="hnz" app:a1x="@id/l32" app:a21="@id/l32" app:a26="@id/l32" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
+        <androidx.constraintlayout.widget.ConstraintLayout android:id="@id/l2x" android:layout_width="wrap_content" android:layout_height="wrap_content" app:a1d="hnz" app:a1x="hnz" app:a21="hnz" app:a27="hnz">
+            <ImageView android:id="@id/l2y" android:layout_width="30.0dp" android:layout_height="30.0dp" android:src="@drawable/player_card_switch_model" android:contentDescription="模版" app:a1e="@id/l2z" app:a1x="hnz" app:a21="hnz" app:a27="hnz" />
+            <androidx.appcompat.widget.AppCompatTextView android:textSize="11.0sp" android:textColor="@color/white_50_opacity" android:gravity="center" android:id="@id/l2z" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="模版" android:importantForAccessibility="no" app:a1d="hnz" app:a1x="@id/l2y" app:a21="@id/l2y" app:a26="@id/l2y" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
+        <androidx.constraintlayout.widget.ConstraintLayout android:id="@id/l2l" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginLeft="78.5dp" app:a1d="hnz" app:a1y="@id/l2x" app:a27="hnz">
+            <ImageView android:id="@id/l2m" android:layout_width="30.0dp" android:layout_height="30.0dp" android:src="@drawable/music_card_switch_bg" android:contentDescription="背景图" app:a1e="@id/l2n" app:a1x="hnz" app:a21="hnz" app:a27="hnz" />
+            <androidx.appcompat.widget.AppCompatTextView android:textSize="11.0sp" android:textColor="@color/white_50_opacity" android:gravity="center" android:id="@id/l2n" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="背景图" android:importantForAccessibility="no" app:a1d="hnz" app:a1x="@id/l2m" app:a21="@id/l2m" app:a26="@id/l2m" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </androidx.constraintlayout.widget.ConstraintLayout>
+    <View android:id="@id/ago" android:layout_width="match_parent" android:layout_height="0.0dp" app:a1d="hnz" app:a1i="20:1" />
+</androidx.constraintlayout.widget.ConstraintLayout>

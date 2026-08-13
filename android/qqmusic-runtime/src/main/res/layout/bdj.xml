@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout android:layout_width="match_parent" android:layout_height="match_parent"
+  xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">
+    <com.tme.mlive.ui.custom.gift.NormalSendView android:id="@id/mlive_gift_card_fragment_send_normal" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginRight="20.0dp" android:layout_marginBottom="@dimen/anu" app:a1d="hnz" app:a21="hnz" />
+    <com.tme.mlive.ui.custom.gift.MultiSendView android:id="@id/mlive_gift_card_fragment_send_multi" android:visibility="gone" android:layout_width="wrap_content" android:layout_height="wrap_content" app:a1d="hnz" app:a21="hnz" />
+</androidx.constraintlayout.widget.ConstraintLayout>

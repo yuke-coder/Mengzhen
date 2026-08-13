@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout android:orientation="vertical" android:layout_width="match_parent" android:layout_height="@dimen/ay7"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <TextView android:textAppearance="?a8t" android:gravity="start" android:id="@id/gus" android:paddingLeft="16.0dp" android:paddingTop="16.0dp" android:paddingRight="16.0dp" android:layout_width="match_parent" android:layout_height="match_parent" android:layout_weight="1.0" android:textAlignment="viewStart" />
+    <RelativeLayout android:id="@id/gu_" android:layout_width="match_parent" android:layout_height="@dimen/ay6">
+        <ImageButton android:id="@id/gu5" android:background="?selectableItemBackgroundBorderless" android:layout_width="24.0dp" android:layout_height="24.0dp" android:layout_marginLeft="16.0dp" android:layout_centerVertical="true" android:layout_marginStart="16.0dp" />
+        <androidx.mediarouter.app.MediaRouteVolumeSlider android:id="@id/gua" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginRight="16.0dp" android:maxHeight="48.0dp" android:progressDrawable="@drawable/mr_cast_group_seekbar_track" android:minHeight="48.0dp" android:thumb="@drawable/mr_cast_thumb" android:layout_toRightOf="@id/gu5" android:layout_centerVertical="true" android:contentDescription="@string/e_r" android:layout_marginEnd="16.0dp" android:layout_toEndOf="@id/gu5" android:splitTrack="false" />
+        <View android:id="@id/gtu" android:background="?a8s" android:layout_width="match_parent" android:layout_height="1.0dp" android:layout_alignParentBottom="true" />
+    </RelativeLayout>
+</LinearLayout>

@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout android:layout_width="match_parent" android:layout_height="wrap_content"
+  xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">
+    <androidx.constraintlayout.widget.Guideline android:orientation="horizontal" android:id="@id/lv5" android:layout_width="wrap_content" android:layout_height="wrap_content" app:a1n="0.607" />
+    <ImageView android:id="@id/k1i" android:focusable="true" android:layout_width="25.0dp" android:layout_height="0.0dp" android:layout_marginLeft="10.0dp" android:src="@drawable/multistyle_poster_title_back" android:scaleType="centerInside" android:contentDescription="@string/wf" app:a1i="1:1" app:a23="hnz" app:a27="@id/lv5" />
+    <LinearLayout android:gravity="center" android:orientation="horizontal" android:layout_width="wrap_content" android:layout_height="25.0dp" app:a1j="hnz" app:a23="hnz" app:a27="@id/lv5">
+        <ImageView android:id="@id/fyb" android:background="@drawable/multistyle_poster_first_checked" android:layout_width="25.0dp" android:layout_height="25.0dp" android:scaleType="centerInside" android:contentDescription="@string/wf" />
+        <ImageView android:id="@id/fyc" android:background="@drawable/multistyle_poster_second_unchecked" android:focusable="true" android:layout_width="25.0dp" android:layout_height="25.0dp" android:layout_marginLeft="27.5dp" android:scaleType="centerInside" android:contentDescription="@string/wf" />
+    </LinearLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>

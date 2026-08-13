@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout android:orientation="horizontal" android:paddingLeft="15.0dp" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginBottom="12.0dp" android:minHeight="60.0dp" android:paddingStart="15.0dp"
+  xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">
+    <CheckBox android:id="@id/e2x" android:background="@drawable/ic_edit_song_checkbox" android:focusable="false" android:focusableInTouchMode="false" android:clickable="false" android:layout_width="30.0dp" android:layout_height="30.0dp" android:layout_marginRight="8.0dp" android:checked="false" android:button="@null" android:layout_centerVertical="true" android:layout_marginEnd="8.0dp" />
+    <com.tencent.component.widget.AsyncEffectImageView android:id="@id/kc1" android:layout_width="60.0dp" android:layout_height="60.0dp" android:layout_marginRight="16.0dp" android:src="@drawable/default_cover" android:layout_toRightOf="@id/e2x" app:afv="@dimen/sm" />
+    <ImageView android:id="@id/e2v" android:visibility="gone" android:layout_width="30.0dp" android:layout_height="30.0dp" android:layout_marginRight="14.0dp" android:src="@drawable/ic_live_order" android:layout_alignParentRight="true" android:layout_centerVertical="true" />
+    <RelativeLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginRight="16.0dp" android:layout_toLeftOf="@id/e2v" android:layout_toRightOf="@id/kc1" android:layout_centerVertical="true">
+        <LinearLayout android:gravity="center_vertical" android:orientation="horizontal" android:id="@id/e2z" android:layout_width="wrap_content" android:layout_height="wrap_content">
+            <TextView android:textSize="15.0sp" android:textColor="@color/skin_text_main_color" android:ellipsize="end" android:gravity="center_vertical" android:id="@id/e2y" android:layout_width="wrap_content" android:layout_height="wrap_content" android:height="19.0dp" android:singleLine="true" android:includeFontPadding="false" />
+            <TextView android:textColor="@color/skin_text_main_color" android:id="@id/kfw" android:visibility="gone" android:layout_width="wrap_content" android:text="@string/bzf" style="@style/ln" />
+            <ViewStub android:id="@id/eyi" android:visibility="gone" android:layout="@layout/cmq" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginLeft="4.0dp" android:importantForAccessibility="no" />
+        </LinearLayout>
+        <LinearLayout android:gravity="center_vertical" android:orientation="horizontal" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginTop="4.0dp" android:layout_below="@id/e2z">
+            <include android:id="@id/kh9" android:layout_width="wrap_content" android:layout_height="wrap_content" layout="@layout/cn8" />
+        </LinearLayout>
+    </RelativeLayout>
+</RelativeLayout>

@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="a">24.0dp</dimen>
+    <dimen name="b">80.0dp</dimen>
+    <dimen name="c">64.0dp</dimen>
+    <dimen name="d">8.0dp</dimen>
+    <dimen name="e">8.0dp</dimen>
+    <dimen name="x">580.0dp</dimen>
+    <dimen name="be">16.0dp</dimen>
+    <dimen name="bg">20.0dp</dimen>
+    <dimen name="os">320.0dp</dimen>
+    <dimen name="ov">0.0dp</dimen>
+    <dimen name="ox">2.0dp</dimen>
+    <dimen name="oz">24.0dp</dimen>
+    <dimen name="p0">576.0dp</dimen>
+    <dimen name="p1">320.0dp</dimen>
+    <dimen name="p4">@dimen/p3</dimen>
+    <dimen name="p7">160.0dp</dimen>
+    <dimen name="ay2">60.000004%</dimen>
+    <dimen name="ay3">90.0%</dimen>
+    <dimen name="ayn">64.0dp</dimen>
+    <dimen name="b24">64.0dp</dimen>
+</resources>

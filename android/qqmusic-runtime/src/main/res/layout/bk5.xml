@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout android:layout_width="match_parent" android:layout_height="match_parent"
+  xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">
+    <androidx.constraintlayout.widget.ConstraintLayout android:id="@id/mlive_upgrade_tips_container" android:background="@drawable/mlive_upgrade_tips_background" android:layout_width="270.0dp" android:layout_height="50.0dp" app:a23="hnz" app:a27="hnz">
+        <TextView android:textSize="14.0dp" android:textColor="@color/black" android:id="@id/mlive_upgrade_tips_desc" android:layout_width="0.0dp" android:layout_height="wrap_content" android:layout_marginLeft="12.0dp" android:layout_marginRight="12.0dp" android:text="@string/e3l" android:maxLines="2" android:layout_marginHorizontal="12.0dp" app:a1d="hnz" app:a1k="@id/mlive_upgrade_tips_button" app:a23="hnz" app:a27="hnz" />
+        <TextView android:textSize="14.0dp" android:textStyle="bold" android:textColor="@color/white" android:gravity="center" android:id="@id/mlive_upgrade_tips_button" android:background="@drawable/mlive_upgrade_button_background" android:layout_width="60.0dp" android:layout_height="22.0dp" android:text="去升级" android:layout_marginEnd="12.0dp" app:a1d="hnz" app:a1j="hnz" app:a22="@id/mlive_upgrade_tips_desc" app:a27="hnz" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>

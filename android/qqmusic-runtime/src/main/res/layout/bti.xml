@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout android:layout_width="wrap_content" android:layout_height="wrap_content"
+  xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">
+    <com.tencent.component.widget.AsyncEffectImageView android:id="@id/gga" android:layout_width="150.0dp" android:layout_height="150.0dp" android:scaleType="centerCrop" android:importantForAccessibility="no" app:a1x="hnz" app:a27="hnz" />
+    <FrameLayout android:id="@id/gf3" android:paddingBottom="7.0dp" android:layout_width="0.0dp" android:layout_height="28.0dp" android:importantForAccessibility="yes" app:a1d="@id/gga" app:a1x="@id/gga" app:a21="@id/gga">
+        <FrameLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:minWidth="27.0dp" android:importantForAccessibility="no">
+            <RelativeLayout android:layout_gravity="center_vertical" android:id="@id/ges" android:paddingLeft="7.0dp" android:paddingRight="7.0dp" android:layout_width="wrap_content" android:layout_height="match_parent" android:importantForAccessibility="no">
+                <RelativeLayout android:id="@id/geu" android:layout_width="wrap_content" android:layout_height="match_parent" android:layout_alignParentLeft="true" android:layout_centerVertical="true">
+                    <ImageView android:layout_gravity="center_vertical" android:id="@id/gf6" android:background="@drawable/module_musichall_card_play_count" android:layout_width="10.0dp" android:layout_height="10.0dp" android:layout_alignParentLeft="true" android:layout_centerVertical="true" android:importantForAccessibility="no" />
+                    <TextView android:textSize="11.0dp" android:textColor="@android:color/white" android:gravity="left" android:layout_gravity="center_vertical" android:id="@id/gev" android:paddingBottom="1.0dp" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginLeft="4.0dp" android:layout_marginRight="4.0dp" android:minWidth="50.0dp" android:layout_toRightOf="@id/gf6" android:layout_centerVertical="true" android:importantForAccessibility="no" />
+                </RelativeLayout>
+                <ImageView android:layout_gravity="center_vertical" android:id="@id/get" android:layout_width="20.0dp" android:layout_height="20.0dp" android:layout_marginLeft="4.0dp" android:src="@drawable/module_musichall_card_play_button_test" android:layout_alignParentRight="true" android:layout_centerVertical="true" android:importantForAccessibility="no" />
+            </RelativeLayout>
+        </FrameLayout>
+    </FrameLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>

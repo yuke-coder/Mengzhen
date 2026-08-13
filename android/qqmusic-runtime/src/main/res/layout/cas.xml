@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout android:layout_width="match_parent" android:layout_height="65.0dp"
+  xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">
+    <com.airbnb.lottie.LottieAnimationView android:layout_gravity="center_horizontal" android:id="@id/fza" android:layout_width="50.0dp" android:layout_height="50.0dp" app:a4u="true" />
+    <androidx.constraintlayout.widget.ConstraintLayout android:layout_gravity="center_horizontal" android:layout_width="wrap_content" android:layout_height="30.0dp" android:layout_marginTop="10.0dp">
+        <View android:id="@id/j3p" android:background="@drawable/refresh_header_view_bg" android:visibility="gone" android:layout_width="0.0dp" android:layout_height="0.0dp" app:a1d="hnz" app:a1x="@id/j3o" app:a21="@id/j3o" app:a27="hnz" app:a2b="nug" />
+        <TextView android:textSize="13.0dp" android:textColor="@color/skin_text_sub_color" android:ellipsize="end" android:id="@id/j3o" android:paddingLeft="13.0dp" android:paddingRight="13.0dp" android:visibility="gone" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginBottom="1.0dp" android:maxLines="1" app:a1d="hnz" app:a1x="hnz" app:a21="hnz" app:a27="hnz" app:a2b="nug" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</FrameLayout>

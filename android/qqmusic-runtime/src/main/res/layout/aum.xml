@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout android:layout_width="match_parent" android:layout_height="match_parent"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <FrameLayout android:id="@id/nrh" android:layout_width="match_parent" android:layout_height="match_parent" />
+    <FrameLayout android:layout_gravity="right" android:id="@id/b3h" android:visibility="gone" android:layout_width="40.0dp" android:layout_height="40.0dp" android:layout_marginTop="20.0dp" android:layout_marginRight="20.0dp">
+        <View android:layout_gravity="center" android:background="@drawable/dialog_close_btn" android:layout_width="2.0dp" android:layout_height="20.0dp" android:rotation="45.0" />
+        <View android:layout_gravity="center" android:background="@drawable/dialog_close_btn" android:layout_width="2.0dp" android:layout_height="20.0dp" android:rotation="315.0" />
+    </FrameLayout>
+    <ProgressBar android:layout_gravity="center" android:id="@id/bos" android:layout_width="30.0dp" android:layout_height="30.0dp" />
+</FrameLayout>

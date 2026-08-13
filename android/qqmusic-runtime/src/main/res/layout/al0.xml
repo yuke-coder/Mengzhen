@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout android:layout_width="wrap_content" android:layout_height="wrap_content"
+  xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">
+    <com.tencent.qqmusic.ui.RoundedRelativeLayout android:id="@id/ey2" android:layout_width="@dimen/c1u" android:layout_height="@dimen/c1q" app:a1x="hnz" app:a27="hnz" app:ado="4.0dp">
+        <com.tencent.qqmusic.share.customview.NoTouchViewPager android:id="@id/nn8" android:visibility="gone" android:layout_width="@dimen/c1u" android:layout_height="@dimen/c1q" android:overScrollMode="never" />
+        <ImageView android:id="@id/dts" android:layout_width="@dimen/c1u" android:layout_height="@dimen/c1q" android:src="@drawable/share_music_action_sheet_default_card" android:scaleType="fitXY" android:importantForAccessibility="no" />
+        <ImageView android:id="@id/ek3" android:visibility="gone" android:layout_width="wrap_content" android:layout_height="wrap_content" android:src="@drawable/icon_share_card_new" android:layout_alignParentLeft="true" android:layout_alignParentTop="true" android:importantForAccessibility="no" />
+    </com.tencent.qqmusic.ui.RoundedRelativeLayout>
+    <include android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginTop="9.5dp" app:a1x="hnz" app:a21="hnz" app:a26="@id/ey2" layout="@layout/clf" />
+</androidx.constraintlayout.widget.ConstraintLayout>

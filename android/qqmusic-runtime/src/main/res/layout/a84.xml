@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout android:orientation="horizontal" android:id="@id/dkg" android:background="@drawable/im_chat_new_message_tips_layout_bg" android:paddingLeft="12.0dp" android:paddingRight="12.0dp" android:layout_width="wrap_content" android:layout_height="38.0dp" android:elevation="5.0dp"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <ImageView android:layout_gravity="center_vertical" android:id="@id/dkf" android:layout_width="8.0dp" android:layout_height="8.0dp" android:layout_marginRight="7.0dp" android:src="@drawable/im_chat_new_msg_tips_arrow" />
+    <androidx.appcompat.widget.AppCompatTextView android:textSize="14.0dp" android:textColor="@color/skin_highlight_color" android:layout_gravity="center_vertical" android:id="@id/dkh" android:layout_width="wrap_content" android:layout_height="wrap_content" />
+</LinearLayout>

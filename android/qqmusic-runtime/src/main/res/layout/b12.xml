@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout android:paddingLeft="12.0dp" android:paddingRight="12.0dp" android:paddingBottom="10.0dp" android:layout_width="match_parent" android:layout_height="wrap_content" android:paddingHorizontal="12.0dp"
+  xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">
+    <androidx.constraintlayout.widget.ConstraintLayout android:background="@drawable/ring_tone_banner_bg" android:layout_width="match_parent" android:layout_height="35.0dp">
+        <ImageView android:id="@id/ejg" android:layout_width="24.0dp" android:layout_height="24.0dp" android:scaleType="centerCrop" android:layout_marginStart="5.0dp" app:a1d="hnz" app:a23="hnz" app:a27="hnz" />
+        <TextView android:textSize="12.0dp" android:textColor="#cc3d3219" android:ellipsize="end" android:id="@id/miv" android:layout_width="0.0dp" android:layout_height="wrap_content" android:maxLines="1" android:layout_marginStart="10.0dp" android:layout_marginEnd="8.0dp" app:a1d="hnz" app:a1k="@id/miu" app:a22="@id/ejg" app:a27="hnz" />
+        <TextView android:textSize="12.0dp" android:textColor="#99000000" android:id="@id/miu" android:layout_width="wrap_content" android:layout_height="wrap_content" android:drawablePadding="2.0dp" android:layout_marginEnd="10.0dp" app:a1d="hnz" app:a1j="hnz" app:a27="hnz" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</FrameLayout>

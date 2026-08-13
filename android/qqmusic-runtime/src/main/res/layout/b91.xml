@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout android:id="@id/g_6" android:background="@color/black" android:layout_width="match_parent" android:layout_height="match_parent"
+  xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">
+    <RelativeLayout android:id="@id/g_7" android:background="@drawable/mira_cast_bg" android:layout_width="match_parent" android:layout_height="@dimen/ajh">
+        <TextView android:textSize="12.0dp" android:textColor="@color/white_60_transparent" android:id="@id/g_9" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/csk" android:layout_above="@id/g_8" android:layout_centerHorizontal="true" />
+        <TextView android:textSize="14.0dp" android:textColor="@color/white" android:id="@id/g_8" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginBottom="@dimen/ajk" android:text="客厅激光TV（60D0）" android:layout_alignParentBottom="true" android:layout_centerHorizontal="true" />
+    </RelativeLayout>
+    <LinearLayout android:orientation="vertical" android:id="@id/g9y" android:paddingBottom="@dimen/bl" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_centerInParent="true">
+        <com.airbnb.lottie.LottieAnimationView android:layout_gravity="center_horizontal" android:id="@id/g_3" android:layout_width="30.0dp" android:layout_height="30.0dp" app:a4n="true" />
+        <TextView android:textSize="14.0dp" android:textColor="@color/white" android:layout_gravity="center_horizontal" android:id="@id/g_2" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/csg" />
+        <ImageView android:layout_gravity="center_horizontal" android:id="@id/g_4" android:background="@drawable/mira_cast_retry" android:visibility="gone" android:layout_width="wrap_content" android:layout_height="wrap_content" />
+        <TextView android:textSize="14.0dp" android:textColor="@color/white" android:layout_gravity="center_horizontal" android:id="@id/g_5" android:visibility="gone" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/csj" />
+    </LinearLayout>
+    <LinearLayout android:orientation="horizontal" android:id="@id/g9w" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginBottom="@dimen/aj8" android:layout_alignParentBottom="true" android:layout_centerHorizontal="true">
+        <RelativeLayout android:gravity="center" android:id="@id/g9z" android:background="@drawable/mira_cast_left_radius" android:layout_width="@dimen/aj7" android:layout_height="@dimen/aj6">
+            <TextView android:textSize="14.0dp" android:textColor="@color/white" android:id="@id/g_0" android:layout_width="wrap_content" android:layout_height="wrap_content" />
+        </RelativeLayout>
+        <RelativeLayout android:gravity="center" android:id="@id/g_1" android:background="@color/mira_cast_bottom_btn" android:layout_width="@dimen/aja" android:layout_height="@dimen/aj6" android:layout_marginLeft="0.5dp" android:layout_marginRight="0.5dp">
+            <ImageView android:layout_width="@dimen/ajb" android:layout_height="@dimen/ajb" android:src="@drawable/mira_cast_quit" />
+        </RelativeLayout>
+        <RelativeLayout android:gravity="center" android:id="@id/g9x" android:background="@drawable/mira_cast_right_radius" android:layout_width="@dimen/aj7" android:layout_height="@dimen/aj6">
+            <TextView android:textSize="14.0dp" android:textColor="@color/white" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/csf" />
+        </RelativeLayout>
+    </LinearLayout>
+    <include android:id="@id/bur" android:visibility="gone" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginLeft="10.0dp" android:layout_marginRight="10.0dp" android:layout_alignParentBottom="true" android:layout_centerHorizontal="true" layout="@layout/ra" />
+</RelativeLayout>

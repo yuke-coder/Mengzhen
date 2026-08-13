@@ -1,34 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <!-- QQ 音乐 20.6.5.8 播放模式弹层与播放列表的源颜色。 -->
-    <color name="transparent">#00000000</color>
-    <color name="black">#000000</color>
-    <color name="white">#FFFFFF</color>
-    <color name="white_70_transparent">#B3FFFFFF</color>
-    <color name="defined_record_seekbar_end_color">#313131</color>
-    <color name="black_5_transparent">#0D000000</color>
-    <color name="black_10_opacity">#19000000</color>
-    <color name="black_50_opacity">#7F000000</color>
-    <color name="white_5_transparent">#0CFFFFFF</color>
-    <color name="as_background_dark">#1E1E1F</color>
-    <color name="as_background_light">#EDF1F2</color>
-    <color name="ds_background_light">#FFFFFF</color>
-    <color name="skin_text_main_color">#D8FFFFFF</color>
-    <color name="skin_text_sub_color">#9AFFFFFF</color>
-    <color name="skin_button_mask_color">#1AFFFFFF</color>
-    <color name="common_song_list_tag_bg_green">#1400CC70</color>
-    <color name="common_song_list_tag_text_green">#FF00CC70</color>
-    <color name="player_popup_try_2_play_bg_color">#E6E9EA</color>
-    <color name="common_dialog_button_text_highlight_color">#22C28F</color>
-    <color name="common_dialog_button_text_normal_color">#1A1A1A</color>
-    <color name="common_dialog_spit_line_color">#1A1A1A1A</color>
-    <color name="common_dialog_text_normal_color">#1A1A1A</color>
-    <color name="common_dialog_text_sub_color">#991A1A1A</color>
-    <color name="skin_highlight_color">#00CC70</color>
-    <color name="user_order_background">#191919</color>
-    <color name="list_action_sheet_dialog_layout_light_bg">#EDEFF2</color>
-    <color name="black_70_opacity">#B3000000</color>
-
+    <!-- QQ 音乐 20.6.5.8 播放模式弹层与播放列表的原始文案。 -->
     <string name="qq_player_play_mode">播放模式</string>
     <string name="qq_player_playlist">歌曲队列</string>
     <string name="qq_mode_shuffle">随机播放</string>
@@ -39,4 +11,5 @@
     <string name="qq_theme_mode_light">普通模式</string>
     <string name="qq_theme_mode_dark">深色模式</string>
     <string name="qq_theme_mode_system">跟随系统</string>
+
 </resources>

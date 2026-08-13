@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<animation-list android:oneshot="true"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <item android:duration="30" android:drawable="@drawable/player_vinyl_switch_dark_1" />
+    <item android:duration="30" android:drawable="@drawable/player_vinyl_switch_dark_2" />
+    <item android:duration="30" android:drawable="@drawable/player_vinyl_switch_dark_3" />
+    <item android:duration="30" android:drawable="@drawable/player_vinyl_switch_dark_4" />
+</animation-list>

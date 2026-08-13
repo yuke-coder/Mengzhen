@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout android:background="@color/black" android:layout_width="match_parent" android:layout_height="match_parent"
+  xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">
+    <ImageView android:id="@id/a3f" android:layout_width="match_parent" android:layout_height="match_parent" android:scaleType="centerCrop" />
+    <com.tencent.qqmusic.business.live.ui.view.RoundAvatarImage android:id="@id/a3c" android:layout_width="150.0dp" android:layout_height="150.0dp" android:layout_marginTop="150.0dp" android:scaleType="centerCrop" app:a1x="hnz" app:a21="hnz" app:a27="hnz" />
+    <com.tencent.qqmusic.fragment.folderalbum.folder.personalize.helper.FocusAwayMarqueeTextView android:textSize="24.0dp" android:textColor="@color/white" android:gravity="center_horizontal" android:id="@id/heg" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginLeft="70.0dp" android:layout_marginTop="10.0dp" android:layout_marginRight="70.0dp" android:maxLines="1" android:textAlignment="center" android:layout_marginHorizontal="70.0dp" app:a26="@id/a3c" />
+    <TextView android:textSize="14.0dp" android:textColor="@color/white" android:id="@id/b_8" android:visibility="gone" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="10.0dp" android:text="@string/a0f" app:a1x="hnz" app:a21="hnz" app:a26="@id/a3c" />
+    <TextView android:textSize="14.0dp" android:textColor="@color/white_50_transparent" android:id="@id/ars" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="5.0dp" android:text="@string/a0g" app:a1x="hnz" app:a21="hnz" app:a26="@id/heg" />
+    <ImageView android:id="@id/j3t" android:layout_width="70.0dp" android:layout_height="70.0dp" android:layout_marginLeft="70.0dp" android:layout_marginBottom="80.0dp" android:src="@drawable/bubble_live_call_refuse" android:layout_centerInParent="true" app:a1d="hnz" app:a1x="hnz" />
+    <RelativeLayout android:id="@id/c8" android:layout_width="115.0dp" android:layout_height="115.0dp" android:layout_marginRight="47.0dp" android:layout_marginBottom="57.5dp" app:a1d="hnz" app:a21="hnz">
+        <com.tencent.qqmusic.pag.QQMusicPAGImageView android:id="@id/c_" android:layout_width="match_parent" android:layout_height="match_parent" android:layout_centerInParent="true" />
+        <ImageView android:id="@id/c9" android:layout_width="70.0dp" android:layout_height="70.0dp" android:src="@drawable/bubble_live_call_accept" android:layout_centerInParent="true" />
+    </RelativeLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>

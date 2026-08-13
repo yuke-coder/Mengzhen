@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout android:layout_width="match_parent" android:layout_height="match_parent"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <ImageView android:id="@id/f5w" android:layout_width="match_parent" android:layout_height="match_parent" android:src="@drawable/live_wave_bg" android:scaleType="centerCrop" android:contentDescription="@null" />
+    <ImageView android:id="@id/f5x" android:background="@drawable/live_wave_bg" android:layout_width="match_parent" android:layout_height="match_parent" android:scaleType="centerCrop" android:contentDescription="@null" android:alpha="0.0" />
+</FrameLayout>

@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.tme.qqmusic.widget.base.view.CornerConstraintLayout android:background="@color/mlive_bottom_sheet_back_color" android:layout_width="match_parent" android:layout_height="match_parent" app:lm="10.0dp"
+  xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">
+    <com.tme.mlive.ui.custom.UserChooserView android:id="@id/mlive_friend_link_rank_target" android:layout_width="match_parent" android:layout_height="0.0dp" app:a1j="hnz" app:a23="hnz" app:a27="hnz" />
+    <include android:id="@id/mlive_friend_link_rank_self" android:visibility="gone" android:layout_width="match_parent" android:layout_height="88.0dp" app:a1d="hnz" app:a23="hnz" layout="@layout/bcy" />
+    <androidx.recyclerview.widget.RecyclerView android:id="@id/mlive_friend_link_rank_list" android:background="@color/mlive_friend_gift_rank_list_bg" android:layout_width="match_parent" android:layout_height="0.0dp" app:a1e="@id/mlive_friend_link_rank_self" app:a26="@id/mlive_friend_link_rank_target" />
+    <androidx.constraintlayout.widget.ConstraintLayout android:id="@id/mlive_friend_link_rank_empty" android:visibility="gone" android:layout_width="match_parent" android:layout_height="wrap_content" app:a1d="hnz" app:a1j="hnz" app:a23="hnz" app:a27="hnz">
+        <ImageView android:id="@id/mlive_friend_link_renk_empty_icon" android:layout_width="wrap_content" android:layout_height="wrap_content" android:src="@drawable/mlive_multi_link_empty" app:a1j="hnz" app:a23="hnz" app:a27="hnz" />
+        <TextView android:textSize="14.0sp" android:textColor="@color/white_50_transparent" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="24.0dp" android:text="@string/dkg" app:a1j="hnz" app:a23="hnz" app:a26="@id/mlive_friend_link_renk_empty_icon" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</com.tme.qqmusic.widget.base.view.CornerConstraintLayout>

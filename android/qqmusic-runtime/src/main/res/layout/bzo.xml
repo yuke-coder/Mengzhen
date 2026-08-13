@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout android:id="@id/h9s" android:paddingTop="1.0dp" android:paddingBottom="1.0dp" android:layout_width="match_parent" android:layout_height="wrap_content"
+  xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">
+    <com.tencent.qqmusic.ui.RoundedConstraintLayout android:id="@id/bdw" android:layout_width="50.0dp" android:layout_height="50.0dp" app:a1x="hnz" app:a27="hnz">
+        <com.tencent.component.widget.AsyncEffectImageView android:id="@id/bdv" android:layout_width="match_parent" android:layout_height="match_parent" android:scaleType="centerCrop" android:importantForAccessibility="no" app:a1x="hnz" app:a27="hnz" />
+    </com.tencent.qqmusic.ui.RoundedConstraintLayout>
+    <ImageView android:id="@id/htu" android:layout_width="20.0dp" android:layout_height="20.0dp" android:layout_marginBottom="2.0dp" android:contentDescription="@string/abl" android:layout_marginEnd="2.0dp" app:a1d="@id/bdw" app:a1j="@id/bdw" />
+    <androidx.appcompat.widget.AppCompatTextView android:textSize="14.0dp" android:textColor="@color/skin_text_main_color" android:ellipsize="end" android:id="@id/ldr" android:layout_width="0.0dp" android:layout_height="wrap_content" android:maxLines="1" android:layout_marginStart="10.0dp" android:layout_marginEnd="20.0dp" app:a1e="@id/kzh" app:a1j="hnz" app:a22="@id/bdw" app:a27="@id/bdw" app:a28="0.5" app:a29="hmg" />
+    <androidx.appcompat.widget.AppCompatTextView android:textSize="12.0dp" android:textColor="@color/skin_text_mid_color" android:ellipsize="end" android:id="@id/kzh" android:layout_width="0.0dp" android:layout_height="wrap_content" android:layout_marginTop="1.0dp" android:maxLines="1" android:layout_marginStart="10.0dp" android:layout_marginEnd="10.0dp" app:a1d="@id/bdw" app:a1j="hnz" app:a22="@id/bdw" app:a26="@id/ldr" />
+</androidx.constraintlayout.widget.ConstraintLayout>

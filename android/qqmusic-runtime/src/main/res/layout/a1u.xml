@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout android:id="@id/ji6" android:background="#7f000000" android:clickable="true" android:layout_width="match_parent" android:layout_height="match_parent"
+  xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">
+    <com.tme.karaoka.previewui.widget.RoundedConstraintLayout android:id="@id/ji7" android:background="@drawable/preview_chorus_pabel_bg" android:clickable="true" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginStart="40.0dp" android:layout_marginEnd="40.0dp" app:a1d="hnz" app:a27="hnz" app:a31="15.0dp">
+        <LinearLayout android:orientation="horizontal" android:id="@id/f1y" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginTop="30.0dp" android:layout_marginBottom="30.0dp" app:a1e="@id/dhx" app:a27="hnz">
+            <kk.design.KKImageView android:id="@id/j5i" android:layout_width="166.0dp" android:layout_height="98.0dp" android:src="@drawable/chorus_default_rank_icon" android:scaleType="center" app:kkImagePlaceholder="@drawable/chorus_default_rank_icon" />
+            <LinearLayout android:layout_gravity="center_vertical" android:orientation="vertical" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginLeft="8.0dp">
+                <LinearLayout android:gravity="bottom" android:orientation="horizontal" android:id="@id/m0t" android:layout_width="wrap_content" android:layout_height="wrap_content">
+                    <kk.design.KKTextView android:textSize="26.0dp" android:textColor="#e6ffffff" android:id="@id/m0v" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="0000" android:layout_below="@id/m0u" app:a0f="hfs" />
+                    <kk.design.KKTextView android:textSize="12.0dp" android:textColor="#e6ffffff" android:id="@id/m0u" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginLeft="5.0dp" android:text="分" app:a0f="hfs" />
+                </LinearLayout>
+                <LinearLayout android:gravity="center_vertical" android:orientation="horizontal" android:id="@id/kff" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginLeft="3.0dp" android:layout_marginTop="12.0dp">
+                    <kk.design.KKIconView android:layout_width="10.5dp" android:layout_height="12.0dp" android:src="@drawable/preview_song_name_icon" app:yc="@null" />
+                    <kk.design.KKTextView android:textSize="12.0dp" android:textColor="#b3ffffff" android:ellipsize="end" android:id="@id/kfb" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginLeft="4.0dp" android:text="新世界" android:maxLines="1" app:a0f="hfs" />
+                </LinearLayout>
+                <LinearLayout android:gravity="center_vertical" android:orientation="horizontal" android:id="@id/c_x" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginTop="6.0dp">
+                    <kk.design.KKTextView android:textSize="12.0dp" android:textColor="#b3ffffff" android:ellipsize="end" android:id="@id/c_y" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="超过好友" android:maxLines="1" app:a0f="hfs" />
+                    <kk.design.KKTextView android:textSize="14.0dp" android:textStyle="bold" android:textColor="#e6ffffff" android:gravity="bottom" android:id="@id/c_z" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginLeft="3.1999817dp" android:text="0%" app:a0f="hfs" />
+                </LinearLayout>
+            </LinearLayout>
+        </LinearLayout>
+        <kk.design.KKButton android:id="@id/dhx" android:layout_width="165.0dp" android:layout_height="40.0dp" android:layout_marginBottom="@dimen/ru" android:text="@string/era" app:x_="#26ffffff" app:xm="g7e" app:xo="#ffffff" app:xr="yd" app:a1d="hnz" app:a1x="hnz" app:a21="hnz" />
+    </com.tme.karaoka.previewui.widget.RoundedConstraintLayout>
+    <com.tencent.qgame.animplayer.AnimView android:id="@id/jhu" android:layout_width="match_parent" android:layout_height="wrap_content" app:a1d="hnz" app:a1x="hnz" />
+</androidx.constraintlayout.widget.ConstraintLayout>

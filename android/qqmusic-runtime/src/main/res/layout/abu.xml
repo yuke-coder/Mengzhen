@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout android:id="@id/vw" android:background="@color/transparent" android:layout_width="match_parent" android:layout_height="wrap_content"
+  xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">
+    <com.tencent.component.widget.AsyncEffectImageView android:id="@id/e_m" android:layout_width="match_parent" android:layout_height="375.0dp" android:scaleType="fitXY" app:a1j="hnz" app:a23="hnz" app:a27="hnz" />
+    <FrameLayout android:id="@id/xb" android:visibility="gone" android:layout_width="0.0dp" android:layout_height="0.0dp" app:a1d="@id/e_m" app:a1j="@id/e_m" app:a23="@id/e_m" app:a27="@id/e_m" />
+    <ImageView android:id="@id/a83" android:layout_width="match_parent" android:layout_height="98.0dp" app:a27="hnz" />
+    <Space android:id="@id/vx" android:layout_width="match_parent" android:layout_height="0.0dp" app:a1i="h,1:0.66" app:a1j="hnz" app:a23="hnz" app:a27="hnz" />
+    <com.tencent.component.widget.AsyncEffectImageView android:id="@id/e_z" android:layout_width="match_parent" android:layout_height="0.0dp" android:scaleType="centerCrop" app:a1d="@id/e_m" app:a1j="@id/e_m" app:a23="@id/e_m" app:a27="@id/e_m" />
+    <com.tencent.component.widget.AsyncEffectImageView android:id="@id/e_y" android:layout_width="match_parent" android:layout_height="0.0dp" app:a1d="hnz" app:a1j="hnz" app:a23="hnz" app:a26="@id/e_m" />
+    <TextView android:textSize="25.0sp" android:textColor="@color/white" android:ellipsize="end" android:gravity="center" android:id="@id/m4v" android:layout_width="0.0dp" android:layout_height="wrap_content" android:layout_marginBottom="20.0dp" android:maxLines="1" android:layout_marginStart="16.0dp" android:layout_marginEnd="16.0dp" app:a1d="@id/e_m" app:a1j="hnz" app:a23="hnz" />
+    <androidx.constraintlayout.widget.ConstraintLayout android:id="@id/my0" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="13.0dp" app:a1j="hnz" app:a23="hnz" app:a26="@id/m4v">
+        <FrameLayout android:id="@id/mwi" android:layout_width="wrap_content" android:layout_height="@dimen/f2" android:layout_marginEnd="8.0dp" app:a1d="@id/mqt" app:a1k="@id/mqt" app:a1u="hmg" app:a23="hnz" app:a27="@id/mqt">
+            <com.tencent.qqmusic.business.live.ui.view.RoundAvatarImage android:id="@id/em0" android:layout_width="@dimen/f2" android:layout_height="@dimen/f2" />
+            <com.tencent.qqmusic.business.recommend.view.MultiAvatarsView android:id="@id/em1" android:visibility="gone" android:layout_width="wrap_content" android:layout_height="@dimen/f2" />
+        </FrameLayout>
+        <TextView android:textSize="14.0sp" android:textColor="@color/white" android:ellipsize="end" android:id="@id/mqt" android:layout_width="wrap_content" android:layout_height="wrap_content" android:maxLines="1" android:singleLine="true" app:a18="true" app:a1d="hnz" app:a1k="@id/cr6" app:a22="@id/mwi" app:a27="hnz" />
+        <com.tencent.qqmusic.albumdetail.ui.view.SingerFollowBtn android:id="@id/cr6" android:visibility="gone" android:layout_width="50.0dp" android:layout_height="19.0dp" android:layout_marginStart="6.5dp" app:a1d="@id/mqt" app:a1j="hnz" app:a22="@id/mqt" app:a27="@id/mqt" />
+        <com.tencent.qqmusic.business.playernew.view.playersong.playersongvideo.view.FixedConstraintLayout android:id="@id/mz6" android:paddingLeft="5.5dp" android:paddingRight="5.5dp" android:visibility="gone" android:layout_width="51.5dp" android:layout_height="18.0dp" android:layout_marginStart="4.0dp" app:a1d="hnz" app:a1t="0.0" app:a1y="@id/mqt" app:a21="hnz" app:a27="hnz">
+            <com.tencent.qqmusic.fragment.search.view.SearchLiveWaveView android:id="@id/mz5" android:layout_width="7.5dp" android:layout_height="10.5dp" app:a1d="hnz" app:a23="hnz" app:a27="hnz" />
+            <TextView android:textSize="10.0dp" android:gravity="center" android:id="@id/mz7" android:layout_width="32.0dp" android:layout_height="12.0dp" android:text="直播中" android:layout_marginStart="1.0dp" app:a1d="hnz" app:a22="@id/mz5" app:a27="hnz" />
+        </com.tencent.qqmusic.business.playernew.view.playersong.playersongvideo.view.FixedConstraintLayout>
+    </androidx.constraintlayout.widget.ConstraintLayout>
+    <androidx.constraintlayout.widget.ConstraintLayout android:id="@id/dbc" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginTop="18.0dp" app:a26="@id/my0">
+        <include android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginStart="21.0dp" app:a1d="hnz" app:a23="hnz" app:a27="hnz" layout="@layout/arj" />
+        <include android:layout_width="wrap_content" android:layout_height="wrap_content" app:a1d="hnz" app:a1j="hnz" app:a23="hnz" app:a27="hnz" layout="@layout/arh" />
+        <include android:id="@id/dc1" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginEnd="@dimen/ev" app:a1d="hnz" app:a1j="hnz" app:a27="hnz" layout="@layout/arl" />
+        <ImageView android:id="@id/ee4" android:visibility="gone" android:layout_width="82.0dp" android:layout_height="29.0dp" android:layout_marginEnd="@dimen/ev" app:a1d="hnz" app:a1j="hnz" app:a27="hnz" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+    <Space android:id="@id/daw" android:visibility="invisible" android:layout_width="0.0dp" android:layout_height="@dimen/er" app:a1d="hnz" app:a1j="hnz" app:a23="hnz" app:a26="@id/dbc" />
+    <ViewStub android:id="@id/ilt" android:layout="@layout/b06" android:layout_width="wrap_content" android:layout_height="wrap_content" app:a1e="@id/dbc" app:a23="hnz" />
+    <ViewStub android:id="@id/neh" android:layout="@layout/azz" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginBottom="20.0dp" android:layout_marginEnd="@dimen/ev" app:a1d="@id/dbc" app:a1j="@id/dbc" />
+</androidx.constraintlayout.widget.ConstraintLayout>

@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout android:orientation="vertical" android:id="@id/jxw" android:background="@color/transparent" android:layout_width="match_parent" android:layout_height="match_parent"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <RelativeLayout android:id="@id/jxv" android:background="@color/white" android:layout_width="250.0dp" android:layout_height="wrap_content" android:layout_centerInParent="true">
+        <ImageView android:id="@id/jxn" android:background="@color/black" android:layout_width="match_parent" android:layout_height="185.0dp" android:scaleType="centerCrop" android:layout_alignParentTop="true" />
+        <ImageView android:id="@id/jxo" android:layout_width="match_parent" android:layout_height="185.0dp" android:src="@color/black" android:layout_alignParentTop="true" android:alpha="0.9" />
+        <RelativeLayout android:id="@id/jxt" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="23.0dp" android:layout_centerHorizontal="true">
+            <ImageView android:id="@id/jxr" android:background="@color/white" android:padding="10.0dp" android:layout_width="210.0dp" android:layout_height="210.0dp" />
+            <ImageView android:id="@id/jxq" android:background="@color/white" android:padding="10.0dp" android:layout_width="210.0dp" android:layout_height="210.0dp" android:scaleType="fitCenter" />
+            <include android:id="@id/jxu" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_centerInParent="true" layout="@layout/mj" />
+            <ImageView android:id="@id/jxs" android:visibility="gone" android:layout_width="55.0dp" android:layout_height="55.0dp" android:layout_centerInParent="true" />
+        </RelativeLayout>
+        <TextView android:textSize="18.0sp" android:textColor="@color/black" android:ellipsize="end" android:gravity="center" android:id="@id/jxy" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginLeft="20.0dp" android:layout_marginTop="15.0dp" android:layout_marginRight="20.0dp" android:maxLines="2" android:layout_below="@id/jxt" android:layout_centerHorizontal="true" android:lineSpacingMultiplier="1.2" />
+        <TextView android:textSize="14.0sp" android:textColor="@color/black" android:ellipsize="end" android:gravity="center" android:id="@id/jxx" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginLeft="20.0dp" android:layout_marginTop="3.0dp" android:layout_marginRight="20.0dp" android:layout_marginBottom="25.0dp" android:maxLines="2" android:layout_below="@id/jxy" android:layout_centerHorizontal="true" android:lineSpacingMultiplier="1.2" android:alpha="0.6" />
+    </RelativeLayout>
+    <TextView android:textSize="16.0sp" android:textColor="@color/white" android:gravity="center" android:id="@id/jxp" android:layout_width="150.0dp" android:layout_height="50.0dp" android:layout_marginTop="14.0dp" android:layout_marginBottom="30.0dp" android:text="@string/gi7" android:layout_alignParentBottom="true" android:layout_centerHorizontal="true" android:alpha="0.8" />
+</RelativeLayout>

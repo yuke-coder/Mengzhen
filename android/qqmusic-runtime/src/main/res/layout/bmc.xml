@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.tme.qqmusic.widget.base.view.MovableConstraintLayout android:id="@id/mlive_record_float_window_container" android:background="@drawable/mlive_record_float_window_bg" android:layout_width="wrap_content" android:layout_height="@dimen/at2" android:minWidth="@dimen/at2"
+  xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">
+    <ImageView android:id="@id/mlive_record_float_window_icon" android:layout_width="@dimen/at1" android:layout_height="@dimen/at1" android:layout_margin="@dimen/at0" android:src="@drawable/mlive_record_float_window_icon" app:a1d="hnz" app:a1x="hnz" app:a20="@id/mlive_record_float_window_duration" app:a27="hnz" />
+    <TextView android:textSize="@dimen/asy" android:textColor="@color/white" android:gravity="center_vertical" android:id="@id/mlive_record_float_window_duration" android:layout_width="@dimen/asz" android:layout_height="@dimen/at1" app:a1d="hnz" app:a1y="@id/mlive_record_float_window_icon" app:a21="hnz" app:a27="hnz" />
+</com.tme.qqmusic.widget.base.view.MovableConstraintLayout>

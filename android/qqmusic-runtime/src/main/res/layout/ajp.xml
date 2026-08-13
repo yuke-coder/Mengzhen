@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.tencent.qqmusic.ui.RoundedRelativeLayout android:id="@id/nsb" android:background="@drawable/skin_mask_img" android:focusable="true" android:layout_width="76.0dp" android:layout_height="28.0dp" android:layout_centerHorizontal="true"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <com.tencent.qqmusic.ui.FontFitTextView android:textSize="13.0sp" android:textColor="@color/skin_text_main_color" android:ellipsize="end" android:gravity="center" android:id="@id/e7h" android:padding="5.0dp" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="GAP" android:maxLines="1" android:layout_centerInParent="true" />
+</com.tencent.qqmusic.ui.RoundedRelativeLayout>

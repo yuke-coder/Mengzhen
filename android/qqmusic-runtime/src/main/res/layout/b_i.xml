@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.tme.qqmusic.widget.base.view.CornerConstraintLayout android:id="@id/mlive_search_add_layout" android:background="@color/black_70_transparent" android:layout_width="match_parent" android:layout_height="55.0dp"
+  xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">
+    <TextView android:textSize="14.0sp" android:textColor="@color/white" android:id="@id/mlive_search_add_num" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginLeft="16.0dp" app:a1d="hnz" app:a1x="hnz" app:a27="hnz" />
+    <TextView android:textSize="14.0sp" android:textColor="@color/white_50_transparent" android:gravity="center" android:id="@id/mlive_search_add_btn" android:background="@drawable/mlive_search_confirm_bg" android:layout_width="58.0dp" android:layout_height="25.0dp" android:layout_marginRight="16.0dp" android:text="@string/dwp" android:textAlignment="center" android:backgroundTint="@color/white_15_transparent" app:a1d="hnz" app:a21="hnz" app:a27="hnz" />
+</com.tme.qqmusic.widget.base.view.CornerConstraintLayout>

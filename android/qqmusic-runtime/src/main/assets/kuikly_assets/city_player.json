@@ -1,0 +1,12 @@
+{
+  "router": "openHalf",
+  "page_name": "city_player",
+  "container": {
+    "w_weight": "1",
+    "h_weight": "1",
+    "direction": "from-right"
+  },
+  "params": {
+    "city": "南京"
+  }
+}

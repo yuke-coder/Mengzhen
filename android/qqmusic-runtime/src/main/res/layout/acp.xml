@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout android:layout_width="match_parent" android:layout_height="58.0dp"
+  xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">
+    <ImageView android:id="@id/eez" android:layout_width="29.5dp" android:layout_height="29.5dp" android:src="@drawable/ic_action_bar_play_normal" android:layout_marginStart="15.0dp" app:a1d="hnz" app:a1x="hnz" app:a27="hnz" />
+    <LinearLayout android:gravity="left" android:orientation="vertical" android:layout_width="0.0dp" android:layout_height="wrap_content" android:layout_marginStart="15.0dp" android:layout_marginEnd="10.0dp" app:a1d="hnz" app:a1y="@id/eez" app:a20="@id/m52" app:a27="hnz">
+        <TextView android:textSize="14.0sp" android:textColor="@color/black" android:id="@id/m51" android:layout_width="wrap_content" android:layout_height="wrap_content" android:singleLine="true" />
+        <TextView android:textSize="12.0sp" android:textColor="@color/black_50_transparent" android:id="@id/m54" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="2.0dp" android:singleLine="true" />
+    </LinearLayout>
+    <TextView android:textSize="12.0sp" android:textColor="@color/black_50_transparent" android:id="@id/m52" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginEnd="15.0dp" app:a1d="hnz" app:a21="hnz" app:a27="hnz" />
+</androidx.constraintlayout.widget.ConstraintLayout>

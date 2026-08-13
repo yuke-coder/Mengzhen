@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout android:id="@id/hd1" android:visibility="gone" android:layout_width="110.0dp" android:layout_height="110.0dp"
+  xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">
+    <ImageView android:layout_gravity="center" android:id="@id/hd2" android:layout_width="49.5dp" android:layout_height="20.0dp" android:layout_marginTop="10.0dp" android:src="@drawable/new_fish_guide_new_text" />
+</FrameLayout>

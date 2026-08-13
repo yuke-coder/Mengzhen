@@ -1,0 +1,3 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.tencent.component.widget.AsyncImageView android:id="@id/egs" android:layout_width="@dimen/b9b" android:layout_height="@dimen/b9b" android:contentDescription="QQ音乐宠物"
+  xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto" />

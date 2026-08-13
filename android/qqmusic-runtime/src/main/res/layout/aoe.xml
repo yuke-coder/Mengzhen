@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<kk.design.layout.KKFrameLayout android:id="@id/eoa" android:clipChildren="false" android:layout_width="@dimen/a6g" android:layout_height="wrap_content" android:minWidth="@dimen/a6g"
+  xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">
+    <kk.design.KKIconView android:layout_gravity="center_horizontal" android:id="@id/dne" android:background="@drawable/kk_o_bg_surface_corners_all_16dp" android:layout_width="@dimen/a6a" android:layout_height="@dimen/a6a" />
+    <kk.design.KKTextView android:ellipsize="none" android:layout_gravity="center_horizontal" android:id="@id/mru" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="@dimen/a6d" android:minHeight="@dimen/a6e" android:singleLine="true" android:includeFontPadding="false" app:y4="bxb" app:a0c="ifr" app:a0d="ka1" app:a0e="j3u" />
+    <FrameLayout android:layout_gravity="center_horizontal" android:clipChildren="false" android:clipToPadding="false" android:layout_width="@dimen/a6a" android:layout_height="@dimen/a6a">
+        <kk.design.KKImageView android:layout_gravity="end|top" android:id="@id/doc" android:visibility="gone" android:layout_width="wrap_content" android:layout_height="12.0dp" android:scaleType="fitEnd" android:minWidth="26.0dp" app:yk="hfs" />
+        <kk.design.KKImageView android:layout_gravity="end|bottom" android:id="@id/kz6" android:layout_width="@dimen/a6c" android:layout_height="@dimen/a6c" app:kkImageRadiusDirection="xt" app:kkImageRadiusSize="99.0dp" app:yk="hfs" />
+    </FrameLayout>
+</kk.design.layout.KKFrameLayout>

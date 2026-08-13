@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout android:orientation="vertical" android:background="@drawable/bg_list_bottom_sheet_dialog" android:paddingBottom="50.0dp" android:layout_width="match_parent" android:layout_height="wrap_content"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <RelativeLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginLeft="20.0dp" android:layout_marginTop="20.0dp" android:layout_marginRight="25.0dp">
+        <TextView android:textSize="18.0sp" android:textColor="@color/black" android:gravity="center_vertical" android:id="@id/hub" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/ew_" android:layout_alignParentLeft="true" />
+        <TextView android:textSize="15.0sp" android:textStyle="bold" android:textColor="@color/common_song_list_tag_text_green" android:id="@id/jtr" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/aui" android:layout_alignParentRight="true" android:layout_centerVertical="true" />
+    </RelativeLayout>
+    <RelativeLayout android:id="@id/hgt" android:layout_width="match_parent" android:layout_height="45.0dp" android:layout_marginTop="16.0dp">
+        <TextView android:textSize="15.0sp" android:textColor="@color/black" android:id="@id/hgv" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginLeft="20.0dp" android:text="@string/ew8" android:layout_centerVertical="true" />
+        <ImageView android:id="@id/hgu" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginRight="20.0dp" android:src="@drawable/oneshot_repeat_count_status_valid" android:layout_alignParentRight="true" android:layout_centerVertical="true" />
+    </RelativeLayout>
+    <RelativeLayout android:id="@id/jts" android:layout_width="match_parent" android:layout_height="45.0dp" android:layout_marginTop="5.0dp">
+        <TextView android:textSize="15.0sp" android:textColor="@color/black" android:id="@id/jtu" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginLeft="20.0dp" android:text="@string/ew9" android:layout_centerVertical="true" />
+        <ImageView android:id="@id/jtk" android:layout_width="104.0dp" android:layout_height="25.0dp" android:layout_marginLeft="75.0dp" android:src="@drawable/oneshot_repeat_count_bg_for_light" android:layout_centerVertical="true" />
+        <ImageView android:id="@id/jtn" android:layout_width="25.0dp" android:layout_height="25.0dp" android:layout_marginLeft="1.0dp" android:src="@drawable/oneshot_repeat_count_minus_icon_enabled_for_light" android:scaleType="centerInside" android:layout_alignLeft="@id/jtk" android:layout_centerVertical="true" />
+        <TextView android:textSize="15.0sp" android:textColor="@color/black" android:gravity="center" android:id="@id/jtl" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="16" android:layout_alignLeft="@id/jtk" android:layout_alignTop="@id/jtk" android:layout_alignRight="@id/jtk" android:layout_alignBottom="@id/jtk" />
+        <ImageView android:id="@id/jtg" android:layout_width="25.0dp" android:layout_height="25.0dp" android:layout_marginRight="1.0dp" android:src="@drawable/oneshot_repeat_count_add_icon_enabled_for_light" android:scaleType="centerInside" android:layout_alignRight="@id/jtk" android:layout_centerVertical="true" />
+        <ImageView android:id="@id/jtt" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginRight="20.0dp" android:src="@drawable/oneshot_repeat_count_status_invalid_for_light" android:layout_alignParentRight="true" android:layout_centerVertical="true" />
+    </RelativeLayout>
+</LinearLayout>

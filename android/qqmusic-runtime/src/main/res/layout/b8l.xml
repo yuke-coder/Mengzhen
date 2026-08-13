@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout android:background="@drawable/main_bg" android:layout_width="match_parent" android:layout_height="match_parent"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <include android:id="@id/lv1" android:layout_width="match_parent" android:layout_height="@dimen/cau" android:layout_alignParentTop="true" layout="@layout/mu" />
+    <LinearLayout android:orientation="vertical" android:layout_width="match_parent" android:layout_height="match_parent" android:layout_below="@id/lv1">
+        <ImageView android:background="@drawable/z_color_l1" android:layout_width="match_parent" android:layout_height="1.0px" android:src="@drawable/z_color_l1" android:scaleType="fitXY" />
+        <RelativeLayout android:id="@id/cnp" android:layout_width="match_parent" android:layout_height="@dimen/b32" android:minHeight="@dimen/b32">
+            <TextView android:textSize="18.0sp" android:textColor="@color/skin_text_main_color" android:id="@id/cmp" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginLeft="12.0dp" android:layout_marginRight="15.0dp" android:text="@string/gil" android:layout_alignParentLeft="true" android:layout_centerVertical="true" />
+            <ImageView android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginRight="16.0dp" android:src="@drawable/arrow_right" android:layout_alignParentRight="true" android:layout_centerVertical="true" />
+        </RelativeLayout>
+        <ImageView android:background="@drawable/z_color_l1" android:layout_width="match_parent" android:layout_height="1.0px" android:src="@drawable/z_color_l1" android:scaleType="fitXY" />
+        <RelativeLayout android:id="@id/cnq" android:layout_width="match_parent" android:layout_height="@dimen/b32" android:minHeight="@dimen/b32">
+            <TextView android:textSize="18.0sp" android:textColor="@color/skin_text_main_color" android:id="@id/cns" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginLeft="12.0dp" android:layout_marginRight="15.0dp" android:text="不扫描指定文件夹" android:layout_alignParentLeft="true" android:layout_centerVertical="true" />
+            <ImageView android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginRight="16.0dp" android:src="@drawable/arrow_right" android:layout_alignParentRight="true" android:layout_centerVertical="true" />
+        </RelativeLayout>
+        <ImageView android:background="@drawable/z_color_l1" android:layout_width="match_parent" android:layout_height="1.0px" android:src="@drawable/z_color_l1" android:scaleType="fitXY" />
+    </LinearLayout>
+</RelativeLayout>

@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout android:gravity="center_horizontal" android:orientation="vertical" android:paddingLeft="2.0dp" android:paddingRight="2.0dp" android:layout_width="wrap_content" android:layout_height="wrap_content" android:paddingHorizontal="2.0dp"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <ImageView android:id="@id/ayi" android:layout_width="10.0dp" android:layout_height="10.0dp" android:layout_marginBottom="7.0dp" android:src="@drawable/ic_baby_age_tree_unselected" />
+    <androidx.appcompat.widget.AppCompatTextView android:textSize="15.0dp" android:textColor="@color/skin_text_mid_color" android:gravity="center" android:id="@id/ayk" android:layout_width="wrap_content" android:layout_height="wrap_content" android:maxLines="1" android:includeFontPadding="false" />
+</LinearLayout>

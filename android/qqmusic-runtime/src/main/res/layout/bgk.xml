@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout android:orientation="vertical" android:id="@id/mlive_create_camera_root" android:layout_width="match_parent" android:layout_height="match_parent"
+  xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">
+    <FrameLayout android:id="@id/mlive_create_preview_layout" android:layout_width="match_parent" android:layout_height="match_parent" />
+    <ImageView android:id="@id/mlive_exposure_frame" android:background="@drawable/mlive_exposure_frame" android:visibility="gone" android:layout_width="70.0dp" android:layout_height="70.0dp" android:contentDescription="@null" app:a1x="hnz" app:a27="hnz" />
+    <View android:id="@id/mlive_no_exposure_frame_area" android:layout_width="70.0dp" android:layout_height="210.0dp" app:a1d="hnz" app:a21="hnz" app:a27="hnz" />
+    <com.tme.mlive.ui.custom.ExposureSeekBar android:id="@id/mlive_exposure_seek_bar" android:visibility="gone" android:layout_width="20.0dp" android:layout_height="148.0dp" android:layout_marginRight="16.0dp" app:a1d="hnz" app:a21="hnz" app:a27="hnz" />
+</androidx.constraintlayout.widget.ConstraintLayout>

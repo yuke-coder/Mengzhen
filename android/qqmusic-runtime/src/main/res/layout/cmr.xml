@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout android:paddingLeft="16.0dp" android:paddingRight="16.0dp" android:layout_width="match_parent" android:layout_height="match_parent"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <View android:id="@id/cwf" android:background="@drawable/homepage_skeleton_bg" android:layout_width="110.0dp" android:layout_height="21.0dp" />
+    <View android:id="@id/cw7" android:background="@drawable/homepage_skeleton_bg" android:layout_width="match_parent" android:layout_height="14.0dp" android:layout_marginTop="25.0dp" android:layout_marginRight="20.0dp" android:layout_toLeftOf="@id/cwo" />
+    <View android:layout_gravity="right" android:id="@id/cwo" android:background="@drawable/homepage_skeleton_bg" android:layout_width="20.0dp" android:layout_height="20.0dp" android:layout_marginTop="10.5dp" android:layout_marginRight="76.0dp" android:layout_alignParentRight="true" />
+    <View android:layout_gravity="right" android:id="@id/cwp" android:background="@drawable/homepage_skeleton_bg" android:layout_width="20.0dp" android:layout_height="20.0dp" android:layout_marginTop="10.5dp" android:layout_marginRight="38.0dp" android:layout_alignParentRight="true" />
+    <View android:layout_gravity="right" android:id="@id/cwq" android:background="@drawable/homepage_skeleton_bg" android:layout_width="20.0dp" android:layout_height="20.0dp" android:layout_marginTop="10.5dp" android:layout_alignParentRight="true" />
+</RelativeLayout>

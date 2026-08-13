@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout android:orientation="vertical" android:layout_width="77.5dp" android:layout_height="155.0dp"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <com.tencent.qqmusic.business.live.ui.view.RoundAvatarImage android:id="@id/hk4" android:layout_width="77.5dp" android:layout_height="77.5dp" />
+    <com.tencent.qqmusic.business.live.ui.view.RoundAvatarImage android:id="@id/hk7" android:layout_width="77.5dp" android:layout_height="77.5dp" />
+</LinearLayout>

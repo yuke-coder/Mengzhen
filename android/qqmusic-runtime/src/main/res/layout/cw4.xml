@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout android:orientation="vertical" android:id="@id/iju" android:paddingLeft="@dimen/bm8" android:paddingTop="@dimen/bme" android:paddingRight="@dimen/bm8" android:layout_width="match_parent" android:layout_height="wrap_content"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <LinearLayout android:orientation="vertical" android:id="@id/ijt" android:layout_width="match_parent" android:layout_height="wrap_content" />
+    <View android:id="@id/ijv" android:background="@drawable/skin_divider_img" android:layout_width="match_parent" android:layout_height="1.0dp" android:layout_marginTop="15.0dp" />
+</LinearLayout>

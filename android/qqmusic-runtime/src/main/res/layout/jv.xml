@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout android:id="@id/a9q" android:background="@drawable/bg_bigfont_item" android:paddingTop="8.0dp" android:paddingBottom="8.0dp" android:layout_width="match_parent" android:layout_height="wrap_content"
+  xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">
+    <LinearLayout android:orientation="horizontal" android:id="@id/a9o" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_centerVertical="true">
+        <com.tencent.component.widget.AsyncEffectImageView android:id="@id/a9n" android:layout_width="77.0dp" android:layout_height="77.0dp" android:layout_marginLeft="15.0dp" android:src="@drawable/ic_bigfont_folder_default" app:afv="7.0dp" />
+        <ImageView android:layout_gravity="center_vertical" android:id="@id/hs0" android:layout_width="6.0dp" android:layout_height="67.0dp" android:src="@drawable/ic_folder_bg" />
+    </LinearLayout>
+    <LinearLayout android:orientation="vertical" android:id="@id/a9m" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginLeft="12.0dp" android:layout_toLeftOf="@id/a9p" android:layout_toRightOf="@id/a9o" android:layout_centerVertical="true">
+        <com.tencent.qqmusic.bigfont.view.BigFontTextView android:textSize="@dimen/hr" android:textColor="@color/skin_text_main_color" android:ellipsize="end" android:id="@id/a9s" android:layout_width="wrap_content" android:layout_height="wrap_content" android:lines="1" android:includeFontPadding="false" />
+        <com.tencent.qqmusic.bigfont.view.BigFontTextView android:textSize="@dimen/hy" android:textColor="@color/skin_text_sub_color" android:ellipsize="end" android:id="@id/a9r" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginTop="6.0dp" android:lines="1" android:includeFontPadding="false" />
+    </LinearLayout>
+    <ImageView android:id="@id/a9p" android:layout_width="45.0dp" android:layout_height="45.0dp" android:layout_marginRight="2.0dp" android:src="@drawable/ic_bigfont_arrow_right" android:layout_alignParentRight="true" android:layout_centerVertical="true" />
+</RelativeLayout>

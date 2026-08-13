@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout android:gravity="center" android:orientation="vertical" android:id="@id/iph" android:background="@drawable/radar_interstitial_ad_reward_toast_bg" android:layout_width="match_parent" android:layout_height="78.0dp"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <LinearLayout android:orientation="horizontal" android:id="@id/mgu" android:layout_width="wrap_content" android:layout_height="38.0dp">
+        <TextView android:textSize="34.0dp" android:textStyle="bold" android:textColor="#ffffffff" android:id="@id/mgt" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="30" android:includeFontPadding="false" android:layout_marginEnd="4.0dp" />
+        <TextView android:textSize="18.0dp" android:textStyle="bold" android:textColor="#ffffffff" android:id="@id/mgv" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="min" android:includeFontPadding="false" android:layout_marginEnd="4.0dp" />
+    </LinearLayout>
+    <TextView android:textSize="12.0dp" android:textColor="#ffffffff" android:id="@id/mgs" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="恭喜你获得30分钟免费时长" />
+</LinearLayout>

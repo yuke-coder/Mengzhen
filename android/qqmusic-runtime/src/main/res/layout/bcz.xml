@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout android:id="@id/mlive_friend_match_couple_tips_layout" android:layout_width="wrap_content" android:layout_height="25.0dp"
+  xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">
+    <TextView android:textSize="8.0sp" android:textColor="@color/mlive_friend_match_update_tips_color" android:gravity="center" android:id="@id/mlive_friend_match_couple_info_tips" android:background="@drawable/mlive_friend_match_update_tips_bg" android:layout_width="wrap_content" android:layout_height="25.0dp" android:paddingStart="5.0dp" android:paddingEnd="5.0dp" app:a1e="@id/mlive_friend_match_couple_info_arrow_img" app:a1j="hnz" app:a23="hnz" app:a27="hnz" />
+    <ImageView android:id="@id/mlive_friend_match_couple_info_arrow_img" android:layout_width="11.0dp" android:layout_height="7.0dp" android:layout_marginTop="24.0dp" android:src="@drawable/mlive_friend_match_update_tips_arrow" app:a1j="hnz" app:a23="hnz" app:a27="hnz" />
+</androidx.constraintlayout.widget.ConstraintLayout>

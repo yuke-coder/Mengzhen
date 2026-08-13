@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout android:paddingBottom="40.0dp" android:layout_width="match_parent" android:layout_height="wrap_content"
+  xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">
+    <include android:id="@id/na4" android:layout_width="match_parent" android:layout_height="wrap_content" app:a27="hnz" layout="@layout/adg" />
+    <com.tencent.qqmusic.business.customskin.player.view.BtnTypeSeekbarView android:id="@id/nbd" android:paddingLeft="20.0dp" android:paddingTop="29.0dp" android:paddingRight="20.0dp" android:layout_width="match_parent" android:layout_height="wrap_content" app:g2="#00f168" app:g7="#ffffff" app:g8="简约,丰富,完整" app:g9="14.0dp" app:a26="@id/na4" />
+</androidx.constraintlayout.widget.ConstraintLayout>

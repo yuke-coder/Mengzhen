@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginTop="18.0dp" android:paddingStart="@dimen/ep"
+  xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">
+    <TextView android:textSize="30.0dp" android:textStyle="bold" android:textColor="#0d000000" android:id="@id/leh" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Introduce" app:a1d="hnz" app:a23="hnz" app:a27="hnz" />
+    <TextView android:textSize="18.0dp" android:textStyle="bold" android:textColor="@color/skin_text_main_color" android:id="@id/ldr" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="18.0dp" android:text="专辑简介" app:a23="@id/leh" app:a27="hnz" />
+    <RelativeLayout android:id="@id/j_i" android:visibility="gone" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginEnd="25.0dp" app:a1d="@id/ldr" app:a1j="hnz" app:a27="@id/ldr">
+        <ImageView android:id="@id/e_r" android:layout_width="11.0dp" android:layout_height="11.0dp" android:src="@drawable/album_detail_booklet" android:layout_centerVertical="true" android:layout_alignParentEnd="true" />
+        <TextView android:textSize="11.0dp" android:textColor="@color/skin_text_main_color" android:id="@id/m4q" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="" android:layout_centerVertical="true" android:layout_toStartOf="@id/e_r" />
+    </RelativeLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>

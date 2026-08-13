@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout android:layout_width="match_parent" android:layout_height="match_parent"
+  xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">
+    <include android:id="@id/naf" android:layout_width="match_parent" android:layout_height="match_parent" layout="@layout/m6" />
+    <LinearLayout android:id="@id/lzm" android:layout_width="match_parent" android:layout_height="wrap_content">
+        <include android:id="@id/kj3" android:layout_width="match_parent" android:layout_height="@dimen/cau" layout="@layout/mu" />
+    </LinearLayout>
+    <androidx.core.widget.NestedScrollView android:id="@id/jip" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_below="@id/lzm">
+        <LinearLayout android:orientation="vertical" android:descendantFocusability="blocksDescendants" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginTop="20.0dp">
+            <androidx.constraintlayout.widget.ConstraintLayout android:id="@id/lwx" android:visibility="invisible" android:layout_width="match_parent" android:layout_height="wrap_content" android:paddingStart="17.0dp" android:paddingEnd="17.0dp">
+                <com.tencent.component.widget.AsyncEffectImageView android:id="@id/k99" android:layout_width="58.0dp" android:layout_height="58.0dp" android:scaleType="centerCrop" android:layout_centerVertical="true" android:layout_alignParentStart="true" app:a23="hnz" app:a27="hnz" />
+                <TextView android:textSize="15.0sp" android:textStyle="bold" android:textColor="@color/skin_text_main_color" android:ellipsize="end" android:id="@id/k9_" android:layout_width="wrap_content" android:layout_height="wrap_content" android:maxLines="1" android:drawablePadding="4.0dp" android:drawableEnd="@drawable/module_musichall_title_more" android:layout_marginStart="10.0dp" app:a1e="@id/i9s" app:a22="@id/k99" app:a27="@id/k99" />
+                <RelativeLayout android:orientation="horizontal" android:id="@id/i9s" android:background="@drawable/podcast_single_subscribe_btn" android:layout_width="75.0dp" android:layout_height="24.0dp" android:layout_marginTop="7.0dp" android:layout_marginStart="10.0dp" app:a1d="@id/k99" app:a1y="@id/k99" app:a26="@id/k9_">
+                    <LinearLayout android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_centerInParent="true">
+                        <ImageView android:layout_gravity="center_vertical" android:id="@id/dsm" android:layout_width="wrap_content" android:layout_height="wrap_content" android:src="@drawable/single_podcast_subscribe" android:layout_marginEnd="2.0dp" />
+                        <TextView android:textSize="13.0dp" android:textColor="@color/skin_text_main_color" android:gravity="center" android:layout_gravity="center_vertical" android:id="@id/mg1" android:layout_width="wrap_content" android:layout_height="24.0dp" android:text="@string/fnr" android:singleLine="true" android:includeFontPadding="false" />
+                    </LinearLayout>
+                </RelativeLayout>
+                <TextView android:textSize="18.0sp" android:textStyle="bold" android:textColor="@color/skin_text_main_color" android:ellipsize="end" android:id="@id/mg2" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="20.0dp" android:maxLines="2" android:lineSpacingExtra="5.0dp" app:a23="hnz" app:a26="@id/k99" />
+                <LinearLayout android:orientation="horizontal" android:id="@id/f4i" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="10.0dp" app:a23="hnz" app:a26="@id/mg2">
+                    <TextView android:textColor="@color/skin_text_sub_color" android:id="@id/i9t" android:layout_width="wrap_content" android:layout_height="wrap_content" android:maxLines="1" android:singleLine="true" />
+                    <TextView android:textColor="@color/skin_text_sub_color" android:id="@id/i9r" android:layout_width="wrap_content" android:layout_height="wrap_content" android:maxLines="1" android:singleLine="true" android:drawablePadding="4.0dp" android:drawableStart="@drawable/img_clock" android:layout_marginStart="17.0dp" />
+                    <TextView android:textColor="@color/skin_text_sub_color" android:id="@id/i9o" android:layout_width="wrap_content" android:layout_height="wrap_content" android:maxLines="1" android:singleLine="true" android:drawablePadding="4.0dp" android:drawableStart="@drawable/img_listen_num" android:layout_marginStart="17.0dp" />
+                </LinearLayout>
+                <RelativeLayout android:id="@id/ffo" android:background="@drawable/module_musichall_album_support_bg" android:layout_width="110.0dp" android:layout_height="35.0dp" android:layout_marginTop="29.0dp" app:a23="hnz" app:a26="@id/f4i">
+                    <LinearLayout android:orientation="horizontal" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_centerInParent="true">
+                        <ImageView android:layout_gravity="center_vertical" android:id="@id/dsl" android:layout_width="wrap_content" android:layout_height="wrap_content" android:src="@drawable/podcast_single_play_btn" />
+                        <TextView android:textSize="15.0sp" android:textColor="@color/skin_button_text_color" android:gravity="center" android:layout_gravity="center_vertical" android:id="@id/ak6" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/e7a" android:includeFontPadding="false" android:layout_marginStart="5.0dp" />
+                    </LinearLayout>
+                </RelativeLayout>
+                <ImageView android:id="@id/dsk" android:layout_width="35.0dp" android:layout_height="35.0dp" android:layout_marginLeft="25.0dp" android:src="@drawable/ic_podcast_new_next_button" android:contentDescription="@string/fnz" app:a1d="@id/ffo" app:a1y="@id/ffo" app:a26="@id/mg2" app:a27="@id/ffo" />
+                <ImageView android:id="@id/dsj" android:layout_width="35.0dp" android:layout_height="35.0dp" android:layout_marginLeft="22.0dp" android:src="@drawable/podcast_unlike_btn" app:a1d="@id/ffo" app:a1y="@id/dsk" app:a26="@id/mg2" app:a27="@id/ffo" />
+            </androidx.constraintlayout.widget.ConstraintLayout>
+            <com.tencent.mobileqq.webviewplugin.CustomWebView android:id="@id/i9u" android:visibility="visible" android:layout_width="match_parent" android:layout_height="match_parent" />
+            <TextView android:textSize="15.0sp" android:textStyle="bold" android:textColor="@color/skin_text_main_color" android:id="@id/mg0" android:visibility="gone" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginLeft="16.0dp" android:text="@string/fnq" />
+            <com.tencent.qqmusic.modular.module.musichall.views.recycler.CellRecyclerView android:id="@id/i9n" android:paddingBottom="70.0dp" android:descendantFocusability="blocksDescendants" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginTop="10.0dp" />
+        </LinearLayout>
+    </androidx.core.widget.NestedScrollView>
+    <com.airbnb.lottie.LottieAnimationView android:id="@id/fz5" android:visibility="gone" android:layout_width="50.0dp" android:layout_height="50.0dp" android:layout_marginRight="10.0dp" android:layout_centerInParent="true" app:a4n="true" />
+</RelativeLayout>

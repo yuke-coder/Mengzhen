@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.tencent.qqmusic.ui.minibar.ClipBottomConstraintLayout android:id="@id/fzk" android:layout_width="match_parent" android:layout_height="wrap_content"
+  xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">
+    <androidx.constraintlayout.widget.Guideline android:orientation="horizontal" android:id="@id/fzj" android:layout_width="wrap_content" android:layout_height="wrap_content" app:a1m="@dimen/main_desk_bottom_navigate_height" />
+    <Space android:id="@id/kmm" android:layout_width="0.0dp" android:layout_height="@dimen/aik" app:a1x="hnz" app:a21="hnz" app:a27="@id/fzj" />
+    <Space android:id="@id/kmn" android:layout_width="0.0dp" android:layout_height="@dimen/aip" android:layout_marginBottom="@dimen/aig" app:a1d="@id/g07" app:a1x="hnz" app:a21="hnz" />
+    <Space android:id="@id/g06" android:layout_width="0.0dp" android:layout_height="@dimen/aig" app:a1d="@id/g07" app:a1x="hnz" app:a21="hnz" />
+    <Space android:id="@id/g0_" android:layout_width="0.0dp" android:layout_height="@dimen/aiq" app:a1d="@id/g07" app:a1x="hnz" app:a21="hnz" />
+    <Space android:id="@id/g09" android:layout_width="0.0dp" android:layout_height="0.0dp" app:a1e="@id/kmn" app:a1x="hnz" app:a21="hnz" />
+    <androidx.constraintlayout.widget.Barrier android:id="@id/ci8" android:layout_width="0.0dp" android:layout_height="0.0dp" app:d8="lv0" app:ko="main_desk_normal_minibar_20th_bg_top_guideline,top_tip_minibar_layout,ai_agent_top_minibar_layout" />
+    <com.tencent.qqmusic.ui.RoundedConstraintLayout android:id="@id/hc3" android:layout_width="0.0dp" android:layout_height="0.0dp" app:ki="fwy|je9" app:kj="0.0dp" app:a1d="hnz" app:a1x="hnz" app:a21="hnz" app:a27="@id/kmn">
+        <com.tencent.qqmusic.ClipTopFrameLayout android:id="@id/hc2" android:layout_width="match_parent" android:layout_height="match_parent">
+            <ImageView android:id="@id/hc1" android:layout_width="match_parent" android:layout_height="match_parent" android:scaleType="centerCrop" />
+        </com.tencent.qqmusic.ClipTopFrameLayout>
+    </com.tencent.qqmusic.ui.RoundedConstraintLayout>
+    <ViewStub android:id="@id/lz3" android:layout="@layout/ctk" android:inflatedId="@id/lz2" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginBottom="@dimen/aiq" app:a1d="@id/g07" app:a1x="@id/g07" />
+    <ViewStub android:id="@id/lz1" android:layout="@layout/b8z" android:inflatedId="@id/lz1" android:layout_width="0.0dp" android:layout_height="wrap_content" android:layout_marginBottom="38.5dp" app:a1d="@id/g07" app:a1x="hnz" app:a21="hnz" />
+    <ViewStub android:id="@id/lzd" android:layout="@layout/b90" android:inflatedId="@id/lzd" android:layout_width="0.0dp" android:layout_height="wrap_content" android:layout_marginBottom="38.5dp" app:a1d="@id/g07" app:a1x="hnz" app:a21="hnz" />
+    <ViewStub android:id="@id/cjq" android:layout="@layout/b8x" android:inflatedId="@id/cjp" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginRight="@dimen/aio" app:a1e="@id/g09" app:a1j="@id/g07" />
+    <ViewStub android:id="@id/n4" android:layout="@layout/b8v" android:inflatedId="@id/n4" android:layout_width="0.0dp" android:layout_height="wrap_content" app:a1e="@id/g09" app:a1x="hnz" app:a21="hnz" />
+    <FrameLayout android:id="@id/g05" android:visibility="gone" android:layout_width="match_parent" android:layout_height="wrap_content" app:a1e="@id/g06" app:a27="@id/g06">
+        <ImageView android:id="@id/g04" android:visibility="gone" android:layout_width="match_parent" android:layout_height="wrap_content" />
+    </FrameLayout>
+    <FrameLayout android:id="@id/ci7" android:visibility="gone" android:layout_width="70.0dp" android:layout_height="45.0dp" android:layout_marginRight="54.0dp" app:a1e="@id/ci8" app:a21="hnz" />
+    <include android:id="@id/g07" android:layout_width="0.0dp" android:layout_height="wrap_content" app:a1d="@id/kmm" app:a1x="hnz" app:a21="hnz" layout="@layout/d5" />
+    <com.tencent.qqmusic.ui.minibar.navigation.MainDeskNavigateContainer android:orientation="horizontal" android:id="@id/fzl" android:layout_width="0.0dp" android:layout_height="0.0dp" android:layout_marginLeft="@dimen/agt" android:layout_marginRight="@dimen/agt" app:a1d="hnz" app:a1j="hnz" app:a23="hnz" app:a26="@id/fzj" />
+</com.tencent.qqmusic.ui.minibar.ClipBottomConstraintLayout>

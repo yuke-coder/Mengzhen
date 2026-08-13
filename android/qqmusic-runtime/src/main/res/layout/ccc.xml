@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginLeft="16.0dp" android:layout_marginBottom="8.0dp"
+  xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">
+    <com.tencent.qqmusic.community.putoo.recommend.adaptersupport.view.PutooRecommendTabListView android:id="@id/l3o" android:layout_width="match_parent" android:layout_height="wrap_content" app:a1x="hnz" app:a21="hnz" app:a27="hnz" />
+    <com.tencent.qqmusic.community.putoo.recommend.adaptersupport.view.SimpleRefreshView android:id="@id/j3r" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginTop="10.0dp" android:layout_marginRight="16.0dp" app:a1x="hnz" app:a21="hnz" app:a26="@id/l3o" />
+    <include android:visibility="gone" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="30.0dp" android:layout_marginRight="16.0dp" android:layout_marginBottom="30.0dp" app:a1d="hnz" app:a1x="hnz" app:a21="hnz" app:a26="@id/l3o" layout="@layout/c1g" />
+    <View android:id="@id/l9" android:layout_width="match_parent" android:layout_height="wrap_content" app:a1d="hnz" app:a1x="hnz" app:a21="hnz" app:a26="@id/l3o" />
+</androidx.constraintlayout.widget.ConstraintLayout>

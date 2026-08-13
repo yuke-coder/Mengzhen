@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout android:layout_width="match_parent" android:layout_height="match_parent"
+  xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">
+    <com.airbnb.lottie.LottieAnimationView android:layout_gravity="center_horizontal" android:id="@id/mlive_cloud_game_loading_lottie_view" android:layout_width="50.0dp" android:layout_height="50.0dp" android:layout_marginTop="287.0dp" android:scaleType="fitCenter" app:a4p="@color/white" app:a4s="mlive_timeline_refreshing_light_anim.json" />
+    <TextView android:textSize="18.0sp" android:textColor="@color/white" android:layout_gravity="center_horizontal" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="393.0dp" android:text="@string/d0n" />
+</FrameLayout>

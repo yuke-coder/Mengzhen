@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout android:layout_gravity="center_vertical" android:layout_width="match_parent" android:layout_height="wrap_content"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <LinearLayout android:gravity="center" android:id="@id/dja" android:layout_width="@dimen/bb0" android:layout_height="@dimen/bb0" android:layout_alignParentLeft="true" android:layout_centerInParent="true">
+        <ImageView android:gravity="center" android:id="@id/did" android:paddingLeft="5.0dp" android:paddingRight="5.0dp" android:layout_width="wrap_content" android:layout_height="wrap_content" android:src="@drawable/icon_notification" />
+    </LinearLayout>
+    <LinearLayout android:layout_gravity="center_vertical" android:orientation="vertical" android:id="@id/j86" android:layout_width="match_parent" android:layout_height="match_parent" android:layout_marginLeft="5.0dp" android:layout_marginRight="10.0dp" android:layout_toRightOf="@id/dja">
+        <TextView android:textAppearance="?android:textAppearanceMediumInverse" android:textColor="?android:textColorPrimary" android:ellipsize="marquee" android:id="@id/ldr" android:fadingEdge="horizontal" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="10.0dp" android:singleLine="true" style="@style/ni" />
+        <LinearLayout android:gravity="center" android:orientation="vertical" android:layout_width="match_parent" android:layout_height="match_parent">
+            <ProgressBar android:id="@id/ih6" android:layout_width="match_parent" android:layout_height="2.0dp" android:layout_marginRight="10.0dp" android:progressDrawable="@drawable/notification_progressbar" style="?android:progressBarStyleHorizontal" />
+        </LinearLayout>
+    </LinearLayout>
+</RelativeLayout>

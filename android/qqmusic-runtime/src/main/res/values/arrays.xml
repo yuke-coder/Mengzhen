@@ -1,0 +1,245 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="a">
+        <item>我在听哦，说下你想找的歌曲吧</item>
+        <item>想听什么歌，直接对我说吧</item>
+        <item>试试对我说，播放我喜欢的歌曲</item>
+        <item>任何找歌问题，都可以直接问我</item>
+    </string-array>
+    <string-array name="b">
+        <item>已下载</item>
+        <item>正在下载</item>
+    </string-array>
+    <string-array name="c">
+        <item>cftutils</item>
+        <item>express_verify</item>
+        <item>ape</item>
+        <item>apev7a</item>
+        <item>qmfaad2</item>
+        <item>qmfaad2fpu</item>
+        <item>qmflac</item>
+        <item>qmmpg123</item>
+        <item>qmvorbis</item>
+    </string-array>
+    <string-array name="d">
+        <item>15分钟后</item>
+        <item>30分钟后</item>
+        <item>60分钟后</item>
+        <item>90分钟后</item>
+        <item>自定义</item>
+    </string-array>
+    <string-array name="e">
+        <item>默认</item>
+        <item>自定义</item>
+        <item>流行</item>
+        <item>蓝调</item>
+        <item>摇滚</item>
+        <item>慢歌</item>
+        <item>爵士</item>
+        <item>古典</item>
+        <item>舞曲</item>
+        <item>重低</item>
+        <item>电子</item>
+        <item>重高</item>
+        <item>清新</item>
+        <item>雷鬼</item>
+        <item>拉丁</item>
+        <item>新世纪</item>
+        <item>金属</item>
+        <item>人声</item>
+        <item>怀旧</item>
+        <item>乡村</item>
+        <item>清晰</item>
+        <item>冲击</item>
+        <item>空气感</item>
+        <item>清脆</item>
+        <item>车载</item>
+        <item>暗淡</item>
+    </string-array>
+    <array name="f">
+        <item>@drawable/kk_portrait_user_status_tiny</item>
+        <item>@drawable/kk_portrait_user_status_small</item>
+        <item>@drawable/kk_portrait_user_status_middle</item>
+        <item>@drawable/kk_portrait_user_status_big</item>
+    </array>
+    <array name="g">
+        <item>@dimen/a9t</item>
+        <item>@dimen/a9r</item>
+        <item>@dimen/a9p</item>
+        <item>@dimen/a9n</item>
+    </array>
+    <string-array name="h">
+        <item>5</item>
+        <item>10</item>
+        <item>15</item>
+        <item>20</item>
+        <item>25</item>
+        <item>30</item>
+    </string-array>
+    <array name="i">
+        <item>@drawable/get_honor_medal_light_017</item>
+        <item>@drawable/get_honor_medal_light_019</item>
+        <item>@drawable/get_honor_medal_light_021</item>
+        <item>@drawable/get_honor_medal_light_023</item>
+        <item>@drawable/get_honor_medal_light_025</item>
+        <item>@drawable/get_honor_medal_light_027</item>
+        <item>@drawable/get_honor_medal_light_029</item>
+        <item>@drawable/get_honor_medal_light_031</item>
+        <item>@drawable/get_honor_medal_light_033</item>
+        <item>@drawable/get_honor_medal_light_035</item>
+    </array>
+    <integer-array name="j">
+        <item>114</item>
+        <item>112</item>
+        <item>110</item>
+        <item>108</item>
+        <item>106</item>
+        <item>104</item>
+        <item>102</item>
+        <item>100</item>
+    </integer-array>
+    <integer-array name="k">
+        <item>64</item>
+        <item>62</item>
+        <item>60</item>
+        <item>58</item>
+        <item>56</item>
+        <item>54</item>
+        <item>52</item>
+        <item>50</item>
+    </integer-array>
+    <string-array name="l">
+        <item>超清</item>
+        <item>高清</item>
+        <item>清晰</item>
+        <item>流畅</item>
+        <item>流畅</item>
+        <item>流畅</item>
+        <item>流畅</item>
+        <item>流畅</item>
+    </string-array>
+    <string-array name="m">
+        <item>高清</item>
+        <item>清晰</item>
+        <item>流畅</item>
+        <item>流畅</item>
+        <item>流畅</item>
+        <item>流畅</item>
+        <item>流畅</item>
+        <item>流畅</item>
+    </string-array>
+    <string-array name="n">
+        <item>超清1080P</item>
+        <item>高清720P</item>
+        <item>清晰540P</item>
+        <item>流畅360P</item>
+        <item>流畅270P</item>
+        <item>流畅180P</item>
+        <item>流畅144P</item>
+        <item>流畅90P</item>
+    </string-array>
+    <string-array name="o">
+        <item>android.card.provider_two_2_two</item>
+        <item>android.card.provider_two_2_four</item>
+    </string-array>
+    <string-array name="p">
+        <item>播放</item>
+        <item>编辑</item>
+        <item>删除</item>
+    </string-array>
+    <string-array name="q">
+        <item>5</item>
+        <item>10</item>
+        <item>20</item>
+        <item>40</item>
+        <item>80</item>
+        <item>-1</item>
+    </string-array>
+    <string-array name="r">
+        <item>默认</item>
+        <item>大房</item>
+        <item>中房</item>
+        <item>小房</item>
+        <item>教堂</item>
+        <item>剧场</item>
+        <item>隧道</item>
+        <item>音乐</item>
+        <item>影院</item>
+        <item>浴室</item>
+    </string-array>
+    <string-array name="s">
+        <item>嘿，你这个问题好难啊，我需要多点思考时间呢~</item>
+        <item>呀，我好像卡住了，你给我点鼓励吧~</item>
+        <item>嗨，这个问题好深奥啊，我得去请教一下我的智囊团~</item>
+        <item>哇，你这个问题好有挑战性啊，我得好好思考一下~</item>
+        <item>嘻嘻，我觉得我需要喝杯咖啡才能更好地思考这个问题~</item>
+        <item>呀，你这个问题好奇怪啊，让我多想想~</item>
+        <item>嘿嘿，我觉得我需要一点灵感才能回答你这个问题~</item>
+        <item>嗨，我好像需要更多的信息才能回答你的问题~</item>
+        <item>哎呀，我现在的脑袋好像有点混乱，需要多点时间整理一下~</item>
+        <item>哇，你这个问题好有思想啊，我得好好琢磨一下~</item>
+    </string-array>
+    <string-array name="t">
+        <item>拔打电话</item>
+        <item>发送短信</item>
+        <item>QQ聊天</item>
+    </string-array>
+    <string-array name="u">
+        <item>未知</item>
+        <item>立体声扬声器</item>
+        <item>耳机</item>
+        <item>车载立体声</item>
+        <item>5.1_Side</item>
+        <item>5.1_Back</item>
+    </string-array>
+    <integer-array name="v">
+        <item>0</item>
+        <item>1</item>
+        <item>3</item>
+        <item>4</item>
+        <item>10</item>
+        <item>11</item>
+    </integer-array>
+    <string-array name="w">
+        <item>未知</item>
+        <item>摇滚</item>
+        <item>电子</item>
+        <item>流行</item>
+        <item>古典</item>
+    </string-array>
+    <integer-array name="x">
+        <item>0</item>
+        <item>1</item>
+        <item>2</item>
+        <item>3</item>
+        <item>4</item>
+    </integer-array>
+    <string-array name="y">
+        <item>人声</item>
+        <item>男</item>
+        <item>男女互唱</item>
+        <item>女</item>
+        <item>合唱</item>
+        <item>乐器</item>
+    </string-array>
+    <integer-array name="z">
+        <item>0</item>
+        <item>1</item>
+        <item>3</item>
+        <item>6</item>
+        <item>9</item>
+        <item>12</item>
+    </integer-array>
+    <string-array name="a0">
+        <item>31.25 Hz</item>
+        <item>62.50 Hz</item>
+        <item>125.0 Hz</item>
+        <item>250.0 Hz</item>
+        <item>500.0 Hz</item>
+        <item>1.000 kHz</item>
+        <item>2.000 kHz</item>
+        <item>4.000 kHz</item>
+        <item>8.000 kHz</item>
+        <item>16.00 kHz</item>
+    </string-array>
+</resources>

@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.tencent.qqmusic.business.playercommon.normalplayer.ui.PlayerFrameLayout android:id="@id/a9j" android:clipChildren="false" android:layout_width="match_parent" android:layout_height="match_parent"
+  xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">
+    <androidx.constraintlayout.widget.ConstraintLayout android:id="@id/hx5" android:clipChildren="false" android:layout_width="match_parent" android:layout_height="match_parent">
+        <FrameLayout android:id="@id/a9i" android:layout_width="0.0dp" android:layout_height="0.0dp" app:a1d="hnz" app:a1j="hnz" app:a23="hnz" app:a27="hnz" />
+        <include android:layout_width="0.0dp" android:layout_height="@dimen/hf" app:a1j="hnz" app:a23="hnz" app:a27="hnz" layout="@layout/jh" />
+        <include layout="@layout/jb" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</com.tencent.qqmusic.business.playercommon.normalplayer.ui.PlayerFrameLayout>

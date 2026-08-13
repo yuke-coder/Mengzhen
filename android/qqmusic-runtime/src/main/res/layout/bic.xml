@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout android:layout_width="match_parent" android:layout_height="match_parent"
+  xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">
+    <com.tme.mlive.ui.custom.EnterRoomBubbleView android:id="@id/mlive_join_view" android:layout_width="match_parent" android:layout_height="40.0dp" app:a1x="hnz" app:a27="hnz" />
+    <com.tme.mlive.ui.custom.LiveFadingRecyclerView android:id="@id/mlive_comment_list" android:layout_width="match_parent" android:layout_height="0.0dp" android:layout_marginTop="40.0dp" app:a1d="hnz" app:a1x="hnz" app:a21="hnz" app:a27="hnz" />
+</androidx.constraintlayout.widget.ConstraintLayout>

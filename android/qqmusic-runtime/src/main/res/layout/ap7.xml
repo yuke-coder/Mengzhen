@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<merge android:layout_width="match_parent" android:layout_height="wrap_content"
+  xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">
+    <kk.design.KKEditText android:gravity="start|top" android:id="@id/ep2" android:layout_width="match_parent" android:layout_height="match_parent" app:a0c="ifr" app:a0d="g7e" app:a0e="j3u" />
+    <kk.design.KKTextView android:layout_gravity="start|bottom" android:id="@id/ep3" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginBottom="@dimen/a3d" android:layout_marginStart="@dimen/a3e" app:a0f="ka9" />
+</merge>

@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout android:id="@id/euk" android:layout_width="wrap_content" android:layout_height="wrap_content"
+  xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">
+    <androidx.appcompat.widget.AppCompatTextView android:textSize="13.0dp" android:textColor="@color/white" android:gravity="center_vertical" android:id="@id/m9w" android:layout_width="wrap_content" android:layout_height="wrap_content" android:includeFontPadding="false" app:a1x="hnz" app:a27="hnz" />
+    <androidx.appcompat.widget.AppCompatTextView android:textSize="19.5dp" android:textStyle="bold" android:textColor="@color/white" android:gravity="center_vertical" android:id="@id/m9x" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="3.0dp" android:includeFontPadding="false" app:a1x="@id/m9w" app:a26="@id/m9w" />
+</androidx.constraintlayout.widget.ConstraintLayout>

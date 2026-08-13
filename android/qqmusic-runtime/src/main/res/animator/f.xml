@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<selector
+  xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">
+    <item android:state_enabled="true" app:alg="true">
+        <set>
+            <objectAnimator android:interpolator="@interpolator/k" android:duration="@integer/ah" android:valueTo="@dimen/b0g" android:valueType="floatType" android:propertyName="translationZ" android:startDelay="@integer/ag" />
+        </set>
+    </item>
+    <item android:state_enabled="true">
+        <set>
+            <objectAnimator android:interpolator="@anim/cx" android:duration="@integer/ah" android:valueTo="0.0dp" android:valueType="floatType" android:propertyName="translationZ" />
+        </set>
+    </item>
+</selector>

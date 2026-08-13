@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout android:id="@id/jd3" android:layout_width="match_parent" android:layout_height="wrap_content"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <View android:id="@id/kmk" android:background="#ececec" android:layout_width="match_parent" android:layout_height="1.0dp" android:layout_marginTop="@dimen/c9q" />
+    <ImageView android:id="@id/did" android:padding="5.0dp" android:layout_width="@dimen/c9p" android:layout_height="@dimen/c9p" android:layout_marginLeft="14.0dp" android:layout_marginTop="@dimen/c9q" android:src="@drawable/timeline_detail_related_song_icon" android:scaleType="centerInside" android:layout_below="@id/kmk" />
+    <TextView android:textSize="@dimen/c_9" android:textColor="#000000" android:gravity="center" android:id="@id/ldr" android:layout_width="wrap_content" android:layout_height="@dimen/c9p" android:layout_marginLeft="5.0dp" android:layout_marginTop="@dimen/c9q" android:text="视频中的音乐" android:layout_toRightOf="@id/did" android:layout_below="@id/kmk" />
+    <TextView android:textSize="@dimen/c_9" android:textColor="#80000000" android:gravity="center" android:id="@id/bbh" android:layout_width="wrap_content" android:layout_height="@dimen/c9p" android:layout_marginLeft="10.0dp" android:layout_marginTop="@dimen/c9q" android:text="2" android:layout_toRightOf="@id/ldr" android:layout_below="@id/kmk" />
+    <com.tencent.qqmusic.business.timeline.detail.TimelineRelatedSongListView android:id="@id/kei" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginTop="@dimen/c9m" android:layout_below="@id/ldr" />
+    <LinearLayout android:id="@id/gsg" android:layout_width="wrap_content" android:layout_height="@dimen/c9n" android:layout_marginTop="@dimen/c9o" android:layout_below="@id/kei" android:layout_centerHorizontal="true">
+        <TextView android:layout_gravity="center_vertical" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="更多视频中的音乐" />
+        <ImageView android:layout_gravity="center_vertical" android:id="@id/e38" android:layout_width="8.0dp" android:layout_height="4.5dp" android:layout_marginLeft="4.0dp" android:src="@drawable/timeline_more_related_song_arrow" android:scaleType="centerInside" />
+    </LinearLayout>
+    <View android:background="#ececec" android:layout_width="match_parent" android:layout_height="1.0dp" android:layout_marginTop="@dimen/c9q" android:layout_below="@id/gsg" />
+</RelativeLayout>

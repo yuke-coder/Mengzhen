@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout android:gravity="center_horizontal" android:orientation="vertical" android:background="@drawable/main_bg" android:layout_width="match_parent" android:layout_height="match_parent"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <include android:id="@id/fb_" android:layout_width="match_parent" android:layout_height="@dimen/cau" layout="@layout/mu" />
+    <LinearLayout android:gravity="center_vertical" android:orientation="horizontal" android:padding="10.0dp" android:layout_width="match_parent" android:layout_height="wrap_content">
+        <TextView android:gravity="left" android:padding="10.0dp" android:layout_width="160.0dp" android:layout_height="wrap_content" android:text="@string/gck" />
+        <EditText android:id="@id/j0f" android:layout_width="wrap_content" android:layout_height="50.0dp" android:layout_weight="1.0" android:inputType="number" />
+    </LinearLayout>
+    <LinearLayout android:gravity="center_vertical" android:orientation="horizontal" android:padding="10.0dp" android:layout_width="match_parent" android:layout_height="wrap_content">
+        <TextView android:gravity="left" android:padding="10.0dp" android:layout_width="160.0dp" android:layout_height="wrap_content" android:text="@string/gcd" />
+        <EditText android:id="@id/j0c" android:layout_width="wrap_content" android:layout_height="50.0dp" android:layout_weight="1.0" android:inputType="number" />
+    </LinearLayout>
+    <LinearLayout android:gravity="center_vertical" android:orientation="horizontal" android:padding="10.0dp" android:layout_width="match_parent" android:layout_height="wrap_content">
+        <TextView android:gravity="left" android:padding="10.0dp" android:layout_width="160.0dp" android:layout_height="wrap_content" android:text="@string/gca" />
+        <EditText android:id="@id/j09" android:layout_width="wrap_content" android:layout_height="50.0dp" android:layout_weight="1.0" android:inputType="numberDecimal" />
+    </LinearLayout>
+    <LinearLayout android:gravity="center_vertical" android:orientation="horizontal" android:padding="10.0dp" android:layout_width="match_parent" android:layout_height="wrap_content">
+        <TextView android:gravity="left" android:padding="10.0dp" android:layout_width="160.0dp" android:layout_height="wrap_content" android:text="@string/gcf" />
+        <EditText android:id="@id/j0e" android:layout_width="wrap_content" android:layout_height="50.0dp" android:layout_weight="1.0" android:inputType="number" />
+    </LinearLayout>
+    <LinearLayout android:gravity="center_vertical" android:orientation="horizontal" android:padding="10.0dp" android:layout_width="match_parent" android:layout_height="wrap_content">
+        <TextView android:gravity="left" android:padding="10.0dp" android:layout_width="160.0dp" android:layout_height="wrap_content" android:text="@string/gce" />
+        <EditText android:id="@id/j0d" android:layout_width="wrap_content" android:layout_height="50.0dp" android:layout_weight="1.0" android:inputType="numberDecimal" />
+    </LinearLayout>
+    <LinearLayout android:gravity="center_vertical" android:orientation="horizontal" android:padding="10.0dp" android:layout_width="match_parent" android:layout_height="wrap_content">
+        <TextView android:gravity="left" android:padding="10.0dp" android:layout_width="160.0dp" android:layout_height="wrap_content" android:text="@string/gcq" />
+        <ImageButton android:id="@id/jyu" android:background="@drawable/switch_off" android:layout_width="55.0dp" android:layout_height="33.0dp" />
+    </LinearLayout>
+    <TextView android:textSize="30.0sp" android:textColor="@color/blue" android:gravity="center" android:id="@id/jg3" android:padding="20.0dp" android:layout_width="match_parent" android:layout_height="wrap_content" android:text="@string/ght" />
+</LinearLayout>

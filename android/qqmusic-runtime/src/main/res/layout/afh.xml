@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout android:layout_gravity="bottom" android:id="@id/cr0" android:background="#b2000000" android:layout_width="match_parent" android:layout_height="@dimen/a2r"
+  xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">
+    <FrameLayout android:id="@id/cti" android:layout_width="30.0dp" android:layout_height="30.0dp" android:layout_marginLeft="10.0dp" android:layout_marginRight="8.0dp" android:layout_centerVertical="true" app:a1d="hnz" app:a1u="hmg" app:a1x="hnz" app:a20="@id/ctn" app:a27="hnz">
+        <com.tencent.qqmusic.business.live.ui.view.RoundAvatarImage android:id="@id/cth" android:layout_width="30.0dp" android:layout_height="30.0dp" />
+        <com.tencent.component.widget.AsyncImageView android:layout_gravity="right|bottom" android:id="@id/cto" android:layout_width="11.0dp" android:layout_height="11.0dp" />
+    </FrameLayout>
+    <TextView android:textSize="14.0dp" android:textColor="@color/white" android:ellipsize="end" android:id="@id/ctn" android:layout_width="0.0dp" android:layout_height="wrap_content" android:layout_marginRight="12.0dp" android:maxLines="1" android:layout_toRightOf="@id/cti" android:layout_centerVertical="true" app:a1d="hnz" app:a1t="0.5" app:a1y="@id/cti" app:a20="@id/ctj" app:a27="hnz" app:a2b="nug" />
+    <com.tencent.qqmusic.follow.FollowPlusButton android:id="@id/ctj" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginRight="10.0dp" app:a1d="hnz" app:a1t="0.5" app:a1y="@id/ctn" app:a21="hnz" app:a27="hnz" app:aif="1" />
+</androidx.constraintlayout.widget.ConstraintLayout>

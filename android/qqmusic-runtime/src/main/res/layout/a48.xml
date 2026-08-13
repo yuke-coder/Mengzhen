@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout android:background="@drawable/main_bg" android:layout_width="match_parent" android:layout_height="match_parent"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <com.tencent.qqmusic.ClipTopFrameLayout android:id="@id/jd3" android:layout_width="match_parent" android:layout_height="match_parent">
+        <com.tencent.qqmusic.business.timeline.ui.RefreshableRecyclerView android:id="@id/h7r" android:visibility="visible" android:layout_width="match_parent" android:layout_height="match_parent" />
+    </com.tencent.qqmusic.ClipTopFrameLayout>
+    <ViewStub android:id="@id/b7x" android:layout="@layout/ye" android:layout_width="match_parent" android:layout_height="match_parent" />
+    <ViewStub android:id="@id/b7f" android:layout_width="match_parent" android:layout_height="match_parent" android:layout_below="@id/lvi" />
+    <ViewStub android:id="@id/b7q" android:layout_width="match_parent" android:layout_height="match_parent" android:layout_below="@id/lvi" />
+    <ViewStub android:id="@id/b7r" android:layout_width="match_parent" android:layout_height="match_parent" android:layout_below="@id/lvi" />
+    <FrameLayout android:id="@id/lvi" android:layout_width="match_parent" android:layout_height="@dimen/cau">
+        <ImageView android:id="@id/lvl" android:layout_width="match_parent" android:layout_height="match_parent" android:alpha="0.0" />
+        <LinearLayout android:gravity="center_vertical" android:orientation="horizontal" android:paddingTop="@dimen/c_q" android:layout_width="match_parent" android:layout_height="@dimen/cau">
+            <ImageView android:id="@id/a5h" android:layout_width="44.0dp" android:layout_height="44.0dp" android:src="@drawable/video_topic_back_normal" android:scaleType="centerInside" android:contentDescription="@string/wf" />
+            <FrameLayout android:layout_width="0.0dp" android:layout_height="match_parent" android:layout_weight="1.0">
+                <TextView android:textSize="18.0sp" android:textColor="#ffffff" android:ellipsize="end" android:gravity="center" android:layout_gravity="center" android:id="@id/lg1" android:layout_width="220.0dp" android:layout_height="match_parent" android:singleLine="true" />
+            </FrameLayout>
+            <ImageView android:id="@id/jvm" android:layout_width="44.0dp" android:layout_height="44.0dp" android:src="@drawable/timeline_detail_share" android:scaleType="centerInside" android:contentDescription="分享" />
+        </LinearLayout>
+    </FrameLayout>
+</FrameLayout>

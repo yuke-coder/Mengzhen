@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout android:background="@drawable/follow_no_skin_btn_bg" android:layout_width="match_parent" android:layout_height="match_parent"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <RelativeLayout android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_centerInParent="true">
+        <ImageView android:id="@id/crs" android:visibility="gone" android:layout_width="12.0dp" android:layout_height="9.0dp" android:layout_marginRight="5.0dp" android:src="@drawable/follow_button_no_skin_arrow" android:layout_alignParentLeft="true" android:layout_centerVertical="true" />
+        <ProgressBar android:id="@id/fiq" android:visibility="gone" android:layout_width="12.0dp" android:layout_height="12.0dp" android:indeterminate="true" android:indeterminateOnly="true" android:indeterminateDrawable="@drawable/icn_loading_indicator" android:indeterminateDuration="2000" android:layout_alignParentLeft="true" android:layout_centerVertical="true" />
+        <TextView android:textSize="14.0sp" android:textColor="@color/white" android:id="@id/amm" android:layout_width="wrap_content" android:layout_height="wrap_content" android:src="@drawable/follow_button_arrow" android:text="" android:layout_toRightOf="@id/crs" android:layout_centerVertical="true" />
+    </RelativeLayout>
+</RelativeLayout>

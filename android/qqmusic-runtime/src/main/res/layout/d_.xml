@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout android:gravity="center" android:background="#f3252422" android:layout_width="match_parent" android:layout_height="match_parent"
+  xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">
+    <androidx.constraintlayout.widget.Guideline android:orientation="horizontal" android:id="@id/d71" android:layout_width="wrap_content" android:layout_height="wrap_content" app:a1n="0.9397" />
+    <androidx.constraintlayout.widget.Guideline android:orientation="horizontal" android:id="@id/d7a" android:layout_width="wrap_content" android:layout_height="wrap_content" app:a1n="0.8308" />
+    <androidx.constraintlayout.widget.Guideline android:orientation="horizontal" android:id="@id/d7l" android:layout_width="wrap_content" android:layout_height="wrap_content" app:a1n="0.6769" />
+    <androidx.constraintlayout.widget.Guideline android:orientation="horizontal" android:id="@id/d7f" android:layout_width="wrap_content" android:layout_height="wrap_content" app:a1n="0.028" />
+    <androidx.constraintlayout.widget.Guideline android:orientation="horizontal" android:id="@id/d7m" android:layout_width="wrap_content" android:layout_height="wrap_content" app:a1n="0.1646" />
+    <TextView android:textSize="17.0sp" android:textColor="@color/white" android:id="@id/h1p" android:visibility="visible" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_centerHorizontal="true" app:a1j="hnz" app:a23="hnz" app:a27="@id/d7f" />
+    <ImageView android:id="@id/h1k" android:background="@color/transparent" android:padding="6.0dp" android:layout_width="30.0dp" android:layout_height="30.0dp" android:src="@drawable/share_pic_set_close" android:contentDescription="@string/a_6" app:a1d="@id/d71" app:a1j="hnz" app:a23="hnz" />
+    <TextView android:textColor="@color/white_60_opacity" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/ipx" app:a1d="@id/d7a" app:a1x="hnz" app:a21="hnz" />
+    <androidx.constraintlayout.widget.ConstraintLayout android:paddingLeft="36.0dp" android:paddingRight="36.0dp" android:layout_width="0.0dp" android:layout_height="0.0dp" app:a1d="@id/d7l" app:a1x="hnz" app:a21="hnz" app:a27="@id/d7m">
+        <FrameLayout android:id="@id/h1l" android:layout_width="0.0dp" android:layout_height="0.0dp" app:a1d="hnz" app:a1i="3:4" app:a1x="hnz" app:a21="hnz" app:a27="hnz" />
+        <View android:id="@id/h1m" android:background="@color/black_50_opacity" android:visibility="gone" android:layout_width="0.0dp" android:layout_height="0.0dp" app:a1d="@id/h1l" app:a1x="@id/h1l" app:a21="@id/h1l" app:a27="@id/h1l" />
+        <com.tencent.qqmusic.ui.SquareRoundProgressView android:id="@id/h1o" android:visibility="gone" android:layout_width="0.0dp" android:layout_height="0.0dp" android:scaleType="fitXY" app:a1d="@id/h1l" app:a1x="@id/h1l" app:a21="@id/h1l" app:a27="@id/h1l" />
+        <TextView android:textSize="28.0sp" android:textColor="@color/white" android:id="@id/h1n" android:visibility="gone" android:layout_width="wrap_content" android:layout_height="wrap_content" app:a1d="@id/h1l" app:a1x="@id/h1l" app:a21="@id/h1l" app:a27="@id/h1l" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>

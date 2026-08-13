@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout android:layout_width="wrap_content" android:layout_height="wrap_content"
+  xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">
+    <Space android:id="@id/g68" android:layout_width="30.0dp" android:layout_height="30.0dp" app:a23="@id/view_message_box" app:a27="@id/view_message_box" />
+    <com.tencent.component.widget.AsyncEffectImageView android:id="@id/view_message_box" android:layout_width="30.0dp" android:layout_height="30.0dp" android:contentDescription="@string/gp9" app:a1d="hnz" app:a23="hnz" app:a27="hnz" />
+    <com.tencent.qqmusic.fragment.morefeatures.ui.BadgeViewNew android:id="@id/naj" android:visibility="gone" android:layout_width="wrap_content" android:layout_height="12.5dp" android:layout_marginBottom="18.0dp" android:layout_marginStart="19.0dp" app:cq="@color/red_dot_v13" app:cx="99" app:d1="8.0dp" app:d5="true" app:a1d="@id/view_message_box" app:a23="@id/view_message_box" app:ahy="true" />
+    <ImageView android:id="@id/e1u" android:visibility="gone" android:layout_width="6.0dp" android:layout_height="6.0dp" android:layout_marginTop="2.0dp" android:src="@drawable/ic_my_music_message_dot" android:scaleType="fitXY" android:layout_marginStart="23.0dp" app:a23="@id/view_message_box" app:a27="@id/view_message_box" />
+</androidx.constraintlayout.widget.ConstraintLayout>

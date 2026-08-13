@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<shape
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <solid android:color="@color/list_item_light_bg" />
+    <corners android:topLeftRadius="@dimen/bqa" android:topRightRadius="@dimen/bqa" android:bottomLeftRadius="@dimen/bqa" android:bottomRightRadius="@dimen/bqa" />
+</shape>

@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout android:background="@drawable/ic_game_btn_bg" android:layout_width="227.0dp" android:layout_height="55.0dp"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <TextView android:textSize="11.0sp" android:textColor="#292722" android:gravity="center" android:id="@id/mlw" android:background="@drawable/game_revive_left_shares" android:visibility="gone" android:layout_width="wrap_content" android:layout_height="wrap_content" android:includeFontPadding="false" android:layout_alignParentTop="true" android:layout_marginEnd="-3.0dp" android:layout_alignParentEnd="true" />
+    <TextView android:textSize="21.0sp" android:textColor="#292722" android:id="@id/mig" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_centerInParent="true" />
+</RelativeLayout>

@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout android:id="@id/kd" android:clipChildren="false" android:layout_width="match_parent" android:layout_height="match_parent" android:translationZ="1000.0dp"
+  xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">
+    <androidx.appcompat.widget.AppCompatImageView android:id="@id/ke" android:visibility="gone" android:layout_width="match_parent" android:layout_height="match_parent" android:src="@drawable/icon_ad_vip_search_icon" android:scaleType="fitCenter" />
+    <androidx.appcompat.widget.AppCompatTextView android:textSize="7.0dp" android:textColor="#bcff46" android:id="@id/kf" android:background="@drawable/bg_ad_vip_guide_entry_search_icon_tips" android:paddingLeft="3.0dp" android:paddingTop="1.0dp" android:paddingRight="3.0dp" android:paddingBottom="1.0dp" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/dv" android:paddingHorizontal="3.0dp" android:paddingVertical="1.0dp" app:a1e="@id/ke" app:a1j="hnz" app:a1t="1.5" app:a23="hnz" app:a27="@id/ke" />
+</androidx.constraintlayout.widget.ConstraintLayout>

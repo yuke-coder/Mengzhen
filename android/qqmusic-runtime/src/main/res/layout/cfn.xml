@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.tme.qqmusic.widget.base.view.CornerConstraintLayout android:id="@id/au9" android:background="@color/white" android:layout_width="match_parent" android:layout_height="60.0dp"
+  xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">
+    <Space android:id="@id/af2" android:layout_width="8.0dp" android:layout_height="0.0dp" app:a23="hnz" />
+    <com.tme.qqmusic.widget.base.view.GlideImageView android:id="@id/aez" android:layout_width="50.0dp" android:layout_height="44.0dp" android:paddingEnd="6.0dp" app:a1d="hnz" app:a22="@id/af2" app:a27="hnz" />
+    <com.tme.qqmusic.widget.base.view.RoundedFrameLayout android:id="@id/af1" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginEnd="10.0dp" app:t_="12.0dp" app:a1d="hnz" app:a1j="hnz" app:a27="hnz">
+        <TextView android:textColor="#ffffff" android:gravity="center" android:id="@id/af0" android:background="#22d59c" android:paddingLeft="12.0dp" android:paddingRight="12.0dp" android:layout_width="wrap_content" android:layout_height="26.0dp" android:text="查看" android:paddingHorizontal="12.0dp" app:y3="12.0" app:y4="kmj" app:a0f="hfs" />
+    </com.tme.qqmusic.widget.base.view.RoundedFrameLayout>
+    <TextView android:textSize="13.0sp" android:textColor="#111111" android:ellipsize="end" android:id="@id/af3" android:layout_width="0.0dp" android:layout_height="wrap_content" android:maxLines="2" android:minLines="2" android:includeFontPadding="false" android:layout_marginEnd="8.0dp" app:a1d="hnz" app:a1k="@id/af1" app:a22="@id/aez" app:a27="hnz" />
+    <ImageView android:id="@id/aey" android:paddingLeft="5.0dp" android:paddingBottom="5.0dp" android:layout_width="24.0dp" android:layout_height="24.0dp" android:src="@drawable/ic_room_bottom_guide_close" android:scaleType="centerInside" app:a1j="hnz" app:a27="hnz" />
+</com.tme.qqmusic.widget.base.view.CornerConstraintLayout>

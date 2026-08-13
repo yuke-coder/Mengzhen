@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout android:layout_width="match_parent" android:layout_height="match_parent"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <LinearLayout android:orientation="vertical" android:background="@drawable/switch_root_bg" android:layout_width="match_parent" android:layout_height="wrap_content">
+        <TextView android:textSize="18.0sp" android:textStyle="bold" android:textColor="#000000" android:ellipsize="end" android:gravity="top" android:id="@id/l37" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="20.0dp" android:text="演唱《很久以前的会议》" android:maxLines="1" android:singleLine="true" android:lineSpacingExtra="-6.0sp" android:layout_marginStart="20.0dp" />
+        <RelativeLayout android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="25.0dp" android:layout_marginStart="20.0dp">
+            <ImageView android:id="@id/efk" android:layout_width="56.0dp" android:layout_height="56.0dp" android:src="@drawable/icon_qqmusic_white_background" android:scaleType="fitXY" />
+            <LinearLayout android:orientation="vertical" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_centerVertical="true" android:layout_marginStart="14.0dp" android:layout_toEndOf="@id/efk">
+                <TextView android:textSize="15.0dp" android:textColor="#000000" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="歌房上麦" />
+                <TextView android:textSize="12.0dp" android:textColor="#b3000000" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="无需跳转App 拿麦即唱" />
+            </LinearLayout>
+            <TextView android:textSize="11.0dp" android:textColor="#b3000000" android:gravity="center" android:id="@id/d2n" android:background="@drawable/switch_icon_text_bg" android:layout_width="54.0dp" android:layout_height="30.0dp" android:text="去歌房" android:layout_centerInParent="true" android:layout_marginEnd="20.0dp" android:layout_alignParentEnd="true" />
+        </RelativeLayout>
+        <RelativeLayout android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="25.0dp" android:layout_marginBottom="50.0dp" android:layout_marginStart="20.0dp">
+            <ImageView android:id="@id/ej1" android:layout_width="56.0dp" android:layout_height="56.0dp" android:src="@drawable/icon_kege_white_background" android:scaleType="fitXY" />
+            <LinearLayout android:orientation="vertical" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_centerVertical="true" android:layout_marginStart="14.0dp" android:layout_toEndOf="@id/ej1">
+                <TextView android:textSize="15.0dp" android:textColor="#000000" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="K歌录唱" />
+                <TextView android:textSize="12.0dp" android:textColor="#b3000000" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="专业伴奏 沉浸演唱" />
+            </LinearLayout>
+            <TextView android:textSize="11.0dp" android:textColor="#b3000000" android:gravity="center" android:id="@id/d2m" android:background="@drawable/switch_icon_text_bg" android:layout_width="54.0dp" android:layout_height="30.0dp" android:text="去K歌" android:layout_centerInParent="true" android:layout_marginEnd="20.0dp" android:layout_alignParentEnd="true" />
+        </RelativeLayout>
+    </LinearLayout>
+</RelativeLayout>

@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout android:orientation="vertical" android:id="@id/mlive_layout_live_module_official_schedule" android:visibility="invisible" android:layout_width="wrap_content" android:layout_height="wrap_content"
+  xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">
+    <com.airbnb.lottie.LottieAnimationView android:layout_gravity="center_horizontal" android:id="@id/mlive_view_schedule_switch" android:layout_width="30.0dp" android:layout_height="30.0dp" app:a4n="true" app:a4s="mlive_timeline_refreshing_anim.json" app:a4u="true" />
+    <TextView android:textColor="@android:color/white" android:id="@id/mlive_view_schedule_switch_text" android:paddingTop="5.0dp" android:paddingBottom="10.0dp" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/e1k" />
+</LinearLayout>

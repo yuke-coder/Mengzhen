@@ -1,0 +1,319 @@
+device,model,cpu,cpu model,lib,AI Score
+oppo find x7,phz110,dimensity 9300,mt6989,mm,3423
+vivo x100 pro,v2324a,dimensity 9300,mt6989,mm,3410
+vivo x100,v2308,dimensity 9300,mt6989,mm,3387
+oppo find x7 ultra,phy110,snapdragon 8 gen 3,sm8650,qhqh,3348
+xiaomi 14 pro,23116pn5bc,snapdragon 8 gen 3,sm8650,qhqh,3171
+xiaomi 14,23127pn0cc,snapdragon 8 gen 3,sm8650,qhqh,3127
+vivo iqoo 12,v2307a,snapdragon 8 gen 3,sm8650,qhqh,3125
+xiaomi redmi k70 pro,23117rk66c,snapdragon 8 gen 3,sm8650,qhqh,3092
+realme gt neo 6,rmx3820;rmx3823,snapdragon 8 gen 2,sm8550-ab,qhqh,2614
+samsung galaxy s23 ultra,sm-s918u;sm-s918b;sm-s918b;sm-s918b/ds,snapdragon 8 gen 2,sm8550-ab,qhqh,2515
+samsung galaxy s23+,sm-s916b;sm-s916b/ds;sm-s916u;sm-s916u1;sm-s916w;sm-s916n;sm-s9160;sm-s916e;sm-s916e/ds,snapdragon 8 gen 2,sm8550-ab,qhqh,2505
+samsung galaxy s23,sm-s918b/ds;sm-s9110,snapdragon 8 gen 2,sm8550-ab,qhqh,2503
+samsung galaxy tab s9,sm-x710;sm-x716b,snapdragon 8 gen 2,sm8550-ab,qhqh,2454
+xiaomi redmi k70,23113rkc6c,snapdragon 8 gen 2,sm8550-ab,qhqh,2450
+xiaomi 13 pro,2210132c,snapdragon 8 gen 2,sm8550-ab,qhqh,2445
+xiaomi 13 ultra,2304fpn6dc;2304fpn6dg,snapdragon 8 gen 2,sm8550-ab,qhqh,2443
+zte nubia z50,nx711j,snapdragon 8 gen 2,sm8550-ab,qhqh,2389
+samsung galaxy z fold5,sm-f946b;sm-f946b/ds;sm-f946u;sm-f946u1;sm-f946n;sm-f946w;sm-f9460,snapdragon 8 gen 2,sm8550-ab,qhqh,2375
+zte nubia z50s pro,nx713j,snapdragon 8 gen 2,sm8550-ab,qhqh,2357
+zte nubia red magic 8 pro,nx729j,snapdragon 8 gen 2,sm8550-ab,qhqh,2321
+vivo x90 pro+,v2227a,snapdragon 8 gen 2,sm8550-ab,qhqh,2304
+samsung galaxy z flip5,sm-f731b;sm-f731b/ds;sm-f731u;sm-f731u1;sm-f731w;sm-f731n,snapdragon 8 gen 2,sm8550-ab,qhqh,2279
+sony xperia 1 v,xqdq62/b;xq-dq72;xq-dq54,snapdragon 8 gen 2,sm8550-ab,qhqh,2225
+asus rog phone 7,ai2205_c,snapdragon 8 gen 2,sm8550-ab,qhqh,2136
+asus zenfone 10,ai2302,snapdragon 8 gen 2,sm8550-ab,qhqh,2093
+xiaomi redmi k60 pro,22127rk46c,snapdragon 8 gen 2,sm8550-ab,qhqh,2076
+vivo iqoo 11 pro,v2254a,snapdragon 8 gen 2,sm8550-ab,qhqh,2045
+sony xperia 5 v,xq-de54,snapdragon 8 gen 2,sm8550-ab,qhqh,2034
+xiaomi 13,2211133c,snapdragon 8 gen 2,sm8550-ab,qhqh,2026
+oneplus 11,phb110,snapdragon 8 gen 2,sm8550-ab,qhqh,2007
+motorola moto x40,xt2301-5,snapdragon 8 gen 2,sm8550-ab,qhqh,2004
+zte nubia z50 ultra,nx712j,snapdragon 8 gen 2,sm8550-ab,qhqh,2002
+oppo find x6 pro,pgem110;pgem10,snapdragon 8 gen 2,sm8550-ab,qhqh,2000
+honor magic5 pro,pgt-an10;pgt-n19,snapdragon 8 gen 2,sm8550-ab,qhqh,1959
+xiaomi redmi k70e,2311drk48c,dimensity 8300 ultra,mt6897,mm,1910
+zte nubia z40s pro,nx702j,snapdragon 8+ gen 1,sm8475,qhqg,1813
+realme gt3,rmx3709,snapdragon 8+ gen 1,sm8475,qhqg,1800
+asus rog phone 6,ai2201_c;ai2201_f;ai2201-1a030eu;ai2201_a;ai2201-1a029eu,snapdragon 8+ gen 1,sm8475,qhqg,1789
+asus zenfone 9,ai2202-1a006eu;ai2202;ai2202_b,snapdragon 8+ gen 1,sm8475,qhqg,1781
+realme gt neo 5,rmx3706,snapdragon 8+ gen 1,sm8475,qhqg,1776
+xiaomi 12s ultra,2203121c,snapdragon 8+ gen 1,sm8475,qhqg,1763
+zte nubia red magic 7s pro,nx709s,snapdragon 8+ gen 1,sm8475,qhqg,1761
+xiaomi 12s,2206123sc,snapdragon 8+ gen 1,sm8475,qhqg,1754
+xiaomi redmi k60,22127rk46c,snapdragon 8+ gen 1,sm8475,qhqg,1747
+xiaomi 12t pro,22081212ug;22081212g,snapdragon 8+ gen 1,sm8475,qhqg,1747
+xiaomi redmi k50 ultra,22081212c,snapdragon 8+ gen 1,sm8475,qhqg,1736
+xiaomi poco f5 pro,23013pc75g,snapdragon 8+ gen 1,sm8475,qhqg,1733
+motorola razr 2022,xt2251-1,snapdragon 8+ gen 1,sm8475,qhqg,1726
+nothing phone (2),a065,snapdragon 8+ gen 1,sm8475,qhqg,1723
+motorola edge 30 ultra,xt-2201,snapdragon 8+ gen 1,sm8475,qhqg,1722
+oneplus 10t,cph2415;cph2413;cph2417,snapdragon 8+ gen 1,sm8475,qhqg,1721
+samsung galaxy z fold4,sm-f936b;sm-f936b/ds;sm-f936u;sm-f936u1;sm-f936n;sm-f936w;sm-f9360,snapdragon 8+ gen 1,sm8475,qhqg,1719
+Huawei Mate X3,alt-al00;alt-l29,snapdragon 8+ gen 1,sm8475,qhqg,1718
+oppo find x6,pgem110;pgem10;pgfm10,dimensity 9200,mt6985,mm,1702
+samsung galaxy tab s8 ultra,sm-x900p;sm-x906;sm-x906b;sm-x906u;sm-x906n,snapdragon 8 gen 1,sm8450,qhqg,1699
+motorola razr 40 ultra,xt2321-3;xt2321-1;xt2321-2,snapdragon 8+ gen 1,sm8475,qhqg,1699
+samsung galaxy tab s8,sm-x700;sm-x706;sm-x706b;sm-x706u;sm-x706n,snapdragon 8 gen 1,sm8450,qhqg,1697
+honor magic vs,fri-an00,snapdragon 8+ gen 1,sm8475,qhqg,1694
+huawei mate 50 pro,dco-al00;dco-lx9,snapdragon 8+ gen 1,sm8475,qhqg,1694
+samsung galaxy tab s8+,sm-x800;sm-x806;sm-x806b;sm-x806u;sm-x806n,snapdragon 8 gen 1,sm8450,qhqg,1689
+oneplus ace pro,pgp110,snapdragon 8+ gen 1,sm8475,qhqg,1687
+xiaomi redmi k50 gaming,21121210c,snapdragon 8 gen 1,sm8450,qhqg,1681
+oppo find n2,pgu110,snapdragon 8+ gen 1,sm8475,qhqg,1680
+vivo x90 pro,v2242a;v2219,dimensity 9200,mt6985,mm,1678
+xiaomi 13t pro,23078pnd5g,dimensity 9200+,mt6985,mm,1677
+samsung galaxy s22 ultra,sm-s908b;sm-s908b/ds;sm-s908u;sm-s908u1;sm-s908w;sm-s908n;sm-s9080;sm-s908e;sm-s908e/ds,snapdragon 8 gen 1,sm8450,qhqg,1677
+xiaomi redmi k60 ultra,23078rkd5c,dimensity 9200+,mt6985,mm,1672
+motorola edge 30 pro,xt2201-1,snapdragon 8 gen 1,sm8450,qhqg,1671
+realme gt2 pro,rmx3301;rmx3300,snapdragon 8 gen 1,sm8450,qhqg,1669
+vivo iqoo neo8 pro,v2301a;,dimensity 9200+,mt6985,mm,1668
+xiaomi 12 pro,2201122c,snapdragon 8 gen 1,sm8450,qhqg,1668
+oneplus 10 pro,ne2210,snapdragon 8 gen 1,sm8450,qhqg,1667
+vivo iqoo 9 pro,v2172a;i2022,snapdragon 8 gen 1,sm8450,qhqg,1663
+xiaomi poco f4 gt,21121210g,snapdragon 8 gen 1,sm8450,qhqg,1660
+samsung galaxy s22,sm-s901b;sm-s901b/ds;sm-s901u;sm-s901u1;sm-s901w;sm-s901n;sm-s9010;sm-s901e;sm-s901e/ds,snapdragon 8 gen 1,sm8450,qhqg,1660
+oppo reno9 pro+,pgw110,snapdragon 8+ gen 1,sm8475,qhqg,1659
+oppo find x5 pro,pfem10,snapdragon 8 gen 1,sm8450,qhqg,1657
+honor magic4 pro,lge-an10,snapdragon 8 gen 1,sm8450,qhqg,1657
+xiaomi 12,2201123c,snapdragon 8 gen 1,sm8450,qhqg,1651
+samsung galaxy s22+,sm-s906b;sm-s906b/ds;sm-s906u;sm-s906u1;sm-s906w;sm-s906n;sm-s9060;sm-s906e;sm-s906e/ds,snapdragon 8 gen 1,sm8450,qhqg,1650
+vivo x80 pro,v2185a;v2145,snapdragon 8 gen 1,sm8450,qhqg,1647
+zte nubia red magic 7,nx679j,snapdragon 8 gen 1,sm8450,qhqg,1640
+sony xperia 1 iv,xqct62-b;xqct54;xqct54c0v.yd;xqct54c0b.yd;xqct54c0w.yd;xqct54c0v.eeac;xqct54c0b.eeac;xq-ct72;xq-ct54;xq-ct62,snapdragon 8 gen 1,sm8450,qhqg,1636
+oneplus 11r,cph2487,snapdragon 8+ gen 1,sm8475,qhqg,1630
+sony xperia 5 iv,xqcq62b-gc;xqcq62g.gc;xq-cq72/b2twcx0;xq-cq72/c2twcx0;xq-cq72/g2twcx0;xqcq54c0b.yd;xqcq54c0g.yd;xqcq54c0c.yd;xq-cq54;xq-cq72,snapdragon 8 gen 1,sm8450,qhqg,1601
+sharp aquos r7,sh-r70,snapdragon 8 gen 1,sm8450,qhqg,1599
+vivo x90,v2241a,dimensity 9200,mt6985,mm,1593
+motorola edge x30,xt2201-2;xt2201-6,snapdragon 8 gen 1,sm8450,qhqg,1518
+realme gt neo5 se,rmx3700,snapdragon 7+ gen 2,sm7475-ab,qhqh,1257
+xiaomi redmi note 12 turbo,23049rad8c,snapdragon 7+ gen 2,sm7475-ab,qhqh,1228
+xiaomi poco f5,23049pcd8g;23049pcd8i,snapdragon 7+ gen 2,sm7475-ab,qhqh,1212
+xiaomi 12 pro,2201122c,dimensity 9000+,mt6983z,mm,1070
+oppo find n2 flip,cph2437;pgt110,dimensity 9000+,mt6983z,mm,1064
+vivo x80 pro,v2185a;v2145,dimensity 9000,mt6983,mm,1024
+xiaomi redmi k50 pro,22021211rc;22011211c,dimensity 9000,mt6983,mm,1023
+oppo find x5 pro,pfem10,dimensity 9000,mt6983,mm,1022
+oneplus ace 2v,php110,dimensity 9000,mt6983,mm,1005
+asus rog 6d ultimate,ai2203;ai2203-3e010eu,dimensity 9000+,mt6983z,mm,967
+asus rog phone 5s,zs676ks,snapdragon 888+,sm8350-ac,qhqg,814
+xiaomi redmi note 12t pro,23054ra19c,dimensity 8200 ultra,mt6896z,mm,806
+xiaomi redmi k60e,22122rk93c,dimensity 8200,mt6896z,mm,791
+asus zenfone 8,zs590ks;zs590ks-2a007eu;i006d,snapdragon 888,sm8350,qhqg,790
+honor magic3,elz-an00,snapdragon 888,sm8350,qhqg,790
+vivo iqoo neo7 se,v2238a;v2238,dimensity 8200,mt6896z,mm,789
+zte nubia red magic 6 pro,nx669j-p,snapdragon 888,sm8350,qhqg,786
+huawei matepad pro 11,xyao-w00,snapdragon 888,sm8350,qhqg,785
+samsung galaxy s21 ultra,sm-g998b;sm-g998b/ds;sm-g998u;sm-g998u1;sm-g998w;sm-g998n;sm-g9980,snapdragon 888,sm8350,qhqg,782
+xiaomi mi 11 pro,m2102k1ac,snapdragon 888,sm8350,qhqg,774
+samsung galaxy z fold3,sm-f926b;sm-f926b/ds;sm-f926u;sm-f926u1;sm-f926w;sm-f9260;sm-f926n,snapdragon 888,sm8350,qhqg,773
+samsung galaxy s21,sm-g991b;sm-g991b/ds;sm-g991u;sm-g991u1;sm-g991w;sm-g991n;sm-g9910;sm-g991q;scg09,snapdragon 888,sm8350,qhqg,769
+sony xperia 1 iii,xqbc62/v;xqbc52v.ukcx;so-51b;sog03;a101so;xq-bc62;xq-bc72;xq-bc52;xq-bc01;xq-bc11;xq-bc21;xq-bc72,snapdragon 888,sm8350,qhqg,767
+samsung galaxy s21+,sm-g996b;sm-g996b/ds;sm-g996u;sm-g996u1;sm-g996w;sm-g996n;sm-g9960,snapdragon 888,sm8350,qhqg,765
+samsung galaxy s21 fe,sm-g990b;sm-g990b/ds;sm-g990u;sm-g990u1;sm-g990w;sm-g990e;sm-g9900;sm-g990b2;sm-g990u2;sm-g990w2;sm-g990u3,snapdragon 888,sm8350,qhqg,765
+motorola edge 30 fusion,xt2243-1,snapdragon 888+,sm8350-ac,qhqg,764
+samsung galaxy z flip3,sm-f711b;sm-f711n;sm-f711u;sm-f711u1;sm-f711w;sm-f7110,snapdragon 888,sm8350,qhqg,757
+oneplus 9 pro,le2120;le2123,snapdragon 888,sm8350,qhqg,755
+oneplus 9,le2110,snapdragon 888,sm8350,qhqg,752
+xiaomi 11t pro,2107113sg;2107113si;2107113sr,snapdragon 888,sm8350,qhqg,750
+sony xperia pro-i,xq-be62;xqbe62-b;xq-be62-b;xq-be62/b;xq-be42;xq-be42-b;xq-be42/b;xq-be72;xq-be52,snapdragon 888,sm8350,qhqg,742
+xiaomi mi 11,m2011k2c;m2011k2g,snapdragon 888,sm8350,qhqg,740
+huawei p50 pro,jad-al00,snapdragon 888,sm8350,qhqg,738
+Google Pixel 8,gkws6;g9bqd;ga04851-us;gzpfo;gpj41,google tensor g3,,nn,737
+Xiaomi Mi 11 Ultra,m2102k1g;m2102k1c,snapdragon 888,sm8350,qhqg,735
+huawei p50,abr-al00,snapdragon 888,sm8350,qhqg,735
+Realme GT2,rmx3310;rmx3312;rmx3311,snapdragon 888,sm8350,qhqg,733
+oneplus 9rt,mt2110,snapdragon 888,sm8350,qhqg,732
+xiaomi poco x4 gt,22041216g,dimensity 8100,mt6895z,mm,731
+realme gt 5g,rmx2202,snapdragon 888,sm8350,qhqg,731
+oppo find x3 pro,peem00;cph2173,snapdragon 888,sm8350,qhqg,731
+xiaomi redmi note 11t pro,22041216c,dimensity 8100,mt6895z,mm,730
+xiaomi 12t,22071212ag,dimensity 8100 ultra,mt6895z,mm,729
+xiaomi redmi k50,22041211ac,dimensity 8100,mt6895z,mm,725
+Google Pixel 7,gvu6c;gqml3;go3z5,google tensor g2,,nn,720
+vivo X60 Pro+,v2056a;v2047,snapdragon 888,sm8350,qhqg,717
+Google Pixel 7 Pro,gp4bc;ge2ae;gfe4j,google tensor g2,,nn,711
+xiaomi redmi k50i,22041216i,dimensity 8100,mt6895z,mm,708
+oneplus 10r,cph2411,dimensity 8100 max,mt6895z,mm,703
+Realme GT Neo 3,rmx3561;rmx3560,dimensity 8100,mt6895z,mm,701
+oppo reno8 pro,pgam10,dimensity 8100 max,mt6895z,mm,699
+zte nubia red magic 6,nx669j,snapdragon 888,sm8350,qhqg,695
+oneplus ace,pgkm10,dimensity 8100-max,mt6895z,mm,692
+Google Pixel 7a,gwkk3;ghl1x;g0dzq;g82u8,google tensor g2,,nn,652
+google pixel fold,g9fpl,google tensor g2,,nn,645
+oppo reno8 pro+,pfzm10,dimensity 8100-max,mt6895z,mm,641
+oppo reno8 pro,pgam10,snapdragon 7 gen 1,sm7450-ab,qhqh,535
+xiaomi 13 lite,2210129sg,snapdragon 7 gen 1,sm7450-ab,qhqh,506
+vivo V27,v2231;v2246,dimensity 7200,mt6886,nn,425
+motorola edge 30,xt2203-1,snapdragon 778g+,sm7325-ae,qhqg,394
+Google Pixel 6 Pro,gluog;g8vou;gf5kq,google tensor,s5e9845,nn,393
+Google Pixel 6,gb7n6;g9s9b16;g9s9b;gr1yh,google tensor,s5e9845,nn,383
+Realme GT Master,rmx3363;rmx3360,snapdragon 778g,sm7325,qhqg,382
+realme q3s,rmx3461,snapdragon 778g,sm7325,qhqg,382
+Xiaomi Poco X5 Pro,22101320g;22101320i,snapdragon 778g,sm7325,qhqg,381
+Xiaomi 11 Lite 5G NE,2109119dg;2107119dc;2109119di,snapdragon 778g,sm7325,qhqg,377
+xiaomi 12 lite,2203129g,snapdragon 778g,sm7325,qhqg,374
+nothing phone (1),a063,snapdragon 778g+,sm7325-ae,qhqg,369
+Samsung Galaxy M52,sm-m526br;sm-m526br/ds;sm-m526b;sm-m526b/ds,snapdragon 778g,sm7325,qhqg,360
+Samsung Galaxy A52s,sm-a528b;sm-a528b/ds;sm-a528n,snapdragon 778g,sm7325,qhqg,360
+Samsung Galaxy A73,sm-a736b;sm-a736b/ds,snapdragon 778g,sm7325,qhqg,360
+honor 70,fne-an00,snapdragon 778g+,sm7325-ae,qhqg,356
+Google Pixel 6a,gx7as;gb62z;g1azg;gb17l,google tensor,s5e9845,nn,344
+Xiaomi Mi 11 Lite 5G,m2101k9g;m2101k9c;m2101k9r,snapdragon 780g,sm7350-ab,qhqg,339
+Huawei Mate 40 Pro,noh-nx9;noh-an00;noh-an01,kirin 9000 5g,kirin9000,gg,261
+oppo reno8,pgbm10,dimensity 1300,mt6893z,mm,241
+vivo x70 pro,v2134a,dimensity 1200,mt6893,mm,240
+OnePlus Nord 2T,cph2399;cph2401,dimensity 1300,mt6893z,mm,240
+realme gt neo,rmx3031,dimensity 1200,mt6893,mm,222
+OnePlus Nord 2 5G,dn2101;dn2103,dimensity 1200-ai,mt6893,mm,219
+oppo reno6 pro,pepm00,dimensity 1200,mt6893,mm,215
+realme gt neo2t,rmx3357,dimensity 1200-ai,mt6893,mm,215
+motorola edge 40,xt2303-2,dimensity 8020,mt6891,mm,206
+realme q3 pro,rmx2205,dimensity 1100,mt6891z,mm,202
+huawei p40 pro,els-an00;els-n04;figi p40,kirin 990,kirin990,gg,197
+huawei p40,ana-an00,kirin 990,kirin990,gg,197
+huawei p40 pro+,els-an10;els-nx9;els-tn00;els-n39,kirin 990 5g,kirin9905g,gg,195
+vivo x70,v2133a;v2104,dimensity 1200,mt6893,mm,194
+tecno camon 20 premier,ck9n,dimensity 8050,mt6893,mm,194
+huawei matepad pro,mrr-w29,kirin 990,kirin990,gg,194
+xiaomi poco x3 gt,21061110ag,dimensity 1100,mt6891z,nn,192
+infinix note 30 vip,x6710,dimensity 8050,mt6893,mm,192
+oppo find x3 neo,cph2207,snapdragon 865,sm8250,ng,192
+realme x7 pro,rmx2121,dimensity 1000+,mt6889z,nn,186
+realme 11 pro,rmx3771,dimensity 7050,mt6877,nn,185
+Realme 11 Pro+,rmx3740;rmx3741,dimensity 7050,mt6877,nn,184
+realme x9 pro,rmx3366,snapdragon 870,sm8250-ac,hg,183
+Realme GT Neo 3T,rmx3372;rmx3371,snapdragon 870,sm8250-ac,hg,180
+Oppo Find X2 Pro,cph2025;pdem30;opg01,snapdragon 865,sm8250,ng,179
+realme gt neo2,rmx3370,snapdragon 870,sm8250-ac,hg,179
+realme q5 pro,rmx3372,snapdragon 870,sm8250-ac,hg,178
+vivo iqoo z1,v1986a,dimensity 1000+,mt6889z,nn,176
+Xiaomi 11i HyperCharge,21091116ui;_mzb0a55in,dimensity 920,mt6877t,nn,175
+xiaomi redmi k30 ultra,m2006j10c,dimensity 1000+,mt6889z,nn,174
+oppo find x3,pedm00,snapdragon 870,sm8250-ac,hg,174
+oneplus 9r,le2100,snapdragon 870,sm8250-ac,hg,174
+Oppo Reno5 Pro 5G,pdsm00;pdst00;cph2201,dimensity 1000+,mt6889z,nn,173
+xiaomi 11i,mzb0a5ein,dimensity 920,mt6877t,nn,173
+Asus ROG Phone 3,asus_i003d;zs661ks;i003dd;i003d,snapdragon 865+,sm8250,hg,173
+Xiaomi Redmi Note 11 Pro+,21091116ug;21091116uc,dimensity 920,mt6877t,nn,172
+Samsung Galaxy M53,sm-m536b;sm-m536b/ds;sm-m536b/dsn,dimensity 900,mt6877,nn,171
+Asus Zenfone 7,zs670ks;asus_i002d;i002d,snapdragon 865,sm8250,hg,171
+infinix zero ultra,x6820,dimensity 920,mt6877t,nn,170
+xiaomi redmi k30 pro,redmi k30 pro,snapdragon 865,sm8250,hg,170
+Oppo Reno6 5G,peqm00;cph2251,dimensity 900,mt6877,nn,169
+oneplus 8t,kb2000;kb2001;kb2003,snapdragon 865,sm8250,hg,169
+Oppo Reno6 Pro 5G,pepm00;cph2249;cph2247,snapdragon 870,sm8250-ac,hg,169
+Samsung Galaxy S20,sm-g980;sm-g980f;sm-g980f/ds,snapdragon 865,sm8250,hg,168
+oneplus 8 pro,in2020;in2025;in2021,snapdragon 865,sm8250,hg,168
+Samsung Galaxy Tab S7+,sm-t970;sm-t976b;sm-t975,snapdragon 865+,sm8250,hg,168
+Samsung Galaxy Note20 Ultra 5G,sm-n986b;sm-n986b/ds;sm-n986u;sm-n986u1;sm-n986w;sm-n9860;sm-n986n;sc-53a,snapdragon 865+,sm8250,hg,168
+Samsung Galaxy Tab S7,sm-t870;sm-t875;sm-t876b,snapdragon 865+,sm8250,hg,168
+Samsung Galaxy A34,sm-a346e;sm-a346b;sm-a346b/ds;sm-a346b/dsn;sm-a346e/ds;sm-a346e/dsn;sm-a346m;sm-a346m/n;sm-a346m/dsn;sm-a3460,dimensity 1080,mt6877v,nn,167
+vivo V23 5G,v2130;v2303,dimensity 920,mt6877t,nn,166
+Samsung Galaxy S20 FE 5G,sm-g781b;sm-g781b/ds;sm-g781u;sm-g781u1;sm-g781w;sm-g7810;sm-g781n;sm-g781v,snapdragon 865,sm8250,hg,166
+xiaomi mi 10 pro 5g,m2001j1g,snapdragon 865,sm8250,ng,166
+Samsung Galaxy S20+,sm-g985;sm-g985f;sm-g985f/ds;sm-g986;sm-g986f;sm-g986f/ds;sm-g986u;sm-g986u1;sm-g9860;sm-g986b/ds;sm-g986n;sm-g986b;sm-g986w;scg02,snapdragon 865,sm8250,hg,166
+xiaomi black shark 5,shark par-a0,snapdragon 870,sm8250-ac,hg,166
+Realme 9 Pro+,rmx3392;rmx3393,dimensity 920,mt6877t,nn,164
+Samsung Galaxy S20 FE,sm-g780f;sm-g780f/dsm;sm-g780g,snapdragon 865,sm8250,hg,164
+Samsung Galaxy Z Fold2 5G,sm-f916b;sm-f916u;sm-f916u1;sm-f916n;sm-f9160;sm-f916w;scg05,snapdragon 865+,sm8250,hg,164
+xiaomi redmi k40s,m2012k11ac,snapdragon 870,sm8250-ac,hg,164
+Samsung Galaxy S20 Ultra,sm-g988;sm-g988u;sm-g988u1;sm-g9880;sm-g988b/ds;sm-g988n;sm-g988b;sm-g988w;scg03;sm-g988b/ds,snapdragon 865,sm8250,hg,163
+Samsung Galaxy Note20 5G,sm-n981b;sm-n981b/ds;sm-n981u;sm-n981u1;sm-n981w;sm-n9810;sm-n981n,snapdragon 865+,sm8250,hg,162
+xiaomi pad 5 pro,m2105k81ac,snapdragon 870,sm8250-ac,hg,161
+oneplus 8,in2010;in2013,snapdragon 865,sm8250,hg,160
+Xiaomi Poco F4,22021211rg;22021211ri,snapdragon 870,sm8250-ac,hg,160
+Xiaomi Black Shark 4,shark prs-h0;shark prs-a0;shark ksr-a0,snapdragon 870,sm8250-ac,hg,160
+xiaomi redmi k40,m2012k11ac,snapdragon 870,sm8250-ac,hg,160
+xiaomi 12x,2112123ac,snapdragon 870,sm8250-ac,hg,160
+Xiaomi Pad 6,23043rp34c;23043rp34g,snapdragon 870,sm8250-ac,hg,160
+LG V60 ThinQ 5G,lm-v600;a001lg,snapdragon 865,sm8250,hg,159
+xiaomi poco f3,m2012k11ag,snapdragon 870,sm8250-ac,hg,159
+xiaomi mi 11x,m2012k11ai,snapdragon 870,sm8250-ac,hg,159
+Xiaomi Redmi K40 Gaming,m2012k10c;m2104k10ac,dimensity 1200,mt6893,mm,158
+xiaomi 11t,21081111rg,dimensity 1200,mt6893,mm,158
+Sony Xperia 1 II,xq-at51;xq-at52;sog01;xq-at42,snapdragon 865,sm8250,hg,157
+Sony Xperia 5 II,so-52a;xq-as52;xq-as62;xq-as72;a002so;sog02,snapdragon 865,sm8250,hg,156
+Realme X50 Pro,rmx2075;rmx2071;rmx2076,snapdragon 865,sm8250,hg,156
+Realme X50 Pro 5G,rmx2075;rmx2071;rmx2076,snapdragon 865,sm8250,hg,156
+Huawei nova 5T,yal-l21;yal-l61;yal-l71;yal-l61d,kirin 980,kirin980,gg,155
+huawei p30 pro,vog-al00;hw-02l;vog-al10;vog-l04;vog-l09;vog-l29;vog-tl00,kirin 980,kirin980,gg,155
+Honor View 20,pct-al10;pct-tl10;pct-l29,kirin 980,kirin980,gg,155
+ZTE Axon 30,a2322;a2322g,snapdragon 870,sm8250-ac,hg,155
+huawei p30,ele-al00;ele-tl00;ele-l09;p30;ele-l29,kirin 980,kirin980,gg,154
+vivo x60 pro,v2047a,snapdragon 870,sm8250-ac,hg,154
+Honor 20 Pro,yal-al10;yal-l41,kirin 980,kirin980,gg,153
+realme x2 pro,rmx1931,snapdragon 855+,sm8150-ac,hg,153
+vivo iqoo neo5,v2055a,snapdragon 870,sm8250-ac,hg,153
+lenovo yoga tab 13,za8e0018cn,snapdragon 870,sm8250-ac,hg,153
+Huawei Mate 20 X,evr-l29;evr-al00;evr-tl00,kirin 980,kirin980,gg,152
+realme x3 superzoom,rmx2086,snapdragon 855+,sm8150-ac,hg,149
+Asus ROG Phone II,asus_i001d;i001da;i001de;i001dc;i001db;i001d;i001dd,snapdragon 855+,sm8150-ac,hg,148
+huawei mate 20 pro,lya-al00;lya-l09;lya-l0c;lya-al10;lya-tl00,kirin 980,kirin980,gg,147
+Xiaomi Mi 10 5G,m2001j2g;m2001j2i;mi 10,snapdragon 865,sm8250,hg,146
+vivo iqoo neo 6,i2126,snapdragon 870,sm8250-ac,hg,145
+vivo v25,v2202,dimensity 900,mt6877,nn,144
+oneplus 7t pro,hd1910,snapdragon 855+,sm8150-ac,ng,144
+oneplus 7t,hd1900,snapdragon 855+,sm8150-ac,ng,143
+xiaomi redmi 10x pro 5g,m2004j7bc,dimensity 820,mt6875,nn,141
+meizu 17,m091q;m081q;m081m,snapdragon 865,sm8250,hg,141
+Xiaomi Redmi Note 10,m2101k7ai;m2101k7ag;m2101k6g;m2101k6r,dimensity 820,mt6875,nn,139
+oneplus 7 pro,gm1910;gm1915,snapdragon 855,sm8150,ng,137
+Sharp Aquos R5G,sh-51a;shg01;sh-r50,snapdragon 865,sm8250,hg,137
+Samsung Galaxy Note10+,sm-n975f;sm-n975u;sm-n9750;sm-n975u1;sm-n975w;sm-n975n;sm-n975x;scv45;sm-n976f;sm-n976u;sm-n976;sm-n976b;sm-n976n;sm-n976v;sm-n9760;sm-n976q,snapdragon 855,sm8150,hg,136
+oneplus nord 2 ce,iv2201,dimensity 900,mt6877,nn,135
+oneplus 7,gm1900;oneplus 7;gm1901,snapdragon 855,sm8150,ng,135
+ZTE Axon 30 5G,a2322;a2322g,snapdragon 870,sm8250-ac,hg,135
+Samsung Galaxy S10 Lite,sm-g770f;sm-g770f/ds;sm-g770f/dsm;sm-g770u1,snapdragon 855,sm8150,hg,134
+Samsung Galaxy Tab S6,sm-t860;sm-t865;sm-t866n,snapdragon 855,sm8150,hg,133
+lg v50s thinq 5g,lm-v510n,snapdragon 855,sm8150,hg,133
+Asus Zenfone 6,asus_i01wd;zs630kl;i01wd,snapdragon 855,sm8150,hg,133
+motorola edge 20 pro,xt2153-1,snapdragon 870,sm8250-ac,nn,133
+oppo reno4 z 5g,cph2065,dimensity 800,mt6873,nn,132
+samsung galaxy s10+,sm-g9750;sm-g975w;scv42;sc-04l;sm-g975f;sm-g975n;sm-g9758;sm-g977n,snapdragon 855,sm8150,hg,132
+Sony Xperia 5,j8210;j8270;j9210;sov41;so-01m,snapdragon 855,sm8150,hg,131
+samsung galaxy s10,sm-g9730;sm-g973u;sm-g973u1;sm-g973w;sm-g9738;sm-g973f;galaxy s10;sm-g975u;galaxy+s10,snapdragon 855,sm8150,hg,130
+Sharp Aquos Zero 2,sh-z20;shv47;906sh,snapdragon 855,sm8150,hg,129
+LG V50 ThinQ 5G,lm-v500;lm-v500n;lm-v500em;lm-v500xm;lm-v450pm;lm-v450,snapdragon 855,sm8150,hg,129
+xiaomi mi 9t pro,m1903f11g,snapdragon 855,sm8150,hg,129
+xiaomi poco f2 pro,m2004j11g,snapdragon 865,sm8250,nn,129
+Motorola Moto G100,xt2125;xt2125-4,snapdragon 870,sm8250-ac,nn,129
+LG G8 ThinQ,lmg820qm7;lm-g820umb;lmg820um0;lmg820um1;lmg820um2;lm-g820n;lm-g820,snapdragon 855,sm8150,hg,128
+xiaomi mi 9,m1902f1g,snapdragon 855,sm8150,hg,128
+xiaomi redmi k20 pro,m1903f11i,snapdragon 855,sm8150,hg,128
+motorola edge+,xt2061-3,snapdragon 865,sm8250,nn,128
+Sony Xperia 1,j8110;j8170;j9110;j9150;sov40;so-03l,snapdragon 855,sm8150,hg,127
+LG G8S ThinQ,lmg810;lm-g810;lmg810eaw,snapdragon 855,sm8150,hg,127
+xiaomi mi 10 ultra,m2007j1sc,snapdragon 865,sm8250,nn,126
+Xiaomi Mi 10T Pro 5G,m2007j3sg;m2007j3sp;m2007j3si;m2007j17c,snapdragon 865,sm8250,nn,125
+Oppo Reno3 5G,pchm30;pdcm00;a001op,dimensity 1000l,mt6885z,nn,124
+huawei nova 7 5g,jef-an00;jef-nx9,kirin 985 5g,kirin9855g,gg,123
+oppo a92s,pdkm00;pdkt00,dimensity 800,mt6873,nn,120
+honor 30,bmh-an10;bmh-an20;bmh-tn10,kirin 985 5g,kirin9855g,gg,117
+huawei p40 lite 5g,cdy-nx9a,kirin 820 5g,kirin8205g,gg,113
+huawei p20 pro,clt-al00;clt-al01;clt-l04;clt-tl00;clt-tl01;hw-01k;clt-al00l,kirin 970,kirin970,gg,105
+LG Velvet 5G,lm-g900n;lm-g900em;lm-g900;lm-g900tm,snapdragon 765g,sm7250,nn,103
+huawei p20,eml-al00,kirin 970,kirin970,gg,101
+Huawei Mate 10 Pro,bla-l29;bla-l09;bla-al00;bla-a09,kirin 970,kirin970,gg,97.1
+Google Pixel 4 XL,g020p;g020;ga01181-us;ga01182-us;ga01180-us,snapdragon 855,sm8150,nn,96.6
+Xiaomi Poco X3 Pro,m2102j20sg;m2102j20si,snapdragon 860,sm8150-ac,nn,95.9
+Google Pixel 4,g020m;g020i;ga01188-us;ga01187-us;ga01189-us;ga01191-us;ga01189-us,snapdragon 855,sm8150,nn,95.7
+OnePlus 6T,a6010;a6013,snapdragon 845,sdm845,ng,94.4
+OnePlus 6,a6000;a6003,snapdragon 845,sdm845,ng,94
+asus zenfone 5z,z01rd,snapdragon 845,sdm845,hg,94
+Nokia 9 PureView,ta-1094;a-1087;ta-1082,snapdragon 845,sdm845,hg,91
+ZTE Axon 9 Pro,a2019g pro;a2019 pro,snapdragon 845,sdm845,hg,90.2
+Sony Xperia XZ2,h8266;h8216;h8296;h8276;702so;sov37,snapdragon 845,sdm845,hg,90
+Samsung Galaxy Note9,sm-n960f;sm-n9600;sm-n960f;sm-n960u;sm-n960u1;sm-n960n;sm-n960w;sm-n960x;scv40,snapdragon 845,sdm845,hg,90
+Samsung Galaxy S9+,sm-g965f;sm-g965u;sm-g965w;sm-g9650;sm-g965u1;sm-g965n;scv39;sm-g965x;sc-03k,snapdragon 845,sdm845,hg,89.8
+Xiaomi Pocophone F1,m1805e10a;poco f1,snapdragon 845,sdm845,hg,89.5
+LG Velvet,lm-g900n;lm-g900em;lm-g900;lm-g900tm,snapdragon 845,sdm845,hg,89.5
+Sony Xperia XZ2 Compact,h8324;h8314;so-05k,snapdragon 845,sdm845,hg,89.3
+Sony Xperia XZ3,h9436;h8416;h9493,snapdragon 845,sdm845,hg,88.9
+vivo NEX S,1805;nex s,snapdragon 845,sdm845,hg,88
+Samsung Galaxy S9,sm-g960f;sm-g960;sm-g960f;sm-g960u;sm-g960w;sm-g9600;sm-g960u1;sm-g960n;scv38;sm-g960x;sc-02k,snapdragon 845,sdm845,hg,87.7
+Xiaomi Pad 5,21051182g;21051182c,snapdragon 860,sm8150-ac,nn,87.7
+xiaomi mi 8,m1803e1a,snapdragon 845,sdm845,hg,87.3
+Sony Xperia XZ2 Premium,h8166;h8116;sov38,snapdragon 845,sdm845,hg,87.2
+xiaomi mi mix 2s,m1803d5xa,snapdragon 845,sdm845,hg,86.4

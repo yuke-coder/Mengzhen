@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout android:layout_width="match_parent" android:layout_height="wrap_content"
+  xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">
+    <LinearLayout android:orientation="vertical" android:id="@id/c3w" android:layout_width="match_parent" android:layout_height="wrap_content" app:a1j="hnz" app:a23="hnz" app:a27="hnz">
+        <LinearLayout android:orientation="horizontal" android:layout_width="match_parent" android:layout_height="wrap_content">
+            <Button android:textSize="12.0sp" android:textColor="#ffffff" android:layout_gravity="center" android:id="@id/j4c" android:background="@drawable/ss_super_bass_select_button" android:layout_width="0.0dp" android:layout_height="50.0dp" android:text="随机\n匹配" android:lines="2" android:layout_weight="1.0" />
+            <Button android:textSize="14.0sp" android:textColor="#ffffff" android:id="@id/j49" android:background="@drawable/ss_super_bass_select_button" android:layout_width="0.0dp" android:layout_height="50.0dp" android:layout_marginLeft="10.0dp" android:layout_weight="1.0" />
+            <Button android:textSize="14.0sp" android:textColor="#ffffff" android:id="@id/j4_" android:background="@drawable/ss_super_bass_select_button" android:layout_width="0.0dp" android:layout_height="50.0dp" android:layout_marginLeft="10.0dp" android:layout_weight="1.0" />
+            <Button android:textSize="14.0sp" android:textColor="#ffffff" android:id="@id/j4a" android:background="@drawable/ss_super_bass_select_button" android:layout_width="0.0dp" android:layout_height="50.0dp" android:layout_marginLeft="10.0dp" android:layout_weight="1.0" />
+            <Button android:textSize="14.0sp" android:textColor="#ffffff" android:id="@id/j4b" android:background="@drawable/ss_super_bass_select_button" android:layout_width="0.0dp" android:layout_height="50.0dp" android:layout_marginLeft="10.0dp" android:layout_weight="1.0" />
+        </LinearLayout>
+        <FrameLayout android:layout_gravity="center" android:id="@id/ym" android:layout_width="wrap_content" android:layout_height="@dimen/c7g" android:layout_marginTop="25.0dp">
+            <com.airbnb.lottie.LottieAnimationView android:layout_gravity="center" android:id="@id/f27" android:visibility="gone" android:layout_width="match_parent" android:layout_height="match_parent" app:a4u="true" />
+            <com.airbnb.lottie.LottieAnimationView android:layout_gravity="center" android:id="@id/hq0" android:visibility="gone" android:layout_width="match_parent" android:layout_height="match_parent" app:a4u="true" />
+            <com.airbnb.lottie.LottieAnimationView android:layout_gravity="center" android:id="@id/jvf" android:visibility="gone" android:layout_width="match_parent" android:layout_height="match_parent" app:a4u="true" />
+            <ImageView android:layout_gravity="center" android:id="@id/yp" android:tag="" android:visibility="gone" android:layout_width="match_parent" android:layout_height="match_parent" android:src="@drawable/ss_remix_static_pic" />
+            <ImageView android:layout_gravity="center" android:id="@id/yq" android:layout_width="match_parent" android:layout_height="match_parent" android:src="@drawable/ss_remix_static_pic" />
+            <ImageView android:layout_gravity="center" android:id="@id/yr" android:tag="" android:visibility="gone" android:layout_width="match_parent" android:layout_height="match_parent" android:src="@drawable/ss_remix_static_pic" />
+        </FrameLayout>
+        <LinearLayout android:layout_gravity="center" android:orientation="horizontal" android:id="@id/f2j" android:layout_width="wrap_content" android:layout_height="36.0dp" android:layout_marginTop="20.0dp" android:layout_marginBottom="20.0dp">
+            <ImageButton android:id="@id/ktf" android:background="@drawable/transparent" android:layout_width="wrap_content" android:layout_height="wrap_content" android:src="@drawable/ss_remix_light_close" />
+            <ImageButton android:id="@id/ktg" android:background="@drawable/transparent" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginLeft="20.0dp" android:src="@drawable/ss_remix_vibrate_close" />
+        </LinearLayout>> </LinearLayout>
+    <FrameLayout android:id="@id/j48" android:layout_width="match_parent" android:layout_height="wrap_content" app:a1j="hnz" app:a23="hnz" app:a26="@id/c3w" app:a2r="30.0dp" />
+</androidx.constraintlayout.widget.ConstraintLayout>

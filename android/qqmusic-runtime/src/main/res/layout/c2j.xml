@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout android:background="@drawable/material_ripple_background" android:layout_width="match_parent" android:layout_height="@dimen/b6k" android:minHeight="@dimen/b6k"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <RelativeLayout android:id="@id/h4v" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginRight="12.0dp" android:layout_centerVertical="true">
+        <com.tencent.component.widget.AsyncEffectImageView android:id="@id/h4q" android:layout_width="124.0dp" android:layout_height="70.0dp" android:src="@drawable/mv_item_default_img" android:scaleType="centerCrop" android:layout_centerVertical="true" />
+        <ImageView android:id="@id/h4z" android:visibility="gone" android:layout_width="40.0dp" android:layout_height="40.0dp" android:src="@drawable/mv_rank_num_mask" android:layout_alignParentLeft="true" android:layout_alignParentTop="true" />
+        <TextView android:textSize="15.0dp" android:id="@id/h60" android:paddingLeft="5.0dp" android:paddingTop="4.0dp" android:layout_width="40.0dp" android:layout_height="40.0dp" android:text="" android:layout_alignParentLeft="true" android:layout_alignParentTop="true" style="@style/lj" />
+        <RelativeLayout android:id="@id/irg" android:background="@drawable/mv_rank_status_mask" android:paddingLeft="2.0dp" android:paddingTop="1.0dp" android:paddingRight="2.0dp" android:paddingBottom="1.0dp" android:visibility="visible" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_alignRight="@id/h4q" android:layout_alignBottom="@id/h4q">
+            <RelativeLayout android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_centerInParent="true">
+                <com.tencent.component.widget.AsyncEffectImageView android:id="@id/iso" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_centerVertical="true" />
+                <TextView android:textSize="10.0sp" android:textColor="@android:color/white" android:id="@id/isp" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_toRightOf="@id/iso" android:layout_centerVertical="true" style="@style/ln" />
+            </RelativeLayout>
+        </RelativeLayout>
+        <ImageView android:id="@id/h4x" android:visibility="invisible" android:layout_width="wrap_content" android:layout_height="wrap_content" android:scaleType="centerCrop" />
+    </RelativeLayout>
+    <RelativeLayout android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginRight="12.0dp" android:layout_toRightOf="@id/h4v" android:layout_centerVertical="true">
+        <TextView android:textColor="@color/skin_text_main_color" android:id="@id/h50" android:layout_width="wrap_content" android:text="" android:maxLines="1" style="@style/lj" />
+        <TextView android:textColor="@color/skin_text_sub_color" android:id="@id/h62" android:layout_width="wrap_content" android:layout_marginTop="4.0dp" android:text="" android:maxLines="1" android:layout_below="@id/h50" style="@style/li" />
+        <TextView android:textColor="@color/skin_text_main_color" android:id="@id/h61" android:visibility="gone" android:layout_width="wrap_content" android:layout_marginTop="4.0dp" android:text="" android:maxLines="1" android:layout_below="@id/h62" style="@style/li" />
+        <TextView android:textColor="@color/skin_text_sub_color" android:id="@id/h4d" android:visibility="gone" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="4.0dp" android:maxLines="1" android:layout_below="@id/h61" style="@style/li" />
+    </RelativeLayout>
+    <View android:background="@drawable/z_color_l1" android:layout_width="match_parent" android:layout_height="0.5dp" android:layout_toRightOf="@id/h4v" android:layout_alignParentBottom="true" />
+</RelativeLayout>

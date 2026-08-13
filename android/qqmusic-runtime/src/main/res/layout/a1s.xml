@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView android:background="@drawable/main_bg" android:layout_width="match_parent" android:layout_height="match_parent"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <LinearLayout android:orientation="vertical" android:layout_width="match_parent" android:layout_height="match_parent" android:layout_marginTop="54.0dp">
+        <EditText android:id="@id/c0q" android:layout_width="match_parent" android:layout_height="wrap_content" android:text="/sdcard/qqmusic/" android:hint="输入需要操作的路径" />
+        <Button android:id="@id/czl" android:layout_width="match_parent" android:layout_height="wrap_content" android:text="Get File Uri" android:textAllCaps="false" />
+        <Button android:id="@id/j4r" android:layout_width="match_parent" android:layout_height="wrap_content" android:text="Request Folder Permission" android:textAllCaps="false" />
+    </LinearLayout>
+</ScrollView>

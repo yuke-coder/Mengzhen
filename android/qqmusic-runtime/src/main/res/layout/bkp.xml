@@ -1,0 +1,3 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.tme.mlive.ui.custom.async.SongTaskView android:id="@id/mlive_layout_live_anchor_song_quest" android:visibility="gone" android:layout_width="273.0dp" android:layout_height="wrap_content"
+  xmlns:android="http://schemas.android.com/apk/res/android" />

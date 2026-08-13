@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout android:orientation="vertical" android:id="@id/b_l" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginTop="8.0dp"
+  xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">
+    <com.tencent.qqmusic.ui.RoundedRelativeLayout android:id="@id/b_d" android:clipChildren="false" android:layout_width="match_parent" android:layout_height="wrap_content" app:ado="4.0dp">
+        <com.tencentmusic.ad.integration.nativead.TMENativeAdContainer android:id="@id/ho" android:layout_width="match_parent" android:layout_height="wrap_content">
+            <FrameLayout android:id="@id/ja" android:visibility="gone" android:layout_width="match_parent" android:layout_height="54.0dp" />
+            <androidx.constraintlayout.widget.ConstraintLayout android:id="@id/ic" android:visibility="visible" android:layout_width="match_parent" android:layout_height="1.0dp" app:a1x="hnz" app:a21="hnz" />
+        </com.tencentmusic.ad.integration.nativead.TMENativeAdContainer>
+        <TextView android:textSize="10.0dp" android:textColor="@color/white" android:gravity="center" android:id="@id/hn" android:background="@drawable/bg_dynamic_banner_ad" android:paddingTop="4.0dp" android:paddingBottom="4.0dp" android:visibility="gone" android:layout_width="wrap_content" android:layout_height="22.0dp" android:drawableEnd="@drawable/ic_white_close" android:paddingStart="10.0dp" android:paddingEnd="7.0dp" android:layout_alignParentEnd="true" />
+        <View android:id="@id/hj" android:visibility="gone" android:layout_width="25.0dp" android:layout_height="22.0dp" android:contentDescription="@string/a7j" android:layout_alignParentEnd="true" />
+    </com.tencent.qqmusic.ui.RoundedRelativeLayout>
+    <View android:id="@id/nah" android:layout_width="match_parent" android:layout_height="8.0dp" />
+</LinearLayout>

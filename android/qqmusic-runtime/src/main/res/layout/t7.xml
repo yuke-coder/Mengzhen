@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout android:paddingTop="10.0dp" android:paddingBottom="2.5dp" android:layout_width="match_parent" android:layout_height="wrap_content"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <com.tencent.qqmusic.business.timeline.ui.ClipPathRelativeLayout android:id="@id/l_s" android:layout_width="100.0dp" android:layout_height="100.0dp" android:layout_alignParentTop="true" android:layout_alignParentRight="true" android:layout_alignParentEnd="true">
+        <com.tencent.component.widget.AsyncEffectImageView android:id="@id/l_q" android:layout_width="100.0dp" android:layout_height="100.0dp" android:scaleType="centerCrop" />
+    </com.tencent.qqmusic.business.timeline.ui.ClipPathRelativeLayout>
+    <RelativeLayout android:orientation="vertical" android:layout_width="wrap_content" android:layout_height="match_parent" android:layout_marginRight="32.0dp" android:layout_toLeftOf="@id/l_s" android:layout_alignTop="@id/l_s" android:layout_alignBottom="@id/l_s" android:layout_alignParentLeft="true" android:layout_marginEnd="32.0dp" android:layout_toStartOf="@id/l_s" android:layout_alignParentStart="true">
+        <TextView android:textSize="15.0dp" android:textColor="@color/skin_text_main_color" android:ellipsize="end" android:gravity="left" android:id="@id/l_t" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="开机速度哈双卡是否会a开机速度哈双卡是否会a开机速度哈双卡是否会a开机速度哈双卡是否会" android:maxLines="2" android:lineSpacingExtra="4.0dp" />
+        <TextView android:textSize="14.0dp" android:textColor="@color/skin_text_sub_color" android:ellipsize="end" android:gravity="left|top" android:id="@id/l_p" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="10.0dp" android:text="a开机速度哈双卡是否会a开机速度哈双卡是否会a开机速度哈双卡是否会a开机速度哈双卡是否会" android:maxLines="2" android:minLines="2" android:layout_below="@id/l_t" android:lineSpacingExtra="4.0dp" />
+    </RelativeLayout>
+</RelativeLayout>

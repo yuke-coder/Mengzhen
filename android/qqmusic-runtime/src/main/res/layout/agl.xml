@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout android:background="@drawable/color_b2_click" android:visibility="visible" android:clickable="true" android:layout_width="match_parent" android:layout_height="60.0dp"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <TextView android:textSize="16.0dp" android:textColor="@color/skin_text_main_color" android:gravity="center_vertical" android:id="@id/ldr" android:layout_width="match_parent" android:layout_height="40.0dp" android:layout_marginLeft="15.0dp" android:text="查看关注好友" android:layout_centerVertical="true" />
+    <View android:id="@id/bu2" android:background="@drawable/z_color_l1" android:layout_width="match_parent" android:layout_height="0.5dp" android:layout_marginLeft="15.0dp" android:layout_alignParentBottom="true" />
+    <ImageView android:id="@id/gss" android:background="@drawable/arrow_right" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginLeft="12.0dp" android:layout_marginRight="12.0dp" android:layout_alignParentRight="true" android:layout_centerVertical="true" />
+</RelativeLayout>

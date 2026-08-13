@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout android:layout_width="match_parent" android:layout_height="match_parent"
+  xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">
+    <ImageView android:id="@id/mlive_task_calendar_iv" android:layout_width="@dimen/as7" android:layout_height="@dimen/as7" android:src="@drawable/mlive_task_calendar" app:a1d="hnz" app:a1j="hnz" app:a23="hnz" app:a27="hnz" />
+    <org.libpag.PAGView android:id="@id/mlive_task_anim_pag_view" android:visibility="invisible" android:layout_width="@dimen/as7" android:layout_height="@dimen/as7" app:a1d="hnz" app:a1j="hnz" app:a23="hnz" app:a27="hnz" />
+    <ProgressBar android:id="@id/mlive_task_btn_pb" android:visibility="visible" android:layout_width="0.0dp" android:layout_height="2.0dp" android:layout_marginTop="3.0dp" android:progressDrawable="@drawable/mlive_bg_task_progress" android:layout_marginStart="1.0dp" android:layout_marginEnd="1.0dp" app:a1d="hnz" app:a1j="@id/mlive_task_anim_pag_view" app:a23="@id/mlive_task_anim_pag_view" app:a26="@id/mlive_task_anim_pag_view" style="@style/ze" />
+</androidx.constraintlayout.widget.ConstraintLayout>

@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.tencent.qqmusic.ui.RoundedConstraintLayout android:visibility="gone" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_centerHorizontal="true" android:layout_centerVertical="true" app:kj="15.0dp"
+  xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">
+    <RelativeLayout android:id="@id/a2x" android:background="@drawable/folder_auto_mix_guide_bg" android:paddingLeft="11.0dp" android:paddingRight="5.0dp" android:visibility="visible" android:layout_width="wrap_content" android:layout_height="30.0dp" app:a1d="hnz" app:a1j="hnz" app:a23="hnz" app:a27="hnz">
+        <TextView android:textSize="12.0sp" android:textColor="@color/skin_text_main_color" android:ellipsize="end" android:gravity="center_vertical" android:id="@id/a30" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/vb" android:lines="1" android:singleLine="true" android:includeFontPadding="false" android:layout_centerVertical="true" />
+        <ImageView android:id="@id/a2y" android:layout_width="20.0dp" android:layout_height="20.0dp" android:src="@drawable/auto_mix_guide_right_arrow" android:layout_toRightOf="@id/a30" android:layout_centerVertical="true" />
+    </RelativeLayout>
+</com.tencent.qqmusic.ui.RoundedConstraintLayout>

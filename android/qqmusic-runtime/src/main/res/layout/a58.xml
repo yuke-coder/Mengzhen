@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout android:id="@id/e15" android:layout_width="match_parent" android:layout_height="wrap_content" android:paddingStart="@dimen/eo" android:paddingEnd="@dimen/eo"
+  xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">
+    <com.tencent.component.widget.AsyncImageView android:id="@id/e8s" android:layout_width="50.0dp" android:layout_height="50.0dp" app:a1d="hnz" app:a23="hnz" app:a27="hnz" />
+    <TextView android:textSize="14.0sp" android:textStyle="bold" android:textColor="@color/album_base_info_dark_color" android:ellipsize="end" android:id="@id/m2o" android:layout_width="0.0dp" android:layout_height="wrap_content" android:layout_marginBottom="3.0dp" android:maxLines="1" android:layout_marginStart="10.0dp" app:a1e="@id/m2n" app:a1j="hnz" app:a22="@id/e8s" app:a27="hnz" app:a29="hmg" />
+    <TextView android:textSize="12.0sp" android:textColor="@color/album_assist_info_dark_color" android:ellipsize="end" android:id="@id/m2n" android:layout_width="0.0dp" android:layout_height="wrap_content" android:maxLines="1" android:layout_marginStart="10.0dp" app:a1d="hnz" app:a1j="hnz" app:a22="@id/e8s" app:a26="@id/m2o" />
+</androidx.constraintlayout.widget.ConstraintLayout>

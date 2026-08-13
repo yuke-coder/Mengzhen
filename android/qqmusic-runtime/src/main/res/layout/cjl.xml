@@ -1,0 +1,3 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.tencent.qqmusic.fragment.search.view.SearchScrollRecommendView android:id="@id/j05" android:visibility="gone" android:layout_width="match_parent" android:layout_height="0.0dp" android:layout_marginBottom="5.0dp" android:layout_below="@id/gt0"
+  xmlns:android="http://schemas.android.com/apk/res/android" />

@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.tencent.qqmusic.business.playercommon.normalplayer.ui.PlayerConstraintLayout android:id="@id/i5r" android:background="@color/black" android:clipChildren="false" android:layout_width="match_parent" android:layout_height="match_parent"
+  xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">
+    <ImageView android:id="@id/hwn" android:visibility="gone" android:layout_width="match_parent" android:layout_height="match_parent" android:scaleType="centerCrop" />
+    <ImageView android:id="@id/i0i" android:visibility="gone" android:layout_width="match_parent" android:layout_height="match_parent" android:scaleType="centerCrop" />
+    <FrameLayout android:id="@id/hzu" android:visibility="gone" android:layout_width="match_parent" android:layout_height="match_parent" android:layout_centerInParent="true" />
+    <com.tencent.component.widget.AsyncImageView android:id="@id/i6s" android:visibility="gone" android:layout_width="match_parent" android:layout_height="match_parent" android:scaleType="fitXY" />
+    <FrameLayout android:id="@id/hxv" android:visibility="gone" android:layout_width="match_parent" android:layout_height="match_parent" />
+    <Space android:id="@id/b07" android:layout_width="0.0dp" android:layout_height="1.0dp" app:a1i="H,1:1" app:a1j="hnz" app:a23="hnz" app:a27="hnz" />
+    <Space android:id="@id/b05" android:layout_width="0.0dp" android:layout_height="1.0dp" app:a1d="hnz" app:a1i="H,1:1" app:a1j="hnz" app:a23="hnz" />
+    <androidx.constraintlayout.widget.ConstraintLayout android:id="@id/b04" android:clipChildren="false" android:layout_width="0.0dp" android:layout_height="0.0dp" app:a1e="@id/b05" app:a1j="hnz" app:a23="hnz" app:a26="@id/b07">
+        <androidx.constraintlayout.widget.Guideline android:orientation="vertical" android:id="@id/d9k" android:layout_width="wrap_content" android:layout_height="wrap_content" app:a1n="0.1066" />
+        <androidx.constraintlayout.widget.Guideline android:orientation="vertical" android:id="@id/d_e" android:layout_width="wrap_content" android:layout_height="wrap_content" app:a1n="0.5" />
+        <androidx.constraintlayout.widget.Guideline android:orientation="vertical" android:id="@id/d87" android:layout_width="wrap_content" android:layout_height="wrap_content" app:a1n="0.6291" />
+        <androidx.constraintlayout.widget.Guideline android:orientation="horizontal" android:id="@id/d86" android:layout_width="wrap_content" android:layout_height="wrap_content" app:a1n="0.8615" />
+        <FrameLayout android:id="@id/i5c" android:clipChildren="false" android:layout_width="0.0dp" android:layout_height="0.0dp" android:importantForAccessibility="no" app:a1e="@id/d86" app:a1i="W,1:1" app:a22="@id/d87" app:a2e="0.5213">
+            <FrameLayout android:id="@id/hwd" android:clipChildren="false" android:layout_width="match_parent" android:layout_height="match_parent" />
+        </FrameLayout>
+        <androidx.constraintlayout.widget.Guideline android:orientation="horizontal" android:id="@id/kfk" android:layout_width="wrap_content" android:layout_height="wrap_content" app:a1n="0.1026" />
+        <Space android:id="@id/kfj" android:layout_width="0.0dp" android:layout_height="0.0dp" app:a1i="H,1:1" app:a1s="0.0565" app:a22="@id/d9k" app:a27="@id/kfk" />
+        <FrameLayout android:textSize="18.0dp" android:textColor="@color/white" android:id="@id/kfh" android:layout_width="0.0dp" android:layout_height="wrap_content" app:a1j="@id/d_e" app:a23="@id/kfj" app:a27="@id/kfj">
+            <com.tencent.qqmusic.ui.customview.textview.ScrollTextView android:textSize="18.0dp" android:textStyle="bold" android:textColor="@color/white" android:ellipsize="end" android:gravity="center_vertical" android:layout_gravity="center_vertical" android:id="@id/kfb" android:layout_width="wrap_content" android:layout_height="wrap_content" android:singleLine="true" android:includeFontPadding="false" android:alpha="0.8" />
+        </FrameLayout>
+        <Space android:id="@id/mmp" android:layout_width="0.0dp" android:layout_height="0.0dp" app:a1i="H,1:1" app:a1s="0.0565" app:a22="@id/d9k" app:a26="@id/kfh" />
+        <androidx.constraintlayout.widget.Guideline android:orientation="vertical" android:id="@id/i0e" android:layout_width="wrap_content" android:layout_height="wrap_content" app:a1n="0.0735" />
+        <androidx.constraintlayout.widget.Guideline android:orientation="vertical" android:id="@id/i0d" android:layout_width="wrap_content" android:layout_height="wrap_content" app:a1n="0.5308" />
+        <ViewStub android:id="@id/i0h" android:layout="@layout/a7h" android:inflatedId="@id/i05" android:layout_width="0.0dp" android:layout_height="0.0dp" app:a1e="@id/fyi" app:a1j="@id/i0d" app:a22="@id/i0e" app:a26="@id/mmp" />
+        <Space android:id="@id/fyi" android:layout_width="0.0dp" android:layout_height="0.0dp" app:a1e="@id/jpn" app:a1i="H,1:1" app:a1s="0.0282" app:a22="@id/d9k" />
+        <Space android:id="@id/jpn" android:layout_width="0.0dp" android:layout_height="0.0dp" android:importantForAccessibility="no" app:a1e="@id/jpo" app:a1i="H,1:1" app:a1s="0.0718" app:a23="@id/d9k" />
+        <FrameLayout android:id="@id/jpi" android:clipChildren="false" android:layout_width="0.0dp" android:layout_height="0.0dp" app:a1d="@id/jpn" app:a1j="@id/d_e" app:a23="@id/jpn" app:a27="@id/jpn">
+            <include layout="@layout/c9n" />
+        </FrameLayout>
+        <Space android:id="@id/jpo" android:layout_width="0.0dp" android:layout_height="0.0dp" android:importantForAccessibility="no" app:a1e="@id/kn9" app:a1i="H,1:1" app:a1s="0.0077" app:a23="@id/d9k" />
+        <androidx.constraintlayout.widget.Guideline android:orientation="vertical" android:id="@id/d_4" android:layout_width="wrap_content" android:layout_height="wrap_content" app:a1n="0.0954" />
+        <androidx.constraintlayout.widget.Guideline android:orientation="horizontal" android:id="@id/d_2" android:layout_width="wrap_content" android:layout_height="wrap_content" app:a1n="0.9385" />
+        <Space android:id="@id/kn9" android:layout_width="0.0dp" android:layout_height="0.0dp" app:a1d="@id/d_2" app:a1i="H,120:460" app:a1s="0.154" app:a22="@id/d_4" />
+        <androidx.constraintlayout.widget.ConstraintLayout android:id="@id/ae2" android:layout_width="0.0dp" android:layout_height="0.0dp" app:a1d="@id/kn9" app:a1j="@id/kn9" app:a23="@id/kn9" app:a27="@id/kn9">
+            <androidx.constraintlayout.widget.ConstraintLayout android:id="@id/aec" android:layout_width="0.0dp" android:layout_height="0.0dp" app:a1d="hnz" app:a1i="W,1:1" app:a1x="hnz" app:a21="hnz" app:a27="hnz">
+                <ImageView android:id="@id/ae_" android:layout_width="match_parent" android:layout_height="match_parent" android:src="@drawable/drive_mode_play_btn_icon" android:scaleType="fitCenter" />
+                <com.airbnb.lottie.LottieAnimationView android:layout_gravity="center" android:id="@id/aea" android:visibility="invisible" android:layout_width="0.0dp" android:layout_height="0.0dp" android:scaleType="fitCenter" app:a1d="hnz" app:a1i="H,1:1" app:a1j="hnz" app:a23="hnz" app:a27="hnz" />
+            </androidx.constraintlayout.widget.ConstraintLayout>
+            <Space android:id="@id/knk" android:layout_width="0.0dp" android:layout_height="0.0dp" app:a20="@id/aec" app:a27="hnz" app:a2e="0.1957" />
+            <ImageView android:id="@id/aeh" android:layout_width="0.0dp" android:layout_height="0.0dp" android:src="@drawable/drive_mode_pre_btn_icon" android:contentDescription="@string/f7u" app:a1d="@id/aec" app:a1i="H,1:1" app:a1s="0.66" app:a20="@id/knk" app:a27="@id/aec" />
+            <Space android:id="@id/knj" android:layout_width="0.0dp" android:layout_height="0.0dp" app:a1y="@id/aec" app:a27="hnz" app:a2e="0.1957" />
+            <ImageView android:id="@id/aeb" android:layout_width="0.0dp" android:layout_height="0.0dp" android:src="@drawable/drive_mode_next_btn_icon" android:contentDescription="@string/f7r" app:a1d="@id/aec" app:a1i="H,1:1" app:a1s="0.66" app:a1y="@id/knj" app:a27="@id/aec" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
+        <androidx.constraintlayout.widget.Guideline android:orientation="vertical" android:id="@id/d8y" android:layout_width="wrap_content" android:layout_height="wrap_content" app:a1n="0.5041" />
+        <FrameLayout android:id="@id/i4x" android:clipChildren="false" android:layout_width="0.0dp" android:layout_height="0.0dp" android:importantForAccessibility="no" app:a1d="@id/kn9" app:a1i="H,1:1" app:a1k="@id/d8y" app:a1s="0.1026" app:a27="@id/kn9">
+            <include layout="@layout/c80" />
+        </FrameLayout>
+        <androidx.constraintlayout.widget.ConstraintLayout android:id="@id/ii1" android:visibility="gone" android:clipChildren="false" android:layout_width="wrap_content" android:layout_height="0.0dp" app:a1d="@id/kn9" app:a23="@id/d9k" app:a27="@id/kn9">
+            <com.tencent.qqmusic.bigfont.view.BigFontTextView android:textSize="20.0dp" android:textColor="#77ffffff" android:gravity="center_vertical" android:id="@id/ii0" android:clipChildren="false" android:layout_width="wrap_content" android:layout_height="match_parent" android:minWidth="30.0dp" android:includeFontPadding="false" app:a1d="hnz" app:a1k="@id/ii3" app:a23="hnz" app:a27="hnz" />
+            <com.tencent.qqmusic.bigfont.view.BigFontTextView android:textSize="20.0dp" android:textColor="#77ffffff" android:gravity="center_vertical" android:id="@id/ii3" android:layout_width="wrap_content" android:layout_height="match_parent" android:text="/" android:includeFontPadding="false" app:a1d="hnz" app:a1k="@id/m0x" app:a22="@id/ii0" app:a27="hnz" />
+            <com.tencent.qqmusic.bigfont.view.BigFontTextView android:textSize="20.0dp" android:textColor="#77ffffff" android:gravity="center_vertical" android:id="@id/m0x" android:clipChildren="false" android:layout_width="wrap_content" android:layout_height="match_parent" android:minWidth="30.0dp" android:includeFontPadding="false" app:a1d="hnz" app:a1j="hnz" app:a22="@id/ii3" app:a27="hnz" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</com.tencent.qqmusic.business.playercommon.normalplayer.ui.PlayerConstraintLayout>

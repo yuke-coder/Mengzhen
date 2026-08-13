@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout android:layout_width="match_parent" android:layout_height="match_parent"
+  xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">
+    <com.tencent.component.widget.AsyncImageView android:id="@id/auc" android:visibility="visible" android:layout_width="match_parent" android:layout_height="match_parent" android:src="@drawable/cd_shelf_loading_background_default" android:scaleType="centerCrop" app:a1d="hnz" app:a1x="hnz" app:a21="hnz" app:a27="hnz" />
+    <ImageView android:id="@id/aub" android:layout_width="20.0dp" android:layout_height="20.0dp" android:layout_marginLeft="31.0dp" android:layout_marginTop="50.0dp" android:src="@drawable/cd_shelf_loading_back_img" app:a1x="hnz" app:a27="hnz" />
+    <TextView android:textSize="27.0sp" android:textColor="@color/black" android:ellipsize="end" android:id="@id/aud" android:layout_width="wrap_content" android:layout_height="wrap_content" android:singleLine="true" android:includeFontPadding="false" app:a1e="@id/aue" app:a1x="hnz" app:a21="hnz" app:a27="hnz" app:a29="hmg" />
+    <com.airbnb.lottie.LottieAnimationView android:id="@id/aua" android:layout_width="35.0dp" android:layout_height="35.0dp" android:layout_centerHorizontal="true" app:a1d="@id/aue" app:a1u="hmg" app:a1x="hnz" app:a20="@id/aue" app:a27="@id/aue" app:a4n="true" app:a4u="true" />
+    <TextView android:textSize="20.0sp" android:textColor="@color/black" android:ellipsize="end" android:id="@id/aue" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="15.5dp" android:singleLine="true" android:includeFontPadding="false" app:a1d="hnz" app:a1y="@id/aua" app:a21="hnz" app:a26="@id/aud" />
+</androidx.constraintlayout.widget.ConstraintLayout>

@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout android:state_window_focused="false" android:id="@id/lei" android:background="@drawable/skin_sub_mask_img" android:paddingTop="@dimen/c_q" android:clickable="true" android:layout_width="match_parent" android:layout_height="@dimen/cau"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <TextView android:textSize="15.0dp" android:textColor="@color/skin_text_sub_color" android:gravity="center" android:id="@id/at2" android:layout_width="60.0dp" android:layout_height="match_parent" android:text="取消" android:layout_alignParentLeft="true" />
+    <TextView android:textSize="18.0dp" android:textStyle="bold" android:textColor="@color/skin_text_main_color" android:gravity="center" android:id="@id/lg1" android:focusable="true" android:focusableInTouchMode="true" android:layout_width="wrap_content" android:layout_height="match_parent" android:text="@string/fuv" android:layout_centerHorizontal="true" />
+    <TextView android:textSize="15.0dp" android:textColor="@color/white" android:gravity="center" android:id="@id/ii_" android:background="@drawable/post_moment_btn_bg" android:layout_width="62.0dp" android:layout_height="match_parent" android:layout_marginTop="7.5dp" android:layout_marginRight="16.0dp" android:layout_marginBottom="7.5dp" android:text="发布" android:layout_alignParentRight="true" />
+    <ImageView android:gravity="center" android:id="@id/iid" android:visibility="gone" android:layout_width="15.0dp" android:layout_height="match_parent" android:src="@drawable/my_following_post_moment_guide" android:layout_toLeftOf="@id/ii_" />
+</RelativeLayout>

@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout android:layout_width="match_parent" android:layout_height="@dimen/tl" android:minHeight="@dimen/tl" android:drawable="@color/transparent"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <ImageView android:id="@id/c0p" android:visibility="visible" android:layout_width="@dimen/ti" android:layout_height="@dimen/ti" android:layout_marginLeft="16.0dp" android:src="@drawable/edit_btn_singn_unselect" android:scaleType="centerCrop" android:layout_alignParentLeft="true" android:layout_centerVertical="true" />
+    <TextView android:id="@id/c0w" android:layout_width="wrap_content" android:layout_marginLeft="16.0dp" android:text="全选" android:layout_toRightOf="@id/c0p" android:layout_centerVertical="true" style="@style/lj" />
+    <TextView android:id="@id/mrm" android:layout_width="wrap_content" android:layout_marginRight="16.0dp" android:layout_alignParentRight="true" android:layout_centerVertical="true" style="@style/li" />
+</RelativeLayout>

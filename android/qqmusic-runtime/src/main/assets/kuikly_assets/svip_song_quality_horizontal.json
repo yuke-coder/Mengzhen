@@ -1,0 +1,18 @@
+{
+  "router": "openHalf",
+  "page_name": "svip_song_quality_horizontal",
+  "container": {
+    "w_weight": "0.8974",
+    "h_weight": "1",
+    "direction": "from-bottom",
+    "transparent": "TODO:背景透明",
+    "hideStatus": "TODO:是否隐藏状态栏"
+  },
+  "params": {
+    "current_quality": 1,
+    "upgrade_quality": 5,
+    "button_text": "免费开启高品质之旅",
+    "button_action_url": "qqmusic://qq.com/media/setPlayQuality?p=%7Bquality%3D5%7D",
+    "use_qualcomm_quality": true
+  }
+}

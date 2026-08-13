@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout android:background="@drawable/radio_time_slot_card_background" android:paddingTop="5.0dp" android:layout_width="@dimen/bov" android:layout_height="164.0dp"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <com.tencent.qqmusic.ui.RoundedRelativeLayout android:id="@id/nsb" android:background="@drawable/skin_floor_img" android:layout_width="115.0dp" android:layout_height="147.0dp" android:layout_centerHorizontal="true">
+        <View android:id="@id/hfr" android:background="@drawable/time_slot_radio_top_round_backgound_cover_light" android:layout_width="115.0dp" android:layout_height="147.0dp" />
+        <RelativeLayout android:id="@id/bdy" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="20.0dp" android:layout_centerHorizontal="true">
+            <com.tencent.qqmusic.business.live.ui.view.RoundAvatarImage android:id="@id/bdk" android:layout_width="65.0dp" android:layout_height="65.0dp" />
+            <ImageView android:id="@id/ht6" android:layout_width="@dimen/bnt" android:layout_height="@dimen/bnt" android:src="@drawable/radio_large_play_icon" android:scaleType="centerInside" android:layout_centerInParent="true" />
+        </RelativeLayout>
+        <com.tencent.qqmusic.ui.FontFitTextView android:textSize="@dimen/box" android:textColor="@color/skin_text_main_color" android:ellipsize="end" android:gravity="center" android:id="@id/hbm" android:layout_width="120.0dp" android:layout_height="wrap_content" android:layout_marginLeft="5.0dp" android:layout_marginTop="17.0dp" android:layout_marginRight="5.0dp" android:maxLines="1" android:layout_below="@id/bdy" android:layout_centerInParent="true" />
+        <View android:id="@id/ya" android:background="@drawable/skin_floor_img" android:visibility="gone" android:layout_width="match_parent" android:layout_height="match_parent" android:alpha="0.56" />
+    </com.tencent.qqmusic.ui.RoundedRelativeLayout>
+</RelativeLayout>

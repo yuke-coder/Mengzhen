@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.tencent.qqmusic.ui.customview.SquareLayout android:id="@id/nsd" android:layout_width="81.0dp" android:layout_height="81.0dp" android:layout_margin="2.5dp"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <com.tencent.component.widget.AsyncEffectImageView android:id="@id/e54" android:layout_width="81.0dp" android:layout_height="81.0dp" android:src="@color/white_10_transparent" android:scaleType="centerCrop" android:layout_centerInParent="true" />
+    <com.tencent.component.widget.AsyncEffectImageView android:id="@id/e52" android:visibility="visible" android:layout_width="81.0dp" android:layout_height="81.0dp" android:scaleType="fitXY" android:layout_centerInParent="true" />
+    <FrameLayout android:layout_width="81.0dp" android:layout_height="81.0dp">
+        <com.tencent.component.widget.AsyncImageView android:layout_gravity="bottom" android:id="@id/e51" android:visibility="gone" android:layout_width="match_parent" android:layout_height="15.0dp" android:src="@drawable/lp_img_ai_cover" android:scaleType="centerCrop" />
+        <FrameLayout android:layout_gravity="right|top" android:id="@id/ngx" android:background="@drawable/bg_lp_ai_vip_bg" android:layout_width="25.0dp" android:layout_height="15.0dp" android:layout_margin="4.0dp">
+            <com.tencent.component.widget.AsyncEffectImageView android:layout_gravity="center" android:id="@id/ngw" android:layout_width="15.0dp" android:layout_height="15.0dp" android:scaleType="centerCrop" />
+        </FrameLayout>
+    </FrameLayout>
+    <View android:id="@id/e53" android:background="@drawable/bg_lp_pic_in_use_flag" android:visibility="invisible" android:layout_width="81.0dp" android:layout_height="81.0dp" android:layout_centerInParent="true" />
+</com.tencent.qqmusic.ui.customview.SquareLayout>

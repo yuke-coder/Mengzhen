@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout android:id="@id/jd3" android:layout_width="wrap_content" android:layout_height="wrap_content"
+  xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">
+    <com.tencent.component.widget.AsyncEffectImageView android:id="@id/iq3" android:layout_width="@dimen/bot" android:layout_height="@dimen/bot" android:scaleType="fitXY" app:a1x="hnz" app:a27="hnz" />
+    <ViewStub android:layout_gravity="center_vertical" android:id="@id/d4n" android:layout="@layout/cdt" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="20.0dp" app:a1y="@id/iq3" app:a27="hnz" />
+    <include android:id="@id/ivg" android:layout_width="wrap_content" android:layout_height="wrap_content" app:a1d="@id/iq3" app:a1x="@id/iq3" layout="@layout/cu7" />
+    <include android:id="@id/htp" android:layout_width="wrap_content" android:layout_height="wrap_content" app:a1d="@id/iq3" app:a1x="@id/iq3" layout="@layout/cu7" />
+    <TextView android:textSize="12.0sp" android:textColor="@color/skin_text_main_color" android:ellipsize="end" android:gravity="left" android:id="@id/iqt" android:layout_width="@dimen/bot" android:layout_height="wrap_content" android:layout_marginTop="8.0dp" android:text="标题标题标题标题标题标题标题标题标题标题标题标题" android:maxLines="2" app:a1x="hnz" app:a26="@id/iq3" />
+    <TextView android:textSize="12.0sp" android:textColor="@color/skin_text_sub_color" android:ellipsize="end" android:gravity="left" android:id="@id/iqs" android:layout_width="@dimen/bot" android:layout_height="wrap_content" android:layout_marginTop="1.0dp" android:text="测试测试测试" android:maxLines="1" app:a1x="hnz" app:a26="@id/iqt" />
+</androidx.constraintlayout.widget.ConstraintLayout>

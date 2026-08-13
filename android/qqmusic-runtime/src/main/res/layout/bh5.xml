@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout android:id="@id/mlive_host_background" android:layout_width="match_parent" android:layout_height="match_parent"
+  xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">
+    <View android:id="@id/mlive_host_stream_mask" android:background="@color/black_60_transparent" android:visibility="gone" android:layout_width="match_parent" android:layout_height="match_parent" />
+    <android.widget.Space android:id="@id/mlive_preview_host_space" android:layout_width="match_parent" android:layout_height="0.0dp" android:layout_marginTop="@dimen/at8" app:a27="hnz" />
+    <android.widget.Space android:id="@id/mlive_preview_host_landscape_space" android:layout_width="match_parent" android:layout_height="0.0dp" android:layout_marginTop="@dimen/at7" app:a27="hnz" />
+    <com.tme.qqmusic.widget.base.view.GlideImageView android:id="@id/mlive_background" android:visibility="gone" android:layout_width="match_parent" android:layout_height="match_parent" android:scaleType="centerCrop" />
+    <VideoView android:id="@id/mlive_video_background" android:visibility="gone" android:layout_width="match_parent" android:layout_height="match_parent" android:scaleType="centerCrop" />
+    <com.tme.qqmusic.widget.base.view.GlideImageView android:id="@id/mlive_ai_background" android:visibility="gone" android:layout_width="match_parent" android:layout_height="match_parent" android:scaleType="centerCrop" />
+    <View android:id="@id/mlive_audio_background_mask_view" android:background="@color/black_50_transparent" android:visibility="gone" android:layout_width="match_parent" android:layout_height="match_parent" />
+    <View android:id="@id/mlive_friend_template_background" android:visibility="gone" android:layout_width="match_parent" android:layout_height="match_parent" />
+    <ViewStub android:id="@id/mlive_fish_pond_water_surface_stub" android:visibility="gone" android:layout="@layout/bh1" android:inflatedId="@id/mlive_fish_pond_root" android:layout_width="match_parent" android:layout_height="match_parent" />
+    <android.widget.Space android:id="@id/mlive_self_preview_space" android:visibility="gone" android:layout_width="match_parent" android:layout_height="match_parent" />
+    <com.tme.rtc.chain.rtc.video.render.view.RtcGLSurfaceViewImpl android:id="@id/mlive_lmf_self_preview" android:visibility="gone" android:layout_width="match_parent" android:layout_height="match_parent" />
+    <android.widget.Space android:id="@id/mlive_video_view_container_space" android:visibility="gone" android:layout_width="match_parent" android:layout_height="match_parent" />
+    <FrameLayout android:id="@id/mlive_video_view_container" android:focusableInTouchMode="true" android:layout_width="0.0dp" android:layout_height="wrap_content" android:contentDescription="@string/djd" app:a1j="hnz" app:a23="hnz" app:a27="hnz">
+        <com.tme.mlive.ui.custom.TRTCVideoView android:id="@id/mlive_remote_preview" android:visibility="visible" android:layout_width="match_parent" android:layout_height="match_parent" />
+        <com.tme.mlive.ui.custom.TRTCVideoView android:id="@id/mlive_remote_stream_preview" android:visibility="gone" android:layout_width="match_parent" android:layout_height="match_parent" />
+    </FrameLayout>
+    <com.tme.mlive.ui.custom.VideoControlLayer android:id="@id/mlive_video_controler_layer" android:visibility="visible" android:layout_width="50.0dp" android:layout_height="50.0dp" app:a1d="@id/mlive_video_view_container" app:a1j="@id/mlive_video_view_container" />
+    <ViewStub android:id="@id/mlive_link_container_stub" android:layout="@layout/bl1" android:layout_width="match_parent" android:layout_height="wrap_content" app:a1j="hnz" app:a23="hnz" app:a26="@id/mlive_preview_host_space" />
+    <FrameLayout android:id="@id/mlive_fixed_video_view_container" android:layout_width="match_parent" android:layout_height="match_parent" />
+    <FrameLayout android:id="@id/mlive_game_video_view_container" android:focusableInTouchMode="true" android:layout_width="0.0dp" android:layout_height="0.0dp" android:contentDescription="@string/djd" app:a1d="hnz" app:a1j="hnz" app:a23="hnz" app:a27="hnz" />
+    <FrameLayout android:id="@id/mlive_layout_live_host" android:visibility="visible" android:layout_width="match_parent" android:layout_height="match_parent" />
+    <com.tme.mlive.ui.custom.easyfloat.widget.activityfloat.FloatingView android:id="@id/mlive_small_stream_float_view" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginBottom="100.0dp" app:a1d="hnz" app:a1j="hnz" />
+</androidx.constraintlayout.widget.ConstraintLayout>

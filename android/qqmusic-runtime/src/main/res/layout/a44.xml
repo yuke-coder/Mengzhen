@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout android:id="@id/h03" android:layout_width="match_parent" android:layout_height="match_parent"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <FrameLayout android:layout_width="match_parent" android:layout_height="match_parent">
+        <com.tencent.qqmusic.ui.MusicHallsViewPager android:id="@id/cw2" android:layout_width="match_parent" android:layout_height="match_parent" />
+        <LinearLayout android:orientation="vertical" android:id="@id/db9" android:layout_width="match_parent" android:layout_height="wrap_content" />
+    </FrameLayout>
+    <ViewStub android:id="@id/cvz" android:visibility="gone" android:layout="@layout/yc" android:layout_width="match_parent" android:layout_height="match_parent" android:layout_alignWithParentIfMissing="true" />
+    <ViewStub android:id="@id/cvy" android:visibility="gone" android:layout="@layout/mh" android:layout_width="match_parent" android:layout_height="match_parent" android:layout_alignWithParentIfMissing="true" />
+    <ViewStub android:id="@id/cw0" android:visibility="gone" android:layout="@layout/mj" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="50.0dp" android:layout_centerHorizontal="true" android:layout_centerVertical="true" />
+</RelativeLayout>

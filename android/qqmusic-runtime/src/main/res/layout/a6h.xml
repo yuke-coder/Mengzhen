@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout android:background="@drawable/homepage_header_singer_info_card_radius_bg" android:layout_width="match_parent" android:layout_height="wrap_content" android:elevation="5.0dp"
+  xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">
+    <com.tencent.qqmusic.ui.RoundedConstraintLayout android:layout_width="match_parent" android:layout_height="0.0dp" app:kh="true" app:ki="fwy|je9|ezp|isw" app:kj="14.0dp" app:a1d="@id/att" app:a1x="@id/att" app:a21="@id/att" app:a27="@id/att">
+        <ImageView android:id="@id/bhe" android:visibility="gone" android:layout_width="match_parent" android:layout_height="match_parent" android:scaleType="centerCrop" />
+    </com.tencent.qqmusic.ui.RoundedConstraintLayout>
+    <ImageView android:id="@id/k3v" android:layout_width="match_parent" android:layout_height="0.0dp" android:scaleType="centerCrop" app:a1d="@id/att" app:a1x="@id/att" app:a21="@id/att" app:a27="@id/att" />
+    <LinearLayout android:orientation="vertical" android:id="@id/att" android:paddingLeft="16.0dp" android:paddingTop="20.0dp" android:paddingBottom="20.0dp" android:layout_width="match_parent" android:layout_height="wrap_content" app:a1d="hnz" app:a1x="hnz" app:a21="hnz" app:a27="hnz">
+        <androidx.constraintlayout.widget.ConstraintLayout android:id="@id/cgq" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginRight="16.0dp">
+            <androidx.constraintlayout.widget.ConstraintLayout android:orientation="horizontal" android:id="@id/hbr" android:layout_width="0.0dp" android:layout_height="wrap_content" app:a18="true" app:a1x="hnz" app:a20="@id/j7z" app:a27="hnz">
+                <com.tencent.qqmusic.ui.commercial.LightColorScrollMoreTextView android:textSize="25.0sp" android:textStyle="bold" android:textColor="@color/skin_text_main_color" android:id="@id/hbu" android:layout_width="wrap_content" android:layout_height="wrap_content" android:maxLines="1" android:layout_weight="1.0" android:contentDescription="歌手名" app:a18="true" app:a1d="hnz" app:a1t="0.0" app:a1u="hmg" app:a1x="hnz" app:a20="@id/k3w" app:a27="hnz" app:a2p="10.0dp" />
+                <com.tencent.qqmusic.ui.commercial.IconListView android:layout_gravity="center_vertical" android:orientation="horizontal" android:id="@id/k3w" android:visibility="gone" android:layout_width="wrap_content" android:layout_height="23.0dp" android:layout_marginLeft="4.0dp" android:layout_marginTop="1.0dp" android:layout_marginRight="4.0dp" app:uk="4.0dp" app:a1d="hnz" app:a1y="@id/hbu" app:a21="hnz" app:a27="hnz" />
+            </androidx.constraintlayout.widget.ConstraintLayout>
+            <com.tencent.qqmusic.ui.customview.textview.ScrollTextView android:textSize="16.0sp" android:textStyle="bold" android:textColor="@color/skin_text_main_color" android:id="@id/kzb" android:layout_width="0.0dp" android:layout_height="wrap_content" android:layout_marginTop="3.5dp" android:layout_marginRight="10.0dp" android:maxLines="1" android:contentDescription="翻译名" app:a1x="hnz" app:a20="@id/j7z" app:a26="@id/hbr" />
+            <FrameLayout android:id="@id/j7z" android:layout_width="wrap_content" android:layout_height="wrap_content" app:a1d="@id/hbr" app:a1y="@id/hbr" app:a21="hnz" app:a27="@id/hbr">
+                <com.tencent.qqmusic.homepage.singer.view.PersonalInfoCardFollowBtn android:id="@id/cq_" android:layout_width="70.0dp" android:layout_height="28.0dp" />
+                <com.tencent.qqmusic.homepage.header.MusicWorldEntrance android:id="@id/h30" android:visibility="gone" android:layout_width="wrap_content" android:layout_height="28.0dp" />
+            </FrameLayout>
+        </androidx.constraintlayout.widget.ConstraintLayout>
+        <LinearLayout android:id="@id/jor" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="5.0dp" android:layout_marginRight="16.0dp">
+            <androidx.recyclerview.widget.RecyclerView android:id="@id/avo" android:layout_width="wrap_content" android:layout_height="wrap_content" android:overScrollMode="never" app:a1x="hnz" app:a27="hnz" />
+        </LinearLayout>
+        <TextView android:textSize="12.0sp" android:textColor="@color/skin_text_sub_color" android:ellipsize="end" android:id="@id/de0" android:visibility="gone" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="8.0dp" android:maxLines="1" />
+        <include android:id="@id/lbn" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="8.0dp" android:layout_marginRight="16.0dp" layout="@layout/a64" />
+        <androidx.recyclerview.widget.RecyclerView android:id="@id/k39" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginTop="8.0dp" />
+    </LinearLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>

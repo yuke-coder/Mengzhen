@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout android:id="@id/h5g" android:visibility="gone" android:layout_width="match_parent" android:layout_height="wrap_content"
+  xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">
+    <View android:background="@color/mv_player_mobile_network_mask_color" android:layout_width="match_parent" android:layout_height="match_parent" />
+    <androidx.constraintlayout.widget.ConstraintLayout android:visibility="visible" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_centerInParent="true">
+        <androidx.constraintlayout.widget.ConstraintLayout android:id="@id/h5h" android:background="@drawable/mv_net_work_shape" android:layout_width="wrap_content" android:layout_height="wrap_content" app:a1x="hnz" app:a21="hnz" app:a27="hnz">
+            <ImageView android:id="@id/h5f" android:layout_width="10.0dp" android:layout_height="12.0dp" android:layout_marginRight="6.0dp" android:src="@drawable/mv_play_without_wifi_icon" app:a1d="hnz" app:a1u="hmg" app:a1x="hnz" app:a20="@id/h5d" app:a27="hnz" />
+            <TextView android:textSize="14.0dp" android:textColor="@color/my_music_green" android:id="@id/h5d" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="22M" app:a1d="@id/h5f" app:a1y="@id/h5f" app:a20="@id/h5l" app:a27="@id/h5f" />
+            <TextView android:textSize="14.0dp" android:textColor="@color/white" android:id="@id/h5l" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text=" 流量播放" app:a1d="@id/h5f" app:a1y="@id/h5d" app:a21="hnz" app:a27="@id/h5f" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
+        <TextView android:textSize="14.0dp" android:textColor="@android:color/white" android:id="@id/h5k" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="20.0dp" android:text="无WiFi网络，试试" app:a1x="hnz" app:a26="@id/h5h" />
+        <TextView android:textSize="14.0dp" android:textColor="@color/my_music_green" android:id="@id/h5b" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="20.0dp" android:text="免流量服务" app:a1y="@id/h5k" app:a26="@id/h5h" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</RelativeLayout>

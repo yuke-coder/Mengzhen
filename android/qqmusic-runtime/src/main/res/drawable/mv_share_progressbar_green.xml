@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layer-list
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <item android:id="@android:id/background" android:drawable="@color/mv_share_progressbar_background" />
+    <item android:id="@android:id/progress" android:drawable="@drawable/mv_share_progress_bg_green" />
+</layer-list>

@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<merge android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginLeft="20.0dp" android:layout_marginRight="20.0dp" android:minHeight="40.0dp"
+  xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">
+    <View android:id="@id/bu2" android:visibility="gone" android:layout_width="match_parent" android:layout_height="10.0dp" android:layout_centerVertical="true" />
+    <ImageView android:id="@id/dau" android:visibility="gone" android:layout_width="match_parent" android:layout_height="5.0dp" android:src="@drawable/header_lt_rt_round" />
+    <LinearLayout android:orientation="vertical" android:id="@id/g0m" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginRight="70.0dp" android:layout_centerVertical="true">
+        <TextView android:textSize="14.0dp" android:textColor="@color/skin_text_main_color" android:ellipsize="end" android:id="@id/mpc" android:paddingLeft="@dimen/axo" android:layout_width="wrap_content" android:layout_height="wrap_content" android:maxLines="1" />
+        <TextView android:textSize="11.0dp" android:textColor="@color/skin_text_sub_color" android:id="@id/mnt" android:paddingLeft="@dimen/axo" android:visibility="gone" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="2.0dp" android:text="目前您的歌曲文件都存储在SD卡中" />
+    </LinearLayout>
+    <TextView android:textSize="12.0sp" android:textColor="@color/skin_text_mid_color" android:ellipsize="end" android:id="@id/mnu" android:visibility="gone" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginLeft="5.0dp" android:maxLines="1" android:layout_toRightOf="@id/g0m" android:layout_centerVertical="true" />
+    <ImageView android:id="@id/el5" android:focusable="false" android:visibility="gone" android:clickable="false" android:layout_width="50.0dp" android:layout_height="33.0dp" android:layout_marginRight="12.0dp" android:src="@drawable/switch_off_new_default_skin_fg" android:scaleType="centerCrop" android:layout_alignParentRight="true" android:layout_centerVertical="true" />
+    <ImageView android:id="@id/eaa" android:visibility="gone" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginRight="16.0dp" android:src="@drawable/arrow_right_grey_text_main_color" android:layout_alignParentRight="true" android:layout_centerVertical="true" />
+    <RelativeLayout android:id="@id/j3b" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginRight="2.0dp" android:layout_toLeftOf="@id/eaa" android:layout_centerVertical="true">
+        <ImageView android:id="@id/j37" android:visibility="gone" android:layout_width="@dimen/btd" android:layout_height="@dimen/btd" android:layout_marginLeft="8.0dp" android:src="@drawable/ic_red_dot" />
+        <com.tencent.qqmusic.fragment.morefeatures.ui.BadgeView android:id="@id/bqz" android:visibility="gone" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginLeft="8.0dp" app:a86="999" />
+    </RelativeLayout>
+    <TextView android:textSize="12.0dp" android:textColor="@color/skin_text_mid_color" android:id="@id/bn_" android:visibility="gone" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginRight="0.0dp" android:layout_toLeftOf="@id/j3b" android:layout_centerVertical="true" style="@style/ll" />
+    <com.tencent.component.widget.AsyncEffectImageView android:id="@id/bn9" android:visibility="gone" android:layout_width="17.0dp" android:layout_height="17.0dp" android:layout_marginRight="2.5dp" android:layout_toLeftOf="@id/bn_" android:layout_centerVertical="true" />
+    <ImageView android:id="@id/csa" android:visibility="gone" android:layout_width="match_parent" android:layout_height="5.0dp" android:src="@drawable/footer_lb_rb_round" />
+</merge>

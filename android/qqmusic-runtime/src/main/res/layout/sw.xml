@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout android:layout_width="match_parent" android:layout_height="@dimen/c__"
+  xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">
+    <RelativeLayout android:id="@id/k2i" android:layout_width="match_parent" android:layout_height="35.0dp" android:layout_centerInParent="true">
+        <LinearLayout android:orientation="horizontal" android:id="@id/k2k" android:layout_width="wrap_content" android:layout_height="match_parent">
+            <RelativeLayout android:id="@id/k2j" android:layout_width="wrap_content" android:layout_height="match_parent">
+                <com.tencent.qqmusic.business.live.ui.view.RoundAvatarImage android:id="@id/k2g" android:visibility="gone" android:layout_width="30.0dp" android:layout_height="30.0dp" android:layout_marginLeft="38.0dp" android:layout_centerVertical="true" />
+                <ImageView android:id="@id/k2h" android:visibility="gone" android:layout_width="30.0dp" android:layout_height="30.0dp" android:layout_marginLeft="38.0dp" android:src="@drawable/my_following_round" android:layout_centerVertical="true" android:alpha="0.6" />
+                <com.tencent.qqmusic.business.live.ui.view.RoundAvatarImage android:id="@id/k2f" android:visibility="gone" android:layout_width="30.0dp" android:layout_height="30.0dp" android:layout_marginLeft="19.0dp" android:layout_centerVertical="true" />
+                <com.tencent.qqmusic.business.live.ui.view.RoundAvatarImage android:id="@id/k2e" android:layout_width="30.0dp" android:layout_height="30.0dp" android:layout_centerVertical="true" />
+                <View android:background="@color/black_auth_foreground" android:layout_width="30.0dp" android:layout_height="30.0dp" android:layout_centerVertical="true" />
+            </RelativeLayout>
+            <TextView android:textSize="16.0sp" android:textColor="@color/timeline_black_text" android:ellipsize="end" android:layout_gravity="center" android:id="@id/k2l" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginLeft="12.0dp" android:layout_marginRight="12.0dp" android:text="" android:maxLines="1" android:layout_weight="1.0" android:layout_marginStart="12.0dp" android:layout_marginEnd="12.0dp" />
+            <TextView android:textSize="12.0sp" android:textColor="@color/skin_text_sub_color" android:ellipsize="end" android:gravity="center" android:id="@id/k2d" android:visibility="gone" android:layout_width="wrap_content" android:layout_height="35.0dp" android:layout_marginLeft="8.0dp" android:text="" android:maxLines="1" android:layout_weight="0.0" android:layout_centerVertical="true" android:layout_marginStart="8.0dp" />
+        </LinearLayout>
+        <LinearLayout android:gravity="center" android:orientation="vertical" android:id="@id/cr7" android:layout_width="wrap_content" android:layout_height="match_parent" android:layout_toRightOf="@id/k2k" android:layout_centerVertical="true">
+            <com.tencent.qqmusic.follow.FollowPlusButton android:id="@id/cq_" android:visibility="visible" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_alignParentRight="true" android:layout_centerVertical="true" app:aif="1" />
+        </LinearLayout>
+        <ImageView android:id="@id/ceg" android:focusable="false" android:visibility="gone" android:layout_width="@dimen/c_8" android:layout_height="@dimen/c_8" android:src="@drawable/timeline_tab_share_btn_cell_black" android:scaleType="centerInside" android:layout_alignParentRight="true" android:layout_centerVertical="true" android:contentDescription="@string/share" />
+    </RelativeLayout>
+    <TextView android:textColor="@color/timeline_black_text" android:id="@id/lcr" android:background="@color/timeline_black_mask" android:layout_width="match_parent" android:layout_height="match_parent" />
+</RelativeLayout>

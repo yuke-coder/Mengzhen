@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout android:background="@drawable/material_ripple_background" android:paddingLeft="@dimen/k_" android:layout_width="match_parent" android:layout_height="wrap_content" android:minHeight="@dimen/k8"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <LinearLayout android:orientation="vertical" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_centerVertical="true">
+        <TextView android:textSize="16.0sp" android:textColor="@color/skin_text_main_color" android:ellipsize="end" android:id="@id/b4b" android:fadingEdge="none" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/a84" android:maxLines="1" />
+        <TextView android:textSize="12.0sp" android:textColor="@color/skin_text_sub_color" android:ellipsize="end" android:id="@id/b4a" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="6.0dp" android:maxLines="1" android:layout_below="@id/b4b" />
+    </LinearLayout>
+    <View android:background="@drawable/z_color_l1" android:layout_width="match_parent" android:layout_height="0.5dp" android:layout_alignParentBottom="true" />
+    <ImageView android:id="@id/ad0" android:visibility="visible" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginRight="20.0dp" android:src="@drawable/arrow_right_grey" android:layout_alignParentRight="true" android:layout_centerVertical="true" />
+</RelativeLayout>

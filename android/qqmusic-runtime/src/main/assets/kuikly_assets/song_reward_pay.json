@@ -1,0 +1,23 @@
+{
+  "router": "openHalf",
+  "page_name": "song_reward_pay",
+  "container": {
+    "w_weight": "1",
+    "h_weight": "1"
+  },
+  "params": {
+    "models": {
+      "reward_detail": {
+        "song_id": 97773,
+        "album_id": 8220,
+        "singer_ids": [
+          4558
+        ],
+        "gift_id": 5000000001,
+        "from": "1"
+      },
+      "reward_packet": {}
+    },
+    "atoms": {}
+  }
+}

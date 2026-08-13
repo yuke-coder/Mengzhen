@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout android:id="@id/ip2" android:clipChildren="false" android:layout_width="match_parent" android:layout_height="match_parent" android:clipToOutline="false"
+  xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">
+    <com.tencent.component.widget.AsyncEffectImageView android:id="@id/hq" android:layout_width="match_parent" android:layout_height="match_parent" android:scaleType="centerCrop" />
+    <ImageView android:id="@id/hr" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginStart="@dimen/s8" android:layout_marginEnd="@dimen/s8" app:a1d="hnz" app:a1e="@id/ip0" />
+    <FrameLayout android:id="@id/ht" android:layout_width="match_parent" android:layout_height="match_parent" app:a1d="hnz" app:a27="hnz" />
+    <com.tencent.component.widget.AsyncEffectImageView android:id="@id/ioz" android:layout_width="250.0dp" android:layout_height="70.0dp" android:scaleType="fitXY" app:a1e="@id/ioy" app:a1j="hnz" app:a23="hnz" />
+    <TextView android:textSize="75.0dp" android:textStyle="bold" android:id="@id/ip1" android:layout_width="wrap_content" android:layout_height="105.0dp" android:layout_marginBottom="-38.0dp" app:a1e="@id/ioz" app:a1j="hnz" app:a1t="0.43" app:a23="hnz" />
+    <TextView android:textSize="75.0dp" android:textStyle="bold" android:id="@id/ip0" android:layout_width="wrap_content" android:layout_height="105.0dp" android:layout_marginBottom="-38.0dp" app:a1e="@id/ioz" app:a1j="hnz" app:a1t="0.43" app:a23="hnz" />
+    <LinearLayout android:gravity="center" android:orientation="vertical" android:id="@id/ioy" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginBottom="@dimen/rv" app:a1d="hnz" app:a1j="hnz" app:a23="hnz">
+        <TextView android:textSize="18.0dp" android:textStyle="bold" android:textColor="#ffffffff" android:gravity="center" android:id="@id/iow" android:layout_width="200.0dp" android:layout_height="50.0dp" android:layout_marginTop="@dimen/sc" />
+        <TextView android:textSize="12.0dp" android:textColor="#ffffffff" android:id="@id/ip3" android:visibility="gone" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="8.0dp" android:text="*仅雷达场景有效" android:alpha="0.6" />
+    </LinearLayout>
+    <ImageView android:id="@id/dz5" android:layout_width="14.0dp" android:layout_height="14.0dp" android:layout_marginTop="60.0dp" android:src="@drawable/player_reward_close_btn" android:scaleType="fitXY" android:layout_marginStart="25.0dp" app:a23="hnz" app:a27="hnz" />
+</androidx.constraintlayout.widget.ConstraintLayout>

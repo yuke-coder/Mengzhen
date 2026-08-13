@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout android:orientation="vertical" android:background="@color/gray_d8" android:paddingTop="10.0dp" android:layout_width="match_parent" android:layout_height="wrap_content"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <androidx.recyclerview.widget.RecyclerView android:id="@id/mlive_highlight_operation_list" android:layout_width="match_parent" android:layout_height="wrap_content" android:paddingStart="10.0dp" />
+    <View android:background="@color/gray_97" android:layout_width="match_parent" android:layout_height="1.0px" android:layout_marginTop="10.0dp" />
+    <TextView android:textSize="16.0sp" android:textColor="@color/black" android:gravity="center" android:id="@id/mlive_highlight_operation_cancel" android:layout_width="match_parent" android:layout_height="60.0dp" android:text="@string/cwh" />
+</LinearLayout>

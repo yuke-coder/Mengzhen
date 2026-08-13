@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout android:layout_width="match_parent" android:layout_height="match_parent"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <include android:id="@id/naf" android:layout_width="match_parent" android:layout_height="match_parent" layout="@layout/m6" />
+    <include android:id="@id/lv1" layout="@layout/mu" />
+    <FrameLayout android:layout_width="match_parent" android:layout_height="match_parent" android:layout_below="@id/lv1">
+        <ViewStub android:id="@id/h7n" android:layout="@layout/coe" android:layout_width="match_parent" android:layout_height="match_parent" />
+        <ViewStub android:id="@id/h76" android:layout="@layout/bz8" android:layout_width="match_parent" android:layout_height="match_parent" />
+        <ViewStub android:id="@id/b7x" android:layout="@layout/ye" android:layout_width="match_parent" android:layout_height="match_parent" android:layout_alignWithParentIfMissing="true" />
+        <ViewStub android:id="@id/b7r" android:layout="@layout/yc" android:layout_width="match_parent" android:layout_height="match_parent" android:layout_alignWithParentIfMissing="true" />
+        <LinearLayout android:orientation="vertical" android:id="@id/j2v" android:layout_width="match_parent" android:layout_height="match_parent">
+            <com.tencent.qqmusic.business.timeline.ui.refreshable.RefreshableRecyclerViewNew android:id="@id/h79" android:paddingBottom="@dimen/ait" android:clipChildren="true" android:clipToPadding="false" android:descendantFocusability="blocksDescendants" android:layout_width="match_parent" android:layout_height="match_parent" android:overScrollMode="never" />
+        </LinearLayout>
+        <View android:id="@id/jvc" android:background="@drawable/head_shadow" android:layout_width="match_parent" android:layout_height="20.0dp" android:layout_below="@id/lv1" />
+    </FrameLayout>
+</RelativeLayout>

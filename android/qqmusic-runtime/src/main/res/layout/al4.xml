@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout android:layout_width="wrap_content" android:layout_height="wrap_content"
+  xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">
+    <com.tencent.qqmusic.ui.RoundedConstraintLayout android:id="@id/ey8" android:background="#46494a" android:layout_width="@dimen/c1u" android:layout_height="@dimen/c1q" app:a1x="hnz" app:a27="hnz" app:ado="4.0dp">
+        <com.tencent.component.widget.AsyncEffectImageView android:id="@id/eat" android:layout_width="match_parent" android:layout_height="0.0dp" android:layout_marginLeft="12.0dp" android:layout_marginRight="12.0dp" android:src="@drawable/share_music_action_sheet_default_card" android:scaleType="fitCenter" android:contentDescription="@string/iip" app:a1d="hnz" app:a1i="H,80:128" app:a1x="hnz" app:a21="hnz" app:a27="hnz" />
+        <ImageView android:id="@id/eh7" android:visibility="gone" android:layout_width="wrap_content" android:layout_height="wrap_content" android:src="@drawable/icon_share_card_new" android:importantForAccessibility="no" app:a1x="hnz" app:a27="hnz" />
+        <TextView android:textSize="11.0dp" android:textColor="#1b1819" android:ellipsize="end" android:gravity="center" android:id="@id/m6q" android:background="@drawable/bg_share_treasure_card_button" android:paddingTop="7.0dp" android:paddingBottom="7.0dp" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginLeft="9.0dp" android:layout_marginRight="9.0dp" android:layout_marginBottom="13.0dp" android:text="@string/ii3" app:a1d="hnz" app:a1x="hnz" app:a21="hnz" />
+    </com.tencent.qqmusic.ui.RoundedConstraintLayout>
+    <TextView android:textSize="12.0dp" android:textColor="@color/common_grid_title_color_selector" android:ellipsize="end" android:id="@id/mle" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="9.5dp" android:text="@string/ii1" app:a1x="hnz" app:a21="hnz" app:a26="@id/ey8" />
+</androidx.constraintlayout.widget.ConstraintLayout>

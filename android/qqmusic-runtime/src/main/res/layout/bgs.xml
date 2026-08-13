@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout android:layout_width="match_parent" android:layout_height="wrap_content"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <FrameLayout android:layout_gravity="bottom" android:id="@id/mlive_dialog_layout" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginBottom="@dimen/apa" />
+    <TextView android:textSize="16.0sp" android:textColor="@color/white_50_transparent" android:gravity="center" android:layout_gravity="bottom" android:id="@id/mlive_dialog_close" android:background="@color/mlive_bottom_sheet_cancel_btn_back_color" android:layout_width="match_parent" android:layout_height="@dimen/apa" android:text="@string/d4h" />
+</FrameLayout>

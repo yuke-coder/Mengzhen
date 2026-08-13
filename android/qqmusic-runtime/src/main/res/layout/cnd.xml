@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout android:layout_gravity="bottom" android:layout_width="match_parent" android:layout_height="match_parent"
+  xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">
+    <View android:id="@id/j5z" android:background="#b3000000" android:layout_width="match_parent" android:layout_height="match_parent" />
+    <LinearLayout android:orientation="vertical" android:id="@id/j5y" android:background="@drawable/song_record_reverb_sheet_bg" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_alignParentBottom="true">
+        <RelativeLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginTop="30.0dp" android:layout_marginRight="10.0dp" android:layout_marginBottom="30.0dp">
+            <kk.design.KKTextView android:id="@id/j67" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginLeft="15.0dp" android:text="@string/geu" android:layout_centerVertical="true" app:a0f="g7m" app:a0g="bj0" />
+            <SeekBar android:id="@id/j69" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginRight="10.0dp" android:maxHeight="2.0dp" android:max="100" android:progress="0" android:progressDrawable="@drawable/songedit_blanced_sheet_progressbar_bg" android:minHeight="2.0dp" android:thumb="@drawable/vertical_seek_bar_thumb" android:layout_toRightOf="@id/j67" android:layout_centerVertical="true" android:min="0" />
+        </RelativeLayout>
+    </LinearLayout>
+    <FrameLayout android:id="@id/j60" android:background="@drawable/hover_baifenbi" android:visibility="gone" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginBottom="50.0dp" android:layout_alignParentBottom="true">
+        <kk.design.KKTextView android:gravity="center" android:layout_gravity="center" android:id="@id/j63" android:paddingLeft="12.0dp" android:paddingTop="5.0dp" android:paddingRight="12.0dp" android:paddingBottom="5.0dp" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginBottom="3.0dp" android:text="0%" app:a0f="ka3" app:a0g="bj0" />
+    </FrameLayout>
+</RelativeLayout>

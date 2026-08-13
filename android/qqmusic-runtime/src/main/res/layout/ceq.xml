@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout android:gravity="center" android:layout_gravity="center_horizontal" android:id="@id/j29" android:background="@drawable/recording_v8_tip_bg" android:layout_width="wrap_content" android:layout_height="wrap_content"
+  xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">
+    <LinearLayout android:id="@id/ldm" android:layout_width="wrap_content" android:layout_height="wrap_content">
+        <TextView android:textSize="14.0sp" android:textColor="@android:color/white" android:id="@id/ldn" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginLeft="16.0dp" android:layout_marginTop="8.0dp" android:layout_marginRight="10.0dp" android:layout_marginBottom="8.0dp" android:text="@string/b8c" />
+        <ImageView android:id="@id/j28" android:clickable="true" android:layout_width="10.0dp" android:layout_height="match_parent" android:layout_marginRight="12.0dp" android:src="@drawable/icon_close_v8" android:scaleType="fitCenter" />
+    </LinearLayout>
+    <TextView android:textSize="14.0dp" android:textColor="@android:color/white" android:layout_gravity="center" android:id="@id/khd" android:paddingTop="10.0dp" android:paddingBottom="10.0dp" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/hdh" android:paddingStart="16.0dp" android:paddingEnd="16.0dp" />
+    <LinearLayout android:gravity="center_vertical" android:orientation="horizontal" android:id="@id/cb9" android:paddingLeft="16.0dp" android:paddingTop="8.0dp" android:paddingRight="16.0dp" android:paddingBottom="8.0dp" android:visibility="gone" android:clipChildren="false" android:layout_width="wrap_content" android:layout_height="wrap_content">
+        <kk.design.KKIconView android:layout_width="16.0dp" android:layout_height="16.0dp" android:src="@drawable/experience_vip_tip" android:translationY="1.5999756dp" app:yc="@null" />
+        <TextView android:textSize="12.0dp" android:textColor="@android:color/white" android:gravity="center_vertical" android:id="@id/cb_" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginLeft="4.0dp" android:minHeight="16.0dp" android:text="VIP 歌曲试唱中，2 元开通演唱整首" />
+        <kk.design.KKIconView android:layout_width="16.0dp" android:layout_height="16.0dp" android:layout_marginLeft="4.0dp" android:src="@drawable/experience_arrow_right" android:translationY="0.6dp" app:yc="@null" />
+    </LinearLayout>
+</LinearLayout>

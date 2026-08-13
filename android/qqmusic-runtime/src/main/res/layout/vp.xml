@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout android:id="@id/et1" android:layout_width="match_parent" android:layout_height="match_parent"
+  xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">
+    <include android:id="@id/naf" android:layout_width="match_parent" android:layout_height="match_parent" layout="@layout/m6" />
+    <include android:id="@id/a6y" android:layout_width="match_parent" android:layout_height="wrap_content" app:a1e="@id/a70" app:a27="hnz" layout="@layout/rf" />
+    <com.tencent.qqmusic.activity.base.QMusicBaseViewPager android:id="@id/a70" android:layout_width="match_parent" android:layout_height="0.0dp" app:a1d="hnz" app:a26="@id/a6y" />. </androidx.constraintlayout.widget.ConstraintLayout>

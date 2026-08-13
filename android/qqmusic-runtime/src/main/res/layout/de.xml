@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout android:background="#ff21252b" android:layout_width="match_parent" android:layout_height="match_parent"
+  xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">
+    <include android:id="@id/hci" android:layout_width="match_parent" android:layout_height="@dimen/cau" layout="@layout/mu" />
+    <EditText android:textColor="#ffd7dae0" android:id="@id/hcf" android:layout_width="match_parent" android:layout_height="wrap_content" android:text="y.qq.com" app:a26="@id/hci" />
+    <Button android:id="@id/hcj" android:layout_width="100.0dp" android:layout_height="wrap_content" android:text="@string/agu" app:a21="hnz" app:a26="@id/hcf" />
+    <Button android:id="@id/hch" android:layout_width="100.0dp" android:layout_height="wrap_content" android:text="@string/agt" app:a20="@id/hcj" app:a26="@id/hcf" />
+    <androidx.recyclerview.widget.RecyclerView android:id="@id/hcg" android:layout_width="0.0dp" android:layout_height="0.0dp" app:a1d="hnz" app:a1x="hnz" app:a21="hnz" app:a26="@id/hcj" />
+</androidx.constraintlayout.widget.ConstraintLayout>

@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout android:id="@id/e2q" android:background="@drawable/color_b2_click" android:paddingLeft="10.0dp" android:layout_width="match_parent" android:layout_height="55.0dp" android:minHeight="55.0dp"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <ImageView android:id="@id/e3i" android:visibility="visible" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginLeft="6.0dp" android:layout_marginRight="6.0dp" android:layout_alignParentLeft="true" android:layout_centerVertical="true" />
+    <TextView android:textSize="16.0sp" android:textColor="@color/skin_text_main_color" android:id="@id/e3h" android:layout_width="wrap_content" android:maxWidth="200.0dp" android:text="手机管家专属手机管家专属手机管家专属手机管家专属手机管家专属" android:layout_toRightOf="@id/e3i" android:layout_centerVertical="true" style="@style/ll" />
+    <TextView android:textColor="@color/skin_text_sub_color" android:gravity="center" android:id="@id/e3f" android:visibility="visible" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginRight="16.0dp" android:text="手机管家专属" android:layout_alignParentRight="true" android:layout_centerVertical="true" />
+</RelativeLayout>

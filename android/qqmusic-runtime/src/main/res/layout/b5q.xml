@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout android:background="@color/local_edit_lost_back_color" android:layout_width="match_parent" android:layout_height="60.0dp"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <CheckBox android:id="@id/fj7" android:background="@drawable/ic_edit_song_checkbox" android:focusable="false" android:focusableInTouchMode="false" android:clickable="false" android:layout_width="24.0dp" android:layout_height="24.0dp" android:layout_marginLeft="16.0dp" android:layout_marginRight="16.0dp" android:checked="false" android:button="@null" android:layout_centerVertical="true" />
+    <ImageView android:id="@id/fja" android:paddingLeft="14.0dp" android:paddingRight="14.0dp" android:layout_width="wrap_content" android:layout_height="match_parent" android:layout_alignParentRight="true" android:layout_centerVertical="true" />
+    <LinearLayout android:id="@id/fj8" android:layout_width="wrap_content" android:layout_height="match_parent" android:layout_toRightOf="@id/fj7" android:layout_centerVertical="true">
+        <LinearLayout android:layout_gravity="center_vertical" android:orientation="vertical" android:id="@id/e2z" android:layout_width="wrap_content" android:layout_height="wrap_content">
+            <TextView android:textSize="16.0sp" android:textColor="@color/skin_text_main_color" android:ellipsize="end" android:id="@id/fj9" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="123456789" android:singleLine="true" />
+            <TextView android:textSize="12.0dp" android:textColor="@color/skin_text_sub_color" android:id="@id/fj_" android:layout_width="wrap_content" android:layout_marginLeft="1.0dp" android:layout_marginTop="2.0dp" android:text="123456789" android:layout_centerVertical="true" style="@style/ll" />
+        </LinearLayout>
+    </LinearLayout>
+    <View android:background="@drawable/z_color_l1" android:layout_width="match_parent" android:layout_height="0.5dp" android:layout_toRightOf="@id/e2x" android:layout_alignParentBottom="true" />
+</RelativeLayout>

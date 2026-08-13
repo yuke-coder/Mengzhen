@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout android:orientation="vertical" android:background="@drawable/bg_list_bottom_sheet_dialog" android:paddingTop="22.0dp" android:paddingBottom="20.0dp" android:layout_width="match_parent" android:layout_height="wrap_content"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <RelativeLayout android:id="@id/jbn" android:paddingLeft="20.0dp" android:paddingRight="16.0dp" android:paddingBottom="6.0dp" android:layout_width="match_parent" android:layout_height="wrap_content">
+        <TextView android:textSize="18.0dp" android:textStyle="bold" android:textColor="@color/skin_text_main_color" android:id="@id/m80" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/sk" android:layout_alignParentLeft="true" android:layout_centerVertical="true" />
+        <ImageView android:id="@id/el5" android:layout_width="44.0dp" android:layout_height="26.0dp" android:src="@drawable/switch_off" android:scaleType="fitCenter" android:layout_alignParentRight="true" android:layout_centerVertical="true" />
+        <LinearLayout android:gravity="center_vertical" android:orientation="horizontal" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginRight="8.0dp" android:layout_toLeftOf="@id/el5" android:layout_centerVertical="true">
+            <TextView android:textSize="13.0dp" android:textColor="@color/skin_text_sub_color" android:id="@id/mk9" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/sh" />
+            <TextView android:textSize="13.0dp" android:textColor="@color/skin_text_main_color" android:id="@id/mk8" android:layout_width="wrap_content" android:layout_height="wrap_content" />
+        </LinearLayout>
+    </RelativeLayout>
+    <TextView android:textSize="13.0dp" android:textColor="@color/skin_text_sub_color" android:id="@id/m7x" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginLeft="20.0dp" android:layout_marginTop="2.0dp" android:layout_marginRight="20.0dp" android:layout_marginBottom="14.0dp" android:text="@string/sg" android:lineSpacingExtra="2.0dp" />
+    <LinearLayout android:orientation="vertical" android:id="@id/fee" android:layout_width="match_parent" android:layout_height="wrap_content">
+        <RelativeLayout android:id="@id/ja7" android:layout_width="match_parent" android:layout_height="40.0dp">
+            <TextView android:textSize="15.0dp" android:textColor="@color/skin_text_main_color" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginLeft="20.0dp" android:text="@string/sc" android:layout_alignParentLeft="true" android:layout_centerVertical="true" />
+            <ImageButton android:id="@id/di0" android:background="@null" android:visibility="gone" android:layout_width="24.0dp" android:layout_height="24.0dp" android:layout_marginRight="20.0dp" android:src="@drawable/pop_menu_item_mark" android:scaleType="centerInside" android:layout_alignParentRight="true" android:layout_centerVertical="true" android:contentDescription="@null" />
+        </RelativeLayout>
+        <RelativeLayout android:id="@id/ja9" android:layout_width="match_parent" android:layout_height="40.0dp">
+            <TextView android:textSize="15.0dp" android:textColor="@color/skin_text_main_color" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginLeft="20.0dp" android:text="@string/sf" android:layout_alignParentLeft="true" android:layout_centerVertical="true" />
+            <ImageButton android:id="@id/di2" android:background="@null" android:visibility="gone" android:layout_width="24.0dp" android:layout_height="24.0dp" android:layout_marginRight="20.0dp" android:src="@drawable/pop_menu_item_mark" android:scaleType="centerInside" android:layout_alignParentRight="true" android:layout_centerVertical="true" android:contentDescription="@null" />
+        </RelativeLayout>
+        <RelativeLayout android:id="@id/ja8" android:layout_width="match_parent" android:layout_height="40.0dp">
+            <TextView android:textSize="15.0dp" android:textColor="@color/skin_text_main_color" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginLeft="20.0dp" android:text="@string/se" android:layout_alignParentLeft="true" android:layout_centerVertical="true" />
+            <ImageButton android:id="@id/di1" android:background="@null" android:visibility="gone" android:layout_width="24.0dp" android:layout_height="24.0dp" android:layout_marginRight="20.0dp" android:src="@drawable/pop_menu_item_mark" android:scaleType="centerInside" android:layout_alignParentRight="true" android:layout_centerVertical="true" android:contentDescription="@null" />
+        </RelativeLayout>
+    </LinearLayout>
+</LinearLayout>

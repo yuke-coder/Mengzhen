@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<selector
+  xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">
+    <item app:alj="true">
+        <shape>
+            <solid android:color="@color/kk_color_mask_whole_dark" />
+        </shape>
+    </item>
+    <item>
+        <shape>
+            <solid android:color="@color/kk_color_mask_whole_light" />
+        </shape>
+    </item>
+</selector>

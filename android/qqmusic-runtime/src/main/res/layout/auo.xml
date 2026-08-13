@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout android:layout_width="375.0dp" android:layout_height="667.0dp"
+  xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">
+    <ImageView android:id="@id/ed3" android:layout_width="match_parent" android:layout_height="wrap_content" android:scaleType="fitXY" app:a1d="hnz" app:a23="hnz" />
+    <TextView android:textSize="16.0dp" android:textColor="@color/white" android:ellipsize="end" android:id="@id/mmo" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="40.0dp" android:maxLines="1" android:maxLength="20" app:a1j="hnz" app:a23="hnz" app:a27="hnz" />
+    <LinearLayout android:orientation="horizontal" android:id="@id/feg" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="12.0dp" app:a1j="hnz" app:a23="hnz" app:a26="@id/mmo">
+        <ImageView android:layout_gravity="center" android:id="@id/ed4" android:visibility="gone" android:layout_width="28.0dp" android:layout_height="14.0dp" android:scaleType="fitXY" />
+        <TextView android:textSize="14.0dp" android:textColor="@color/white_60_opacity" android:ellipsize="end" android:layout_gravity="center" android:id="@id/m_i" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginLeft="4.0dp" android:maxLines="1" android:maxLength="19" />
+    </LinearLayout>
+    <FrameLayout android:id="@id/ci3" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="30.0dp" app:a1j="hnz" app:a23="hnz" app:a26="@id/feg">
+        <com.tencent.qqmusic.modular.framework.ui.image.CircleImageView android:id="@id/ek_" android:layout_width="285.0dp" android:layout_height="285.0dp" />
+        <ImageView android:layout_gravity="center" android:layout_width="62.0dp" android:layout_height="62.0dp" android:src="@drawable/ic_game_music_cd" android:scaleType="fitXY" />
+    </FrameLayout>
+    <TextView android:textSize="60.0dp" android:textColor="@color/white" android:ellipsize="end" android:id="@id/m_h" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="50.0dp" android:maxLines="1" app:a1j="hnz" app:a23="hnz" app:a26="@id/ci3" />
+    <LinearLayout android:gravity="center_vertical" android:orientation="horizontal" android:id="@id/fh_" android:layout_width="100.0dp" android:layout_height="18.0dp" android:layout_marginBottom="70.0dp" app:a1j="hnz" app:a23="hnz" app:a26="@id/m_h">
+        <ImageView android:id="@id/edd" android:layout_width="0.0dp" android:layout_height="24.0dp" android:src="@drawable/ic_game_grade_dark" android:scaleType="centerInside" android:layout_weight="1.0" />
+        <ImageView android:id="@id/ede" android:layout_width="0.0dp" android:layout_height="24.0dp" android:src="@drawable/ic_game_grade_dark" android:scaleType="centerInside" android:layout_weight="1.0" />
+        <ImageView android:id="@id/edf" android:layout_width="0.0dp" android:layout_height="24.0dp" android:src="@drawable/ic_game_grade_dark" android:scaleType="centerInside" android:layout_weight="1.0" />
+        <ImageView android:id="@id/edg" android:layout_width="0.0dp" android:layout_height="24.0dp" android:src="@drawable/ic_game_grade_dark" android:scaleType="centerInside" android:layout_weight="1.0" />
+        <ImageView android:id="@id/edh" android:layout_width="0.0dp" android:layout_height="24.0dp" android:src="@drawable/ic_game_grade_dark" android:scaleType="centerInside" android:layout_weight="1.0" />
+    </LinearLayout>
+    <ImageView android:id="@id/efw" android:layout_width="155.0dp" android:layout_height="18.0dp" android:src="@drawable/game_share_card_logo" android:scaleType="fitXY" android:layout_marginStart="30.0dp" app:a1e="@id/mqt" app:a23="hnz" />
+    <TextView android:textSize="12.0dp" android:textColor="@color/white_60_opacity" android:ellipsize="end" android:id="@id/mqt" android:layout_width="0.0dp" android:layout_height="wrap_content" android:layout_marginLeft="30.0dp" android:layout_marginTop="5.0dp" android:layout_marginBottom="30.0dp" android:maxLines="1" android:maxLength="24" app:a1d="hnz" app:a1x="hnz" />
+    <ImageView android:id="@id/eib" android:layout_width="45.0dp" android:layout_height="45.0dp" android:layout_marginBottom="30.0dp" android:scaleType="fitXY" android:layout_marginEnd="30.0dp" app:a1d="hnz" app:a1j="hnz" />
+</androidx.constraintlayout.widget.ConstraintLayout>

@@ -1,0 +1,899 @@
+{
+  "config_version": "33",
+  "platform": "android",
+  "kImgProcLightBeautyPlanOrder": [
+    "kImgProcPlanNone",
+    "kImgProcPlanAI",
+    "kImgProcPlanMalegod",
+    "kImgProcPlanMalegod02",
+    "kImgProcPlanGoddess",
+    "kImgProcPlanGoddess02",
+    "kImgProcPlanClassic"
+  ],
+  "kImgProcLightBeautyPlanOrderFemale": [
+    "kImgProcPlanNone",
+    "kImgProcPlanAI",
+    "kImgProcPlanGoddess",
+    "kImgProcPlanGoddess02",
+    "kImgProcPlanMalegod",
+    "kImgProcPlanMalegod02",
+    "kImgProcPlanClassic"
+  ],
+  "kImgProcLightBeautyPlan": {
+    "kImgProcPlanNone" : {
+      "planTag": "kImgProcPlanNone",
+      "planName": "无美颜",
+      "planIconUrl": ""
+    },
+    "kImgProcPlanAI" : {
+      "planTag": "kImgProcPlanAI",
+      "planName": "一键AI",
+      "planIconUrl": "https://y.qq.com/music/common/upload/t_cm3_photo_publish/4639741.png",
+      "planConfig": {
+        "kImgProcBeautySuitLightNew": {
+          "kImgProcBeautySuitConfig": [
+            {
+              "id": 6046,
+              "name": "瘦脸",
+              "max": 1.0,
+              "min": 0,
+              "default_value": 1.0
+            }
+          ]
+        }
+      }
+    },
+    "kImgProcPlanClassic": {
+      "planTag": "kImgProcPlanClassic",
+      "planName": "经典模式",
+      "planIconUrl": "https://y.qq.com/music/common/upload/t_cm3_photo_publish/4496501.png",
+      "planConfig": {
+        "kImgProcBeautySuitLightNew": {
+          "kImgProcBeautySuitConfig": [
+            {
+              "id": 6000,
+              "name": "磨皮",
+              "default_value": 0.5
+            },
+            {
+              "id": 6001,
+              "name": "美白",
+              "default_value": 0.3
+            },
+            {
+              "id": 6048,
+              "name": "超美白",
+              "default_value": 0.0,
+              "alogKey": "beauty.lutFoundationAlphatmesuper"
+            },
+            {
+              "id": 6029,
+              "name": "清晰"
+            },
+            {
+              "id": 6009,
+              "name": "瘦脸",
+              "max": 1.7,
+              "min": 0,
+              "default_value": 0.1
+            },
+            {
+              "id": 6036,
+              "name": "窄脸",
+              "max": 1.2,
+              "min": 0
+            },
+            {
+              "id": 6020,
+              "name": "短脸"
+            },
+            {
+              "id": 6010,
+              "name": "小脸",
+              "max": 1.3,
+              "min": 0
+            },
+            {
+              "id": 6015,
+              "name": "颧骨"
+            },
+            {
+              "id": 6021,
+              "name": "下巴"
+            },
+            {
+              "id": 6013,
+              "name": "发际线",
+              "max": 2.2,
+              "min": -1.5
+            },
+            {
+              "id": 6014,
+              "name": "大眼",
+              "max": 1.3,
+              "min": 0,
+              "default_value": 0.3
+            },
+            {
+              "id": 6022,
+              "name": "眼距"
+            },
+            {
+              "id": 6023,
+              "name": "眼尾"
+            },
+            {
+              "id": 6005,
+              "name": "黑眼圈",
+              "default_value": 0.5,
+              "alogKey": "beauty.removeEyeBagstme"
+            },
+            {
+              "id": 6047,
+              "name": "眼角纹"
+            },
+            {
+              "id": 6032,
+              "name": "亮眼"
+            },
+            {
+              "id": 6016,
+              "name": "瘦鼻",
+              "max": 1.3,
+              "min": -1,
+              "default_value": 0.3
+            },
+            {
+              "id": 6025,
+              "name": "鼻长",
+              "max": 1.2,
+              "min": -1
+            },
+            {
+              "id": 6024,
+              "name": "鼻翼"
+            },
+            {
+              "id": 6017,
+              "name": "嘴形",
+              "max": 1.2,
+              "min": -1
+            },
+            {
+              "id": 6041,
+              "name": "嘴唇厚度"
+            },
+            {
+              "id": 6003,
+              "name": "白牙",
+              "max": 1.2,
+              "min": 0
+            },
+            {
+              "id": 6004,
+              "name": "法令纹",
+              "max": 1.5,
+              "min": 0,
+              "default_value": 1.0,
+              "alogKey": "beauty.removeLawLinetme"
+            }
+          ]
+        }
+      }
+    },
+    "kImgProcPlanMalegod": {
+      "planTag": "kImgProcPlanMalegod",
+      "planName": "男生轻度",
+      "planIconUrl": "https://y.qq.com/music/common/upload/t_cm3_photo_publish/4496500.png",
+      "planConfig": {
+        "kImgProcBeautySuitLightNew": {
+          "kImgProcBeautySuitConfig": [
+            {
+              "id": 6000,
+              "name": "磨皮",
+              "default_value": 0.4,
+              "alogKey": "smooth.smoothsensetime"
+            },
+            {
+              "id": 6001,
+              "name": "美白",
+              "default_value": 0.0,
+              "alogKey": "beauty.lutFoundationAlphatme"
+            },
+            {
+              "id": 6048,
+              "name": "超美白",
+              "default_value": 0.0,
+              "alogKey": "beauty.lutFoundationAlphatmesuper"
+            },
+            {
+              "id": 6029,
+              "name": "清晰",
+              "default_value": 0
+            },
+            {
+              "id": 6039,
+              "name": "质感",
+              "default_value": 0.8
+            },
+            {
+              "id": 6045,
+              "name": "瘦下颌",
+              "default_value": 0
+            },
+            {
+              "id": 6044,
+              "name": "瘦脸",
+              "default_value": 0.5
+            },
+            {
+              "id": 6035,
+              "name": "V脸",
+              "default_value": 0,
+              "max": 1.0
+            },
+            {
+              "id": 6036,
+              "name": "窄脸",
+              "default_value": 0.2
+            },
+            {
+              "id": 6020,
+              "name": "短脸",
+              "default_value": 0
+            },
+            {
+              "id": 6040,
+              "name": "小头",
+              "default_value": 0.15
+            },
+            {
+              "id": 6015,
+              "name": "颧骨",
+              "default_value": 0,
+              "max": 1,
+              "min": -1
+            },
+            {
+              "id": 6021,
+              "name": "下巴",
+              "default_value": 0,
+              "max": 1.2,
+              "min": -1.2
+            },
+            {
+              "id": 6013,
+              "name": "发际线",
+              "default_value": 0,
+              "max": 1.2,
+              "min": -1.2
+            },
+            {
+              "id": 6014,
+              "name": "大眼",
+              "default_value": 0.2
+            },
+            {
+              "id": 6022,
+              "name": "眼距",
+              "default_value": 0,
+              "max": 1,
+              "min": -1
+            },
+            {
+              "id": 6023,
+              "name": "眼尾",
+              "default_value": 0,
+              "max": 1,
+              "min": -1
+            },
+            {
+              "id": 6005,
+              "name": "黑眼圈",
+              "default_value": 0.5,
+              "alogKey": "beauty.removeEyeBagstme"
+            },
+            {
+              "id": 6047,
+              "name": "眼角纹"
+            },
+            {
+              "id": 6032,
+              "name": "亮眼",
+              "default_value": 0.5
+            },
+            {
+              "id": 6016,
+              "name": "瘦鼻",
+              "default_value": 0.2
+            },
+            {
+              "id": 6025,
+              "name": "鼻长",
+              "default_value": 0,
+              "max": 1,
+              "min": -1
+            },
+            {
+              "id": 6024,
+              "name": "鼻翼",
+              "default_value": 0
+            },
+            {
+              "id": 6017,
+              "name": "嘴形",
+              "default_value": 0,
+              "max": 1.2,
+              "min": -1
+            },
+            {
+              "id": 6041,
+              "name": "嘴唇厚度",
+              "default_value": 0,
+              "max": 1,
+              "min": -1
+            },
+            {
+              "id": 6018,
+              "name": "嘴唇宽度",
+              "default_value": 0,
+              "max": 1,
+              "min": -1
+            },
+            {
+              "id": 6003,
+              "name": "白牙",
+              "default_value": 0.7
+            },
+            {
+              "id": 6004,
+              "name": "法令纹",
+              "default_value": 0.9,
+              "alogKey": "beauty.removeLawLinetme"
+            }
+          ]
+        }
+      }
+    },
+    "kImgProcPlanGoddess": {
+      "planTag": "kImgProcPlanGoddess",
+      "planName": "女生轻度",
+      "planIconUrl": "https://y.qq.com/music/common/upload/t_cm3_photo_publish/4496502.png",
+      "planConfig": {
+        "kImgProcBeautySuitLightNew": {
+          "kImgProcBeautySuitConfig": [
+            {
+              "id": 6000,
+              "name": "磨皮",
+              "default_value": 0.4,
+              "alogKey": "smooth.smoothsensetime"
+            },
+            {
+              "id": 6001,
+              "name": "美白",
+              "default_value": 0.0,
+              "alogKey": "beauty.lutFoundationAlphatme"
+            },
+            {
+              "id": 6048,
+              "name": "超美白",
+              "default_value": 0.0,
+              "alogKey": "beauty.lutFoundationAlphatmesuper"
+            },
+            {
+              "id": 6029,
+              "name": "清晰",
+              "default_value": 0
+            },
+            {
+              "id": 6039,
+              "name": "质感",
+              "default_value": 0.8
+            },
+            {
+              "id": 6045,
+              "name": "瘦下颌",
+              "default_value": 0
+            },
+            {
+              "id": 6043,
+              "name": "瘦脸",
+              "default_value": 0.5
+            },
+            {
+              "id": 6035,
+              "name": "V脸",
+              "default_value": 0,
+              "max": 1.0
+            },
+            {
+              "id": 6036,
+              "name": "窄脸",
+              "default_value": 0.2
+            },
+            {
+              "id": 6020,
+              "name": "短脸",
+              "default_value": 0
+            },
+            {
+              "id": 6040,
+              "name": "小头",
+              "default_value": 0.15
+            },
+            {
+              "id": 6015,
+              "name": "颧骨",
+              "default_value": 0,
+              "max": 1,
+              "min": -1
+            },
+            {
+              "id": 6021,
+              "name": "下巴",
+              "default_value": 0,
+              "max": 1.2,
+              "min": -1.2
+            },
+            {
+              "id": 6013,
+              "name": "发际线",
+              "default_value": 0,
+              "max": 1.2,
+              "min": -1.2
+            },
+            {
+              "id": 6014,
+              "name": "大眼",
+              "default_value": 0.2
+            },
+            {
+              "id": 6022,
+              "name": "眼距",
+              "default_value": 0,
+              "max": 1,
+              "min": -1
+            },
+            {
+              "id": 6023,
+              "name": "眼尾",
+              "default_value": 0,
+              "max": 1,
+              "min": -1
+            },
+            {
+              "id": 6005,
+              "name": "黑眼圈",
+              "default_value": 0.5,
+              "alogKey": "beauty.removeEyeBagstme"
+            },
+            {
+              "id": 6047,
+              "name": "眼角纹"
+            },
+            {
+              "id": 6032,
+              "name": "亮眼",
+              "default_value": 0.5
+            },
+            {
+              "id": 6016,
+              "name": "瘦鼻",
+              "default_value": 0.2
+            },
+            {
+              "id": 6025,
+              "name": "鼻长",
+              "default_value": 0,
+              "max": 1,
+              "min": -1
+            },
+            {
+              "id": 6024,
+              "name": "鼻翼",
+              "default_value": 0
+            },
+            {
+              "id": 6017,
+              "name": "嘴形",
+              "default_value": 0,
+              "max": 1.2,
+              "min": -1
+            },
+            {
+              "id": 6041,
+              "name": "嘴唇厚度",
+              "default_value": 0,
+              "max": 1,
+              "min": -1
+            },
+            {
+              "id": 6018,
+              "name": "嘴唇宽度",
+              "default_value": 0,
+              "max": 1,
+              "min": -1
+            },
+            {
+              "id": 6003,
+              "name": "白牙",
+              "default_value": 0.7
+            },
+            {
+              "id": 6004,
+              "name": "法令纹",
+              "default_value": 0.8,
+              "alogKey": "beauty.removeLawLinetme"
+            }
+          ]
+        }
+      }
+    },
+    "kImgProcPlanGoddess02": {
+      "planTag": "kImgProcPlanGoddess02",
+      "planName": "女生重度",
+      "planIconUrl": "https://y.qq.com/music/common/upload/t_cm3_photo_publish/4538862.png",
+      "planConfig": {
+        "kImgProcBeautySuitLightNew": {
+          "kImgProcBeautySuitConfig": [
+            {
+              "id": 6000,
+              "name": "磨皮",
+              "default_value": 0.6,
+              "alogKey": "smooth.smoothsensetime"
+            },
+            {
+              "id": 6001,
+              "name": "美白",
+              "default_value": 0.0,
+              "alogKey": "beauty.lutFoundationAlphatme"
+            },
+            {
+              "id": 6048,
+              "name": "超美白",
+              "default_value": 0.0,
+              "alogKey": "beauty.lutFoundationAlphatmesuper"
+            },
+            {
+              "id": 6029,
+              "name": "清晰",
+              "default_value": 0
+            },
+            {
+              "id": 6039,
+              "name": "质感",
+              "default_value": 0.4
+            },
+            {
+              "id": 6045,
+              "name": "瘦下颌",
+              "default_value": 0
+            },
+            {
+              "id": 6043,
+              "name": "瘦脸",
+              "default_value": 1.0,
+              "max": 1.2
+            },
+            {
+              "id": 6035,
+              "name": "V脸",
+              "default_value": 0,
+              "max": 1.0
+            },
+            {
+              "id": 6036,
+              "name": "窄脸",
+              "default_value": 1.0,
+              "max": 1.2
+            },
+            {
+              "id": 6020,
+              "name": "短脸",
+              "default_value": 0.0,
+              "max": 1
+            },
+            {
+              "id": 6040,
+              "name": "小头",
+              "default_value": 0.5,
+              "max": 1
+            },
+            {
+              "id": 6015,
+              "name": "颧骨",
+              "default_value": 0.2,
+              "max": 1,
+              "min": -1
+            },
+            {
+              "id": 6021,
+              "name": "下巴",
+              "default_value": 0,
+              "max": 1.2,
+              "min": -1.2
+            },
+            {
+              "id": 6013,
+              "name": "发际线",
+              "default_value": -0.5,
+              "max": 1.2,
+              "min": -1.2
+            },
+            {
+              "id": 6014,
+              "name": "大眼",
+              "default_value": 0.6,
+              "max": 1
+            },
+            {
+              "id": 6022,
+              "name": "眼距",
+              "default_value": 0.1,
+              "max": 1,
+              "min": -1
+            },
+            {
+              "id": 6023,
+              "name": "眼尾",
+              "default_value": 0,
+              "max": 1,
+              "min": -1
+            },
+            {
+              "id": 6005,
+              "name": "黑眼圈",
+              "default_value": 0.5,
+              "alogKey": "beauty.removeEyeBagstme"
+            },
+            {
+              "id": 6047,
+              "name": "眼角纹"
+            },
+            {
+              "id": 6032,
+              "name": "亮眼",
+              "default_value": 2
+            },
+            {
+              "id": 6016,
+              "name": "瘦鼻",
+              "default_value": 0.3,
+              "max": 1,
+              "min": -1
+            },
+            {
+              "id": 6025,
+              "name": "鼻长",
+              "default_value": 0,
+              "max": 1,
+              "min": -1
+            },
+            {
+              "id": 6024,
+              "name": "鼻翼",
+              "default_value": 0,
+              "max": 1,
+              "min": -1
+            },
+            {
+              "id": 6017,
+              "name": "嘴形",
+              "default_value": 0.4,
+              "max": 1.2,
+              "min": -1
+            },
+            {
+              "id": 6041,
+              "name": "嘴唇厚度",
+              "default_value": 0,
+              "max": 1,
+              "min": -1
+            },
+            {
+              "id": 6018,
+              "name": "嘴唇宽度",
+              "default_value": 0,
+              "max": 1,
+              "min": -1
+            },
+            {
+              "id": 6003,
+              "name": "白牙",
+              "default_value": 0.7
+            },
+            {
+              "id": 6004,
+              "name": "法令纹",
+              "default_value": 0.8,
+              "alogKey": "beauty.removeLawLinetme"
+            }
+          ]
+        }
+      }
+    },
+    "kImgProcPlanMalegod02": {
+      "planTag": "kImgProcPlanMalegod02",
+      "planName": "男生重度",
+      "planIconUrl": "https://y.qq.com/music/common/upload/t_cm3_photo_publish/4538863.png",
+      "planConfig": {
+        "kImgProcBeautySuitLightNew": {
+          "kImgProcBeautySuitConfig": [
+            {
+              "id": 6000,
+              "name": "磨皮",
+              "default_value": 0.6,
+              "alogKey": "smooth.smoothsensetime"
+            },
+            {
+              "id": 6001,
+              "name": "美白",
+              "default_value": 0.0,
+              "alogKey": "beauty.lutFoundationAlphatme"
+            },
+            {
+              "id": 6048,
+              "name": "超美白",
+              "default_value": 0.0,
+              "alogKey": "beauty.lutFoundationAlphatmesuper"
+            },
+            {
+              "id": 6029,
+              "name": "清晰",
+              "default_value": 0
+            },
+            {
+              "id": 6039,
+              "name": "质感",
+              "default_value": 0.4
+            },
+            {
+              "id": 6045,
+              "name": "瘦下颌",
+              "default_value": 0
+            },
+            {
+              "id": 6044,
+              "name": "瘦脸",
+              "default_value": 1.0,
+              "max": 1.2
+            },
+            {
+              "id": 6035,
+              "name": "V脸",
+              "default_value": 0,
+              "max": 1.0
+            },
+            {
+              "id": 6036,
+              "name": "窄脸",
+              "default_value": 1.0,
+              "max": 1.2
+            },
+            {
+              "id": 6020,
+              "name": "短脸",
+              "default_value": 0.0,
+              "max": 1
+            },
+            {
+              "id": 6040,
+              "name": "小头",
+              "default_value": 0.5,
+              "max": 1
+            },
+            {
+              "id": 6015,
+              "name": "颧骨",
+              "default_value": 0.2,
+              "max": 1,
+              "min": -1
+            },
+            {
+              "id": 6021,
+              "name": "下巴",
+              "default_value": 0,
+              "max": 1.2,
+              "min": -1.2
+            },
+            {
+              "id": 6013,
+              "name": "发际线",
+              "default_value": -0.5,
+              "max": 1.2,
+              "min": -1.2
+            },
+            {
+              "id": 6014,
+              "name": "大眼",
+              "default_value": 0.5,
+              "max": 1
+            },
+            {
+              "id": 6022,
+              "name": "眼距",
+              "default_value": 0.1,
+              "max": 1,
+              "min": -1
+            },
+            {
+              "id": 6023,
+              "name": "眼尾",
+              "default_value": 0,
+              "max": 1,
+              "min": -1
+            },
+            {
+              "id": 6005,
+              "name": "黑眼圈",
+              "default_value": 0.5,
+              "alogKey": "beauty.removeEyeBagstme"
+            },
+            {
+              "id": 6047,
+              "name": "眼角纹"
+            },
+            {
+              "id": 6032,
+              "name": "亮眼",
+              "default_value": 0.5
+            },
+            {
+              "id": 6016,
+              "name": "瘦鼻",
+              "default_value": 0.3,
+              "max": 1,
+              "min": -1
+            },
+            {
+              "id": 6025,
+              "name": "鼻长",
+              "default_value": 0,
+              "max": 1,
+              "min": -1
+            },
+            {
+              "id": 6024,
+              "name": "缩鼻翼",
+              "default_value": 0,
+              "max": 1,
+              "min": -1
+            },
+            {
+              "id": 6017,
+              "name": "嘴形",
+              "default_value": 0.4,
+              "max": 1.2,
+              "min": -1
+            },
+            {
+              "id": 6041,
+              "name": "嘴唇厚度",
+              "default_value": 0,
+              "max": 1,
+              "min": -1
+            },
+            {
+              "id": 6018,
+              "name": "嘴唇宽度",
+              "default_value": 0,
+              "max": 1,
+              "min": -1
+            },
+            {
+              "id": 6003,
+              "name": "白牙",
+              "default_value": 0.7
+            },
+            {
+              "id": 6004,
+              "name": "法令纹",
+              "alogKey": "beauty.removeLawLinetme",
+              "default_value": 0.8
+            }
+          ]
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout android:orientation="horizontal" android:background="@drawable/material_ripple_background" android:layout_width="match_parent" android:layout_height="wrap_content"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <LinearLayout android:orientation="horizontal" android:id="@id/igx" android:paddingLeft="16.0dp" android:paddingRight="12.0dp" android:layout_width="match_parent" android:layout_height="44.0dp">
+        <RelativeLayout android:gravity="left" android:layout_gravity="center_vertical" android:id="@id/myb" android:layout_width="0.0dp" android:layout_height="wrap_content" android:layout_weight="7.0">
+            <ImageView android:id="@id/mxq" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginLeft="3.0dp" android:src="@drawable/arrow_right_grey" android:scaleType="fitCenter" android:layout_alignParentRight="true" android:layout_centerVertical="true" />
+            <TextView android:textSize="14.0sp" android:textColor="@color/skin_text_main_color" android:ellipsize="end" android:id="@id/mxl" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="官方认证官方认证官方认证官方认证官方认证官方认证官方认证官方认证官方认证" android:singleLine="true" android:layout_weight="1.0" android:layout_toLeftOf="@id/mxq" />
+        </RelativeLayout>
+        <RelativeLayout android:gravity="right" android:layout_gravity="center_vertical" android:id="@id/cre" android:layout_width="96.0dp" android:layout_height="25.0dp" android:layout_marginLeft="20.0dp">
+            <RelativeLayout android:layout_gravity="center_vertical" android:id="@id/cra" android:background="@drawable/profile_singer_btn_bg" android:layout_width="match_parent" android:layout_height="match_parent">
+                <TextView android:textSize="13.0sp" android:textColor="@color/skin_text_main_color" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="查看歌手主页" android:layout_centerInParent="true" />
+            </RelativeLayout>
+        </RelativeLayout>
+    </LinearLayout>
+</RelativeLayout>

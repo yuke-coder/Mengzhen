@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout android:orientation="vertical" android:background="@drawable/bg_list_bottom_sheet_dialog" android:paddingTop="20.0dp" android:paddingBottom="45.0dp" android:layout_width="match_parent" android:layout_height="wrap_content"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <RelativeLayout android:id="@id/jy3" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginLeft="20.0dp" android:layout_marginRight="20.0dp">
+        <androidx.appcompat.widget.AppCompatTextView android:textSize="18.0dp" android:textStyle="bold" android:textColor="@color/skin_text_main_color" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/share_to" android:layout_alignParentLeft="true" android:layout_centerVertical="true" />
+        <androidx.appcompat.widget.AppCompatImageView android:id="@id/mxb" android:visibility="invisible" android:layout_width="12.0dp" android:layout_height="12.0dp" android:src="@drawable/user_id_copy" android:layout_alignParentRight="true" android:layout_centerVertical="true" />
+        <androidx.appcompat.widget.AppCompatTextView android:textSize="12.0dp" android:textColor="@color/skin_text_sub_color" android:id="@id/mxa" android:visibility="invisible" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginRight="5.0dp" android:layout_toLeftOf="@id/mxb" android:layout_centerVertical="true" />
+    </RelativeLayout>
+    <androidx.recyclerview.widget.RecyclerView android:id="@id/ddh" android:visibility="gone" android:layout_width="wrap_content" android:layout_height="wrap_content" android:overScrollMode="never" />
+    <androidx.recyclerview.widget.RecyclerView android:id="@id/ddi" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginTop="15.0dp" android:overScrollMode="never" />
+    <androidx.recyclerview.widget.RecyclerView android:id="@id/ddj" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginTop="20.0dp" android:overScrollMode="never" />
+</LinearLayout>

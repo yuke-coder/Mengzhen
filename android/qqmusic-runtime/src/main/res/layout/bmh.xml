@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<merge android:layout_width="74.0dp" android:layout_height="95.0dp"
+  xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">
+    <com.tme.qqmusic.widget.base.view.GlideImageView android:id="@id/mlive_red_packet_green_diamog_pendent" android:layout_width="20.0dp" android:layout_height="20.0dp" android:layout_marginTop="8.0dp" android:src="@drawable/mlive_default_avatar" app:a1j="hnz" app:a23="hnz" app:a27="hnz" />
+    <ImageView android:layout_width="32.0dp" android:layout_height="32.0dp" android:layout_marginTop="2.0dp" android:src="@drawable/mlive_red_packet_gd_big_pendent_open" app:a1d="hnz" app:a1j="hnz" app:a23="hnz" app:a27="hnz" />
+    <androidx.appcompat.widget.AppCompatTextView android:textSize="9.0dp" android:textStyle="bold" android:textColor="#89efcf" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginBottom="10.0dp" android:text="@string/du0" app:a1d="hnz" app:a1j="hnz" app:a23="hnz" />
+</merge>

@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <style name="bw" parent="@style/a60" />
+    <style name="c3" parent="@style/a61" />
+    <style name="a60" parent="@style/dk">
+        <item name="jy">?android:colorError</item>
+    </style>
+    <style name="a61" parent="@style/dl">
+        <item name="jy">?android:colorError</item>
+    </style>
+    <style name="a62" parent="@style/dt">
+        <item name="android:touchscreenBlocksFocus">true</item>
+        <item name="android:keyboardNavigationCluster">true</item>
+    </style>
+    <style name="fc" parent="@style/a62" />
+    <style name="mt" parent="@style/me">
+        <item name="android:windowBackground">@color/transparent</item>
+        <item name="android:windowIsTranslucent">false</item>
+    </style>
+    <style name="zw" parent="@android:style/Widget">
+        <item name="android:background">?k5</item>
+        <item name="android:stateListAnimator">@animator/a</item>
+        <item name="android:touchscreenBlocksFocus">true</item>
+        <item name="android:keyboardNavigationCluster">true</item>
+    </style>
+</resources>

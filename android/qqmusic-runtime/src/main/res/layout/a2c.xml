@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout android:id="@id/gac" android:layout_width="match_parent" android:layout_height="match_parent"
+  xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">
+    <include android:id="@id/naf" android:layout_width="match_parent" android:layout_height="match_parent" layout="@layout/m6" />
+    <include android:id="@id/lvi" app:a1j="hnz" app:a23="hnz" app:a27="hnz" layout="@layout/n0" />
+    <TextView android:textSize="14.0sp" android:textColor="@color/skin_text_main_color" android:gravity="center" android:id="@id/ly4" android:background="@drawable/btn_use_it_right_round" android:layout_width="55.0dp" android:layout_height="30.0dp" android:layout_marginBottom="8.0dp" android:text="@string/h7b" android:layout_marginEnd="20.0dp" app:a1d="@id/lvi" app:a1j="hnz" />
+    <ScrollView android:scrollbars="none" android:layout_width="match_parent" android:layout_height="0.0dp" app:a1d="hnz" app:a1x="hnz" app:a21="hnz" app:a26="@id/lvi">
+        <LinearLayout android:orientation="vertical" android:paddingBottom="43.0dp" android:layout_width="match_parent" android:layout_height="wrap_content">
+            <RelativeLayout android:layout_width="match_parent" android:layout_height="30.0dp">
+                <TextView android:textSize="12.0sp" android:textColor="@color/skin_text_mid_color" android:gravity="center" android:layout_width="wrap_content" android:layout_height="match_parent" android:text="@string/fc" android:layout_marginStart="20.0dp" />
+                <ImageView android:id="@id/j5_" android:layout_width="16.0dp" android:layout_height="16.0dp" android:src="@drawable/my_adbanced_setting_restore_icon" android:layout_toLeftOf="@id/j59" android:layout_centerVertical="true" />
+                <TextView android:textSize="12.0sp" android:textColor="@color/skin_text_mid_color" android:id="@id/j59" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/aej" android:layout_centerVertical="true" android:paddingStart="5.0dp" android:paddingEnd="20.0dp" android:layout_alignParentEnd="true" />
+            </RelativeLayout>
+            <androidx.recyclerview.widget.RecyclerView android:id="@id/h93" android:background="@drawable/common_5_radius_round_bg" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginLeft="20.0dp" android:layout_marginRight="20.0dp" android:layout_marginHorizontal="20.0dp" />
+            <TextView android:textSize="12.0sp" android:textColor="@color/skin_text_mid_color" android:gravity="center" android:layout_width="wrap_content" android:layout_height="30.0dp" android:layout_marginTop="20.0dp" android:text="@string/fd" android:layout_marginStart="20.0dp" />
+            <androidx.recyclerview.widget.RecyclerView android:id="@id/hb0" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginLeft="20.0dp" android:layout_marginRight="20.0dp" android:layout_marginHorizontal="20.0dp" />
+            <TextView android:textSize="12.0sp" android:textColor="@color/skin_text_mid_color" android:gravity="center" android:layout_width="wrap_content" android:layout_height="30.0dp" android:layout_marginTop="10.0dp" android:text="@string/fd" android:layout_marginStart="20.0dp" />
+            <androidx.recyclerview.widget.RecyclerView android:id="@id/haz" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginLeft="20.0dp" android:layout_marginRight="20.0dp" android:layout_marginHorizontal="20.0dp" />
+        </LinearLayout>
+    </ScrollView>
+    <View android:layout_width="match_parent" android:layout_height="@dimen/l9" app:a1x="hnz" app:a26="@id/lvi" />
+</androidx.constraintlayout.widget.ConstraintLayout>

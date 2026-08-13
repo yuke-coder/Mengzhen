@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout android:id="@id/izq" android:background="@drawable/bg_recommend_listen_limit" android:layout_width="65.0dp" android:layout_height="46.0dp"
+  xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">
+    <androidx.constraintlayout.widget.ConstraintLayout android:id="@id/izp" android:layout_width="39.0dp" android:layout_height="39.0dp" android:layout_marginStart="4.0dp" app:a1d="hnz" app:a1x="hnz" app:a27="hnz">
+        <com.tencent.qqmusic.recommend.limited.view.RecommendLimitedCircleView android:id="@id/izr" android:layout_width="match_parent" android:layout_height="match_parent" />
+        <ImageView android:layout_gravity="center_horizontal" android:id="@id/izs" android:layout_width="25.0dp" android:layout_height="8.0dp" android:src="@drawable/icon_recommend_limit" android:contentDescription="@string/a7j" app:a1e="@id/izo" app:a1x="hnz" app:a21="hnz" app:a27="hnz" app:a29="hmg" />
+        <TextView android:textSize="10.0dp" android:textStyle="bold" android:textColor="@color/white" android:gravity="center" android:layout_gravity="center_horizontal" android:id="@id/izo" android:layout_width="match_parent" android:layout_height="wrap_content" android:maxLines="1" android:textFontWeight="600" app:a1d="hnz" app:a1x="hnz" app:a21="hnz" app:a26="@id/izs" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+    <ImageView android:id="@id/izn" android:padding="7.0dp" android:layout_width="22.0dp" android:layout_height="22.0dp" android:src="@drawable/player_video_btn_close" android:contentDescription="@string/a7j" android:alpha="0.6" app:a1d="hnz" app:a21="hnz" app:a27="hnz" />
+</androidx.constraintlayout.widget.ConstraintLayout>

@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout android:background="@drawable/main_bg" android:layout_width="match_parent" android:layout_height="match_parent"
+  xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">
+    <RelativeLayout android:id="@id/ilh" android:background="@drawable/skin_sub_mask_img" android:layout_width="match_parent" android:layout_height="@dimen/cau" app:a1x="hnz" app:a21="hnz" app:a27="hnz">
+        <ImageView android:id="@id/ilf" android:focusable="true" android:layout_width="45.0dp" android:layout_height="45.0dp" android:src="@drawable/ic_putoo_ugc_manger_top_bar_back" android:scaleType="centerInside" android:layout_alignParentBottom="true" />
+        <TextView android:textSize="18.0sp" android:textStyle="bold" android:textColor="@color/skin_text_main_color" android:ellipsize="end" android:gravity="center" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/ieu" android:singleLine="true" android:layout_alignTop="@id/ilf" android:layout_alignBottom="@id/ilf" android:layout_centerInParent="true" />
+    </RelativeLayout>
+    <androidx.constraintlayout.widget.ConstraintLayout android:id="@id/ba_" android:layout_width="match_parent" android:layout_height="0.0dp" app:a1d="hnz" app:a1x="hnz" app:a21="hnz" app:a26="@id/ilh">
+        <TextView android:textColor="@color/skin_text_sub_color" android:id="@id/ilg" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="5.0dp" app:a1x="hnz" app:a21="hnz" app:a27="hnz" />
+        <TextView android:textColor="@color/skin_text_sub_color" android:gravity="center" android:id="@id/ilc" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="15.0dp" android:text="@string/ieq" app:a1x="hnz" app:a21="hnz" app:a26="@id/ilg" />
+        <androidx.constraintlayout.widget.ConstraintLayout android:id="@id/a9d" android:layout_width="0.0dp" android:layout_height="wrap_content" android:layout_marginLeft="19.0dp" android:layout_marginRight="19.0dp" android:layout_marginBottom="30.0dp" app:a1d="hnz" app:a1x="hnz" app:a21="hnz">
+            <com.tencent.qqmusic.ui.RoundedConstraintLayout android:id="@id/ka6" android:layout_width="0.0dp" android:layout_height="wrap_content" app:kh="true" app:ki="fwy|je9|ezp|isw" app:kj="20.0dp" app:a1d="hnz" app:a1x="hnz" app:a21="hnz">
+                <EditText android:textSize="16.0sp" android:textColor="@color/skin_text_sub_color" android:textColorHint="@color/skin_text_guide_color" android:id="@id/ild" android:background="@drawable/module_live_black_word_edit_bg" android:paddingLeft="18.0dp" android:paddingRight="18.0dp" android:layout_width="0.0dp" android:layout_height="40.0dp" android:hint="@string/ier" android:maxLength="10" android:textCursorDrawable="@drawable/color_cursor" app:a1d="hnz" app:a1x="hnz" app:a21="hnz" />
+            </com.tencent.qqmusic.ui.RoundedConstraintLayout>
+            <TextView android:textSize="16.0sp" android:textColor="@color/white" android:gravity="center" android:id="@id/ilb" android:background="@drawable/module_live_black_word_confirm_bg" android:layout_width="75.0dp" android:layout_height="40.0dp" android:text="@string/dw" app:a1d="@id/ka6" app:a21="@id/ka6" app:a27="@id/ka6" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
+        <androidx.recyclerview.widget.RecyclerView android:id="@id/ile" android:layout_width="0.0dp" android:layout_height="0.0dp" android:layout_marginLeft="5.0dp" android:layout_marginTop="17.0dp" android:layout_marginRight="5.0dp" android:layout_marginBottom="5.0dp" app:a1e="@id/a9d" app:a1x="hnz" app:a21="hnz" app:a26="@id/ilc" />
+        <ViewStub android:id="@id/lpv" android:visibility="gone" android:layout="@layout/mh" android:layout_width="match_parent" android:layout_height="0.0dp" app:a1d="@id/a9d" app:a1x="hnz" app:a21="hnz" app:a26="@id/ilc" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+    <ViewStub android:id="@id/lpw" android:visibility="gone" android:layout="@layout/yc" android:layout_width="match_parent" android:layout_height="0.0dp" app:a1d="hnz" app:a1x="hnz" app:a21="hnz" app:a26="@id/ilh" />
+    <include android:id="@id/lpx" android:visibility="gone" android:layout_width="match_parent" android:layout_height="0.0dp" app:a1d="hnz" app:a1x="hnz" app:a21="hnz" app:a26="@id/ilh" layout="@layout/mj" />
+</androidx.constraintlayout.widget.ConstraintLayout>

@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout android:orientation="vertical" android:id="@id/b_d" android:paddingTop="20.0dp" android:layout_width="match_parent" android:layout_height="wrap_content"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <LinearLayout android:gravity="center_vertical" android:id="@id/gt5" android:paddingLeft="@dimen/by6" android:paddingRight="@dimen/by6" android:focusable="true" android:clickable="true" android:layout_width="match_parent" android:layout_height="wrap_content">
+        <TextView android:textSize="14.0dp" android:textColor="@color/skin_text_sub_color" android:id="@id/gt4" android:focusable="false" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/gme" android:importantForAccessibility="no" />
+        <ImageView android:id="@id/gt3" android:layout_width="20.0dp" android:layout_height="20.0dp" android:layout_marginLeft="4.0dp" android:src="@drawable/search_more_arrow_down" android:scaleType="fitCenter" android:importantForAccessibility="no" />
+    </LinearLayout>
+    <LinearLayout android:orientation="vertical" android:id="@id/gt2" android:layout_width="match_parent" android:layout_height="wrap_content" />
+</LinearLayout>

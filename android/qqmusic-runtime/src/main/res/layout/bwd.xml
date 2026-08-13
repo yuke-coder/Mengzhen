@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout android:id="@id/guq" android:layout_width="match_parent" android:layout_height="match_parent"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <LinearLayout android:layout_gravity="center" android:orientation="vertical" android:id="@id/gup" android:background="?jt" android:layout_width="match_parent" android:layout_height="wrap_content">
+        <LinearLayout android:orientation="horizontal" android:id="@id/gv2" android:paddingLeft="24.0dp" android:paddingRight="12.0dp" android:layout_width="match_parent" android:layout_height="wrap_content" android:paddingStart="24.0dp" android:paddingEnd="12.0dp">
+            <TextView android:textAppearance="@style/tg" android:ellipsize="end" android:gravity="start|center" android:id="@id/guu" android:layout_width="0.0dp" android:layout_height="72.0dp" android:singleLine="true" android:layout_weight="1.0" android:importantForAccessibility="no" android:textAlignment="viewStart" />
+            <ImageButton android:layout_gravity="center_vertical" android:id="@id/guh" android:background="?selectableItemBackgroundBorderless" android:layout_width="48.0dp" android:layout_height="48.0dp" android:src="?a8p" android:contentDescription="@string/e_h" />
+        </LinearLayout>
+        <FrameLayout android:id="@id/gun" android:visibility="gone" android:layout_width="match_parent" android:layout_height="wrap_content" />
+        <FrameLayout android:id="@id/guo" android:layout_width="match_parent" android:layout_height="wrap_content">
+            <ImageView android:layout_gravity="top" android:id="@id/gtr" android:background="?k5" android:visibility="gone" android:layout_width="match_parent" android:layout_height="wrap_content" android:scaleType="fitXY" android:adjustViewBounds="true" android:contentDescription="@string/e_f" />
+            <LinearLayout android:layout_gravity="bottom" android:orientation="vertical" android:layout_width="match_parent" android:layout_height="wrap_content" android:splitMotionEvents="false">
+                <LinearLayout android:theme="?a8q" android:layout_gravity="bottom" android:orientation="vertical" android:id="@id/gut" android:paddingTop="16.0dp" android:paddingBottom="16.0dp" android:layout_width="match_parent" android:layout_height="wrap_content">
+                    <include android:id="@id/gv1" layout="@layout/bwi" />
+                    <View android:id="@id/gui" android:visibility="gone" android:layout_width="match_parent" android:layout_height="8.0dp" />
+                    <include android:id="@id/gv3" layout="@layout/bwj" />
+                </LinearLayout>
+                <androidx.mediarouter.app.OverlayListView android:theme="?a8q" android:scrollbarStyle="outsideOverlay" android:id="@id/gv4" android:paddingTop="@dimen/ay1" android:visibility="gone" android:clipToPadding="false" android:layout_width="match_parent" android:layout_height="wrap_content" android:splitMotionEvents="false" />
+            </LinearLayout>
+        </FrameLayout>
+        <include layout="@layout/i" />
+    </LinearLayout>
+</FrameLayout>

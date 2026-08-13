@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout android:orientation="vertical" android:background="#ffffff" android:layout_width="match_parent" android:layout_height="match_parent"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <TextView android:textSize="16.0dp" android:textColor="#000000" android:gravity="center" android:layout_width="match_parent" android:layout_height="50.0dp" android:text="hippy 调试选项" />
+    <ScrollView android:layout_width="match_parent" android:layout_height="match_parent">
+        <LinearLayout android:orientation="vertical" android:layout_width="match_parent" android:layout_height="wrap_content">
+            <RelativeLayout android:layout_width="match_parent" android:layout_height="60.0dp">
+                <TextView android:textColor="@color/black" android:id="@id/hnm" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginLeft="10.0dp" android:text="参数: " android:layout_centerVertical="true" />
+                <EditText android:textColor="@color/black" android:id="@id/dwx" android:layout_width="match_parent" android:layout_height="45.0dp" android:layout_marginLeft="10.0dp" android:layout_marginRight="10.0dp" android:text="hippy=songbook" android:layout_toRightOf="@id/hnm" android:layout_centerVertical="true" android:inputType="text" android:textCursorDrawable="@color/black" />
+                <com.tencent.kg.hippy.loader.ui.CommonBtmLine android:layout_width="match_parent" android:layout_height="1.0px" android:layout_alignParentBottom="true" />
+            </RelativeLayout>
+            <RelativeLayout android:layout_width="match_parent" android:layout_height="50.0dp">
+                <Button android:id="@id/emy" android:layout_width="match_parent" android:layout_height="match_parent" android:layout_marginLeft="10.0dp" android:layout_marginTop="5.0dp" android:layout_marginRight="10.0dp" android:layout_marginBottom="5.0dp" android:text="跳转" />
+                <com.tencent.kg.hippy.loader.ui.CommonBtmLine android:layout_width="match_parent" android:layout_height="1.0px" android:layout_alignParentBottom="true" />
+            </RelativeLayout>
+            <RelativeLayout android:layout_width="match_parent" android:layout_height="50.0dp">
+                <ToggleButton android:id="@id/dd7" android:background="@drawable/common_toggle_bg" android:layout_width="55.0dp" android:layout_height="33.0dp" android:layout_marginRight="10.0dp" android:textOn="" android:textOff="" android:layout_alignParentRight="true" android:layout_centerVertical="true" />
+                <TextView android:textColor="@color/black" android:id="@id/dd6" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginLeft="10.0dp" android:text="调试模式打开所有Hippy模块" android:layout_toLeftOf="@id/dd7" android:layout_alignParentLeft="true" android:layout_centerVertical="true" />
+                <com.tencent.kg.hippy.loader.ui.CommonBtmLine android:layout_width="match_parent" android:layout_height="1.0px" android:layout_alignParentBottom="true" />
+            </RelativeLayout>
+            <LinearLayout android:layout_width="match_parent" android:layout_height="72.0dp">
+                <LinearLayout android:orientation="vertical" android:layout_width="0.0dp" android:layout_height="wrap_content" android:layout_weight="10.0">
+                    <TextView android:textColor="@color/black" android:id="@id/dd3" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="指定Hippy模块调试" android:layout_marginStart="10.0dp" />
+                    <EditText android:textColor="@color/black" android:id="@id/dd4" android:layout_width="match_parent" android:layout_height="0.0dp" android:layout_marginTop="5.0dp" android:layout_weight="10.0" android:layout_marginStart="10.0dp" />
+                </LinearLayout>
+                <Button android:layout_gravity="center" android:id="@id/dd5" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginRight="10.0dp" android:text="保存" />
+            </LinearLayout>
+            <com.tencent.kg.hippy.loader.ui.CommonBtmLine android:layout_width="match_parent" android:layout_height="1.0px" android:layout_alignParentBottom="true" />
+            <RelativeLayout android:layout_width="match_parent" android:layout_height="50.0dp">
+                <ToggleButton android:id="@id/lpa" android:background="@drawable/common_toggle_bg" android:layout_width="55.0dp" android:layout_height="33.0dp" android:layout_marginRight="10.0dp" android:textOn="" android:textOff="" android:layout_alignParentRight="true" android:layout_centerVertical="true" />
+                <TextView android:textColor="@color/black" android:id="@id/dd2" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginLeft="10.0dp" android:text="提示下载包成功" android:layout_toLeftOf="@id/lpa" android:layout_alignParentLeft="true" android:layout_centerVertical="true" />
+                <com.tencent.kg.hippy.loader.ui.CommonBtmLine android:layout_width="match_parent" android:layout_height="1.0px" android:layout_alignParentBottom="true" />
+            </RelativeLayout>
+            <RelativeLayout android:layout_width="match_parent" android:layout_height="50.0dp">
+                <ToggleButton android:id="@id/ct9" android:background="@drawable/common_toggle_bg" android:layout_width="55.0dp" android:layout_height="33.0dp" android:layout_marginRight="10.0dp" android:textOn="" android:textOff="" android:layout_alignParentRight="true" android:layout_centerVertical="true" />
+                <TextView android:textColor="@color/black" android:id="@id/ct8" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginLeft="10.0dp" android:text="强制更新 js 包" android:layout_toLeftOf="@id/ct9" android:layout_alignParentLeft="true" android:layout_centerVertical="true" />
+                <com.tencent.kg.hippy.loader.ui.CommonBtmLine android:layout_width="match_parent" android:layout_height="1.0px" android:layout_alignParentBottom="true" />
+            </RelativeLayout>
+            <RelativeLayout android:layout_width="match_parent" android:layout_height="50.0dp">
+                <ToggleButton android:id="@id/ct_" android:background="@drawable/common_toggle_bg" android:layout_width="55.0dp" android:layout_height="33.0dp" android:layout_marginRight="10.0dp" android:textOn="" android:textOff="" android:layout_alignParentRight="true" android:layout_centerVertical="true" />
+                <TextView android:textColor="@color/black" android:id="@id/cta" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginLeft="10.0dp" android:text="开启Hippy SSR" android:layout_toLeftOf="@id/ct_" android:layout_alignParentLeft="true" android:layout_centerVertical="true" />
+                <com.tencent.kg.hippy.loader.ui.CommonBtmLine android:layout_width="match_parent" android:layout_height="1.0px" android:layout_alignParentBottom="true" />
+            </RelativeLayout>
+            <RelativeLayout android:layout_width="match_parent" android:layout_height="50.0dp">
+                <Button android:id="@id/jgp" android:layout_width="60.0dp" android:layout_height="match_parent" android:layout_marginLeft="10.0dp" android:layout_marginTop="5.0dp" android:layout_marginRight="10.0dp" android:layout_marginBottom="5.0dp" android:text="保存" android:layout_alignParentRight="true" />
+                <EditText android:textSize="14.0dp" android:textColor="@color/black" android:textColorHint="@android:color/darker_gray" android:id="@id/j4g" android:layout_width="match_parent" android:layout_height="45.0dp" android:layout_marginLeft="10.0dp" android:layout_marginRight="5.0dp" android:text="" android:hint="业务包host:port(localhost:38989)" android:layout_toLeftOf="@id/jgp" android:layout_centerVertical="true" android:inputType="text" android:textCursorDrawable="@color/black" />
+                <com.tencent.kg.hippy.loader.ui.CommonBtmLine android:layout_width="match_parent" android:layout_height="1.0px" android:layout_alignParentBottom="true" />
+            </RelativeLayout>
+            <RelativeLayout android:layout_width="match_parent" android:layout_height="50.0dp">
+                <ToggleButton android:id="@id/j4e" android:background="@drawable/common_toggle_bg" android:layout_width="55.0dp" android:layout_height="33.0dp" android:layout_marginRight="10.0dp" android:textOn="" android:textOff="" android:layout_alignParentRight="true" android:layout_centerVertical="true" />
+                <TextView android:textColor="@color/black" android:id="@id/j4d" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginLeft="10.0dp" android:text="远程调试" android:layout_toLeftOf="@id/j4e" android:layout_alignParentLeft="true" android:layout_centerVertical="true" />
+                <com.tencent.kg.hippy.loader.ui.CommonBtmLine android:layout_width="match_parent" android:layout_height="1.0px" android:layout_alignParentBottom="true" />
+            </RelativeLayout>
+            <RelativeLayout android:layout_width="match_parent" android:layout_height="50.0dp">
+                <Button android:id="@id/b1l" android:layout_width="60.0dp" android:layout_height="match_parent" android:layout_marginLeft="10.0dp" android:layout_marginTop="5.0dp" android:layout_marginRight="10.0dp" android:layout_marginBottom="5.0dp" android:text="清除" android:layout_alignParentRight="true" />
+                <EditText android:textSize="14.0dp" android:textColor="@color/black" android:textColorHint="@android:color/darker_gray" android:id="@id/b1v" android:layout_width="match_parent" android:layout_height="45.0dp" android:layout_marginLeft="10.0dp" android:layout_marginRight="5.0dp" android:text="" android:hint="模块名(为空删除所有模块缓存)" android:layout_toLeftOf="@id/b1l" android:layout_centerVertical="true" android:inputType="text" android:textCursorDrawable="@color/black" />
+                <com.tencent.kg.hippy.loader.ui.CommonBtmLine android:layout_width="match_parent" android:layout_height="1.0px" android:layout_alignParentBottom="true" />
+            </RelativeLayout>
+            <RelativeLayout android:layout_width="match_parent" android:layout_height="wrap_content">
+                <Button android:id="@id/io0" android:layout_width="match_parent" android:layout_height="match_parent" android:layout_marginLeft="10.0dp" android:layout_marginTop="5.0dp" android:layout_marginRight="10.0dp" android:layout_marginBottom="5.0dp" android:text="查看本地缓存模块和版本号" />
+                <com.tencent.kg.hippy.loader.ui.CommonBtmLine android:layout_width="match_parent" android:layout_height="1.0px" android:layout_alignParentBottom="true" />
+                <TextView android:id="@id/project_version" android:layout_width="match_parent" android:layout_height="wrap_content" />
+            </RelativeLayout>
+            <RelativeLayout android:layout_width="match_parent" android:layout_height="60.0dp">
+                <TextView android:textColor="@color/black" android:id="@id/jn7" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="project: " android:layout_centerVertical="true" android:layout_marginStart="10.0dp" />
+                <EditText android:textColor="@color/black" android:id="@id/jn6" android:layout_width="match_parent" android:layout_height="45.0dp" android:layout_marginLeft="10.0dp" android:layout_marginRight="10.0dp" android:text="master" android:layout_centerVertical="true" android:inputType="text" android:textCursorDrawable="@color/black" android:layout_marginStart="10.0dp" android:layout_marginEnd="10.0dp" android:layout_toStartOf="@id/jk2" android:layout_toEndOf="@id/jn7" />
+                <Button android:id="@id/jk2" android:layout_width="wrap_content" android:layout_height="45.0dp" android:text="查看版本号" android:layout_centerVertical="true" android:paddingStart="4.0dp" android:paddingEnd="4.0dp" android:layout_alignParentEnd="true" />
+                <com.tencent.kg.hippy.loader.ui.CommonBtmLine android:layout_width="match_parent" android:layout_height="1.0px" android:layout_alignParentBottom="true" />
+            </RelativeLayout>
+            <RelativeLayout android:layout_width="match_parent" android:layout_height="60.0dp">
+                <TextView android:textColor="@color/black" android:id="@id/jo4" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="version: " android:layout_centerVertical="true" android:layout_marginStart="10.0dp" />
+                <TextView android:textColor="@color/black" android:id="@id/jo5" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginLeft="10.0dp" android:layout_marginRight="10.0dp" android:layout_centerVertical="true" android:layout_marginStart="10.0dp" android:layout_marginEnd="10.0dp" android:layout_toEndOf="@id/jo4" />
+                <com.tencent.kg.hippy.loader.ui.CommonBtmLine android:layout_width="match_parent" android:layout_height="1.0px" android:layout_alignParentBottom="true" />
+            </RelativeLayout>
+        </LinearLayout>
+    </ScrollView>
+</LinearLayout>

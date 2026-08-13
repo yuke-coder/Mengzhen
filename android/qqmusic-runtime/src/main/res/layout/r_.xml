@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout android:id="@id/bur" android:background="@drawable/dlna_install_guide_bg" android:layout_width="match_parent" android:layout_height="55.0dp"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <ImageView android:id="@id/ins" android:layout_width="35.0dp" android:layout_height="35.0dp" android:layout_marginLeft="16.0dp" android:layout_marginTop="10.0dp" android:layout_marginBottom="10.0dp" android:src="@drawable/icon" android:layout_alignParentLeft="true" android:layout_centerVertical="true" />
+    <TextView android:textSize="14.0sp" android:textColor="@color/dlna_device_text_color" android:gravity="center_vertical" android:id="@id/but" android:layout_width="match_parent" android:layout_height="20.0dp" android:layout_marginLeft="12.0dp" android:layout_marginTop="8.5dp" android:layout_marginRight="12.0dp" android:text="@string/au7" android:layout_toLeftOf="@id/bus" android:layout_toRightOf="@id/ins" />
+    <TextView android:textSize="12.0sp" android:textColor="@color/dlna_device_text_color60" android:gravity="center_vertical" android:layout_width="match_parent" android:layout_height="16.5dp" android:layout_marginTop="1.0dp" android:text="@string/au6" android:layout_below="@id/but" android:layout_alignLeft="@id/but" android:layout_alignRight="@id/but" />
+    <TextView android:textSize="12.0sp" android:textColor="@color/black_60_transparent" android:gravity="center" android:id="@id/bus" android:background="@drawable/dlna_install_btn_bg" android:layout_width="74.0dp" android:layout_height="25.0dp" android:layout_marginRight="16.0dp" android:text="@string/au5" android:layout_alignParentRight="true" android:layout_centerVertical="true" />
+</RelativeLayout>

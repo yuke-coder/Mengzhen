@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.tencent.qqmusic.ui.RoundedRelativeLayout android:background="@color/black_10_opacity" android:layout_width="match_parent" android:layout_height="60.0dp" app:ado="4.0dp"
+  xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">
+    <ImageView android:id="@id/jq8" android:layout_width="15.0dp" android:layout_height="15.0dp" android:layout_marginLeft="10.0dp" android:src="@drawable/danmu_bubble_selected" android:layout_alignParentLeft="true" android:layout_centerVertical="true" />
+    <com.tencent.component.widget.AsyncImageView android:id="@id/ifc" android:layout_width="115.0dp" android:layout_height="33.0dp" android:layout_marginLeft="4.0dp" android:scaleType="fitXY" android:layout_toRightOf="@id/jq8" android:layout_centerVertical="true" />
+    <ImageView android:id="@id/ngz" android:background="@drawable/bubble_img_vip" android:layout_width="25.0dp" android:layout_height="17.0dp" android:src="@drawable/danmu_bubble_xianmian" android:layout_alignParentTop="true" android:layout_alignParentRight="true" />
+    <ProgressBar android:id="@id/cs3" android:visibility="visible" android:layout_width="match_parent" android:layout_height="2.0dp" android:maxHeight="1.0dp" android:max="100" android:progress="5" android:progressDrawable="@drawable/font_download_bar" android:layout_alignParentBottom="true" style="?android:progressBarStyleHorizontal" />
+    <ImageView android:id="@id/djb" android:layout_width="wrap_content" android:layout_height="wrap_content" android:src="@drawable/bubble_xian_mian_left_top" android:layout_alignParentLeft="true" android:layout_alignParentTop="true" />
+</com.tencent.qqmusic.ui.RoundedRelativeLayout>

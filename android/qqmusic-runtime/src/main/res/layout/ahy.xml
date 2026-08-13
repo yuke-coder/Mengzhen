@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:importantForAccessibility="no"
+  xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">
+    <ImageView android:id="@id/dau" android:layout_width="match_parent" android:layout_height="5.0dp" android:src="@drawable/header_lt_rt_round" android:importantForAccessibility="no" app:a1x="hnz" app:a27="hnz" />
+    <androidx.constraintlayout.widget.ConstraintLayout android:id="@id/ba_" android:background="@drawable/skin_mask_img" android:layout_width="match_parent" android:layout_height="40.0dp" app:a26="@id/dau">
+        <androidx.appcompat.widget.AppCompatTextView android:textSize="14.0dp" android:textColor="@color/skin_text_main_color" android:ellipsize="end" android:id="@id/mpc" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginLeft="16.0dp" android:maxLines="1" app:a1d="hnz" app:a1x="hnz" app:a27="hnz" />
+        <androidx.appcompat.widget.AppCompatTextView android:textSize="12.0dp" android:textColor="@color/skin_text_mid_color" android:id="@id/mnm" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginRight="16.0dp" app:a1d="hnz" app:a20="@id/el5" app:a27="hnz" />
+        <ImageView android:id="@id/el5" android:layout_width="50.0dp" android:layout_height="33.0dp" android:layout_marginTop="1.5dp" android:layout_marginRight="16.0dp" android:src="@drawable/switch_off_new_default_skin" app:a1d="hnz" app:a21="hnz" app:a27="hnz" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+    <ImageView android:id="@id/csa" android:layout_width="match_parent" android:layout_height="5.0dp" android:src="@drawable/footer_lb_rb_round" android:importantForAccessibility="no" app:a26="@id/ba_" />
+    <View android:id="@id/csf" android:layout_width="match_parent" android:layout_height="0.0dp" app:a26="@id/csa" />
+</androidx.constraintlayout.widget.ConstraintLayout>

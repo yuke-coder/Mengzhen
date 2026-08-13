@@ -1,0 +1,37 @@
+{
+  "router": "openHalf",
+  "page_name": "dialog_birthday",
+  "container": {
+    "w_weight": "1",
+    "h_weight": "1",
+    "gravity": "center",
+    "direction": "from-bottom"
+  },
+  "params": {
+    "page": [
+      {
+        "height": 690,
+        "radius": [
+          16
+        ],
+        "baseInfo": {
+          "background": {
+            "type": "image",
+            "url": "https://music-conf-cdn.y.qq.com/ocs/199556b_84Z9rCYm/dc48bac940aa74117bcfc183a34069ce.jpg?max_age=2592000"
+          }
+        },
+        "exposure": {
+          "type": 1
+        },
+        "buttons": [
+          {
+            "text": "立即领取",
+            "text_color": "#ffffff",
+            "color": "#dca600",
+            "url": "https://y.qq.com/cact/birthday/home/index.html?mbref=12100.1607&adtag=hd.vip.tip&_hidehd=1&_miniplayer=1"
+          }
+        ]
+      }
+    ]
+  }
+}

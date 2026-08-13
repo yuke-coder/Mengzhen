@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout android:layout_width="wrap_content" android:layout_height="wrap_content"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <ImageView android:id="@id/ehi" android:background="@drawable/voice_assistant_record_ripple_anim" android:layout_width="@dimen/cgk" android:layout_height="@dimen/cgk" android:scaleType="centerCrop" android:layout_centerInParent="true" android:contentDescription="@string/iuh" />
+    <com.tencent.qqmusic.fragment.voiceassistant.CircleWaveView android:id="@id/nu3" android:layout_width="wrap_content" android:layout_height="wrap_content" android:scaleType="centerCrop" android:layout_centerInParent="true" />
+    <ImageView android:id="@id/ef7" android:layout_width="48.0dp" android:layout_height="48.0dp" android:src="@drawable/voice_assistant_record" android:scaleType="centerCrop" android:layout_centerInParent="true" />
+    <ImageView android:id="@id/ef6" android:background="@drawable/voice_assistant_query_loading_anim" android:visibility="gone" android:layout_width="72.0dp" android:layout_height="72.0dp" android:scaleType="centerCrop" android:layout_centerInParent="true" />
+</RelativeLayout>

@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout android:paddingLeft="16.0dp" android:paddingRight="16.0dp" android:paddingBottom="8.0dp" android:layout_width="match_parent" android:layout_height="wrap_content"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <androidx.appcompat.widget.LinearLayoutCompat android:orientation="horizontal" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_centerVertical="true">
+        <androidx.appcompat.widget.AppCompatImageView android:layout_gravity="center_vertical" android:id="@id/kby" android:layout_width="30.0dp" android:layout_height="30.0dp" android:src="@drawable/folder_status_song_count_icon" />
+        <androidx.appcompat.widget.AppCompatTextView android:textSize="18.0sp" android:layout_gravity="bottom" android:id="@id/kbx" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginLeft="5.0dp" />
+    </androidx.appcompat.widget.LinearLayoutCompat>
+    <com.tencent.component.widget.AsyncImageView android:id="@id/huf" android:layout_width="50.0dp" android:layout_height="40.0dp" android:layout_alignParentRight="true" android:contentDescription="@string/a_c" />
+</RelativeLayout>

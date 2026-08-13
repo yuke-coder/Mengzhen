@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout android:orientation="vertical" android:background="#1c1c1c" android:layout_width="match_parent" android:layout_height="wrap_content"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <androidx.appcompat.widget.AppCompatTextView android:textSize="13.0dp" android:textColor="@color/white" android:gravity="center_vertical" android:layout_width="match_parent" android:layout_height="54.0dp" android:text="@string/dv2" android:includeFontPadding="false" android:paddingStart="20.0dp" />
+    <View android:background="@color/white_10_transparent" android:layout_width="match_parent" android:layout_height="0.5dp" />
+    <androidx.recyclerview.widget.RecyclerView android:id="@id/mlive_gift_selection_rv" android:layout_width="match_parent" android:layout_height="230.0dp" android:layout_marginTop="5.0dp" />
+    <androidx.appcompat.widget.AppCompatTextView android:textSize="14.0dp" android:textStyle="bold" android:textColor="@color/white" android:gravity="center" android:layout_gravity="end" android:id="@id/mlive_gift_selection_confirm" android:background="@drawable/mlive_gift_selection_btn_bg" android:paddingLeft="15.0dp" android:paddingRight="15.0dp" android:layout_width="wrap_content" android:layout_height="35.0dp" android:layout_marginBottom="@dimen/anu" android:text="@string/d1i" android:layout_marginEnd="20.0dp" android:paddingHorizontal="15.0dp" />
+</LinearLayout>

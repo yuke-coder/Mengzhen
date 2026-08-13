@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout android:layout_width="match_parent" android:layout_height="55.0dp"
+  xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">
+    <CheckBox android:id="@id/mlive_item_song_edit_check" android:background="@drawable/mlive_search_song_check_state" android:layout_width="18.0dp" android:layout_height="18.0dp" android:layout_marginLeft="16.0dp" android:button="@null" app:a1d="hnz" app:a1x="hnz" app:a27="hnz" />
+    <androidx.constraintlayout.widget.ConstraintLayout android:layout_width="0.0dp" android:layout_height="match_parent" android:layout_marginLeft="16.0dp" app:a1d="hnz" app:a1y="@id/mlive_item_song_edit_check" app:a21="hnz" app:a27="hnz">
+        <ImageView android:id="@id/mlive_item_song_edit_handler" android:layout_width="30.0dp" android:layout_height="30.0dp" android:layout_marginRight="8.0dp" android:src="@drawable/mlive_song_item_handler" app:a1d="hnz" app:a21="hnz" app:a27="hnz" />
+        <TextView android:textSize="14.0sp" android:textColor="@color/white" android:id="@id/mlive_item_song_edit_name" android:layout_width="0.0dp" android:layout_height="wrap_content" android:layout_marginRight="8.0dp" app:a1e="@id/mlive_item_song_edit_desc" app:a1x="hnz" app:a20="@id/mlive_item_song_edit_handler" app:a27="hnz" />
+        <TextView android:textSize="12.0sp" android:textColor="@color/white_50_transparent" android:id="@id/mlive_item_song_edit_desc" android:layout_width="0.0dp" android:layout_height="wrap_content" android:layout_marginRight="8.0dp" app:a1d="hnz" app:a1x="hnz" app:a20="@id/mlive_item_song_edit_handler" app:a26="@id/mlive_item_song_edit_name" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>

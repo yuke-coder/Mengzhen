@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout android:layout_gravity="center_vertical" android:id="@id/id5" android:layout_width="match_parent" android:layout_height="60.0dp" android:minHeight="60.0dp"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <RelativeLayout android:gravity="center_vertical" android:layout_width="match_parent" android:layout_height="match_parent">
+        <TextView android:textSize="12.0sp" android:textColor="@color/skin_text_sub_color" android:id="@id/k2v" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginLeft="20.0dp" android:text="@string/h8w" android:layout_centerVertical="true" />
+        <LinearLayout android:id="@id/k2u" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_centerVertical="true" android:layout_marginEnd="21.5dp" android:layout_alignParentEnd="true">
+            <ImageView android:layout_gravity="center_vertical" android:id="@id/dci" android:layout_width="15.0dp" android:layout_height="15.0dp" android:layout_marginRight="7.5dp" android:src="@drawable/singer_desc_modify_help_icon" android:contentDescription="@string/a__" />
+            <TextView android:textSize="14.0sp" android:textColor="@color/skin_text_main_color" android:layout_gravity="center_vertical" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/h8j" />
+        </LinearLayout>
+    </RelativeLayout>
+    <View android:layout_gravity="bottom" android:id="@id/bln" android:background="@drawable/skin_text_main_img" android:layout_width="match_parent" android:layout_height="0.5dp" android:alpha="0.1" android:layout_marginStart="16.0dp" android:layout_marginEnd="16.0dp" />
+</FrameLayout>

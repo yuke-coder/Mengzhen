@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout android:id="@id/g0c" android:layout_width="match_parent" android:layout_height="match_parent" music:bc="j74"
+  xmlns:android="http://schemas.android.com/apk/res/android" xmlns:music="http://schemas.android.com/apk/res-auto">
+    <include android:id="@id/k68" android:layout_width="match_parent" android:layout_height="match_parent" layout="@layout/m6" />
+    <com.tencent.qqmusic.modular.module.musichall.views.recycler.CellRecyclerView android:id="@id/k66" android:background="@drawable/skin_common_listitem_bg" android:clipToPadding="false" android:layout_width="match_parent" android:layout_height="match_parent" android:layout_below="@id/k67" android:overScrollMode="never" />
+    <View android:background="@drawable/head_shadow" android:layout_width="match_parent" android:layout_height="@dimen/l9" android:layout_below="@id/k67" />
+    <ViewStub android:id="@id/b7f" android:visibility="gone" android:layout="@layout/mj" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="50.0dp" android:layout_centerHorizontal="true" android:layout_centerVertical="true" />
+    <ViewStub android:id="@id/b7q" android:layout="@layout/mh" android:layout_width="match_parent" android:layout_height="match_parent" android:layout_below="@id/k67" android:layout_alignWithParentIfMissing="true" />
+    <ViewStub android:id="@id/b7p" android:layout="@layout/mf" android:layout_width="match_parent" android:layout_height="match_parent" android:layout_below="@id/k67" android:layout_alignWithParentIfMissing="true" />
+    <ViewStub android:id="@id/b7r" android:layout="@layout/yc" android:layout_width="match_parent" android:layout_height="match_parent" android:layout_below="@id/k67" android:layout_alignWithParentIfMissing="true" />
+    <ViewStub android:id="@id/b7x" android:layout="@layout/ye" android:layout_width="match_parent" android:layout_height="match_parent" android:layout_below="@id/k67" android:layout_alignWithParentIfMissing="true" />
+    <ViewStub android:id="@id/b7v" android:layout="@layout/a_c" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginTop="80.0dp" android:layout_below="@id/k67" />
+    <ViewStub android:id="@id/b7u" android:layout="@layout/vi" android:layout_width="match_parent" android:layout_height="match_parent" android:layout_marginTop="80.0dp" android:layout_below="@id/k67" />
+    <ViewStub android:id="@id/b7w" android:visibility="gone" android:layout="@layout/yc" android:layout_width="match_parent" android:layout_height="match_parent" android:layout_below="@id/k67" />
+    <include android:id="@id/k67" layout="@layout/mu" />
+    <View android:id="@id/jvc" android:background="@drawable/head_shadow" android:layout_width="match_parent" android:layout_height="@dimen/l9" android:layout_below="@id/k67" />
+</RelativeLayout>

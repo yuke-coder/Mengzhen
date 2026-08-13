@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout android:layout_width="68.0dp" android:layout_height="match_parent"
+  xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">
+    <RelativeLayout android:id="@id/mlive_item_filter_icon_frame" android:layout_width="wrap_content" android:layout_height="wrap_content" app:a1e="@id/mlive_item_filter_name" app:a1x="hnz" app:a21="hnz" app:a27="hnz" app:a28="0.2" app:a29="hmg">
+        <ImageView android:id="@id/mlive_item_filter_icon" android:layout_width="43.0dp" android:layout_height="43.0dp" android:layout_centerInParent="true" />
+        <ImageView android:id="@id/mlive_item_filter_select" android:visibility="gone" android:layout_width="45.0dp" android:layout_height="45.0dp" android:src="@drawable/mlive_beauty_select_flag" android:layout_centerInParent="true" />
+    </RelativeLayout>
+    <TextView android:textSize="12.0sp" android:textColor="@color/white" android:id="@id/mlive_item_filter_name" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="10.0dp" app:a1d="hnz" app:a1x="hnz" app:a21="hnz" app:a26="@id/mlive_item_filter_icon_frame" />
+</androidx.constraintlayout.widget.ConstraintLayout>

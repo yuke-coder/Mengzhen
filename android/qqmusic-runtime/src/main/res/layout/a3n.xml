@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.tencent.qqmusic.business.timeline.ui.DispatchRelativeLayout android:id="@id/bsx" android:background="@color/timeline_black_bg" android:layout_width="match_parent" android:layout_height="match_parent" android:keepScreenOn="true"
+  xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">
+    <ViewStub android:id="@id/bsv" android:layout="@layout/a3m" android:layout_width="match_parent" android:layout_height="match_parent" />
+    <ViewStub android:id="@id/lcl" android:layout="@layout/ye" android:layout_width="match_parent" android:layout_height="match_parent" />
+    <ViewStub android:id="@id/lck" android:layout="@layout/yc" android:layout_width="match_parent" android:layout_height="match_parent" />
+    <TextView android:textSize="14.0dp" android:textColor="@color/white" android:id="@id/m_0" android:visibility="gone" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/ym" android:layout_centerInParent="true" />
+    <com.airbnb.lottie.LottieAnimationView android:id="@id/fiu" android:visibility="gone" android:layout_width="40.0dp" android:layout_height="40.0dp" android:layout_marginTop="225.0dp" android:layout_centerHorizontal="true" />
+    <RelativeLayout android:layout_width="match_parent" android:layout_height="wrap_content">
+        <TextView android:textSize="12.0sp" android:textColor="@color/timeline_black_text" android:id="@id/f05" android:visibility="gone" android:layout_width="wrap_content" android:layout_height="match_parent" android:layout_marginLeft="4.0dp" android:text="@string/yk" android:singleLine="true" android:layout_alignParentTop="true" android:importantForAccessibility="no" />
+        <RelativeLayout android:state_window_focused="false" android:id="@id/b99" android:paddingTop="@dimen/c_q" android:layout_width="match_parent" android:layout_height="@dimen/cau">
+            <RelativeLayout android:id="@id/aup" android:layout_width="match_parent" android:layout_height="match_parent" android:layout_marginLeft="60.0dp" android:layout_marginRight="60.0dp" android:layout_centerHorizontal="true">
+                <com.tencent.qqmusic.ui.customview.textview.ScrollTextView android:textSize="18.0sp" android:textColor="@color/timeline_black_text" android:ellipsize="end" android:gravity="center" android:id="@id/le5" android:visibility="gone" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/ys" android:singleLine="true" android:layout_centerInParent="true" style="@style/a4s" />
+            </RelativeLayout>
+            <RelativeLayout android:id="@id/f02" android:clickable="false" android:layout_width="wrap_content" android:layout_height="match_parent" android:layout_marginRight="4.0dp" android:layout_alignParentLeft="true">
+                <ImageView android:id="@id/a5j" android:background="@drawable/material_ripple_background_circle" android:focusable="true" android:layout_width="@dimen/cao" android:layout_height="@dimen/cao" android:src="@drawable/activity_back_selector_white" android:scaleType="centerInside" android:layout_centerInParent="true" android:contentDescription="@string/wf" />
+                <ImageView android:id="@id/a5k" android:background="@drawable/activity_back_selector_white" android:focusable="true" android:visibility="gone" android:layout_width="45.0dp" android:layout_height="44.0dp" android:layout_toRightOf="@id/a5j" android:contentDescription="@string/wf" />
+            </RelativeLayout>
+        </RelativeLayout>
+        <View android:id="@id/lct" android:background="@color/timeline_black_mask" android:visibility="gone" android:layout_width="match_parent" android:layout_height="match_parent" android:layout_alignBottom="@id/b99" />
+    </RelativeLayout>
+    <androidx.constraintlayout.widget.ConstraintLayout android:id="@id/afh" android:visibility="gone" android:layout_width="match_parent" android:layout_height="@dimen/cau" android:layout_alignParentBottom="true">
+        <TextView android:textSize="14.0sp" android:textColor="@color/timeline_black_text" android:id="@id/m5k" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginBottom="6.0dp" android:singleLine="true" app:a1e="@id/eav" app:a1x="hnz" app:a21="hnz" app:a27="hnz" app:a29="hmg" />
+        <ImageView android:id="@id/eav" android:background="@drawable/black_pull_more" android:layout_width="14.0dp" android:layout_height="14.0dp" app:a1d="hnz" app:a1x="hnz" app:a21="hnz" app:a26="@id/m5k" />
+        <View android:id="@id/lcs" android:background="@color/timeline_black_mask" android:visibility="gone" android:layout_width="match_parent" android:layout_height="match_parent" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+    <FrameLayout android:id="@id/n3n" android:layout_width="match_parent" android:layout_height="match_parent" />
+</com.tencent.qqmusic.business.timeline.ui.DispatchRelativeLayout>

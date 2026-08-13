@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout android:paddingTop="40.0dp" android:layout_width="match_parent" android:layout_height="105.0dp"
+  xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">
+    <com.airbnb.lottie.LottieAnimationView android:layout_gravity="center_horizontal" android:id="@id/fza" android:layout_width="50.0dp" android:layout_height="50.0dp" app:a4n="true" app:a4u="true" />
+    <RelativeLayout android:layout_gravity="center_horizontal" android:layout_width="wrap_content" android:layout_height="30.0dp" android:layout_marginTop="10.0dp">
+        <View android:id="@id/j3p" android:background="@drawable/refresh_header_view_bg" android:visibility="gone" android:layout_width="wrap_content" android:layout_height="match_parent" android:layout_alignLeft="@id/j3o" android:layout_alignRight="@id/j3o" />
+        <TextView android:textSize="13.0dp" android:textColor="@color/white" android:ellipsize="end" android:id="@id/j3o" android:paddingLeft="13.0dp" android:paddingRight="13.0dp" android:visibility="gone" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginBottom="1.0dp" android:text="@string/fpe" android:maxLines="1" android:layout_centerInParent="true" app:a2b="nug" />
+    </RelativeLayout>
+</FrameLayout>

@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout android:layout_width="wrap_content" android:layout_height="wrap_content"
+  xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">
+    <kk.design.KKImageView android:layout_gravity="center" android:id="@id/deg" android:layout_width="180.0dp" android:layout_height="180.0dp" app:yj="n2q" app:yk="g7e" app:a1d="hnz" app:a1x="hnz" app:a21="hnz" />
+    <kk.design.KKImageView android:layout_gravity="center" android:id="@id/deh" android:layout_width="60.0dp" android:layout_height="60.0dp" android:layout_marginLeft="3.0dp" android:layout_marginBottom="41.799988dp" app:kkImageRadiusDirection="xt" app:kkImageRadiusSize="30.0dp" app:yk="hfs" app:a1d="hnz" app:a1x="hnz" app:a21="hnz" />
+</androidx.constraintlayout.widget.ConstraintLayout>

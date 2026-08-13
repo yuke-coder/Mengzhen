@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout android:background="@drawable/base_select_dialog_bottom_button_click" android:layout_width="123.0dp" android:layout_height="46.0dp"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <LinearLayout android:gravity="center_vertical" android:layout_gravity="center_vertical" android:layout_width="wrap_content" android:layout_height="45.0dp">
+        <ImageView android:id="@id/ikx" android:layout_width="30.0dp" android:layout_height="30.0dp" android:layout_marginLeft="10.0dp" android:layout_marginRight="5.0dp" />
+        <TextView android:textSize="14.0sp" android:textColor="@color/skin_text_main_color" android:id="@id/iky" android:layout_width="wrap_content" android:layout_height="wrap_content" android:lines="1" />
+    </LinearLayout>
+    <View android:layout_gravity="center|bottom" android:id="@id/ikw" android:background="@color/black_5_opacity" android:layout_width="match_parent" android:layout_height="0.5dp" android:layout_marginLeft="15.0dp" android:layout_marginRight="15.0dp" />
+</FrameLayout>

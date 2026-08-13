@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout android:layout_width="match_parent" android:layout_height="match_parent"
+  xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">
+    <com.tencent.component.widget.AsyncImageView android:id="@id/k7s" android:layout_width="match_parent" android:layout_height="match_parent" android:scaleType="centerCrop" />
+    <com.tencent.component.widget.AsyncImageView android:id="@id/k7r" android:layout_width="match_parent" android:layout_height="match_parent" android:scaleType="centerCrop" />
+    <FrameLayout android:id="@id/k7u" android:layout_width="match_parent" android:layout_height="match_parent" />
+    <com.tencent.qqmusic.homepage.singer.calendar.views.SingerCalendarView android:id="@id/k7t" android:visibility="invisible" android:layout_width="wrap_content" android:layout_height="wrap_content" />
+    <LinearLayout android:orientation="vertical" android:id="@id/k7w" android:visibility="invisible" android:layout_width="wrap_content" android:layout_height="wrap_content">
+        <TextView android:textSize="22.0sp" android:textColor="@color/black" android:ellipsize="end" android:layout_gravity="center_horizontal" android:id="@id/k7v" android:layout_width="wrap_content" android:layout_height="wrap_content" android:maxLines="1" android:includeFontPadding="false" android:letterSpacing="0.0" />
+        <TextView android:textSize="22.0sp" android:textColor="@color/black" android:ellipsize="end" android:layout_gravity="center_horizontal" android:id="@id/k7x" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/h8g" android:maxLines="1" android:includeFontPadding="false" android:letterSpacing="0.0" />
+    </LinearLayout>
+</FrameLayout>

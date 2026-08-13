@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout android:id="@id/gh8" android:layout_width="@dimen/aut" android:layout_height="@dimen/aus"
+  xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">
+    <com.tencent.qqmusic.ui.RoundedRelativeLayout android:id="@id/gh9" android:layout_width="@dimen/auv" android:layout_height="@dimen/auu">
+        <ImageView android:id="@id/gh_" android:layout_width="84.0dp" android:layout_height="84.0dp" android:layout_marginTop="20.0dp" android:layout_alignParentTop="true" android:layout_centerHorizontal="true" android:importantForAccessibility="no" />
+        <androidx.appcompat.widget.AppCompatTextView android:textSize="13.0dp" android:textColor="@color/skin_text_sub_color" android:gravity="center_horizontal" android:id="@id/gha" android:layout_width="match_parent" android:layout_height="20.0dp" android:layout_marginLeft="4.0dp" android:layout_marginTop="10.0dp" android:layout_marginRight="4.0dp" android:layout_below="@id/gh_" android:importantForAccessibility="no" />
+    </com.tencent.qqmusic.ui.RoundedRelativeLayout>
+    <RelativeLayout android:id="@id/ghb" android:layout_width="@dimen/auv" android:layout_height="@dimen/auu" android:importantForAccessibility="no">
+        <com.tencent.component.widget.AsyncEffectImageView android:id="@id/ghc" android:layout_width="match_parent" android:layout_height="match_parent" android:importantForAccessibility="no" />
+        <FrameLayout android:id="@id/ghf" android:visibility="gone" android:layout_width="match_parent" android:layout_height="match_parent" />
+        <LinearLayout android:gravity="center_vertical" android:orientation="horizontal" android:id="@id/gh7" android:paddingLeft="6.0dp" android:paddingRight="6.0dp" android:layout_width="wrap_content" android:layout_height="23.0dp" android:layout_alignParentBottom="true" android:layout_alignParentStart="true">
+            <com.tencent.qqmusic.fragment.search.view.SearchLiveWaveView android:id="@id/gh6" android:layout_width="23.0dp" android:layout_height="23.0dp" android:importantForAccessibility="no" />
+            <com.tencent.qqmusic.ui.AutoMarqueeView android:layout_gravity="center_vertical" android:id="@id/gh5" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginRight="6.0dp" />
+        </LinearLayout>
+        <LinearLayout android:gravity="center_vertical" android:orientation="horizontal" android:id="@id/gh0" android:layout_width="wrap_content" android:layout_height="23.0dp" android:layout_alignParentBottom="true" android:layout_marginEnd="9.0dp" android:layout_alignParentEnd="true">
+            <androidx.appcompat.widget.AppCompatTextView android:textSize="@dimen/c8b" android:textStyle="bold" android:textColor="@android:color/white" android:gravity="center" android:layout_gravity="center_vertical" android:id="@id/gh1" android:layout_width="wrap_content" android:layout_height="wrap_content" android:importantForAccessibility="no" />
+        </LinearLayout>
+        <ImageView android:id="@id/ggz" android:layout_width="19.0dp" android:layout_height="14.0dp" android:scaleType="centerInside" android:layout_alignParentTop="true" android:layout_alignParentRight="true" android:contentDescription="@string/e7e" android:layout_alignParentEnd="true" />
+        <ImageView android:id="@id/gh2" android:visibility="gone" android:layout_width="25.0dp" android:layout_height="25.0dp" android:scaleType="fitCenter" android:layout_alignParentRight="true" android:layout_alignParentBottom="true" android:importantForAccessibility="no" />
+        <ImageView android:id="@id/gh3" android:visibility="gone" android:layout_width="25.0dp" android:layout_height="25.0dp" android:scaleType="fitCenter" android:layout_alignParentRight="true" android:layout_alignParentBottom="true" android:importantForAccessibility="no" />
+        <ImageView android:id="@id/gh4" android:visibility="gone" android:layout_width="25.0dp" android:layout_height="25.0dp" android:scaleType="fitCenter" android:layout_alignParentRight="true" android:layout_alignParentBottom="true" android:importantForAccessibility="no" />
+    </RelativeLayout>
+    <androidx.appcompat.widget.AppCompatTextView android:textSize="@dimen/c8c" android:textColor="@color/white" android:ellipsize="end" android:id="@id/ghe" android:paddingTop="@dimen/auy" android:layout_width="0.0dp" android:layout_height="@dimen/auw" android:lines="2" android:layout_below="@id/ghb" android:layout_alignLeft="@id/ghb" android:layout_alignRight="@id/ghb" android:importantForAccessibility="no" android:paddingStart="@dimen/auy" android:paddingEnd="@dimen/auy" android:layout_alignStart="@id/ghb" android:layout_alignEnd="@id/ghb" />
+</RelativeLayout>

@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout android:background="@color/transparent" android:layout_width="250.0dp" android:layout_height="wrap_content"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <View android:id="@id/mlive_gift_weapon_bg" android:background="@drawable/mlive_gift_piece_weapon_result_dialog_bg" android:layout_width="250.0dp" android:layout_height="275.0dp" android:layout_centerHorizontal="true" />
+    <ImageView android:layout_width="250.0dp" android:layout_height="wrap_content" android:src="@drawable/mlive_gift_piece_weapon_result_dialog_top_bg" android:layout_centerHorizontal="true" />
+    <ImageView android:id="@id/mlive_gift_weapon_gift_icon" android:layout_width="90.0dp" android:layout_height="90.0dp" android:layout_marginTop="21.0dp" android:layout_centerHorizontal="true" />
+    <TextView android:textSize="15.0dp" android:textColor="@color/white" android:gravity="center" android:id="@id/mlive_gift_weapon_jump_to_gift" android:layout_width="196.0dp" android:layout_height="35.0dp" android:layout_marginBottom="27.0dp" android:text="@string/d_i" android:layout_alignBottom="@id/mlive_gift_weapon_bg" android:layout_centerHorizontal="true" />
+    <TextView android:textColor="#1a1a1a" android:id="@id/mlive_gift_weapon_gift_tips" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginBottom="20.0dp" android:layout_above="@id/mlive_gift_weapon_jump_to_gift" android:layout_centerHorizontal="true" android:alpha="0.6" />
+    <TextView android:textSize="19.0dp" android:textColor="#1a1a1a" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginBottom="7.0dp" android:text="@string/d_m" android:layout_above="@id/mlive_gift_weapon_gift_tips" android:layout_centerHorizontal="true" android:alpha="0.9" />
+    <ImageButton android:id="@id/mlive_gift_weapon_message_box_close" android:background="@drawable/mlive_dialog_fragment_btn_close" android:layout_width="35.5dp" android:layout_height="35.5dp" android:layout_marginTop="25.0dp" android:layout_below="@id/mlive_gift_weapon_bg" android:layout_centerHorizontal="true" />
+</RelativeLayout>

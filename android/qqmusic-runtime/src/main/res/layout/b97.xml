@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout android:orientation="horizontal" android:id="@android:id/background" android:layout_width="match_parent" android:layout_height="match_parent"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <RelativeLayout android:layout_width="0.0dp" android:layout_height="match_parent" android:layout_weight="78.0">
+        <ImageView android:id="@id/bi_" android:layout_width="match_parent" android:layout_height="match_parent" android:src="@drawable/miui_widget_22_daily_30_default_dy" android:scaleType="centerCrop" />
+        <ImageView android:id="@id/bia" android:layout_width="match_parent" android:layout_height="match_parent" android:src="@drawable/miui_widget_half_mask_base" android:scaleType="centerCrop" />
+        <LinearLayout android:orientation="horizontal" android:layout_width="match_parent" android:layout_height="wrap_content">
+            <ImageView android:id="@id/bbd" android:layout_width="0.0dp" android:layout_height="wrap_content" android:src="@drawable/miui_widget_corner_mark_img" android:scaleType="centerCrop" android:adjustViewBounds="true" android:layout_weight="1.0" />
+            <ImageView android:layout_width="0.0dp" android:layout_height="wrap_content" android:layout_weight="1.0" />
+        </LinearLayout>
+        <TextView android:textSize="12.0dp" android:textStyle="bold" android:textColor="@color/white" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginLeft="20.0dp" android:layout_marginBottom="20.0dp" android:text="@string/csl" android:layout_alignLeft="@id/bi_" android:layout_alignBottom="@id/bi_" />
+    </RelativeLayout>
+    <LinearLayout android:orientation="vertical" android:layout_width="0.0dp" android:layout_height="match_parent" android:layout_weight="85.0">
+        <LinearLayout android:orientation="horizontal" android:layout_width="match_parent" android:layout_height="0.0dp" android:layout_weight="1.0">
+            <RelativeLayout android:layout_width="0.0dp" android:layout_height="match_parent" android:layout_weight="1.0">
+                <ImageView android:id="@id/dhy" android:layout_width="match_parent" android:layout_height="match_parent" android:src="@drawable/miui_widget_22_i_like_default_dy" android:scaleType="centerCrop" />
+                <ImageView android:id="@id/dhz" android:layout_width="match_parent" android:layout_height="match_parent" android:src="@drawable/miui_widget_mask" android:scaleType="centerCrop" />
+                <LinearLayout android:orientation="vertical" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_centerInParent="true">
+                    <ImageView android:layout_gravity="center_horizontal" android:layout_width="wrap_content" android:layout_height="wrap_content" android:src="@drawable/miui_widget_i_like_icon" />
+                    <TextView android:textSize="12.0dp" android:textStyle="bold" android:textColor="@color/white" android:layout_gravity="center_horizontal" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="5.0dp" android:text="@string/csp" />
+                </LinearLayout>
+            </RelativeLayout>
+            <RelativeLayout android:layout_width="0.0dp" android:layout_height="match_parent" android:layout_weight="1.0">
+                <ImageView android:id="@id/iwv" android:layout_width="match_parent" android:layout_height="match_parent" android:src="@drawable/miui_widget_22_recognize_default_dy" android:scaleType="centerCrop" />
+                <ImageView android:id="@id/iww" android:layout_width="match_parent" android:layout_height="match_parent" android:src="@drawable/miui_widget_mask" android:scaleType="centerCrop" />
+                <LinearLayout android:orientation="vertical" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_centerInParent="true">
+                    <ImageView android:layout_gravity="center_horizontal" android:layout_width="wrap_content" android:layout_height="wrap_content" android:src="@drawable/miui_widget_recognize_icon" />
+                    <TextView android:textSize="12.0dp" android:textStyle="bold" android:textColor="@color/white" android:layout_gravity="center_horizontal" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="5.0dp" android:text="@string/csy" />
+                </LinearLayout>
+            </RelativeLayout>
+        </LinearLayout>
+        <LinearLayout android:orientation="horizontal" android:layout_width="match_parent" android:layout_height="0.0dp" android:layout_weight="1.0">
+            <RelativeLayout android:layout_width="0.0dp" android:layout_height="match_parent" android:layout_weight="1.0">
+                <ImageView android:id="@id/iur" android:layout_width="match_parent" android:layout_height="match_parent" android:src="@drawable/miui_widget_42_recent_play_default_dy" android:scaleType="centerCrop" />
+                <ImageView android:id="@id/iv3" android:layout_width="match_parent" android:layout_height="match_parent" android:src="@drawable/miui_widget_mask" android:scaleType="centerCrop" />
+                <LinearLayout android:orientation="vertical" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_centerInParent="true">
+                    <ImageView android:layout_gravity="center_horizontal" android:layout_width="wrap_content" android:layout_height="wrap_content" android:src="@drawable/miui_widget_recent_icon" />
+                    <TextView android:textSize="12.0dp" android:textStyle="bold" android:textColor="@color/white" android:layout_gravity="center_horizontal" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="5.0dp" android:text="@string/csx" />
+                </LinearLayout>
+            </RelativeLayout>
+            <RelativeLayout android:layout_width="0.0dp" android:layout_height="match_parent" android:layout_weight="1.0">
+                <ImageView android:id="@id/jml" android:layout_width="match_parent" android:layout_height="match_parent" android:src="@drawable/miui_widget_22_search_default_dy" android:scaleType="centerCrop" />
+                <ImageView android:id="@id/jmt" android:layout_width="match_parent" android:layout_height="match_parent" android:src="@drawable/miui_widget_mask" android:scaleType="centerCrop" />
+                <LinearLayout android:orientation="vertical" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_centerInParent="true">
+                    <ImageView android:layout_gravity="center_horizontal" android:layout_width="wrap_content" android:layout_height="wrap_content" android:src="@drawable/miui_widget_search_icon" />
+                    <TextView android:textSize="12.0dp" android:textStyle="bold" android:textColor="@color/white" android:layout_gravity="center_horizontal" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="5.0dp" android:text="@string/csz" />
+                </LinearLayout>
+            </RelativeLayout>
+        </LinearLayout>
+    </LinearLayout>
+</LinearLayout>

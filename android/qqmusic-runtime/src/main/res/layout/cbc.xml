@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout android:orientation="vertical" android:id="@id/hba" android:background="#000000" android:layout_width="match_parent" android:layout_height="50.0dp"
+  xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">
+    <kk.design.KKIconView android:id="@id/b8u" android:layout_width="24.0dp" android:layout_height="24.0dp" android:layout_marginLeft="18.0dp" android:src="@drawable/new_preview_back" android:layout_centerVertical="true" app:yc="@null" />
+    <LinearLayout android:orientation="horizontal" android:id="@id/kgt" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginLeft="10.0dp" android:layout_toRightOf="@id/b8u" android:layout_alignParentRight="true" android:layout_centerVertical="true">
+        <com.tme.karaoka.previewui.widget.MarqueeNormalTextView android:ellipsize="marquee" android:gravity="center_vertical" android:layout_gravity="center_vertical" android:id="@id/kgu" android:paddingRight="46.5dp" android:layout_width="wrap_content" android:layout_height="wrap_content" android:lines="1" android:scrollHorizontally="true" android:singleLine="true" android:layout_centerVertical="true" android:marqueeRepeatLimit="marquee_forever" app:a0f="a9b" app:a0g="bj0" />
+        <LinearLayout android:gravity="center_vertical" android:layout_gravity="center_vertical" android:orientation="horizontal" android:id="@id/irm" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginLeft="-40.5dp">
+            <ImageView android:layout_gravity="center_vertical" android:id="@id/kgv" android:visibility="visible" android:layout_width="wrap_content" android:layout_height="15.0dp" android:src="@drawable/icon_big_sss" android:scaleType="fitXY" android:adjustViewBounds="true" />
+            <kk.design.KKTextView android:textColor="#ffe985" android:layout_gravity="center_vertical" android:id="@id/aru" android:visibility="gone" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="00000卡" android:maxLines="1" app:a0f="hfs" />
+            <LinearLayout android:gravity="center_vertical" android:layout_gravity="center_vertical" android:id="@id/lv_" android:background="@drawable/ai_multi_result_score_icon" android:paddingLeft="3.0dp" android:paddingRight="4.0dp" android:visibility="gone" android:layout_width="wrap_content" android:layout_height="20.0dp" android:layout_marginLeft="8.0dp">
+                <kk.design.KKIconView android:layout_width="12.0dp" android:layout_height="12.0dp" android:src="@drawable/ai_multi_result_score_top_icon" app:yc="@null" />
+                <kk.design.KKTextView android:textSize="12.0dp" android:textStyle="bold" android:textColor="#353535" android:ellipsize="end" android:id="@id/lva" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginLeft="1.0dp" android:text="89分" android:maxLines="1" app:a0f="hfs" />
+            </LinearLayout>
+        </LinearLayout>
+    </LinearLayout>
+</RelativeLayout>

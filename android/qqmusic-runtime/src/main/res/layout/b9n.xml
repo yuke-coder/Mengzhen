@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout android:id="@id/jdj" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginTop="17.0dp"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <TextView android:textSize="12.0dp" android:textColor="@color/skin_text_sub_color" android:id="@id/bsh" android:visibility="gone" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginBottom="2.0dp" />
+    <com.tencent.qqmusic.fragment.search.view.SearchKillViewPagerRecyclerView android:id="@id/g_n" android:focusable="true" android:focusableInTouchMode="true" android:scrollbars="none" android:clipToPadding="true" android:layout_width="wrap_content" android:layout_height="wrap_content" android:cacheColorHint="#00000000" android:divider="@null" android:layout_below="@id/bsh" android:overScrollMode="never" />
+</RelativeLayout>

@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout android:id="@id/bpq" android:background="@color/transparent" android:layout_width="wrap_content" android:layout_height="wrap_content"
+  xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">
+    <androidx.recyclerview.widget.RecyclerView android:id="@id/bpp" android:background="@drawable/bg_together_room_userinfo_more_pw" android:paddingTop="8.0dp" android:paddingBottom="8.0dp" android:scrollbars="none" android:clipToPadding="false" android:layout_width="wrap_content" android:layout_height="wrap_content" app:a1x="hnz" app:a27="hnz" />
+    <ImageView android:id="@id/bpo" android:layout_width="14.0dp" android:layout_height="7.0dp" android:layout_marginRight="14.0dp" android:src="@drawable/cell_down_arrow" android:layout_alignParentRight="true" app:a21="@id/bpp" app:a26="@id/bpp" />
+</androidx.constraintlayout.widget.ConstraintLayout>

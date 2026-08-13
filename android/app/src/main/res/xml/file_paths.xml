@@ -1,4 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <paths>
     <cache-path name="cache" path="." />
+    <files-path name="audio_imports" path="audio_imports/" />
+    <files-path name="audio_download" path="audio_download/" />
 </paths>

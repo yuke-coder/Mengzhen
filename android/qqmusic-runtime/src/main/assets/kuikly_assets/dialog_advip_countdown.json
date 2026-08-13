@@ -1,0 +1,19 @@
+{
+  "router": "openHalf",
+  "page_name": "dialog_advip_countdown",
+  "params": {
+    "countdown": 100,
+    "background": "https://y.qq.com/music/common/upload/ocs/1612918782d9dc36a855967a18dc3e49.png",
+    "button_text": "%ds后将激活今日畅听卡",
+    "source": "cold_boot",
+    "hhlz_incentive_button_text": "¥1.8开通绿钻免广告",
+    "hhlz_incentive_title": "开通豪华绿钻 免看4个广告享整月畅听",
+    "hhlz_incentive_button_jump_url": "https://i2.y.qq.com/n3/cm/pages/vip/myservice/v3/index.html?_scrollhide=1\u0026_hidehd=1\u0026tab1=svip\u0026tab2=cjhy\u0026entry=245\u0026aid=music.general.advipactivepop.svip",
+    "title": "您当前正在享受网赚畅听会员",
+    "sub_title": "看完4条广告激活今日畅听卡",
+    "style_type": "hhlz_highlight_button_card",
+    "style_abt_id": "76537003",
+    "hhlz_price": 180,
+    "hhlz_market_price": 2000
+  }
+}

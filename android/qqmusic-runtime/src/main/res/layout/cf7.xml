@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout android:gravity="center" android:orientation="horizontal" android:paddingRight="7.0dp" android:layout_width="match_parent" android:layout_height="55.0dp"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <TextView android:textSize="21.0sp" android:textColor="#ffffff" android:gravity="center" android:id="@id/mil" android:background="@drawable/game_revive_video" android:layout_width="170.0dp" android:layout_height="55.0dp" />
+    <RelativeLayout android:orientation="horizontal" android:id="@id/j6m" android:background="@drawable/ic_game_btn_bg" android:layout_width="170.0dp" android:layout_height="55.0dp">
+        <TextView android:textSize="21.0sp" android:textColor="#292722" android:id="@id/mik" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_centerInParent="true" />
+        <TextView android:textSize="11.0sp" android:textColor="#292722" android:gravity="center" android:layout_gravity="center" android:id="@id/mbh" android:background="@drawable/game_revive_left_shares" android:layout_width="wrap_content" android:layout_height="wrap_content" android:includeFontPadding="false" android:layout_alignParentTop="true" android:layout_marginEnd="-3.0dp" android:layout_alignParentEnd="true" />
+    </RelativeLayout>
+</LinearLayout>

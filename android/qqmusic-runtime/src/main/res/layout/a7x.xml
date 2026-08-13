@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout android:layout_width="match_parent" android:layout_height="match_parent"
+  xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">
+    <ImageView android:id="@id/hwn" android:visibility="gone" android:layout_width="match_parent" android:layout_height="match_parent" android:scaleType="centerCrop" />
+    <ImageView android:id="@id/i0i" android:visibility="gone" android:layout_width="match_parent" android:layout_height="match_parent" android:scaleType="centerCrop" android:alpha="0.4" />
+    <FrameLayout android:id="@id/hzu" android:visibility="invisible" android:layout_width="match_parent" android:layout_height="match_parent" android:layout_centerInParent="true" android:alpha="0.6" />
+    <androidx.constraintlayout.widget.Guideline android:orientation="vertical" android:id="@id/d83" android:layout_width="wrap_content" android:layout_height="wrap_content" app:a1n="0.0521" />
+    <androidx.constraintlayout.widget.Guideline android:orientation="horizontal" android:id="@id/d84" android:layout_width="wrap_content" android:layout_height="wrap_content" app:a1n="0.0446" />
+    <RelativeLayout android:id="@id/j_e" android:layout_width="wrap_content" android:layout_height="wrap_content" app:a1x="@id/d83" app:a27="@id/d84">
+        <ImageView android:id="@id/e9t" android:layout_width="50.0dp" android:layout_height="50.0dp" android:src="@drawable/carwith_icon_ai_assist" android:scaleType="fitCenter" />
+        <TextView android:textSize="15.0dp" android:textColor="#80ffffff" android:id="@id/m43" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginLeft="4.0dp" android:text="元宝助手" android:maxLines="1" android:layout_toRightOf="@id/e9t" android:layout_centerVertical="true" />
+    </RelativeLayout>
+    <androidx.constraintlayout.widget.Guideline android:orientation="vertical" android:id="@id/d9w" android:layout_width="wrap_content" android:layout_height="wrap_content" app:a1n="0.313" />
+    <androidx.constraintlayout.widget.Guideline android:orientation="vertical" android:id="@id/d9x" android:layout_width="wrap_content" android:layout_height="wrap_content" app:a1n="0.688" />
+    <androidx.constraintlayout.widget.Guideline android:orientation="horizontal" android:id="@id/d9y" android:layout_width="wrap_content" android:layout_height="wrap_content" app:a1n="0.0535" />
+    <com.tencent.qqmusic.business.carwith.ui.widgets.CarWithPlaylistSwitchView android:id="@id/i95" android:layout_width="0.0dp" android:layout_height="42.0dp" app:a1x="@id/d9w" app:a21="@id/d9x" app:a27="@id/d9y" />
+    <androidx.constraintlayout.widget.Guideline android:orientation="vertical" android:id="@id/d8p" android:layout_width="wrap_content" android:layout_height="wrap_content" app:a1n="0.0833" />
+    <androidx.constraintlayout.widget.Guideline android:orientation="vertical" android:id="@id/d8q" android:layout_width="wrap_content" android:layout_height="wrap_content" app:a1n="0.436" />
+    <androidx.constraintlayout.widget.Guideline android:orientation="horizontal" android:id="@id/d8r" android:layout_width="wrap_content" android:layout_height="wrap_content" app:a1n="0.235" />
+    <androidx.constraintlayout.widget.Guideline android:orientation="horizontal" android:id="@id/d8o" android:layout_width="wrap_content" android:layout_height="wrap_content" app:a1n="0.574" />
+    <androidx.viewpager2.widget.ViewPager2 android:id="@id/nax" android:visibility="visible" android:clipChildren="false" android:layout_width="0.0dp" android:layout_height="0.0dp" android:layerType="software" app:a1d="@id/d8o" app:a1x="@id/d8p" app:a21="@id/d8q" app:a27="@id/d8r" />
+    <androidx.constraintlayout.widget.Guideline android:orientation="vertical" android:id="@id/d9o" android:layout_width="wrap_content" android:layout_height="wrap_content" app:a1n="0.521" />
+    <androidx.constraintlayout.widget.Guideline android:orientation="vertical" android:id="@id/d9p" android:layout_width="wrap_content" android:layout_height="wrap_content" app:a1n="0.917" />
+    <androidx.constraintlayout.widget.Guideline android:orientation="horizontal" android:id="@id/d9q" android:layout_width="wrap_content" android:layout_height="wrap_content" app:a1n="0.232" />
+    <androidx.constraintlayout.widget.Guideline android:orientation="horizontal" android:id="@id/d9n" android:layout_width="wrap_content" android:layout_height="wrap_content" app:a1n="0.731" />
+    <RelativeLayout android:id="@id/jae" android:layout_width="0.0dp" android:layout_height="0.0dp" app:a1d="@id/d9n" app:a1x="@id/d9o" app:a21="@id/d9p" app:a27="@id/d9q">
+        <TextView android:enabled="true" android:textSize="20.0dp" android:textColor="@color/white" android:gravity="center" android:id="@id/mej" android:focusable="true" android:visibility="gone" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/fhh" android:singleLine="true" android:layout_centerInParent="true" />
+        <com.lyricengine.ui.LineFeedAnimationLyricView android:id="@id/gx4" android:focusable="false" android:scrollbars="none" android:fadingEdgeLength="@dimen/bgg" android:layout_width="match_parent" android:layout_height="match_parent" android:fillViewport="true" android:contentDescription="@string/atl" android:overScrollMode="never" android:requiresFadingEdge="vertical" app:n="@dimen/bgv" app:a2m="120.0dp" app:a6i="#ffffffff" app:a6j="#99ffffff" app:a6k="#99ffffff" app:a6m="true" app:a6p="@dimen/bgh" app:a6q="@dimen/bgi" app:a6r="@dimen/bgj" app:a6s="left" app:a6v="0.0dp" app:a72="50" app:a73="@dimen/bgs" app:a7b="top" />
+    </RelativeLayout>
+    <androidx.constraintlayout.widget.Guideline android:orientation="vertical" android:id="@id/d_l" android:layout_width="wrap_content" android:layout_height="wrap_content" app:a1n="0.0833" />
+    <androidx.constraintlayout.widget.Guideline android:orientation="vertical" android:id="@id/d_m" android:layout_width="wrap_content" android:layout_height="wrap_content" app:a1n="0.436" />
+    <androidx.constraintlayout.widget.Guideline android:orientation="horizontal" android:id="@id/d_n" android:layout_width="wrap_content" android:layout_height="wrap_content" app:a1n="0.627" />
+    <androidx.constraintlayout.widget.Guideline android:orientation="horizontal" android:id="@id/d_k" android:layout_width="wrap_content" android:layout_height="wrap_content" app:a1n="0.731" />
+    <com.tencent.qqmusic.business.carwith.ui.widgets.CarWithSongInfoView android:id="@id/kdz" android:layout_width="0.0dp" android:layout_height="wrap_content" app:a1x="@id/d_l" app:a21="@id/d_m" app:a27="@id/d_n" />
+    <androidx.constraintlayout.widget.Guideline android:orientation="vertical" android:id="@id/d_7" android:layout_width="wrap_content" android:layout_height="wrap_content" app:a1n="0.273" />
+    <androidx.constraintlayout.widget.Guideline android:orientation="vertical" android:id="@id/d_8" android:layout_width="wrap_content" android:layout_height="wrap_content" app:a1n="0.727" />
+    <androidx.constraintlayout.widget.Guideline android:orientation="horizontal" android:id="@id/d_9" android:layout_width="wrap_content" android:layout_height="wrap_content" app:a1n="0.795" />
+    <androidx.constraintlayout.widget.Guideline android:orientation="horizontal" android:id="@id/d_6" android:layout_width="wrap_content" android:layout_height="wrap_content" app:a1n="0.929" />
+    <com.tencent.qqmusic.business.carwith.ui.widgets.CarWithSongControlView android:id="@id/kbw" android:layout_width="0.0dp" android:layout_height="0.0dp" app:a1i="W,15:87" app:a1x="@id/d_7" app:a21="@id/d_8" app:a27="@id/d_9" />
+</androidx.constraintlayout.widget.ConstraintLayout>

@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout android:layout_width="match_parent" android:layout_height="match_parent"
+  xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">
+    <ImageView android:id="@id/close_btn" android:padding="10.0dp" android:layout_width="wrap_content" android:layout_height="wrap_content" android:src="@drawable/close_btn" android:layout_alignParentTop="true" android:contentDescription="关闭" android:layout_marginEnd="10.0dp" android:layout_alignParentEnd="true" />
+    <LinearLayout android:gravity="center_horizontal" android:orientation="vertical" android:background="@drawable/authorize_bg" android:paddingBottom="12.0dp" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_below="@id/close_btn">
+        <LinearLayout android:gravity="center_horizontal" android:orientation="horizontal" android:background="@drawable/login_dialog_bg" android:layout_width="match_parent" android:layout_height="wrap_content">
+            <ImageView android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="34.539978dp" android:src="@drawable/login_icon" />
+        </LinearLayout>
+        <TextView android:textSize="20.0sp" android:textStyle="bold" android:textColor="@color/black" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="20.0dp" android:text="授权帐号使用全民K歌服务" />
+        <TextView android:textSize="12.0sp" android:textColor="@color/black" android:gravity="center" android:layout_gravity="center" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginLeft="30.0dp" android:layout_marginRight="30.0dp" android:text="检测到你当前登录的账号与全民K歌账号不一致，请切换至同一账号后再继续该操作。" android:layout_marginHorizontal="30.0dp" />
+        <LinearLayout android:gravity="center" android:orientation="horizontal" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="12.0dp">
+            <CheckBox android:textSize="12.0dp" android:gravity="center" android:id="@id/mm" android:layout_width="wrap_content" android:layout_height="wrap_content" android:button="@drawable/karaoke_login_check_selector" />
+            <TextView android:textSize="12.0dp" android:textColor="@color/black_50_transparent" android:id="@id/mn" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="已阅读并同意 用户协议 和 隐私政策 " />
+        </LinearLayout>
+        <Button android:textSize="13.0dp" android:textColor="@color/white" android:id="@id/d2q" android:background="@drawable/account_btn_bg" android:layout_width="wrap_content" android:layout_height="40.0dp" android:layout_marginTop="10.0dp" android:layout_marginBottom="5.0dp" android:text="去全民K歌APP唱" android:paddingStart="36.5dp" android:paddingEnd="36.5dp" android:stateListAnimator="@null" />
+        <TextView android:textSize="13.0dp" android:textColor="@color/black" android:id="@id/flf" android:padding="5.0dp" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="用Q音账号授权登录" />
+    </LinearLayout>
+</RelativeLayout>

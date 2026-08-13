@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout android:layout_width="match_parent" android:layout_height="wrap_content"
+  xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">
+    <include android:id="@id/mlive_item_dialog_live_song_list_left_item" android:layout_width="0.0dp" android:layout_height="wrap_content" app:a1k="@id/mlive_item_dialog_live_song_list_centre_item" app:a23="hnz" layout="@layout/bee" />
+    <Space android:id="@id/mlive_item_dialog_live_song_list_centre_item" android:layout_width="6.0dp" android:layout_height="0.0dp" app:a1k="@id/mlive_item_dialog_live_song_list_right_item" app:a22="@id/mlive_item_dialog_live_song_list_left_item" app:a27="hnz" />
+    <include android:id="@id/mlive_item_dialog_live_song_list_right_item" android:layout_width="0.0dp" android:layout_height="wrap_content" app:a1j="hnz" app:a22="@id/mlive_item_dialog_live_song_list_centre_item" layout="@layout/bee" />
+</androidx.constraintlayout.widget.ConstraintLayout>

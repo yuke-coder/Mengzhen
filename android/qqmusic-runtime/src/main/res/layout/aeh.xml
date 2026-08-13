@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout android:layout_width="match_parent" android:layout_height="match_parent" android:minHeight="160.0dp"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <RelativeLayout android:background="@drawable/color_b2_click" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_centerVertical="true">
+        <ImageView android:id="@id/bwq" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginRight="18.0dp" android:src="@drawable/download_path_chosen" android:layout_alignParentRight="true" android:layout_centerVertical="true" />
+        <ImageView android:id="@id/bwt" android:layout_width="@dimen/ro" android:layout_height="@dimen/ro" android:layout_marginLeft="18.0dp" android:layout_alignParentLeft="true" android:layout_centerVertical="true" />
+        <RelativeLayout android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginLeft="12.0dp" android:layout_toRightOf="@id/bwt" android:layout_centerVertical="true">
+            <TextView android:textAppearance="?android:textAppearanceLarge" android:textSize="32.0px" android:textColor="@color/skin_text_main_color" android:id="@id/bww" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="sss" android:layout_alignParentTop="true" />
+            <TextView android:textSize="24.0px" android:textColor="@color/skin_text_sub_color" android:id="@id/bwv" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="1.0dp" android:text="sss" android:layout_below="@id/bww" android:layout_alignLeft="@id/bww" />
+            <SeekBar android:id="@id/bwu" android:focusable="false" android:layout_width="200.0dp" android:layout_height="wrap_content" android:layout_marginTop="3.0dp" android:maxHeight="2.0dp" android:progressDrawable="@drawable/download_path_progress_bar" android:minHeight="2.0dp" android:thumb="@drawable/a_empty" android:thumbOffset="0.0dp" android:layout_below="@id/bwv" android:layout_alignLeft="@id/bwv" />
+        </RelativeLayout>
+    </RelativeLayout>
+    <View android:background="@drawable/z_color_l1" android:layout_width="match_parent" android:layout_height="1.0px" android:layout_alignParentBottom="true" />
+</RelativeLayout>

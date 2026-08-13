@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout android:paddingBottom="35.0dp" android:layout_width="match_parent" android:layout_height="wrap_content"
+  xmlns:app="http://schemas.android.com/apk/res-auto" xmlns:android="http://schemas.android.com/apk/res/android">
+    <androidx.constraintlayout.widget.Guideline android:orientation="vertical" android:id="@id/cl7" android:layout_width="wrap_content" android:layout_height="wrap_content" app:a1n="0.05" />
+    <com.tencent.qqmusic.fragment.folderalbum.folder.personalize.helper.FocusAwayMarqueeTextView android:textSize="50.0sp" android:textColor="@color/white" android:ellipsize="marquee" android:id="@id/cl_" android:focusable="true" android:focusableInTouchMode="true" android:layout_width="0.0dp" android:layout_height="wrap_content" android:singleLine="true" android:marqueeRepeatLimit="marquee_forever" app:a1x="@id/cl7" app:a27="hnz" app:a2e="0.899" />
+    <androidx.appcompat.widget.AppCompatTextView android:textSize="30.0sp" android:textStyle="bold" android:textColor="@color/white" android:ellipsize="end" android:id="@id/cl9" android:layout_width="0.0dp" android:layout_height="wrap_content" android:text="滚石四十周年滚石撞乐队团拼经典合集" android:maxLines="2" android:fontFamily="PingFangSC-Semibold" app:a1x="@id/cl_" app:a26="@id/cl_" app:a2e="0.8" />
+</androidx.constraintlayout.widget.ConstraintLayout>

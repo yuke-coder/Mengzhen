@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout android:orientation="vertical" android:layout_width="match_parent" android:layout_height="match_parent"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <include android:layout_width="match_parent" android:layout_height="match_parent" layout="@layout/m6" />
+    <View android:id="@id/m1o" android:background="@drawable/skin_sub_mask_img" android:visibility="visible" android:layout_width="match_parent" android:layout_height="@dimen/bcp" />
+    <include android:id="@id/b6b" android:background="@drawable/skin_sub_mask_img" android:visibility="visible" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_below="@id/m1o" layout="@layout/act" />
+    <com.tencent.qqmusic.business.comment.CommentAtScrollTab android:id="@id/b6a" android:layout_width="match_parent" android:layout_height="45.0dp" android:layout_below="@id/b6b" />
+    <com.tencent.qqmusic.ui.customview.viewpager.CustomSkinViewPager android:id="@id/b6c" android:layout_width="match_parent" android:layout_height="match_parent" android:layout_below="@id/b6a" />
+    <View android:id="@id/jvc" android:background="@drawable/head_shadow" android:layout_width="match_parent" android:layout_height="@dimen/l9" android:layout_below="@id/b6a" />
+</RelativeLayout>

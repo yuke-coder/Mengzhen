@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout android:background="@color/black_70_transparent" android:layout_width="match_parent" android:layout_height="match_parent"
+  xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">
+    <org.libpag.PAGView android:id="@id/mlive_gesture_guide_icon" android:layout_width="220.0dp" android:layout_height="220.0dp" app:a1e="@id/mlive_gesture_guide_message" app:a1j="hnz" app:a23="hnz" app:a27="hnz" app:a29="hmg" />
+    <TextView android:textSize="14.0sp" android:textColor="@color/white" android:id="@id/mlive_gesture_guide_message" android:layout_width="wrap_content" android:layout_height="wrap_content" android:maxLines="1" android:singleLine="true" app:a1d="hnz" app:a1j="hnz" app:a23="hnz" app:a26="@id/mlive_gesture_guide_icon" />
+</androidx.constraintlayout.widget.ConstraintLayout>

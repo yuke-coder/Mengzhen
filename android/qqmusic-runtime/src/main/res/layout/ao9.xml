@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout android:paddingTop="@dimen/a4d" android:paddingBottom="@dimen/a4c" android:focusable="true" android:clickable="true" android:clipChildren="false" android:clipToPadding="false" android:layout_width="match_parent" android:layout_height="wrap_content" android:minHeight="@dimen/a4a" android:importantForAccessibility="yes"
+  xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">
+    <LinearLayout android:gravity="center_vertical" android:layout_gravity="start|center" android:orientation="vertical" android:focusable="false" android:clickable="false" android:clipChildren="false" android:clipToPadding="false" android:layout_width="wrap_content" android:layout_height="wrap_content" android:importantForAccessibility="no" android:layout_marginEnd="@dimen/a_i">
+        <kk.design.KKTextView android:ellipsize="end" android:id="@id/mru" android:focusable="false" android:visibility="gone" android:clickable="false" android:layout_width="wrap_content" android:layout_height="wrap_content" android:lines="1" android:importantForAccessibility="no" app:a0c="ifr" app:a0d="kyp" app:a0e="j3u" />
+        <kk.design.KKTextView android:ellipsize="end" android:id="@id/mrn" android:focusable="false" android:visibility="gone" android:clickable="false" android:layout_width="wrap_content" android:layout_height="wrap_content" android:lines="1" android:importantForAccessibility="no" app:a0c="jp3" app:a0d="hr3" app:a0e="j3u" />
+    </LinearLayout>
+    <kk.design.KKSwitch android:layout_gravity="end|center" android:id="@id/aky" android:focusable="false" android:clickable="false" android:layout_width="wrap_content" android:layout_height="wrap_content" android:importantForAccessibility="no" />
+</FrameLayout>

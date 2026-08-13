@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout android:orientation="vertical" android:id="@id/nvf" android:layout_width="match_parent" android:layout_height="match_parent"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <com.tencent.xffects.effects.XEngineView android:id="@id/nvg" android:layout_width="match_parent" android:layout_height="match_parent" />
+    <include android:id="@id/lvi" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_alignParentTop="true" layout="@layout/clv" />
+    <LinearLayout android:gravity="center_vertical" android:orientation="horizontal" android:id="@id/aei" android:background="@color/video_poster_player_other_bg" android:layout_width="match_parent" android:layout_height="@dimen/cdu" android:layout_alignParentBottom="true">
+        <ImageView android:id="@id/awj" android:layout_width="0.0dp" android:layout_height="wrap_content" android:src="@drawable/video_poster_select_filter" android:scaleType="center" android:layout_weight="2.0" />
+        <TextView android:textSize="16.0sp" android:textColor="@color/white" android:gravity="center" android:id="@id/a05" android:background="@color/video_poster_player_share_bg" android:layout_width="0.0dp" android:layout_height="match_parent" android:text="@string/alg" android:layout_weight="1.0" />
+        <TextView android:textSize="16.0sp" android:textColor="@color/white" android:gravity="center" android:id="@id/a06" android:layout_width="0.0dp" android:layout_height="match_parent" android:text="@string/fop" android:layout_weight="1.0" />
+    </LinearLayout>
+    <include layout="@layout/qd" />
+</RelativeLayout>

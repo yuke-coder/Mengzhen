@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout android:layout_width="match_parent" android:layout_height="wrap_content"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <com.tencent.component.widget.AsyncEffectImageView android:id="@id/ic_" android:background="#ff1e1e20" android:layout_width="match_parent" android:layout_height="match_parent" android:scaleType="centerCrop" />
+</FrameLayout>

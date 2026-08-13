@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout android:padding="6.0dp" android:layout_width="match_parent" android:layout_height="match_parent"
+  xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">
+    <androidx.constraintlayout.widget.ConstraintLayout android:id="@id/nw0" android:padding="3.0dp" android:layout_width="match_parent" android:layout_height="wrap_content" app:a27="hnz">
+        <TextView android:id="@id/nwc" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="ShowID" android:paddingStart="0.0dp" android:paddingEnd="16.0dp" app:a1_="@id/nvs" app:a1x="hnz" />
+        <EditText android:id="@id/nvs" android:layout_width="0.0dp" android:layout_height="wrap_content" android:hint="请输入 Show ID" android:maxLines="1" android:inputType="number" app:a1y="@id/nwc" app:a21="hnz" app:a27="hnz" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+    <androidx.constraintlayout.widget.ConstraintLayout android:id="@id/nw1" android:padding="3.0dp" android:layout_width="match_parent" android:layout_height="wrap_content" app:a26="@id/nw0">
+        <TextView android:id="@id/nwd" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="H5 URL" android:paddingStart="0.0dp" android:paddingEnd="16.0dp" app:a1_="@id/nvt" app:a1x="hnz" />
+        <EditText android:id="@id/nvt" android:layout_width="0.0dp" android:layout_height="wrap_content" android:hint="请输入 H5 URL" app:a1y="@id/nwd" app:a21="hnz" app:a27="hnz" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+    <androidx.constraintlayout.widget.ConstraintLayout android:id="@id/nvy" android:padding="3.0dp" android:layout_width="match_parent" android:layout_height="wrap_content" app:a26="@id/nw1">
+        <RadioButton android:id="@id/nw2" android:layout_width="wrap_content" android:layout_height="wrap_content" android:checked="true" android:text="横屏启动" android:paddingStart="10.0dp" android:paddingEnd="10.0dp" app:a1x="hnz" app:a27="hnz" />
+        <RadioButton android:id="@id/nw4" android:layout_width="wrap_content" android:layout_height="wrap_content" android:checked="false" android:text="竖屏启动" android:paddingStart="10.0dp" android:paddingEnd="10.0dp" app:a1y="@id/nw2" app:a27="hnz" />
+        <Switch android:textStyle="bold" android:id="@id/nw3" android:layout_width="wrap_content" android:layout_height="wrap_content" android:checked="false" android:text="调试模式" android:paddingEnd="10.0dp" app:a1_="@id/nw4" app:a21="hnz" app:a27="hnz" />
+        <Switch android:textStyle="bold" android:id="@id/nw5" android:layout_width="wrap_content" android:layout_height="wrap_content" android:checked="true" android:text="调试Toast" android:paddingEnd="10.0dp" app:a23="hnz" app:a26="@id/nw2" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+    <androidx.constraintlayout.widget.ConstraintLayout android:id="@id/nvx" android:padding="3.0dp" android:layout_width="match_parent" android:layout_height="wrap_content" app:a26="@id/nvy">
+        <Switch android:id="@id/nw8" android:layout_width="wrap_content" android:layout_height="wrap_content" android:checked="false" android:text="禁止截屏" app:a1x="hnz" app:a27="hnz" />
+        <Switch android:id="@id/nw6" android:layout_width="wrap_content" android:layout_height="wrap_content" android:checked="false" android:text="启动降级" app:a1y="@id/nw8" app:a27="hnz" />
+        <Switch android:id="@id/nw7" android:layout_width="wrap_content" android:layout_height="wrap_content" android:checked="false" android:text="强制登录" app:a1y="@id/nw6" app:a27="hnz" />
+        <Switch android:id="@id/nvk" android:layout_width="wrap_content" android:layout_height="wrap_content" android:checked="false" android:text="本地模拟" app:a1_="@id/nvl" app:a1x="hnz" app:a26="@id/nw8" />
+        <Spinner android:id="@id/nvl" android:layout_width="wrap_content" android:layout_height="wrap_content" android:spinnerMode="dropdown" app:a1y="@id/nvk" app:a26="@id/nw8" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+    <androidx.constraintlayout.widget.ConstraintLayout android:id="@id/nvu" android:layout_width="match_parent" android:layout_height="wrap_content" app:a26="@id/nvx">
+        <TextView android:id="@id/nw9" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="DRM License" android:paddingStart="0.0dp" android:paddingEnd="16.0dp" app:a1_="@id/nvo" app:a1x="hnz" />
+        <EditText android:id="@id/nvo" android:layout_width="0.0dp" android:layout_height="wrap_content" android:hint="请输入 DRM License" app:a1y="@id/nw9" app:a21="hnz" app:a27="hnz" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+    <androidx.constraintlayout.widget.ConstraintLayout android:id="@id/nvv" android:layout_width="match_parent" android:layout_height="wrap_content" app:a26="@id/nvu">
+        <TextView android:id="@id/nw_" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="DRM Provision" android:paddingStart="0.0dp" android:paddingEnd="16.0dp" app:a1_="@id/nvp" app:a1x="hnz" />
+        <EditText android:id="@id/nvp" android:layout_width="0.0dp" android:layout_height="wrap_content" android:hint="请输入 DRM Provision" app:a1y="@id/nw_" app:a21="hnz" app:a27="hnz" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+    <androidx.constraintlayout.widget.ConstraintLayout android:id="@id/nvw" android:layout_width="match_parent" android:layout_height="wrap_content" app:a26="@id/nvv">
+        <TextView android:textStyle="bold" android:textColor="@android:color/holo_red_light" android:id="@id/nwa" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="E.Y.QQ 环境" android:paddingStart="0.0dp" android:paddingEnd="10.0dp" app:a1_="@id/nvq" app:a1x="hnz" />
+        <EditText android:textColor="@android:color/holo_red_light" android:id="@id/nvq" android:layout_width="0.0dp" android:layout_height="wrap_content" android:hint="et.y.qq.com" app:a1y="@id/nwa" app:a21="hnz" app:a27="hnz" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+    <Button android:id="@id/nvm" android:layout_width="match_parent" android:layout_height="wrap_content" android:text="通过以上参数启动流直播" app:a1x="hnz" app:a21="hnz" app:a26="@id/nvw" />
+    <androidx.constraintlayout.widget.ConstraintLayout android:id="@id/nvz" android:layout_width="match_parent" android:layout_height="wrap_content" app:a26="@id/nvm">
+        <TextView android:id="@id/nwb" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Scheme" android:paddingStart="0.0dp" android:paddingEnd="16.0dp" app:a1_="@id/nvr" app:a1x="hnz" />
+        <EditText android:id="@id/nvr" android:layout_width="0.0dp" android:layout_height="wrap_content" android:hint="示例:qqmusic://qq.com/media/showXLive?p=" app:a1y="@id/nwb" app:a21="hnz" app:a27="hnz" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+    <Button android:id="@id/nvn" android:layout_width="match_parent" android:layout_height="wrap_content" android:text="通过 media.showXLive 启动流直播" app:a1x="hnz" app:a21="hnz" app:a26="@id/nvz" />
+    <TextView android:id="@id/nwe" android:paddingTop="3.0dp" android:paddingBottom="3.0dp" android:layout_width="wrap_content" android:layout_height="wrap_content" app:a1d="hnz" app:a1x="hnz" app:a21="hnz" />
+</androidx.constraintlayout.widget.ConstraintLayout>

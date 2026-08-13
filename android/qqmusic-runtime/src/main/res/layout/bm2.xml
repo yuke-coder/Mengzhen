@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout android:layout_width="@dimen/ask" android:layout_height="@dimen/ask"
+  xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">
+    <com.tme.qqmusic.widget.base.view.CornerConstraintLayout android:background="@drawable/mive_pendant_left_item_bg" android:layout_width="@dimen/asj" android:layout_height="@dimen/asj" app:lg="5.0dp" app:a1d="hnz" app:a1x="hnz" app:a21="hnz" app:a27="hnz">
+        <com.tme.qqmusic.widget.base.view.CornerConstraintLayout android:id="@id/mlive_red_packet_pendent_waiting" android:visibility="gone" android:layout_width="@dimen/asj" android:layout_height="@dimen/asj" app:lg="5.0dp" app:a1d="hnz" app:a1x="hnz" app:a21="hnz" app:a27="hnz">
+            <ImageView android:id="@id/mlive_red_packet_pendent_cover" android:layout_width="match_parent" android:layout_height="match_parent" android:src="@drawable/mlive_pendant_red_packet_cover" app:a1d="hnz" app:a1x="hnz" />
+            <com.tme.qqmusic.widget.base.view.GlideImageView android:id="@id/mlive_red_packet_pendent_avatar" android:background="@drawable/mlive_red_packet_pendent_circle_bg" android:layout_width="11.0dp" android:layout_height="11.0dp" android:layout_marginTop="12.0dp" android:scaleType="centerInside" android:layout_marginEnd="13.0dp" app:a21="hnz" app:a27="hnz" />
+        </com.tme.qqmusic.widget.base.view.CornerConstraintLayout>
+        <ImageView android:id="@id/mlive_red_packet_pendent_prepared" android:layout_width="match_parent" android:layout_height="match_parent" android:src="@drawable/mlive_red_packet_pendent_prepared" app:a1d="@id/mlive_red_packet_pendent_cover" app:a1x="@id/mlive_red_packet_pendent_cover" app:a21="@id/mlive_red_packet_pendent_cover" app:a27="@id/mlive_red_packet_pendent_cover" />
+        <TextView android:textSize="8.0dp" android:textStyle="bold" android:textColor="@color/white" android:gravity="center" android:id="@id/mlive_red_packet_pendent_countdown" android:background="@drawable/mive_pendant_left_item_bg" android:layout_width="0.0dp" android:layout_height="10.0dp" app:a1d="hnz" app:a1x="hnz" app:a21="hnz" />
+        <androidx.constraintlayout.widget.Group android:id="@id/mlive_red_packet_pendent_group_waiting" android:layout_width="0.0dp" android:layout_height="0.0dp" app:ko="mlive_red_packet_pendent_waiting,mlive_red_packet_pendent_countdown" />
+        <org.libpag.PAGView android:id="@id/mlive_red_packet_pendent_shake_animation_pag" android:visibility="gone" android:layout_width="match_parent" android:layout_height="match_parent" app:a1d="hnz" app:a1x="hnz" />
+    </com.tme.qqmusic.widget.base.view.CornerConstraintLayout>
+    <TextView android:textSize="7.0dp" android:textStyle="bold" android:textColor="@color/white" android:gravity="center" android:id="@id/mlive_red_packet_pendent_count" android:background="@drawable/mlive_penadant_red_packet_count_bg" android:layout_width="wrap_content" android:layout_height="10.0dp" android:minWidth="10.0dp" app:a21="hnz" app:a27="hnz" />
+</androidx.constraintlayout.widget.ConstraintLayout>

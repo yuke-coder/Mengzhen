@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.tencent.qqmusic.ui.RoundedConstraintLayout android:id="@id/gd7" android:layout_width="match_parent" android:layout_height="match_parent"
+  xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">
+    <ImageView android:id="@id/glx" android:visibility="gone" android:layout_width="match_parent" android:layout_height="match_parent" android:src="@color/black_50_transparent" android:scaleType="centerCrop" app:a1x="hnz" app:a27="hnz" />
+    <ImageView android:id="@id/glu" android:visibility="gone" android:layout_width="30.0dp" android:layout_height="30.0dp" android:layout_marginLeft="8.0dp" android:layout_marginTop="8.0dp" android:src="@drawable/my_page_my_page_update_recently_played_normal" app:a1e="@id/glv" app:a1t="0.0" app:a1x="hnz" app:a21="hnz" app:a27="hnz" app:a28="0.0" app:a29="hmg" />
+    <TextView android:textSize="12.0sp" android:textStyle="bold" android:textColor="@color/white" android:id="@id/glv" android:visibility="gone" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/g75" app:a1d="hnz" app:a1x="@id/glu" app:a21="@id/glu" app:a26="@id/glu" />
+    <TextView android:textSize="16.0dp" android:textStyle="bold" android:textColor="@color/white" android:id="@id/glw" android:visibility="gone" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="10.0dp" android:text="@string/g75" android:layout_marginStart="10.0dp" app:a23="hnz" app:a27="hnz" />
+</com.tencent.qqmusic.ui.RoundedConstraintLayout>

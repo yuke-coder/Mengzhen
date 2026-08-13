@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout android:gravity="left" android:layout_gravity="center" android:orientation="vertical" android:background="@drawable/color_b15" android:layout_width="220.0dp" android:layout_height="wrap_content"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <LinearLayout android:gravity="left" android:layout_gravity="left" android:orientation="vertical" android:id="@id/kjp" android:visibility="gone" android:layout_width="match_parent" android:layout_height="wrap_content">
+        <include android:id="@id/e79" android:layout_width="match_parent" android:layout_height="50.0dp" android:layout_weight="1.0" layout="@layout/b5u" />
+        <View android:background="@drawable/z_color_l1" android:paddingLeft="12.0dp" android:layout_width="match_parent" android:layout_height="1.0px" android:layout_marginLeft="12.0dp" android:src="@drawable/common_music_list_divider" android:scaleType="fitXY" />
+    </LinearLayout>
+    <LinearLayout android:gravity="left" android:layout_gravity="left" android:orientation="vertical" android:id="@id/kjo" android:visibility="gone" android:layout_width="match_parent" android:layout_height="wrap_content">
+        <include android:id="@id/e7a" android:layout_width="match_parent" android:layout_height="50.0dp" android:layout_weight="1.0" layout="@layout/b5u" />
+        <View android:background="@drawable/z_color_l1" android:paddingLeft="12.0dp" android:layout_width="match_parent" android:layout_height="1.0px" android:layout_marginLeft="12.0dp" android:src="@drawable/common_music_list_divider" android:scaleType="fitXY" />
+        <include android:id="@id/e7_" android:layout_width="match_parent" android:layout_height="50.0dp" android:layout_weight="1.0" layout="@layout/b5u" />
+        <View android:background="@drawable/z_color_l1" android:paddingLeft="12.0dp" android:layout_width="match_parent" android:layout_height="1.0px" android:layout_marginLeft="12.0dp" android:src="@drawable/common_music_list_divider" android:scaleType="fitXY" />
+    </LinearLayout>
+    <include android:id="@id/e6z" android:layout_width="match_parent" android:layout_height="50.0dp" android:layout_weight="1.0" layout="@layout/b5u" />
+    <View android:background="@drawable/z_color_l1" android:paddingLeft="12.0dp" android:layout_width="match_parent" android:layout_height="1.0px" android:layout_marginLeft="12.0dp" android:src="@drawable/common_music_list_divider" android:scaleType="fitXY" />
+    <include android:id="@id/e56" android:layout_width="match_parent" android:layout_height="50.0dp" android:layout_weight="1.0" layout="@layout/b5v" />
+    <View android:background="@drawable/z_color_l1" android:paddingLeft="12.0dp" android:layout_width="match_parent" android:layout_height="1.0px" android:layout_marginLeft="12.0dp" android:src="@drawable/common_music_list_divider" android:scaleType="fitXY" />
+    <include android:id="@id/e4y" android:layout_width="match_parent" android:layout_height="50.0dp" android:layout_weight="1.0" layout="@layout/b5u" />
+</LinearLayout>

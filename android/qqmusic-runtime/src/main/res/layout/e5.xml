@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout android:orientation="vertical" android:background="@color/scan_guide_bg_color" android:layout_width="match_parent" android:layout_height="match_parent"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <ImageView android:layout_width="match_parent" android:layout_height="wrap_content" android:src="@drawable/scan_guide_bg" android:layout_alignParentTop="true" />
+    <include android:id="@id/jhi" android:background="@color/transparent" android:layout_width="match_parent" android:layout_height="@dimen/cau" android:layout_alignParentTop="true" layout="@layout/mu" />
+    <androidx.recyclerview.widget.RecyclerView android:id="@id/jhd" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_below="@id/jhi" />
+</RelativeLayout>

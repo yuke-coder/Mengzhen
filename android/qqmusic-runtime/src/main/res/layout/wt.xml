@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout android:id="@id/jdj" android:background="@drawable/main_bg" android:layout_width="match_parent" android:layout_height="match_parent"
+  xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">
+    <include layout="@layout/cw1" />
+    <com.tencent.qqmusic.ClipTopFrameLayout android:id="@id/f4e" android:layout_width="0.0dp" android:layout_height="0.0dp" app:a1d="@id/jdj" app:a1x="@id/jdj" app:a21="@id/jdj" app:a27="@id/jdj">
+        <com.tencent.qqmusic.modular.module.musichall.views.recycler.CellRecyclerView android:id="@id/f4d" android:clipToPadding="false" android:layout_width="match_parent" android:layout_height="match_parent" />
+    </com.tencent.qqmusic.ClipTopFrameLayout>
+    <ViewStub android:id="@id/b7x" android:layout="@layout/ye" android:layout_width="match_parent" android:layout_height="match_parent" />
+    <ViewStub android:id="@id/b7f" android:layout_width="match_parent" android:layout_height="match_parent" />
+    <ViewStub android:id="@id/b7q" android:layout_width="match_parent" android:layout_height="match_parent" />
+    <ViewStub android:id="@id/b7r" android:layout_width="match_parent" android:layout_height="match_parent" />
+    <ViewStub android:id="@id/b7o" android:layout_width="match_parent" android:layout_height="match_parent" />
+    <com.tencent.component.widget.AsyncEffectImageView android:id="@id/lvl" android:layout_width="match_parent" android:layout_height="@dimen/cau" android:scaleType="centerCrop" android:alpha="0.0" app:a1x="@id/jdj" app:a21="@id/jdj" app:a27="@id/jdj" />
+    <ImageView android:id="@id/lvs" android:layout_width="match_parent" android:layout_height="@dimen/cau" android:alpha="0.0" app:a1x="@id/jdj" app:a21="@id/jdj" app:a27="@id/jdj" />
+    <FrameLayout android:id="@id/lel" android:layout_width="match_parent" android:layout_height="wrap_content" app:a1x="@id/jdj" app:a21="@id/jdj" app:a27="@id/jdj">
+        <ViewStub android:id="@id/lem" android:layout="@layout/b09" android:layout_width="match_parent" android:layout_height="@dimen/cau" />
+    </FrameLayout>
+    <com.tencent.qqmusic.community.putoo.group.ui.PutooGroupFilterView android:id="@id/ck_" android:visibility="invisible" android:layout_width="match_parent" android:layout_height="wrap_content" app:a26="@id/lel" />
+    <include android:visibility="invisible" layout="@layout/b07" />
+</androidx.constraintlayout.widget.ConstraintLayout>

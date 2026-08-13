@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout android:gravity="center" android:layout_width="match_parent" android:layout_height="match_parent"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <LinearLayout android:orientation="vertical" android:background="@drawable/rich_alert_dialog_round_corner" android:paddingTop="@dimen/q0" android:layout_width="@dimen/q5" android:layout_height="wrap_content">
+        <LinearLayout android:orientation="horizontal" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginLeft="@dimen/q0" android:layout_marginRight="@dimen/q0">
+            <TextView android:textSize="14.0dp" android:textColor="@color/black" android:gravity="left" android:id="@id/jsl" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/bs9" android:singleLine="true" />
+            <TextView android:textSize="14.0dp" android:textColor="@color/black" android:ellipsize="end" android:gravity="left" android:id="@id/hbm" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="hahahah " android:singleLine="true" />
+        </LinearLayout>
+        <RelativeLayout android:paddingTop="@dimen/q2" android:layout_width="match_parent" android:layout_height="66.0dp" android:layout_marginLeft="@dimen/q0" android:layout_marginRight="@dimen/q0">
+            <View android:id="@id/ba1" android:background="#f4f4f4" android:layout_width="match_parent" android:layout_height="50.0dp" />
+            <com.tencent.component.widget.AsyncImageView android:id="@id/ifc" android:layout_width="50.0dp" android:layout_height="50.0dp" />
+            <LinearLayout android:gravity="center_vertical" android:orientation="vertical" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginLeft="5.0dp" android:layout_toRightOf="@id/ifc" android:layout_alignTop="@id/ifc" android:layout_alignBottom="@id/ifc">
+                <TextView android:textSize="13.0dp" android:textColor="@color/black" android:ellipsize="end" android:id="@id/ldr" android:layout_width="wrap_content" android:layout_height="wrap_content" android:singleLine="true" />
+                <TextView android:textSize="12.0dp" android:textColor="@color/half_trans_black" android:ellipsize="end" android:id="@id/kz2" android:layout_width="match_parent" android:layout_height="wrap_content" android:maxLines="1" android:singleLine="true" />
+            </LinearLayout>
+        </RelativeLayout>
+        <EditText android:textSize="14.0dp" android:textColor="#000000" android:textColorHint="#808080" android:id="@id/mz0" android:background="@drawable/im_share_input_bg" android:padding="8.0dp" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginLeft="@dimen/q0" android:layout_marginTop="15.0dp" android:layout_marginRight="@dimen/q0" android:hint="@string/bs_" android:maxLines="2" />
+        <View android:background="@color/common_dialog_spit_line_color" android:layout_width="match_parent" android:layout_height="0.5dp" android:layout_marginTop="@dimen/q0" />
+        <LinearLayout android:orientation="horizontal" android:layout_width="match_parent" android:layout_height="50.0dp" android:layout_marginBottom="0.5dp">
+            <TextView android:textSize="15.0dp" android:textColor="@color/common_dialog_button_text_normal_color" android:gravity="center" android:id="@id/at0" android:layout_width="0.0dp" android:layout_height="match_parent" android:text="@string/cancel" android:layout_weight="1.0" />
+            <View android:background="@color/common_dialog_spit_line_color" android:layout_width="0.5dp" android:layout_height="match_parent" />
+            <TextView android:textSize="15.0dp" android:textColor="@color/common_dialog_button_text_highlight_color" android:gravity="center" android:id="@id/jsg" android:layout_width="0.0dp" android:layout_height="match_parent" android:text="@string/buz" android:layout_weight="1.0" />
+        </LinearLayout>
+    </LinearLayout>
+</RelativeLayout>

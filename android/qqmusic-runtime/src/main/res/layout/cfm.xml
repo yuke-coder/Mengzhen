@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout android:id="@id/jb_" android:layout_width="match_parent" android:layout_height="match_parent"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <ImageView android:id="@id/ebg" android:layout_width="wrap_content" android:layout_height="wrap_content" android:src="@mipmap/i3" android:layout_alignParentRight="true" />
+    <ImageView android:id="@id/e9c" android:visibility="gone" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginTop="10.0dp" android:scaleType="centerCrop" android:layout_below="@id/ebg" />
+    <com.cmic.promopush.GifView android:id="@id/e9h" android:visibility="gone" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="10.0dp" android:scaleType="centerCrop" android:layout_below="@id/ebg" />
+    <SurfaceView android:id="@id/e9l" android:visibility="gone" android:layout_width="1.0px" android:layout_height="1.0px" android:layout_marginTop="10.0dp" android:scaleType="centerCrop" android:layout_below="@id/ebg" />
+    <ImageView android:id="@id/e9k" android:visibility="gone" android:layout_width="60.0dp" android:layout_height="60.0dp" android:src="@drawable/dialog_loading" android:scaleType="centerCrop" android:layout_centerHorizontal="true" android:layout_centerVertical="true" />
+</RelativeLayout>

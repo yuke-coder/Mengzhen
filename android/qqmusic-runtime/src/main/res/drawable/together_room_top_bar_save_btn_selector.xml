@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<selector
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <item android:state_enabled="false" android:drawable="@drawable/together_room_top_bar_save_btn_unselect" />
+    <item android:state_enabled="true" android:drawable="@drawable/together_room_top_bar_save_btn_select" />
+</selector>

@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout android:id="@id/hdm" android:background="@drawable/skin_sub_mask_img" android:paddingTop="@dimen/c_q" android:layout_width="match_parent" android:layout_height="@dimen/cau"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <ImageView android:layout_gravity="left|center" android:id="@id/hdl" android:background="@drawable/material_ripple_background_circle" android:layout_width="@dimen/cao" android:layout_height="@dimen/cao" android:src="@drawable/ic_download_list_tital_bar_back_selector" android:scaleType="centerInside" android:contentDescription="@string/wf" />
+    <ImageView android:layout_gravity="right|center" android:id="@id/hdn" android:background="@drawable/material_ripple_background_circle" android:layout_width="@dimen/cao" android:layout_height="wrap_content" android:src="@drawable/music_hall_new_song_reserve" android:scaleType="centerInside" android:contentDescription="@string/eeh" />
+    <LinearLayout android:gravity="center_vertical" android:layout_gravity="center" android:orientation="horizontal" android:layout_width="wrap_content" android:layout_height="match_parent">
+        <TextView android:textSize="18.0sp" android:textColor="@color/skin_highlight_color" android:gravity="center" android:id="@id/hdk" android:layout_width="60.0dp" android:layout_height="27.0dp" android:text="@string/erb" />
+        <View android:layout_gravity="center_vertical" android:background="@drawable/skin_text_sub_img" android:layout_width="1.0dp" android:layout_height="10.0dp" />
+        <TextView android:textSize="18.0sp" android:textColor="@color/skin_text_main_color" android:gravity="center" android:id="@id/hdj" android:layout_width="60.0dp" android:layout_height="27.0dp" android:text="@string/eqn" />
+    </LinearLayout>
+</FrameLayout>

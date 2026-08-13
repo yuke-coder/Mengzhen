@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout android:layout_gravity="center" android:background="@drawable/drive_mode_background" android:clipChildren="false" android:layout_width="match_parent" android:layout_height="match_parent"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <com.tencent.qqmusic.business.carwith.ui.widgets.CoverViewPager android:id="@id/nax" android:clipChildren="false" android:clipToPadding="false" android:layout_width="match_parent" android:layout_height="wrap_content" />
+    <com.tencent.qqmusic.business.carwith.ui.widgets.CarWithPlaylistSwitchView android:gravity="center_vertical" android:id="@id/i95" android:background="@color/white_5_opacity" android:layout_width="match_parent" android:layout_height="@dimen/t2" android:layout_alignParentBottom="true" />
+    <com.tencent.qqmusic.business.carwith.ui.widgets.CarWithSongControlView android:gravity="center_horizontal" android:id="@id/kbw" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginBottom="@dimen/t7" android:layout_above="@id/i95" android:layout_centerHorizontal="true" />
+    <com.tencent.qqmusic.business.carwith.ui.widgets.CarWithSongInfoView android:id="@id/kdz" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginLeft="@dimen/ta" android:layout_marginRight="@dimen/ta" android:layout_marginBottom="@dimen/tb" android:layout_above="@id/kbw" android:layout_centerHorizontal="true" />
+    <TextView android:textSize="30.0dp" android:textColor="@color/white" android:id="@id/m9k" android:visibility="gone" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/hno" android:layout_centerInParent="true" />
+</RelativeLayout>

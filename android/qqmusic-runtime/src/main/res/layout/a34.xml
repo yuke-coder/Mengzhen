@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout android:orientation="vertical" android:layout_width="match_parent" android:layout_height="match_parent"
+  xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">
+    <ImageView android:id="@id/hwn" android:layout_width="match_parent" android:layout_height="match_parent" android:scaleType="centerCrop" />
+    <ImageView android:id="@id/i0i" android:layout_width="match_parent" android:layout_height="match_parent" android:scaleType="centerCrop" />
+    <ScrollView android:paddingLeft="19.0dp" android:paddingRight="19.0dp" android:layout_width="match_parent" android:layout_height="match_parent" android:layout_marginTop="24.0dp">
+        <LinearLayout android:orientation="vertical" android:layout_width="match_parent" android:layout_height="match_parent">
+            <RelativeLayout android:layout_width="match_parent" android:layout_height="@dimen/c_o">
+                <LinearLayout android:gravity="center_vertical" android:orientation="horizontal" android:id="@id/fc9" android:layout_width="50.0dp" android:layout_height="match_parent" android:contentDescription="返回">
+                    <ImageView android:id="@id/eah" android:layout_width="29.0dp" android:layout_height="29.0dp" android:src="@drawable/icon_song_param_arrow_left" android:layout_centerVertical="true" android:importantForAccessibility="no" />
+                </LinearLayout>
+                <TextView android:textSize="18.0dp" android:textStyle="bold" android:textColor="#ffffff" android:layout_gravity="center" android:id="@id/mfd" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/f_t" android:layout_centerInParent="true" />
+            </RelativeLayout>
+            <com.tencent.qqmusic.ui.RoundedRelativeLayout android:orientation="vertical" android:id="@id/i2w" android:background="@color/color_recommend_item_bg" android:padding="13.0dp" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginTop="24.0dp" app:ado="7.5dp">
+                <TextView android:textSize="15.0dp" android:textStyle="bold" android:textColor="#ffffff" android:id="@id/mms" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/f_v" />
+                <LinearLayout android:orientation="horizontal" android:id="@id/fho" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginTop="10.0dp" android:layout_below="@id/mms">
+                    <TextView android:textSize="13.0dp" android:textColor="#ffffff" android:id="@id/m55" android:layout_width="wrap_content" android:layout_height="wrap_content" />
+                    <TextView android:textSize="13.0dp" android:textColor="#ffffff" android:id="@id/mjc" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginLeft="15.0dp" />
+                    <TextView android:textSize="13.0dp" android:textColor="#ffffff" android:id="@id/m5i" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginLeft="15.0dp" />
+                    <TextView android:textSize="13.0dp" android:textColor="#ffffff" android:id="@id/m5j" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginLeft="15.0dp" />
+                    <TextView android:textSize="13.0dp" android:textColor="#ffffff" android:id="@id/m6c" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginLeft="15.0dp" />
+                </LinearLayout>
+                <TextView android:textSize="15.0dp" android:textStyle="bold" android:textColor="#ffffff" android:id="@id/mm9" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="24.0dp" android:text="@string/f_j" android:layout_below="@id/fho" />
+                <TextView android:textSize="13.0dp" android:textColor="#ffffff" android:id="@id/mm_" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="10.0dp" android:text="@string/f_k" android:layout_below="@id/mm9" />
+                <TextView android:textSize="15.0dp" android:textStyle="bold" android:textColor="#ffffff" android:id="@id/mmi" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="24.0dp" android:text="@string/f_o" android:layout_below="@id/mm_" />
+                <TextView android:textSize="13.0dp" android:textColor="#ffffff" android:id="@id/mmh" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="10.0dp" android:layout_below="@id/mmi" />
+                <TextView android:textSize="13.0dp" android:textColor="#ffffff" android:id="@id/mmj" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="5.0dp" android:layout_below="@id/mmh" />
+                <TextView android:textSize="15.0dp" android:textStyle="bold" android:textColor="#ffffff" android:id="@id/mml" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="24.0dp" android:text="@string/f_s" android:layout_below="@id/mmj" />
+                <TextView android:textSize="13.0dp" android:textColor="#ffffff" android:id="@id/mmm" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="10.0dp" android:layout_below="@id/mml" />
+                <TextView android:textSize="13.0dp" android:textColor="#ffffff" android:id="@id/mmk" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="5.0dp" android:layout_below="@id/mmm" />
+            </com.tencent.qqmusic.ui.RoundedRelativeLayout>
+            <com.tencent.qqmusic.ui.RoundedRelativeLayout android:orientation="vertical" android:id="@id/i2v" android:background="@color/color_recommend_item_bg" android:padding="13.0dp" android:visibility="gone" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginTop="16.0dp" app:ado="7.5dp">
+                <LinearLayout android:gravity="center_vertical" android:orientation="horizontal" android:id="@id/fcd" android:layout_width="match_parent" android:layout_height="wrap_content">
+                    <TextView android:textSize="15.0dp" android:textStyle="bold" android:textColor="#ffffff" android:id="@id/m5o" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/f_h" />
+                    <TextView android:textSize="13.0dp" android:textColor="#ffffff" android:id="@id/mm8" android:layout_width="0.0dp" android:layout_height="wrap_content" android:layout_marginLeft="15.0dp" android:layout_weight="1.0" />
+                    <TextView android:textSize="15.0dp" android:textStyle="bold" android:textColor="#ffffff" android:id="@id/mq0" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/f_u" />
+                    <TextView android:textSize="15.0dp" android:textColor="#ffffff" android:id="@id/mmr" android:layout_width="0.0dp" android:layout_height="wrap_content" android:layout_marginLeft="15.0dp" android:layout_weight="1.0" />
+                </LinearLayout>
+            </com.tencent.qqmusic.ui.RoundedRelativeLayout>
+        </LinearLayout>
+    </ScrollView>
+</RelativeLayout>

@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout android:background="@drawable/net_work_connect_tips_bg" android:layout_width="match_parent" android:layout_height="match_parent" android:scaleType="centerInside"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <LinearLayout android:gravity="center" android:id="@id/hcm" android:layout_width="wrap_content" android:layout_height="match_parent" android:layout_centerInParent="true">
+        <ImageView android:background="@drawable/net_work_connect_tips_warning" android:layout_width="wrap_content" android:layout_height="wrap_content" />
+        <TextView android:textSize="14.0sp" android:textColor="@color/color_network_banner" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginLeft="10.0px" android:layout_marginBottom="1.0px" android:text="@string/epn" />
+        <ImageView android:background="@drawable/net_work_connect_tips_right" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginLeft="10.0px" />
+    </LinearLayout>
+    <ImageView android:id="@id/hcl" android:layout_width="@dimen/bzl" android:layout_height="@dimen/bzl" android:src="@drawable/net_work_connect_tips_cancel" android:scaleType="center" android:layout_alignParentRight="true" android:layout_centerVertical="true" />
+</RelativeLayout>

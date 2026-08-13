@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginTop="10.0dp" android:layout_marginBottom="10.0dp"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <com.tme.qqmusic.widget.base.view.GlideImageView android:layout_gravity="end" android:id="@id/mlive_assistant_msg_avatar_iv" android:layout_width="40.0dp" android:layout_height="40.0dp" android:layout_marginEnd="16.0dp" />
+    <TextView android:textSize="14.0sp" android:textColor="@color/white" android:gravity="center_vertical" android:layout_gravity="end" android:id="@id/mlive_assistant_msg_content_tv" android:background="@drawable/mlive_assistant_msg_green_bg" android:paddingTop="8.0dp" android:paddingBottom="8.0dp" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="感谢你的到来，你有想听的歌曲吗？都可以给我留言哦~" android:paddingStart="12.0dp" android:paddingEnd="16.0dp" android:layout_marginStart="68.0dp" android:layout_marginEnd="64.0dp" />
+</FrameLayout>

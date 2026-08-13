@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout android:orientation="vertical" android:id="@id/bpn" android:background="@drawable/bg_together_room_side_dialog_top_fullscreen" android:paddingLeft="19.0dp" android:paddingRight="19.0dp" android:layout_width="match_parent" android:layout_height="wrap_content"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <LinearLayout android:layout_gravity="center_horizontal" android:orientation="horizontal" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="10.0dp" android:layout_marginBottom="10.0dp">
+        <TextView android:textSize="13.0dp" android:textColor="@color/white" android:ellipsize="end" android:gravity="center_horizontal" android:id="@id/bpl" android:layout_width="0.0dp" android:layout_height="wrap_content" android:singleLine="true" android:layout_weight="1.0" />
+        <TextView android:textSize="13.0dp" android:textColor="@color/white" android:gravity="center_horizontal" android:id="@id/bpk" android:background="@drawable/bg_together_room_side_dialog_btn_normal_fullscreen" android:paddingLeft="20.0dp" android:paddingTop="8.5dp" android:paddingRight="20.0dp" android:paddingBottom="8.5dp" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginLeft="14.0dp" />
+        <View android:background="@color/transparent" android:layout_width="14.0dp" android:layout_height="1.0dp" />
+        <TextView android:textSize="13.0dp" android:textColor="@color/white" android:gravity="center_horizontal" android:id="@id/bpm" android:background="@drawable/bg_together_room_side_dialog_btn_focus" android:paddingLeft="20.0dp" android:paddingTop="8.5dp" android:paddingRight="20.0dp" android:paddingBottom="8.5dp" android:layout_width="wrap_content" android:layout_height="wrap_content" />
+    </LinearLayout>
+</LinearLayout>

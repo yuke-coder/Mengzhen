@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout android:orientation="vertical" android:id="@id/bol" android:background="@drawable/color_b15" android:layout_width="match_parent" android:layout_height="wrap_content"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <FrameLayout android:gravity="center" android:id="@id/bom" android:visibility="gone" android:layout_width="match_parent" android:layout_height="@dimen/pw">
+        <LinearLayout android:layout_gravity="center" android:layout_width="wrap_content" android:layout_height="match_parent">
+            <ImageView android:layout_gravity="center_vertical" android:layout_width="17.0dp" android:layout_height="17.0dp" android:src="@drawable/cover_change_error" />
+            <TextView android:textSize="@dimen/px" android:textColor="@color/red" android:layout_gravity="center_vertical" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/btt" />
+        </LinearLayout>
+    </FrameLayout>
+    <ImageView android:id="@id/at5" android:background="@drawable/common_music_list_divider" android:layout_width="match_parent" android:layout_height="1.0px" />
+    <TextView android:textSize="@dimen/px" android:textColor="@color/skin_text_sub_color" android:gravity="center" android:id="@id/boj" android:layout_width="match_parent" android:layout_height="@dimen/pw" android:text="@string/btp" />
+    <ImageView android:id="@id/at5" android:background="@drawable/common_music_list_divider" android:layout_width="match_parent" android:layout_height="1.0px" />
+    <TextView android:textSize="@dimen/px" android:textColor="@color/skin_text_sub_color" android:gravity="center" android:id="@id/bok" android:layout_width="match_parent" android:layout_height="@dimen/pw" android:text="@string/btq" />
+    <ImageView android:id="@id/at5" android:background="@drawable/common_music_list_divider" android:layout_width="match_parent" android:layout_height="1.0px" />
+    <TextView android:textSize="@dimen/px" android:textColor="@color/skin_text_sub_color" android:gravity="center" android:id="@id/boi" android:layout_width="match_parent" android:layout_height="@dimen/pw" android:text="@string/cancel" />
+</LinearLayout>

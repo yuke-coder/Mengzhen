@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout android:layout_gravity="center" android:layout_width="match_parent" android:layout_height="match_parent"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <android.widget.ImageView android:layout_gravity="center" android:id="@id/jxk" android:layout_width="15.0dp" android:layout_height="15.0dp" android:src="@drawable/share_pic_vip_tab_logo" />
+    <android.widget.TextView android:textColor="@color/white" android:layout_gravity="center" android:id="@id/jxl" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/it7" android:paddingStart="5.0dp" />
+</LinearLayout>

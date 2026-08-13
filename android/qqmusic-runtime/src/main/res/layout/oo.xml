@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout android:layout_width="match_parent" android:layout_height="wrap_content"
+  xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">
+    <ImageView android:id="@id/close_btn" android:padding="10.0dp" android:layout_width="wrap_content" android:layout_height="wrap_content" android:src="@drawable/close_btn" android:layout_alignParentTop="true" android:contentDescription="关闭" android:layout_marginEnd="10.0dp" android:layout_alignParentEnd="true" />
+    <LinearLayout android:gravity="center_horizontal" android:orientation="vertical" android:background="@drawable/authorize_bg" android:paddingBottom="12.0dp" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_below="@id/close_btn">
+        <LinearLayout android:gravity="center_horizontal" android:orientation="horizontal" android:background="@drawable/login_dialog_bg" android:layout_width="match_parent" android:layout_height="124.53998dp">
+            <kk.design.KKImageView android:id="@id/h13" android:layout_width="90.0dp" android:layout_height="90.0dp" android:layout_marginTop="34.539978dp" android:src="@drawable/login_icon" app:kkImageRadiusDirection="xt" app:kkImageRadiusSize="45.0dp" />
+        </LinearLayout>
+        <TextView android:textSize="17.0dp" android:textStyle="bold" android:textColor="@color/black" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="20.0dp" android:text="授权QQ音乐登录全民K歌账号" />
+        <TextView android:textSize="12.0dp" android:textColor="@color/black" android:gravity="center" android:id="@id/a2_" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="4.0dp" android:text="若当前QQ音乐账号未注册过全民K歌将自动注册" android:layout_marginStart="30.0dp" android:layout_marginEnd="30.0dp" />
+        <Button android:textSize="13.0dp" android:textColor="@color/white" android:id="@id/a2a" android:background="@drawable/account_btn_bg" android:layout_width="wrap_content" android:layout_height="40.0dp" android:layout_marginTop="20.0dp" android:text="QQ音乐账号一键登录" android:paddingStart="60.0dp" android:paddingEnd="60.0dp" android:stateListAnimator="@null" />
+        <Button android:textSize="13.0dp" android:textColor="@color/black" android:id="@id/a2b" android:background="@drawable/other_account_btn_bg" android:layout_width="wrap_content" android:layout_height="40.0dp" android:layout_marginTop="10.0dp" android:text="登录其他全民K歌账号" android:paddingStart="60.0dp" android:paddingEnd="60.0dp" android:stateListAnimator="@null" />
+        <LinearLayout android:gravity="center" android:orientation="horizontal" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="19.0dp" android:layout_marginBottom="25.0dp">
+            <CheckBox android:textSize="12.0dp" android:gravity="center" android:id="@id/mm" android:layout_width="wrap_content" android:layout_height="wrap_content" android:button="@drawable/karaoke_login_check_selector" />
+            <TextView android:textSize="12.0dp" android:textColor="@color/black_transparent_90_percent" android:id="@id/mn" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="我们的服务依赖于使用全民K歌账号登录 请阅读并同意 用户协议 和 隐私政策 " />
+        </LinearLayout>
+    </LinearLayout>
+</RelativeLayout>

@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="b19">0.24</dimen>
+    <dimen name="b1_">0.4</dimen>
+    <dimen name="b1a">0.4</dimen>
+    <dimen name="b1b">0.24</dimen>
+    <dimen name="b1d">0.12</dimen>
+    <dimen name="b1e">0.2</dimen>
+    <dimen name="b1f">0.2</dimen>
+    <dimen name="b1g">0.12</dimen>
+</resources>

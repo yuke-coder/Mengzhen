@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout android:layout_width="match_parent" android:layout_height="wrap_content"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <RelativeLayout android:id="@id/m0o" android:layout_width="match_parent" android:layout_height="wrap_content">
+        <ImageView android:id="@id/did" android:layout_width="@dimen/bal" android:layout_height="@dimen/bal" android:scaleType="centerCrop" android:layout_centerVertical="true" />
+        <LinearLayout android:gravity="center_vertical" android:orientation="horizontal" android:id="@id/f2r" android:layout_width="match_parent" android:layout_height="33.0dp" android:layout_marginLeft="18.0dp" android:layout_toRightOf="@id/did" android:layout_marginStart="18.0dp" android:layout_toEndOf="@id/did">
+            <LinearLayout android:orientation="horizontal" android:layout_width="0.0dp" android:layout_height="wrap_content" android:layout_weight="1.0">
+                <TextView android:ellipsize="end" android:id="@id/m1e" android:focusable="true" android:fadingEdge="horizontal" android:layout_width="wrap_content" android:layout_height="wrap_content" android:singleLine="true" style="@style/ni" />
+                <TextView android:ellipsize="end" android:id="@id/a14" android:fadingEdge="horizontal" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginLeft="10.0dp" android:scrollHorizontally="true" android:singleLine="true" android:layout_marginStart="10.0dp" style="@style/nh" />
+            </LinearLayout>
+            <ImageButton android:layout_gravity="center_vertical" android:id="@id/ai2" android:background="@null" android:padding="6.0dp" android:layout_width="wrap_content" android:layout_height="wrap_content" android:src="@drawable/notification_exit" android:contentDescription="@string/euy" />
+        </LinearLayout>
+        <LinearLayout android:orientation="horizontal" android:id="@id/hhl" android:layout_width="match_parent" android:layout_height="28.0dp" android:layout_marginTop="0.0dp" android:layout_toRightOf="@id/did" android:layout_below="@id/f2r" android:layout_toEndOf="@id/did">
+            <ImageView android:id="@id/hhs" android:background="@null" android:paddingTop="5.0dp" android:paddingBottom="5.0dp" android:layout_width="25.0dp" android:layout_height="28.0dp" android:src="@drawable/player_notification_not_favorite" android:scaleType="centerInside" android:layout_weight="1.0" android:contentDescription="@string/ev0" />
+            <ImageView android:id="@id/hhx" android:background="@null" android:paddingTop="5.0dp" android:paddingBottom="5.0dp" android:layout_width="25.0dp" android:layout_height="28.0dp" android:src="@drawable/player_notification_pre" android:scaleType="centerInside" android:layout_weight="1.0" android:contentDescription="@string/eve" />
+            <ImageButton android:layout_gravity="center_vertical" android:id="@id/ai5" android:background="@null" android:paddingTop="5.0dp" android:paddingBottom="5.0dp" android:layout_width="25.0dp" android:layout_height="28.0dp" android:src="@drawable/player_notification_play" android:scaleType="centerInside" android:layout_weight="1.0" />
+            <ImageButton android:layout_gravity="center_vertical" android:id="@id/ai4" android:background="@null" android:paddingTop="5.0dp" android:paddingBottom="5.0dp" android:layout_width="25.0dp" android:layout_height="28.0dp" android:src="@drawable/player_notification_next" android:scaleType="centerInside" android:layout_weight="1.0" android:contentDescription="@string/eva" />
+            <ImageView android:layout_gravity="center_vertical" android:id="@id/ai3" android:paddingTop="5.0dp" android:paddingBottom="5.0dp" android:layout_width="25.0dp" android:layout_height="28.0dp" android:src="@drawable/player_notification_lyric_closed" android:scaleType="centerInside" android:layout_weight="1.0" />
+        </LinearLayout>
+    </RelativeLayout>
+</RelativeLayout>

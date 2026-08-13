@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout android:orientation="vertical" android:layout_width="match_parent" android:layout_height="match_parent"
+  xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">
+    <include android:id="@id/naf" android:layout_width="match_parent" android:layout_height="match_parent" layout="@layout/m6" />
+    <include android:id="@id/lvi" android:layout_width="match_parent" android:layout_height="@dimen/cau" android:layout_alignParentTop="true" layout="@layout/mu" />
+    <ScrollView android:layout_width="match_parent" android:layout_height="match_parent" android:layout_below="@id/lvi">
+        <RelativeLayout android:orientation="vertical" android:layout_width="match_parent" android:layout_height="wrap_content">
+            <androidx.appcompat.widget.AppCompatTextView android:textSize="12.0dp" android:textColor="@color/empty_view_color" android:id="@id/dbp" android:visibility="gone" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginLeft="@dimen/s8" android:layout_marginTop="10.0dp" android:layout_marginBottom="10.0dp" android:text="@string/g2o" android:singleLine="true" />
+            <com.tencent.qqmusic.ui.RoundedRelativeLayout android:id="@id/jdf" android:background="@drawable/color_b2_click" android:visibility="gone" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginLeft="@dimen/s8" android:layout_marginRight="@dimen/s8" android:layout_below="@id/dbp" android:layout_marginHorizontal="@dimen/s8" app:ado="4.0dp">
+                <androidx.recyclerview.widget.RecyclerView android:id="@id/e6f" android:layout_width="match_parent" android:layout_height="wrap_content" />
+            </com.tencent.qqmusic.ui.RoundedRelativeLayout>
+            <androidx.appcompat.widget.AppCompatTextView android:textSize="12.0dp" android:textColor="@color/empty_view_color" android:id="@id/ct3" android:visibility="gone" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginLeft="@dimen/s8" android:layout_marginTop="10.0dp" android:layout_marginBottom="10.0dp" android:text="@string/g23" android:singleLine="true" android:layout_below="@id/jdf" />
+            <androidx.appcompat.widget.AppCompatTextView android:textSize="12.0dp" android:textColor="@color/empty_view_color" android:id="@id/dc3" android:visibility="visible" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginLeft="@dimen/s8" android:layout_marginTop="10.0dp" android:text="@string/g2p" android:singleLine="true" android:layout_below="@id/ct3" />
+            <com.tencent.qqmusic.ui.RoundedRelativeLayout android:id="@id/jde" android:background="@drawable/color_b2_click" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginLeft="@dimen/s8" android:layout_marginTop="10.0dp" android:layout_marginRight="@dimen/s8" android:layout_below="@id/dc3" android:layout_marginHorizontal="@dimen/s8" app:ado="4.0dp">
+                <androidx.recyclerview.widget.RecyclerView android:id="@id/e6e" android:layout_width="match_parent" android:layout_height="wrap_content" />
+            </com.tencent.qqmusic.ui.RoundedRelativeLayout>
+            <androidx.appcompat.widget.AppCompatTextView android:textSize="12.0dp" android:textColor="@color/empty_view_color" android:id="@id/m6x" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginLeft="@dimen/s8" android:layout_marginTop="10.0dp" android:singleLine="true" android:layout_below="@id/jde" />
+            <androidx.appcompat.widget.AppCompatImageView android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginLeft="73.0dp" android:layout_marginTop="50.0dp" android:layout_marginRight="73.0dp" android:src="@drawable/ic_tme_connect" android:scaleType="fitCenter" android:layout_below="@id/m6x" android:layout_centerHorizontal="true" android:layout_marginHorizontal="73.0dp" />
+        </RelativeLayout>
+    </ScrollView>
+</RelativeLayout>

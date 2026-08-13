@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout android:gravity="center" android:orientation="vertical" android:padding="10.0dp" android:layout_width="match_parent" android:layout_height="match_parent"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <ImageView android:id="@id/dr8" android:layout_width="300.0dp" android:layout_height="465.0dp" android:src="@drawable/bg_player_room_guide" android:scaleType="fitCenter" android:contentDescription="@string/fji" />
+    <ImageView android:id="@id/close_btn" android:padding="30.0dp" android:layout_width="94.0dp" android:layout_height="94.0dp" android:layout_marginTop="30.0dp" android:src="@drawable/dialog_fragment_btn_close" android:contentDescription="@string/a_6" />
+</LinearLayout>

@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout android:background="#ff090c13" android:layout_width="match_parent" android:layout_height="match_parent"
+  xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">
+    <com.tencent.qqmusic.homepage.header.viewdelegate.portrait.PortraitViewPager android:id="@id/k7o" android:layout_width="match_parent" android:layout_height="match_parent" />
+    <View android:layout_gravity="top" android:id="@id/k7m" android:visibility="gone" android:layout_width="match_parent" android:layout_height="140.0dp" />
+    <com.tencent.qqmusic.ui.RoundedRelativeLayout android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="50.0dp" android:layout_marginStart="20.0dp" app:ado="17.5dp">
+        <com.tencent.qqmusic.ui.blurmask.BlurOverlayView android:layout_gravity="start|top" android:id="@id/k77" android:visibility="gone" android:layout_width="35.0dp" android:layout_height="35.0dp" app:ae2="17.5dp" app:ae4="#66000000" />
+        <ImageView android:id="@id/k78" android:focusable="true" android:visibility="gone" android:clickable="true" android:layout_width="6.0dp" android:layout_height="10.399994dp" android:src="@drawable/singer_portait_back" android:scaleType="centerInside" android:layout_centerInParent="true" />
+    </com.tencent.qqmusic.ui.RoundedRelativeLayout>
+    <com.tencent.qqmusic.homepage.header.viewdelegate.portrait.PortraitPageIndicator android:layout_gravity="center|bottom" android:id="@id/k7j" android:visibility="gone" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginBottom="75.0dp" />
+    <com.tencent.qqmusic.ui.RoundedRelativeLayout android:layout_gravity="center|bottom" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginBottom="90.0dp" app:ado="30.0dp">
+        <com.tencent.qqmusic.ui.blurmask.BlurOverlayView android:id="@id/k7l" android:visibility="gone" android:layout_width="215.0dp" android:layout_height="60.0dp" app:ae2="30.0dp" app:ae4="#66000000" app:aee="0" />
+    </com.tencent.qqmusic.ui.RoundedRelativeLayout>
+    <com.tencent.qqmusic.homepage.header.viewdelegate.portrait.SingerPortraitToolBarView android:layout_gravity="center|bottom" android:id="@id/k7k" android:visibility="gone" android:layout_width="215.0dp" android:layout_height="60.0dp" android:layout_marginBottom="90.0dp" />
+    <ProgressBar android:layout_gravity="center" android:id="@id/k7f" android:visibility="gone" android:layout_width="30.0dp" android:layout_height="30.0dp" android:indeterminate="true" android:indeterminateOnly="true" android:indeterminateDrawable="@drawable/icn_loading_indicator_white" android:indeterminateDuration="2000" />
+    <FrameLayout android:gravity="center" android:id="@id/k7e" android:background="@color/black_transparent_50_percent" android:visibility="gone" android:layout_width="match_parent" android:layout_height="match_parent">
+        <com.tencent.qqmusic.fragment.message.views.CircleProgressbar android:layout_gravity="center" android:id="@id/k79" android:layout_width="50.0dp" android:layout_height="50.0dp" android:layout_margin="1.0dp" android:indeterminate="false" android:indeterminateOnly="false" android:rotation="180.0" />
+        <TextView android:textSize="14.0dp" android:textColor="@color/white" android:ellipsize="none" android:gravity="center" android:layout_gravity="center" android:id="@id/k7n" android:layout_width="50.0dp" android:layout_height="20.0dp" android:singleLine="true" android:includeFontPadding="false" android:fontFamily="PingFangSC-Semibold" />
+    </FrameLayout>
+</FrameLayout>

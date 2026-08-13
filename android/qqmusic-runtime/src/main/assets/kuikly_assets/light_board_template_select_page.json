@@ -1,0 +1,10 @@
+{
+  "router": "openPage",
+  "page_name": "light_board_template_select_page",
+  "container": {
+    "w_weight": "1",
+    "h_weight": "1",
+    "direction": "from-bottom"
+  },
+  "params": {}
+}

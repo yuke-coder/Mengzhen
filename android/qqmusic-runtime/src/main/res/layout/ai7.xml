@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout android:orientation="vertical" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="15.0dp" android:minHeight="50.0dp"
+  xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">
+    <com.tme.karaoke.base.preview.RoundedRelativeLayout android:layout_width="wrap_content" android:layout_height="wrap_content" app:aes="8.0dp">
+        <ImageView android:id="@id/hai" android:layout_width="wrap_content" android:layout_height="wrap_content" />
+        <ImageView android:id="@id/hao" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="5.0dp" android:layout_marginStart="5.0dp" />
+    </com.tme.karaoke.base.preview.RoundedRelativeLayout>
+    <TextView android:textColor="@color/black" android:ellipsize="end" android:gravity="center" android:id="@id/ham" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="8.0dp" android:maxLines="1" android:singleLine="true" />
+</LinearLayout>

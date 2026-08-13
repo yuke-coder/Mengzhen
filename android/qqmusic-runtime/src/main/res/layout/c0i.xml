@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout android:layout_gravity="center" android:id="@id/eqm" android:layout_width="match_parent" android:layout_height="81.0dp" android:layout_marginLeft="@dimen/b8q" android:layout_marginTop="10.0dp" android:layout_marginRight="@dimen/b8q" android:layout_marginBottom="10.0dp"
+  xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">
+    <com.tencent.qqmusic.ui.RoundedRelativeLayout android:id="@id/kaf" android:background="@drawable/skin_mask_img" android:layout_width="match_parent" android:layout_height="match_parent" />
+    <androidx.constraintlayout.widget.ConstraintLayout android:id="@id/eqn" android:paddingLeft="@dimen/b8r" android:layout_width="match_parent" android:layout_height="match_parent">
+        <TextView android:textSize="16.0sp" android:textStyle="bold" android:textColor="@color/skin_text_main_color" android:id="@id/eqy" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="1.0dp" android:text="@string/enm" app:a1e="@id/gtb" app:a1x="hnz" app:a27="hnz" app:a29="hmg" />
+        <com.tencent.qqmusic.business.smartlabel.ui.SmartLabelContainer android:orientation="vertical" android:id="@id/kac" android:background="@color/transparent" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="8.0dp" app:a1x="hnz" app:a26="@id/eqy" />
+        <ImageView android:id="@id/gtb" android:layout_width="@dimen/b92" android:layout_height="@dimen/b92" android:layout_marginTop="8.0dp" android:src="@drawable/my_more_label_icon" app:a1d="hnz" app:a1y="@id/kac" app:a26="@id/eqy" />
+        <TextView android:textSize="12.0sp" android:textColor="@color/skin_text_sub_color" android:id="@id/hgj" android:visibility="gone" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="10.0dp" android:text="@string/emy" app:a1x="hnz" app:a26="@id/eqy" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</RelativeLayout>

@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout android:id="@id/ny" android:layout_width="match_parent" android:layout_height="wrap_content"
+  xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">
+    <com.tencent.qqmusic.business.aiagent.view.AiAgentResponseRichView android:gravity="left" android:id="@id/o2" android:layout_width="match_parent" android:layout_height="wrap_content" app:a1e="@id/nz" app:a1x="hnz" app:a27="hnz" />
+    <View android:id="@id/gv7" android:visibility="gone" android:layout_width="0.0dp" android:layout_height="5.0dp" app:a1e="@id/nz" app:a1x="hnz" app:a21="hnz" app:a26="@id/o2" />
+    <androidx.constraintlayout.widget.ConstraintLayout android:id="@id/nz" android:paddingBottom="8.0dp" android:visibility="gone" android:layout_width="0.0dp" android:layout_height="wrap_content" android:layout_marginTop="5.0dp" app:a1e="@id/o0" app:a1x="hnz" app:a21="hnz" app:a26="@id/gv7">
+        <TextView android:textSize="14.0dp" android:textColor="@color/black_80_opacity" android:ellipsize="end" android:gravity="left" android:id="@id/m4h" android:layout_width="0.0dp" android:layout_height="wrap_content" android:singleLine="true" android:textFontWeight="500" app:a1d="hnz" app:a1x="hnz" app:a20="@id/e_4" app:a27="hnz" />
+        <ImageView android:id="@id/e_4" android:layout_width="30.0dp" android:layout_height="30.0dp" android:layout_marginRight="1.0dp" android:src="@drawable/icon_ai_agent_play_song_light" app:a1d="hnz" app:a1y="@id/m4h" app:a21="hnz" app:a27="hnz" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+    <androidx.recyclerview.widget.RecyclerView android:id="@id/o0" android:paddingBottom="5.0dp" android:visibility="gone" android:layout_width="0.0dp" android:layout_height="wrap_content" android:layout_marginTop="12.0dp" app:a1e="@id/nv" app:a1x="hnz" app:a21="hnz" app:a26="@id/nz" />
+    <androidx.constraintlayout.widget.ConstraintLayout android:id="@id/nv" android:paddingBottom="5.0dp" android:visibility="gone" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="7.0dp" app:a1e="@id/j_f" app:a1x="hnz" app:a21="hnz" app:a26="@id/o0">
+        <androidx.appcompat.widget.AppCompatTextView android:textSize="12.0dp" android:textColor="@color/black_60_opacity" android:id="@id/nx" android:layout_width="wrap_content" android:layout_height="wrap_content" android:singleLine="true" app:a1d="hnz" app:a20="@id/nw" app:a27="hnz" />
+        <ImageView android:id="@id/nw" android:layout_width="15.0dp" android:layout_height="15.0dp" android:src="@drawable/ai_assistant_music_item_down_arrow" app:a1d="hnz" app:a1y="@id/nx" app:a27="hnz" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+    <androidx.constraintlayout.widget.ConstraintLayout android:id="@id/j_f" android:paddingBottom="5.0dp" android:visibility="gone" android:layout_width="@dimen/c1" android:layout_height="@dimen/by" android:layout_marginTop="10.0dp" app:a1e="@id/n2" app:a1x="hnz" app:a26="@id/nv">
+        <com.tencent.component.widget.AsyncEffectImageView android:id="@id/e_1" android:visibility="gone" android:layout_width="match_parent" android:layout_height="@dimen/bz" app:a1x="hnz" app:a27="hnz" />
+        <com.tencent.qqmusic.business.aiagent.view.AiAgentPictureLoadingView android:id="@id/e_3" android:visibility="gone" android:layout_width="match_parent" android:layout_height="@dimen/bz" app:a1x="hnz" app:a27="hnz" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+    <TextView android:textSize="15.0dp" android:textColor="@color/ai_agent_text_main_light" android:gravity="left" android:id="@id/n2" android:visibility="gone" android:layout_width="0.0dp" android:layout_height="wrap_content" android:layout_marginTop="10.0dp" android:includeFontPadding="false" app:a1e="@id/mq" app:a1x="hnz" app:a21="hnz" app:a26="@id/j_f" />
+    <LinearLayout android:orientation="horizontal" android:id="@id/mq" android:visibility="gone" android:layout_width="0.0dp" android:layout_height="wrap_content" android:layout_marginTop="16.0dp" app:a1d="hnz" app:a1x="hnz" app:a21="hnz" app:a26="@id/n2">
+        <ImageView android:id="@id/e9u" android:layout_width="@dimen/cr" android:layout_height="@dimen/cr" android:src="@drawable/icon_ai_agent_pop_copy" android:scaleType="centerInside" />
+        <ImageView android:id="@id/e9w" android:layout_width="@dimen/cr" android:layout_height="@dimen/cr" android:src="@drawable/icon_ai_agent_pop_like" android:scaleType="centerInside" android:layout_marginStart="@dimen/cs" />
+        <ImageView android:id="@id/e9v" android:layout_width="@dimen/cr" android:layout_height="@dimen/cr" android:src="@drawable/icon_ai_agent_pop_dislike" android:scaleType="centerInside" android:layout_marginStart="@dimen/cs" />
+        <View android:layout_width="0.0dp" android:layout_height="0.0dp" android:layout_weight="1.0" />
+        <ImageView android:id="@id/e9x" android:layout_width="@dimen/cr" android:layout_height="@dimen/cr" android:src="@drawable/icon_ai_agent_pop_regen" android:scaleType="centerInside" />
+    </LinearLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>

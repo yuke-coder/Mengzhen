@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout android:layout_width="match_parent" android:layout_height="match_parent"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <ViewStub android:id="@id/f88" android:layout="@layout/ah7" android:layout_width="wrap_content" android:layout_height="50.0dp" />
+    <ViewStub android:id="@id/f89" android:layout="@layout/ah7" android:layout_width="wrap_content" android:layout_height="50.0dp" android:layout_marginTop="55.0dp" />
+</RelativeLayout>

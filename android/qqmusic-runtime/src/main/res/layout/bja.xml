@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout android:layout_width="match_parent" android:layout_height="wrap_content"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <TextView android:textStyle="bold" android:gravity="center" android:id="@id/bkq" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginTop="4.0dp" android:text="-------调试面板（可上下左右滑动）--------" />
+    <ScrollView android:orientation="vertical" android:id="@id/mlive_layout_live_module_test_root" android:paddingTop="4.0dp" android:layout_width="match_parent" android:layout_height="400.0dp" android:fillViewport="true" android:layout_below="@id/bkq">
+        <LinearLayout android:orientation="vertical" android:id="@id/mlive_layout_live_module_test" android:layout_width="match_parent" android:layout_height="wrap_content">
+            <HorizontalScrollView android:id="@id/mlive_layout_live_module_hs" android:layout_width="match_parent" android:layout_height="wrap_content">
+                <LinearLayout android:orientation="vertical" android:id="@id/mlive_layout_live_module_ll2" android:layout_width="wrap_content" android:layout_height="wrap_content">
+                    <EditText android:textSize="8.0sp" android:textColor="@color/mlive_bule_blue" android:id="@id/cw5" android:layout_width="100.0dp" android:layout_height="wrap_content" android:hint="请输入帧率" android:inputType="number" android:imeOptions="actionDone" />
+                    <LinearLayout android:id="@id/byo" android:layout_width="wrap_content" android:layout_height="wrap_content">
+                        <Button android:textSize="8.0sp" android:id="@id/hiq" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="录制滤镜前后画面" />
+                        <Button android:textSize="8.0sp" android:id="@id/hip" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="录制滤镜前画面" />
+                        <Button android:textSize="8.0sp" android:id="@id/cg0" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="录制滤镜后画面" />
+                    </LinearLayout>
+                    <LinearLayout android:orientation="horizontal" android:id="@id/n4p" android:layout_width="wrap_content" android:layout_height="wrap_content">
+                        <Button android:textSize="8.0sp" android:id="@id/f3_" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="准备连麦" />
+                        <Button android:textSize="8.0sp" android:id="@id/f39" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="连麦成功" />
+                        <Button android:textSize="8.0sp" android:id="@id/mu2" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="未连麦" />
+                    </LinearLayout>
+                    <LinearLayout android:orientation="horizontal" android:id="@id/byb" android:layout_width="wrap_content" android:layout_height="wrap_content">
+                        <Button android:textSize="8.0sp" android:id="@id/byc" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="开始录-Mic" />
+                        <Button android:textSize="8.0sp" android:id="@id/bya" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="capture bgm" />
+                        <Button android:textSize="8.0sp" android:id="@id/byd" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="capture bgm" />
+                    </LinearLayout>
+                    <LinearLayout android:orientation="horizontal" android:id="@id/by9" android:layout_width="wrap_content" android:layout_height="wrap_content">
+                        <Button android:textSize="8.0sp" android:id="@id/byh" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="mix frame" />
+                        <Button android:textSize="8.0sp" android:id="@id/byg" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="mix frame" />
+                        <Button android:textSize="8.0sp" android:id="@id/byi" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="开始录-混音" />
+                    </LinearLayout>
+                    <LinearLayout android:orientation="horizontal" android:id="@id/by_" android:layout_width="wrap_content" android:layout_height="wrap_content">
+                        <Button android:textSize="8.0sp" android:id="@id/b2y" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="观众开始录-混音" />
+                    </LinearLayout>
+                    <LinearLayout android:orientation="horizontal" android:id="@id/byl" android:layout_width="wrap_content" android:layout_height="wrap_content">
+                        <Button android:textSize="8.0sp" android:id="@id/byk" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="录制原唱解码" />
+                        <Button android:textSize="8.0sp" android:id="@id/byj" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="录制伴奏解码" />
+                    </LinearLayout>
+                    <LinearLayout android:orientation="horizontal" android:layout_width="wrap_content" android:layout_height="wrap_content">
+                        <Button android:textSize="8.0sp" android:id="@id/m23" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="TRTC-SDK录音" />
+                        <Button android:textSize="8.0sp" android:id="@id/nmf" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="干声测试-启动开关" />
+                        <Button android:textSize="8.0sp" android:id="@id/nmg" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="干声文件-同步试听" />
+                    </LinearLayout>
+                    <LinearLayout android:orientation="horizontal" android:layout_width="wrap_content" android:layout_height="wrap_content">
+                        <Button android:textSize="8.0sp" android:id="@id/a9_" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="升降调：录制原唱" />
+                        <Button android:textSize="8.0sp" android:id="@id/a99" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="升降调：录制伴奏" />
+                    </LinearLayout>
+                    <LinearLayout android:orientation="horizontal" android:layout_width="wrap_content" android:layout_height="wrap_content">
+                        <Button android:textSize="8.0sp" android:id="@id/bzv" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="录制耳返原始采集" />
+                        <Button android:textSize="8.0sp" android:id="@id/c00" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="播放耳返原始采集" />
+                        <Button android:textSize="8.0sp" android:id="@id/c06" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="停止播放耳返原始采集" />
+                    </LinearLayout>
+                    <LinearLayout android:layout_width="wrap_content" android:layout_height="wrap_content">
+                        <Button android:textSize="8.0sp" android:id="@id/bzz" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="log(原始采集)" />
+                        <Button android:textSize="8.0sp" android:id="@id/bzy" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="log(原始采集后)" />
+                        <Button android:textSize="8.0sp" android:id="@id/c05" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="log(组装前)" />
+                        <Button android:textSize="8.0sp" android:id="@id/c03" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="log(组装后)" />
+                        <Button android:textSize="8.0sp" android:id="@id/c04" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="横向滑动测试按钮" />
+                    </LinearLayout>
+                    <LinearLayout android:layout_width="wrap_content" android:layout_height="wrap_content">
+                        <Button android:textSize="8.0sp" android:id="@id/c02" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="log(组装重采前)" />
+                        <Button android:textSize="8.0sp" android:id="@id/c01" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="log(组装重采后)" />
+                        <Button android:textSize="8.0sp" android:id="@id/ata" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="log(capture)" />
+                        <Button android:textSize="8.0sp" android:id="@id/fjk" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="log(localprocess)" />
+                        <Button android:textSize="8.0sp" android:id="@id/g_b" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="log(mix)" />
+                        <Button android:textSize="8.0sp" android:id="@id/g_u" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="log(mixall)" />
+                        <Button android:textSize="8.0sp" android:id="@id/j4f" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="log(remote)" />
+                    </LinearLayout>
+                    <LinearLayout android:orientation="horizontal" android:layout_width="wrap_content" android:layout_height="wrap_content">
+                        <EditText android:textSize="8.0sp" android:id="@id/kb5" android:layout_width="wrap_content" android:layout_height="wrap_content" android:hint="输入userId" android:inputType="number" />
+                        <Button android:textSize="8.0sp" android:id="@id/kb3" android:layout_width="50.0dp" android:layout_height="wrap_content" android:text="截屏远端画面" />
+                        <Button android:textSize="8.0sp" android:id="@id/kb6" android:layout_width="50.0dp" android:layout_height="wrap_content" android:text="隐藏截图" />
+                        <ImageView android:id="@id/kb7" android:layout_width="60.0dp" android:layout_height="80.0dp" android:scaleType="fitXY" />
+                    </LinearLayout>
+                    <LinearLayout android:orientation="horizontal" android:layout_width="wrap_content" android:layout_height="wrap_content">
+                        <Button android:textSize="8.0sp" android:id="@id/axi" android:layout_width="50.0dp" android:layout_height="wrap_content" android:text="渲染左侧画面" />
+                        <Button android:textSize="8.0sp" android:id="@id/axk" android:layout_width="50.0dp" android:layout_height="wrap_content" android:text="渲染右侧画面" />
+                    </LinearLayout>
+                    <Button android:id="@id/al9" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="X5调试页面" />
+                    <Button android:id="@id/f2d" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="光效开关" />
+                    <Button android:id="@id/a1n" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="192k开关" />
+                </LinearLayout>
+            </HorizontalScrollView>
+        </LinearLayout>
+    </ScrollView>
+</RelativeLayout>

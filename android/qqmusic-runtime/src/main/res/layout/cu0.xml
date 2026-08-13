@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout android:visibility="gone" android:layout_width="match_parent" android:layout_height="match_parent"
+  xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">
+    <TextView android:id="@id/lak" style="@style/a5m" />
+    <com.yalantis.ucrop.view.widget.HorizontalProgressWheelView android:id="@id/jdl" android:layout_width="match_parent" android:layout_height="match_parent" android:layout_toLeftOf="@id/nuo" android:layout_toRightOf="@id/nun" android:layout_below="@id/lak" android:layout_toStartOf="@id/nuo" android:layout_toEndOf="@id/nun" />
+    <FrameLayout android:id="@id/nun" android:background="?selectableItemBackground" android:layout_centerVertical="true" style="@style/a5o">
+        <ImageView app:aj8="@drawable/ucrop_ic_reset" style="@style/a5j" />
+    </FrameLayout>
+    <FrameLayout android:id="@id/nuo" android:background="?selectableItemBackground" android:layout_alignParentRight="true" android:layout_centerVertical="true" android:layout_alignParentEnd="true" style="@style/a5o">
+        <ImageView android:src="@drawable/ucrop_ic_angle" android:tint="@color/ucrop_color_widget_rotate_angle" style="@style/a5j" />
+    </FrameLayout>
+</RelativeLayout>

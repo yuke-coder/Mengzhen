@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout android:paddingBottom="25.0dp" android:layout_width="match_parent" android:layout_height="wrap_content"
+  xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">
+    <com.tme.qqmusic.widget.base.view.GlideImageView android:id="@id/d1m" android:background="@drawable/mlive_shape_avatar_border_new" android:layout_width="70.0dp" android:layout_height="70.0dp" android:scaleType="centerCrop" app:a1j="hnz" app:a23="hnz" app:a27="hnz" />
+    <LinearLayout android:gravity="center" android:orientation="horizontal" android:id="@id/d24" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="20.0dp" app:a1j="hnz" app:a23="hnz" app:a26="@id/d1m">
+        <TextView android:textSize="19.0dp" android:textColor="@android:color/white" android:ellipsize="end" android:gravity="center" android:id="@id/d23" android:layout_width="wrap_content" android:layout_height="wrap_content" android:maxLines="1" android:layout_marginStart="20.0dp" />
+        <ImageView android:id="@id/d1u" android:paddingTop="3.0dp" android:paddingBottom="3.0dp" android:layout_width="20.0dp" android:layout_height="20.0dp" android:src="@drawable/mlive_icon_gift_wall_rule" android:tint="@android:color/white" android:paddingStart="5.0dp" android:layout_marginEnd="20.0dp" />
+    </LinearLayout>
+    <TextView android:textSize="10.0dp" android:textColor="@color/white_80_transparent" android:gravity="center" android:id="@id/d22" android:visibility="invisible" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="2.0dp" android:alpha="0.8" app:a1j="hnz" app:a23="hnz" app:a26="@id/d24" />
+    <LinearLayout android:orientation="horizontal" android:id="@id/d21" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="10.0dp" app:a1j="hnz" app:a23="hnz" app:a26="@id/d22">
+        <LinearLayout android:gravity="center" android:orientation="vertical" android:id="@id/d1n" android:layout_width="wrap_content" android:layout_height="wrap_content" android:minWidth="47.5dp">
+            <TextView android:textSize="20.0dp" android:textColor="@android:color/white" android:id="@id/d1o" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="0" />
+            <TextView android:textSize="12.0dp" android:textColor="@color/white_80_transparent" android:id="@id/d1p" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="2.0dp" android:text="金卡" android:alpha="0.8" />
+        </LinearLayout>
+        <LinearLayout android:gravity="center" android:orientation="vertical" android:id="@id/d1y" android:layout_width="wrap_content" android:layout_height="wrap_content" android:minWidth="47.5dp" android:layout_marginStart="20.0dp">
+            <TextView android:textSize="20.0dp" android:textColor="@android:color/white" android:id="@id/d1z" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="0" />
+            <TextView android:textSize="12.0dp" android:textColor="@color/white_80_transparent" android:id="@id/d20" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="2.0dp" android:text="银卡" android:alpha="0.8" />
+        </LinearLayout>
+        <LinearLayout android:gravity="center" android:orientation="vertical" android:id="@id/d1v" android:layout_width="wrap_content" android:layout_height="wrap_content" android:minWidth="47.5dp" android:layout_marginStart="20.0dp">
+            <TextView android:textSize="20.0dp" android:textColor="@android:color/white" android:id="@id/d1w" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="0" />
+            <TextView android:textSize="12.0dp" android:textColor="@color/white_80_transparent" android:id="@id/d1x" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="2.0dp" android:text="普卡" android:alpha="0.8" />
+        </LinearLayout>
+    </LinearLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>

@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout android:gravity="center_horizontal" android:orientation="vertical" android:paddingTop="19.0dp" android:paddingBottom="18.0dp" android:layout_width="match_parent" android:layout_height="wrap_content"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <FrameLayout android:layout_width="24.0dp" android:layout_height="24.0dp">
+        <com.tencent.component.widget.AsyncImageView android:id="@id/idv" android:visibility="visible" android:layout_width="24.0dp" android:layout_height="24.0dp" android:scaleType="fitXY" />
+        <com.tencent.qqmusic.pag.QQMusicPAGSafeView android:id="@id/idw" android:visibility="gone" android:layout_width="24.0dp" android:layout_height="24.0dp" android:scaleType="fitXY" />
+    </FrameLayout>
+    <TextView android:textSize="12.0dp" android:textColor="#000000" android:ellipsize="end" android:id="@id/idx" android:paddingLeft="5.0dp" android:paddingRight="5.0dp" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="5.0dp" android:maxLines="1" android:includeFontPadding="false" android:paddingHorizontal="5.0dp" />
+</LinearLayout>

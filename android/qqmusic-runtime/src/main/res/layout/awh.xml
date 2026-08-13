@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout android:id="@id/au_" android:visibility="gone" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_alignParentTop="true" android:alpha="0.0"
+  xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">
+    <com.tencent.qqmusic.ui.RoundedConstraintLayout android:layout_gravity="center|bottom" android:clipChildren="false" android:layout_width="3600.0dp" android:layout_height="3600.0dp" app:kj="1800.0dp">
+        <com.tencent.component.widget.AsyncImageView android:id="@id/iik" android:layout_width="match_parent" android:layout_height="match_parent" android:scaleType="centerCrop" app:a1d="hnz" app:a1x="hnz" app:a21="hnz" />
+    </com.tencent.qqmusic.ui.RoundedConstraintLayout>
+    <LinearLayout android:gravity="center" android:layout_gravity="center" android:orientation="vertical" android:id="@id/iil" android:visibility="gone" android:layout_width="wrap_content" android:layout_height="wrap_content">
+        <TextView android:textSize="27.0sp" android:textColor="@color/black" android:ellipsize="end" android:id="@id/iin" android:layout_width="wrap_content" android:layout_height="wrap_content" android:singleLine="true" android:includeFontPadding="false" />
+        <TextView android:textSize="20.0sp" android:textColor="@color/black" android:ellipsize="end" android:id="@id/iim" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="15.5dp" android:singleLine="true" android:includeFontPadding="false" />
+    </LinearLayout>
+    <LinearLayout android:gravity="center" android:layout_gravity="bottom" android:orientation="horizontal" android:id="@id/iio" android:visibility="gone" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginBottom="13.5dp">
+        <ImageView android:id="@id/iip" android:layout_width="13.699982dp" android:layout_height="10.5dp" android:layout_marginTop="1.0dp" android:layout_marginRight="6.0dp" android:src="@drawable/music_world_tips_normal_icon" />
+        <TextView android:textSize="12.5sp" android:textColor="@color/white" android:gravity="center" android:id="@id/iiq" android:focusable="true" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/a3u" />
+    </LinearLayout>
+</FrameLayout>

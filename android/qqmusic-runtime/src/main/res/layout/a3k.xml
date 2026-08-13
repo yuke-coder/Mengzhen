@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout android:background="@color/white" android:paddingBottom="50.0dp" android:layout_width="match_parent" android:layout_height="match_parent"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <include android:id="@id/l8c" android:layout_width="match_parent" android:layout_height="@dimen/cau" layout="@layout/mu" />
+    <Button android:textSize="20.0sp" android:id="@id/cvq" android:background="@color/green" android:paddingLeft="20.0dp" android:paddingTop="5.0dp" android:paddingRight="20.0dp" android:paddingBottom="5.0dp" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_margin="10.0dp" android:text="@string/hlf" android:layout_alignParentBottom="true" android:layout_centerHorizontal="true" />
+    <CheckBox android:id="@id/cvp" android:layout_width="wrap_content" android:layout_height="wrap_content" android:checked="true" android:layout_alignTop="@id/cvq" android:layout_alignBottom="@id/cvq" android:layout_alignParentLeft="true" />
+    <TextView android:gravity="center_vertical" android:id="@id/cvr" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/b12" android:layout_toRightOf="@id/cvp" android:layout_alignTop="@id/cvq" android:layout_alignBottom="@id/cvq" />
+    <ScrollView android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_above="@id/cvq" android:layout_below="@id/l8c">
+        <LinearLayout android:orientation="vertical" android:id="@id/cvo" android:layout_width="match_parent" android:layout_height="match_parent" />
+    </ScrollView>
+</RelativeLayout>

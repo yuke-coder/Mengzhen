@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout android:id="@id/bl" android:background="@drawable/material_ripple_background" android:paddingRight="20.0dp" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginBottom="@dimen/zz"
+  xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">
+    <com.tencent.qqmusic.ui.RoundedRelativeLayout android:id="@id/bk" android:layout_width="wrap_content" android:layout_height="wrap_content" app:a1x="hnz" app:a27="hnz">
+        <com.tencent.qqmusic.ui.customview.SquareImageView android:id="@id/bi" android:layout_width="@dimen/a03" android:layout_height="@dimen/a03" />
+    </com.tencent.qqmusic.ui.RoundedRelativeLayout>
+    <com.tencent.qqmusic.ui.RoundedRelativeLayout android:layout_width="wrap_content" android:layout_height="wrap_content" app:a1x="hnz" app:a27="hnz">
+        <com.tencent.qqmusic.ui.customview.SquareImageView android:id="@id/bj" android:layout_width="@dimen/a03" android:layout_height="@dimen/a03" />
+    </com.tencent.qqmusic.ui.RoundedRelativeLayout>
+    <ImageView android:id="@id/a09" android:layout_width="wrap_content" android:layout_height="wrap_content" android:src="@drawable/arrow_right_grey" app:a1d="hnz" app:a21="hnz" app:a27="hnz" />
+    <TextView android:textSize="15.0sp" android:textColor="@color/skin_text_main_color" android:ellipsize="end" android:id="@id/bn" android:paddingRight="100.0dp" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginLeft="10.0dp" android:layout_marginTop="9.799988dp" android:text="喜欢" android:maxLines="1" android:singleLine="true" app:a1y="@id/bk" app:a27="hnz" />
+    <TextView android:textSize="12.0sp" android:textColor="@color/skin_text_sub_color" android:ellipsize="end" android:id="@id/bm" android:paddingRight="100.0dp" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginLeft="10.0dp" android:layout_marginTop="7.5dp" android:text="0首歌曲 0张专辑 0张歌单0首歌曲 0张专辑 0张歌单0首歌曲 0张专辑 0张歌单" android:singleLine="true" app:a1y="@id/bk" app:a26="@id/bn" />
+</androidx.constraintlayout.widget.ConstraintLayout>

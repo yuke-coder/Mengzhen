@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout android:orientation="horizontal" android:id="@id/co3" android:background="@drawable/material_ripple_background" android:layout_width="match_parent" android:layout_height="wrap_content" android:minHeight="72.0dp"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <CheckBox android:layout_gravity="center" android:id="@id/e2x" android:background="@drawable/ic_edit_song_checkbox" android:focusable="false" android:focusableInTouchMode="false" android:visibility="gone" android:clickable="false" android:layout_width="24.0dp" android:layout_height="24.0dp" android:layout_marginLeft="16.0dp" android:checked="false" android:button="@null" android:layout_centerVertical="true" />
+    <RelativeLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_toLeftOf="@id/e2v" android:layout_toRightOf="@id/e2x">
+        <include layout="@layout/up" />
+    </RelativeLayout>
+    <ImageView android:id="@id/e2v" android:visibility="gone" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginLeft="16.0dp" android:layout_marginRight="16.0dp" android:src="@drawable/icon_order" android:layout_alignParentRight="true" android:layout_centerVertical="true" />
+</RelativeLayout>

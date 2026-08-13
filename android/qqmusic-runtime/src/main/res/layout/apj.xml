@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout android:background="@drawable/kuikly_selector_item_indicator" android:layout_width="match_parent" android:layout_height="wrap_content" android:minHeight="42.0dp"
+  xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">
+    <androidx.appcompat.widget.AppCompatTextView android:textColor="@android:color/black" android:id="@id/epv" android:layout_width="wrap_content" android:layout_height="wrap_content" android:paddingStart="16.0dp" android:paddingEnd="16.0dp" app:a1d="hnz" app:a23="hnz" app:a27="hnz" />
+    <androidx.appcompat.widget.SwitchCompat android:id="@id/ept" android:visibility="gone" android:layout_width="wrap_content" android:layout_height="wrap_content" android:paddingStart="16.0dp" android:paddingEnd="16.0dp" app:a1d="hnz" app:a1j="hnz" app:a27="hnz" />
+</androidx.constraintlayout.widget.ConstraintLayout>

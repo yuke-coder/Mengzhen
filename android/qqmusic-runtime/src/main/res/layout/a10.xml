@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.tencent.qqmusic.ui.CustomInsetLayout android:id="@id/idi" android:fitsSystemWindows="true" android:layout_width="match_parent" android:layout_height="match_parent"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <include android:id="@id/naf" android:layout_width="match_parent" android:layout_height="match_parent" layout="@layout/m6" />
+    <include android:id="@id/lei" layout="@layout/cyh" />
+    <ScrollView android:id="@id/nbc" android:clipChildren="false" android:layout_width="match_parent" android:layout_height="match_parent" android:layout_above="@id/acy" android:layout_below="@id/lei">
+        <LinearLayout android:orientation="vertical" android:clipChildren="false" android:layout_width="match_parent" android:layout_height="match_parent">
+            <include android:id="@id/n_y" layout="@layout/cyk" />
+        </LinearLayout>
+    </ScrollView>
+    <include android:id="@id/acy" layout="@layout/cyf" />
+    <TextView android:textSize="14.0sp" android:textColor="#ff6666" android:gravity="center" android:id="@id/idj" android:background="#fbdddd" android:visibility="gone" android:layout_width="match_parent" android:layout_height="40.0dp" android:text="动态内容中存在敏感词" android:layout_below="@id/lei" />
+    <View android:id="@id/len" android:background="@drawable/head_shadow" android:layout_width="match_parent" android:layout_height="@dimen/l9" android:layout_below="@id/lei" />
+</com.tencent.qqmusic.ui.CustomInsetLayout>

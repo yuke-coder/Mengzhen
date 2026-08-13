@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout android:id="@id/ew_" android:visibility="gone" android:layout_width="match_parent" android:layout_height="match_parent"
+  xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">
+    <org.libpag.PAGView android:id="@id/hn6" android:visibility="gone" android:layout_width="match_parent" android:layout_height="match_parent" />
+    <org.libpag.PAGView android:id="@id/hn7" android:visibility="gone" android:layout_width="200.0dp" android:layout_height="200.0dp" />
+    <EditText android:textColor="@color/white" android:id="@id/hn8" android:visibility="gone" android:layout_width="50.0dp" android:layout_height="50.0dp" android:layout_marginBottom="50.0dp" android:text="1" android:layout_alignParentRight="true" android:layout_alignParentBottom="true" android:layout_alignParentEnd="true" />
+    <TextView android:textColor="@color/white" android:id="@id/hn_" android:visibility="gone" android:layout_width="50.0dp" android:layout_height="30.0dp" android:layout_marginBottom="90.0dp" android:text="开始" android:layout_alignParentRight="true" android:layout_alignParentBottom="true" android:layout_alignParentEnd="true" />
+</RelativeLayout>

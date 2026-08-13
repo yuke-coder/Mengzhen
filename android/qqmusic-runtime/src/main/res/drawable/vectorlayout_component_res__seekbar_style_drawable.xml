@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layer-list
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <item android:id="@android:id/background">
+        <shape>
+            <size android:height="1.5dp" />
+            <corners android:radius="0.0dp" />
+            <gradient android:startColor="@color/vectorlayout_component_res__player_color_progress_bg" android:endColor="@color/vectorlayout_component_res__player_color_progress_bg" android:angle="45.0" android:centerY="0.75" android:centerColor="@color/vectorlayout_component_res__player_color_progress_bg" />
+        </shape>
+    </item>
+    <item android:id="@android:id/secondaryProgress">
+        <clip>
+            <shape>
+                <size android:height="1.5dp" />
+                <corners android:radius="0.0dp" />
+                <gradient android:startColor="@color/vectorlayout_component_res__color_progress_ready" android:endColor="@color/vectorlayout_component_res__color_progress_ready" android:angle="45.0" android:centerY="0.75" android:centerColor="@color/vectorlayout_component_res__color_progress_ready" />
+            </shape>
+        </clip>
+    </item>
+    <item android:id="@android:id/progress">
+        <clip>
+            <shape>
+                <size android:height="1.5dp" />
+                <corners android:radius="0.0dp" />
+                <gradient android:startColor="@color/vectorlayout_component_res__color_progress" android:endColor="@color/vectorlayout_component_res__color_progress" android:angle="45.0" android:centerY="0.75" android:centerColor="@color/vectorlayout_component_res__color_progress" />
+            </shape>
+        </clip>
+    </item>
+</layer-list>

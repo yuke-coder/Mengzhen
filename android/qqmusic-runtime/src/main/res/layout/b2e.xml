@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout android:id="@id/lxk" android:layout_width="match_parent" android:layout_height="35.0dp" android:paddingStart="10.0dp" android:paddingEnd="5.0dp"
+  xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">
+    <ImageView android:id="@id/lxl" android:layout_width="21.0dp" android:layout_height="20.0dp" android:src="@drawable/login_to_sync_icon" android:scaleType="centerInside" android:layout_alignParentLeft="true" android:layout_centerVertical="true" android:layout_marginEnd="7.0dp" android:layout_alignParentStart="true" />
+    <LinearLayout android:gravity="center_vertical" android:orientation="horizontal" android:id="@id/lxj" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_alignParentRight="true" android:layout_centerVertical="true" android:layout_marginStart="7.0dp" android:layout_alignParentEnd="true">
+        <TextView android:textSize="14.0dp" android:textStyle="bold" android:textColor="@color/skin_text_main_color" android:ellipsize="end" android:gravity="center" android:id="@id/lxh" android:layout_width="wrap_content" android:layout_height="25.0dp" android:minWidth="0.0dp" android:text="@string/ih3" android:maxLines="1" />
+        <ImageView android:id="@id/lxi" android:layout_width="wrap_content" android:layout_height="wrap_content" android:src="@drawable/arrow_right_folder_banner" android:scaleType="center" />
+    </LinearLayout>
+    <TextView android:textSize="14.0dp" android:textColor="@color/skin_text_main_color" android:ellipsize="end" android:id="@id/lxm" android:layout_width="match_parent" android:layout_height="wrap_content" android:text="@string/ih4" android:maxLines="1" android:layout_toLeftOf="@id/lxj" android:layout_toRightOf="@id/lxl" android:layout_centerVertical="true" android:layout_toStartOf="@id/lxj" android:layout_toEndOf="@id/lxl" />
+</RelativeLayout>

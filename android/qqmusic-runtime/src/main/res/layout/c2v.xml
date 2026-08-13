@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout android:orientation="vertical" android:layout_width="match_parent" android:layout_height="match_parent"
+  xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">
+    <com.lyricengine.ui.lyricselector.SimpleLyricView android:id="@id/fyk" android:layout_width="match_parent" android:layout_height="match_parent" app:a6i="#000000" app:a6j="#525b5959" app:a6k="#e6cf21" app:a6l="false" app:a6q="16.0dp" app:a6v="15.0dp" />
+    <RelativeLayout android:id="@id/fyl" android:layout_width="match_parent" android:layout_height="wrap_content" />
+    <RelativeLayout android:id="@id/fyj" android:layout_width="match_parent" android:layout_height="wrap_content" />
+</RelativeLayout>

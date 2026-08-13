@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout android:layout_width="match_parent" android:layout_height="match_parent"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <include android:id="@id/clo" android:visibility="gone" android:layout_width="match_parent" android:layout_height="match_parent" layout="@layout/mj" />
+    <ViewStub android:id="@id/clc" android:visibility="gone" android:layout="@layout/mh" android:layout_width="match_parent" android:layout_height="match_parent" />
+    <ViewStub android:id="@id/cln" android:visibility="gone" android:layout="@layout/n8" android:layout_width="match_parent" android:layout_height="match_parent" />
+    <ListView android:id="@id/clm" android:paddingTop="20.0dp" android:scrollbars="none" android:clipToPadding="false" android:layout_width="match_parent" android:layout_height="match_parent" android:divider="@color/transparent" android:overScrollMode="never" />
+</FrameLayout>

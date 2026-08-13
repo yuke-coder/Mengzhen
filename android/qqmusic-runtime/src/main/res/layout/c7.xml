@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout android:layout_width="match_parent" android:layout_height="match_parent"
+  xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">
+    <FrameLayout android:id="@id/chv" android:layout_width="match_parent" android:layout_height="match_parent" />
+    <FrameLayout android:id="@id/g1m" android:layout_width="match_parent" android:layout_height="match_parent" android:layout_marginTop="@dimen/cau" />
+    <FrameLayout android:layout_gravity="bottom" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginBottom="8.0dp">
+        <View android:background="@drawable/folder_template_preview_shadow" android:layout_width="match_parent" android:layout_height="102.0dp" android:layout_marginLeft="5.0dp" android:layout_marginTop="5.0dp" android:layout_marginRight="5.0dp" android:layout_marginBottom="5.0dp" />
+        <androidx.constraintlayout.widget.ConstraintLayout android:layout_gravity="center" android:paddingLeft="16.0dp" android:paddingRight="16.0dp" android:layout_width="match_parent" android:layout_height="80.0dp" android:layout_marginLeft="16.0dp" android:layout_marginTop="16.0dp" android:layout_marginRight="16.0dp" android:layout_marginBottom="16.0dp">
+            <TextView android:textSize="18.0sp" android:textStyle="bold" android:textColor="@color/default_text_main_color" android:ellipsize="end" android:gravity="center" android:id="@id/cpn" android:layout_width="wrap_content" android:layout_height="wrap_content" android:maxLines="1" android:includeFontPadding="false" android:maxLength="8" android:fontFamily="PingFangSC-Medium" app:a1d="hnz" app:a1x="hnz" app:a27="hnz" />
+            <com.tencent.component.widget.AsyncImageView android:id="@id/cpw" android:layout_width="20.0dp" android:layout_height="20.0dp" android:layout_marginLeft="4.0dp" app:a1d="@id/cpn" app:a1y="@id/cpn" app:a27="@id/cpn" />
+            <TextView android:textSize="16.0sp" android:textStyle="bold" android:textColor="@color/white" android:gravity="center" android:id="@id/cpf" android:background="@drawable/edit_folder_dynamic_head_pic_card_btn_bg" android:layout_width="124.0dp" android:layout_height="40.0dp" android:text="@string/ha2" android:fontFamily="PingFangSC-Medium" app:a1d="hnz" app:a21="hnz" app:a27="hnz" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </FrameLayout>
+</FrameLayout>

@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout android:layout_width="match_parent" android:layout_height="match_parent"
+  xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">
+    <androidx.constraintlayout.widget.ConstraintLayout android:id="@id/mlive_friend_cross_pk_result_container" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="240.0dp" app:a1j="hnz" app:a23="hnz" app:a27="hnz">
+        <ImageView android:id="@id/mlive_friend_cross_pk_level_up_icon" android:visibility="gone" android:layout_width="80.0dp" android:layout_height="80.0dp" android:layout_marginBottom="12.0dp" android:scaleType="centerInside" app:a1j="hnz" app:a23="hnz" app:a27="hnz" />
+        <ImageView android:id="@id/mlive_friend_cross_pk_result_icon" android:layout_width="100.0dp" android:layout_height="100.0dp" android:scaleType="centerInside" app:a1j="hnz" app:a23="hnz" app:a26="@id/mlive_friend_cross_pk_level_up_icon" />
+        <TextView android:textSize="11.0sp" android:textColor="@color/white" android:gravity="center" android:id="@id/mlive_friend_cross_pk_result_tips" android:layout_width="wrap_content" android:layout_height="20.0dp" android:paddingStart="12.0dp" android:paddingEnd="12.0dp" app:a1j="hnz" app:a23="hnz" app:a26="@id/mlive_friend_cross_pk_result_icon" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+    <com.tme.mlive.ui.animation.NewPagView android:id="@id/mlive_friend_cross_pk_result_pag_anim" android:layout_width="match_parent" android:layout_height="wrap_content" app:a1d="hnz" app:a1j="hnz" app:a23="hnz" app:a27="hnz" />
+</androidx.constraintlayout.widget.ConstraintLayout>

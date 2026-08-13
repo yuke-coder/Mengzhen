@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout android:id="@id/mlive_audio_async_container" android:layout_width="wrap_content" android:layout_height="wrap_content"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <ImageView android:id="@id/mlive_audio_async_album_iv" android:layout_width="247.0dp" android:layout_height="247.0dp" android:src="@drawable/mlive_async_audio_album" android:layout_centerHorizontal="true" />
+    <ImageView android:id="@id/mlive_audio_async_pic_iv" android:layout_width="87.0dp" android:layout_height="87.0dp" android:layout_marginTop="80.0dp" android:layout_centerHorizontal="true" />
+    <ImageView android:id="@id/mlive_audio_async_panel_iv" android:layout_width="326.0dp" android:layout_height="148.0dp" android:layout_marginTop="130.0dp" android:src="@drawable/mlive_async_audio_panel" />
+    <TextView android:textSize="16.0dp" android:textColor="@color/white" android:ellipsize="marquee" android:gravity="center" android:id="@id/mlive_audio_async_song_name" android:layout_width="0.0dp" android:layout_height="wrap_content" android:layout_marginLeft="20.0dp" android:layout_marginTop="25.0dp" android:layout_marginRight="20.0dp" android:singleLine="true" android:layout_alignTop="@id/mlive_audio_async_panel_iv" android:marqueeRepeatLimit="marquee_forever" android:layout_alignStart="@id/mlive_audio_async_panel_iv" android:layout_alignEnd="@id/mlive_audio_async_panel_iv" android:layout_marginHorizontal="20.0dp" />
+    <ViewStub android:id="@id/mlive_audio_async_default_title_vs" android:layout="@layout/bg_" android:inflatedId="@id/mlive_audio_async_default_title_container" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="54.0dp" android:layout_alignTop="@id/mlive_audio_async_panel_iv" android:layout_centerHorizontal="true" />
+</RelativeLayout>

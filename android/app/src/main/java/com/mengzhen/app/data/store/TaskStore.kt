@@ -376,21 +376,30 @@ class TaskStore private constructor(context: Context) {
     // === Auth ===
     @Synchronized
     fun saveUserSession(token: String, user: UserInfo) {
+        val previous = _sessionUser.value
+        val persistedUser = if (
+            user.backgroundUrl == null && previous?.id == user.id
+        ) {
+            user.copy(backgroundUrl = previous.backgroundUrl)
+        } else {
+            user
+        }
         val json = JSONObject()
         json.put("token", token)
-        json.put("userId", user.id)
-        json.put("username", user.username)
-        json.put("email", user.email)
-        user.avatarUrl?.let { json.put("avatarUrl", it) }
-        user.nickname?.let { json.put("nickname", it) }
-        user.gender?.let { json.put("gender", it) }
-        user.birthday?.let { json.put("birthday", it) }
-        user.location?.let { json.put("location", it) }
-        user.bio?.let { json.put("bio", it) }
-        user.signature?.let { json.put("signature", it) }
-        if (user.createdAt.isNotEmpty()) json.put("createdAt", user.createdAt)
+        json.put("userId", persistedUser.id)
+        json.put("username", persistedUser.username)
+        json.put("email", persistedUser.email)
+        persistedUser.avatarUrl?.let { json.put("avatarUrl", it) }
+        persistedUser.nickname?.let { json.put("nickname", it) }
+        persistedUser.gender?.let { json.put("gender", it) }
+        persistedUser.birthday?.let { json.put("birthday", it) }
+        persistedUser.location?.let { json.put("location", it) }
+        persistedUser.bio?.let { json.put("bio", it) }
+        persistedUser.signature?.let { json.put("signature", it) }
+        persistedUser.backgroundUrl?.let { json.put("backgroundUrl", it) }
+        if (persistedUser.createdAt.isNotEmpty()) json.put("createdAt", persistedUser.createdAt)
         prefs.edit().putString("session", json.toString()).apply()
-        _sessionUser.value = user
+        _sessionUser.value = persistedUser
     }
 
     @Synchronized
@@ -411,6 +420,7 @@ class TaskStore private constructor(context: Context) {
                 location = json.optString("location", "").ifEmpty { null },
                 bio = json.optString("bio", "").ifEmpty { null },
                 signature = json.optString("signature", "").ifEmpty { null },
+                backgroundUrl = json.optString("backgroundUrl", "").ifEmpty { null },
                 createdAt = json.optString("createdAt", ""),
             )
             json.optString("token") to user

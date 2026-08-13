@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout android:layout_width="match_parent" android:layout_height="match_parent"
+  xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">
+    <include android:id="@id/naf" android:layout_width="match_parent" android:layout_height="match_parent" app:a1j="hnz" app:a23="hnz" app:a27="hnz" layout="@layout/m6" />
+    <include android:id="@id/lvi" app:a1j="hnz" app:a23="hnz" app:a27="hnz" layout="@layout/mv" />
+    <LinearLayout android:orientation="vertical" android:layout_width="wrap_content" android:layout_height="wrap_content" app:a1e="@id/cvg" app:a1j="hnz" app:a23="hnz" app:a26="@id/lvi">
+        <com.tencent.qqmusic.bigfont.view.BigFontTextView android:textSize="@dimen/i0" android:textStyle="bold" android:textColor="@color/skin_text_main_color" android:layout_gravity="center_horizontal" android:id="@id/cvf" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="字体大小预览" />
+        <com.tencent.qqmusic.bigfont.view.BigFontTextView android:textSize="@dimen/hr" android:textColor="@color/skin_text_main_color" android:layout_gravity="center_horizontal" android:id="@id/cve" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="12.0dp" android:text="拖动下方滑块，调整字体大小" android:alpha="0.6" />
+        <LinearLayout android:orientation="vertical" android:id="@id/l8b" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="12.0dp" />
+    </LinearLayout>
+    <com.tencent.qqmusic.bigfont.business.setting.FontSetViewGroup android:id="@id/cvg" android:background="@color/white" android:paddingLeft="10.0dp" android:paddingRight="10.0dp" android:layout_width="match_parent" android:layout_height="155.0dp" app:a1d="hnz" app:a1j="hnz" app:a23="hnz" />
+    <View android:background="@drawable/head_shadow" android:layout_width="match_parent" android:layout_height="@dimen/l9" app:a26="@id/lvi" />
+</androidx.constraintlayout.widget.ConstraintLayout>

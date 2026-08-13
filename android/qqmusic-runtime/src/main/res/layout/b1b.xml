@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout android:clipChildren="false" android:layout_width="match_parent" android:layout_height="match_parent"
+  xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">
+    <com.tencent.qqmusic.activity.base.CustomTabPagerLayout android:id="@id/b73" android:visibility="gone" android:layout_width="match_parent" android:layout_height="match_parent" app:aax="@id/b72" app:an6="@id/b74" app:aqk="@id/b76">
+        <FrameLayout android:id="@id/b76" android:layout_width="match_parent" android:layout_height="wrap_content" />
+        <com.tencent.qqmusic.ui.OnlineSearchScrollTab android:id="@id/b74" android:background="@drawable/skin_sub_mask_img" android:layout_width="match_parent" android:layout_height="@dimen/bcv" />
+        <com.tencent.qqmusic.activity.base.QMusicBaseViewPager android:id="@id/b72" android:clipChildren="false" android:layout_width="match_parent" android:layout_height="match_parent" />
+    </com.tencent.qqmusic.activity.base.CustomTabPagerLayout>
+</RelativeLayout>

@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout android:id="@id/hi5" android:layout_width="wrap_content" android:layout_height="wrap_content"
+  xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">
+    <com.tencent.component.widget.AsyncEffectImageView android:id="@id/hi7" android:layout_width="140.0dp" android:layout_height="140.0dp" android:scaleType="centerCrop" android:importantForAccessibility="no" app:a1x="hnz" app:a27="hnz" />
+    <androidx.appcompat.widget.AppCompatTextView android:textSize="@dimen/rz" android:textColor="@color/skin_text_main_color" android:ellipsize="end" android:id="@id/hia" android:layout_width="0.0dp" android:layout_height="wrap_content" android:layout_marginTop="8.0dp" android:lines="1" android:importantForAccessibility="no" app:a1x="@id/hi7" app:a21="@id/hi7" app:a26="@id/hi7" />
+    <androidx.appcompat.widget.AppCompatTextView android:textSize="@dimen/rt" android:textColor="@color/skin_text_mid_color" android:ellipsize="end" android:id="@id/hi_" android:layout_width="0.0dp" android:layout_height="wrap_content" android:layout_marginTop="@dimen/rq" android:lines="1" android:importantForAccessibility="no" app:a1x="@id/hi7" app:a21="@id/hi7" app:a26="@id/hia" />
+</androidx.constraintlayout.widget.ConstraintLayout>

@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout android:layout_width="match_parent" android:layout_height="match_parent"
+  xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">
+    <com.tme.mlive.ui.custom.LiveFadingRecyclerView android:id="@id/mlive_song_content_request_list" android:focusable="false" android:focusableInTouchMode="false" android:layout_width="match_parent" android:layout_height="match_parent" android:layout_marginTop="@dimen/atq" app:a1d="hnz" app:a1j="hnz" app:a23="hnz" app:a27="hnz" />
+    <LinearLayout android:gravity="center" android:layout_gravity="center_vertical" android:orientation="horizontal" android:id="@id/mlive_song_content_request_empty" android:background="@drawable/mlive_song_recommend_add_border" android:visibility="gone" android:layout_width="134.5dp" android:layout_height="27.0dp" android:layout_marginBottom="4.0dp" app:a1d="hnz" app:a1j="hnz" app:a23="hnz" app:a27="hnz">
+        <ImageView android:id="@id/mlive_song_list_request_item_empty_icon" android:layout_width="25.0dp" android:layout_height="25.0dp" android:src="@drawable/mlive_song_content_request_operate_add" android:tint="@color/white" />
+        <TextView android:textSize="@dimen/ar3" android:textColor="@color/white" android:gravity="center" android:id="@id/mlive_song_list_request_item_empty_desc" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/dyl" android:textAlignment="center" />
+    </LinearLayout>
+    <androidx.constraintlayout.widget.ConstraintLayout android:id="@id/mlive_song_content_guest_request_song_empty" android:visibility="gone" android:layout_width="match_parent" android:layout_height="match_parent" app:a1d="hnz" app:a27="hnz">
+        <include layout="@layout/bne" />
+        <ImageView android:id="@id/mlive_song_content_request_disable_icon" android:layout_width="110.0dp" android:layout_height="67.0dp" android:src="@drawable/mlive_song_content_play_empty_translucent_icon" android:scaleType="centerInside" app:a1e="@id/mlive_song_content_request_disable_desc" app:a1t="0.5" app:a1x="hnz" app:a21="hnz" app:a27="hnz" app:a29="hmg" />
+        <TextView android:textSize="14.0sp" android:textColor="@color/white_50_transparent" android:id="@id/mlive_song_content_request_disable_desc" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="15.0dp" android:text="@string/dyn" app:a1d="hnz" app:a1t="0.5" app:a1x="hnz" app:a21="hnz" app:a26="@id/mlive_song_content_request_disable_icon" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>

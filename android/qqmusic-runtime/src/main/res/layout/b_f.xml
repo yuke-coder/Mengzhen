@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout android:orientation="vertical" android:id="@id/mlive_input_layout_container" android:focusable="true" android:focusableInTouchMode="true" android:fitsSystemWindows="true" android:layout_width="match_parent" android:layout_height="match_parent" android:contentDescription="@string/d0a"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <LinearLayout android:gravity="center_vertical" android:orientation="horizontal" android:id="@id/mlive_input_layout" android:background="#121314" android:paddingLeft="12.0dp" android:paddingTop="8.0dp" android:paddingRight="12.0dp" android:paddingBottom="8.0dp" android:layout_width="match_parent" android:layout_height="59.0dp" android:layout_alignParentBottom="true">
+        <EditText android:textSize="16.0sp" android:textColor="@color/white" android:textColorHint="#80ffffff" android:id="@id/mlive_input_edit" android:background="@drawable/mlive_search_item_bg" android:paddingLeft="10.0dp" android:paddingRight="10.0dp" android:layout_width="0.0dp" android:layout_height="33.0dp" android:singleLine="true" android:layout_weight="1.0" android:layout_marginEnd="10.0dp" />
+        <TextView android:textSize="16.0sp" android:textColor="@color/white" android:gravity="center" android:id="@id/mlive_input_operate" android:layout_width="50.0dp" android:layout_height="match_parent" android:text="@string/di7" />
+    </LinearLayout>
+</RelativeLayout>

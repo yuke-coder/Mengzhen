@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout android:orientation="vertical" android:background="@color/white" android:layout_width="match_parent" android:layout_height="match_parent"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <Button android:id="@id/ai_" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginTop="60.0dp" android:text="打开WebView" />
+    <Button android:id="@id/ai9" android:layout_width="match_parent" android:layout_height="wrap_content" android:text="全流程测试" />
+</LinearLayout>

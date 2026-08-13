@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.tme.mlive.ui.custom.gift.GameReceiverLayout android:id="@id/mlive_gift_panel_send_to" android:layout_width="match_parent" android:layout_height="60.0dp"
+  xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">
+    <com.tme.mlive.ui.custom.UserChooserView android:id="@id/mlive_gift_game_anchor_chooser_view" android:layout_width="match_parent" android:layout_height="wrap_content" app:a1j="hnz" app:a23="hnz" app:a27="hnz" />
+</com.tme.mlive.ui.custom.gift.GameReceiverLayout>

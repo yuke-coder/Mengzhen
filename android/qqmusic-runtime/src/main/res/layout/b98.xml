@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout android:gravity="center" android:id="@android:id/background" android:layout_width="match_parent" android:layout_height="match_parent"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <ImageView android:id="@id/w4" android:layout_width="match_parent" android:layout_height="match_parent" android:src="@drawable/miui_widget_22_daily_30_default_dy" android:scaleType="centerCrop" />
+    <ImageView android:id="@id/g1f" android:layout_width="match_parent" android:layout_height="match_parent" android:src="@drawable/miui_widget_half_mask_base" android:scaleType="centerCrop" />
+    <LinearLayout android:orientation="horizontal" android:layout_width="match_parent" android:layout_height="wrap_content">
+        <ImageView android:id="@id/bbd" android:layout_width="0.0dp" android:layout_height="wrap_content" android:src="@drawable/miui_widget_corner_mark_img" android:scaleType="centerCrop" android:adjustViewBounds="true" android:layout_weight="1.0" />
+        <ImageView android:layout_width="0.0dp" android:layout_height="wrap_content" android:layout_weight="1.0" />
+    </LinearLayout>
+    <TextView android:textSize="12.0dp" android:textStyle="bold" android:textColor="@color/white" android:id="@id/hbq" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginLeft="20.0dp" android:layout_marginBottom="20.0dp" android:text="@string/csl" android:layout_alignLeft="@id/w4" android:layout_alignBottom="@id/w4" />
+</RelativeLayout>

@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.tencent.qqmusic.ui.customview.RatioLayout android:orientation="vertical" android:background="@drawable/live_follow_default_bg" android:layout_width="109.0dp" android:layout_height="75.0dp"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <View android:background="@color/live_follow_bg" android:layout_width="match_parent" android:layout_height="match_parent" />
+    <RelativeLayout android:paddingTop="7.0dp" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_centerInParent="true">
+        <View android:background="@drawable/live_follow_head_bg" android:layout_width="38.0dp" android:layout_height="38.0dp" android:layout_centerHorizontal="true" />
+        <com.tme.qqmusic.widget.base.view.GlideImageView android:id="@id/f95" android:layout_width="36.0dp" android:layout_height="36.0dp" android:layout_marginTop="1.0dp" android:src="@drawable/live_home_follow_default" android:layout_centerHorizontal="true" />
+        <LinearLayout android:gravity="center_vertical" android:paddingLeft="10.0dp" android:paddingRight="10.0dp" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="3.0dp" android:layout_below="@id/f95" android:layout_centerHorizontal="true" android:paddingHorizontal="10.0dp">
+            <com.tencent.qqmusic.pag.QQMusicPAGSafeView android:id="@id/f93" android:layout_width="12.0dp" android:layout_height="18.0dp" />
+            <TextView android:textSize="11.0dp" android:textStyle="bold" android:textColor="@color/white" android:ellipsize="end" android:gravity="center_vertical" android:id="@id/f9_" android:layout_width="wrap_content" android:layout_height="18.0dp" android:singleLine="true" />
+        </LinearLayout>
+    </RelativeLayout>
+</com.tencent.qqmusic.ui.customview.RatioLayout>

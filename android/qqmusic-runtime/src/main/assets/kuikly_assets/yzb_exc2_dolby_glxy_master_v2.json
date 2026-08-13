@@ -1,0 +1,83 @@
+{
+  "router": "openHalf",
+  "page_name": "dialog_anim_topbar",
+  "container": {
+    "h_weight": 1,
+    "w_weight": 0.95
+  },
+  "params": {
+    "models": {
+      "aids": {
+        "music_quality": "music.tq.audioquality.newyztc.svip"
+      }
+    },
+    "page": [
+      {
+        "exposure": {
+          "id": "5023185"
+        },
+        "close": {
+          "design": "close_button_white",
+          "rules": {
+            "file_name": "qmkuikly_icon_close",
+            "notify_event": "EVENT_DIALOG_CLOSE",
+            "click": {
+              "id": "1022397"
+            }
+          }
+        },
+        "height": 774,
+        "radius": [
+          20
+        ],
+        "base": {
+          "title": "",
+          "title_color": "#EBD6A6",
+          "title_font_size": 40,
+          "title_first": 1,
+          "subtitle": "快来体验为TA定制专的专属歌手音效",
+          "subtitle_color": "#685C42",
+          "subtitle_font_size": 28,
+          "subtitle_margin_bottom": 10,
+          "title_margin_bottom": 40,
+          "background": {
+            "type": "color",
+            "direction": "to-top",
+            "colors": [
+              "#00FFFFFF"
+            ],
+            "foreground": {
+              "height": 774,
+              "url": "https://musicx.y.qq.com/kuikly/assets/svip_quality/dialog-new-music-quality-style-singer-effect-test.png"
+            }
+          }
+        },
+        "body": {
+        },
+        "buttons": [
+          {
+            "text": "立即体验歌手音效",
+            "button_height": 100,
+            "button_width": 544,
+            "color": "#E9C17C",
+            "text_color": "#2A2A2A",
+            "svip_url":"qqmusic://qq.com/ui/openSupersound?p=%7B%22action%22:%22detail%22,%22soundType%22:64,%22soundId%22:{{.SingerID}}%7D",
+            "url": "https://i2.y.qq.com/n3/cm/pages/vip/myservice/v3/index.html?tab1=cjhy&tab2=svip&aid=music.tq.soundeffect.mxyxtc.svip",
+            "click": {
+              "id": "1024489"
+            },
+            "background": {
+              "type": "gradient",
+              "colors": [
+                "#D1922C",
+                "#FFECC4",
+                "#D1922C"
+              ],
+              "direction": "to-left"
+            }
+          }
+        ]
+      }
+    ]
+  }
+}

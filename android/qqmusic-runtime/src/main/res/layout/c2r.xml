@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout android:orientation="vertical" android:id="@id/fcw" android:background="@color/black" android:layout_width="match_parent" android:layout_height="wrap_content"
+  xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">
+    <TextView android:textSize="18.0sp" android:textColor="@color/common_grid_title_color_selector_dark_theme" android:layout_gravity="center" android:id="@id/hoa" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="20.0dp" />
+    <RelativeLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginTop="35.0dp">
+        <com.tencent.qqmusic.business.partplay.PartPlayHorizontalBar android:id="@id/dej" android:layout_width="match_parent" android:layout_height="12.0dp" android:layout_centerInParent="true" />
+        <SeekBar android:id="@id/kob" android:paddingLeft="20.0dp" android:paddingRight="20.0dp" android:layout_width="match_parent" android:layout_height="wrap_content" android:maxHeight="5.0dp" android:progressDrawable="@drawable/part_play_speed_progress_bar_dark" android:minHeight="5.0dp" android:thumb="@drawable/part_play_speed_thumb_dark" android:thumbOffset="0.0dp" android:layout_centerInParent="true" />
+        <com.tencent.qqmusic.business.partplay.CenterSeekBar android:id="@id/avb" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginLeft="12.5dp" android:layout_marginRight="12.5dp" android:maxHeight="5.0dp" android:minHeight="5.0dp" android:layout_centerInParent="true" app:ach="20" />
+    </RelativeLayout>
+    <RelativeLayout android:paddingLeft="12.5dp" android:paddingRight="12.5dp" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginTop="3.0dp">
+        <TextView android:textColor="@color/common_grid_title_color_selector_dark_theme" android:id="@id/eni" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/ezc" android:layout_alignParentRight="true" android:layout_alignParentEnd="true" />
+        <LinearLayout android:orientation="horizontal" android:paddingRight="7.5dp" android:layout_width="match_parent" android:layout_height="wrap_content">
+            <TextView android:textColor="@color/common_grid_title_color_selector_dark_theme" android:id="@id/enl" android:layout_width="0.0dp" android:layout_height="wrap_content" android:text="@string/ezf" android:layout_weight="1.0" />
+            <TextView android:textColor="@color/common_grid_title_color_selector_dark_theme" android:id="@id/enm" android:layout_width="0.0dp" android:layout_height="wrap_content" android:text="@string/ezg" android:layout_weight="1.0" />
+            <TextView android:textColor="@color/common_grid_title_color_selector_dark_theme" android:id="@id/enh" android:layout_width="0.0dp" android:layout_height="wrap_content" android:text="@string/ezh" android:layout_weight="1.0" />
+            <TextView android:textColor="@color/common_grid_title_color_selector_dark_theme" android:id="@id/enj" android:layout_width="0.0dp" android:layout_height="wrap_content" android:text="@string/ezd" android:layout_weight="1.0" />
+        </LinearLayout>
+    </RelativeLayout>
+    <View android:id="@id/jsz" android:background="#26ffffff" android:layout_width="match_parent" android:layout_height="0.5dp" android:layout_marginTop="46.0dp" />
+    <TextView android:textSize="16.0sp" android:textColor="@color/common_grid_title_color_selector_dark_theme" android:gravity="center" android:id="@id/a1x" android:layout_width="match_parent" android:layout_height="60.0dp" android:text="@string/a_6" />
+</LinearLayout>

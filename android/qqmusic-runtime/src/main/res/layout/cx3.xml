@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout android:layout_width="match_parent" android:layout_height="match_parent"
+  xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">
+    <com.tencent.qqmusic.ui.RoundedConstraintLayout android:id="@id/aty" android:layout_width="0.0dp" android:layout_height="0.0dp" app:kj="10.0dp" app:a1d="hnz" app:a1i="300:500" app:a1x="hnz" app:a21="hnz" app:a27="hnz">
+        <androidx.constraintlayout.widget.Guideline android:orientation="horizontal" android:id="@id/k59" android:layout_width="wrap_content" android:layout_height="wrap_content" app:a1n="0.526" />
+        <androidx.constraintlayout.widget.Guideline android:orientation="horizontal" android:id="@id/fyn" android:layout_width="wrap_content" android:layout_height="wrap_content" app:a1n="0.546" />
+        <com.tencent.component.widget.AsyncEffectImageView android:id="@id/bdx" android:layout_width="0.0dp" android:layout_height="0.0dp" android:contentDescription="封面图" app:a1i="W,1:1" app:a1x="hnz" app:a21="hnz" app:a27="hnz" />
+        <ImageView android:id="@id/a8o" android:layout_width="match_parent" android:layout_height="match_parent" android:scaleType="fitXY" app:a1x="hnz" app:a21="hnz" app:a27="hnz" />
+        <FrameLayout android:gravity="center_vertical" android:id="@id/kfh" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginLeft="@dimen/aft" app:a1e="@id/i5t" app:a1x="hnz">
+            <com.tencent.qqmusic.ui.customview.textview.ScrollTextView android:textSize="@dimen/ag1" android:textStyle="bold" android:textColor="@color/white" android:ellipsize="end" android:gravity="center_vertical" android:id="@id/kfb" android:layout_width="wrap_content" android:layout_height="wrap_content" android:singleLine="true" android:includeFontPadding="false" />
+        </FrameLayout>
+        <View android:id="@id/i5t" android:layout_width="0.0dp" android:layout_height="0.0dp" android:importantForAccessibility="no" app:a1e="@id/k5a" app:a1i="H,1:1" app:a1t="0.5" app:a21="hnz" app:a23="hnz" app:a2e="0.01" />
+        <com.tencent.qqmusic.ui.EllipsizeLayout android:orientation="horizontal" android:id="@id/k5a" android:layout_width="wrap_content" android:layout_height="wrap_content" app:a1e="@id/k59" app:a1t="0.0" app:a1x="@id/kfh" app:a21="@id/kfh">
+            <com.tencent.qqmusic.ui.customview.textview.ScrollTextView android:textSize="@dimen/ag0" android:textColor="@color/white" android:ellipsize="end" android:gravity="left|center" android:id="@id/k57" android:layout_width="wrap_content" android:layout_height="wrap_content" android:singleLine="true" />
+        </com.tencent.qqmusic.ui.EllipsizeLayout>
+        <com.lyricengine.ui.LineFeedAnimationLyricView android:id="@id/jiv" android:focusable="false" android:scrollbars="none" android:fadingEdgeLength="@dimen/afr" android:layout_width="match_parent" android:layout_height="0.0dp" android:layout_marginBottom="@dimen/afq" android:fillViewport="true" android:contentDescription="@string/atl" android:overScrollMode="never" android:requiresFadingEdge="vertical" app:n="@dimen/afx" app:a1d="hnz" app:a1x="hnz" app:a21="hnz" app:a26="@id/fyn" app:a6i="#ffffffff" app:a6j="#99ffffff" app:a6k="#99ffffff" app:a6m="true" app:a6p="@dimen/afs" app:a6q="@dimen/afv" app:a6r="@dimen/afy" app:a6s="left" app:a6t="@dimen/afu" app:a6v="0.0dp" app:a72="30" app:a73="@dimen/afw" app:a7b="top" />
+    </com.tencent.qqmusic.ui.RoundedConstraintLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>

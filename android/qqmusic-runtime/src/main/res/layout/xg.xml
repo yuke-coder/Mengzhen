@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout android:gravity="center" android:orientation="horizontal" android:id="@id/ik4" android:layout_width="wrap_content" android:layout_height="wrap_content" android:minHeight="56.0dp"
+  xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">
+    <androidx.constraintlayout.widget.Guideline android:orientation="vertical" android:id="@id/d6v" android:layout_width="wrap_content" android:layout_height="wrap_content" app:a1l="@dimen/a0q" />
+    <androidx.constraintlayout.widget.Guideline android:orientation="vertical" android:id="@id/d6s" android:layout_width="wrap_content" android:layout_height="wrap_content" app:a1l="@dimen/a04" />
+    <androidx.constraintlayout.widget.Guideline android:orientation="horizontal" android:id="@id/d6t" android:layout_width="wrap_content" android:layout_height="wrap_content" app:a1m="@dimen/a0n" />
+    <androidx.constraintlayout.widget.Guideline android:orientation="horizontal" android:id="@id/d6u" android:layout_width="wrap_content" android:layout_height="wrap_content" app:a1m="10.0dp" />
+    <androidx.constraintlayout.widget.ConstraintLayout android:id="@id/il9" android:background="@drawable/homepage_putoo_entry_bg" android:layout_width="wrap_content" android:layout_height="wrap_content" android:minWidth="@dimen/a09" android:minHeight="@dimen/a09" app:a1e="@id/d6t" app:a1y="@id/d6v" app:a27="hnz" app:a28="1.0">
+        <TextView android:textSize="14.0sp" android:textStyle="bold" android:textColor="#262626" android:ellipsize="marquee" android:id="@id/il8" android:focusable="true" android:focusableInTouchMode="true" android:layout_width="0.0dp" android:layout_height="wrap_content" android:layout_marginLeft="2.0dp" android:layout_marginRight="15.0dp" android:maxWidth="@dimen/a0u" android:singleLine="true" android:layout_centerVertical="true" android:layout_marginEnd="8.0dp" app:a1d="hnz" app:a1y="@id/ik5" app:a21="hnz" app:a27="hnz" app:a2b="nug" />
+        <com.tencent.component.widget.AsyncImageView android:id="@id/ik5" android:visibility="gone" android:layout_width="18.0dp" android:layout_height="18.0dp" android:layout_marginLeft="13.0dp" android:layout_marginRight="1.5dp" app:a1d="hnz" app:a1x="hnz" app:a27="hnz" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+    <ViewStub android:id="@id/ik7" android:layout="@layout/xh" android:layout_width="wrap_content" android:layout_height="36.0dp" app:a1e="@id/d6u" app:a1x="@id/d6s" />
+    <ViewStub android:id="@id/zt" android:layout="@layout/a63" android:layout_width="wrap_content" android:layout_height="36.0dp" app:a1e="@id/d6u" app:a1x="@id/d6v" />
+</androidx.constraintlayout.widget.ConstraintLayout>

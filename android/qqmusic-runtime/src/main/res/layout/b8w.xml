@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout android:gravity="center_vertical" android:paddingRight="5.0dp" android:layout_width="match_parent" android:layout_height="match_parent"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <LinearLayout android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginLeft="@dimen/b3s">
+        <FrameLayout android:id="@id/g8q" android:paddingLeft="@dimen/aj0" android:focusable="true" android:layout_width="0.0dp" android:layout_height="wrap_content" android:layout_weight="1.0">
+            <com.tencent.qqmusic.ui.minibar.video.VideoMinibarMarqueeView android:textSize="13.0dp" android:textColor="@color/black" android:ellipsize="marquee" android:id="@id/g8r" android:focusable="true" android:layout_width="match_parent" android:layout_height="wrap_content" android:text="@string/csc" android:singleLine="true" android:marqueeRepeatLimit="1" android:alpha="0.5" />
+            <ViewStub android:id="@id/k92" android:visibility="gone" android:layout="@layout/b8y" android:inflatedId="@id/k92" android:layout_width="match_parent" android:layout_height="wrap_content" />
+        </FrameLayout>
+        <ImageView android:layout_gravity="center_vertical" android:id="@id/g8s" android:padding="4.0dp" android:visibility="gone" android:layout_width="wrap_content" android:layout_height="wrap_content" android:src="@drawable/pay_icon_in_minibar" />
+        <ImageView android:layout_gravity="center_vertical" android:id="@id/g8p" android:padding="4.0dp" android:visibility="gone" android:layout_width="wrap_content" android:layout_height="wrap_content" android:src="@drawable/limit_free_icon_in_minibar" />
+        <ImageView android:layout_gravity="center_vertical" android:id="@id/g8y" android:padding="4.0dp" android:visibility="gone" android:layout_width="wrap_content" android:layout_height="wrap_content" android:src="@drawable/long_track_vip_icon_minibar" />
+    </LinearLayout>
+</RelativeLayout>

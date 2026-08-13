@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout android:id="@id/gbm" android:background="@drawable/main_bg" android:layout_width="match_parent" android:layout_height="match_parent"
+  xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">
+    <View android:id="@id/m1o" android:background="@drawable/skin_sub_mask_img" android:visibility="visible" android:layout_width="match_parent" android:layout_height="@dimen/bcp" />
+    <include android:id="@id/b9_" android:background="@drawable/skin_sub_mask_img" android:visibility="visible" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_below="@id/m1o" layout="@layout/ctj" />
+    <include android:id="@id/dfk" android:visibility="visible" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_below="@id/b9_" layout="@layout/chx" />
+    <include android:id="@id/ilu" android:layout_width="match_parent" android:layout_height="64.5dp" android:layout_alignParentBottom="true" layout="@layout/b0f" />
+    <RelativeLayout android:gravity="center" android:id="@id/gbk" android:layout_width="match_parent" android:layout_height="match_parent" android:layout_above="@id/ilu" android:layout_below="@id/b9_" />
+    <View android:background="@drawable/head_shadow" android:layout_width="match_parent" android:layout_height="@dimen/l9" android:layout_below="@id/b9_" />
+</RelativeLayout>

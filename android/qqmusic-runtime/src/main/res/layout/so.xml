@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout android:layout_width="match_parent" android:layout_height="@dimen/b_r" android:layout_marginBottom="@dimen/c9d"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <RelativeLayout android:id="@id/ceh" android:background="@drawable/timeline_song_rectangle_light_background" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_centerHorizontal="true">
+        <View android:id="@id/jds" android:background="@drawable/timeline_song_disk_bg" android:layout_width="@dimen/b_r" android:layout_height="@dimen/b_r" android:layout_marginLeft="10.0dp" />
+        <com.tencent.component.widget.AsyncEffectImageView android:id="@id/ce2" android:layout_width="@dimen/b_r" android:layout_height="@dimen/b_r" android:src="@drawable/timeline_feed_default_light_theme" android:scaleType="fitXY" android:layout_centerVertical="true" />
+        <RelativeLayout android:id="@id/ce9" android:layout_width="40.0dp" android:layout_height="40.0dp" android:layout_alignRight="@id/ce2" android:layout_alignBottom="@id/ce2" />
+        <ImageView android:id="@id/cea" android:layout_width="15.0dp" android:layout_height="15.0dp" android:layout_marginRight="6.0dp" android:layout_marginBottom="5.0dp" android:src="@drawable/timeline_state_pause" android:layout_alignRight="@id/ce2" android:layout_alignBottom="@id/ce2" />
+        <LinearLayout android:orientation="vertical" android:layout_width="match_parent" android:layout_height="match_parent" android:layout_marginLeft="8.5dp" android:layout_toRightOf="@id/jds">
+            <TextView android:textSize="10.0sp" android:textColor="@color/skin_floor_color" android:ellipsize="end" android:gravity="center" android:id="@id/did" android:background="@drawable/rounded_shape_black" android:paddingLeft="2.0dp" android:paddingRight="2.0dp" android:visibility="visible" android:layout_width="wrap_content" android:layout_height="14.0dp" android:layout_marginTop="10.0dp" android:text="专辑" android:maxLength="10" />
+            <RelativeLayout android:layout_width="match_parent" android:layout_height="match_parent" android:layout_marginTop="6.0dp">
+                <LinearLayout android:orientation="vertical" android:layout_width="match_parent" android:layout_height="match_parent" android:layout_marginRight="20.0dp">
+                    <TextView android:textSize="14.0sp" android:textColor="@color/skin_text_main_color" android:ellipsize="end" android:id="@id/cee" android:layout_width="match_parent" android:layout_height="wrap_content" android:text="123" android:maxLines="1" />
+                    <LinearLayout android:orientation="horizontal" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginTop="3.5dp">
+                        <TextView android:textSize="12.0sp" android:textColor="@color/skin_text_sub_color" android:id="@id/cec" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="1首，" android:maxLines="1" />
+                        <TextView android:textSize="12.0sp" android:textColor="@color/skin_text_sub_color" android:ellipsize="end" android:id="@id/ced" android:layout_width="match_parent" android:layout_height="wrap_content" android:text="123123123" android:maxLines="1" />
+                    </LinearLayout>
+                </LinearLayout>
+            </RelativeLayout>
+        </LinearLayout>
+    </RelativeLayout>
+</RelativeLayout>

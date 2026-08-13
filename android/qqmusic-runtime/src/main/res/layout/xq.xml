@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout android:orientation="vertical" android:layout_width="match_parent" android:layout_height="match_parent"
+  xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">
+    <include android:id="@id/naf" android:layout_width="match_parent" android:layout_height="match_parent" layout="@layout/m6" />
+    <LinearLayout android:state_window_focused="false" android:orientation="horizontal" android:id="@id/dko" android:background="@drawable/skin_sub_mask_img" android:paddingTop="@dimen/c_q" android:layout_width="match_parent" android:layout_height="@dimen/cau" app:a1x="hnz" app:a21="hnz" app:a27="hnz">
+        <ImageView android:layout_gravity="center_vertical" android:id="@id/dl8" android:layout_width="@dimen/cao" android:layout_height="@dimen/cao" android:src="@drawable/activity_back_selector" android:scaleType="centerInside" android:contentDescription="@string/wf" />
+        <com.tencent.qqmusic.ui.customview.textview.ScrollTextView android:textSize="18.0sp" android:textColor="@color/skin_text_main_color" android:ellipsize="end" android:gravity="center" android:id="@id/dn7" android:layout_width="0.0dp" android:layout_height="match_parent" android:text="@string/bqi" android:singleLine="true" android:layout_weight="1.0" />
+        <Space android:layout_width="@dimen/cao" android:layout_height="match_parent" />
+    </LinearLayout>
+    <androidx.constraintlayout.widget.ConstraintLayout android:id="@id/dk8" android:background="@drawable/material_ripple_background" android:layout_width="match_parent" android:layout_height="72.0dp" app:a1x="hnz" app:a21="hnz" app:a26="@id/dko">
+        <View android:background="@drawable/head_shadow" android:layout_width="match_parent" android:layout_height="@dimen/l9" app:a27="hnz" />
+        <ImageView android:id="@id/dk5" android:layout_width="20.0dp" android:layout_height="20.0dp" android:layout_marginRight="16.0dp" android:src="@drawable/arrow_right_grey" app:a1d="hnz" app:a21="hnz" app:a27="hnz" />
+        <TextView android:textSize="14.0sp" android:textColor="@color/skin_text_sub_color" android:id="@id/dky" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginLeft="15.5dp" android:layout_marginTop="6.0dp" app:a1d="hnz" app:a1y="@id/dk6" app:a26="@id/dn6" />
+        <TextView android:textSize="16.0sp" android:textColor="@color/skin_text_main_color" android:ellipsize="end" android:id="@id/dn6" android:layout_width="0.0dp" android:layout_height="wrap_content" android:singleLine="true" app:a1e="@id/dky" app:a1k="@id/dk5" app:a1t="0.0" app:a1y="@id/dk6" app:a23="@id/dky" app:a27="hnz" app:a29="hmg" />
+        <com.tencent.qqmusic.business.live.ui.view.RoundAvatarImage android:id="@id/dk6" android:layout_width="50.0dp" android:layout_height="50.0dp" android:src="@drawable/default_avatar" android:scaleType="centerCrop" android:layout_marginStart="@dimen/a1s" app:a1d="hnz" app:a1x="hnz" app:a27="hnz" />
+        <com.tencent.component.widget.AsyncEffectImageView android:id="@id/dk7" android:visibility="gone" android:layout_width="15.0dp" android:layout_height="15.0dp" app:a1d="@id/dk6" app:a21="@id/dk6" />
+        <View android:background="@drawable/skin_divider_img" android:layout_width="match_parent" android:layout_height="1.0dp" android:layout_marginStart="@dimen/a1s" app:a1d="hnz" app:a28="1.0" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+    <androidx.constraintlayout.widget.ConstraintLayout android:id="@id/dkl" android:background="@drawable/material_ripple_background" android:paddingLeft="@dimen/a1s" android:layout_width="match_parent" android:layout_height="55.0dp" app:a1x="hnz" app:a21="hnz" app:a26="@id/dk8">
+        <TextView android:textSize="16.0sp" android:textColor="@color/skin_text_main_color" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/bqn" app:a1d="hnz" app:a23="hnz" app:a27="hnz" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+    <androidx.constraintlayout.widget.ConstraintLayout android:id="@id/dn9" android:background="@drawable/material_ripple_background" android:paddingLeft="@dimen/a1s" android:visibility="gone" android:layout_width="match_parent" android:layout_height="55.0dp" app:a1x="hnz" app:a21="hnz" app:a26="@id/dkl">
+        <TextView android:textSize="16.0sp" android:textColor="@color/skin_text_main_color" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/btg" app:a1d="hnz" app:a23="hnz" app:a27="hnz" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+    <androidx.constraintlayout.widget.ConstraintLayout android:id="@id/dl5" android:background="@drawable/material_ripple_background" android:paddingLeft="@dimen/a1s" android:layout_width="match_parent" android:layout_height="55.0dp" app:a1x="hnz" app:a21="hnz" app:a26="@id/dn9">
+        <ImageView android:id="@id/dl6" android:focusable="false" android:clickable="false" android:layout_width="55.0dp" android:layout_height="33.0dp" android:layout_marginRight="8.0dp" android:src="@drawable/switch_off" android:scaleType="centerCrop" app:a1d="hnz" app:a21="hnz" app:a27="hnz" />
+        <TextView android:textSize="16.0sp" android:textColor="@color/skin_text_main_color" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/bqg" app:a1d="hnz" app:a23="hnz" app:a27="hnz" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+    <androidx.constraintlayout.widget.ConstraintLayout android:id="@id/dm8" android:background="@drawable/material_ripple_background" android:paddingLeft="@dimen/a1s" android:layout_width="match_parent" android:layout_height="55.0dp" app:a26="@id/dl5">
+        <ImageView android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginRight="16.0dp" android:src="@drawable/arrow_right_grey" app:a1d="hnz" app:a21="hnz" app:a27="hnz" />
+        <TextView android:textSize="16.0sp" android:textColor="@color/skin_text_main_color" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/bqh" app:a1d="hnz" app:a23="hnz" app:a27="hnz" />
+        <View android:background="@drawable/skin_divider_img" android:layout_width="match_parent" android:layout_height="1.0dp" app:a1d="hnz" app:a27="hnz" app:a28="1.0" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>

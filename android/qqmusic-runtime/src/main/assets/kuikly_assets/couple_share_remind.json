@@ -1,0 +1,15 @@
+{
+  "router": "openPage",
+  "page_name": "couple_share_remind",
+  "debug": 0,
+  "container": {
+  },
+  "params": {
+    "songid": "397649062",
+    "body": {
+      "from": "来自瑞幸咖啡的分享",
+      "title": "认输",
+      "subtitle": "张真源"
+    }
+  }
+}

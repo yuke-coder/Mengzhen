@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout android:orientation="vertical" android:layout_width="wrap_content" android:layout_height="wrap_content"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <RelativeLayout android:background="@drawable/mlive_gift_card_fragment_list_week_star_bg" android:layout_width="wrap_content" android:layout_height="wrap_content">
+        <com.tme.qqmusic.widget.base.view.GlideImageView android:id="@id/mlive_gift_card_fragment_list_week_star_avatar" android:layout_width="30.0dp" android:layout_height="30.0dp" android:layout_margin="5.0dp" android:src="@drawable/mlive_default_avatar" />
+        <TextView android:textSize="11.0dp" android:textColor="@color/black_60_transparent" android:id="@id/mlive_gift_card_fragment_list_week_star_title" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/d_6" android:layout_alignTop="@id/mlive_gift_card_fragment_list_week_star_avatar" android:layout_marginEnd="5.0dp" android:layout_toEndOf="@id/mlive_gift_card_fragment_list_week_star_avatar" />
+        <TextView android:textSize="11.0dp" android:textColor="@color/black" android:ellipsize="end" android:id="@id/mlive_gift_card_fragment_list_week_star_name" android:layout_width="wrap_content" android:layout_height="wrap_content" android:maxWidth="71.0dp" android:singleLine="true" android:layout_alignBottom="@id/mlive_gift_card_fragment_list_week_star_avatar" android:layout_toEndOf="@id/mlive_gift_card_fragment_list_week_star_avatar" />
+    </RelativeLayout>
+    <ImageView android:id="@id/mlive_gift_card_fragment_list_week_star_arrow" android:layout_width="wrap_content" android:layout_height="wrap_content" android:src="@drawable/mlive_gift_card_fragment_list_week_star_arrow" />
+</LinearLayout>

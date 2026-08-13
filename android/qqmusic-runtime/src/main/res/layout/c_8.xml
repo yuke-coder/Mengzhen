@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout android:id="@id/i6n" android:clipChildren="false" android:clipToPadding="false" android:layout_width="match_parent" android:layout_height="match_parent" android:contentDescription="@string/f7m"
+  xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">
+    <com.tencent.component.widget.AsyncImageView android:id="@id/i8_" android:layout_width="0.0dp" android:layout_height="0.0dp" android:importantForAccessibility="no" app:a1d="hnz" app:a1j="hnz" app:a23="hnz" app:a27="hnz" />
+    <com.tencent.component.widget.AsyncImageView android:id="@id/i85" android:layout_width="0.0dp" android:layout_height="0.0dp" android:importantForAccessibility="no" app:a1d="hnz" app:a1i="H,325:315" app:a1x="hnz" app:a21="hnz" app:a27="hnz" />
+    <com.tencent.component.widget.AsyncImageView android:id="@id/i8e" android:layout_width="0.0dp" android:layout_height="0.0dp" android:importantForAccessibility="no" app:a1d="@id/i85" app:a1i="1:1" app:a1t="0.06" app:a1x="@id/i85" app:a21="@id/i85" app:a27="@id/i85" app:a28="0.75" app:a2e="0.043" />
+    <com.tencent.component.widget.AsyncImageView android:id="@id/i8h" android:layout_width="0.0dp" android:layout_height="0.0dp" android:importantForAccessibility="no" app:a1i="30:52" app:a1x="@id/i8e" app:a26="@id/i8e" app:a2e="0.092" />
+    <com.tencent.component.widget.AsyncImageView android:id="@id/i8i" android:layout_width="0.0dp" android:layout_height="0.0dp" android:importantForAccessibility="no" app:a1d="@id/i85" app:a1i="27.5:52" app:a1t="0.95" app:a1x="@id/i85" app:a21="@id/i85" app:a27="@id/i85" app:a28="0.92" app:a2e="0.084" />
+    <androidx.constraintlayout.widget.Guideline android:orientation="vertical" android:id="@id/d76" android:layout_width="wrap_content" android:layout_height="wrap_content" app:a1n="0.73" />
+    <androidx.constraintlayout.widget.Guideline android:orientation="vertical" android:id="@id/d7_" android:layout_width="wrap_content" android:layout_height="wrap_content" app:a1n="0.985" />
+    <com.tencent.qqmusic.ui.FixedSizeFrameLayout android:id="@id/hxx" android:clipChildren="false" android:layout_width="0.0dp" android:layout_height="0.0dp" app:a1d="@id/i85" app:a1i="H,1:1" app:a1j="@id/i85" app:a23="@id/i85" app:a27="@id/i85" app:a2e="0.769" />
+    <com.tencent.qqmusic.ui.PlayerDiscAlbumPoleView android:id="@id/i8a" android:layout_width="0.0dp" android:layout_height="0.0dp" android:importantForAccessibility="no" app:a1d="@id/i8i" app:a1i="H,1:4" app:a1x="@id/d76" app:a21="@id/d7_" app:a2e="0.254" />
+</androidx.constraintlayout.widget.ConstraintLayout>

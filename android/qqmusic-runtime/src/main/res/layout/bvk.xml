@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout android:id="@id/kuu" android:layout_width="match_parent" android:layout_height="wrap_content"
+  xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">
+    <com.tencent.qqmusic.ui.RoundedConstraintLayout android:id="@id/kut" android:visibility="gone" android:layout_width="0.0dp" android:layout_height="0.0dp" android:importantForAccessibility="no" app:kj="@dimen/rr" app:a1i="325:165" app:a1x="hnz" app:a21="hnz" app:a27="hnz" />
+    <com.tencent.component.widget.AsyncEffectImageView android:id="@id/kus" android:layout_width="0.0dp" android:layout_height="0.0dp" android:scaleType="centerCrop" android:importantForAccessibility="no" app:a1i="325:165" app:a1x="hnz" app:a21="hnz" app:a27="hnz" app:afv="@dimen/rr" />
+    <androidx.constraintlayout.widget.ConstraintLayout android:layout_width="0.0dp" android:layout_height="0.0dp" app:a1d="@id/kus" app:a1x="@id/kus" app:a21="@id/kus" app:a27="@id/kus">
+        <androidx.constraintlayout.widget.Guideline android:orientation="vertical" android:id="@id/d5w" android:layout_width="1.0dp" android:layout_height="wrap_content" app:a1n="0.06" />
+        <androidx.constraintlayout.widget.Guideline android:orientation="vertical" android:id="@id/d6i" android:layout_width="1.0dp" android:layout_height="wrap_content" app:a1n="0.94" />
+        <androidx.constraintlayout.widget.Guideline android:orientation="horizontal" android:id="@id/d6n" android:layout_width="wrap_content" android:layout_height="wrap_content" app:a1n="0.11" />
+        <androidx.constraintlayout.widget.Guideline android:orientation="horizontal" android:id="@id/d5i" android:layout_width="wrap_content" android:layout_height="wrap_content" app:a1n="0.88" />
+        <androidx.appcompat.widget.AppCompatTextView android:textSize="18.0dp" android:textColor="#ffffff" android:ellipsize="end" android:gravity="center_vertical" android:id="@id/kuw" android:layout_width="wrap_content" android:layout_height="0.0dp" android:text="" android:lines="1" app:a18="true" app:a1j="@id/d6i" app:a1s="0.15" app:a1t="0.0" app:a23="@id/d5w" app:a27="@id/d6n" />
+        <Space android:id="@id/knr" android:layout_width="1.0dp" android:layout_height="0.0dp" app:a1s="0.036" app:a23="@id/d5w" app:a26="@id/kuw" />
+        <androidx.appcompat.widget.AppCompatTextView android:textSize="12.0dp" android:textColor="#c3ffffff" android:ellipsize="end" android:gravity="center_vertical" android:id="@id/kuv" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="" android:lines="1" app:a18="true" app:a1j="@id/d6i" app:a1t="0.0" app:a23="@id/d5w" app:a26="@id/knr" />
+        <Space android:id="@id/knq" android:layout_width="1.0dp" android:layout_height="0.0dp" app:a1s="0.06" app:a23="@id/d5w" app:a26="@id/kuv" />
+        <LinearLayout android:orientation="horizontal" android:id="@id/ezi" android:background="@drawable/bg_start_light_fan_club_born_layout" android:paddingLeft="6.0dp" android:paddingRight="6.0dp" android:layout_width="wrap_content" android:layout_height="0.0dp" app:a18="true" app:a1j="@id/d6i" app:a1s="0.133" app:a1t="0.0" app:a23="@id/d5w" app:a26="@id/knq">
+            <ImageView android:layout_gravity="left|center" android:layout_width="16.0dp" android:layout_height="16.0dp" android:src="@drawable/icon_start_light_fan_club_horn" />
+            <TextView android:textSize="10.0dp" android:textColor="#ffffff" android:ellipsize="end" android:layout_gravity="center_vertical" android:id="@id/kux" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginLeft="3.0dp" android:text="" android:maxLines="1" />
+        </LinearLayout>
+        <androidx.appcompat.widget.AppCompatTextView android:textSize="12.0dp" android:textColor="#ff66a6" android:gravity="center" android:id="@id/kur" android:background="@drawable/bg_start_light_fan_club_card" android:paddingLeft="16.0dp" android:paddingRight="16.0dp" android:layout_width="wrap_content" android:layout_height="0.0dp" android:text="立即进入" android:lines="1" app:a18="true" app:a1e="@id/d5i" app:a1j="@id/d6i" app:a1s="0.19" app:a1t="0.0" app:a23="@id/d5w" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>

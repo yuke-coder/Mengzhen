@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout android:orientation="vertical" android:paddingRight="90.0dp" android:layout_width="match_parent" android:layout_height="match_parent"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <com.tencent.qqmusic.business.fullscreen.video.views.VideoInnerRecyclerView android:layout_gravity="bottom" android:id="@id/n4g" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginTop="200.0dp" android:layout_marginBottom="20.0dp" />
+    <LinearLayout android:layout_gravity="bottom" android:orientation="horizontal" android:id="@id/n4f" android:visibility="gone" android:layout_width="match_parent" android:layout_height="wrap_content">
+        <LinearLayout android:gravity="center_vertical" android:orientation="horizontal" android:layout_width="0.0dp" android:layout_height="wrap_content" android:layout_weight="1.0">
+            <androidx.appcompat.widget.AppCompatTextView android:textSize="11.0dp" android:textColor="@color/white_90_opacity" android:id="@id/ibi" android:focusable="true" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="6万次播放  2021-05-21" android:alpha="0.3" />
+            <androidx.appcompat.widget.AppCompatTextView android:textSize="11.0dp" android:textColor="@color/white_90_opacity" android:id="@id/ib6" android:visibility="gone" android:layout_width="wrap_content" android:layout_height="wrap_content" android:alpha="0.3" android:layout_marginStart="8.0dp" />
+        </LinearLayout>
+        <androidx.appcompat.widget.AppCompatTextView android:textSize="13.0dp" android:textColor="@color/white" android:id="@id/n4e" android:visibility="gone" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/iov" />
+    </LinearLayout>
+</FrameLayout>

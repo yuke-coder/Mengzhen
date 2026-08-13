@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout android:paddingLeft="25.0dp" android:paddingRight="25.0dp" android:layout_width="match_parent" android:layout_height="match_parent" android:paddingHorizontal="25.0dp"
+  xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">
+    <androidx.constraintlayout.widget.ConstraintLayout android:layout_gravity="center" android:id="@id/bzt" android:background="@drawable/bg_ear_protection_expired_guide" android:layout_width="match_parent" android:layout_height="50.0dp" android:paddingEnd="5.0dp" android:elevation="1.0dp">
+        <com.tencent.component.widget.AsyncEffectImageView android:id="@id/cbd" android:layout_width="40.0dp" android:layout_height="40.0dp" android:scaleType="fitCenter" android:layout_marginStart="5.0dp" app:a1d="hnz" app:a23="hnz" app:a27="hnz" />
+        <TextView android:textSize="11.0dp" android:textColor="#70541b" android:ellipsize="end" android:id="@id/cbg" android:layout_width="0.0dp" android:layout_height="wrap_content" android:maxLines="1" android:includeFontPadding="false" android:fontFamily="PingFangSC-Regular" android:layout_marginStart="2.0dp" android:layout_marginEnd="2.0dp" app:a1d="hnz" app:a1k="@id/cbf" app:a22="@id/cbd" app:a27="hnz" />
+        <FrameLayout android:id="@id/cbf" android:layout_width="56.0dp" android:layout_height="26.0dp" android:layout_marginEnd="5.0dp" app:a1d="hnz" app:a1k="@id/cbb" app:a27="hnz">
+            <View android:layout_gravity="start" android:id="@id/cbc" android:background="@drawable/bg_ear_protection_countdown_fill" android:layout_width="0.0dp" android:layout_height="match_parent" />
+            <View android:background="@drawable/bg_ear_protection_expired_open_btn" android:layout_width="match_parent" android:layout_height="match_parent" />
+            <TextView android:textSize="12.0dp" android:textColor="#34250b" android:gravity="center" android:id="@id/cbe" android:layout_width="match_parent" android:layout_height="match_parent" android:text="去开通" android:includeFontPadding="false" android:fontFamily="PingFangSC-Regular" />
+        </FrameLayout>
+        <ImageView android:id="@id/cbb" android:layout_width="20.0dp" android:layout_height="20.0dp" android:src="@drawable/sound_effect_expired_ic_tips_close" android:scaleType="fitCenter" app:a1d="hnz" app:a1j="hnz" app:a27="hnz" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</FrameLayout>

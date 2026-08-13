@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout android:id="@id/bin" android:layout_width="match_parent" android:layout_height="match_parent"
+  xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">
+    <LinearLayout android:gravity="center_vertical" android:orientation="horizontal" android:id="@id/es9" android:background="@drawable/long_audio_danmu_item_view_bg" android:paddingLeft="3.0dp" android:paddingRight="10.0dp" android:layout_width="wrap_content" android:layout_height="25.0dp">
+        <ImageView android:id="@id/dan" android:layout_width="19.0dp" android:layout_height="19.0dp" android:layout_marginRight="5.0dp" />
+        <com.tencent.qqmusic.business.togetherroom.ui.cheer.TogetherCheerStrokeTextView android:textSize="14.0sp" android:textStyle="bold" android:textColor="@color/white" android:ellipsize="end" android:gravity="center" android:id="@id/g66" android:layout_width="wrap_content" android:layout_height="match_parent" android:singleLine="true" android:includeFontPadding="false" app:hv="@color/black_50_transparent" app:hw="0.5dp" />
+        <LinearLayout android:gravity="center_vertical" android:orientation="horizontal" android:id="@id/bik" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginLeft="3.0dp">
+            <ImageView android:id="@id/bil" android:layout_width="18.0dp" android:layout_height="18.0dp" android:src="@drawable/long_audio_danmu_fav" />
+            <TextView android:textSize="11.0sp" android:textColor="@color/white" android:id="@id/bim" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="" />
+        </LinearLayout>
+    </LinearLayout>
+</FrameLayout>

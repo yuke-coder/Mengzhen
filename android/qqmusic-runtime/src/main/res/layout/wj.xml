@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout android:layout_width="match_parent" android:layout_height="match_parent"
+  xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">
+    <include android:id="@id/naf" android:layout_width="match_parent" android:layout_height="match_parent" layout="@layout/m6" />
+    <include android:id="@id/bj5" layout="@layout/n0" />
+    <LinearLayout android:orientation="vertical" android:paddingTop="20.0dp" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_below="@id/bj5">
+        <androidx.constraintlayout.widget.ConstraintLayout android:id="@id/bj1" android:background="@drawable/color_dark_light_setting_bg" android:layout_width="match_parent" android:layout_height="50.0dp" android:layout_marginLeft="20.0dp" android:layout_marginRight="20.0dp" app:a26="@id/dau">
+            <androidx.appcompat.widget.AppCompatTextView android:textSize="14.0dp" android:textColor="@color/skin_text_main_color" android:ellipsize="end" android:id="@id/bj3" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginLeft="16.0dp" android:layout_marginTop="11.5dp" android:layout_marginBottom="11.5dp" android:text="自适应系统深浅外观" android:maxLines="1" app:a1d="hnz" app:a1x="hnz" app:a27="hnz" />
+            <ImageView android:id="@id/bj2" android:layout_width="50.0dp" android:layout_height="33.0dp" android:layout_marginTop="5.0dp" android:layout_marginRight="16.0dp" android:layout_marginBottom="5.0dp" android:src="@drawable/switch_off_new_default_skin" app:a1d="hnz" app:a21="hnz" app:a27="hnz" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
+        <androidx.constraintlayout.widget.ConstraintLayout android:background="@drawable/color_dark_light_setting_bg" android:paddingTop="20.0dp" android:paddingBottom="22.0dp" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginLeft="20.0dp" android:layout_marginTop="20.0dp" android:layout_marginRight="20.0dp">
+            <com.tencent.component.widget.AsyncEffectImageView android:id="@id/ejw" android:background="@drawable/color_dark_light_setting_img_bg" android:padding="2.0dp" android:layout_width="145.0dp" android:layout_height="257.5dp" android:layout_marginRight="10.0dp" android:src="@drawable/light_mode_auto_setting_preview" android:scaleType="fitXY" app:a1k="@id/bj4" app:a27="hnz" app:afv="4.0dp" />
+            <LinearLayout android:id="@id/axa" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="12.0dp" app:a1j="@id/ejw" app:a23="@id/ejw" app:a26="@id/ejw">
+                <CheckBox android:id="@id/axw" android:background="@drawable/checkbox_default_new" android:clickable="false" android:layout_width="20.0dp" android:layout_height="20.0dp" android:checked="false" android:button="@null" app:a1d="hnz" app:a21="hnz" app:a27="hnz" />
+                <androidx.appcompat.widget.AppCompatTextView android:textSize="12.0dp" android:textColor="@color/skin_text_mid_color" android:ellipsize="end" android:id="@id/mkf" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginLeft="6.0dp" android:text="日间" android:maxLines="1" />
+            </LinearLayout>
+            <androidx.constraintlayout.widget.Guideline android:orientation="vertical" android:id="@id/bj4" android:layout_width="wrap_content" android:layout_height="wrap_content" app:a1n="0.5" />
+            <com.tencent.component.widget.AsyncEffectImageView android:id="@id/ejv" android:background="@drawable/color_dark_light_setting_img_bg" android:padding="2.0dp" android:layout_width="144.0dp" android:layout_height="256.0dp" android:layout_marginLeft="10.0dp" android:src="@drawable/dark_mode_auto_setting_preview" android:scaleType="fitXY" app:a22="@id/bj4" app:a27="hnz" />
+            <LinearLayout android:id="@id/ax_" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="12.0dp" app:a1j="@id/ejv" app:a23="@id/ejv" app:a26="@id/ejv">
+                <CheckBox android:id="@id/axr" android:background="@drawable/checkbox_default_new" android:clickable="false" android:layout_width="20.0dp" android:layout_height="20.0dp" android:checked="false" android:button="@null" app:a1d="hnz" app:a21="hnz" app:a27="hnz" />
+                <androidx.appcompat.widget.AppCompatTextView android:textSize="12.0dp" android:textColor="@color/skin_text_mid_color" android:ellipsize="end" android:id="@id/mkd" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginLeft="6.0dp" android:text="夜间" android:maxLines="1" />
+            </LinearLayout>
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </LinearLayout>
+</RelativeLayout>

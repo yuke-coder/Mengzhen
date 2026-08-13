@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout android:gravity="center" android:layout_gravity="center" android:orientation="vertical" android:paddingTop="45.0dp" android:layout_width="@dimen/bti" android:layout_height="wrap_content"
+  xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">
+    <com.tencent.component.widget.AsyncEffectImageView android:layout_gravity="center_horizontal" android:id="@id/dbd" android:layout_width="@dimen/bti" android:layout_height="wrap_content" android:src="@drawable/theme_normal_block_default_img" android:adjustViewBounds="true" app:a1x="hnz" app:a21="hnz" app:a27="hnz" />
+    <ImageView android:id="@id/close_btn" android:background="@drawable/dialog_fragment_btn_close" android:layout_width="35.0dp" android:layout_height="35.0dp" android:layout_marginTop="35.0dp" />
+</LinearLayout>

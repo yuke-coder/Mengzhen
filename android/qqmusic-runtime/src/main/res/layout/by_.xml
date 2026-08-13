@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout android:id="@id/g8v" android:clipChildren="false" android:layout_width="@dimen/b3v" android:layout_height="@dimen/b3v"
+  xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">
+    <ImageView android:id="@id/g8u" android:background="@color/transparent" android:focusable="true" android:visibility="visible" android:clickable="true" android:layout_width="0.0dp" android:layout_height="0.0dp" android:scaleType="fitCenter" app:a1d="hnz" app:a1j="hnz" app:a23="hnz" app:a27="hnz" />
+</androidx.constraintlayout.widget.ConstraintLayout>

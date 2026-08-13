@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout android:orientation="vertical" android:background="@color/transparent" android:layout_width="@dimen/biz" android:layout_height="wrap_content"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <View android:background="@drawable/rounded_dialog_top_background" android:layout_width="match_parent" android:layout_height="4.0dp" />
+    <include android:layout_gravity="center" android:id="@id/ia5" android:layout_width="match_parent" android:layout_height="@dimen/bj7" layout="@layout/c_r" />
+    <LinearLayout android:gravity="center" android:orientation="vertical" android:id="@id/aad" android:focusable="true" android:layout_width="match_parent" android:layout_height="wrap_content">
+        <LinearLayout android:gravity="center" android:orientation="vertical" android:id="@id/g67" android:background="@color/common_dialog_background_color" android:paddingLeft="20.0dp" android:paddingTop="16.0dp" android:paddingRight="20.0dp" android:paddingBottom="16.0dp" android:focusable="true" android:layout_width="match_parent" android:layout_height="wrap_content">
+            <TextView android:textSize="@dimen/kz" android:textColor="@color/dialog_text_color" android:gravity="left|center" android:id="@id/g66" android:scrollbars="vertical" android:layout_width="match_parent" android:layout_height="wrap_content" android:text="@string/ako" android:maxLines="4" android:lineSpacingExtra="5.0dp" style="@style/a3d" />
+        </LinearLayout>
+        <include layout="@layout/m7" />
+        <LinearLayout android:gravity="center" android:orientation="horizontal" android:focusable="true" android:layout_width="match_parent" android:layout_height="wrap_content">
+            <Button android:textSize="@dimen/pr" android:textColor="@color/common_dialog_button_text_color" android:ellipsize="end" android:gravity="center" android:layout_gravity="center" android:id="@id/bai" android:background="@drawable/control_btn_center_clicked" android:padding="5.0dp" android:layout_width="wrap_content" android:layout_height="@dimen/biv" android:maxWidth="@dimen/biz" android:minWidth="@dimen/biu" android:text="continue_play_button" android:singleLine="true" android:layout_weight="130.0" />
+            <include android:id="@id/n2n" layout="@layout/m8" />
+            <Button android:textSize="@dimen/pr" android:textColor="@color/common_dialog_button_text_color" android:ellipsize="end" android:gravity="center" android:layout_gravity="center" android:id="@id/kxx" android:background="@drawable/control_btn_center_clicked" android:padding="5.0dp" android:layout_width="wrap_content" android:layout_height="@dimen/biv" android:maxWidth="@dimen/biz" android:minWidth="@dimen/biu" android:text="stop_play_button" android:singleLine="true" android:layout_weight="130.0" />
+        </LinearLayout>
+        <include layout="@layout/m7" />
+        <Button android:textSize="@dimen/pr" android:textColor="@color/common_dialog_button_text_color" android:ellipsize="end" android:gravity="center" android:layout_gravity="center" android:id="@id/bjd" android:background="@drawable/control_btn_bottom_rounded" android:padding="5.0dp" android:layout_width="match_parent" android:layout_height="@dimen/biv" android:maxWidth="@dimen/biz" android:minWidth="@dimen/biu" android:text="data_usage_button" android:singleLine="true" />
+        <include layout="@layout/m7" />
+    </LinearLayout>
+</LinearLayout>

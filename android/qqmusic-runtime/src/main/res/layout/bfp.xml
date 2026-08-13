@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout android:background="@drawable/mive_pendant_left_item_bg" android:layout_width="match_parent" android:layout_height="match_parent"
+  xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">
+    <LinearLayout android:orientation="vertical" android:id="@id/mlive_gift_pavilion_content" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginStart="6.0dp" app:a1d="hnz" app:a23="hnz" app:a27="hnz">
+        <TextView android:textSize="10.0dp" android:textStyle="bold" android:textColor="#ffe5bf" android:ellipsize="marquee" android:id="@id/mlive_gift_pavilion_name" android:layout_width="wrap_content" android:layout_height="wrap_content" android:maxWidth="48.0dp" android:singleLine="true" android:includeFontPadding="false" />
+        <TextView android:textSize="8.0dp" android:textColor="@color/white" android:id="@id/mlive_gift_pavilion_progress_num_tv" android:layout_width="wrap_content" android:layout_height="wrap_content" android:maxLines="1" android:includeFontPadding="false" />
+    </LinearLayout>
+    <com.tme.qqmusic.widget.base.view.GlideImageView android:id="@id/mlive_gift_pavilion_logo" android:layout_width="26.0dp" android:layout_height="26.0dp" android:layout_marginStart="53.0dp" app:a1d="hnz" app:a23="hnz" app:a27="hnz" />
+</androidx.constraintlayout.widget.ConstraintLayout>

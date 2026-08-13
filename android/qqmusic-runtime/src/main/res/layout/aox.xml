@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<kk.design.layout.KKLinearLayout android:gravity="center" android:orientation="vertical" android:id="@id/ep0" android:layout_width="match_parent" android:layout_height="wrap_content" android:paddingStart="@dimen/a6z" android:paddingEnd="@dimen/a6z"
+  xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">
+    <kk.design.KKButton android:id="@id/kk_dialog_component_option_button_primary" android:layout_width="wrap_content" android:layout_height="wrap_content" android:minWidth="@dimen/a72" android:minHeight="@dimen/a71" android:lines="1" android:singleLine="true" app:xm="g7e" app:xr="c72" />
+    <kk.design.KKTextView android:id="@id/ep1" android:visibility="gone" android:layout_width="wrap_content" android:layout_height="wrap_content" android:lines="1" android:singleLine="true" app:a0f="ka9" />
+</kk.design.layout.KKLinearLayout>

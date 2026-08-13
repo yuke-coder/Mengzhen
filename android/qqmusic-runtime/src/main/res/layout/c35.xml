@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout android:layout_width="match_parent" android:layout_height="match_parent" android:importantForAccessibility="no"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <RelativeLayout android:layout_gravity="top" android:id="@id/lwa" android:layout_width="match_parent" android:layout_height="240.0dp">
+        <ImageView android:layout_width="match_parent" android:layout_height="240.0dp" android:src="@drawable/recommend_often_listen_bg" android:scaleType="centerCrop" android:layout_centerInParent="true" android:importantForAccessibility="no" />
+        <LinearLayout android:orientation="vertical" android:id="@id/let" android:paddingTop="15.0dp" android:layout_width="132.0dp" android:layout_height="wrap_content" android:layout_marginLeft="28.0dp" android:layout_alignParentLeft="true" android:layout_centerVertical="true">
+            <TextView android:textSize="25.0dp" android:textStyle="bold" android:textColor="@color/white" android:id="@id/hr0" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/f43" android:lines="1" android:letterSpacing="0.1" />
+            <TextView android:textSize="12.0dp" android:textColor="@color/white" android:id="@id/hqz" android:layout_width="match_parent" android:layout_height="match_parent" android:layout_marginTop="4.0dp" android:text="@string/f44" android:maxLines="3" android:lineSpacingExtra="6.0dp" android:letterSpacing="0.2" />
+        </LinearLayout>
+        <LinearLayout android:orientation="horizontal" android:id="@id/bds" android:paddingTop="15.0dp" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginTop="15.0dp" android:layout_toRightOf="@id/let" android:layout_centerVertical="true" />
+    </RelativeLayout>
+</FrameLayout>

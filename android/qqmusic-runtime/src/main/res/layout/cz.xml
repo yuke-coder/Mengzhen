@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout android:layout_width="match_parent" android:layout_height="match_parent"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <include android:layout_width="match_parent" android:layout_height="match_parent" layout="@layout/m6" />
+    <RelativeLayout android:id="@id/lzk" android:background="@drawable/skin_list_header_bg" android:layout_width="match_parent" android:layout_height="360.0dp">
+        <include android:id="@id/b7m" android:layout_width="match_parent" android:layout_height="@dimen/cau" layout="@layout/mu" />
+        <ImageView android:id="@id/e55" android:layout_width="wrap_content" android:layout_height="100.0dp" android:layout_marginTop="150.0dp" android:src="@drawable/item_lyric_animation" android:layout_centerHorizontal="true" />
+        <ImageView android:visibility="visible" android:layout_width="wrap_content" android:layout_height="150.0dp" android:src="@drawable/item_lyric_cloud" android:layout_centerInParent="true" />
+        <ImageView android:id="@id/e56" android:visibility="visible" android:layout_width="wrap_content" android:layout_height="150.0dp" android:src="@drawable/item_lyric_download" android:layout_centerInParent="true" />
+        <ImageView android:id="@id/e5e" android:visibility="gone" android:layout_width="wrap_content" android:layout_height="150.0dp" android:src="@drawable/item_lyric_ok" android:layout_centerInParent="true" />
+    </RelativeLayout>
+    <RelativeLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_below="@id/lzk">
+        <TextView android:textSize="16.0sp" android:textColor="@color/skin_text_sub_color" android:ellipsize="end" android:gravity="center" android:id="@id/l_e" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginLeft="20.0dp" android:layout_marginTop="42.0dp" android:layout_marginRight="20.0dp" android:singleLine="true" />
+        <Button android:textColor="@color/white" android:gravity="center" android:id="@id/amh" android:background="@drawable/bg_solid_button" android:layout_width="125.0dp" android:layout_height="40.0dp" android:layout_marginTop="32.0dp" android:text="取消" android:layout_below="@id/l_e" android:layout_centerInParent="true" />
+        <Button android:textColor="@color/white" android:gravity="center" android:id="@id/ami" android:background="@drawable/bg_solid_button" android:visibility="invisible" android:layout_width="125.0dp" android:layout_height="40.0dp" android:layout_marginTop="32.0dp" android:text="完成" android:layout_below="@id/l_e" android:layout_centerInParent="true" />
+    </RelativeLayout>
+</RelativeLayout>

@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<TableLayout android:layout_width="match_parent" android:layout_height="wrap_content"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <TableRow android:id="@id/k3h">
+        <TextView android:id="@id/k3_" style="@style/a57" />
+        <TextView android:id="@id/k3a" style="@style/a57" />
+        <TextView android:id="@id/k3b" style="@style/a57" />
+        <TextView android:id="@id/k3c" style="@style/a57" />
+    </TableRow>
+    <TableRow android:id="@id/k3i">
+        <TextView android:id="@id/k3d" style="@style/a57" />
+        <TextView android:id="@id/k3e" style="@style/a57" />
+        <TextView android:id="@id/k3f" style="@style/a57" />
+        <TextView android:id="@id/k3g" style="@style/a57" />
+    </TableRow>
+</TableLayout>

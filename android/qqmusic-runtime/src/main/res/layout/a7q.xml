@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout android:id="@id/euc" android:background="@color/black" android:clipChildren="true" android:layout_width="match_parent" android:layout_height="match_parent"
+  xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">
+    <com.tencent.qqmusic.ui.RoundedRelativeLayout android:id="@id/n_t" android:layout_width="445.0dp" android:layout_height="230.0dp" app:kj="12.0dp" app:a1d="hnz" app:a1k="@id/d8w" app:a23="hnz" app:a27="hnz" app:a28="0.46">
+        <com.tencent.qqmusic.business.playernew.view.playersong.definedplayer.UnClickAbleFrameLayout android:id="@id/n_s" android:clipChildren="true" android:layout_width="match_parent" android:layout_height="match_parent" />
+        <androidx.constraintlayout.widget.ConstraintLayout android:id="@id/iff" android:background="#1f1f1f" android:visibility="visible" android:layout_width="match_parent" android:layout_height="match_parent">
+            <com.tencent.qqmusic.pag.QQMusicPAGSafeView android:id="@id/ife" android:layout_width="50.0dp" android:layout_height="50.0dp" app:a1d="hnz" app:a1x="hnz" app:a21="hnz" app:a27="hnz" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </com.tencent.qqmusic.ui.RoundedRelativeLayout>
+    <ImageView android:id="@id/aki" android:padding="15.0dp" android:layout_width="94.0dp" android:layout_height="51.0dp" android:layout_marginTop="22.0dp" android:src="@drawable/icon_player_style_reset" app:a1x="@id/n_t" app:a21="@id/n_t" app:a26="@id/n_t" />
+    <androidx.constraintlayout.widget.Guideline android:orientation="vertical" android:id="@id/d8w" android:layout_width="wrap_content" android:layout_height="wrap_content" app:a1n="0.6" />
+    <include android:clickable="true" android:layout_width="0.0dp" android:layout_height="0.0dp" app:a1d="hnz" app:a1j="hnz" app:a23="@id/d8w" app:a27="hnz" layout="@layout/a7p" />
+</androidx.constraintlayout.widget.ConstraintLayout>

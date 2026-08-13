@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout android:id="@id/b_c" android:background="@drawable/main_bg" android:layout_width="match_parent" android:layout_height="match_parent"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <include android:id="@id/lv1" layout="@layout/mv" />
+    <LinearLayout android:orientation="vertical" android:id="@id/bx7" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_below="@id/lv1" />
+    <com.tencent.qqmusic.ui.HiddenHeaderListView android:id="@id/bvj" android:paddingBottom="@dimen/ait" android:visibility="visible" android:clipToPadding="false" android:layout_width="match_parent" android:layout_height="match_parent" android:cacheColorHint="#00000000" android:divider="@null" android:dividerHeight="0.0dp" android:layout_below="@id/bx7" android:overScrollMode="never" />
+    <ViewStub android:id="@id/b7q" android:layout="@layout/mh" android:layout_width="match_parent" android:layout_height="match_parent" android:layout_below="@id/bx7" android:layout_alignWithParentIfMissing="true" />
+    <RelativeLayout android:id="@id/b7j" android:layout_width="match_parent" android:layout_height="match_parent" android:layout_below="@id/bx7" />
+    <View android:background="@drawable/head_shadow" android:layout_width="match_parent" android:layout_height="@dimen/l9" android:layout_below="@id/lv1" />
+</RelativeLayout>

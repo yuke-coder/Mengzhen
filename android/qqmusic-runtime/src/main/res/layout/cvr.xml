@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout android:orientation="vertical" android:id="@id/ijk" android:paddingTop="20.0dp" android:layout_width="match_parent" android:layout_height="wrap_content"
+  xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">
+    <androidx.recyclerview.widget.RecyclerView android:id="@id/aa8" android:paddingLeft="15.0dp" android:clipToPadding="false" android:layout_width="match_parent" android:layout_height="wrap_content" />
+    <FrameLayout android:id="@id/aa9" android:layout_width="match_parent" android:layout_height="0.0dp">
+        <TextView android:textSize="14.0sp" android:textColor="@color/skin_text_sub_color" android:layout_gravity="center_horizontal" android:id="@id/aaa" android:visibility="gone" android:layout_width="wrap_content" android:layout_height="wrap_content" />
+        <com.airbnb.lottie.LottieAnimationView android:layout_gravity="center|bottom" android:id="@id/aa_" android:visibility="gone" android:layout_width="25.0dp" android:layout_height="25.0dp" android:layout_marginRight="10.0dp" app:a4n="true" app:a4u="true" />
+    </FrameLayout>
+</LinearLayout>

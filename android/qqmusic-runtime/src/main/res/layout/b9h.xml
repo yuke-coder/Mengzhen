@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout android:layout_width="wrap_content" android:layout_height="wrap_content"
+  xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">
+    <com.tencent.qqmusic.ui.RoundedRelativeLayout android:id="@id/g_j" android:layout_width="wrap_content" android:layout_height="wrap_content" app:a1j="hnz" app:a23="hnz" app:a27="hnz">
+        <com.tencent.qqmusic.ui.customview.SquareImageView android:id="@id/g_i" android:layout_width="match_parent" android:layout_height="wrap_content" android:src="@drawable/default_folder_mid" android:scaleType="centerCrop" />
+        <com.tencent.qqmusic.ui.customview.SquareImageView android:id="@id/bbc" android:visibility="gone" android:layout_width="27.0dp" android:layout_height="27.0dp" android:scaleType="fitCenter" android:layout_alignLeft="@id/g_i" android:layout_alignTop="@id/g_i" />
+    </com.tencent.qqmusic.ui.RoundedRelativeLayout>
+    <RelativeLayout android:gravity="center" android:id="@id/jve" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_toRightOf="@id/g_j" android:layout_alignTop="@id/g_j" android:layout_alignBottom="@id/g_j" android:layout_centerVertical="true">
+        <ImageView android:id="@id/cm5" android:paddingLeft="-2.0dp" android:layout_width="match_parent" android:layout_height="match_parent" android:layout_marginTop="7.0dp" android:layout_marginBottom="7.0dp" android:src="@drawable/search_folder_horizontal_cell_shadow" android:scaleType="fitXY" />
+    </RelativeLayout>
+    <LinearLayout android:layout_gravity="center" android:orientation="horizontal" android:id="@id/g_g" android:background="@drawable/bg_mv_play" android:paddingLeft="7.0dp" android:paddingRight="7.0dp" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_alignRight="@id/g_j" android:layout_alignBottom="@id/g_j">
+        <ImageView android:layout_gravity="center_vertical" android:id="@id/g_f" android:layout_width="10.0dp" android:layout_height="16.0dp" android:src="@drawable/recommend_card_play_button" android:scaleType="fitCenter" />
+        <TextView android:textSize="10.0dp" android:textColor="@android:color/white" android:gravity="center" android:layout_gravity="center_vertical" android:id="@id/g_h" android:paddingBottom="1.0dp" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginLeft="2.0dp" />
+    </LinearLayout>
+    <TextView android:textSize="12.0sp" android:textColor="@color/skin_text_main_color" android:ellipsize="end" android:id="@id/g_k" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="8.0dp" android:maxLines="2" android:layout_below="@id/g_j" android:layout_alignLeft="@id/g_j" android:layout_alignRight="@id/g_j" />
+    <RelativeLayout android:id="@id/g_e" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="4.0dp" android:layout_below="@id/g_k" android:layout_alignLeft="@id/g_j" android:layout_alignRight="@id/g_j">
+        <TextView android:textSize="12.0sp" android:textColor="@color/skin_text_sub_color" android:ellipsize="end" android:id="@id/g_c" android:layout_width="wrap_content" android:layout_height="wrap_content" android:singleLine="true" android:layout_alignParentLeft="true" android:layout_alignWithParentIfMissing="true" />
+        <com.tencent.component.widget.AsyncEffectImageView android:id="@id/g_l" android:visibility="gone" android:layout_width="11.0dp" android:layout_height="11.0dp" android:layout_marginLeft="2.0dp" android:layout_toRightOf="@id/g_c" android:layout_centerVertical="true" />
+    </RelativeLayout>
+    <TextView android:textSize="12.0sp" android:textColor="@color/skin_text_sub_color" android:ellipsize="end" android:id="@id/g_d" android:visibility="gone" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="4.0dp" android:singleLine="true" android:layout_below="@id/g_e" android:layout_alignLeft="@id/g_j" android:layout_alignRight="@id/g_j" />
+</RelativeLayout>

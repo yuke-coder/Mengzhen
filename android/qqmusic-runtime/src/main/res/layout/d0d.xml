@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout android:layout_width="match_parent" android:layout_height="wrap_content"
+  xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">
+    <Space android:id="@id/nbz" android:layout_width="match_parent" android:layout_height="@dimen/c27" app:a1d="hnz" app:a1x="hnz" />
+    <androidx.constraintlayout.widget.ConstraintLayout android:id="@id/nbt" android:paddingTop="7.5dp" android:paddingBottom="7.5dp" android:visibility="visible" android:layout_width="0.0dp" android:layout_height="0.0dp" android:paddingStart="31.0dp" android:paddingEnd="30.0dp" app:a1d="@id/nbz" app:a1x="@id/nbz" app:a21="@id/nbz" app:a27="@id/nbz">
+        <androidx.constraintlayout.widget.ConstraintLayout android:id="@id/nc4" android:layout_width="match_parent" android:layout_height="match_parent" app:a1d="hnz" app:a1x="hnz" app:a27="hnz">
+            <RelativeLayout android:layout_width="wrap_content" android:layout_height="wrap_content" app:a1d="hnz" app:a1x="hnz" app:a27="hnz">
+                <ImageView android:id="@id/nc5" android:layout_width="76.0dp" android:layout_height="18.5dp" android:src="@drawable/icon_share_card_logo_vip" android:layout_centerVertical="true" />
+                <TextView android:textSize="12.5dp" android:textColor="@color/white" android:id="@id/n_z" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginLeft="2.0dp" android:layout_marginTop="2.0dp" android:text=" " android:includeFontPadding="false" android:layout_toRightOf="@id/nc5" android:layout_centerVertical="true" />
+                <TextView android:textSize="12.5dp" android:textStyle="bold" android:textColor="@color/white" android:id="@id/nc6" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginLeft="2.0dp" android:layout_marginTop="2.0dp" android:text="歌曲" android:includeFontPadding="false" android:layout_toRightOf="@id/n_z" android:layout_centerVertical="true" />
+            </RelativeLayout>
+        </androidx.constraintlayout.widget.ConstraintLayout>
+        <ImageView android:id="@id/nc7" android:layout_width="45.0dp" android:layout_height="45.0dp" app:a1d="hnz" app:a21="hnz" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>

@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout android:gravity="center_vertical" android:orientation="horizontal" android:id="@id/fhg" android:background="@drawable/bg_player_recommend_tag" android:paddingTop="7.0dp" android:paddingBottom="7.0dp" android:layout_width="wrap_content" android:layout_height="wrap_content" android:paddingStart="13.0dp" android:paddingEnd="13.0dp"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <ImageView android:id="@id/ele" android:layout_width="16.0dp" android:layout_height="14.0dp" android:scaleType="centerInside" />
+    <TextView android:textSize="12.0dp" android:textColor="@color/white" android:ellipsize="end" android:gravity="center" android:id="@id/mod" android:paddingBottom="1.0px" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginLeft="2.0dp" android:maxWidth="130.0dp" android:maxLines="1" android:includeFontPadding="false" android:layout_marginStart="2.0dp" />
+</LinearLayout>

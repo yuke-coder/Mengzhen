@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout android:background="@drawable/material_ripple_background" android:layout_width="match_parent" android:layout_height="55.0dp" android:minHeight="55.0dp"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <RelativeLayout android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginLeft="20.0dp" android:layout_marginRight="12.0dp" android:layout_centerVertical="true">
+        <LinearLayout android:gravity="center" android:orientation="horizontal" android:id="@id/e2f" android:layout_width="wrap_content" android:layout_height="wrap_content">
+            <TextView android:textColor="@color/skin_text_main_color" android:ellipsize="end" android:id="@id/e2e" android:layout_width="wrap_content" android:maxLines="1" android:layout_weight="1.0" style="@style/lj" />
+            <ImageView android:id="@id/kic" android:layout_width="wrap_content" android:layout_height="10.0dp" android:layout_marginLeft="5.0dp" android:src="@drawable/mv_icon_sd" android:contentDescription="@string/app_name" />
+        </LinearLayout>
+        <RelativeLayout android:gravity="center_vertical" android:visibility="visible" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginTop="3.0dp" android:layout_below="@id/e2f">
+            <TextView android:textSize="12.0sp" android:textColor="@color/skin_text_sub_color" android:id="@id/bvt" android:text="点击继续下载" android:layout_alignParentLeft="true" android:layout_centerVertical="true" style="@style/ll" />
+            <RelativeLayout android:id="@id/bvr" android:layout_width="match_parent" android:layout_height="wrap_content">
+                <ProgressBar android:id="@id/e2d" android:focusable="false" android:visibility="visible" android:clickable="false" android:layout_width="match_parent" android:layout_height="2.0dp" android:progressDrawable="@drawable/download_activity_progressbar_xml" android:layout_alignParentTop="true" style="?android:progressBarStyleHorizontal" />
+                <TextView android:textSize="12.0sp" android:textColor="@color/skin_text_sub_color" android:id="@id/e2c" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="3.0dp" android:maxWidth="120.0dp" android:text="2.1MB/4.0MB" android:singleLine="true" android:layout_below="@id/e2d" android:layout_alignParentRight="true" />
+                <TextView android:textSize="12.0sp" android:textColor="@color/skin_text_sub_color" android:gravity="left" android:id="@id/bvs" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="3.0dp" android:text="842.3K/s" android:singleLine="true" android:layout_below="@id/e2d" android:layout_alignParentLeft="true" />
+            </RelativeLayout>
+        </RelativeLayout>
+    </RelativeLayout>
+</RelativeLayout>

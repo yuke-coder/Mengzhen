@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout android:orientation="vertical" android:background="@drawable/setting_list_item_bg" android:layout_width="match_parent" android:layout_height="match_parent"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <LinearLayout android:orientation="vertical" android:id="@id/fx7" android:background="@drawable/my_music_green_bg" android:layout_width="match_parent" android:layout_height="wrap_content">
+        <include android:id="@id/lv1" android:layout_width="match_parent" android:layout_height="@dimen/cau" layout="@layout/mu" />
+    </LinearLayout>
+    <FrameLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_weight="1.0">
+        <ListView android:layout_gravity="fill" android:id="@id/fk7" android:paddingLeft="@dimen/acj" android:paddingTop="@dimen/acl" android:paddingRight="@dimen/acj" android:paddingBottom="@dimen/ach" android:scrollbars="none" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginLeft="@dimen/c18" android:layout_marginRight="@dimen/c19" android:cacheColorHint="#00000000" android:divider="@color/black" android:dividerHeight="0.5dp" android:overScrollMode="never" />
+        <TextView android:textSize="20.0sp" android:textColor="@color/black" android:gravity="center" android:layout_gravity="center" android:id="@id/fk8" android:visibility="invisible" android:layout_width="match_parent" android:layout_height="wrap_content" />
+    </FrameLayout>
+    <Button android:gravity="center" android:layout_gravity="center_horizontal" android:id="@id/fk9" android:layout_width="match_parent" android:layout_height="wrap_content" android:text="@string/eq4" android:layout_weight="0.0" />
+</LinearLayout>

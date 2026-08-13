@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.tencentmusic.ad.integration.nativead.TMENativeAdContainer android:background="@color/transparent" android:visibility="gone" android:layout_width="177.0dp" android:layout_height="63.0dp"
+  xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">
+    <LinearLayout android:orientation="vertical" android:layout_width="177.0dp" android:layout_height="match_parent">
+        <LinearLayout android:gravity="center" android:layout_gravity="right|top" android:orientation="horizontal" android:id="@id/fd1" android:paddingTop="2.0dp" android:paddingBottom="2.0dp" android:focusable="true" android:clickable="true" android:layout_width="wrap_content" android:layout_height="18.0dp" android:paddingStart="7.0dp">
+            <TextView android:textSize="10.0dp" android:textColor="#ffffff" android:gravity="center" android:id="@id/m79" android:layout_width="wrap_content" android:layout_height="wrap_content" android:alpha="0.9" />
+            <LinearLayout android:gravity="center" android:id="@id/fcr" android:layout_width="wrap_content" android:layout_height="match_parent" android:paddingEnd="5.0dp">
+                <ImageView android:id="@id/ebh" android:layout_width="13.0dp" android:layout_height="13.0dp" android:src="@drawable/ic_close_ad_bold" android:contentDescription="@string/a7j" />
+            </LinearLayout>
+        </LinearLayout>
+        <ImageView android:id="@id/e9g" android:visibility="gone" android:layout_width="177.0dp" android:layout_height="45.0dp" android:scaleType="centerCrop" />
+        <com.tencent.qqmusic.pag.BasePAGView android:id="@id/hml" android:visibility="gone" android:layout_width="177.0dp" android:layout_height="45.0dp" android:layout_marginTop="4.0dp" />
+    </LinearLayout>
+</com.tencentmusic.ad.integration.nativead.TMENativeAdContainer>

@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout android:gravity="center_vertical" android:id="@id/mlive_task_bubble_frame" android:background="@drawable/mlive_rank_bubble_bg" android:layout_width="wrap_content" android:layout_height="20.0dp"
+  xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">
+    <com.tme.qqmusic.widget.base.view.GlideImageView android:id="@id/mlive_task_bubble_left_icon" android:visibility="gone" android:layout_width="18.0dp" android:layout_height="18.0dp" android:scaleType="fitCenter" android:layout_marginStart="7.0dp" app:a1d="hnz" app:a23="hnz" app:a27="hnz" app:a2q="6.0dp" />
+    <TextView android:textSize="11.0sp" android:textColor="@android:color/white" android:ellipsize="end" android:gravity="center_vertical" android:id="@id/mlive_task_bubble_content" android:layout_width="wrap_content" android:layout_height="match_parent" android:maxWidth="120.0dp" android:maxLines="1" android:includeFontPadding="false" android:layout_marginStart="2.0dp" android:layout_marginEnd="7.0dp" app:a1d="hnz" app:a1j="hnz" app:a22="@id/mlive_task_bubble_left_icon" app:a27="hnz" app:a2q="6.0dp" />
+</androidx.constraintlayout.widget.ConstraintLayout>

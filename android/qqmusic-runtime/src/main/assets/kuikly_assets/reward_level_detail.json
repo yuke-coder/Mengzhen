@@ -1,0 +1,19 @@
+{
+  "router": "openHalf",
+  "page_name": "reward_level_detail",
+  "container": {
+    "w_weight": "1",
+    "h_weight": "1",
+    "direction": "from-bottom",
+    "transparent": "TODO:背景透明",
+    "hideStatus": "TODO:是否隐藏状态栏"
+  },
+  "params": {
+    "song_id": 255402348,
+    "entrance": 1,
+    "album_id": 10848478,
+    "singer_ids": [
+      13948
+    ]
+  }
+}

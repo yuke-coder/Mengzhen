@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout android:layout_gravity="bottom" android:layout_width="match_parent" android:layout_height="match_parent"
+  xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">
+    <FrameLayout android:id="@id/avr" android:layout_width="match_parent" android:layout_height="@dimen/jm" app:a27="hnz">
+        <androidx.appcompat.widget.AppCompatImageView android:layout_gravity="center" android:layout_width="@dimen/jn" android:layout_height="@dimen/jn" android:src="@drawable/cg_control_panel_close_icon" />
+    </FrameLayout>
+    <View android:id="@id/avt" android:background="@color/cg_control_panel_guideline_color" android:layout_width="match_parent" android:layout_height="1.0dp" android:layout_marginLeft="@dimen/jr" android:layout_marginRight="@dimen/jr" android:alpha="0.2" android:layout_marginHorizontal="@dimen/jr" app:a1d="hnz" app:a26="@id/avr" app:a28="0.2" />
+    <androidx.appcompat.widget.AppCompatImageView android:id="@id/avx" android:layout_width="@dimen/jz" android:layout_height="@dimen/jz" android:layout_marginStart="@dimen/jr" app:a1d="@id/avt" app:a23="hnz" app:a26="@id/avr" />
+    <androidx.appcompat.widget.AppCompatTextView android:id="@id/avy" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginStart="@dimen/k0" app:a1d="@id/avx" app:a22="@id/avx" app:a27="@id/avx" app:a2q="@dimen/jr" />
+    <androidx.appcompat.widget.AppCompatButton android:id="@id/avs" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/a40" android:layout_marginEnd="@dimen/jr" app:a1d="@id/avt" app:a1j="hnz" app:a26="@id/avr" style="@style/fu" />
+    <com.google.android.material.tabs.TabLayout android:id="@id/avw" android:scrollbars="none" android:clipToPadding="false" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginLeft="@dimen/jx" android:layout_marginRight="@dimen/jx" android:layout_marginHorizontal="@dimen/jx" app:a26="@id/avt" style="@style/fy" />
+    <androidx.viewpager2.widget.ViewPager2 android:orientation="horizontal" android:id="@id/avz" android:layout_width="0.0dp" android:layout_height="0.0dp" android:layout_marginLeft="@dimen/jr" android:layout_marginRight="@dimen/jr" android:layout_marginHorizontal="@dimen/jr" app:a1d="hnz" app:a1j="hnz" app:a23="hnz" app:a26="@id/avw" />
+</androidx.constraintlayout.widget.ConstraintLayout>

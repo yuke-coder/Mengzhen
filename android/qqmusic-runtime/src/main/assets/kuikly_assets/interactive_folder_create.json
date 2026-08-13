@@ -1,0 +1,11 @@
+{
+  "router": "openHalf",
+  "page_name": "interactive_folder_create",
+  "container": {
+    "w_weight": "1",
+    "h_weight": "1",
+    "direction": "from-right"
+  },
+  "params": {
+  }
+}

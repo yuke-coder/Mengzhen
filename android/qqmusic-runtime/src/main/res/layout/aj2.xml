@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout android:id="@id/nse" android:layout_width="wrap_content" android:layout_height="wrap_content"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <RelativeLayout android:id="@id/e6b" android:layout_width="match_parent" android:layout_height="wrap_content">
+        <com.tencent.component.widget.AsyncEffectImageView android:id="@id/e6a" android:layout_width="match_parent" android:layout_height="wrap_content" android:src="@drawable/default_folder_mid" android:scaleType="fitXY" />
+        <CheckBox android:id="@id/ibw" android:background="@drawable/ic_edit_song_checkbox" android:focusable="false" android:clickable="false" android:layout_width="12.0dp" android:layout_height="12.0dp" android:layout_marginLeft="4.0dp" android:layout_marginTop="4.0dp" android:checked="false" android:button="@null" />
+    </RelativeLayout>
+    <TextView android:textSize="12.0sp" android:textColor="@color/white" android:ellipsize="end" android:id="@id/icu" android:clickable="false" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginTop="10.0dp" android:text="username_singer" android:singleLine="true" android:layout_below="@id/e6b" />
+    <TextView android:textSize="10.0sp" android:textColor="#777777" android:ellipsize="end" android:id="@id/ict" android:clickable="false" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginTop="3.0dp" android:layout_marginBottom="14.0dp" android:text="使用次数：1234" android:singleLine="true" android:layout_below="@id/icu" />
+</RelativeLayout>

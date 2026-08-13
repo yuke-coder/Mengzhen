@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout android:paddingLeft="16.0dp" android:paddingTop="14.0dp" android:paddingRight="16.0dp" android:paddingBottom="14.0dp" android:layout_width="match_parent" android:layout_height="@dimen/c0t"
+  xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">
+    <com.tencent.qqmusic.ui.RoundedRelativeLayout android:id="@id/jk1" android:layout_width="match_parent" android:layout_height="match_parent" app:ado="@dimen/bxc">
+        <ImageView android:layout_width="match_parent" android:layout_height="match_parent" android:src="@drawable/skin_mask_img" android:scaleType="fitXY" />
+    </com.tencent.qqmusic.ui.RoundedRelativeLayout>
+    <ImageView android:id="@id/jml" android:layout_width="@dimen/byr" android:layout_height="@dimen/byr" android:src="@drawable/search_icon" android:scaleType="fitXY" android:importantForAccessibility="no" app:a1d="hnz" app:a1u="hmg" app:a1x="hnz" app:a20="@id/jo3" app:a27="hnz" />
+    <TextView android:textSize="@dimen/bxj" android:textColor="@color/skin_text_sub_color" android:ellipsize="end" android:gravity="center" android:id="@id/jo3" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/gnj" android:singleLine="true" app:a1d="hnz" app:a1y="@id/jml" app:a21="hnz" app:a27="hnz" />
+</androidx.constraintlayout.widget.ConstraintLayout>

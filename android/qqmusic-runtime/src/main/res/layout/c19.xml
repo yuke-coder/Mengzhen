@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.tme.karaoke.base.preview.RoundedRelativeLayout android:layout_gravity="center" android:id="@id/hau" android:background="@color/transparent" android:layout_width="match_parent" android:layout_height="match_parent" app:aes="8.0dp"
+  xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">
+    <kk.design.KKImageView android:id="@id/h6w" android:layout_width="match_parent" android:layout_height="match_parent" />
+    <ImageView android:layout_width="match_parent" android:layout_height="match_parent" android:src="@drawable/bg_slide_card_mask" />
+    <ImageView android:id="@id/har" android:layout_width="wrap_content" android:layout_height="wrap_content" android:src="@drawable/ic_preview_album_cover" android:layout_alignParentTop="true" android:layout_alignParentRight="true" />
+    <ImageView android:id="@id/hug" android:visibility="gone" android:clickable="false" android:layout_width="wrap_content" android:layout_height="wrap_content" android:src="@drawable/new_preview_play_icon" android:layout_centerInParent="true" />
+</com.tme.karaoke.base.preview.RoundedRelativeLayout>

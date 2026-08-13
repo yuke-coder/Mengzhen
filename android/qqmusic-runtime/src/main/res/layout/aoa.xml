@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<kk.design.layout.KKLinearLayout android:gravity="center" android:orientation="vertical" android:id="@id/enu" android:paddingTop="@dimen/a4i" android:paddingBottom="@dimen/a4h" android:layout_width="match_parent" android:layout_height="wrap_content" android:minHeight="@dimen/a4g" android:paddingStart="@dimen/a4f" android:paddingEnd="@dimen/a4e"
+  xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">
+    <kk.design.KKTextView android:id="@id/mru" android:visibility="gone" android:layout_width="wrap_content" android:layout_height="wrap_content" app:a0c="ifr" app:a0d="erk" app:a0e="j3u" />
+    <kk.design.KKTextView android:id="@id/mrn" android:visibility="gone" android:layout_width="wrap_content" android:layout_height="wrap_content" app:a0c="jp3" app:a0d="hr3" app:a0e="j3u" />
+    <kk.design.layout.KKFrameLayout android:id="@id/env" android:visibility="gone" android:layout_width="match_parent" android:layout_height="wrap_content" />
+</kk.design.layout.KKLinearLayout>

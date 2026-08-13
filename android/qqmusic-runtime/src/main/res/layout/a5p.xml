@@ -1,0 +1,3 @@
+<?xml version="1.0" encoding="utf-8"?>
+<TextView android:textSize="11.0dp" android:id="@id/m39" android:paddingLeft="11.5dp" android:paddingTop="2.5dp" android:paddingRight="11.5dp" android:paddingBottom="2.5dp" android:layout_width="wrap_content" android:layout_height="wrap_content"
+  xmlns:android="http://schemas.android.com/apk/res/android" />

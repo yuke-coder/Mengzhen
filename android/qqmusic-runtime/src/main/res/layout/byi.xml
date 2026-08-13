@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout android:id="@id/cfb" android:visibility="gone" android:layout_width="match_parent" android:layout_height="match_parent"
+  xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">
+    <androidx.constraintlayout.widget.Guideline android:orientation="horizontal" android:id="@id/cfe" android:layout_width="match_parent" android:layout_height="wrap_content" app:a1n="0.1" />
+    <androidx.constraintlayout.widget.Guideline android:orientation="horizontal" android:id="@id/cfd" android:layout_width="match_parent" android:layout_height="wrap_content" app:a1n="0.6" />
+    <androidx.constraintlayout.widget.ConstraintLayout android:id="@id/cff" android:layout_width="match_parent" android:layout_height="0.0dp" android:layout_marginBottom="100.0dp" app:a1d="hnz" app:a1x="hnz" app:a21="hnz" app:a27="hnz">
+        <com.airbnb.lottie.LottieAnimationView android:layout_gravity="center_horizontal" android:id="@id/fuo" android:layout_width="@dimen/se" android:layout_height="@dimen/se" android:layout_marginBottom="@dimen/rr" app:a1d="hnz" app:a1x="hnz" app:a21="hnz" app:a27="hnz" app:a4u="true" />
+        <androidx.appcompat.widget.AppCompatTextView android:textSize="@dimen/s2" android:textColor="#80ffffff" android:layout_gravity="center_horizontal" android:id="@id/ct7" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="@dimen/rr" android:text="@string/cd9" app:a1x="hnz" app:a21="hnz" app:a26="@id/fuo" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+    <androidx.constraintlayout.widget.ConstraintLayout android:id="@id/cfa" android:visibility="gone" android:layout_width="match_parent" android:layout_height="0.0dp" android:layout_marginBottom="100.0dp" app:a1d="hnz" app:a1x="hnz" app:a21="hnz" app:a27="hnz">
+        <ImageView android:layout_gravity="center_horizontal" android:id="@id/c_a" android:layout_width="103.0dp" android:layout_height="103.0dp" android:layout_marginBottom="@dimen/rr" app:a1d="hnz" app:a1x="hnz" app:a21="hnz" app:a27="hnz" />
+        <androidx.appcompat.widget.AppCompatTextView android:textSize="@dimen/s2" android:textColor="#80ffffff" android:layout_gravity="center_horizontal" android:id="@id/c_6" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="@dimen/rr" android:text="@string/g5m" app:a1x="hnz" app:a21="hnz" app:a26="@id/c_a" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>

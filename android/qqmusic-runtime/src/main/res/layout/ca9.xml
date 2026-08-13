@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout android:layout_width="wrap_content" android:layout_height="wrap_content" android:maxWidth="210.0dp"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <ImageView android:layout_gravity="left|bottom" android:id="@id/mrv" android:background="@drawable/bg_white_opacity_10_radius_5" android:visibility="visible" android:layout_width="match_parent" android:layout_height="match_parent" />
+    <RelativeLayout android:layout_gravity="left|bottom" android:id="@id/mrx" android:layout_width="wrap_content" android:layout_height="wrap_content">
+        <androidx.appcompat.widget.AppCompatTextView android:textSize="11.0dp" android:textColor="@color/txvideo_guide_default_text_color" android:ellipsize="end" android:id="@id/mry" android:visibility="visible" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginLeft="10.0dp" android:layout_marginTop="7.0dp" android:layout_marginRight="10.0dp" android:layout_marginBottom="7.0dp" android:text="@string/fpf" android:singleLine="true" android:layout_marginVertical="7.0dp" />
+    </RelativeLayout>
+    <FrameLayout android:layout_width="wrap_content" android:layout_height="wrap_content">
+        <ImageView android:layout_gravity="right|top" android:id="@id/mrw" android:background="@drawable/icon_close_txvideo_guide" android:layout_width="16.0dp" android:layout_height="16.0dp" android:layout_marginTop="5.0dp" android:layout_marginRight="5.0dp" />
+        <LinearLayout android:layout_gravity="left|bottom" android:orientation="vertical" android:id="@id/ms0" android:visibility="gone" android:layout_width="wrap_content" android:layout_height="85.0dp">
+            <TextView android:textSize="14.0dp" android:textStyle="bold" android:textColor="@color/txvideo_guide_expand_text_color" android:ellipsize="end" android:id="@id/ms1" android:layout_width="wrap_content" android:layout_height="18.0dp" android:layout_marginLeft="10.0dp" android:layout_marginTop="7.5dp" android:layout_marginRight="32.0dp" android:singleLine="true" />
+            <TextView android:textSize="12.0dp" android:textColor="@color/txvideo_guide_expand_text_color" android:ellipsize="end" android:id="@id/mrz" android:layout_width="wrap_content" android:layout_height="16.0dp" android:layout_marginLeft="10.0dp" android:layout_marginTop="5.5dp" android:layout_marginRight="17.5dp" android:layout_marginBottom="8.0dp" android:singleLine="true" />
+            <TextView android:textSize="11.0dp" android:textStyle="bold" android:textColor="@color/txvideo_guide_button_text_color" android:gravity="center" android:id="@id/ms2" android:background="@drawable/bg_txvideo_guide_button" android:paddingLeft="7.5dp" android:paddingRight="7.5dp" android:layout_width="wrap_content" android:layout_height="20.0dp" android:layout_marginLeft="10.0dp" android:layout_marginRight="130.0dp" android:layout_marginBottom="10.0dp" android:text="@string/fpf" android:paddingHorizontal="7.5dp" />
+        </LinearLayout>
+    </FrameLayout>
+</FrameLayout>

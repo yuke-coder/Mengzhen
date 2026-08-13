@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.tme.mlive.viewdelegate.multipk.MultiPKMaskView android:id="@id/mlive_multi_pk_mask_view_root" android:layout_width="match_parent" android:layout_height="match_parent"
+  xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">
+    <View android:id="@id/mlive_multi_pk_progress_view" android:background="@drawable/mlive_multi_pk_progress_bg" android:layout_width="match_parent" android:layout_height="2.0dp" app:a1j="hnz" app:a23="hnz" app:a27="hnz" />
+    <LinearLayout android:gravity="center" android:orientation="horizontal" android:id="@id/mlive_multi_pk_tips_ll" android:background="@drawable/mlive_multi_pk_tips_bg" android:layout_width="110.0dp" android:layout_height="21.0dp" app:a1j="hnz" app:a23="hnz" app:a26="@id/mlive_multi_pk_progress_view">
+        <ImageView android:id="@id/mlive_multi_pk_tips_icon_iv" android:layout_width="wrap_content" android:layout_height="wrap_content" android:src="@drawable/mlive_multi_pk_tips_icon" android:contentDescription="@null" />
+        <TextView android:textSize="12.0dp" android:textStyle="bold" android:textColor="#d8d8d8" android:id="@id/mlive_multi_pk_tips_countdown_tv" android:layout_width="wrap_content" android:layout_height="wrap_content" android:includeFontPadding="false" android:layout_marginStart="2.0dp" />
+    </LinearLayout>
+    <com.tencent.qgame.animplayer.AnimView android:id="@id/mlive_multi_pk_anim_view" android:layout_width="375.0dp" android:layout_height="175.0dp" app:a1d="hnz" app:a1j="hnz" app:a23="hnz" app:a27="hnz" />
+    <com.tencent.qgame.animplayer.AnimView android:id="@id/mlive_multi_pk_anim_result_view" android:layout_width="153.0dp" android:layout_height="180.0dp" android:layout_marginBottom="85.0dp" app:a1d="hnz" app:a1j="hnz" app:a23="hnz" app:a27="hnz" />
+    <LinearLayout android:gravity="center_horizontal" android:orientation="vertical" android:id="@id/mlive_multi_pk_result_ll" android:background="@drawable/mlive_multi_pk_result_win_bg" android:visibility="gone" android:layout_width="238.5dp" android:layout_height="111.5dp" android:layout_marginTop="153.5dp" app:a1d="hnz" app:a1j="hnz" app:a23="hnz" app:a27="hnz">
+        <TextView android:textSize="14.0dp" android:textStyle="bold" android:textColor="@color/white" android:id="@id/mlive_multi_pk_result_tv" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="9.0dp" android:layout_marginBottom="6.5dp" android:maxLines="1" />
+        <RelativeLayout android:id="@id/mlive_multi_pk_rank_ll" android:layout_width="match_parent" android:layout_height="wrap_content">
+            <View android:background="#d9d9d9" android:layout_width="80.0dp" android:layout_height="0.5dp" android:layout_centerVertical="true" android:layout_marginStart="1.0dp" android:layout_alignParentStart="true" />
+            <View android:background="#d9d9d9" android:layout_width="80.0dp" android:layout_height="0.5dp" android:layout_centerVertical="true" android:layout_marginEnd="1.0dp" android:layout_alignParentEnd="true" />
+            <TextView android:textSize="11.0dp" android:textColor="@color/white_80_transparent" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/dmo" android:layout_centerInParent="true" />
+        </RelativeLayout>
+        <com.tme.qqmusic.widget.base.view.GlideImageView android:id="@id/mlive_multi_pk_result_rank_top_iv" android:layout_width="40.0dp" android:layout_height="40.0dp" android:layout_marginTop="5.0dp" android:src="@drawable/mlive_multi_pk_no_contributer" />
+    </LinearLayout>
+</com.tme.mlive.viewdelegate.multipk.MultiPKMaskView>

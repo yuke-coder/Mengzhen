@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.tencent.qqmusic.ui.actionsheet.RoundCornorLinearLayout android:background="@drawable/timeline_song_rectangle_light_background" android:layout_width="match_parent" android:layout_height="48.0dp" android:layout_marginBottom="12.0dp"
+  xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">
+    <androidx.constraintlayout.widget.ConstraintLayout android:id="@id/blm" android:background="@color/white" android:layout_width="85.0dp" android:layout_height="match_parent" app:a1d="hnz" app:a20="@id/ldr" app:a27="hnz">
+        <com.tencent.component.widget.AsyncEffectImageView android:id="@id/bll" android:layout_width="match_parent" android:layout_height="match_parent" android:src="@drawable/default_folder_mid" android:scaleType="centerCrop" app:a1d="hnz" app:a1j="hnz" app:a23="hnz" app:a27="hnz" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+    <androidx.constraintlayout.widget.ConstraintLayout android:layout_width="match_parent" android:layout_height="wrap_content">
+        <TextView android:textSize="13.0sp" android:textColor="@color/skin_text_main_color" android:ellipsize="end" android:id="@id/ldr" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginTop="7.0dp" android:singleLine="true" android:layout_marginStart="10.0dp" android:lineHeight="17.0dp" app:a27="hnz" />
+        <com.tencent.qqmusic.ui.MarqueeTextView android:textSize="12.0sp" android:textColor="@color/skin_text_sub_color" android:ellipsize="end" android:id="@id/kzh" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginBottom="6.0dp" android:singleLine="true" android:layout_marginStart="10.0dp" android:lineHeight="16.0dp" app:a1d="hnz" app:a26="@id/ldr" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</com.tencent.qqmusic.ui.actionsheet.RoundCornorLinearLayout>

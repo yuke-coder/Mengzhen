@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout android:orientation="vertical" android:id="@id/k3x" android:background="@drawable/bg_list_bottom_sheet_dialog" android:layout_width="match_parent" android:layout_height="wrap_content"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <TextView android:textSize="18.0sp" android:textStyle="bold" android:textColor="@color/common_grid_title_color_selector" android:gravity="left" android:id="@id/k4h" android:layout_width="match_parent" android:layout_height="22.0dp" android:layout_marginLeft="20.0dp" android:layout_marginTop="20.0dp" android:layout_marginBottom="13.0dp" android:text="@string/fos" />
+    <ListView android:id="@id/k43" android:paddingBottom="66.0dp" android:clipToPadding="false" android:layout_width="match_parent" android:layout_height="wrap_content" android:listSelector="@drawable/transparent" android:cacheColorHint="@color/transparent" android:minHeight="66.0dp" />
+</LinearLayout>

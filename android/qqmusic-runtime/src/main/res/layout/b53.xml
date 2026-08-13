@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<merge android:layout_width="match_parent" android:layout_height="match_parent"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <com.tme.karaoke.lib_livecover.common.widget.imgcrop.LGestureCropImageView android:id="@id/f6l" android:padding="@dimen/cby" android:layout_width="match_parent" android:layout_height="match_parent" />
+    <com.tme.karaoke.lib_livecover.common.widget.imgcrop.LOverlayView android:id="@id/f79" android:padding="@dimen/cby" android:layout_width="match_parent" android:layout_height="match_parent" />
+</merge>

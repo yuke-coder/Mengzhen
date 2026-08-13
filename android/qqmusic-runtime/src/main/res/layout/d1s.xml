@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout android:background="@drawable/transparent" android:layout_width="match_parent" android:layout_height="wrap_content"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <RelativeLayout android:id="@id/nri" android:layout_width="300.0dp" android:layout_height="300.0dp" android:layout_centerInParent="true">
+        <RelativeLayout android:id="@id/nrj" android:layout_width="match_parent" android:layout_height="match_parent" />
+        <ImageView android:id="@id/nrk" android:layout_width="match_parent" android:layout_height="3.0dp" android:src="@color/playlist_is_selected" />
+    </RelativeLayout>
+    <ImageButton android:id="@id/k0x" android:background="@drawable/dialog_fragment_btn_close" android:layout_width="@dimen/pv" android:layout_height="@dimen/pv" android:layout_marginTop="10.0dp" android:layout_below="@id/nri" android:layout_centerHorizontal="true" android:contentDescription="@string/a_6" />
+</RelativeLayout>

@@ -1,0 +1,9 @@
+{
+  "router": "openPage",
+  "page_name": "car_with_room_page",
+  "debug": 0,
+  "container": {
+  },
+  "params": {
+  }
+}

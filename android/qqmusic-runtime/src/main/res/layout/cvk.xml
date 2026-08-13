@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView android:focusable="true" android:clickable="true" android:layout_width="140.0dp" android:layout_height="160.0dp" android:importantForAccessibility="yes" android:layout_marginEnd="15.0dp" app:gr="@color/skin_floor_color" app:gs="10.0dp" app:gt="0.0dp"
+  xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">
+    <androidx.constraintlayout.widget.ConstraintLayout android:id="@id/a5c" android:layout_width="match_parent" android:layout_height="match_parent">
+        <ImageView android:id="@id/a5d" android:layout_width="48.0dp" android:layout_height="48.0dp" android:src="@drawable/module_musichall_block_jump_more_v20" android:scaleType="fitXY" android:importantForAccessibility="no" app:a1e="@id/a5e" app:a1j="hnz" app:a23="hnz" app:a27="hnz" app:a29="hmg" />
+        <androidx.appcompat.widget.AppCompatTextView android:textSize="13.0dp" android:textColor="@color/skin_text_guide_color" android:gravity="center_horizontal" android:id="@id/a5e" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="12.0dp" android:importantForAccessibility="no" app:a1d="hnz" app:a1j="hnz" app:a23="hnz" app:a26="@id/a5d" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</androidx.cardview.widget.CardView>

@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout android:clipChildren="false" android:layout_width="wrap_content" android:layout_height="wrap_content"
+  xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">
+    <com.tencent.qqmusic.ui.RoundedConstraintLayout android:id="@id/gmu" android:layout_width="210.0dp" android:layout_height="144.0dp" app:a1x="hnz" app:a27="hnz" app:ado="4.0dp">
+        <com.tencent.qqmusic.modular.module.musichall.views.widget.ColorLightEffectView android:id="@id/gm6" android:layout_width="match_parent" android:layout_height="match_parent" android:scaleType="centerCrop" />
+        <com.tencent.component.widget.AsyncEffectImageView android:id="@id/gm1" android:visibility="gone" android:layout_width="match_parent" android:layout_height="match_parent" android:src="@drawable/module_personal_radio_card_bg_default" android:scaleType="centerCrop" />
+    </com.tencent.qqmusic.ui.RoundedConstraintLayout>
+    <androidx.constraintlayout.widget.ConstraintLayout android:id="@id/gmm" android:layout_width="0.0dp" android:layout_height="0.0dp" app:a1d="@id/gmu" app:a1x="@id/gmu" app:a21="@id/gmu" app:a27="@id/gmu">
+        <androidx.constraintlayout.widget.Guideline android:orientation="vertical" android:id="@id/gn2" android:layout_width="wrap_content" android:layout_height="wrap_content" app:a1n="0.0381" />
+        <androidx.constraintlayout.widget.Guideline android:orientation="vertical" android:id="@id/gn6" android:layout_width="wrap_content" android:layout_height="wrap_content" app:a1n="0.9714" />
+        <androidx.constraintlayout.widget.Guideline android:orientation="vertical" android:id="@id/gmv" android:layout_width="wrap_content" android:layout_height="wrap_content" app:a1n="0.419" />
+        <androidx.constraintlayout.widget.Guideline android:orientation="horizontal" android:id="@id/gn7" android:layout_width="wrap_content" android:layout_height="wrap_content" app:a1n="0.1389" />
+        <androidx.constraintlayout.widget.Guideline android:orientation="horizontal" android:id="@id/gms" android:layout_width="wrap_content" android:layout_height="wrap_content" app:a1n="0.8611" />
+        <androidx.appcompat.widget.AppCompatTextView android:textSize="16.0dp" android:textStyle="bold" android:textColor="@color/white" android:ellipsize="end" android:id="@id/gn9" android:layout_width="0.0dp" android:layout_height="wrap_content" android:layout_marginRight="6.0dp" android:text="猜你喜欢" android:lines="1" app:a1x="@id/gn2" app:a21="@id/gmv" app:a26="@id/gn7" />
+        <com.tencent.component.widget.AsyncEffectImageView android:id="@id/gmg" android:layout_width="20.0dp" android:layout_height="20.0dp" app:a1e="@id/gmf" app:a1x="@id/gn2" />
+        <TextView android:textSize="12.0dp" android:textColor="#ffffff" android:ellipsize="end" android:gravity="left|center" android:id="@id/gmh" android:layout_width="0.0dp" android:layout_height="0.0dp" android:layout_marginRight="8.0dp" android:maxLines="1" android:includeFontPadding="false" android:importantForAccessibility="no" app:a1d="@id/gmg" app:a1y="@id/gmg" app:a21="@id/gmv" app:a27="@id/gmg" />
+        <com.tencent.qqmusic.ui.MarqueeTextView android:textSize="12.0dp" android:textColor="#ffffff" android:ellipsize="marquee" android:gravity="left" android:id="@id/gmf" android:focusable="true" android:focusableInTouchMode="true" android:layout_width="0.0dp" android:layout_height="wrap_content" android:layout_marginRight="8.0dp" android:layout_marginBottom="11.0dp" android:scrollHorizontally="true" android:singleLine="true" android:marqueeRepeatLimit="marquee_forever" android:importantForAccessibility="no" app:a1e="@id/gn3" app:a1x="@id/gn2" app:a21="@id/gmv" />
+        <com.tencent.qqmusic.ui.RoundedConstraintLayout android:id="@id/gn3" android:background="@drawable/musichall_recommend_play_icon_bg" android:layout_width="0.0dp" android:layout_height="0.0dp" app:a1d="@id/gms" app:a1i="1.77:1" app:a1s="0.2" app:a1x="@id/gn2">
+            <ImageView android:id="@id/gn4" android:layout_width="14.0dp" android:layout_height="14.0dp" android:src="@drawable/search_icon_miniplay_new" app:a1d="hnz" app:a1k="@id/gn5" app:a1u="hmg" app:a23="hnz" app:a27="hnz" />
+            <TextView android:textSize="10.0dp" android:textColor="#000000" android:gravity="left|center" android:id="@id/gn5" android:layout_width="wrap_content" android:layout_height="0.0dp" android:text="@string/e7a" android:includeFontPadding="false" app:a1d="@id/gn4" app:a1j="hnz" app:a1u="hmg" app:a22="@id/gn4" app:a27="@id/gn4" />
+        </com.tencent.qqmusic.ui.RoundedConstraintLayout>
+        <ImageView android:id="@id/gn1" android:layout_width="0.0dp" android:layout_height="0.0dp" android:src="@drawable/recommend_guess_you_like_disk_shadow" android:scaleType="centerCrop" app:a1i="1.033:1" app:a1s="0.819" app:a1x="@id/gmv" app:a27="@id/gn7" />
+        <androidx.constraintlayout.widget.Guideline android:orientation="vertical" android:id="@id/gn0" android:layout_width="wrap_content" android:layout_height="wrap_content" app:a1n="0.467" />
+        <ImageView android:id="@id/gmw" android:layout_width="0.0dp" android:layout_height="0.0dp" android:src="@drawable/recommend_guess_you_like_disk" app:a1d="@id/gms" app:a1i="1:1" app:a1x="@id/gn0" app:a27="@id/gn7" />
+        <com.tencent.qqmusic.ui.RoundedRelativeLayout android:layout_width="0.0dp" android:layout_height="0.0dp" app:a1d="@id/gms" app:a1i="1:1" app:a1x="@id/gmv" app:a27="@id/gn7" app:ado="2.0dp">
+            <com.tencent.component.widget.AsyncEffectImageView android:id="@id/gmp" android:background="#6b7999" android:layout_width="match_parent" android:layout_height="match_parent" android:scaleType="fitXY" />
+            <ImageView android:id="@id/gmq" android:background="#6b7999" android:visibility="gone" android:layout_width="match_parent" android:layout_height="match_parent" android:scaleType="fitXY" />
+        </com.tencent.qqmusic.ui.RoundedRelativeLayout>
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>

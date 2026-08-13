@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout android:background="@color/black" android:layout_width="match_parent" android:layout_height="match_parent"
+  xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">
+    <ImageView android:id="@id/ati" android:layout_width="match_parent" android:layout_height="match_parent" android:scaleType="centerCrop" />
+    <ImageView android:id="@id/dpp" android:layout_width="0.0dp" android:layout_height="0.0dp" android:layout_marginTop="@dimen/ben" android:src="@drawable/back_normal_white" android:scaleType="centerInside" app:a1i="H,1:1" app:a22="@id/d9k" app:a27="hnz" app:a2e="0.08" />
+    <TextView android:textSize="18.0sp" android:textStyle="bold" android:textColor="@color/white" android:ellipsize="end" android:gravity="center" android:id="@id/ler" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/h63" android:singleLine="true" android:layout_centerInParent="true" app:a1d="@id/dpp" app:a1j="hnz" app:a23="hnz" app:a27="@id/dpp" />
+    <androidx.recyclerview.widget.RecyclerView android:id="@id/j31" android:layout_width="0.0dp" android:layout_height="0.0dp" android:layout_marginTop="@dimen/c2n" android:layout_marginStart="@dimen/c2n" android:layout_marginEnd="@dimen/c2n" app:a1d="hnz" app:a1x="hnz" app:a21="hnz" app:a26="@id/dpp" />
+    <ViewStub android:id="@id/c74" android:layout="@layout/mh" android:layout_width="0.0dp" android:layout_height="0.0dp" app:a1d="@id/j31" app:a1j="@id/j31" app:a23="@id/j31" app:a27="@id/j31" />
+    <androidx.constraintlayout.widget.Guideline android:orientation="vertical" android:id="@id/d9k" android:layout_width="wrap_content" android:layout_height="wrap_content" app:a1n="0.048" />
+    <androidx.constraintlayout.widget.Guideline android:orientation="vertical" android:id="@id/d_e" android:layout_width="wrap_content" android:layout_height="wrap_content" app:a1n="0.952" />
+</androidx.constraintlayout.widget.ConstraintLayout>

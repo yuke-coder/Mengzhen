@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout android:gravity="center" android:id="@id/jdj" android:background="@color/black_80_transparent" android:layout_width="match_parent" android:layout_height="match_parent"
+  xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">
+    <androidx.constraintlayout.widget.ConstraintLayout android:gravity="center_horizontal" android:id="@id/jxg" android:visibility="gone" android:layout_width="0.0dp" android:layout_height="0.0dp" app:a1d="hnz" app:a1x="hnz" app:a21="hnz" app:a27="hnz">
+        <ScrollView android:id="@id/jy0" android:scrollbars="none" android:layout_width="0.0dp" android:layout_height="0.0dp" android:layout_marginLeft="35.0dp" android:layout_marginRight="35.0dp" android:overScrollMode="never" app:a1d="hnz" app:a1x="hnz" app:a21="hnz" app:a27="hnz" app:a2r="100.0dp">
+            <androidx.constraintlayout.widget.ConstraintLayout android:layout_width="match_parent" android:layout_height="wrap_content">
+                <View android:id="@id/jx5" android:layout_width="0.0dp" android:layout_height="@dimen/bj_" app:a1x="hnz" app:a21="hnz" app:a27="hnz" />
+                <View android:id="@id/jx3" android:layout_width="0.0dp" android:layout_height="@dimen/bj_" app:a1d="hnz" app:a1x="hnz" app:a21="hnz" />
+                <com.tencent.component.widget.AsyncImageView android:layout_gravity="center" android:id="@id/jx2" android:layout_width="0.0dp" android:layout_height="wrap_content" android:adjustViewBounds="true" android:layout_centerHorizontal="true" app:a1e="@id/jx3" app:a1x="hnz" app:a21="hnz" app:a26="@id/jx5" />
+            </androidx.constraintlayout.widget.ConstraintLayout>
+        </ScrollView>
+        <View android:id="@id/jx4" android:background="@drawable/lyric_poster_top_gradient_background" android:layout_width="0.0dp" android:layout_height="@dimen/bj_" app:a1x="hnz" app:a21="hnz" app:a27="hnz" />
+        <androidx.constraintlayout.widget.ConstraintLayout android:orientation="vertical" android:id="@id/afh" android:background="@drawable/lyric_poster_bottom_gradient_background" android:layout_width="0.0dp" android:layout_height="wrap_content" app:a1d="hnz" app:a1x="hnz" app:a21="hnz">
+            <androidx.constraintlayout.widget.ConstraintLayout android:orientation="horizontal" android:id="@id/jx6" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginBottom="32.0dp" app:a1e="@id/jx8" app:a1y="hnz" app:a21="hnz">
+                <androidx.recyclerview.widget.RecyclerView android:id="@id/jx7" android:paddingTop="24.0dp" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_centerHorizontal="true" app:a1x="hnz" app:a21="hnz" app:a27="hnz" />
+            </androidx.constraintlayout.widget.ConstraintLayout>
+            <ImageButton android:id="@id/jx8" android:background="@color/transparent" android:padding="5.0dp" android:layout_width="30.0dp" android:layout_height="30.0dp" android:layout_marginBottom="25.0dp" android:src="@drawable/share_pic_set_close" android:scaleType="centerInside" android:contentDescription="@string/a_6" app:a1d="hnz" app:a1x="hnz" app:a21="hnz" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </androidx.constraintlayout.widget.ConstraintLayout>
+    <androidx.appcompat.widget.AppCompatTextView android:textSize="18.0sp" android:textColor="@color/white" android:id="@id/jy1" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="45.0dp" app:a1x="hnz" app:a21="hnz" app:a27="hnz" />
+</androidx.constraintlayout.widget.ConstraintLayout>

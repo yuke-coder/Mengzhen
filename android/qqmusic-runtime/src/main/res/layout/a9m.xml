@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout android:background="@android:color/transparent" android:focusableInTouchMode="true" android:layout_width="match_parent" android:layout_height="match_parent" android:layout_alignParentBottom="true" android:layoutDirection="ltr"
+  xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">
+    <RelativeLayout android:id="@id/apj" android:layout_width="35.0dp" android:layout_height="65.0dp" android:contentDescription="@string/a1p" app:a1d="hnz" app:a23="hnz" app:a27="hnz" app:a28="0.05">
+        <TextView android:id="@id/ar2" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="1" android:layout_alignParentTop="true" android:layout_centerHorizontal="true" style="@style/g1" />
+    </RelativeLayout>
+    <RelativeLayout android:id="@id/apk" android:layout_width="35.0dp" android:layout_height="65.0dp" android:layout_marginBottom="@dimen/is" android:contentDescription="@string/a21" app:a1d="hnz" app:a1j="hnz" app:a1t="0.5" app:a23="hnz" app:a27="hnz" app:a28="0.05">
+        <TextView android:id="@id/ar3" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="2" android:layout_centerHorizontal="true" style="@style/g1" />
+        <TextView android:gravity="center_horizontal" android:id="@id/ar4" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="ABC" android:layout_below="@id/ar3" android:layout_centerHorizontal="true" style="@style/g0" />
+    </RelativeLayout>
+    <RelativeLayout android:id="@id/apl" android:layout_width="35.0dp" android:layout_height="65.0dp" android:contentDescription="@string/a1w" app:a1d="hnz" app:a1j="hnz" app:a27="hnz" app:a28="0.05">
+        <TextView android:id="@id/ar5" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="3" android:layout_centerHorizontal="true" style="@style/g1" />
+        <TextView android:gravity="center_horizontal" android:id="@id/ar6" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="DEF" android:layout_below="@id/ar5" android:layout_centerHorizontal="true" style="@style/g0" />
+    </RelativeLayout>
+    <RelativeLayout android:id="@id/apm" android:layout_width="35.0dp" android:layout_height="65.0dp" android:contentDescription="@string/a1i" app:a1d="hnz" app:a23="hnz" app:a27="hnz" app:a28="0.35">
+        <TextView android:id="@id/ar7" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="4" android:layout_centerHorizontal="true" style="@style/g1" />
+        <TextView android:gravity="center_horizontal" android:id="@id/ar8" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="GHI" android:layout_below="@id/ar7" android:layout_centerHorizontal="true" style="@style/g0" />
+    </RelativeLayout>
+    <RelativeLayout android:id="@id/apn" android:layout_width="35.0dp" android:layout_height="65.0dp" android:contentDescription="@string/a1h" app:a1d="hnz" app:a1j="hnz" app:a1t="0.5" app:a23="hnz" app:a27="hnz" app:a28="0.35">
+        <TextView android:id="@id/ar9" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="5" android:layout_centerHorizontal="true" style="@style/g1" />
+        <TextView android:gravity="center_horizontal" android:id="@id/ar_" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="JKL" android:layout_below="@id/ar9" android:layout_centerHorizontal="true" style="@style/g0" />
+    </RelativeLayout>
+    <RelativeLayout android:id="@id/apo" android:layout_width="35.0dp" android:layout_height="65.0dp" android:contentDescription="@string/a1v" app:a1d="hnz" app:a1j="hnz" app:a27="hnz" app:a28="0.35">
+        <TextView android:id="@id/ara" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="6" android:layout_centerHorizontal="true" style="@style/g1" />
+        <TextView android:gravity="center_horizontal" android:id="@id/arb" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="MNO" android:layout_below="@id/ara" android:layout_centerHorizontal="true" style="@style/g0" />
+    </RelativeLayout>
+    <RelativeLayout android:id="@id/app" android:layout_width="35.0dp" android:layout_height="65.0dp" android:contentDescription="@string/a1t" app:a1d="hnz" app:a23="hnz" app:a27="hnz" app:a28="0.65">
+        <TextView android:id="@id/arc" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="7" android:layout_centerHorizontal="true" style="@style/g1" />
+        <TextView android:gravity="center_horizontal" android:id="@id/ard" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="PQRS" android:layout_below="@id/arc" android:layout_centerHorizontal="true" style="@style/g0" />
+    </RelativeLayout>
+    <RelativeLayout android:id="@id/apq" android:layout_width="35.0dp" android:layout_height="65.0dp" android:contentDescription="@string/a1f" app:a1d="hnz" app:a1j="hnz" app:a1t="0.5" app:a23="hnz" app:a27="hnz" app:a28="0.65">
+        <TextView android:id="@id/are" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="8" android:layout_centerHorizontal="true" style="@style/g1" />
+        <TextView android:gravity="center_horizontal" android:id="@id/arf" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="TUV" android:layout_below="@id/are" android:layout_centerHorizontal="true" style="@style/g0" />
+    </RelativeLayout>
+    <RelativeLayout android:id="@id/apr" android:layout_width="35.0dp" android:layout_height="65.0dp" android:contentDescription="@string/a1o" app:a1d="hnz" app:a1j="hnz" app:a27="hnz" app:a28="0.65">
+        <TextView android:id="@id/arg" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="9" android:layout_centerHorizontal="true" style="@style/g1" />
+        <TextView android:gravity="center_horizontal" android:id="@id/arh" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="WXYZ" android:layout_below="@id/arg" android:layout_centerHorizontal="true" style="@style/g0" />
+    </RelativeLayout>
+    <RelativeLayout android:id="@id/apu" android:layout_width="35.0dp" android:layout_height="65.0dp" android:contentDescription="@string/a15" app:a1d="hnz" app:a23="hnz" app:a27="hnz" app:a28="0.95">
+        <TextView android:id="@id/aoq" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="*" android:layout_centerInParent="true" style="@style/g1" />
+    </RelativeLayout>
+    <RelativeLayout android:id="@id/api" android:layout_width="35.0dp" android:layout_height="65.0dp" android:contentDescription="@string/a22" app:a1d="hnz" app:a1j="hnz" app:a1t="0.5" app:a23="hnz" app:a27="hnz" app:a28="0.95">
+        <TextView android:id="@id/ar0" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="0" android:layout_centerHorizontal="true" style="@style/g1" />
+        <TextView android:textSize="@dimen/iu" android:gravity="center" android:id="@id/ar1" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="-10.0dp" android:text="+" android:layout_below="@id/ar0" android:layout_centerHorizontal="true" />
+    </RelativeLayout>
+    <RelativeLayout android:id="@id/apv" android:layout_width="35.0dp" android:layout_height="65.0dp" android:contentDescription="@string/a1j" app:a1d="hnz" app:a1j="hnz" app:a27="hnz" app:a28="0.95">
+        <TextView android:id="@id/aor" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="#" android:layout_centerInParent="true" style="@style/g1" />
+    </RelativeLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>

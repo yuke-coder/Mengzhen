@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout android:orientation="vertical" android:background="#ebebeb" android:layout_width="match_parent" android:layout_height="match_parent"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <LinearLayout android:orientation="vertical" android:id="@id/lek" android:background="#3e8bea" android:paddingLeft="14.0dp" android:paddingTop="8.0dp" android:paddingRight="14.0dp" android:paddingBottom="8.0dp" android:layout_width="match_parent" android:layout_height="wrap_content" android:paddingHorizontal="14.0dp" android:paddingVertical="8.0dp">
+        <TextView android:textSize="14.0sp" android:textColor="#ffffff" android:layout_width="match_parent" android:layout_height="wrap_content" android:text="当前预览卡片：" />
+        <TextView android:textSize="14.0sp" android:textColor="#ffffff" android:id="@id/lfw" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginTop="4.0dp" />
+    </LinearLayout>
+    <FrameLayout android:layout_width="match_parent" android:layout_height="0.0dp" android:layout_weight="1.0">
+        <com.tencent.tdf.view.TDFCardView android:id="@id/au1" android:layout_width="wrap_content" android:layout_height="wrap_content" />
+        <RelativeLayout android:id="@id/ldf" android:background="#ebebeb" android:layout_width="match_parent" android:layout_height="match_parent">
+            <TextView android:textSize="16.0sp" android:textColor="#333333" android:id="@id/ldb" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="这儿什么都没有" android:layout_centerInParent="true" />
+            <TextView android:textSize="12.0sp" android:textColor="#999999" android:id="@id/ld5" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="8.0dp" android:text="请尝试改动模板代码触发刷新 ~ " android:layout_below="@id/ldb" android:layout_centerInParent="true" />
+        </RelativeLayout>
+    </FrameLayout>
+</LinearLayout>

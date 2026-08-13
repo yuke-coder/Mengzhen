@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.tencent.qqmusic.ui.QRoundConstraintLayout android:id="@id/mxd" android:clipChildren="false" android:layout_width="@dimen/cct" android:layout_height="@dimen/ccs" app:adj="false"
+  xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">
+    <com.tencent.component.widget.AsyncEffectImageView android:id="@id/mxc" android:layout_width="match_parent" android:layout_height="match_parent" android:scaleType="fitXY" android:importantForAccessibility="no" app:a1j="hnz" app:a27="hnz" />
+    <com.tencent.component.widget.AsyncEffectImageView android:id="@id/mxk" android:layout_width="match_parent" android:layout_height="match_parent" android:scaleType="centerCrop" android:importantForAccessibility="no" app:a1j="hnz" app:a27="hnz" />
+    <com.tencent.component.widget.AsyncEffectImageView android:id="@id/mxh" android:layout_width="match_parent" android:layout_height="match_parent" android:scaleType="centerCrop" app:a1j="hnz" app:a23="hnz" />
+    <com.tencent.qqmusic.modular.module.musichall.views.widget.GuessYouLikePagView android:id="@id/mxi" android:layout_width="match_parent" android:layout_height="match_parent" app:a1j="hnz" app:a23="hnz" />
+    <androidx.appcompat.widget.AppCompatTextView android:textSize="@dimen/c7q" android:textStyle="bold" android:textColor="@color/white" android:ellipsize="end" android:id="@id/mxj" android:layout_width="0.0dp" android:layout_height="wrap_content" android:layout_marginLeft="@dimen/ru" android:layout_marginBottom="-1.5999756dp" android:maxLines="1" android:includeFontPadding="false" app:a1e="@id/mxe" app:a1j="hnz" app:a1t="0.0" app:a23="hnz" />
+    <com.tencent.qqmusic.ui.commercial.IconListView android:id="@id/mxe" android:layout_width="wrap_content" android:layout_height="23.0dp" android:layout_marginLeft="@dimen/ru" android:layout_marginBottom="@dimen/sm" app:a1d="hnz" app:a1j="hnz" app:a1t="0.0" app:a23="hnz" />
+    <ImageView android:id="@id/mxf" android:layout_width="@dimen/rq" android:layout_height="0.0dp" android:layout_marginTop="@dimen/sh" android:layout_marginBottom="@dimen/sh" android:scaleType="fitXY" app:a1d="hnz" app:a1j="hnz" app:a27="hnz" />
+    <ImageView android:id="@id/mxg" android:visibility="gone" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginLeft="@dimen/ru" android:layout_marginRight="@dimen/ru" android:layout_marginBottom="@dimen/sm" app:a1d="hnz" app:a1j="hnz" app:a23="hnz" />
+</com.tencent.qqmusic.ui.QRoundConstraintLayout>

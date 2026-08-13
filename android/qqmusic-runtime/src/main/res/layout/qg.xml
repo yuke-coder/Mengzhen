@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout android:orientation="vertical" android:background="@color/black" android:layout_width="match_parent" android:layout_height="wrap_content"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <LinearLayout android:orientation="vertical" android:id="@id/bq5" android:layout_width="match_parent" android:layout_height="wrap_content" />
+    <ImageView android:id="@id/bq6" android:layout_width="match_parent" android:layout_height="@dimen/cdx" android:layout_marginBottom="10.0dp" android:src="@color/video_poster_player_select_video_line_bg" />
+    <Button android:textSize="18.0sp" android:textColor="@color/white" android:gravity="center" android:id="@id/bq4" android:background="@color/transparent" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginLeft="10.0dp" android:layout_marginTop="10.0dp" android:layout_marginRight="10.0dp" android:layout_marginBottom="10.0dp" android:text="@string/a_6" />
+</LinearLayout>

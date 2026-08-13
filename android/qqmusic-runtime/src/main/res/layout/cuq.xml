@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout android:gravity="center" android:orientation="vertical" android:id="@id/cqv" android:layout_width="40.0dp" android:layout_height="48.5dp"
+  xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">
+    <com.tencent.qqmusic.business.live.ui.view.RoundAvatarImage android:id="@id/cqk" android:layout_width="40.0dp" android:layout_height="40.0dp" android:scaleType="centerCrop" android:layout_alignParentTop="true" />
+    <LinearLayout android:gravity="center" android:id="@id/cql" android:background="@drawable/putoo_follow_guide_follow_btn_bg" android:descendantFocusability="blocksDescendants" android:layout_width="40.0dp" android:layout_height="17.0dp" android:layout_alignParentBottom="true">
+        <ImageView android:id="@id/ctl" android:layout_width="5.0dp" android:layout_height="5.0dp" android:layout_marginRight="2.0dp" android:src="@drawable/putoo_follow_guide_icon" android:scaleType="fitXY" />
+        <TextView android:textSize="9.5sp" android:textColor="@color/white" android:id="@id/ctk" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/bcs" />
+    </LinearLayout>
+</RelativeLayout>

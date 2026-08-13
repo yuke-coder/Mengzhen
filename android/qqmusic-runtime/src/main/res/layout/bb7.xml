@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout android:gravity="center" android:orientation="vertical" android:background="@color/transparent" android:layout_width="320.0dp" android:layout_height="wrap_content"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <View android:id="@id/mlive_dialog_green_hat_view" android:background="@drawable/mlive_rounded_dialog_top_background" android:layout_width="match_parent" android:layout_height="4.0dp" />
+    <FrameLayout android:id="@id/mlive_dialog_qqmusic_container_fl" android:layout_width="match_parent" android:layout_height="wrap_content" />
+    <ImageView android:background="@color/white" android:layout_width="match_parent" android:layout_height="0.5dp" android:src="#19000000" />
+    <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content">
+        <LinearLayout android:gravity="center_horizontal" android:orientation="horizontal" android:background="@color/transparent" android:visibility="visible" android:layout_width="match_parent" android:layout_height="45.0dp">
+            <Button android:textSize="16.0sp" android:textColor="@color/mlive_dialog_base_positive_btn_default_color" android:ellipsize="end" android:gravity="center" android:layout_gravity="center" android:id="@id/mlive_dialog_base_positive_btn" android:background="@drawable/mlive_control_btn_bottom_left_rounded" android:fadingEdge="horizontal" android:layout_width="wrap_content" android:layout_height="match_parent" android:maxWidth="320.0dp" android:minWidth="130.0dp" android:text="@string/d1i" android:singleLine="true" android:layout_weight="130.0" />
+            <ImageView android:background="@color/white" android:layout_width="0.5dp" android:layout_height="match_parent" android:src="#19000000" />
+            <Button android:textSize="16.0sp" android:textColor="@color/mlive_dialog_base_negative_btn_color" android:ellipsize="end" android:gravity="center" android:id="@id/mlive_dialog_base_negative_btn" android:background="@drawable/mlive_control_btn_bottom_right_rounded" android:fadingEdge="horizontal" android:layout_width="wrap_content" android:layout_height="match_parent" android:maxWidth="320.0dp" android:minWidth="130.0dp" android:text="@string/czv" android:singleLine="true" android:layout_weight="130.0" />
+        </LinearLayout>
+    </LinearLayout>
+</LinearLayout>

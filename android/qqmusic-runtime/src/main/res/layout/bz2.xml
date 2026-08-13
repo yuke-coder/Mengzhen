@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout android:background="@drawable/common_5_radius_round_bg" android:paddingLeft="3.0dp" android:paddingRight="16.0dp" android:layout_width="match_parent" android:layout_height="50.0dp" android:layout_marginBottom="10.0dp"
+  xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">
+    <ImageView android:id="@id/m4" android:layout_width="40.0dp" android:layout_height="40.0dp" android:src="@drawable/my_advanced_sort_icon" app:a1d="hnz" app:a23="hnz" app:a27="hnz" />
+    <androidx.appcompat.widget.AppCompatTextView android:textSize="15.0sp" android:textColor="@color/skin_text_main_color" android:id="@id/e81" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/enp" app:a1d="hnz" app:a22="@id/m4" app:a27="hnz" />
+    <CheckBox android:id="@id/nkn" android:background="@drawable/checkbox_default_new" android:layout_width="20.0dp" android:layout_height="20.0dp" android:checked="true" android:button="@null" app:a1d="hnz" app:a21="hnz" app:a27="hnz" />
+</androidx.constraintlayout.widget.ConstraintLayout>

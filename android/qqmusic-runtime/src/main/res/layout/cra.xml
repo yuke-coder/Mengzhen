@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.tencentmusic.ad.integration.nativead.TMENativeAdContainer android:layout_width="wrap_content" android:layout_height="wrap_content"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <ImageView android:id="@id/lk1" android:layout_width="match_parent" android:layout_height="wrap_content" android:scaleType="centerCrop" />
+    <FrameLayout android:id="@id/lk2" android:visibility="gone" android:layout_width="match_parent" android:layout_height="wrap_content" />
+    <View android:id="@id/lju" android:background="#4d000000" android:visibility="gone" android:layout_width="wrap_content" android:layout_height="485.0dp" />
+    <TextView android:textSize="10.0sp" android:textColor="@android:color/white" android:gravity="center" android:layout_gravity="left" android:id="@id/lk3" android:background="@drawable/tme_ad_interstitial_close_bg" android:paddingLeft="6.0dp" android:paddingRight="6.0dp" android:layout_width="wrap_content" android:layout_height="20.0dp" android:layout_marginLeft="8.0dp" android:layout_marginTop="8.0dp" />
+    <TextView android:textSize="10.0sp" android:textColor="@android:color/white" android:gravity="center" android:layout_gravity="right" android:id="@id/ljx" android:background="@drawable/tme_ad_interstitial_icon_bg" android:paddingLeft="3.0dp" android:paddingRight="3.0dp" android:layout_width="wrap_content" android:layout_height="15.0dp" android:layout_marginTop="8.0dp" android:layout_marginRight="8.0dp" android:text="广告" />
+    <RelativeLayout android:gravity="bottom" android:layout_gravity="bottom" android:id="@id/ljv" android:background="@drawable/tme_ad_interstitial_gradient_bg" android:padding="12.0dp" android:layout_width="match_parent" android:layout_height="120.0dp">
+        <TextView android:textSize="15.0dp" android:textColor="@android:color/white" android:ellipsize="end" android:gravity="center_vertical" android:id="@id/ljw" android:layout_width="match_parent" android:layout_height="wrap_content" android:maxLines="2" />
+        <com.tencentmusic.ad.base.widget.TMEAdRoundImageView android:id="@id/ljy" android:layout_width="22.0dp" android:layout_height="22.0dp" android:layout_marginTop="11.5dp" android:layout_below="@id/ljw" />
+        <TextView android:textSize="12.0sp" android:textColor="#ffffff" android:gravity="center" android:id="@id/lk0" android:layout_width="74.0dp" android:layout_height="25.0dp" android:layout_marginTop="10.0dp" android:layout_below="@id/ljw" android:layout_alignParentRight="true" />
+        <TextView android:textSize="12.0sp" android:textColor="#d9ffffff" android:ellipsize="end" android:gravity="center_vertical" android:id="@id/ljz" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginLeft="6.0dp" android:layout_marginRight="12.0dp" android:maxLines="1" android:layout_toLeftOf="@id/lk0" android:layout_toRightOf="@id/ljy" android:layout_below="@id/ljw" android:layout_alignTop="@id/ljy" android:layout_alignBottom="@id/ljy" />
+    </RelativeLayout>
+    <LinearLayout android:gravity="center" android:layout_gravity="center" android:orientation="vertical" android:id="@id/lht" android:visibility="gone" android:layout_width="wrap_content" android:layout_height="wrap_content">
+        <com.tencentmusic.ad.base.widget.TMEAdRoundImageView android:id="@id/lhu" android:layout_width="55.0dp" android:layout_height="55.0dp" />
+        <LinearLayout android:gravity="center" android:orientation="horizontal" android:id="@id/lhv" android:background="@drawable/tme_ad_interstitial_replay_bg" android:paddingLeft="12.0dp" android:paddingRight="12.0dp" android:layout_width="wrap_content" android:layout_height="25.0dp" android:layout_marginTop="13.0dp">
+            <ImageView android:layout_width="13.0dp" android:layout_height="13.0dp" android:src="@drawable/ad_interstitial_replay" android:scaleType="centerCrop" />
+            <TextView android:textSize="12.0sp" android:textColor="@android:color/white" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginLeft="2.0dp" android:text="重新播放" />
+        </LinearLayout>
+    </LinearLayout>
+</com.tencentmusic.ad.integration.nativead.TMENativeAdContainer>

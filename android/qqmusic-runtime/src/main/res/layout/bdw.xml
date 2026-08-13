@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout android:layout_width="wrap_content" android:layout_height="wrap_content"
+  xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">
+    <androidx.constraintlayout.widget.ConstraintLayout android:layout_width="109.5dp" android:layout_height="117.5dp" app:a1d="hnz" app:a21="hnz">
+        <ImageView android:id="@id/mlive_gift_send_multi_ripple" android:visibility="invisible" android:layout_width="120.0dp" android:layout_height="120.0dp" android:src="@drawable/mlive_gift_send_multi_ripple" android:scaleX="0.6" android:scaleY="0.6" app:a1x="hnz" app:a27="hnz" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+    <androidx.constraintlayout.widget.ConstraintLayout android:id="@id/mlive_gift_send_multi_main" android:layout_width="67.0dp" android:layout_height="67.0dp" android:layout_marginRight="16.0dp" android:layout_marginBottom="24.0dp" app:a1d="hnz" app:a21="hnz">
+        <ImageView android:id="@id/mlive_gift_send_multi_fan" android:layout_width="match_parent" android:layout_height="match_parent" android:scaleType="fitXY" app:a1d="hnz" app:a21="hnz" app:a27="hnz" />
+        <com.tme.qqmusic.widget.base.view.GlideImageView android:id="@id/mlive_gift_send_multi_icon" android:layout_width="33.0dp" android:layout_height="33.0dp" android:layout_marginTop="7.5dp" android:scaleType="centerInside" app:a1x="hnz" app:a21="hnz" app:a27="hnz" />
+        <ImageView android:layout_width="32.0dp" android:layout_height="16.5dp" android:src="@drawable/mlive_gift_send_multi_text" android:scaleType="centerInside" app:a1x="hnz" app:a21="hnz" app:a26="@id/mlive_gift_send_multi_icon" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+    <TextView android:textStyle="bold" android:gravity="center" android:id="@id/mlive_gift_send_multi_count" android:background="@drawable/mlive_gift_multi_count_bg" android:visibility="invisible" android:layout_width="wrap_content" android:layout_height="26.0dp" android:layout_marginTop="4.0dp" android:layout_marginRight="6.5dp" android:minWidth="26.0dp" android:textAlignment="center" app:a1x="hnz" app:a20="@id/mlive_gift_send_multi_main" app:a27="@id/mlive_gift_send_multi_main" />
+</androidx.constraintlayout.widget.ConstraintLayout>

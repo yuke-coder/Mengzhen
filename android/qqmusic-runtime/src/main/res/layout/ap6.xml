@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout android:paddingTop="@dimen/a8h" android:paddingBottom="@dimen/a8h" android:layout_width="match_parent" android:layout_height="wrap_content" android:paddingStart="@dimen/a8j" android:paddingEnd="@dimen/a8i"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <include android:layout_width="match_parent" android:layout_height="wrap_content" layout="@layout/ap_" />
+</FrameLayout>

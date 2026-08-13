@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout android:gravity="center" android:orientation="horizontal" android:background="@drawable/mlive_comment_unread_bg" android:layout_width="match_parent" android:layout_height="match_parent"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <TextView android:textSize="14.0sp" android:textColor="@color/white" android:id="@id/mlive_comment_unread_text" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="X条未读消息" android:layout_marginEnd="8.5dp" />
+    <ImageView android:id="@id/mlive_comment_unread_image" android:layout_width="wrap_content" android:layout_height="wrap_content" android:src="@drawable/mlive_unread_up" />
+</LinearLayout>

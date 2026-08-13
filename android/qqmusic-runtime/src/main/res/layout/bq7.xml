@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout android:layout_width="match_parent" android:layout_height="wrap_content"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <ImageView android:id="@id/gcy" android:visibility="gone" android:clickable="false" android:layout_width="match_parent" android:layout_height="match_parent" android:scaleType="centerCrop" />
+    <com.tencent.component.widget.AsyncImageView android:id="@id/gcx" android:visibility="visible" android:clickable="false" android:layout_width="match_parent" android:layout_height="match_parent" android:scaleType="centerCrop" />
+    <FrameLayout android:id="@id/gcv" android:focusable="false" android:focusableInTouchMode="false" android:clickable="false" android:layout_width="match_parent" android:layout_height="match_parent" />
+    <LinearLayout android:gravity="center" android:orientation="vertical" android:id="@id/gcz" android:background="#4d000000" android:visibility="gone" android:layout_width="match_parent" android:layout_height="match_parent" android:layout_centerInParent="true">
+        <com.tencent.qqmusic.business.live.ui.view.RoundAvatarImage android:layout_gravity="center" android:id="@id/gcw" android:layout_width="65.0dp" android:layout_height="65.0dp" android:src="@drawable/default_user_avatar" />
+        <TextView android:textSize="@dimen/c8b" android:textColor="@color/white" android:ellipsize="end" android:id="@id/gd0" android:background="@drawable/shape_media_ad_learn_more" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="10.0dp" android:text="@string/cqn" android:maxLines="1" />
+    </LinearLayout>
+</FrameLayout>

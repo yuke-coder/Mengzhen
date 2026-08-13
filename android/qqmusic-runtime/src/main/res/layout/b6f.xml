@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout android:layout_width="match_parent" android:layout_height="wrap_content"
+  xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">
+    <TextView android:textSize="18.0sp" android:textColor="@color/white" android:id="@id/fo7" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginLeft="16.0dp" android:layout_marginTop="25.0dp" android:text="精彩评论" app:a23="hnz" app:a27="hnz" />
+    <ImageView android:id="@id/fo2" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="30.0dp" android:layout_marginRight="16.0dp" android:src="@drawable/ic_next" app:a1j="hnz" app:a27="hnz" />
+    <androidx.recyclerview.widget.RecyclerView android:id="@id/fo4" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginTop="10.0dp" app:a22="hnz" app:a26="@id/fo7" />
+</androidx.constraintlayout.widget.ConstraintLayout>

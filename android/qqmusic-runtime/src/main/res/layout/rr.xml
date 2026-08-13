@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout android:background="@drawable/material_ripple_background" android:layout_width="match_parent" android:layout_height="@dimen/b6k" android:layout_marginTop="5.0dp" android:layout_marginBottom="5.0dp" android:minHeight="@dimen/b6k"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <ImageView android:id="@id/c0p" android:visibility="visible" android:layout_width="@dimen/ti" android:layout_height="@dimen/ti" android:layout_marginLeft="16.0dp" android:src="@drawable/edit_btn_unselected" android:scaleType="centerCrop" android:layout_alignParentLeft="true" android:layout_centerVertical="true" />
+    <com.tencent.component.widget.AsyncEffectImageView android:id="@id/bwj" android:layout_width="120.0dp" android:layout_height="68.0dp" android:layout_marginLeft="10.0dp" android:layout_marginRight="10.0dp" android:scaleType="centerCrop" android:layout_toRightOf="@id/c0p" android:layout_centerVertical="true" android:contentDescription="@string/app_name" />
+    <RelativeLayout android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginRight="12.0dp" android:layout_toRightOf="@id/bwj" android:layout_centerVertical="true">
+        <TextView android:textColor="@color/skin_text_main_color" android:ellipsize="end" android:id="@id/bwk" android:layout_width="wrap_content" android:singleLine="true" style="@style/lj" />
+        <TextView android:textColor="@color/skin_text_sub_color" android:ellipsize="end" android:id="@id/bwl" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginTop="6.0dp" android:layout_marginRight="12.0dp" android:singleLine="true" android:layout_below="@id/bwk" style="@style/li" />
+    </RelativeLayout>
+</RelativeLayout>

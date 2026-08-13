@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout android:id="@id/ino" android:background="@drawable/bg_qq_show_info_drawable" android:layout_width="55.0dp" android:layout_height="59.0dp"
+  xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">
+    <androidx.constraintlayout.widget.ConstraintLayout android:layout_width="wrap_content" android:layout_height="wrap_content" app:a1d="hnz" app:a1x="hnz" app:a21="hnz" app:a27="hnz">
+        <ImageView android:id="@id/dsr" android:layout_width="18.0dp" android:layout_height="17.199982dp" android:src="@drawable/img_qqshow_info_dress" app:a1x="hnz" app:a21="hnz" app:a27="hnz" />
+        <TextView android:textSize="12.0dp" android:textColor="#9993542a" android:gravity="center" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="7.299988dp" android:text="装扮卡" app:a1x="hnz" app:a21="hnz" app:a26="@id/dsr" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>

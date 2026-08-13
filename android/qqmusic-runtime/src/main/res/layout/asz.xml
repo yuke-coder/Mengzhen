@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout android:background="@color/white" android:layout_width="match_parent" android:layout_height="match_parent"
+  xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">
+    <com.tencent.component.widget.AsyncEffectImageView android:id="@id/lcd" android:layout_width="wrap_content" android:layout_height="wrap_content" app:a1j="hnz" app:a23="hnz" app:a27="hnz" />
+    <androidx.appcompat.widget.AppCompatButton android:id="@id/hs7" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="测试页面" app:a1e="@id/b9i" app:a1j="hnz" app:a23="hnz" app:a26="@id/lcd" />
+    <androidx.appcompat.widget.AppCompatButton android:id="@id/b9i" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="压缩" app:a1d="hnz" app:a1j="hnz" app:a23="hnz" app:a26="@id/hs7" />
+</androidx.constraintlayout.widget.ConstraintLayout>

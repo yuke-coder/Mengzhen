@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="utf-8"?>
+<kk.design.layout.KKNestedScrollView android:orientation="vertical" android:layout_width="match_parent" android:layout_height="wrap_content"
+  xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">
+    <kk.design.KKTextView android:textColorLink="@color/kk_color_link" android:layout_gravity="start" android:id="@id/eow" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginLeft="@dimen/a6v" android:layout_marginRight="@dimen/a6v" android:textAlignment="gravity" app:a0b="xt" app:a0f="g7y" />
+</kk.design.layout.KKNestedScrollView>

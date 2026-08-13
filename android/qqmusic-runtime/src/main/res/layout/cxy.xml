@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<merge android:layout_width="match_parent" android:layout_height="match_parent"
+  xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">
+    <androidx.constraintlayout.widget.ConstraintLayout android:orientation="vertical" android:layout_width="match_parent" android:layout_height="match_parent">
+        <androidx.recyclerview.widget.RecyclerView android:id="@id/j2x" android:fadingEdgeLength="36.0dp" android:descendantFocusability="blocksDescendants" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginLeft="@dimen/bg_" android:layout_marginRight="@dimen/bg_" android:overScrollMode="never" android:requiresFadingEdge="vertical" android:layout_marginStart="@dimen/bg_" android:layout_marginEnd="@dimen/bg_" app:a1x="hnz" app:a21="hnz" app:a27="hnz" />
+        <com.tencent.qqmusic.ui.RoundedConstraintLayout android:gravity="center" android:orientation="vertical" android:id="@id/i0q" android:background="@color/color_recommend_item_bg" android:visibility="gone" android:layout_width="match_parent" android:layout_height="0.0dp" android:layout_marginLeft="@dimen/bg_" android:layout_marginTop="16.0dp" android:layout_marginRight="@dimen/bg_" android:layout_marginBottom="25.0dp" android:layout_marginStart="@dimen/bg_" android:layout_marginEnd="@dimen/bg_" app:a1d="hnz" app:a1x="hnz" app:a21="hnz" app:a26="@id/j2x" app:ado="7.5dp">
+            <TextView android:textSize="16.0sp" android:textColor="#98999a" android:gravity="center" android:id="@id/hie" android:layout_width="match_parent" android:layout_height="wrap_content" android:text="@string/f_9" app:a1d="hnz" app:a1x="hnz" app:a21="hnz" app:a27="hnz" />
+        </com.tencent.qqmusic.ui.RoundedConstraintLayout>
+        <include android:visibility="gone" android:layout_width="match_parent" android:layout_height="match_parent" android:layout_below="@id/jj0" app:a1x="hnz" app:a21="hnz" app:a26="@id/j2x" layout="@layout/c57" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</merge>

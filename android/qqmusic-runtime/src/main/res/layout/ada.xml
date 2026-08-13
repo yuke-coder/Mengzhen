@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout android:layout_width="match_parent" android:layout_height="wrap_content"
+  xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">
+    <TextView android:textSize="18.0dp" android:textColor="#ffffff" android:id="@id/mbc" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginLeft="20.0dp" android:layout_marginTop="17.0dp" android:text="颜色" app:a1x="hnz" app:a27="hnz" />
+    <androidx.constraintlayout.widget.ConstraintLayout android:id="@id/ajr" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="21.0dp" android:layout_marginRight="20.0dp" app:a21="hnz" app:a27="hnz">
+        <ImageView android:id="@id/ds1" android:paddingLeft="4.0dp" android:visibility="gone" android:layout_width="10.0dp" android:layout_height="10.0dp" android:src="@drawable/custom_player_item_header_enter" android:alpha="0.7" app:a1d="hnz" app:a21="hnz" app:a27="hnz" />
+        <TextView android:textSize="14.0dp" android:textColor="#ffffff" android:id="@id/mbb" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="" android:alpha="0.7" app:a20="@id/ds1" app:a27="hnz" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>

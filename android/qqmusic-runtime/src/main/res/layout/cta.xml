@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout android:layout_gravity="center_horizontal" android:orientation="horizontal" android:layout_width="wrap_content" android:layout_height="wrap_content"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <com.tencent.component.widget.AsyncEffectImageView android:id="@id/ltw" android:layout_width="50.0dp" android:layout_height="50.0dp" android:src="@drawable/together_stage_play_back_dark" />
+    <FrameLayout android:layout_width="wrap_content" android:layout_height="wrap_content">
+        <com.tencent.component.widget.AsyncEffectImageView android:id="@id/lty" android:visibility="gone" android:layout_width="50.0dp" android:layout_height="50.0dp" android:layout_marginLeft="43.0dp" android:layout_marginRight="43.0dp" android:src="@drawable/together_stage_play_pause_dark" />
+        <com.tencent.component.widget.AsyncEffectImageView android:id="@id/ltz" android:layout_width="50.0dp" android:layout_height="50.0dp" android:layout_marginLeft="43.0dp" android:layout_marginRight="43.0dp" android:src="@drawable/together_stage_play_resume_black" />
+    </FrameLayout>
+    <com.tencent.component.widget.AsyncEffectImageView android:id="@id/ltx" android:layout_width="50.0dp" android:layout_height="50.0dp" android:src="@drawable/together_stage_play_next_dark" />
+</LinearLayout>

@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout android:orientation="vertical" android:layout_width="match_parent" android:layout_height="match_parent"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <ImageView android:id="@id/ecp" android:layout_width="match_parent" android:layout_height="match_parent" android:src="@drawable/main_bg" android:scaleType="centerCrop" />
+    <fragment android:name="com.tencent.qqmusic.fragment.comment.EmojiPanelFragment" android:id="@id/c6t" android:layout_width="match_parent" android:layout_height="match_parent" />
+</FrameLayout>

@@ -41,7 +41,7 @@ import java.util.concurrent.TimeUnit
  * - GET  /api/audio/signed-url?key=xxx
  * - POST /api/audio/upload-ticket { fileName, fileSize, mimeType }
  * - POST /api/audio/upload-complete { fileKey, fileName, fileSize, mimeType }
- * - POST /api/audio/save-to-library { fileKey }
+     * - POST/DELETE /api/audio/save-to-library { fileKey }
  * - POST /api/feedback
  */
 class ApiClient private constructor(
@@ -167,6 +167,7 @@ class ApiClient private constructor(
         client.newCall(req).execute().use { resp ->
             val body = resp.body?.string() ?: "{}"
             val json = try { JSONObject(body) } catch (e: Exception) { JSONObject().put("success", false).put("error", "解析响应失败") }
+            json.put("httpStatus", resp.code)
             if (!resp.isSuccessful && !json.has("success")) {
                 json.put("success", false)
                 json.put("error", json.optString("error", "请求失败 (${resp.code})"))
@@ -236,6 +237,12 @@ class ApiClient private constructor(
     fun saveToLibrary(fileKey: String): JSONObject {
         return post("/api/audio/save-to-library", JSONObject()
             .put("fileKey", fileKey))
+    }
+
+    fun removeFromLibrary(fileKey: String): JSONObject {
+        return delete(
+            "/api/audio/save-to-library?fileKey=${java.net.URLEncoder.encode(fileKey, "UTF-8")}",
+        )
     }
 
     /**
@@ -317,6 +324,7 @@ class ApiClient private constructor(
         bio: String? = null,
         signature: String? = null,
         avatarUrl: String? = null,
+        backgroundUrl: String? = null,
     ): JSONObject {
         val body = JSONObject()
         username?.let { body.put("username", it) }
@@ -327,6 +335,7 @@ class ApiClient private constructor(
         bio?.let { body.put("bio", it) }
         signature?.let { body.put("signature", it) }
         avatarUrl?.let { body.put("avatar_url", it) }
+        backgroundUrl?.let { body.put("background_url", it) }
         return put("/api/profile", body)
     }
 
@@ -375,6 +384,33 @@ class ApiClient private constructor(
             .post(multipart)
             .build()
         return execute(req)
+    }
+
+    fun uploadProfileBackground(file: File, mimeType: String): JSONObject {
+        val ticket = post(
+            "/api/profile/background",
+            JSONObject()
+                .put("fileSize", file.length())
+                .put("mimeType", mimeType),
+        )
+        if (!ticket.optBoolean("success")) return ticket
+
+        val fileKey = ticket.optString("file_key")
+        val signedUploadUrl = ticket.optString("signed_upload_url")
+        if (fileKey.isBlank() || signedUploadUrl.isBlank()) {
+            return JSONObject()
+                .put("success", false)
+                .put("error", "背景图上传凭证无效")
+        }
+
+        uploadFileToSignedUrl(signedUploadUrl, file, mimeType)
+        return put(
+            "/api/profile/background",
+            JSONObject()
+                .put("fileKey", fileKey)
+                .put("fileSize", file.length())
+                .put("mimeType", mimeType),
+        )
     }
 
     fun resetAvatar(gender: String): JSONObject {

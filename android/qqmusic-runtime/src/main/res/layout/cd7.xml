@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout android:layout_width="match_parent" android:layout_height="match_parent"
+  xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">
+    <FrameLayout android:id="@id/h06" android:layout_width="match_parent" android:layout_height="wrap_content">
+        <include android:id="@id/kj3" android:layout_width="match_parent" android:layout_height="@dimen/cau" layout="@layout/mu" />
+    </FrameLayout>
+    <androidx.recyclerview.widget.RecyclerView android:id="@id/j2u" android:paddingBottom="@dimen/ait" android:layout_width="match_parent" android:layout_height="match_parent" android:layout_below="@id/h06" android:overScrollMode="never" />
+    <include android:id="@id/h04" android:visibility="gone" android:layout_width="match_parent" android:layout_height="match_parent" android:layout_below="@id/h06" layout="@layout/mj" />
+    <ViewStub android:id="@id/h07" android:layout="@layout/mh" android:layout_width="match_parent" android:layout_height="match_parent" android:layout_below="@id/h06" />
+    <ViewStub android:id="@id/h09" android:layout="@layout/a_c" android:layout_width="match_parent" android:layout_height="match_parent" android:layout_below="@id/h06" />
+    <ViewStub android:id="@id/h08" android:layout="@layout/vi" android:layout_width="match_parent" android:layout_height="match_parent" android:layout_below="@id/h06" />
+    <com.airbnb.lottie.LottieAnimationView android:id="@id/iog" android:visibility="gone" android:layout_width="50.0dp" android:layout_height="50.0dp" android:layout_marginRight="10.0dp" android:layout_centerInParent="true" app:a4n="true" />
+    <LinearLayout android:orientation="horizontal" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginBottom="35.0dp" android:layout_alignParentBottom="true" android:layout_centerHorizontal="true">
+        <com.airbnb.lottie.LottieAnimationView android:layout_gravity="center_vertical" android:id="@id/fz5" android:visibility="gone" android:layout_width="30.0dp" android:layout_height="30.0dp" app:a4n="true" />
+        <TextView android:layout_gravity="center_vertical" android:id="@id/ioj" android:visibility="gone" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/g51" />
+    </LinearLayout>
+</RelativeLayout>

@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout android:id="@id/aav" android:layout_width="70.0dp" android:layout_height="75.0dp" android:layout_marginEnd="5.0dp"
+  xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">
+    <ImageView android:id="@id/aaw" android:layout_width="56.0dp" android:layout_height="72.0dp" android:src="@drawable/mlive_boss_vehicle" app:a1d="hnz" app:a1x="hnz" app:a21="hnz" />
+    <com.tme.qqmusic.widget.base.view.GlideImageView android:id="@id/aap" android:layout_width="30.0dp" android:layout_height="30.0dp" android:layout_marginTop="14.0dp" app:a1x="hnz" app:a21="hnz" app:a27="hnz" />
+    <ImageView android:id="@id/aas" android:layout_width="20.0dp" android:layout_height="16.0dp" android:src="@drawable/mlive_boss_crown" android:scaleType="fitCenter" app:a1x="@id/aap" app:a21="@id/aap" app:a27="hnz" />
+    <androidx.constraintlayout.widget.ConstraintLayout android:gravity="center" android:orientation="vertical" android:background="@drawable/mlive_boss_vehicle_bg" android:layout_width="65.0dp" android:layout_height="25.0dp" android:layout_marginTop="45.0dp" app:a1x="hnz" app:a21="hnz" app:a27="hnz">
+        <com.tme.qqmusic.widget.base.view.MarqueeHorizontalView android:id="@id/mef" android:layout_width="wrap_content" android:layout_height="13.0dp" android:layout_marginStart="3.0dp" android:layout_marginEnd="3.0dp" app:a1x="hnz" app:a21="hnz" app:a27="hnz" />
+        <com.tme.qqmusic.widget.base.view.MarqueeHorizontalView android:id="@id/mji" android:layout_width="wrap_content" android:layout_height="13.0dp" android:layout_marginStart="3.0dp" android:layout_marginEnd="3.0dp" app:a1d="hnz" app:a1x="hnz" app:a21="hnz" />
+        <View android:id="@id/aau" android:background="@drawable/mlive_boss_line" android:layout_width="65.0dp" android:layout_height="0.5dp" app:a1x="hnz" app:a21="hnz" app:a27="hnz" />
+        <View android:id="@id/aat" android:background="@drawable/mlive_boss_line" android:layout_width="65.0dp" android:layout_height="0.5dp" app:a1d="hnz" app:a1x="hnz" app:a21="hnz" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+    <ImageView android:id="@id/aaq" android:layout_width="12.0dp" android:layout_height="12.0dp" android:src="@drawable/mlive_boss_close" app:a21="hnz" app:a27="hnz" />
+</androidx.constraintlayout.widget.ConstraintLayout>

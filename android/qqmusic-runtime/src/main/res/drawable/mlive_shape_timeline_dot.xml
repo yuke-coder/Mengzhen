@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<shape android:shape="oval" android:useLevel="false"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <solid android:color="@color/mlive_turquoise_blue" />
+    <size android:height="10.0dp" android:width="10.0dp" />
+    <padding android:left="1.0dp" android:top="2.0dp" android:right="1.0dp" android:bottom="2.0dp" />
+</shape>

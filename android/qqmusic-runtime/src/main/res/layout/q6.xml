@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout android:layout_gravity="bottom" android:background="#ff303030" android:layout_width="match_parent" android:layout_height="match_parent"
+  xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">
+    <androidx.constraintlayout.widget.Guideline android:orientation="horizontal" android:id="@id/da5" android:layout_width="wrap_content" android:layout_height="wrap_content" app:a1n="0.09" />
+    <androidx.constraintlayout.widget.Guideline android:orientation="horizontal" android:id="@id/da6" android:layout_width="wrap_content" android:layout_height="wrap_content" app:a1n="0.217" />
+    <androidx.constraintlayout.widget.Guideline android:orientation="horizontal" android:id="@id/da7" android:layout_width="wrap_content" android:layout_height="wrap_content" app:a1n="0.403" />
+    <androidx.constraintlayout.widget.Guideline android:orientation="horizontal" android:id="@id/da8" android:layout_width="wrap_content" android:layout_height="wrap_content" app:a1n="0.531" />
+    <androidx.constraintlayout.widget.Guideline android:orientation="vertical" android:id="@id/n1i" android:layout_width="wrap_content" android:layout_height="wrap_content" app:a1n="0.067" />
+    <androidx.constraintlayout.widget.Guideline android:orientation="vertical" android:id="@id/n1j" android:layout_width="wrap_content" android:layout_height="wrap_content" app:a1n="0.075" />
+    <androidx.constraintlayout.widget.Guideline android:orientation="vertical" android:id="@id/n1k" android:layout_width="wrap_content" android:layout_height="wrap_content" app:a1n="0.293" />
+    <androidx.constraintlayout.widget.Guideline android:orientation="vertical" android:id="@id/n1l" android:layout_width="wrap_content" android:layout_height="wrap_content" app:a1n="0.57" />
+    <androidx.constraintlayout.widget.Guideline android:orientation="vertical" android:id="@id/n1m" android:layout_width="wrap_content" android:layout_height="wrap_content" app:a1n="0.575" />
+    <androidx.constraintlayout.widget.Guideline android:orientation="vertical" android:id="@id/n1n" android:layout_width="wrap_content" android:layout_height="wrap_content" app:a1n="0.719" />
+    <androidx.constraintlayout.widget.Guideline android:orientation="vertical" android:id="@id/n1o" android:layout_width="wrap_content" android:layout_height="wrap_content" app:a1n="0.855" />
+    <TextView android:textSize="14.0sp" android:textColor="@android:color/white" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/cmj" app:a1y="@id/n1i" app:a26="@id/da5" />
+    <TextView android:textSize="14.0sp" android:textColor="@android:color/white" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/cml" app:a1y="@id/n1l" app:a26="@id/da5" />
+    <TextView android:textSize="14.0sp" android:textColor="@android:color/white" android:visibility="gone" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/cmk" app:a1y="@id/n1i" app:a26="@id/da7" />
+    <TextView android:textSize="14.0sp" android:textColor="@android:color/white" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/cmi" app:a1y="@id/n1i" app:a26="@id/da7" />
+    <ImageView android:id="@id/e0l" android:background="@color/white" android:layout_width="24.0dp" android:layout_height="24.0dp" android:src="@drawable/ic_text_config_unlimited_dark" app:a1y="@id/n1j" app:a26="@id/da6" />
+    <ImageView android:id="@id/e0m" android:layout_width="25.0dp" android:layout_height="25.0dp" android:src="@drawable/bg_lp_text_config_selected" app:a1y="@id/n1j" app:a26="@id/da6" />
+    <ImageView android:id="@id/e0a" android:background="#2a6776" android:layout_width="24.0dp" android:layout_height="24.0dp" android:src="@drawable/ic_text_config_unlimited_light" app:a1y="@id/n1k" app:a26="@id/da6" />
+    <ImageView android:id="@id/e0b" android:layout_width="25.0dp" android:layout_height="25.0dp" android:src="@drawable/bg_lp_text_config_selected" app:a1y="@id/n1k" app:a26="@id/da6" />
+    <ImageView android:id="@id/e09" android:layout_width="wrap_content" android:layout_height="wrap_content" android:src="@drawable/ic_text_config_big" app:a1y="@id/n1m" app:a26="@id/da6" />
+    <ImageView android:id="@id/e0_" android:layout_width="25.0dp" android:layout_height="25.0dp" android:src="@drawable/bg_lp_text_config_selected" app:a1y="@id/n1m" app:a26="@id/da6" />
+    <ImageView android:id="@id/e0d" android:layout_width="wrap_content" android:layout_height="wrap_content" android:src="@drawable/ic_text_config_middle" app:a1y="@id/n1n" app:a26="@id/da6" />
+    <ImageView android:id="@id/e0e" android:layout_width="25.0dp" android:layout_height="25.0dp" android:src="@drawable/bg_lp_text_config_selected" app:a1y="@id/n1n" app:a26="@id/da6" />
+    <ImageView android:id="@id/e0j" android:layout_width="wrap_content" android:layout_height="wrap_content" android:src="@drawable/ic_text_config_small" app:a1y="@id/n1o" app:a26="@id/da6" />
+    <ImageView android:id="@id/e0k" android:layout_width="25.0dp" android:layout_height="25.0dp" android:src="@drawable/bg_lp_text_config_selected" app:a1y="@id/n1o" app:a26="@id/da6" />
+    <ImageView android:id="@id/e0f" android:visibility="gone" android:layout_width="wrap_content" android:layout_height="wrap_content" android:src="@drawable/ic_text_config_normal" app:a1y="@id/n1j" app:a26="@id/da8" />
+    <ImageView android:id="@id/e0g" android:visibility="gone" android:layout_width="25.0dp" android:layout_height="25.0dp" android:src="@drawable/bg_lp_text_config_selected" app:a1y="@id/n1j" app:a26="@id/da8" />
+    <ImageView android:id="@id/e0h" android:visibility="gone" android:layout_width="wrap_content" android:layout_height="wrap_content" android:src="@drawable/ic_text_config_shadow" app:a1y="@id/n1k" app:a26="@id/da8" />
+    <ImageView android:id="@id/e0i" android:visibility="gone" android:layout_width="25.0dp" android:layout_height="25.0dp" android:src="@drawable/bg_lp_text_config_selected" app:a1y="@id/n1k" app:a26="@id/da8" />
+    <ImageView android:id="@id/e05" android:layout_width="wrap_content" android:layout_height="wrap_content" android:src="@drawable/ic_text_config_align_left" app:a1y="@id/n1j" app:a26="@id/da8" />
+    <ImageView android:id="@id/e06" android:visibility="gone" android:layout_width="25.0dp" android:layout_height="25.0dp" android:src="@drawable/bg_lp_text_config_selected" app:a1y="@id/n1j" app:a26="@id/da8" />
+    <ImageView android:id="@id/e03" android:layout_width="wrap_content" android:layout_height="wrap_content" android:src="@drawable/ic_text_config_align_center" app:a1y="@id/n1k" app:a26="@id/da8" />
+    <ImageView android:id="@id/e04" android:layout_width="25.0dp" android:layout_height="25.0dp" android:src="@drawable/bg_lp_text_config_selected" app:a1y="@id/n1k" app:a26="@id/da8" />
+    <ImageView android:id="@id/e07" android:visibility="gone" android:layout_width="wrap_content" android:layout_height="wrap_content" app:a1y="@id/n1o" app:a26="@id/da8" />
+    <ImageView android:id="@id/e08" android:layout_width="25.0dp" android:layout_height="25.0dp" app:a1y="@id/n1o" app:a26="@id/da8" />
+    <TextView android:textSize="16.0sp" android:textColor="@android:color/white" android:gravity="center" android:id="@id/e0c" android:layout_width="match_parent" android:layout_height="50.0dp" android:text="@string/a_6" app:a1d="hnz" />
+    <View android:background="#19ffffff" android:layout_width="match_parent" android:layout_height="0.5dp" app:a1e="@id/e0c" />
+</androidx.constraintlayout.widget.ConstraintLayout>

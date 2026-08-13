@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout android:layout_width="match_parent" android:layout_height="wrap_content"
+  xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">
+    <androidx.appcompat.widget.AppCompatTextView android:textSize="15.0dp" android:textStyle="bold" android:textColor="@color/white" android:gravity="center_vertical" android:id="@id/mat" android:layout_width="wrap_content" android:layout_height="wrap_content" android:includeFontPadding="false" app:a1x="hnz" app:a27="hnz" />
+    <androidx.appcompat.widget.AppCompatTextView android:textSize="25.0dp" android:textStyle="bold" android:textColor="@color/white" android:gravity="center_vertical" android:id="@id/mas" android:layout_width="wrap_content" android:layout_height="42.0dp" android:layout_marginTop="16.0dp" android:includeFontPadding="false" android:alpha="0.08" app:a1x="@id/mat" app:a27="hnz" />
+    <androidx.recyclerview.widget.RecyclerView android:id="@id/jey" android:layout_width="0.0dp" android:layout_height="wrap_content" android:layout_marginLeft="160.5dp" android:layout_marginTop="5.0dp" android:overScrollMode="never" android:nestedScrollingEnabled="false" app:a1x="hnz" app:a21="hnz" app:a27="hnz" />
+</androidx.constraintlayout.widget.ConstraintLayout>

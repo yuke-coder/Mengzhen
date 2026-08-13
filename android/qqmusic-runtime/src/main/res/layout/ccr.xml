@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout android:orientation="vertical" android:background="@android:color/white" android:layout_width="match_parent" android:layout_height="wrap_content"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <RelativeLayout android:id="@id/jfq" android:background="@color/white" android:layout_width="match_parent" android:layout_height="48.0dp">
+        <TextView android:textSize="16.0dp" android:textColor="#999999" android:gravity="center" android:id="@id/m63" android:layout_width="wrap_content" android:layout_height="match_parent" android:text="取消" android:paddingStart="16.0dp" android:paddingEnd="16.0dp" android:layout_alignParentStart="true" />
+        <TextView android:textSize="17.0dp" android:textStyle="bold" android:textColor="#333333" android:gravity="center" android:id="@id/mpc" android:layout_width="wrap_content" android:layout_height="match_parent" android:text="选择时间" android:layout_centerInParent="true" />
+        <TextView android:textSize="16.0dp" android:textColor="#31c27c" android:gravity="center" android:id="@id/m6v" android:layout_width="wrap_content" android:layout_height="match_parent" android:text="确定" android:paddingStart="16.0dp" android:paddingEnd="16.0dp" android:layout_alignParentEnd="true" />
+    </RelativeLayout>
+    <View android:background="#eeeeee" android:layout_width="match_parent" android:layout_height="0.5dp" />
+    <LinearLayout android:gravity="center" android:orientation="horizontal" android:id="@id/ns5" android:background="@android:color/white" android:layout_width="match_parent" android:layout_height="220.0dp">
+        <com.tencent.qqmusic.common.pick.wheelview.WheelView android:id="@id/ns8" android:layout_width="90.0dp" android:layout_height="match_parent" />
+        <View android:layout_width="15.0dp" android:layout_height="match_parent" />
+        <com.tencent.qqmusic.common.pick.wheelview.WheelView android:id="@id/ns7" android:layout_width="55.0dp" android:layout_height="match_parent" />
+        <View android:layout_width="15.0dp" android:layout_height="match_parent" />
+        <com.tencent.qqmusic.common.pick.wheelview.WheelView android:id="@id/ns6" android:layout_width="55.0dp" android:layout_height="match_parent" />
+    </LinearLayout>
+    <View android:background="@android:color/white" android:layout_width="match_parent" android:layout_height="20.0dp" />
+</LinearLayout>

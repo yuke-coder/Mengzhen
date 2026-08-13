@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout android:orientation="vertical" android:background="@drawable/main_bg" android:layout_width="match_parent" android:layout_height="match_parent"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <include android:id="@id/c13" android:layout_width="match_parent" android:layout_height="@dimen/cau" layout="@layout/mu" />
+    <RelativeLayout android:id="@id/c10" android:background="@drawable/default_skin_mask_color_bg" android:paddingTop="30.0dp" android:layout_width="match_parent" android:layout_height="343.0dp" android:layout_below="@id/c13">
+        <EditText android:textSize="14.0sp" android:textColor="@color/skin_text_main_color" android:textColorHint="@color/skin_text_sub_color" android:gravity="left|top" android:id="@id/c0z" android:background="@color/transparent" android:layout_width="match_parent" android:layout_height="match_parent" android:layout_marginLeft="20.0dp" android:layout_marginRight="20.0dp" android:layout_marginBottom="20.0dp" android:hint="@string/b08" android:singleLine="false" android:maxLength="10000" android:imeOptions="actionDone" />
+        <ImageView android:id="@id/dpx" android:layout_width="16.0dp" android:layout_height="16.0dp" android:layout_marginTop="20.0dp" android:layout_marginRight="16.0dp" android:layout_marginBottom="16.0dp" android:src="@drawable/icon_edit_folder_detail_text_clear" android:layout_alignParentRight="true" android:layout_alignParentBottom="true" />
+    </RelativeLayout>
+    <TextView android:textSize="12.0sp" android:textColor="#ffa2a5a8" android:id="@id/c11" android:paddingRight="15.0dp" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="12.0dp" android:layout_below="@id/c10" android:layout_alignParentRight="true" />
+</RelativeLayout>

@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout android:id="@id/jt3" android:layout_width="match_parent" android:layout_height="match_parent" android:minHeight="300.0dp" android:layout_centerInParent="true"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <LinearLayout android:gravity="center_horizontal" android:orientation="vertical" android:id="@id/f3n" android:layout_width="match_parent" android:layout_height="wrap_content">
+        <ImageView android:id="@id/hgr" android:background="@drawable/error_no_net" android:layout_width="@dimen/list_empty_image_length" android:layout_height="@dimen/list_empty_image_length" />
+        <com.tencent.qqmusic.bigfont.view.BigFontTextView android:textSize="20.0dp" android:textStyle="bold" android:textColor="@color/black" android:gravity="center_horizontal" android:id="@id/hgs" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginTop="10.0dp" android:text="@string/not_net_title" android:singleLine="true" />
+        <com.tencent.qqmusic.bigfont.view.BigFontTextView android:textSize="@dimen/ht" android:textColor="@drawable/skin_action_button_text" android:id="@id/hgq" android:background="@drawable/big_font_empty_view_button_selector" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="8.0dp" android:text="@string/not_net_desc" android:maxLines="2" android:includeFontPadding="false" />
+    </LinearLayout>
+</RelativeLayout>

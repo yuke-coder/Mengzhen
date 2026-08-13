@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout android:layout_width="77.0dp" android:layout_height="wrap_content"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <ImageView android:layout_width="40.0dp" android:layout_height="40.0dp" android:layout_marginTop="8.0dp" android:src="@drawable/live_home_fast_match_bg" android:layout_centerHorizontal="true" />
+    <ImageView android:id="@id/f96" android:layout_width="56.0dp" android:layout_height="56.0dp" android:src="@drawable/live_home_fast_match_frame" android:layout_centerHorizontal="true" />
+    <com.tme.mlive.ui.custom.SequenceImageView android:id="@id/f97" android:layout_width="40.0dp" android:layout_height="40.0dp" android:layout_marginTop="8.0dp" android:layout_centerHorizontal="true" />
+    <TextView android:textSize="12.0dp" android:textColor="@color/skin_text_sub_color" android:ellipsize="end" android:gravity="center" android:id="@id/f98" android:layout_width="match_parent" android:layout_height="wrap_content" android:text="@string/c4q" android:singleLine="true" android:layout_below="@id/f96" />
+</RelativeLayout>

@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout android:orientation="vertical" android:background="@color/white" android:layout_width="match_parent" android:layout_height="match_parent"
+  xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">
+    <TextView android:textStyle="bold" android:textColor="@color/black" android:gravity="center" android:id="@id/lg0" android:paddingTop="@dimen/c_q" android:layout_width="match_parent" android:layout_height="@dimen/cau" android:text="主题皮肤调试入口" />
+    <LinearLayout android:orientation="horizontal" android:padding="10.0dp" android:layout_width="match_parent" android:layout_height="wrap_content">
+        <TextView android:textColor="@color/black" android:layout_gravity="center_vertical" android:id="@id/k_a" android:layout_width="0.0dp" android:layout_height="wrap_content" android:text="主题皮肤详细日志开关" android:layout_weight="1.0" />
+        <ImageView android:layout_gravity="center_vertical" android:id="@id/k__" android:layout_width="55.0dp" android:layout_height="33.0dp" android:layout_marginRight="11.0dp" android:src="@drawable/switch_off" android:scaleType="centerCrop" />
+    </LinearLayout>
+    <androidx.constraintlayout.widget.ConstraintLayout android:orientation="horizontal" android:id="@id/awm" android:padding="10.0dp" android:layout_width="match_parent" android:layout_height="wrap_content">
+        <EditText android:id="@id/k_b" android:layout_width="0.0dp" android:layout_height="wrap_content" android:hint="输入要切换的皮肤id" android:layout_weight="1.0" app:a1k="@id/awn" app:a23="hnz" app:a27="hnz" />
+        <Button android:id="@id/awn" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="换肤" android:paddingStart="10.0dp" android:paddingEnd="10.0dp" app:a1j="hnz" app:a22="@id/k_b" app:a27="hnz" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+    <androidx.constraintlayout.widget.ConstraintLayout android:orientation="horizontal" android:id="@id/b5_" android:padding="10.0dp" android:layout_width="match_parent" android:layout_height="wrap_content">
+        <EditText android:id="@id/b5d" android:layout_width="0.0dp" android:layout_height="wrap_content" android:hint="输入颜色ID" android:layout_weight="1.0" app:a1k="@id/b5a" app:a23="hnz" app:a27="hnz" />
+        <Button android:id="@id/b5a" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="校验颜色" android:paddingStart="10.0dp" android:paddingEnd="10.0dp" app:a1j="hnz" app:a22="@id/b5d" app:a27="hnz" />
+        <TextView android:gravity="center" android:id="@id/b5b" android:layout_width="0.0dp" android:layout_height="wrap_content" android:layout_marginTop="10.0dp" android:text="展示颜色" app:a1k="@id/b5c" app:a23="hnz" app:a26="@id/b5a" />
+        <TextView android:gravity="center" android:id="@id/b5c" android:layout_width="0.0dp" android:layout_height="wrap_content" android:text="正确颜色" app:a1j="hnz" app:a22="@id/b5b" app:a27="@id/b5b" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+    <androidx.constraintlayout.widget.ConstraintLayout android:orientation="horizontal" android:id="@id/bxo" android:padding="10.0dp" android:layout_width="match_parent" android:layout_height="wrap_content">
+        <EditText android:id="@id/bxs" android:layout_width="0.0dp" android:layout_height="wrap_content" android:hint="输入图片ID" android:layout_weight="1.0" app:a1k="@id/bxp" app:a23="hnz" app:a27="hnz" />
+        <Button android:id="@id/bxp" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="校验图片" android:paddingStart="10.0dp" android:paddingEnd="10.0dp" app:a1j="hnz" app:a22="@id/bxs" app:a27="hnz" />
+        <ImageView android:id="@id/bxq" android:layout_width="0.0dp" android:layout_height="0.0dp" app:a1i="1:1" app:a1k="@id/bxr" app:a23="hnz" app:a26="@id/bxp" />
+        <ImageView android:id="@id/bxr" android:layout_width="0.0dp" android:layout_height="0.0dp" app:a1i="1:1" app:a1j="hnz" app:a22="@id/bxq" app:a26="@id/bxp" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</LinearLayout>

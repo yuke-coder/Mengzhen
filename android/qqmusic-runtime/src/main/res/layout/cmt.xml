@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout android:background="@drawable/skin_floor_img" android:layout_width="match_parent" android:layout_height="match_parent"
+  xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">
+    <View android:id="@id/dbq" android:layout_width="match_parent" android:layout_height="400.0dp" app:a1x="hnz" app:a27="hnz" />
+    <View android:id="@id/a6k" android:layout_width="match_parent" android:layout_height="@dimen/a0d" app:a1d="@id/dbq" app:a1x="hnz" app:a21="hnz" />
+    <ImageView android:id="@id/dvp" android:layout_width="match_parent" android:layout_height="160.0dp" android:layout_marginLeft="16.0dp" android:layout_marginTop="28.0dp" android:layout_marginRight="16.0dp" android:src="@drawable/homepage_info_card_bg" app:a1x="hnz" app:a27="@id/a6k" />
+    <View android:id="@id/a3c" android:background="@drawable/homepage_skeleton_bg_circle" android:layout_width="84.0dp" android:layout_height="84.0dp" android:layout_marginLeft="32.0dp" android:layout_marginTop="42.0dp" app:a1e="@id/dvp" app:a1x="hnz" app:a27="@id/dvp" />
+    <View android:id="@id/k9t" android:background="@drawable/homepage_skeleton_bg_radius15" android:layout_width="90.0dp" android:layout_height="30.0dp" android:layout_marginTop="16.0dp" android:layout_marginRight="16.0dp" app:a21="@id/dvp" app:a27="@id/dvp" />
+    <View android:id="@id/k9u" android:background="@drawable/homepage_skeleton_bg" android:layout_width="110.0dp" android:layout_height="20.0dp" android:layout_marginTop="17.0dp" app:a1x="@id/a3c" app:a26="@id/k9t" />
+    <View android:id="@id/k9z" android:background="@drawable/homepage_skeleton_bg" android:layout_width="170.0dp" android:layout_height="14.0dp" android:layout_marginTop="8.0dp" app:a1x="@id/a3c" app:a26="@id/k9u" />
+    <LinearLayout android:orientation="horizontal" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="18.0dp" app:a1x="@id/a3c" app:a26="@id/k9z">
+        <View android:background="@drawable/homepage_skeleton_bg" android:layout_width="50.0dp" android:layout_height="20.0dp" />
+        <View android:background="@drawable/homepage_skeleton_bg" android:layout_width="50.0dp" android:layout_height="20.0dp" android:layout_marginLeft="25.0dp" />
+        <View android:background="@drawable/homepage_skeleton_bg" android:layout_width="50.0dp" android:layout_height="20.0dp" android:layout_marginLeft="25.0dp" />
+        <View android:background="@drawable/homepage_skeleton_bg" android:layout_width="50.0dp" android:layout_height="20.0dp" android:layout_marginLeft="25.0dp" />
+    </LinearLayout>
+    <View android:id="@id/k9v" android:background="@drawable/homepage_skeleton_bg" android:layout_width="110.0dp" android:layout_height="22.0dp" android:layout_marginTop="35.0dp" app:a1x="@id/dvp" app:a26="@id/dvp" />
+    <View android:id="@id/k9w" android:background="@drawable/homepage_skeleton_bg_radius15" android:layout_width="172.0dp" android:layout_height="140.0dp" android:layout_marginTop="14.0dp" app:a1x="@id/dvp" app:a26="@id/k9v" />
+    <View android:background="@drawable/homepage_skeleton_bg_radius15" android:layout_width="172.0dp" android:layout_height="140.0dp" android:layout_marginTop="14.0dp" app:a21="@id/dvp" app:a26="@id/k9v" />
+    <View android:id="@id/k9x" android:background="@drawable/homepage_skeleton_bg" android:layout_width="110.0dp" android:layout_height="22.0dp" android:layout_marginTop="35.0dp" app:a1x="@id/dvp" app:a26="@id/k9w" />
+    <View android:id="@id/k9y" android:background="@drawable/homepage_skeleton_bg" android:layout_width="60.0dp" android:layout_height="60.0dp" android:layout_marginTop="14.0dp" app:a1x="@id/dvp" app:a26="@id/k9x" />
+    <LinearLayout android:orientation="vertical" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginLeft="15.0dp" app:a1d="@id/k9y" app:a1y="@id/k9y" app:a27="@id/k9y">
+        <View android:background="@drawable/homepage_skeleton_bg" android:layout_width="110.0dp" android:layout_height="21.0dp" />
+        <View android:background="@drawable/homepage_skeleton_bg" android:layout_width="234.0dp" android:layout_height="14.0dp" android:layout_marginTop="3.0dp" />
+    </LinearLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>

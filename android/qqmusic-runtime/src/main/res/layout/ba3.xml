@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout android:theme="@style/me" android:layout_gravity="bottom" android:background="@color/transparent" android:layout_width="match_parent" android:layout_height="@dimen/aln"
+  xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">
+    <FrameLayout android:layout_gravity="bottom" android:background="@drawable/mlive_bg_chosen_fragment_bg" android:layout_width="match_parent" android:layout_height="@dimen/aln">
+        <TextView android:textSize="16.0sp" android:textColor="@color/white" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="16.0dp" android:text="@string/cyb" android:contentDescription="@string/cyb" android:layout_marginStart="16.0dp" />
+        <TextView android:textSize="16.0sp" android:textColor="@color/mlive_background_chosen_photo_button" android:layout_gravity="right" android:id="@id/mlive_fragment_bg_chosen_photo" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="16.0dp" android:text="@string/cya" android:contentDescription="@string/cya" android:layout_marginEnd="16.0dp" />
+        <androidx.constraintlayout.widget.ConstraintLayout android:id="@id/mlive_ai_bg_tips_container" android:background="@drawable/mlive_ai_bg_button" android:visibility="visible" android:layout_width="match_parent" android:layout_height="27.0dp" android:layout_marginTop="58.0dp" android:layout_marginStart="16.0dp" android:layout_marginEnd="16.0dp">
+            <TextView android:textSize="14.0sp" android:textColor="@color/white" android:id="@id/mlive_ai_bg_tips_text" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/cy9" android:layout_marginStart="10.0dp" app:a1d="hnz" app:a23="hnz" app:a27="hnz" />
+            <ImageView android:id="@id/mlive_ai_bg_tips_img" android:layout_width="10.0dp" android:layout_height="10.0dp" android:src="@drawable/mlive_ai_bg_tips" android:layout_marginStart="3.0dp" app:a1d="hnz" app:a22="@id/mlive_ai_bg_tips_text" app:a27="hnz" />
+            <LinearLayout android:gravity="right" android:id="@id/mlive_ai_bg_btn_container" android:background="@drawable/mlive_privilege_shout_btn_enable" android:focusable="true" android:clickable="true" android:layout_width="30.0dp" android:layout_height="17.0dp" android:scaleType="fitCenter" android:layout_marginEnd="5.0dp" app:a1d="hnz" app:a1j="hnz" app:a27="hnz">
+                <ImageButton android:layout_gravity="center_vertical" android:id="@id/mlive_ai_bg_btn" android:background="@drawable/mlive_privilege_shout_btn" android:focusable="true" android:clickable="true" android:layout_width="14.0dp" android:layout_height="14.0dp" android:layout_marginLeft="2.0dp" android:layout_marginRight="2.0dp" android:layout_marginHorizontal="2.0dp" />
+            </LinearLayout>
+        </androidx.constraintlayout.widget.ConstraintLayout>
+        <GridView android:id="@id/mlive_fragment_bg_chosen_view" android:scrollbars="none" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="100.0dp" android:horizontalSpacing="5.0dp" android:verticalSpacing="5.0dp" android:numColumns="3" android:layout_marginStart="16.0dp" android:layout_marginEnd="16.0dp" />
+    </FrameLayout>
+    <FrameLayout android:id="@id/mlive_bg_chosen_item_error" android:visibility="gone" android:layout_width="match_parent" android:layout_height="match_parent">
+        <com.tme.mlive.ui.custom.song.LiveSongEmptyRefreshView android:layout_gravity="center" android:id="@id/mlive_bg_load_error_view" android:layout_width="wrap_content" android:layout_height="wrap_content" />
+        <TextView android:textSize="16.0sp" android:textColor="@color/white" android:gravity="center" android:layout_gravity="center|bottom" android:id="@id/mlive_bg_error_reload" android:background="@drawable/mlive_bg_chosen_item_error_btn_bg" android:layout_width="154.0dp" android:layout_height="40.0dp" android:text="@string/cyw" />
+    </FrameLayout>
+</FrameLayout>

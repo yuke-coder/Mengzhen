@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout android:id="@id/ibr" android:layout_width="match_parent" android:layout_height="match_parent"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <ImageButton android:id="@id/h4p" android:background="@drawable/mv_action_not_locking" android:focusable="true" android:visibility="gone" android:clickable="true" android:layout_width="29.0dp" android:layout_height="29.0dp" android:layout_marginRight="57.0dp" android:layout_centerVertical="true" android:contentDescription="@string/ehv" android:layout_alignParentEnd="true" />
+</RelativeLayout>

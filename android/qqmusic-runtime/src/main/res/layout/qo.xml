@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout android:orientation="vertical" android:background="@color/video_poster_player_other_dialog_bg" android:layout_width="match_parent" android:layout_height="wrap_content"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <LinearLayout android:orientation="horizontal" android:id="@id/bqf" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginTop="12.0dp">
+        <TextView android:textSize="16.0sp" android:textColor="@color/white" android:layout_gravity="bottom" android:id="@id/bqe" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/iq3" android:includeFontPadding="false" />
+        <TextView android:textSize="10.0sp" android:textColor="@color/folder_theme_text_color" android:layout_gravity="bottom" android:id="@id/bqd" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginLeft="6.0dp" android:text="@string/iq4" android:includeFontPadding="false" />
+    </LinearLayout>
+    <HorizontalScrollView android:background="@color/video_poster_player_other_dialog_bg" android:scrollbars="none" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginTop="12.0dp" android:layout_marginBottom="12.0dp">
+        <LinearLayout android:gravity="center_vertical" android:orientation="horizontal" android:id="@id/bqb" android:layout_width="wrap_content" android:layout_height="wrap_content" />
+    </HorizontalScrollView>
+    <ImageView android:id="@id/bqc" android:layout_width="match_parent" android:layout_height="@dimen/cdx" android:layout_marginBottom="10.0dp" android:src="@color/video_poster_player_select_video_line_bg" />
+    <Button android:textSize="18.0sp" android:textColor="@color/white" android:gravity="center" android:id="@id/bqa" android:background="@color/transparent" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginTop="10.0dp" android:layout_marginBottom="10.0dp" android:text="@string/a_6" />
+</LinearLayout>

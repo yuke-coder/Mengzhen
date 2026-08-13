@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.tencent.qqmusic.ui.RoundedRelativeLayout android:id="@id/i4f" android:layout_width="match_parent" android:layout_height="match_parent" app:ado="@dimen/cng"
+  xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">
+    <com.tencent.qqmusic.ui.PlayerCoverImageView android:id="@id/hwc" android:layout_width="match_parent" android:layout_height="match_parent" android:scaleType="centerCrop" android:contentDescription="@string/f7m" />
+    <ViewStub android:id="@id/nff" android:layout="@layout/b16" android:inflatedId="@id/jaz" android:layout_width="match_parent" android:layout_height="match_parent" />
+    <ViewStub android:id="@id/nfe" android:layout="@layout/b15" android:inflatedId="@id/jax" android:layout_width="match_parent" android:layout_height="match_parent" />
+</com.tencent.qqmusic.ui.RoundedRelativeLayout>

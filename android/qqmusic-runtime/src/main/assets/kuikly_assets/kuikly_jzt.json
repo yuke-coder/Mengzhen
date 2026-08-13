@@ -1,0 +1,12 @@
+{
+  "router": "openHalf",
+  "page_name": "jzt_router",
+  "page_key": "forest_00700",
+  "load_type": "jzt",
+  "shiply": {
+    "data_type": "shiply",
+    "res_id": "forest_00700",
+    "res_task": 2489743,
+    "env": "1"
+  }
+}

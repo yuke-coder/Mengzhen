@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout android:orientation="vertical" android:layout_width="match_parent" android:layout_height="match_parent"
+  xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">
+    <androidx.constraintlayout.widget.ConstraintLayout android:id="@id/ngo" android:visibility="gone" android:layout_width="0.0dp" android:layout_height="wrap_content" android:layout_marginTop="6.0dp" android:paddingEnd="16.0dp" android:layout_marginStart="16.0dp" android:layout_marginEnd="14.0dp" app:a1j="hnz" app:a23="hnz" app:a27="hnz">
+        <TextView android:textSize="12.0dp" android:textColor="@color/skin_text_main_color" android:ellipsize="end" android:id="@id/ngk" android:layout_width="wrap_content" android:layout_height="wrap_content" android:maxWidth="180.0dp" android:maxLines="1" android:fontFamily="PingFangSC-Medium" app:a1d="hnz" app:a23="hnz" app:a27="hnz" />
+        <TextView android:textSize="12.0dp" android:textColor="@color/skin_text_sub_color" android:id="@id/ngn" android:layout_width="wrap_content" android:layout_height="wrap_content" android:maxLines="1" android:layout_marginStart="8.0dp" app:a1d="hnz" app:a22="@id/ngk" app:a27="hnz" />
+        <ImageView android:id="@id/ngm" android:layout_width="4.5dp" android:layout_height="8.5dp" android:src="@drawable/fc_emotion_top_tips_arrow" android:contentDescription="@null" android:layout_marginStart="4.0dp" app:a1d="@id/ngn" app:a22="@id/ngn" app:a27="@id/ngn" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+    <com.tencent.qqmusic.fragment.comment.EmojiPanelView android:id="@id/c6v" android:paddingBottom="20.0dp" android:scrollbars="vertical" android:clipToPadding="false" android:layout_width="match_parent" android:layout_height="0.0dp" app:a1e="@id/c71" app:a26="@id/ngo" />
+    <com.tencent.qqmusic.fragment.comment.vipemotion.VipEmotionInfosView android:id="@id/ngj" android:paddingTop="10.0dp" android:visibility="gone" android:clipToPadding="false" android:layout_width="match_parent" android:layout_height="0.0dp" app:a1e="@id/c71" app:a26="@id/ngo" />
+    <ImageView android:id="@id/c6q" android:layout_width="wrap_content" android:layout_height="35.0dp" android:layout_marginRight="14.0dp" android:layout_marginBottom="23.0dp" android:src="@drawable/emoji_input_panel_delete" android:contentDescription="@string/aiq" app:a1e="@id/c71" app:a21="hnz" />
+    <FrameLayout android:id="@id/c71" android:layout_width="match_parent" android:layout_height="wrap_content" app:a1d="hnz">
+        <RelativeLayout android:id="@id/c6y" android:paddingLeft="22.0dp" android:paddingRight="18.0dp" android:layout_width="match_parent" android:layout_height="50.0dp" app:a1d="hnz">
+            <ImageView android:layout_width="24.0dp" android:layout_height="24.0dp" android:src="@drawable/emoji_kind_icon_new" android:layout_alignParentLeft="true" android:layout_centerVertical="true" />
+        </RelativeLayout>
+        <RelativeLayout android:id="@id/c70" android:paddingLeft="18.0dp" android:paddingRight="18.0dp" android:visibility="gone" android:layout_width="match_parent" android:layout_height="60.0dp" app:a1d="hnz">
+            <ImageView android:id="@id/c6z" android:layout_width="24.0dp" android:layout_height="24.0dp" android:layout_marginTop="9.0dp" android:src="@drawable/emoji_kind_icon_new" android:layout_alignParentLeft="true" />
+            <com.tencent.qqmusic.fragment.comment.vipemotion.VipEmotionPkgsView android:id="@id/ngl" android:layout_width="wrap_content" android:layout_height="30.0dp" android:layout_marginLeft="13.0dp" android:layout_marginTop="6.0dp" android:layout_toRightOf="@id/c6z" android:overScrollMode="never" />
+        </RelativeLayout>
+    </FrameLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>

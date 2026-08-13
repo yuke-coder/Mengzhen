@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout android:id="@id/i5b" android:clipChildren="false" android:layout_width="match_parent" android:layout_height="match_parent"
+  xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">
+    <FrameLayout android:id="@id/hwg" android:clipChildren="false" android:layout_width="0.0dp" android:layout_height="0.0dp" app:a1d="hnz" app:a1i="H,1:1" app:a1j="hnz" app:a23="hnz" app:a27="hnz" />
+    <include android:id="@id/i01" android:visibility="invisible" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginBottom="25.5dp" android:layout_marginStart="7.5dp" app:a1d="hnz" app:a23="hnz" layout="@layout/c5c" />
+</androidx.constraintlayout.widget.ConstraintLayout>

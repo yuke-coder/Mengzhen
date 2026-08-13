@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout android:orientation="vertical" android:layout_width="match_parent" android:layout_height="match_parent"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <ImageView android:id="@id/naa" android:layout_width="match_parent" android:layout_height="match_parent" android:layout_marginBottom="-31.0dp" android:src="@drawable/main_bg" android:scaleType="centerCrop" />
+    <com.tencent.qqmusic.ui.customview.viewpager.MainDesckChildViewPager android:id="@id/f9z" android:layout_width="match_parent" android:layout_height="match_parent" />
+    <ImageView android:id="@id/a5j" android:background="@drawable/material_ripple_background_circle" android:layout_width="@dimen/cao" android:layout_height="@dimen/cao" android:src="@drawable/back_normal_black" android:scaleType="centerInside" android:contentDescription="@string/wf" android:layout_alignParentStart="true" />
+    <LinearLayout android:orientation="vertical" android:id="@id/f8w" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_toEndOf="@id/a5j" />
+</RelativeLayout>

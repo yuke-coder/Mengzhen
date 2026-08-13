@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:paddingStart="20.0dp" android:paddingEnd="20.0dp" app:a1j="hnz" app:a23="hnz" app:a26="@id/a8f"
+  xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">
+    <TextView android:textSize="12.0dp" android:textColor="@color/white_70_transparent" android:id="@id/eqz" android:layout_width="wrap_content" android:layout_height="wrap_content" app:a1d="hnz" app:a1k="@id/jpr" app:a23="hnz" app:a27="hnz" />
+    <com.tencent.qqmusic.business.playernew.view.playersong.definedplayer.view.slider.NiftySlider android:id="@id/jpr" android:background="@null" android:layout_width="0.0dp" android:layout_height="wrap_content" android:maxHeight="6.0dp" android:minHeight="6.0dp" android:valueFrom="0" android:valueTo="100" android:paddingStart="9.0dp" app:pi="false" app:a1d="hnz" app:a1j="hnz" app:a22="@id/eqz" app:a27="hnz" app:ap2="@color/white" app:ap8="9.0dp" app:ap_="@color/white" app:apa="2.0dp" app:ar7="6.0dp" />
+</androidx.constraintlayout.widget.ConstraintLayout>

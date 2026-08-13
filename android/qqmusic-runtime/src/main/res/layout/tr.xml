@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout android:layout_width="55.0dp" android:layout_height="55.0dp"
+  xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">
+    <androidx.cardview.widget.CardView android:background="@color/white" android:layout_width="50.0dp" android:layout_height="50.0dp" app:gs="50.0dp" app:a1d="hnz" app:a1i="1:1" app:a1x="hnz" app:a21="hnz" app:a27="hnz">
+        <ImageView android:id="@id/ajk" android:padding="10.0dp" android:layout_width="50.0dp" android:layout_height="50.0dp" android:src="@drawable/dt_tool_icon" android:layout_centerVertical="true" app:apx="@color/black" />
+    </androidx.cardview.widget.CardView>
+</androidx.constraintlayout.widget.ConstraintLayout>

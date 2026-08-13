@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout android:background="@drawable/color_b2_click" android:descendantFocusability="blocksDescendants" android:layout_width="match_parent" android:layout_height="wrap_content" android:minHeight="50.0dp"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <TextView android:textColor="@color/skin_text_main_color" android:id="@id/k1d" android:layout_width="wrap_content" android:layout_marginLeft="20.0dp" android:text="@string/gq7" android:layout_alignParentLeft="true" android:layout_centerVertical="true" style="@style/ln" />
+    <ImageButton android:id="@id/k1c" android:background="@null" android:focusable="false" android:visibility="visible" android:clickable="false" android:layout_width="20.0dp" android:layout_height="20.0dp" android:layout_marginRight="@dimen/c17" android:src="@drawable/pop_menu_item_mark" android:scaleType="centerInside" android:layout_alignParentRight="true" android:layout_centerVertical="true" />
+    <View android:id="@id/k0z" android:background="@drawable/z_color_l1" android:paddingLeft="12.0dp" android:layout_width="match_parent" android:layout_height="1.0px" android:layout_marginLeft="20.0dp" android:layout_marginBottom="0.0dp" android:scaleType="fitXY" android:layout_alignParentBottom="true" />
+</RelativeLayout>

@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout android:id="@id/gan" android:layout_width="wrap_content" android:layout_height="wrap_content"
+  xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">
+    <View android:id="@id/e8u" android:layout_width="82.0dp" android:layout_height="85.0dp" app:a1d="hnz" app:a1j="hnz" app:a23="hnz" app:a27="hnz" />
+    <com.tencent.component.widget.AsyncEffectImageView android:id="@id/e97" android:layout_width="52.0dp" android:layout_height="13.0dp" app:a1e="@id/e8v" app:a1j="hnz" app:a23="hnz" app:a27="hnz" />
+    <View android:id="@id/e8x" android:background="@drawable/shape_audio_book_category_cover_bg" android:layout_width="59.0dp" android:layout_height="43.0dp" android:layout_marginStart="12.0dp" android:layout_marginEnd="12.0dp" app:a1d="hnz" app:a1j="hnz" app:a23="hnz" />
+    <com.tencent.component.widget.AsyncEffectImageView android:id="@id/e8v" android:layout_width="47.0dp" android:layout_height="51.0dp" app:a1d="hnz" app:a1j="hnz" app:a23="hnz" />
+</androidx.constraintlayout.widget.ConstraintLayout>

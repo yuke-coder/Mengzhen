@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout android:paddingBottom="@dimen/c9e" android:layout_width="match_parent" android:layout_height="wrap_content"
+  xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">
+    <com.tencent.expandabletextview.ExpandableTextView android:textSize="@dimen/c_9" android:textColor="@color/timeline_black_text" android:ellipsize="end" android:gravity="center_vertical" android:id="@id/text_cell_content" android:layout_width="match_parent" android:layout_height="wrap_content" android:lineSpacingExtra="6.0dp" app:py="@color/skin_highlight_color" app:q2="全文" app:q_="false" app:qb="false" app:qc="true" />
+    <TextView android:textColor="@color/timeline_black_text" android:id="@id/lcr" android:background="@color/timeline_black_mask" android:layout_width="match_parent" android:layout_height="match_parent" />
+</FrameLayout>

@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ripple android:color="@color/common_ripple_color_normal_dark"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <item>
+        <selector>
+            <item android:state_pressed="true" android:drawable="@drawable/common_ripple_color_normal_dark" />
+            <item android:drawable="@drawable/skin_mask_shape" />
+        </selector>
+    </item>
+</ripple>

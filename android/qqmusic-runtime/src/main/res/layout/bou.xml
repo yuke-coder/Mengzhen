@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout android:paddingRight="5.0dp" android:focusable="true" android:layout_width="match_parent" android:layout_height="40.0dp"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <androidx.appcompat.widget.AppCompatTextView android:textSize="15.0sp" android:textColor="@color/black" android:layout_gravity="center_vertical" android:id="@id/qk" android:layout_width="wrap_content" android:layout_height="wrap_content" />
+    <ImageView android:layout_gravity="right|center" android:focusable="false" android:visibility="visible" android:clickable="false" android:layout_width="30.0dp" android:layout_height="30.0dp" android:src="@drawable/ai_assistant_music_item_arrow" android:scaleType="centerCrop" />
+</FrameLayout>

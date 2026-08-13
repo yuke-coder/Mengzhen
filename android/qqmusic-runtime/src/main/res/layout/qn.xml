@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout android:orientation="vertical" android:background="@color/divider_ten_percent_white" android:layout_width="match_parent" android:layout_height="wrap_content"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <LinearLayout android:orientation="horizontal" android:id="@id/bqf" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginLeft="10.0dp" android:layout_marginTop="15.0dp" android:layout_marginRight="10.0dp" android:layout_marginBottom="15.0dp">
+        <TextView android:textSize="16.0sp" android:textColor="@color/white" android:layout_gravity="bottom" android:id="@id/bqe" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/iq3" android:includeFontPadding="false" />
+        <TextView android:textSize="10.0sp" android:textColor="@color/folder_theme_text_color" android:layout_gravity="bottom" android:id="@id/bqd" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginLeft="6.0dp" android:text="@string/iq4" android:includeFontPadding="false" />
+    </LinearLayout>
+    <HorizontalScrollView android:scrollbars="none" android:layout_width="match_parent" android:layout_height="@dimen/cdw" android:layout_marginBottom="15.0dp">
+        <LinearLayout android:gravity="center_vertical" android:orientation="horizontal" android:id="@id/bqb" android:layout_width="wrap_content" android:layout_height="wrap_content" />
+    </HorizontalScrollView>
+</LinearLayout>

@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout android:layout_width="wrap_content" android:layout_height="wrap_content"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <LinearLayout android:orientation="vertical" android:id="@id/asl" android:layout_width="240.0dp" android:layout_height="370.0dp">
+        <RelativeLayout android:layout_width="wrap_content" android:layout_height="wrap_content">
+            <com.tencent.component.widget.AsyncEffectImageView android:id="@id/ask" android:layout_width="240.0dp" android:layout_height="240.0dp" />
+            <ImageButton android:id="@id/asf" android:background="@color/transparent" android:visibility="gone" android:layout_width="70.0dp" android:layout_height="70.0dp" android:src="@drawable/camera_scan_img_play_normal" android:layout_centerInParent="true" />
+        </RelativeLayout>
+        <RelativeLayout android:gravity="center_vertical" android:layout_width="match_parent" android:layout_height="match_parent">
+            <TextView android:textSize="20.0sp" android:textColor="@color/white" android:ellipsize="end" android:id="@id/asn" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginLeft="20.0dp" android:layout_marginRight="20.0dp" android:lines="2" android:lineSpacingMultiplier="1.2" />
+            <TextView android:textSize="14.0sp" android:textColor="@color/white" android:id="@id/asm" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginLeft="20.0dp" android:layout_marginTop="3.0dp" android:layout_marginRight="20.0dp" android:layout_below="@id/asn" android:lineSpacingMultiplier="1.2" android:alpha="0.6" />
+        </RelativeLayout>
+    </LinearLayout>
+</FrameLayout>

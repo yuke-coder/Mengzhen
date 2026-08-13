@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout android:gravity="center" android:orientation="vertical" android:layout_width="wrap_content" android:layout_height="wrap_content"
+  xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">
+    <View android:id="@id/o4" android:background="@drawable/bg_ai_assistant_popup_window_triangle_up" android:visibility="gone" android:layout_width="12.5dp" android:layout_height="12.5dp" />
+    <androidx.constraintlayout.widget.ConstraintLayout android:gravity="center" android:orientation="horizontal" android:background="@drawable/bg_ai_assistant_popup_window" android:paddingLeft="10.0dp" android:paddingRight="10.0dp" android:layout_width="wrap_content" android:layout_height="wrap_content">
+        <LinearLayout android:gravity="center" android:orientation="vertical" android:id="@id/np" android:paddingLeft="15.0dp" android:paddingTop="15.0dp" android:paddingRight="15.0dp" android:paddingBottom="10.0dp" android:layout_width="wrap_content" android:layout_height="wrap_content" android:contentDescription="@string/i_" app:a1x="hnz" app:a27="hnz">
+            <ImageView android:gravity="center" android:layout_width="@dimen/e7" android:layout_height="@dimen/e7" android:src="@drawable/ai_assistant_pop_excerpt_icon" />
+            <TextView android:textSize="10.0dp" android:textColor="@color/white_50_opacity" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/i_" />
+        </LinearLayout>
+        <LinearLayout android:gravity="center" android:orientation="vertical" android:id="@id/nm" android:paddingLeft="15.0dp" android:paddingTop="15.0dp" android:paddingRight="15.0dp" android:paddingBottom="10.0dp" android:layout_width="wrap_content" android:layout_height="wrap_content" android:contentDescription="@string/i8" app:a1y="@id/np" app:a27="hnz">
+            <ImageView android:gravity="center" android:layout_width="@dimen/e7" android:layout_height="@dimen/e7" android:src="@drawable/ai_assistant_pop_copy_icon" />
+            <TextView android:textSize="10.0dp" android:textColor="@color/white_50_opacity" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/i8" />
+        </LinearLayout>
+        <LinearLayout android:gravity="center" android:orientation="vertical" android:id="@id/o5" android:paddingLeft="7.0dp" android:paddingTop="15.0dp" android:paddingRight="7.0dp" android:paddingBottom="10.0dp" android:visibility="gone" android:layout_width="wrap_content" android:layout_height="wrap_content" android:contentDescription="@string/ia" app:a1y="@id/nm" app:a27="hnz">
+            <ImageView android:gravity="center" android:layout_width="@dimen/e7" android:layout_height="@dimen/e7" android:src="@drawable/ai_assistant_pop_regenerate_icon" />
+            <TextView android:textSize="10.0dp" android:textColor="@color/white_50_opacity" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/ia" />
+        </LinearLayout>
+        <LinearLayout android:gravity="center" android:orientation="vertical" android:id="@id/nn" android:paddingLeft="15.0dp" android:paddingTop="15.0dp" android:paddingRight="15.0dp" android:paddingBottom="10.0dp" android:visibility="gone" android:layout_width="wrap_content" android:layout_height="wrap_content" android:contentDescription="@string/i9" app:a1y="@id/o5" app:a27="hnz">
+            <ImageView android:gravity="center" android:layout_width="@dimen/e7" android:layout_height="@dimen/e7" android:src="@drawable/ai_assistant_pop_edit_icon" />
+            <TextView android:textSize="10.0dp" android:textColor="@color/white_50_opacity" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/i9" />
+        </LinearLayout>
+        <LinearLayout android:gravity="center" android:orientation="vertical" android:id="@id/o9" android:paddingLeft="15.0dp" android:paddingTop="5.0dp" android:paddingRight="15.0dp" android:paddingBottom="15.0dp" android:layout_width="wrap_content" android:layout_height="wrap_content" android:contentDescription="@string/ic" app:a1x="hnz" app:a26="@id/nm">
+            <ImageView android:gravity="center" android:id="@id/e_a" android:layout_width="@dimen/e7" android:layout_height="@dimen/e7" android:src="@drawable/ai_assistant_pop_thumb_up_icon" />
+            <TextView android:textSize="10.0dp" android:textColor="@color/white_50_opacity" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/ic" />
+        </LinearLayout>
+        <LinearLayout android:gravity="center" android:orientation="vertical" android:id="@id/o8" android:paddingLeft="15.0dp" android:paddingTop="5.0dp" android:paddingRight="15.0dp" android:paddingBottom="15.0dp" android:layout_width="wrap_content" android:layout_height="wrap_content" android:contentDescription="@string/ib" app:a1y="@id/o9" app:a26="@id/nm">
+            <ImageView android:gravity="center" android:id="@id/e__" android:layout_width="@dimen/e7" android:layout_height="@dimen/e7" android:src="@drawable/ai_assistant_pop_thumb_down_icon" />
+            <TextView android:textSize="10.0dp" android:textColor="@color/white_50_opacity" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/ib" />
+        </LinearLayout>
+    </androidx.constraintlayout.widget.ConstraintLayout>
+    <View android:id="@id/o3" android:background="@drawable/bg_ai_assistant_popup_window_triangle_down" android:layout_width="12.5dp" android:layout_height="12.5dp" />
+</LinearLayout>

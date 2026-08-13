@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout android:gravity="center" android:background="@drawable/color_b2_click" android:layout_width="match_parent" android:layout_height="50.0dp"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <ProgressBar android:id="@id/fi8" android:visibility="gone" android:layout_width="25.0dp" android:layout_height="25.0dp" android:layout_marginLeft="10.0dp" android:layout_marginRight="10.0dp" android:indeterminate="true" android:indeterminateOnly="true" android:indeterminateDrawable="@drawable/im_session_icn_loading_indicator" android:indeterminateDuration="2000" />
+    <TextView android:textSize="14.0sp" android:textColor="#80000000" android:id="@id/f14" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/ewh" style="@style/a4r" />
+</RelativeLayout>

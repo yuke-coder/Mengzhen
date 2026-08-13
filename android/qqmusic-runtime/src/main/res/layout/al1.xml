@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout android:layout_width="wrap_content" android:layout_height="wrap_content"
+  xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">
+    <com.tencent.qqmusic.ui.RoundedRelativeLayout android:id="@id/etl" android:layout_width="@dimen/c1u" android:layout_height="@dimen/c1q" app:a1x="hnz" app:a27="hnz" app:ado="4.0dp">
+        <com.tencent.component.widget.AsyncEffectImageView android:id="@id/eax" android:layout_width="match_parent" android:layout_height="match_parent" android:scaleType="centerCrop" />
+        <androidx.constraintlayout.widget.ConstraintLayout android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_centerInParent="true">
+            <FrameLayout android:id="@id/ey9" android:layout_width="0.0dp" android:layout_height="118.0dp" app:a1i="W,0.75:1" app:a1x="hnz" app:a21="hnz" app:a26="hnz" app:a27="hnz" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
+        <include android:id="@id/ht1" android:layout_width="match_parent" android:layout_height="match_parent" layout="@layout/ay2" />
+        <ImageView android:id="@id/egx" android:visibility="gone" android:layout_width="wrap_content" android:layout_height="wrap_content" android:src="@drawable/icon_share_card_new" android:layout_alignParentLeft="true" android:layout_alignParentTop="true" android:importantForAccessibility="no" />
+    </com.tencent.qqmusic.ui.RoundedRelativeLayout>
+    <TextView android:textSize="12.0dp" android:textColor="@color/common_grid_title_color_selector" android:layout_gravity="center" android:id="@id/mkv" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="9.5dp" android:text="@string/i6n" app:a1x="hnz" app:a21="hnz" app:a26="@id/etl" />
+</androidx.constraintlayout.widget.ConstraintLayout>

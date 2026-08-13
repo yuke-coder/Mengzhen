@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout android:layout_width="216.0dp" android:layout_height="55.0dp"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <ImageView android:id="@id/mlive_layout_cloud_game_switch_view_point_bottom_bg" android:layout_width="match_parent" android:layout_height="match_parent" android:src="@drawable/cloud_game_switch_view_point_bg" android:scaleType="fitXY" android:adjustViewBounds="true" />
+    <androidx.recyclerview.widget.RecyclerView android:layout_gravity="center_horizontal" android:orientation="horizontal" android:id="@id/mlive_layout_cloud_game_switch_view_point_bottom_list" android:layout_width="190.0dp" android:layout_height="30.0dp" android:layout_marginTop="10.0dp" />
+</FrameLayout>

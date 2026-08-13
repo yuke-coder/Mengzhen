@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout android:layout_width="match_parent" android:layout_height="match_parent"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <include android:layout_width="match_parent" android:layout_height="match_parent" layout="@layout/cxl" />
+    <com.tencent.qqmusic.homepage.view.PageRecyclerView android:id="@id/lcv" android:scrollbars="vertical" android:clipChildren="false" android:layout_width="match_parent" android:layout_height="match_parent" android:overScrollMode="never" />
+    <TextView android:gravity="center" android:id="@id/dor" android:visibility="gone" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="@dimen/c0k" android:layout_centerHorizontal="true" />
+</FrameLayout>

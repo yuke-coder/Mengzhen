@@ -1,0 +1,17 @@
+{
+  "libadframework.so": ["lib_wl.so", "lib_idl2.so", "lib_rotobufLite.so", "lib_emagic_common.so", "lib_agicbrush-nano.so", "lib_mv8.so", "lib_echat_mb_common.so", "libcxxstl.252.so"],
+  "lib_agicbrush-nano.so": ["lib_mv8.so", "lib_muv.so", "libcxxstl.252.so"],
+  "lib_agicbrush_v2.so": ["lib_agicbrush-nano.so", "lib_mv8.so", "lib_muv.so", "lib_s_inspector.so", "lib_ultimedia-eb.so", "libcxxstl.252.so"],
+  "lib_CDB.so": ["libcxxstl.252.so"],
+  "lib_echat_mb_common.so": ["lib_muv.so", "lib_wl.so", "lib_agicbrush_v2.so", "lib_mv8.so", "lib_sl.so", "lib_rypto.so", "lib_rotobufLite.so", "lib_CDB.so", "lib_link2.so", "libcxxstl.252.so"],
+  "lib_emagic_common.so": ["lib_agicbrush_v2.so", "lib_mv8.so", "lib_muv.so", "lib_wl.so", "lib_link2.so", "lib_rotobufLite.so", "lib_agicbrush-nano.so", "lib_echat_mb_common.so", "lib_sl.so", "lib_rypto.so", "libcxxstl.252.so"],
+  "lib_eplayable.so": ["lib_wl.so", "lib_mv8.so", "lib_agicbrush-nano.so", "lib_emagic_common.so", "lib_agicbrush_v2.so", "lib_echat_mb_common.so", "libcxxstl.252.so"],
+  "lib_idl2.so": ["libcxxstl.252.so"],
+  "lib_link2.so": ["lib_idl2.so", "libcxxstl.252.so"],
+  "lib_mv8.so": ["libcxxstl.252.so"],
+  "lib_rotobufLite.so": ["libcxxstl.252.so"],
+  "lib_s_inspector.so": ["lib_mv8.so", "libcxxstl.252.so"],
+  "lib_sl.so": ["lib_rypto.so"],
+  "lib_ultimedia-eb.so": ["lib_sl.so", "lib_rypto.so", "lib_muv.so", "lib_mv8.so", "libcxxstl.252.so"],
+  "lib_wl.so": ["libcxxstl.252.so"]
+}

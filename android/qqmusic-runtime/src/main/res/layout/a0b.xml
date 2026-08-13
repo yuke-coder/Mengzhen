@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout android:orientation="vertical" android:background="@drawable/main_bg" android:layout_width="match_parent" android:layout_height="match_parent"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <RelativeLayout android:id="@id/lv2" android:background="@drawable/skin_common_listitem_bg" android:layout_width="match_parent" android:layout_height="@dimen/cau">
+        <include android:id="@id/lv1" android:layout_width="match_parent" android:layout_height="match_parent" android:layout_alignParentBottom="true" layout="@layout/mu" />
+        <ImageView android:id="@id/hpg" android:background="@drawable/icon_pc2device_goto_import_path" android:layout_width="30.0dp" android:layout_height="30.0dp" android:layout_marginRight="4.0dp" android:layout_marginBottom="8.0dp" android:layout_alignParentRight="true" android:layout_alignParentBottom="true" android:contentDescription="@string/bu1" />
+    </RelativeLayout>
+    <ScrollView android:id="@id/b2j" android:background="@drawable/skin_common_listitem_bg" android:layout_width="match_parent" android:layout_height="match_parent" android:fillViewport="true" android:layout_below="@id/lv2" android:layout_alignParentLeft="false" android:layout_alignParentTop="false" android:overScrollMode="never">
+        <LinearLayout android:orientation="vertical" android:layout_width="match_parent" android:layout_height="match_parent">
+            <ImageView android:layout_gravity="center" android:id="@id/ef2" android:background="@drawable/pc2device_import_icon_new" android:layout_width="wrap_content" android:layout_height="wrap_content" />
+            <TextView android:textSize="18.0dp" android:textColor="@color/skin_text_main_color" android:layout_gravity="center_horizontal" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginBottom="14.0dp" android:text="@string/f1s" />
+            <LinearLayout android:orientation="horizontal" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginLeft="43.0dp" android:layout_marginRight="43.0dp" android:layout_marginBottom="14.0dp">
+                <TextView android:textSize="14.0sp" android:textColor="@color/skin_text_sub_color" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginRight="4.0dp" android:text="@string/f1m" />
+                <TextView android:textSize="14.0sp" android:textColor="@color/skin_text_sub_color" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/f1j" android:lineSpacingExtra="3.0dp" />
+            </LinearLayout>
+            <LinearLayout android:orientation="horizontal" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginLeft="43.0dp" android:layout_marginRight="43.0dp" android:layout_marginBottom="14.0dp">
+                <TextView android:textSize="14.0sp" android:textColor="@color/skin_text_sub_color" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginRight="4.0dp" android:text="@string/f1m" />
+                <TextView android:textSize="14.0sp" android:textColor="@color/skin_text_sub_color" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/f1k" android:lineSpacingExtra="3.0dp" />
+            </LinearLayout>
+            <LinearLayout android:orientation="horizontal" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginLeft="43.0dp" android:layout_marginRight="43.0dp" android:layout_marginBottom="26.0dp">
+                <TextView android:textSize="14.0sp" android:textColor="@color/skin_text_sub_color" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginRight="4.0dp" android:text="@string/f1m" />
+                <TextView android:textSize="14.0sp" android:textColor="@color/skin_text_sub_color" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/f1l" android:lineSpacingExtra="3.0dp" />
+            </LinearLayout>
+            <TextView android:textSize="12.0sp" android:textColor="@color/skin_text_sub_color" android:layout_gravity="center" android:id="@id/mf5" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/f1c" />
+            <Button android:textSize="16.0sp" android:textColor="@color/skin_text_sub_color" android:layout_gravity="center" android:id="@id/akl" android:background="@drawable/pc2device_button_gray" android:layout_width="225.0dp" android:layout_height="41.0dp" android:layout_marginTop="50.0dp" android:text="@string/f1p" />
+        </LinearLayout>
+    </ScrollView>
+</RelativeLayout>

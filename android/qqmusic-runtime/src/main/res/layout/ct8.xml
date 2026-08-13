@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout android:orientation="horizontal" android:layout_width="wrap_content" android:layout_height="wrap_content"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <com.tencent.component.widget.AsyncEffectImageView android:id="@id/lu9" android:layout_width="30.0dp" android:layout_height="30.0dp" android:src="@drawable/together_talk_song_like_dark" />
+    <com.tencent.component.widget.AsyncEffectImageView android:id="@id/lu_" android:layout_width="30.0dp" android:layout_height="30.0dp" android:layout_marginLeft="9.0dp" android:src="@drawable/together_talk_song_manager_dark" />
+    <com.tencent.component.widget.AsyncEffectImageView android:id="@id/lu6" android:visibility="gone" android:layout_width="30.0dp" android:layout_height="30.0dp" android:layout_marginLeft="9.0dp" android:src="@drawable/together_talk_song_add_dark" />
+</LinearLayout>

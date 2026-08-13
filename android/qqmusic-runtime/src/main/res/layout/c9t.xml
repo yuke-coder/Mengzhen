@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout android:id="@id/i5u" android:layout_width="match_parent" android:layout_height="match_parent"
+  xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">
+    <com.tencent.qqmusic.ui.RepeatingImageButton android:id="@id/abz" android:background="@color/transparent" android:focusable="true" android:visibility="visible" android:clickable="true" android:layout_width="0.0dp" android:layout_height="0.0dp" android:scaleType="fitCenter" app:a1d="hnz" app:a1j="hnz" app:a23="hnz" app:a27="hnz" />
+    <View android:id="@id/l_w" android:layout_width="0.0dp" android:layout_height="0.0dp" android:importantForAccessibility="no" app:a1d="hnz" app:a1s="0.6" app:a23="hnz" app:a2e="0.625" />
+    <TextView android:textSize="9.0dp" android:textColor="@color/white_40_opacity" android:gravity="bottom" android:id="@id/ac1" android:layout_width="wrap_content" android:layout_height="wrap_content" android:singleLine="true" android:importantForAccessibility="no" app:a1e="@id/l_w" app:a22="@id/l_w" />
+</androidx.constraintlayout.widget.ConstraintLayout>

@@ -1,0 +1,14 @@
+{
+  "router": "openHalf",
+  "page_name": "dialog_free_mode_end",
+  "debug": 0,
+  "container": {
+    "w_weight": "1",
+    "h_weight": "1",
+    "gravity": "bottom",
+    "direction": "from-bottom"
+  },
+  "params": {
+    "style": "hhlz"
+  }
+}

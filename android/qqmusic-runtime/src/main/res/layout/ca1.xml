@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout android:gravity="center_vertical" android:orientation="vertical" android:layout_width="match_parent" android:layout_height="match_parent"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <TextView android:textSize="15.0sp" android:textColor="@color/white" android:ellipsize="end" android:gravity="center" android:id="@id/h65" android:layout_width="match_parent" android:layout_height="42.0dp" android:layout_marginLeft="12.0dp" android:layout_marginRight="17.0dp" android:minHeight="42.0dp" android:text="分享到" android:maxLines="1" />
+    <LinearLayout android:gravity="center" android:orientation="horizontal" android:id="@id/h68" android:background="@drawable/shared_putoo_ugc_poster_bg" android:visibility="gone" android:layout_width="match_parent" android:layout_height="50.0dp" android:layout_marginTop="25.0dp" android:layout_marginBottom="10.0dp" android:layout_below="@id/h65" android:layout_marginStart="24.0dp" android:layout_marginEnd="24.0dp">
+        <com.tencent.qqmusic.business.live.ui.view.RoundAvatarImage android:id="@id/h67" android:background="@drawable/shared_putoo_ugc_user_bg" android:padding="1.5dp" android:layout_width="29.0dp" android:layout_height="29.0dp" />
+        <ImageView android:id="@id/h66" android:layout_width="36.0dp" android:layout_height="29.0dp" android:src="@drawable/ic_putoo_ugc_player_shared" android:scaleType="centerCrop" android:layout_marginStart="-5.0dp" android:layout_marginEnd="9.0dp" />
+        <TextView android:textSize="12.0sp" android:textStyle="bold" android:textColor="@color/black" android:gravity="center" android:id="@id/h69" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/fxn" android:paddingEnd="9.0dp" />
+    </LinearLayout>
+    <GridView android:gravity="center" android:id="@id/atb" android:paddingLeft="15.0dp" android:paddingTop="10.0dp" android:paddingRight="15.0dp" android:scrollbars="none" android:layout_width="match_parent" android:layout_height="wrap_content" android:listSelector="@color/transparent" android:horizontalSpacing="5.0dp" android:verticalSpacing="15.0dp" android:numColumns="3" />
+</LinearLayout>

@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layer-list
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <item android:id="@android:id/progress" android:drawable="@drawable/theme_download_progress_bg" />
+    <item android:id="@android:id/secondaryProgress">
+        <clip>
+            <shape android:shape="rectangle">
+                <corners android:radius="4.0dp" />
+                <solid android:color="@color/my_music_gray" />
+                <nine-patch android:src="@drawable/my_music_green_progress" />
+            </shape>
+        </clip>
+    </item>
+</layer-list>

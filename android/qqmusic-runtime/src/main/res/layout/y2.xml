@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout android:layout_width="match_parent" android:layout_height="match_parent"
+  xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">
+    <FrameLayout android:layout_gravity="center" android:id="@id/b_m" android:layout_width="match_parent" android:layout_height="0.0dp" android:layout_marginLeft="64.0dp" android:layout_marginTop="68.0dp" android:layout_marginRight="34.0dp" android:layout_marginBottom="10.0dp" android:scaleType="centerInside" app:a1e="@id/ewv" app:a1x="hnz" app:a21="hnz" app:a27="hnz" app:a2_="1.0">
+        <com.tencent.component.widget.AsyncEffectImageView android:layout_gravity="center" android:id="@id/erf" android:layout_width="match_parent" android:layout_height="match_parent" />
+    </FrameLayout>
+    <androidx.constraintlayout.widget.ConstraintLayout android:id="@id/ewv" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginLeft="64.0dp" android:layout_marginRight="34.0dp" android:layout_marginBottom="34.0dp" app:a1d="hnz" app:a1x="hnz" app:a21="hnz">
+        <androidx.constraintlayout.widget.ConstraintLayout android:layout_width="wrap_content" android:layout_height="wrap_content" app:a1d="hnz" app:a1x="hnz" app:a21="hnz">
+            <androidx.constraintlayout.widget.ConstraintLayout android:id="@id/eww" android:layout_width="wrap_content" android:layout_height="@dimen/s8" app:a1d="hnz" app:a1x="hnz" app:a27="hnz">
+                <ImageView android:id="@id/dqk" android:layout_width="15.0dp" android:layout_height="15.0dp" android:src="@drawable/selector_land_live_preview_switch_btn" app:a1d="hnz" app:a1x="hnz" app:a27="hnz" />
+                <TextView android:textSize="12.0dp" android:textColor="@color/white" android:id="@id/l9n" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginLeft="3.0dp" android:text="@string/i7t" app:a1d="hnz" app:a1y="@id/dqk" app:a27="hnz" />
+            </androidx.constraintlayout.widget.ConstraintLayout>
+            <Space android:id="@id/jg2" android:layout_width="45.0dp" android:layout_height="30.0dp" app:a1d="hnz" app:a1y="@id/eww" app:a27="hnz" />
+            <androidx.constraintlayout.widget.ConstraintLayout android:id="@id/ewx" android:layout_width="wrap_content" android:layout_height="@dimen/s8" app:a1d="hnz" app:a1y="@id/jg2" app:a27="hnz">
+                <ImageView android:id="@id/drr" android:layout_width="15.0dp" android:layout_height="15.0dp" android:src="@drawable/selector_land_live_preview_switch_btn" app:a1d="hnz" app:a1x="hnz" app:a27="hnz" />
+                <TextView android:textSize="12.0dp" android:textColor="@color/white" android:id="@id/l_b" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginLeft="3.0dp" android:text="@string/i7u" app:a1d="hnz" app:a1y="@id/drr" app:a27="hnz" />
+            </androidx.constraintlayout.widget.ConstraintLayout>
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>

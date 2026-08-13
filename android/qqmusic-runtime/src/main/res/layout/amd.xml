@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout android:orientation="vertical" android:layout_width="match_parent" android:layout_height="wrap_content"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <include android:layout_gravity="center_vertical" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginLeft="@dimen/c3h" layout="@layout/d0k" />
+    <com.tencent.qqmusic.homepage.singer.pedia.views.DisScrollHorizontalEndRecyclerView android:id="@id/k71" android:paddingLeft="@dimen/c3h" android:paddingTop="10.0dp" android:paddingRight="@dimen/c3j" android:paddingBottom="26.0dp" android:clipToPadding="false" android:layout_width="match_parent" android:layout_height="wrap_content" android:overScrollMode="never" />
+    <TextView android:textSize="11.0sp" android:textColor="@color/skin_text_main_color" android:ellipsize="end" android:id="@id/mu9" android:visibility="gone" android:layout_width="wrap_content" android:layout_height="wrap_content" android:maxLines="2" android:fontFamily="PingFangSC-Regular" />
+</LinearLayout>

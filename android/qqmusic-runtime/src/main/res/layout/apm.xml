@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<merge android:clipChildren="false" android:layout_width="match_parent" android:layout_height="match_parent"
+  xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">f 
+    <FrameLayout android:id="@id/fuk" android:layout_width="wrap_content" android:layout_height="wrap_content" app:a1x="hnz" app:a21="hnz" app:a27="hnz" />
+    <androidx.constraintlayout.widget.Guideline android:orientation="vertical" android:id="@id/hik" android:layout_width="wrap_content" android:layout_height="wrap_content" app:a1n="0.65" />
+    <androidx.constraintlayout.widget.Guideline android:orientation="horizontal" android:id="@id/him" android:layout_width="wrap_content" android:layout_height="wrap_content" app:a1n="0.55" />
+    <androidx.constraintlayout.widget.ConstraintLayout android:id="@id/fuf" android:layout_width="0.0dp" android:layout_height="0.0dp" app:a1i="1.5:1" app:a1y="@id/hik" app:a21="@id/fuk" app:a26="@id/him">
+        <androidx.constraintlayout.widget.Guideline android:orientation="vertical" android:id="@id/l7k" android:layout_width="wrap_content" android:layout_height="wrap_content" app:a1n="0.55" />
+        <FrameLayout android:id="@id/fuj" android:layout_width="0.0dp" android:layout_height="0.0dp" app:a1e="@id/joj" app:a1i="1:1" app:a20="@id/l7k" app:a26="@id/jp1" />
+        <androidx.constraintlayout.widget.Guideline android:orientation="vertical" android:id="@id/bqy" android:layout_width="wrap_content" android:layout_height="wrap_content" app:a1n="0.75" />
+        <FrameLayout android:id="@id/fuh" android:layout_width="0.0dp" android:layout_height="0.0dp" app:a1e="@id/lbj" app:a1i="1:1" app:a20="@id/bqy" app:a26="@id/lbw" />
+        <androidx.constraintlayout.widget.Guideline android:orientation="horizontal" android:id="@id/jp1" android:layout_width="wrap_content" android:layout_height="wrap_content" app:a1n="0.1" />
+        <androidx.constraintlayout.widget.Guideline android:orientation="horizontal" android:id="@id/joj" android:layout_width="wrap_content" android:layout_height="wrap_content" app:a1n="1.0" />
+        <androidx.constraintlayout.widget.Guideline android:orientation="vertical" android:id="@id/joy" android:layout_width="wrap_content" android:layout_height="wrap_content" app:a1n="0.8" />
+        <FrameLayout android:id="@id/fui" android:layout_width="0.0dp" android:layout_height="0.0dp" app:a1e="@id/joj" app:a1i="1:1" app:a20="@id/joy" app:a26="@id/jp1" />
+        <androidx.constraintlayout.widget.Guideline android:orientation="horizontal" android:id="@id/lbw" android:layout_width="wrap_content" android:layout_height="wrap_content" app:a1n="0.0" />
+        <androidx.constraintlayout.widget.Guideline android:orientation="horizontal" android:id="@id/lbj" android:layout_width="wrap_content" android:layout_height="wrap_content" app:a1n="0.9" />
+        <FrameLayout android:id="@id/fug" android:layout_width="0.0dp" android:layout_height="0.0dp" app:a1e="@id/lbj" app:a1i="1:1" app:a21="hnz" app:a26="@id/lbw" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</merge>

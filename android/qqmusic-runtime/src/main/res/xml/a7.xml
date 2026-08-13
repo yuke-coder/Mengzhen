@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<paths
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <external-files-path name="sharePicPath" path="qqmusic/share/" />
+    <external-files-path name="sharePhotoPath" path="qqmusic/share_photo/" />
+    <external-files-path name="shareQQImagePath" path="qqmusic/QQImage/" />
+    <external-files-path name="shareImagePath" path="qqmusic/.QQImageForShareTemp/" />
+    <external-files-path name="shareVideoPath" path="qqmusic/musicvideo/" />
+    <external-path name="sharePoster" path="Pictures/qqmusic/lyricposter/" />
+</paths>

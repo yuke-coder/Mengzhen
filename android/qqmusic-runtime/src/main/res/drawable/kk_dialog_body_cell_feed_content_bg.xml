@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<shape android:shape="rectangle"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <solid android:color="@color/kk_dialog_body_cell_feed_content_bg" />
+    <corners android:radius="@dimen/a3l" />
+</shape>

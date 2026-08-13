@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout android:paddingLeft="20.0dp" android:paddingRight="20.0dp" android:layout_width="match_parent" android:layout_height="wrap_content" android:paddingHorizontal="20.0dp"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <ProgressBar android:layout_gravity="center" android:id="@id/jw" android:layout_width="match_parent" android:layout_height="45.0dp" android:progressDrawable="@drawable/ad_vip_progress_bar_progress_style" style="@style/ze" />
+    <androidx.appcompat.widget.LinearLayoutCompat android:gravity="center" android:layout_gravity="center" android:layout_width="match_parent" android:layout_height="match_parent">
+        <androidx.appcompat.widget.AppCompatImageView android:layout_width="24.0dp" android:layout_height="24.0dp" android:src="@drawable/icon_ad_vip" android:layout_marginStart="8.0dp" />
+        <androidx.appcompat.widget.AppCompatTextView android:textSize="12.0sp" android:textStyle="bold" android:textColor="@color/skin_text_main_color" android:id="@id/jy" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginLeft="6.0dp" android:layout_marginRight="6.0dp" android:text="@string/d_" android:layout_weight="1.0" android:layout_marginHorizontal="6.0dp" android:textFontWeight="400" />
+        <androidx.appcompat.widget.AppCompatTextView android:textSize="11.0sp" android:textStyle="bold" android:textColor="@color/skin_text_main_color" android:gravity="center" android:id="@id/jt" android:background="@drawable/bg_ad_vip_guide_bar_button" android:paddingLeft="13.0dp" android:paddingRight="13.0dp" android:layout_width="wrap_content" android:layout_height="match_parent" android:layout_marginTop="10.0dp" android:layout_marginBottom="10.0dp" android:text="@string/da" android:layout_marginVertical="10.0dp" android:paddingHorizontal="13.0dp" />
+        <androidx.appcompat.widget.AppCompatTextView android:textSize="11.0sp" android:textColor="@color/skin_text_sub_color" android:gravity="center" android:id="@id/jr" android:paddingLeft="14.0dp" android:paddingRight="14.0dp" android:layout_width="wrap_content" android:layout_height="match_parent" android:text="@string/d9" android:layout_marginEnd="2.0dp" android:paddingHorizontal="14.0dp" />
+    </androidx.appcompat.widget.LinearLayoutCompat>
+</FrameLayout>

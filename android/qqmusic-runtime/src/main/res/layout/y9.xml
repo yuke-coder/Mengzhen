@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.tencent.qqmusic.business.live.ui.view.homepage.LiveClipTopFrameLayout android:layout_width="match_parent" android:layout_height="match_parent"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <FrameLayout android:id="@id/f8t" android:layout_width="match_parent" android:layout_height="match_parent" />
+    <LinearLayout android:orientation="vertical" android:id="@id/lyj" android:paddingLeft="16.0dp" android:paddingRight="16.0dp" android:visibility="gone" android:layout_width="match_parent" android:layout_height="@dimen/ado" android:paddingHorizontal="16.0dp">
+        <include android:id="@id/lyi" layout="@layout/bpr" />
+    </LinearLayout>
+</com.tencent.qqmusic.business.live.ui.view.homepage.LiveClipTopFrameLayout>

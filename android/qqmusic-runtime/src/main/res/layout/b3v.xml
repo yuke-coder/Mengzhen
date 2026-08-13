@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout android:layout_width="30.0dp" android:layout_height="30.0dp"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <ImageView android:id="@id/kbu" android:background="@null" android:visibility="gone" android:layout_width="30.0dp" android:layout_height="30.0dp" android:src="@drawable/rank_song_comment_icon" android:scaleType="fitCenter" android:contentDescription="@string/f80" />
+    <TextView android:textSize="6.0dp" android:id="@id/kbv" android:visibility="gone" android:layout_width="16.0dp" android:layout_height="wrap_content" android:layout_marginTop="4.5dp" android:singleLine="true" android:includeFontPadding="false" android:layout_alignParentTop="true" android:layout_alignParentRight="true" />
+</RelativeLayout>

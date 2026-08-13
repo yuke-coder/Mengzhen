@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout android:id="@id/hnz" android:paddingTop="12.0dp" android:layout_width="@dimen/aw4" android:layout_height="wrap_content"
+  xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">
+    <com.tencent.component.widget.AsyncEffectImageView android:id="@id/gcd" android:layout_width="@dimen/aw3" android:layout_height="@dimen/aw3" android:scaleType="fitXY" android:layout_centerHorizontal="true" android:importantForAccessibility="no" app:a1j="hnz" app:a23="hnz" app:a27="hnz" />
+    <com.tencent.qqmusic.modular.framework.ui.text.SimpleTextView android:id="@id/gio" android:layout_width="match_parent" android:layout_height="20.0dp" android:importantForAccessibility="no" app:a1j="hnz" app:a23="hnz" app:a26="@id/gcd" />
+</androidx.constraintlayout.widget.ConstraintLayout>

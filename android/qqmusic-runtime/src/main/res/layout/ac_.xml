@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout android:layout_width="match_parent" android:layout_height="wrap_content"
+  xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">
+    <TextView android:textSize="15.0dp" android:textStyle="bold" android:textColor="@color/skin_text_main_color" android:id="@id/nkz" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginLeft="15.0dp" android:layout_marginTop="20.0dp" android:text="@string/sb" app:a23="hnz" app:a27="hnz" />
+    <ImageView android:id="@id/nky" android:layout_width="55.0dp" android:layout_height="33.0dp" android:src="@drawable/switch_off" android:scaleType="centerCrop" android:layout_marginEnd="7.0dp" app:a1d="@id/nkz" app:a1j="hnz" app:a27="@id/nkz" />
+    <TextView android:textSize="12.0dp" android:textColor="@color/skin_text_sub_color" android:gravity="left" android:id="@id/nkx" android:paddingLeft="15.0dp" android:paddingRight="23.0dp" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="5.0dp" android:text="@string/sa" app:a1x="hnz" app:a26="@id/nkz" />
+    <androidx.constraintlayout.widget.ConstraintLayout android:id="@id/eu7" android:layout_width="0.0dp" android:layout_height="wrap_content" android:layout_marginTop="@dimen/rr" android:layout_marginStart="@dimen/c7u" app:a1k="@id/euv" app:a1u="hmg" app:a23="hnz" app:a26="@id/nkx" app:a2b="hq1" app:a2e="0.44" app:a2n="@dimen/c7u">
+        <ImageView android:id="@id/ecf" android:layout_width="0.0dp" android:layout_height="wrap_content" android:src="@drawable/item_dolby_visualize_bg" android:scaleType="fitCenter" android:adjustViewBounds="true" app:a1j="hnz" app:a23="hnz" app:a27="hnz" />
+        <LinearLayout android:gravity="center" android:orientation="horizontal" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="10.0dp" app:a1j="@id/ecf" app:a23="@id/ecf" app:a26="@id/ecf">
+            <ImageView android:id="@id/ecg" android:layout_width="25.0dp" android:layout_height="25.0dp" />
+            <TextView android:textSize="12.0dp" android:textColor="@color/skin_text_main_color" android:id="@id/m8n" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginLeft="3.0dp" android:text="杜比全景声" />
+        </LinearLayout>
+    </androidx.constraintlayout.widget.ConstraintLayout>
+    <androidx.constraintlayout.widget.ConstraintLayout android:id="@id/euv" android:layout_width="0.0dp" android:layout_height="wrap_content" android:layout_marginTop="@dimen/rr" android:layout_marginStart="12.0dp" android:layout_marginEnd="@dimen/c7u" app:a1j="hnz" app:a1u="hmg" app:a22="@id/eu7" app:a26="@id/nkx" app:a2b="hq1" app:a2e="0.44" app:a2q="@dimen/c7u">
+        <ImageView android:id="@id/ed1" android:layout_width="0.0dp" android:layout_height="wrap_content" android:src="@drawable/item_galaxy_visualize_bg" android:scaleType="fitCenter" android:adjustViewBounds="true" app:a1j="hnz" app:a23="hnz" app:a27="hnz" />
+        <LinearLayout android:gravity="center" android:orientation="horizontal" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="10.0dp" app:a1j="@id/ed1" app:a23="@id/ed1" app:a26="@id/ed1">
+            <ImageView android:id="@id/ed2" android:layout_width="25.0dp" android:layout_height="25.0dp" />
+            <TextView android:textSize="12.0dp" android:textColor="@color/skin_text_main_color" android:id="@id/m_a" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginLeft="3.0dp" android:text="臻品全景声" />
+        </LinearLayout>
+    </androidx.constraintlayout.widget.ConstraintLayout>
+    <View android:id="@id/k0z" android:background="@drawable/z_color_l1" android:layout_width="match_parent" android:layout_height="1.0px" android:layout_marginLeft="20.0dp" android:layout_marginTop="18.0dp" android:scaleType="fitXY" android:layout_alignParentBottom="true" app:a1d="hnz" app:a1x="hnz" app:a21="hnz" app:a26="@id/euv" />
+</androidx.constraintlayout.widget.ConstraintLayout>

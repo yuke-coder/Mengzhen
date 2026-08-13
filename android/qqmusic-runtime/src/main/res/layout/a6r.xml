@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout android:gravity="center_vertical" android:orientation="horizontal" android:layout_width="wrap_content" android:layout_height="wrap_content"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <FrameLayout android:id="@id/hmt" android:visibility="gone" android:layout_width="wrap_content" android:layout_height="wrap_content" />
+    <com.tencent.component.widget.AsyncImageView android:id="@id/cyi" android:layout_width="16.0dp" android:layout_height="16.0dp" android:layout_marginRight="4.0dp" />
+    <androidx.appcompat.widget.AppCompatTextView android:textSize="14.0dp" android:textColor="@color/skin_text_main_color" android:id="@id/mrg" android:layout_width="wrap_content" android:layout_height="wrap_content" />
+    <com.tencent.component.widget.AsyncImageView android:id="@id/av6" android:layout_width="wrap_content" android:layout_height="19.0dp" />
+    <com.tencent.component.widget.AsyncImageView android:id="@id/ito" android:layout_width="16.0dp" android:layout_height="16.0dp" />
+</LinearLayout>

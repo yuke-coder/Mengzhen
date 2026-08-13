@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout android:gravity="center_vertical" android:orientation="horizontal" android:background="@drawable/layout_long_audio_danmu_background" android:layout_width="wrap_content" android:layout_height="25.0dp"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <LinearLayout android:gravity="center_vertical" android:orientation="horizontal" android:id="@id/fqe" android:layout_width="wrap_content" android:layout_height="25.0dp">
+        <ImageView android:id="@id/fqf" android:paddingLeft="10.0dp" android:layout_width="wrap_content" android:layout_height="18.0dp" android:src="@drawable/long_audio_danmu_fav" />
+        <TextView android:textSize="11.0sp" android:textColor="@color/white" android:id="@id/fqg" android:layout_width="wrap_content" android:layout_height="wrap_content" />
+    </LinearLayout>
+    <ImageView android:id="@id/fqh" android:paddingLeft="10.0dp" android:paddingRight="10.0dp" android:layout_width="wrap_content" android:layout_height="18.0dp" android:src="@drawable/long_audio_danmu_dislike" />
+</LinearLayout>

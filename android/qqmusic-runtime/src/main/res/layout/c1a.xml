@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout android:layout_width="match_parent" android:layout_height="@dimen/bj" android:layout_alignParentTop="true" app:a26="@id/hsp"
+  xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">
+    <ImageView android:id="@id/j16" android:layout_width="wrap_content" android:layout_height="match_parent" android:src="@drawable/arrow_left" android:contentDescription="返回" android:paddingStart="22.0dp" android:paddingEnd="10.0dp" app:a23="hnz" />
+    <View android:id="@id/j1x" android:layout_width="30.0dp" android:layout_height="30.0dp" app:a22="@id/j16" app:a27="@id/j16" />
+    <kk.design.KKTextView android:ellipsize="end" android:id="@id/j17" android:layout_width="wrap_content" android:layout_height="wrap_content" android:maxWidth="200.0dp" android:singleLine="true" app:a0f="a9b" app:a0g="bj0" app:a1d="hnz" app:a1j="hnz" app:a23="hnz" app:a27="hnz" />
+    <ImageView android:textColor="#ffffff" android:id="@id/lvb" android:background="@drawable/pitch_icon_v8" android:visibility="gone" android:layout_width="31.0dp" android:layout_height="12.0dp" android:layout_marginLeft="4.0dp" android:text="AI修音" app:a1d="hnz" app:a22="@id/j17" app:a27="hnz" />
+    <TextView android:textSize="10.0dp" android:textColor="#ffffff" android:id="@id/lzj" android:background="@drawable/recording_v8_action_bar_pitch_bg" android:padding="2.0dp" android:visibility="gone" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginLeft="4.0dp" android:text="消音" app:a1d="hnz" app:a22="@id/lvb" app:a27="hnz" />
+    <kk.design.KKIconView android:id="@id/j15" android:padding="3.0dp" android:visibility="gone" android:layout_width="30.0dp" android:layout_height="30.0dp" android:src="@drawable/icon_mv_switch" android:contentDescription="打开mv" app:a0g="bj0" app:a1d="hnz" app:a1k="@id/j14" app:a27="hnz" />
+    <ImageView android:id="@id/j14" android:visibility="visible" android:layout_width="40.0dp" android:layout_height="match_parent" android:layout_marginRight="18.0dp" android:src="@drawable/icon_opus" android:contentDescription="作品" app:a1j="hnz" />
+</androidx.constraintlayout.widget.ConstraintLayout>

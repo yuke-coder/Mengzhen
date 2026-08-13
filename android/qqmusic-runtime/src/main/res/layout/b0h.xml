@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout android:id="@id/ext" android:background="@color/white" android:layout_width="wrap_content" android:layout_height="wrap_content" android:maxHeight="532.0dp" app:a1i="259:532"
+  xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">
+    <androidx.constraintlayout.widget.Guideline android:orientation="vertical" android:id="@id/d63" android:layout_width="wrap_content" android:layout_height="wrap_content" app:a1n="0.06" />
+    <androidx.constraintlayout.widget.Guideline android:orientation="vertical" android:id="@id/d64" android:layout_width="wrap_content" android:layout_height="wrap_content" app:a1n="0.94" />
+    <androidx.constraintlayout.widget.Guideline android:orientation="horizontal" android:id="@id/d65" android:layout_width="wrap_content" android:layout_height="wrap_content" app:a1n="0.03" />
+    <androidx.constraintlayout.widget.Guideline android:orientation="horizontal" android:id="@id/d62" android:layout_width="wrap_content" android:layout_height="wrap_content" app:a1n="0.97" />
+    <com.tencent.component.widget.AsyncImageView android:id="@id/dtc" android:background="@color/black" android:layout_width="0.0dp" android:layout_height="0.0dp" android:maxHeight="407.0dp" app:a1i="230:407" app:a1x="@id/d63" app:a21="@id/d64" app:a27="@id/d65" />
+    <Space android:id="@id/knt" android:layout_width="0.0dp" android:layout_height="0.0dp" app:a1s="0.025" app:a1x="@id/d63" app:a21="@id/d64" app:a26="@id/dtc" />
+    <TextView android:textSize="16.0dp" android:textStyle="bold" android:textColor="@color/black" android:ellipsize="end" android:gravity="left|center" android:id="@id/la2" android:layout_width="0.0dp" android:layout_height="wrap_content" android:text="音乐小屋" android:maxLines="1" app:a1x="@id/dtc" app:a20="@id/l_9" app:a26="@id/knt" />
+    <TextView android:textSize="16.0dp" android:textStyle="bold" android:textColor="@color/black" android:gravity="right|center" android:id="@id/l_9" android:layout_width="50.0dp" android:layout_height="wrap_content" android:layout_marginLeft="10.0dp" android:text="LV.1" android:maxLines="1" app:a1d="@id/la2" app:a21="@id/dtc" app:a27="@id/la2" />
+    <Space android:id="@id/knu" android:layout_width="0.0dp" android:layout_height="0.0dp" app:a1s="0.025" app:a1x="@id/d63" app:a21="@id/d64" app:a26="@id/la2" />
+    <ImageView android:id="@id/dqo" android:layout_width="0.0dp" android:layout_height="wrap_content" android:src="@drawable/three_player_share_card_dashed_line" app:a1e="@id/dss" app:a1x="@id/d63" app:a21="@id/d64" app:a26="@id/knu" />
+    <ImageView android:id="@id/dss" android:layout_width="0.0dp" android:layout_height="0.0dp" android:layout_marginTop="4.0dp" app:a1d="@id/d62" app:a1i="1:1" app:a1s="0.06" app:a21="@id/d64" app:a26="@id/dqo" />
+    <androidx.constraintlayout.widget.ConstraintLayout android:layout_width="wrap_content" android:layout_height="wrap_content" app:a1d="@id/dss" app:a1x="@id/d63" app:a27="@id/dss">
+        <ImageView android:id="@id/fms" android:layout_width="128.5dp" android:layout_height="12.5dp" android:src="@drawable/logo_qq_show_share_room" app:a1x="hnz" app:a27="hnz" />
+        <TextView android:textSize="6.0dp" android:textColor="@color/black" android:id="@id/l_y" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="4.0dp" android:text="扫码体验同款播放器" app:a1x="hnz" app:a26="@id/fms" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>

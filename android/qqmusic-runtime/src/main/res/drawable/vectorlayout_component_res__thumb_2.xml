@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layer-list
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <item>
+        <bitmap android:gravity="center" android:src="@drawable/vectorlayout_component_res__player_thumb_ani2" />
+    </item>
+    <item>
+        <bitmap android:gravity="center" android:src="@drawable/vectorlayout_component_res__fullplayer_progress_point" />
+    </item>
+</layer-list>

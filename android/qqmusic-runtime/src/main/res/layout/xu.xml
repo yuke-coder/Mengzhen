@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout android:id="@id/b8n" android:layout_width="match_parent" android:layout_height="match_parent"
+  xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">
+    <include android:id="@id/naf" android:layout_width="match_parent" android:layout_height="match_parent" layout="@layout/m6" />
+    <RelativeLayout android:id="@id/b97" android:visibility="gone" android:layout_width="match_parent" android:layout_height="wrap_content">
+        <include android:id="@id/b8q" android:layout_width="match_parent" android:layout_height="@dimen/cau" layout="@layout/mu" />
+        <ViewStub android:id="@id/b7k" android:layout="@layout/n5" android:layout_width="match_parent" android:layout_height="@dimen/cau" android:layout_alignParentTop="true" />
+    </RelativeLayout>
+    <androidx.constraintlayout.widget.ConstraintLayout android:state_window_focused="false" android:id="@id/a6x" android:paddingTop="@dimen/c_q" android:layout_width="match_parent" android:layout_height="@dimen/cau" android:layout_alignParentTop="true">
+        <ImageView android:id="@id/a5t" android:background="@drawable/material_ripple_background_circle" android:layout_width="@dimen/cao" android:layout_height="@dimen/cao" android:src="@drawable/activity_back_selector" android:scaleType="centerInside" android:contentDescription="@string/wf" app:a1d="hnz" app:a23="hnz" app:a27="hnz" />
+        <ImageView android:id="@id/j90" android:background="@drawable/material_ripple_background_circle" android:focusable="false" android:layout_width="@dimen/cao" android:layout_height="@dimen/cao" android:src="@drawable/im_setting" android:scaleType="centerInside" android:contentDescription="@string/gqv" app:a1d="hnz" app:a1j="hnz" app:a1y="@id/b8p" app:a27="hnz" />
+        <com.tencent.qqmusic.ui.DigitalDotHorizontalScrollTab android:id="@id/b8p" android:layout_width="0.0dp" android:layout_height="match_parent" app:a1d="hnz" app:a1v="1.0" app:a1y="@id/a5t" app:a20="@id/j90" app:a27="hnz" />
+        <com.tencent.qqmusic.ui.CompactDotHorizontalScrollTab android:id="@id/b9a" android:layout_width="0.0dp" android:layout_height="match_parent" app:a1d="hnz" app:a1v="1.0" app:a1y="@id/a5t" app:a20="@id/j90" app:a27="hnz" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+    <com.tencent.qqmusic.ui.MusicHallsViewPager android:id="@id/b8o" android:layout_width="match_parent" android:layout_height="match_parent" android:layout_below="@id/a6x" />
+    <include android:id="@id/b70" android:visibility="invisible" android:layout_width="match_parent" android:layout_height="match_parent" android:layout_below="@id/b97" layout="@layout/mj" />
+    <ViewStub android:id="@id/b78" android:background="@color/transparent" android:layout="@layout/mh" android:layout_width="match_parent" android:layout_height="match_parent" android:layout_below="@id/b97" android:layout_centerInParent="true" />
+</RelativeLayout>

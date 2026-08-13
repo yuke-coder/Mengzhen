@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout android:orientation="vertical" android:layout_width="match_parent" android:layout_height="wrap_content"
+  xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">
+    <include layout="@layout/cw3" />
+    <com.tencent.qqmusic.community.putoo.group.ui.PutooGroupHorizontalScrollTab android:id="@id/ijp" android:layout_width="match_parent" android:layout_height="27.0dp" android:layout_marginTop="22.0dp" android:layout_marginStart="16.0dp" />
+</LinearLayout>

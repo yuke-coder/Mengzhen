@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout android:id="@id/b_d" android:background="@android:color/transparent" android:layout_width="wrap_content" android:layout_height="wrap_content"
+  xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">
+    <com.tencent.qqmusic.ui.RoundedConstraintLayout android:id="@id/dq9" android:layout_width="wrap_content" android:layout_height="wrap_content" app:a1i="1:1" app:a23="hnz" app:a27="hnz" app:a2e="1.0">
+        <com.tencent.component.widget.AsyncEffectImageView android:id="@id/ebt" android:layout_width="match_parent" android:layout_height="match_parent" android:scaleType="centerCrop" app:a1d="hnz" app:a1i="1:1" app:a1j="hnz" app:a23="hnz" app:a27="hnz" />
+        <View android:id="@id/l5r" android:background="@drawable/shadow_v13_folder_no_corner" android:layout_width="0.0dp" android:layout_height="54.0dp" app:a1d="hnz" app:a1j="hnz" app:a23="hnz" />
+        <include android:id="@id/moc" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginBottom="6.0dp" android:layout_marginStart="6.0dp" android:layout_marginEnd="14.0dp" app:a1d="hnz" app:a23="hnz" layout="@layout/by6" />
+        <TextView android:textSize="10.0dp" android:textStyle="bold" android:textColor="@color/white" android:gravity="center" android:id="@id/mfo" android:layout_width="wrap_content" android:layout_height="16.0dp" android:lines="1" android:layout_marginStart="6.0dp" android:layout_marginEnd="8.0dp" app:a1d="@id/moc" app:a1j="hnz" />
+        <com.tencent.component.widget.AsyncEffectImageView android:id="@id/ehp" android:visibility="gone" android:layout_width="15.0dp" android:layout_height="15.0dp" android:layout_marginEnd="1.0dp" app:a1d="@id/mfo" app:a1k="@id/mfo" app:a27="@id/mfo" />
+    </com.tencent.qqmusic.ui.RoundedConstraintLayout>
+    <TextView android:textSize="12.0dp" android:textColor="@color/skin_text_main_color" android:ellipsize="end" android:gravity="start" android:id="@id/mpc" android:layout_width="0.0dp" android:layout_height="wrap_content" android:layout_marginTop="6.0dp" android:lines="1" app:a1j="hnz" app:a23="hnz" app:a26="@id/dq9" />
+    <TextView android:textSize="10.0dp" android:textColor="@color/skin_text_sub_color" android:ellipsize="end" android:gravity="start" android:id="@id/mnm" android:visibility="gone" android:layout_width="0.0dp" android:layout_height="wrap_content" android:layout_marginTop="2.0dp" android:lines="1" app:a1j="hnz" app:a23="hnz" app:a26="@id/mpc" />
+</androidx.constraintlayout.widget.ConstraintLayout>

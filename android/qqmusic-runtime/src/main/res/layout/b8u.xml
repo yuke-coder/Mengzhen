@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<merge
+  xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">
+    <LinearLayout android:gravity="bottom" android:id="@id/dl3" android:paddingTop="15.0dp" android:paddingBottom="15.0dp" android:focusable="true" android:focusableInTouchMode="false" android:layout_width="match_parent" android:layout_height="wrap_content" android:paddingVertical="15.0dp">
+        <com.tencent.qqmusic.ui.RoundedConstraintLayout android:id="@id/dl2" android:layout_width="0.0dp" android:layout_height="wrap_content" android:minHeight="30.0dp" android:layout_weight="1.0" android:layout_marginStart="16.0dp" android:layout_marginEnd="10.0dp" app:kj="16.0dp" app:a27="hnz" app:a28="0.0">
+            <EditText android:textSize="14.0sp" android:textColor="@color/im_input_color" android:id="@id/dl1" android:background="@drawable/skin_mask_img" android:padding="8.0dp" android:layout_width="match_parent" android:layout_height="wrap_content" android:hint="@string/la" android:maxLines="4" app:a1j="hnz" app:a23="hnz" />
+        </com.tencent.qqmusic.ui.RoundedConstraintLayout>
+        <ImageView android:layout_gravity="bottom" android:id="@id/dmd" android:padding="2.5dp" android:visibility="visible" android:layout_width="30.0dp" android:layout_height="30.0dp" android:src="@drawable/im_send_emoji" android:layout_marginEnd="10.0dp" />
+        <LinearLayout android:gravity="center" android:layout_gravity="bottom" android:orientation="vertical" android:id="@id/jsi" android:visibility="gone" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginEnd="16.0dp" app:a2p="6.0dp">
+            <TextView android:textSize="12.0sp" android:textColor="@color/im_input_color" android:id="@id/dl_" android:visibility="gone" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_weight="1.0" />
+            <TextView android:textSize="15.0sp" android:textStyle="bold" android:textColor="@drawable/im_ai_room_input_send_text_color" android:gravity="center" android:id="@id/dmg" android:background="@drawable/im_ai_room_input_send_bg" android:paddingLeft="19.0dp" android:paddingTop="5.5dp" android:paddingRight="19.0dp" android:paddingBottom="5.5dp" android:visibility="visible" android:layout_width="wrap_content" android:layout_height="32.0dp" android:text="@string/bs6" android:layout_weight="1.0" android:paddingHorizontal="19.0dp" android:paddingVertical="5.5dp" />
+        </LinearLayout>
+    </LinearLayout>
+</merge>

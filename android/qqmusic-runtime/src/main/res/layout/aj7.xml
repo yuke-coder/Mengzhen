@@ -1,0 +1,3 @@
+<?xml version="1.0" encoding="utf-8"?>
+<TextView android:textSize="18.0dp" android:textColor="@color/skin_text_main_color" android:id="@id/kqk" android:visibility="gone" android:layout_width="wrap_content" android:layout_height="22.0dp" android:layout_marginTop="16.0dp" android:layout_marginBottom="15.0dp" android:layout_marginStart="19.0dp"
+  xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto" />

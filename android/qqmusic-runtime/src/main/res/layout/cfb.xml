@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout android:orientation="vertical" android:layout_width="match_parent" android:layout_height="135.0dp" android:layout_marginBottom="0.5dp"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <TextView android:textSize="18.0sp" android:textColor="@color/common_dialog_button_text_color" android:gravity="center" android:id="@id/id1" android:layout_width="match_parent" android:layout_height="0.0dp" android:text="去鼓励" android:layout_weight="1.0" />
+    <View android:background="#e5e6ea" android:layout_width="match_parent" android:layout_height="0.5dp" />
+    <TextView android:textSize="18.0sp" android:textColor="@color/black" android:gravity="center" android:id="@id/g7o" android:layout_width="match_parent" android:layout_height="0.0dp" android:text="中间" android:layout_weight="1.0" />
+    <View android:background="#e5e6ea" android:layout_width="match_parent" android:layout_height="0.5dp" />
+    <TextView android:textSize="18.0sp" android:textColor="@color/black" android:gravity="center" android:id="@id/hc7" android:layout_width="match_parent" android:layout_height="0.0dp" android:text="去吐槽" android:layout_weight="1.0" />
+</LinearLayout>

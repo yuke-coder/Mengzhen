@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout android:id="@id/h6s" android:background="#b3000000" android:visibility="gone" android:clickable="true" android:layout_width="match_parent" android:layout_height="match_parent"
+  xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">
+    <com.tme.karaoke.base.preview.RoundedRelativeLayout android:layout_gravity="bottom" android:orientation="vertical" android:id="@id/jib" android:background="@drawable/preview_chorus_pabel_bg" android:clickable="true" android:layout_width="match_parent" android:layout_height="match_parent" app:z8="10.0dp" app:z9="10.0dp">
+        <LinearLayout android:id="@id/ddb" android:background="@drawable/preview_aiscore_hit_rank_info_bg" android:visibility="gone" android:layout_width="match_parent" android:layout_height="29.0dp" android:layout_marginLeft="20.0dp" android:layout_marginRight="20.0dp" android:layout_alignTop="@id/iou" android:layout_centerHorizontal="true" android:translationY="45.0dp">
+            <kk.design.KKTextView android:textSize="13.0dp" android:textStyle="bold" android:textColor="#ae5e00" android:ellipsize="marquee" android:gravity="center" android:layout_gravity="center_horizontal" android:id="@id/dda" android:layout_width="match_parent" android:layout_height="match_parent" android:text="全民好声音 l 深圳TOP100" android:singleLine="true" app:a0f="hfs" />
+        </LinearLayout>
+        <LinearLayout android:orientation="horizontal" android:id="@id/j5l" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginBottom="60.0dp" android:layout_above="@id/iou">
+            <kk.design.KKImageView android:layout_gravity="left|center" android:id="@id/j5i" android:layout_width="166.0dp" android:layout_height="98.0dp" android:layout_marginLeft="10.0dp" android:src="@drawable/chorus_default_rank_icon" android:scaleType="center" app:kkImagePlaceholder="@drawable/chorus_default_rank_icon" />
+            <LinearLayout android:layout_gravity="center_vertical" android:orientation="vertical" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginLeft="8.0dp">
+                <LinearLayout android:gravity="center_vertical" android:orientation="horizontal" android:id="@id/kff" android:layout_width="wrap_content" android:layout_height="wrap_content">
+                    <kk.design.KKIconView android:layout_width="15.0dp" android:layout_height="17.0dp" android:src="@drawable/chorus_score_panel_song_icon" app:yc="@null" />
+                    <kk.design.KKTextView android:textSize="17.0dp" android:textColor="#e6ffffff" android:ellipsize="end" android:id="@id/kfb" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginLeft="8.0dp" android:text="新世界" android:maxLines="1" app:a0f="hfs" />
+                </LinearLayout>
+                <RelativeLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginTop="14.0dp">
+                    <LinearLayout android:orientation="vertical" android:id="@id/m0t" android:layout_width="wrap_content" android:layout_height="wrap_content">
+                        <kk.design.KKTextView android:textSize="14.0dp" android:textColor="#99ffffff" android:id="@id/m0u" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="获得总分" app:a0f="hfs" />
+                        <kk.design.KKTextView android:textSize="20.0dp" android:textColor="#e6ffffff" android:id="@id/m0v" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="8.0dp" android:text="0000" android:layout_below="@id/m0u" app:a0f="hfs" />
+                    </LinearLayout>
+                    <LinearLayout android:orientation="vertical" android:id="@id/c_x" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginLeft="21.0dp" android:layout_toRightOf="@id/m0t">
+                        <kk.design.KKTextView android:textSize="14.0dp" android:textColor="#99ffffff" android:ellipsize="end" android:id="@id/c_y" android:layout_width="match_parent" android:layout_height="wrap_content" android:text="超过好友" android:maxLines="1" app:a0f="hfs" />
+                        <kk.design.KKTextView android:textSize="20.0dp" android:textColor="#e6ffffff" android:id="@id/c_z" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="8.0dp" android:text="0%" android:layout_below="@id/c_y" app:a0f="hfs" />
+                    </LinearLayout>
+                </RelativeLayout>
+            </LinearLayout>
+        </LinearLayout>
+        <RelativeLayout android:id="@id/iou" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginBottom="14.0dp" android:layout_above="@id/ajm" android:layout_centerHorizontal="true">
+            <androidx.constraintlayout.widget.ConstraintLayout android:layout_gravity="center_horizontal" android:id="@id/ipu" android:layout_width="335.0dp" android:layout_height="285.0dp">
+                <RelativeLayout android:id="@id/lzl" android:layout_width="match_parent" android:layout_height="24.0dp" app:a27="hnz">
+                    <kk.design.KKIconView android:layout_width="81.0dp" android:layout_height="24.0dp" android:src="@drawable/ai_multi_score_logo" app:yc="@null" />
+                    <LinearLayout android:gravity="bottom" android:id="@id/jec" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginRight="5.0dp" android:layout_alignParentRight="true" android:layout_alignParentBottom="true">
+                        <kk.design.KKTextView android:textColor="#b3ffffff" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginRight="5.0dp" android:text="规则" app:a0f="hfs" />
+                        <kk.design.KKIconView android:layout_width="18.0dp" android:layout_height="18.0dp" android:src="@drawable/ai_multi_score_panel_icon" app:yc="@null" />
+                    </LinearLayout>
+                </RelativeLayout>
+                <com.tme.karaoka.previewui.widget.RadarView android:id="@id/gwz" android:layout_width="0.0dp" android:layout_height="0.0dp" app:a1d="hnz" app:a1j="hnz" app:a23="hnz" app:a27="hnz" />
+                <kk.design.KKTextView android:textSize="35.5dp" android:textColor="#ffffff" android:id="@id/j5j" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="89.55" app:a0f="hfs" app:a1d="hnz" app:a1j="hnz" app:a23="hnz" app:a27="hnz" />
+            </androidx.constraintlayout.widget.ConstraintLayout>
+            <com.tme.pag.ui.PAGLayout android:id="@id/g3n" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_alignTop="@id/ipu" android:layout_alignBottom="@id/ipu" android:layout_alignStart="@id/ipu" android:layout_alignEnd="@id/ipu" />
+            <TextView android:textSize="12.0dp" android:textColor="@color/colorWhite" android:gravity="center_vertical" android:id="@id/awl" android:background="@drawable/change_score_corner_bg" android:layout_width="wrap_content" android:layout_height="24.0dp" android:text="查看五维评分" android:drawablePadding="5.5dp" android:layout_alignBottom="@id/ipu" android:drawableStart="@drawable/change_score_bg" android:paddingStart="6.0dp" android:paddingEnd="5.0dp" android:layout_alignEnd="@id/ipu" />
+        </RelativeLayout>
+        <kk.design.KKTextView android:textSize="16.0dp" android:textStyle="bold" android:textColor="@color/colorWhite" android:gravity="center" android:id="@id/ajm" android:background="@drawable/preview_chorus_btn_know_bg" android:layout_width="165.0dp" android:layout_height="40.0dp" android:layout_marginBottom="23.0dp" android:text="我知道了" android:layout_alignParentBottom="true" android:layout_centerHorizontal="true" app:a0f="hfs" />
+    </com.tme.karaoke.base.preview.RoundedRelativeLayout>
+</FrameLayout>

@@ -1,0 +1,189 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout android:background="#ff1a1a1a" android:clipChildren="false" android:clipToPadding="false" android:layout_width="match_parent" android:layout_height="match_parent"
+  xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">
+    <RelativeLayout android:id="@id/kla" android:background="#ff1a1a1a" android:paddingTop="@dimen/c_q" android:layout_width="match_parent" android:layout_height="@dimen/cau" android:elevation="2.0dp" app:a23="hnz" app:a27="hnz">
+        <RelativeLayout android:clickable="false" android:layout_width="match_parent" android:layout_height="match_parent" android:layout_marginTop="4.0dp" android:layout_marginRight="4.0dp" android:layout_marginBottom="2.0dp" android:layout_alignParentLeft="true">
+            <ImageView android:id="@id/kk3" android:background="@drawable/material_ripple_background_circle" android:focusable="true" android:layout_width="@dimen/can" android:layout_height="@dimen/can" android:src="@drawable/activity_back_selector_white" android:scaleType="centerInside" android:layout_centerVertical="true" android:contentDescription="@string/wf" android:layout_marginStart="4.0dp" />
+            <TextView android:textSize="16.0dp" android:textStyle="bold" android:textColor="#ffffffff" android:id="@id/kl_" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="自定义调音" android:singleLine="true" android:layout_centerInParent="true" />
+        </RelativeLayout>
+    </RelativeLayout>
+    <androidx.core.widget.NestedScrollView android:id="@id/kkl" android:scrollbars="none" android:layout_width="match_parent" android:layout_height="0.0dp" android:overScrollMode="never" app:a1e="@id/kk4" app:a1j="hnz" app:a23="hnz" app:a26="@id/kla">
+        <LinearLayout android:orientation="vertical" android:paddingBottom="20.0dp" android:clipChildren="false" android:layout_width="match_parent" android:layout_height="wrap_content">
+            <LinearLayout android:orientation="vertical" android:id="@id/kks" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginStart="20.0dp" android:layout_marginEnd="20.0dp">
+                <FrameLayout android:layout_gravity="center_horizontal" android:layout_width="130.0dp" android:layout_height="130.0dp" android:layout_marginTop="15.0dp">
+                    <com.tencent.component.widget.AsyncImageView android:id="@id/kkq" android:background="@drawable/ss_soundboard_cover_placeholder" android:layout_width="match_parent" android:layout_height="match_parent" android:scaleType="centerCrop" />
+                    <ImageView android:layout_gravity="bottom" android:id="@id/kkr" android:layout_width="match_parent" android:layout_height="65.0dp" android:src="@drawable/ss_sound_board_cover_mask" android:scaleType="fitXY" />
+                    <ImageView android:layout_gravity="end|bottom" android:id="@id/kki" android:layout_width="20.0dp" android:layout_height="20.0dp" android:layout_marginBottom="10.0dp" android:src="@drawable/ss_sound_board_pause" android:scaleType="centerInside" android:contentDescription="播放/暂停" android:layout_marginEnd="10.0dp" />
+                </FrameLayout>
+                <androidx.constraintlayout.widget.ConstraintLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginTop="10.0dp">
+                    <TextView android:textSize="16.0dp" android:textStyle="bold" android:textColor="#ffffffff" android:ellipsize="end" android:id="@id/kkt" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="晴天" android:singleLine="true" app:a18="true" app:a1k="@id/kku" app:a1u="hmg" app:a23="hnz" />
+                    <ImageView android:id="@id/kku" android:layout_width="11.5dp" android:layout_height="9.5dp" android:src="@drawable/ss_sound_board_vector" android:scaleType="fitCenter" android:layout_marginStart="4.0dp" app:a1d="@id/kkt" app:a1j="hnz" app:a22="@id/kkt" app:a27="@id/kkt" />
+                </androidx.constraintlayout.widget.ConstraintLayout>
+                <TextView android:textSize="14.0dp" android:textColor="#ffffffff" android:layout_gravity="center_horizontal" android:id="@id/kkv" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="3.0dp" android:text="周杰伦" android:singleLine="true" android:alpha="0.5" />
+            </LinearLayout>
+            <TextView android:textSize="11.0dp" android:textColor="#fffdc700" android:layout_gravity="center_horizontal" android:id="@id/klj" android:visibility="invisible" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="6.0dp" android:layout_marginBottom="3.0dp" />
+            <FrameLayout android:id="@id/klg" android:background="#0dffffff" android:visibility="invisible" android:layout_width="match_parent" android:layout_height="100.0dp" />
+            <TextView android:textSize="14.0dp" android:textColor="#ffffffff" android:id="@id/kkw" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="30.0dp" android:text="倍速" android:layout_marginStart="20.0dp" />
+            <FrameLayout android:clipChildren="false" android:layout_width="match_parent" android:layout_height="20.0dp" android:layout_marginTop="10.0dp" android:layout_marginStart="20.0dp" android:layout_marginEnd="20.0dp">
+                <LinearLayout android:orientation="horizontal" android:layout_width="match_parent" android:layout_height="match_parent" android:weightSum="3.0" android:paddingStart="3.0dp" android:paddingEnd="3.0dp">
+                    <View android:layout_gravity="center_vertical" android:background="@drawable/ss_soundboard_pitch_dot_large" android:layout_width="4.0dp" android:layout_height="4.0dp" />
+                    <Space android:layout_width="0.0dp" android:layout_height="match_parent" android:layout_weight="1.0" />
+                    <View android:layout_gravity="center_vertical" android:background="@drawable/ss_soundboard_pitch_dot_large" android:layout_width="4.0dp" android:layout_height="4.0dp" />
+                    <Space android:layout_width="0.0dp" android:layout_height="match_parent" android:layout_weight="1.0" />
+                    <View android:layout_gravity="center_vertical" android:background="@drawable/ss_soundboard_pitch_dot_large" android:layout_width="4.0dp" android:layout_height="4.0dp" />
+                    <Space android:layout_width="0.0dp" android:layout_height="match_parent" android:layout_weight="1.0" />
+                    <View android:layout_gravity="center_vertical" android:background="@drawable/ss_soundboard_pitch_dot_large" android:layout_width="4.0dp" android:layout_height="4.0dp" />
+                </LinearLayout>
+                <SeekBar android:id="@id/kkx" android:layout_width="match_parent" android:layout_height="20.0dp" android:maxHeight="4.0dp" android:max="15" android:progress="5" android:progressDrawable="@drawable/ss_soundboard_speed_track" android:minHeight="4.0dp" android:thumb="@drawable/ss_soundboard_seek_thumb_large" android:paddingStart="5.0dp" android:paddingEnd="5.0dp" android:splitTrack="false" />
+            </FrameLayout>
+            <RelativeLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginTop="10.0dp" android:layout_marginStart="20.0dp" android:layout_marginEnd="20.0dp">
+                <TextView android:textSize="12.0dp" android:textColor="#ffffffff" android:id="@id/kky" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="2.0X" android:alpha="0.5" android:layout_alignParentEnd="true" />
+                <LinearLayout android:orientation="horizontal" android:layout_width="match_parent" android:layout_height="wrap_content" android:paddingEnd="24.0dp">
+                    <TextView android:textSize="12.0dp" android:textColor="#ffffffff" android:layout_width="0.0dp" android:layout_height="wrap_content" android:text="0.5X" android:layout_weight="1.0" android:alpha="0.5" />
+                    <TextView android:textSize="12.0dp" android:textColor="#ffffffff" android:layout_width="0.0dp" android:layout_height="wrap_content" android:text="1.0X" android:layout_weight="1.0" android:alpha="0.5" />
+                    <TextView android:textSize="12.0dp" android:textColor="#ffffffff" android:layout_width="0.0dp" android:layout_height="wrap_content" android:text="1.5X" android:layout_weight="1.0" android:alpha="0.5" />
+                </LinearLayout>
+            </RelativeLayout>
+            <LinearLayout android:orientation="vertical" android:id="@id/kkf" android:layout_width="match_parent" android:layout_height="wrap_content">
+                <TextView android:textSize="14.0dp" android:textColor="#ffffffff" android:id="@id/kke" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="30.0dp" android:text="变调 正常" android:layout_marginStart="20.0dp" />
+                <FrameLayout android:layout_width="match_parent" android:layout_height="10.0dp" android:layout_marginTop="10.0dp" android:layout_marginStart="20.0dp" android:layout_marginEnd="20.0dp">
+                    <LinearLayout android:orientation="horizontal" android:layout_width="match_parent" android:layout_height="match_parent" android:weightSum="24.0" android:paddingStart="3.0dp" android:paddingEnd="3.0dp">
+                        <View android:layout_gravity="center_vertical" android:background="@drawable/ss_soundboard_pitch_dot_large" android:layout_width="4.0dp" android:layout_height="4.0dp" />
+                        <Space android:layout_width="0.0dp" android:layout_height="match_parent" android:layout_weight="1.0" />
+                        <View android:layout_gravity="center_vertical" android:background="@drawable/ss_soundboard_pitch_dot_small" android:layout_width="3.0dp" android:layout_height="3.0dp" />
+                        <Space android:layout_width="0.0dp" android:layout_height="match_parent" android:layout_weight="1.0" />
+                        <View android:layout_gravity="center_vertical" android:background="@drawable/ss_soundboard_pitch_dot_small" android:layout_width="3.0dp" android:layout_height="3.0dp" />
+                        <Space android:layout_width="0.0dp" android:layout_height="match_parent" android:layout_weight="1.0" />
+                        <View android:layout_gravity="center_vertical" android:background="@drawable/ss_soundboard_pitch_dot_small" android:layout_width="3.0dp" android:layout_height="3.0dp" />
+                        <Space android:layout_width="0.0dp" android:layout_height="match_parent" android:layout_weight="1.0" />
+                        <View android:layout_gravity="center_vertical" android:background="@drawable/ss_soundboard_pitch_dot_small" android:layout_width="3.0dp" android:layout_height="3.0dp" />
+                        <Space android:layout_width="0.0dp" android:layout_height="match_parent" android:layout_weight="1.0" />
+                        <View android:layout_gravity="center_vertical" android:background="@drawable/ss_soundboard_pitch_dot_small" android:layout_width="3.0dp" android:layout_height="3.0dp" />
+                        <Space android:layout_width="0.0dp" android:layout_height="match_parent" android:layout_weight="1.0" />
+                        <View android:layout_gravity="center_vertical" android:background="@drawable/ss_soundboard_pitch_dot_large" android:layout_width="4.0dp" android:layout_height="4.0dp" />
+                        <Space android:layout_width="0.0dp" android:layout_height="match_parent" android:layout_weight="1.0" />
+                        <View android:layout_gravity="center_vertical" android:background="@drawable/ss_soundboard_pitch_dot_small" android:layout_width="3.0dp" android:layout_height="3.0dp" />
+                        <Space android:layout_width="0.0dp" android:layout_height="match_parent" android:layout_weight="1.0" />
+                        <View android:layout_gravity="center_vertical" android:background="@drawable/ss_soundboard_pitch_dot_small" android:layout_width="3.0dp" android:layout_height="3.0dp" />
+                        <Space android:layout_width="0.0dp" android:layout_height="match_parent" android:layout_weight="1.0" />
+                        <View android:layout_gravity="center_vertical" android:background="@drawable/ss_soundboard_pitch_dot_small" android:layout_width="3.0dp" android:layout_height="3.0dp" />
+                        <Space android:layout_width="0.0dp" android:layout_height="match_parent" android:layout_weight="1.0" />
+                        <View android:layout_gravity="center_vertical" android:background="@drawable/ss_soundboard_pitch_dot_small" android:layout_width="3.0dp" android:layout_height="3.0dp" />
+                        <Space android:layout_width="0.0dp" android:layout_height="match_parent" android:layout_weight="1.0" />
+                        <View android:layout_gravity="center_vertical" android:background="@drawable/ss_soundboard_pitch_dot_small" android:layout_width="3.0dp" android:layout_height="3.0dp" />
+                        <Space android:layout_width="0.0dp" android:layout_height="match_parent" android:layout_weight="1.0" />
+                        <View android:layout_gravity="center_vertical" android:background="@drawable/ss_soundboard_pitch_dot_large" android:layout_width="4.0dp" android:layout_height="4.0dp" />
+                        <Space android:layout_width="0.0dp" android:layout_height="match_parent" android:layout_weight="1.0" />
+                        <View android:layout_gravity="center_vertical" android:background="@drawable/ss_soundboard_pitch_dot_small" android:layout_width="3.0dp" android:layout_height="3.0dp" />
+                        <Space android:layout_width="0.0dp" android:layout_height="match_parent" android:layout_weight="1.0" />
+                        <View android:layout_gravity="center_vertical" android:background="@drawable/ss_soundboard_pitch_dot_small" android:layout_width="3.0dp" android:layout_height="3.0dp" />
+                        <Space android:layout_width="0.0dp" android:layout_height="match_parent" android:layout_weight="1.0" />
+                        <View android:layout_gravity="center_vertical" android:background="@drawable/ss_soundboard_pitch_dot_small" android:layout_width="3.0dp" android:layout_height="3.0dp" />
+                        <Space android:layout_width="0.0dp" android:layout_height="match_parent" android:layout_weight="1.0" />
+                        <View android:layout_gravity="center_vertical" android:background="@drawable/ss_soundboard_pitch_dot_small" android:layout_width="3.0dp" android:layout_height="3.0dp" />
+                        <Space android:layout_width="0.0dp" android:layout_height="match_parent" android:layout_weight="1.0" />
+                        <View android:layout_gravity="center_vertical" android:background="@drawable/ss_soundboard_pitch_dot_small" android:layout_width="3.0dp" android:layout_height="3.0dp" />
+                        <Space android:layout_width="0.0dp" android:layout_height="match_parent" android:layout_weight="1.0" />
+                        <View android:layout_gravity="center_vertical" android:background="@drawable/ss_soundboard_pitch_dot_large" android:layout_width="4.0dp" android:layout_height="4.0dp" />
+                        <Space android:layout_width="0.0dp" android:layout_height="match_parent" android:layout_weight="1.0" />
+                        <View android:layout_gravity="center_vertical" android:background="@drawable/ss_soundboard_pitch_dot_small" android:layout_width="3.0dp" android:layout_height="3.0dp" />
+                        <Space android:layout_width="0.0dp" android:layout_height="match_parent" android:layout_weight="1.0" />
+                        <View android:layout_gravity="center_vertical" android:background="@drawable/ss_soundboard_pitch_dot_small" android:layout_width="3.0dp" android:layout_height="3.0dp" />
+                        <Space android:layout_width="0.0dp" android:layout_height="match_parent" android:layout_weight="1.0" />
+                        <View android:layout_gravity="center_vertical" android:background="@drawable/ss_soundboard_pitch_dot_small" android:layout_width="3.0dp" android:layout_height="3.0dp" />
+                        <Space android:layout_width="0.0dp" android:layout_height="match_parent" android:layout_weight="1.0" />
+                        <View android:layout_gravity="center_vertical" android:background="@drawable/ss_soundboard_pitch_dot_small" android:layout_width="3.0dp" android:layout_height="3.0dp" />
+                        <Space android:layout_width="0.0dp" android:layout_height="match_parent" android:layout_weight="1.0" />
+                        <View android:layout_gravity="center_vertical" android:background="@drawable/ss_soundboard_pitch_dot_small" android:layout_width="3.0dp" android:layout_height="3.0dp" />
+                        <Space android:layout_width="0.0dp" android:layout_height="match_parent" android:layout_weight="1.0" />
+                        <View android:layout_gravity="center_vertical" android:background="@drawable/ss_soundboard_pitch_dot_large" android:layout_width="4.0dp" android:layout_height="4.0dp" />
+                    </LinearLayout>
+                    <com.tencent.qqmusic.business.partplay.CenterSeekBar android:id="@id/kkg" android:layout_width="match_parent" android:layout_height="10.0dp" app:cf="@drawable/ss_soundboard_pitch_center_bg" app:acc="12" app:acg="@drawable/ss_soundboard_pitch_center_progress" app:ach="24" app:ap1="@drawable/ss_soundboard_seek_thumb_large" />
+                </FrameLayout>
+                <RelativeLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginTop="10.0dp" android:layout_marginStart="20.0dp" android:layout_marginEnd="20.0dp">
+                    <TextView android:textSize="12.0dp" android:textColor="#ffffffff" android:id="@id/kkh" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="12" android:alpha="0.5" android:layout_alignParentEnd="true" />
+                    <LinearLayout android:orientation="horizontal" android:layout_width="match_parent" android:layout_height="wrap_content" android:paddingEnd="12.0dp">
+                        <TextView android:textSize="12.0dp" android:textColor="#ffffffff" android:layout_width="0.0dp" android:layout_height="wrap_content" android:text="-12" android:layout_weight="1.0" android:alpha="0.5" />
+                        <TextView android:textSize="12.0dp" android:textColor="#ffffffff" android:layout_width="0.0dp" android:layout_height="wrap_content" android:text="-6" android:layout_weight="1.0" android:alpha="0.5" />
+                        <TextView android:textSize="12.0dp" android:textColor="#ffffffff" android:layout_width="0.0dp" android:layout_height="wrap_content" android:text="正常" android:layout_weight="1.0" android:alpha="0.5" />
+                        <TextView android:textSize="12.0dp" android:textColor="#ffffffff" android:layout_width="0.0dp" android:layout_height="wrap_content" android:text="6" android:layout_weight="1.0" android:alpha="0.5" />
+                    </LinearLayout>
+                </RelativeLayout>
+            </LinearLayout>
+            <LinearLayout android:orientation="vertical" android:id="@id/klc" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginTop="30.0dp">
+                <LinearLayout android:gravity="center_vertical" android:orientation="horizontal" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginStart="20.0dp">
+                    <TextView android:textSize="14.0dp" android:textColor="#ffffffff" android:id="@id/klb" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="伴唱" />
+                    <ImageView android:id="@id/klf" android:layout_width="17.0dp" android:layout_height="16.0dp" android:src="@drawable/ss_super_vip" android:scaleType="fitCenter" android:contentDescription="@string/wf" android:translationY="0.5dp" android:layout_marginStart="5.0dp" />
+                    <TextView android:textSize="13.0dp" android:textColor="#80ffffff" android:ellipsize="end" android:id="@id/kle" android:visibility="gone" android:layout_width="0.0dp" android:layout_height="wrap_content" android:maxLines="1" android:layout_weight="1.0" android:layout_marginStart="5.0dp" />
+                </LinearLayout>
+                <FrameLayout android:clipChildren="false" android:layout_width="match_parent" android:layout_height="20.0dp" android:layout_marginTop="10.0dp" android:layout_marginStart="20.0dp" android:layout_marginEnd="20.0dp">
+                    <LinearLayout android:orientation="horizontal" android:layout_width="match_parent" android:layout_height="match_parent" android:weightSum="2.0" android:paddingStart="3.0dp" android:paddingEnd="3.0dp">
+                        <View android:layout_gravity="center_vertical" android:background="@drawable/ss_soundboard_pitch_dot_large" android:layout_width="4.0dp" android:layout_height="4.0dp" />
+                        <Space android:layout_width="0.0dp" android:layout_height="match_parent" android:layout_weight="1.0" />
+                        <View android:layout_gravity="center_vertical" android:background="@drawable/ss_soundboard_pitch_dot_large" android:layout_width="4.0dp" android:layout_height="4.0dp" />
+                        <Space android:layout_width="0.0dp" android:layout_height="match_parent" android:layout_weight="1.0" />
+                        <View android:layout_gravity="center_vertical" android:background="@drawable/ss_soundboard_pitch_dot_large" android:layout_width="4.0dp" android:layout_height="4.0dp" />
+                    </LinearLayout>
+                    <SeekBar android:id="@id/kld" android:layout_width="match_parent" android:layout_height="20.0dp" android:maxHeight="4.0dp" android:max="16" android:progress="8" android:progressDrawable="@drawable/ss_soundboard_seek_track" android:minHeight="4.0dp" android:thumb="@drawable/ss_soundboard_seek_thumb" android:paddingStart="5.0dp" android:paddingEnd="5.0dp" android:splitTrack="false" />
+                </FrameLayout>
+                <RelativeLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginTop="10.0dp" android:layout_marginStart="20.0dp" android:layout_marginEnd="20.0dp">
+                    <TextView android:textSize="12.0dp" android:textColor="#ffffffff" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="人声" android:alpha="0.5" android:layout_alignParentStart="true" />
+                    <TextView android:textSize="12.0dp" android:textColor="#ffffffff" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="原唱" android:layout_centerHorizontal="true" android:alpha="0.5" />
+                    <TextView android:textSize="12.0dp" android:textColor="#ffffffff" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="伴奏" android:alpha="0.5" android:layout_alignParentEnd="true" />
+                </RelativeLayout>
+            </LinearLayout>
+            <include android:id="@id/kkm" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginTop="28.0dp" layout="@layout/cnl" />
+            <LinearLayout android:orientation="vertical" android:id="@id/kk6" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginTop="12.0dp" android:layout_marginStart="20.0dp" android:layout_marginEnd="20.0dp" />
+            <include android:id="@id/kkn" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginTop="28.0dp" layout="@layout/cnl" />
+            <LinearLayout android:orientation="vertical" android:id="@id/kk7" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginTop="12.0dp" android:layout_marginStart="20.0dp" android:layout_marginEnd="20.0dp" />
+            <include android:id="@id/kkp" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginTop="28.0dp" layout="@layout/cnl" />
+            <LinearLayout android:orientation="vertical" android:id="@id/kl9" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginTop="12.0dp" android:layout_marginStart="20.0dp" android:layout_marginEnd="20.0dp" />
+            <include android:id="@id/kko" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginTop="28.0dp" layout="@layout/cnl" />
+            <LinearLayout android:orientation="vertical" android:id="@id/kk8" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginTop="12.0dp" android:layout_marginStart="20.0dp" android:layout_marginEnd="20.0dp" />
+            <RelativeLayout android:id="@id/kkb" android:paddingTop="4.0dp" android:paddingBottom="4.0dp" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginTop="35.0dp" android:layout_marginStart="20.0dp" android:layout_marginEnd="20.0dp">
+                <LinearLayout android:gravity="center_vertical" android:orientation="horizontal" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_centerVertical="true" android:layout_alignParentStart="true">
+                    <TextView android:textSize="16.0dp" android:textColor="#ffffffff" android:id="@id/kka" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="多音轨调节" />
+                    <ImageView android:id="@id/kkd" android:layout_width="17.0dp" android:layout_height="16.0dp" android:src="@drawable/ss_super_vip" android:scaleType="fitCenter" android:contentDescription="@string/wf" android:translationY="0.5dp" android:layout_marginStart="5.0dp" />
+                </LinearLayout>
+                <LinearLayout android:gravity="center_vertical" android:orientation="horizontal" android:id="@id/kk_" android:background="?android:selectableItemBackground" android:paddingTop="6.0dp" android:paddingBottom="6.0dp" android:focusable="true" android:clickable="true" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_centerVertical="true" android:paddingStart="8.0dp" android:paddingEnd="4.0dp" android:layout_alignParentEnd="true">
+                    <TextView android:textSize="13.0dp" android:textColor="#ffffffff" android:id="@id/kkc" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="分轨音效" android:alpha="0.6" />
+                    <ImageView android:id="@id/kk9" android:layout_width="10.0dp" android:layout_height="10.0dp" android:src="@drawable/ss_soundboard_arrow_right" android:scaleType="centerInside" android:contentDescription="@string/wf" android:alpha="0.6" android:translationY="0.5dp" android:layout_marginStart="4.0dp" />
+                </LinearLayout>
+            </RelativeLayout>
+        </LinearLayout>
+    </androidx.core.widget.NestedScrollView>
+    <LinearLayout android:orientation="vertical" android:id="@id/kkz" android:clipChildren="false" android:clipToPadding="false" android:layout_width="match_parent" android:layout_height="wrap_content" android:elevation="1.0dp" app:a23="hnz" app:a26="@id/kla">
+        <LinearLayout android:orientation="horizontal" android:id="@id/kl1" android:background="#ff1a1a1a" android:paddingTop="10.0dp" android:layout_width="match_parent" android:layout_height="wrap_content">
+            <com.tencent.component.widget.AsyncImageView android:layout_gravity="start" android:id="@id/kl0" android:background="@drawable/ss_soundboard_cover_placeholder" android:layout_width="60.0dp" android:layout_height="60.0dp" android:scaleType="centerCrop" android:layout_marginStart="20.0dp" />
+            <LinearLayout android:layout_gravity="start|center" android:orientation="vertical" android:id="@id/kl4" android:layout_width="0.0dp" android:layout_height="wrap_content" android:layout_weight="1.0" android:layout_marginStart="15.0dp">
+                <LinearLayout android:gravity="center_vertical" android:orientation="horizontal" android:layout_width="wrap_content" android:layout_height="wrap_content">
+                    <TextView android:textSize="14.0dp" android:textStyle="bold" android:textColor="#ffffffff" android:ellipsize="end" android:id="@id/kl5" android:layout_width="wrap_content" android:layout_height="wrap_content" android:maxWidth="180.0dp" android:text="晴天" android:singleLine="true" />
+                    <ImageView android:id="@id/kl6" android:layout_width="wrap_content" android:layout_height="wrap_content" android:src="@drawable/ss_sound_board_vector" android:scaleType="fitCenter" android:layout_marginStart="4.0dp" />
+                </LinearLayout>
+                <TextView android:textSize="12.0dp" android:textColor="#ffffffff" android:ellipsize="end" android:id="@id/kl7" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="2.0dp" android:maxWidth="240.0dp" android:text="原唱：周杰伦" android:singleLine="true" android:alpha="0.5" />
+            </LinearLayout>
+            <ImageView android:layout_gravity="end|center" android:id="@id/kl3" android:layout_width="24.0dp" android:layout_height="24.0dp" android:src="@drawable/ss_sound_board_pause" android:scaleType="centerInside" android:contentDescription="播放/暂停" android:layout_marginEnd="20.0dp" />
+        </LinearLayout>
+        <LinearLayout android:orientation="vertical" android:id="@id/kl8" android:background="#ff1a1a1a" android:paddingTop="3.0dp" android:layout_width="match_parent" android:layout_height="wrap_content">
+            <TextView android:textSize="11.0dp" android:textColor="#fffdc700" android:layout_gravity="center_horizontal" android:id="@id/klk" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginBottom="3.0dp" android:text="00:00/00:00" />
+            <FrameLayout android:id="@id/klh" android:background="#0dffffff" android:layout_width="match_parent" android:layout_height="100.0dp">
+                <com.tencent.qqmusic.activity.soundfx.supersound.soundboard.WaveformPreviewView android:id="@id/kll" android:layout_width="match_parent" android:layout_height="match_parent" />
+                <View android:layout_gravity="center_horizontal" android:id="@id/kli" android:background="#fffdc700" android:focusable="false" android:clickable="false" android:layout_width="1.5dp" android:layout_height="match_parent" />
+            </FrameLayout>
+        </LinearLayout>
+    </LinearLayout>
+    <View android:id="@id/kl2" android:background="@drawable/ss_soundboard_scroll_gradient_bg" android:visibility="gone" android:clickable="false" android:layout_width="match_parent" android:layout_height="40.0dp" app:a23="hnz" app:a26="@id/kkz" />
+    <FrameLayout android:id="@id/kk4" android:background="@drawable/ss_soundboard_bottom_bar_bg" android:layout_width="match_parent" android:layout_height="80.0dp" android:elevation="2.0dp" app:a1d="hnz" app:a23="hnz">
+        <LinearLayout android:layout_gravity="start|center" android:orientation="vertical" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginStart="20.0dp" android:layout_marginEnd="160.0dp">
+            <LinearLayout android:orientation="horizontal" android:layout_width="wrap_content" android:layout_height="wrap_content">
+                <TextView android:textSize="12.0dp" android:textColor="#ffffffff" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="当前效果：" />
+                <TextView android:textSize="12.0dp" android:textColor="#ffffffff" android:ellipsize="end" android:id="@id/kk5" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="0.8倍速、DJ版" android:singleLine="true" android:alpha="0.5" />
+            </LinearLayout>
+            <TextView android:textSize="12.0dp" android:textColor="#ffffffff" android:id="@id/kk2" android:visibility="gone" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="5.0dp" android:text="效果应用到更多歌曲 >" android:singleLine="true" />
+        </LinearLayout>
+        <LinearLayout android:layout_gravity="end|center" android:orientation="horizontal" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginEnd="20.0dp">
+            <TextView android:textSize="12.0dp" android:textColor="#ffffffff" android:gravity="center" android:id="@id/kkj" android:background="@drawable/ss_soundboard_reset_btn_bg" android:layout_width="60.0dp" android:layout_height="30.0dp" android:text="重置" />
+            <TextView android:textSize="12.0dp" android:textColor="#ff000000" android:gravity="center" android:id="@id/kkk" android:background="@drawable/ss_soundboard_save_btn_bg" android:layout_width="60.0dp" android:layout_height="30.0dp" android:text="保存" android:layout_marginStart="10.0dp" />
+        </LinearLayout>
+    </FrameLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>

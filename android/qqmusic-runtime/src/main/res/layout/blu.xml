@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout android:paddingTop="3.0dp" android:paddingBottom="12.0dp" android:layout_width="@dimen/as0" android:layout_height="wrap_content"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <ImageView android:id="@id/gxc" android:layout_width="@dimen/arz" android:layout_height="wrap_content" android:src="@drawable/mlive_friend_room_seat_menu_top" />
+    <LinearLayout android:orientation="vertical" android:background="@drawable/mlive_friend_room_seat_menu_bg" android:layout_width="@dimen/as0" android:layout_height="wrap_content" android:layout_below="@id/gxc">
+        <TextView android:textSize="14.0sp" android:textColor="@color/white" android:gravity="center" android:id="@id/gxb" android:background="@drawable/mlive_base_select_dialog_bottom_button_click" android:layout_width="match_parent" android:layout_height="39.0dp" android:text="@string/dm0" />
+        <TextView android:textSize="14.0sp" android:textColor="@color/white" android:gravity="center" android:id="@id/gx9" android:background="@drawable/mlive_base_select_dialog_bottom_button_click" android:layout_width="match_parent" android:layout_height="39.0dp" android:text="@string/dly" />
+        <TextView android:textSize="14.0sp" android:textColor="@color/white" android:gravity="center" android:id="@id/gxa" android:background="@drawable/mlive_base_select_dialog_bottom_button_click" android:layout_width="match_parent" android:layout_height="39.0dp" android:text="@string/dlz" />
+        <TextView android:textSize="14.0sp" android:textColor="@color/white" android:gravity="center" android:id="@id/gxd" android:background="@drawable/mlive_base_select_dialog_bottom_button_click" android:layout_width="match_parent" android:layout_height="39.0dp" android:text="@string/dm1" />
+    </LinearLayout>
+</RelativeLayout>

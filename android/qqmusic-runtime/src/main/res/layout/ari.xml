@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout android:id="@id/cqz" android:background="@drawable/bg_follow_button" android:layout_width="match_parent" android:layout_height="match_parent"
+  xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">
+    <androidx.constraintlayout.widget.ConstraintLayout android:layout_width="0.0dp" android:layout_height="0.0dp" app:a1d="hnz" app:a1j="hnz" app:a23="hnz" app:a27="hnz">
+        <ImageView android:id="@id/cqy" android:visibility="gone" android:layout_width="wrap_content" android:layout_height="wrap_content" android:src="@drawable/icon_album_follow_btn" android:layout_marginEnd="3.0dp" app:a1d="hnz" app:a1k="@id/crm" app:a1u="hmg" app:a23="hnz" app:a27="hnz" />
+        <TextView android:textSize="11.0dp" android:textStyle="bold" android:textColor="@color/white" android:gravity="center" android:id="@id/crm" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/n3" app:a1d="hnz" app:a1j="hnz" app:a22="@id/cqy" app:a27="hnz" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>

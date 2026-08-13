@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout android:orientation="vertical" android:layout_width="@dimen/nb" android:layout_height="@dimen/na"
+  xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">
+    <TextView android:textSize="16.0sp" android:textStyle="bold" android:textColor="@color/white" android:id="@id/anv" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="每日30首" android:includeFontPadding="false" android:layout_marginStart="@dimen/n_" android:layout_marginEnd="@dimen/n_" app:a1j="hnz" app:a23="hnz" app:a27="hnz" />
+    <TextView android:textSize="14.0sp" android:textColor="@color/white" android:id="@id/anw" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="@dimen/n_" android:text="· NOV ·" android:includeFontPadding="false" app:a1j="hnz" app:a23="hnz" app:a26="@id/anv" />
+    <ImageView android:id="@id/ant" android:layout_width="40.0dp" android:layout_height="66.5dp" android:layout_marginBottom="8.0dp" app:a1d="hnz" app:a1k="@id/anu" app:a1u="hmg" app:a23="hnz" app:a26="@id/anw" />
+    <ImageView android:id="@id/anu" android:layout_width="40.0dp" android:layout_height="66.5dp" android:layout_marginBottom="8.0dp" app:a1d="hnz" app:a1j="hnz" app:a1t="0.5" app:a22="@id/ant" app:a26="@id/anw" />
+</androidx.constraintlayout.widget.ConstraintLayout>

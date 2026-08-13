@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout android:state_window_focused="false" android:layout_width="match_parent" android:layout_height="wrap_content"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <com.tencent.component.widget.AsyncEffectImageView android:id="@id/cpj" android:layout_width="match_parent" android:layout_height="wrap_content" android:scaleType="centerCrop" />
+    <View android:layout_gravity="bottom" android:id="@id/cpi" android:background="@drawable/black_gradient" android:visibility="gone" android:layout_width="match_parent" android:layout_height="200.0dp" />
+</FrameLayout>

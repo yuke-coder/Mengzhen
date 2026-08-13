@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout android:orientation="vertical" android:background="@drawable/bg_cs2_mix_dialog" android:paddingTop="17.0dp" android:paddingBottom="30.0dp" android:layout_width="match_parent" android:layout_height="wrap_content"
+  xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">
+    <androidx.appcompat.widget.AppCompatTextView android:textSize="18.0dp" android:textStyle="bold" android:textColor="@color/white" android:gravity="left" android:id="@id/m7f" android:paddingBottom="10.0dp" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginLeft="20.0dp" android:layout_marginRight="20.0dp" android:text="色彩模式" app:a1x="hnz" app:a27="hnz" />
+    <androidx.appcompat.widget.AppCompatTextView android:textSize="16.0dp" android:textStyle="bold" android:textColor="#cccccc" android:gravity="left" android:id="@id/m7e" android:paddingTop="2.0dp" android:paddingBottom="10.0dp" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginRight="20.0dp" android:text="完成" app:a21="hnz" app:a27="hnz" />
+    <androidx.recyclerview.widget.RecyclerView android:id="@id/it6" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginLeft="20.0dp" android:layout_marginTop="30.0dp" android:layout_marginRight="20.0dp" app:a26="@id/m7f" />
+    <androidx.recyclerview.widget.RecyclerView android:id="@id/it5" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginLeft="20.0dp" android:layout_marginTop="22.0dp" android:layout_marginRight="20.0dp" app:a26="@id/it6" />
+    <include android:id="@id/na7" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginTop="20.0dp" app:a26="@id/it5" layout="@layout/adb" />
+    <include android:id="@id/n_k" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginTop="20.0dp" app:a26="@id/na7" layout="@layout/adb" />
+</androidx.constraintlayout.widget.ConstraintLayout>

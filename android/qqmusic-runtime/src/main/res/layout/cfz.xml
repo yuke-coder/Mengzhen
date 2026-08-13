@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout android:paddingLeft="@dimen/by6" android:paddingTop="@dimen/by2" android:paddingRight="@dimen/by6" android:paddingBottom="19.0dp" android:clickable="false" android:layout_width="match_parent" android:layout_height="wrap_content"
+  xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">
+    <androidx.constraintlayout.widget.ConstraintLayout android:id="@id/azp" android:layout_width="0.0dp" android:layout_height="wrap_content" app:a1x="hnz" app:a27="hnz" />
+    <androidx.constraintlayout.widget.ConstraintLayout android:id="@id/azq" android:layout_width="0.0dp" android:layout_height="wrap_content" android:layout_marginLeft="@dimen/bv2" app:a1y="@id/azp" app:a27="hnz" />
+    <androidx.constraintlayout.widget.ConstraintLayout android:id="@id/azr" android:layout_width="0.0dp" android:layout_height="wrap_content" android:layout_marginLeft="@dimen/bv2" app:a1y="@id/azq" app:a21="hnz" app:a27="hnz" />
+</androidx.constraintlayout.widget.ConstraintLayout>

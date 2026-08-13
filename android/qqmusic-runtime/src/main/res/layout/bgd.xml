@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout android:orientation="horizontal" android:layout_width="wrap_content" android:layout_height="30.0dp"
+  xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">
+    <View android:background="@drawable/mlive_back_live_bg" android:layout_width="0.0dp" android:layout_height="match_parent" android:layout_marginEnd="13.0dp" app:a1j="@id/mlive_back_live_progress" app:a23="hnz" />
+    <ImageView android:layout_gravity="center_vertical" android:id="@id/mlive_back_live_iv" android:layout_width="5.0dp" android:layout_height="10.0dp" android:src="@drawable/mlive_back_live" android:layout_marginStart="10.0dp" app:a1d="hnz" app:a23="hnz" app:a27="hnz" />
+    <TextView android:textSize="12.0dp" android:textColor="@color/white" android:layout_gravity="center_vertical" android:id="@id/mlive_back_live_tv" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/cy6" android:lines="1" android:layout_marginStart="4.0dp" app:a1d="hnz" app:a22="@id/mlive_back_live_iv" app:a27="hnz" />
+    <com.tme.mlive.viewdelegate.link.CountDownView android:id="@id/mlive_back_live_progress" android:layout_width="30.0dp" android:layout_height="30.0dp" android:layout_marginStart="6.0dp" app:a1d="hnz" app:a22="@id/mlive_back_live_tv" app:a27="hnz" />
+    <com.tme.qqmusic.widget.base.view.GlideImageView android:layout_gravity="center_vertical" android:id="@id/mlive_back_live_avatar" android:layout_width="26.0dp" android:layout_height="26.0dp" app:a1d="@id/mlive_back_live_progress" app:a1j="@id/mlive_back_live_progress" app:a23="@id/mlive_back_live_progress" app:a27="@id/mlive_back_live_progress" />
+</androidx.constraintlayout.widget.ConstraintLayout>

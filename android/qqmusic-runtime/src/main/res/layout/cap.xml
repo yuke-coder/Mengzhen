@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout android:orientation="vertical" android:layout_width="match_parent" android:layout_height="wrap_content"
+  xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">
+    <ViewStub android:id="@id/noy" android:visibility="gone" android:layout="@layout/ayc" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginBottom="15.0dp" />
+    <include android:id="@id/iay" android:visibility="gone" android:layout_width="wrap_content" android:layout_height="match_parent" android:layout_marginBottom="20.0dp" layout="@layout/ca9" />
+    <include android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginBottom="5.0dp" layout="@layout/car" />
+    <ViewStub android:id="@id/n36" android:layout="@layout/caa" android:inflatedId="@id/n35" android:layout_width="match_parent" android:layout_height="wrap_content" />
+    <com.tencent.expandabletextview.ExpandableTextView android:textSize="@dimen/cdb" android:textColor="@color/white_80_transparent" android:ellipsize="end" android:gravity="center_vertical" android:id="@id/n4i" android:layout_width="match_parent" android:layout_height="wrap_content" app:px=" " app:pz="@color/white" app:q2=" 展开" app:q5="2" app:q_="false" app:qa="true" app:qb="false" app:qc="true" app:qf="true" />
+</LinearLayout>

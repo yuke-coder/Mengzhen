@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout android:gravity="center_vertical" android:padding="10.0dp" android:layout_width="match_parent" android:layout_height="300.0dp"
+  xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">
+    <ImageView android:id="@id/ipa" android:layout_width="match_parent" android:layout_height="0.0dp" android:adjustViewBounds="true" app:a1d="hnz" app:a1j="hnz" app:a23="hnz" />
+    <ImageButton android:id="@id/ip9" android:background="@drawable/ic_radar_rename_dialog_close" android:layout_width="30.0dp" android:layout_height="30.0dp" android:contentDescription="@string/a_6" app:a1e="@id/ipa" app:a1j="hnz" />
+    <androidx.appcompat.widget.AppCompatTextView android:textSize="@dimen/s0" android:textColor="@color/black" android:gravity="center" android:id="@id/ip_" android:background="@drawable/bg_radar_rename_dialog_btn" android:layout_width="match_parent" android:layout_height="48.0dp" android:layout_marginLeft="@dimen/s8" android:layout_marginRight="@dimen/s8" android:layout_marginBottom="@dimen/s8" android:text="@string/g5l" android:contentDescription="@string/g5l" android:layout_marginHorizontal="@dimen/s8" app:a1d="hnz" app:a1j="hnz" app:a23="hnz" />
+</androidx.constraintlayout.widget.ConstraintLayout>

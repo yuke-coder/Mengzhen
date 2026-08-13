@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout android:id="@id/ijs" android:visibility="gone" android:clipChildren="false" android:layout_width="match_parent" android:layout_height="wrap_content"
+  xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">
+    <LinearLayout android:gravity="center_vertical" android:layout_gravity="center" android:orientation="horizontal" android:id="@id/ijr" android:clipChildren="false" android:layout_width="match_parent" android:layout_height="64.79999dp">
+        <ImageView android:layout_gravity="center_vertical" android:id="@id/il7" android:layout_width="64.0dp" android:layout_height="17.0dp" android:layout_marginRight="6.0dp" android:src="@drawable/group_home_putoo_room_icon" />
+        <LinearLayout android:gravity="center_vertical" android:orientation="horizontal" android:layout_width="0.0dp" android:layout_height="wrap_content" android:layout_marginRight="20.0dp" android:layout_weight="1.0">
+            <com.tencent.qqmusic.ui.FansCommunityTextView android:textSize="13.0sp" android:textStyle="bold" android:ellipsize="end" android:id="@id/jcz" android:layout_width="wrap_content" android:layout_height="wrap_content" android:maxLines="1" android:singleLine="true" />
+            <com.airbnb.lottie.LottieAnimationView android:id="@id/jcw" android:visibility="visible" android:layout_width="15.0dp" android:layout_height="15.0dp" android:layout_marginLeft="3.0dp" app:a4u="true" />
+        </LinearLayout>
+        <FrameLayout android:id="@id/jcs" android:clipChildren="false" android:layout_width="45.0dp" android:layout_height="45.0dp" android:layout_marginRight="24.5dp">
+            <com.tencent.component.widget.AsyncEffectImageView android:layout_gravity="center" android:id="@id/jcr" android:layout_width="45.0dp" android:layout_height="45.0dp" />
+            <com.airbnb.lottie.LottieAnimationView android:layout_gravity="right|bottom" android:id="@id/jcu" android:visibility="visible" android:layout_width="35.0dp" android:layout_height="70.0dp" app:a4u="true" />
+            <com.tencent.component.widget.AsyncEffectImageView android:layout_gravity="center" android:id="@id/jcv" android:visibility="invisible" android:layout_width="33.0dp" android:layout_height="33.0dp" />
+        </FrameLayout>
+        <LinearLayout android:gravity="center_vertical" android:layout_gravity="center_vertical" android:orientation="horizontal" android:id="@id/jcy" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginRight="24.5dp">
+            <com.tencent.qqmusic.ui.FansCommunityTextView android:textSize="12.0sp" android:textStyle="bold" android:ellipsize="end" android:id="@id/jcx" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginRight="6.5dp" android:maxWidth="70.0dp" android:maxLines="1" />
+            <ImageView android:id="@id/jct" android:layout_width="6.5dp" android:layout_height="12.5dp" android:src="@drawable/fans_community_home_room_entry_arrow" />
+        </LinearLayout>
+    </LinearLayout>
+</FrameLayout>

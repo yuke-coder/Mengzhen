@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- QQ Music QMusicBaseViewPager 的原始属性顺序。 -->
+    <declare-styleable name="QMusicPager">
+        <attr name="v2" />
+    </declare-styleable>
+</resources>

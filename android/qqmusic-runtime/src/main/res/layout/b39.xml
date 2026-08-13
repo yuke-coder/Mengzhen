@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout android:orientation="horizontal" android:background="@drawable/bg_pay_video_ad_skip" android:paddingLeft="10.0dp" android:paddingRight="10.0dp" android:layout_width="wrap_content" android:layout_height="22.0dp"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <ImageView android:layout_gravity="center" android:id="@id/e9_" android:layout_width="15.5dp" android:layout_height="13.0dp" android:layout_marginTop="0.5dp" />
+    <TextView android:textSize="11.0sp" android:textColor="@color/white_90_transparent" android:layout_gravity="center" android:id="@id/m3e" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginLeft="2.0dp" android:text="@string/cqk" />
+    <ImageView android:layout_gravity="center_vertical" android:id="@id/e99" android:layout_width="6.0dp" android:layout_height="14.0dp" android:layout_marginLeft="5.0dp" android:layout_marginTop="0.5dp" />
+</LinearLayout>

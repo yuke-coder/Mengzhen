@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<shape android:shape="rectangle"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <solid android:color="@color/album_item_long_audio_vip_v2_bg" />
+    <corners android:radius="3.0dp" />
+</shape>

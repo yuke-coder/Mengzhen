@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.tencent.qqmusic.ui.RoundedConstraintLayout android:layout_gravity="bottom" android:layout_width="match_parent" android:layout_height="wrap_content" app:ki="fwy|je9" app:kj="12.0dp"
+  xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">
+    <androidx.constraintlayout.widget.ConstraintLayout android:background="#ffffff" android:paddingBottom="42.5dp" android:layout_width="match_parent" android:layout_height="wrap_content" app:a1d="hnz" app:a27="hnz">
+        <androidx.appcompat.widget.AppCompatTextView android:textSize="14.0sp" android:textColor="@color/black" android:layout_gravity="center_vertical" android:id="@id/lec" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginLeft="20.0dp" android:layout_marginTop="15.0dp" android:text="@string/ha" app:a1x="hnz" app:a27="hnz" />
+        <androidx.appcompat.widget.AppCompatTextView android:textSize="12.0sp" android:textColor="#80000000" android:gravity="center" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginRight="20.0dp" app:a1d="@id/lec" app:a21="hnz" app:a27="@id/lec" />
+        <include android:layout_width="match_parent" android:layout_height="110.0dp" android:layout_marginTop="15.0dp" app:a26="@id/lec" layout="@layout/ab7" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</com.tencent.qqmusic.ui.RoundedConstraintLayout>

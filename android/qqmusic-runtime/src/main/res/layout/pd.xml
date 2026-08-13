@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout android:background="@color/white" android:layout_width="296.0dp" android:layout_height="wrap_content"
+  xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">
+    <androidx.constraintlayout.widget.Guideline android:orientation="vertical" android:id="@id/d6x" android:layout_width="wrap_content" android:layout_height="wrap_content" app:a1n="0.5" />
+    <com.tencent.component.widget.AsyncImageView android:id="@id/fvl" android:paddingTop="10.0dp" android:paddingBottom="10.0dp" android:layout_width="276.0dp" android:layout_height="296.0dp" app:a1x="hnz" app:a21="hnz" />
+    <TextView android:textColor="@color/black" android:gravity="center" android:id="@id/fvm" android:layout_width="wrap_content" android:layout_height="wrap_content" app:a1x="hnz" app:a21="hnz" app:a26="@id/fvl" />
+    <View android:id="@id/bu2" android:background="#ffe7e7e7" android:layout_width="match_parent" android:layout_height="0.5dp" android:layout_marginTop="10.0dp" app:a26="@id/fvm" />
+    <View android:background="#ffe7e7e7" android:layout_width="0.5dp" android:layout_height="45.0dp" app:a1x="@id/d6x" app:a21="@id/d6x" app:a26="@id/bu2" />
+    <TextView android:textColor="@color/black" android:gravity="center" android:id="@id/fvk" android:layout_width="0.0dp" android:layout_height="45.0dp" android:text="@string/cancel" app:a1v="1.0" app:a1x="hnz" app:a20="@id/d6x" app:a26="@id/bu2" />
+    <TextView android:textColor="@color/my_music_green" android:gravity="center" android:id="@id/fvj" android:layout_width="0.0dp" android:layout_height="45.0dp" android:text="@string/cdn" app:a1v="1.0" app:a1y="@id/d6x" app:a21="hnz" app:a26="@id/bu2" />
+</androidx.constraintlayout.widget.ConstraintLayout>

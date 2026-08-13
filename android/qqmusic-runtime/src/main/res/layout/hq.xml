@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView android:layout_gravity="center" android:background="@drawable/privacy_background_rounded" android:layout_width="@dimen/q5" android:layout_height="wrap_content"
+  xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">
+    <LinearLayout android:orientation="vertical" android:background="@color/transparent" android:layout_width="match_parent" android:layout_height="wrap_content">
+        <View android:layout_width="match_parent" android:layout_height="4.0dp" />
+        <RelativeLayout android:layout_gravity="center" android:orientation="vertical" android:focusable="false" android:layout_width="match_parent" android:layout_height="wrap_content">
+            <TextView android:textSize="17.0dp" android:textColor="@color/black" android:gravity="center" android:id="@id/ldr" android:focusable="false" android:fadingEdge="none" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginTop="30.0dp" android:text="@string/aqd" android:includeFontPadding="false" />
+            <com.tencent.qqmusic.community.putoo.concern.MaxHeightScrollView android:orientation="vertical" android:id="@id/fcy" android:scrollbars="vertical" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginLeft="15.0dp" android:layout_marginTop="12.0dp" android:layout_marginRight="15.0dp" android:layout_marginBottom="20.0dp" android:layout_below="@id/ldr" app:a98="312.0dp">
+                <com.tencent.qqmusic.ui.XQJustifyTextView android:textSize="14.0dp" android:textColor="@color/dialog_text_color" android:textColorLink="@color/common_dialog_button_text_color" android:gravity="left" android:id="@id/content" android:focusable="false" android:fadingEdge="none" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginLeft="15.0dp" android:layout_marginRight="15.0dp" android:text="@string/aq9" android:includeFontPadding="false" android:lineSpacingExtra="7.0dp" />
+            </com.tencent.qqmusic.community.putoo.concern.MaxHeightScrollView>
+        </RelativeLayout>
+        <Button android:textSize="15.0dp" android:textColor="@color/white" android:gravity="center" android:layout_gravity="center" android:id="@id/b_0" android:background="@drawable/privacy_btn_bottom_rounded" android:fadingEdge="horizontal" android:layout_width="match_parent" android:layout_height="35.0dp" android:layout_marginLeft="@dimen/q0" android:layout_marginRight="@dimen/q0" android:text="@string/fe" android:singleLine="true" android:stateListAnimator="@null" />
+        <TextView android:textSize="15.0dp" android:textColor="@color/privacy_dialog_button_cancel" android:ellipsize="end" android:gravity="center" android:layout_gravity="center" android:id="@id/at0" android:background="@drawable/transparent" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginTop="16.0dp" android:layout_marginBottom="20.0dp" android:text="@string/fru" android:singleLine="true" />
+    </LinearLayout>
+</ScrollView>

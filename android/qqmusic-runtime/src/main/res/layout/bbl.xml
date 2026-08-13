@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout android:id="@id/mlive_fragment_card_audio_history_filter_root" android:background="@color/white" android:paddingTop="10.0dp" android:layout_width="match_parent" android:layout_height="wrap_content"
+  xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">
+    <TextView android:textColor="@color/black" android:gravity="center" android:id="@id/mlive_fragment_card_audio_history_filter_cancel" android:layout_width="match_parent" android:layout_height="60.0dp" android:layout_marginBottom="34.0dp" android:text="@string/cwh" android:textAlignment="center" app:a1d="hnz" />
+    <View android:id="@id/mlive_fragment_card_audio_history_filter_divider" android:background="#fafafa" android:layout_width="match_parent" android:layout_height="1.0dp" app:a1e="@id/mlive_fragment_card_audio_history_filter_cancel" />
+    <androidx.recyclerview.widget.RecyclerView android:id="@id/mlive_fragment_card_audio_history_filter_list" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginLeft="6.0dp" android:layout_marginRight="6.0dp" app:a1e="@id/mlive_fragment_card_audio_history_filter_divider" />
+</androidx.constraintlayout.widget.ConstraintLayout>

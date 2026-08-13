@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout android:id="@id/nu1" android:layout_width="match_parent" android:layout_height="match_parent"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <LinearLayout android:id="@id/ahh" android:layout_width="match_parent" android:layout_height="wrap_content" android:alpha="0.0">
+        <FrameLayout android:layout_width="0.0dp" android:layout_height="1.0dp" android:layout_weight="280.0" />
+        <ImageView android:layout_width="0.0dp" android:layout_height="wrap_content" android:src="@drawable/bubble_widget_format" android:adjustViewBounds="true" android:layout_weight="396.0" />
+    </LinearLayout>
+    <ImageView android:id="@id/nsu" android:layout_width="match_parent" android:layout_height="match_parent" android:src="@drawable/bg_bubble_widget_middle" android:scaleType="fitXY" android:layout_alignTop="@id/ahh" android:layout_alignBottom="@id/ahh" />
+    <RelativeLayout android:orientation="vertical" android:id="@id/mu5" android:layout_width="match_parent" android:layout_height="match_parent" android:layout_alignTop="@id/ahh" android:layout_alignBottom="@id/ahh">
+        <ImageView android:layout_width="wrap_content" android:layout_height="match_parent" android:layout_marginTop="25.0dp" android:src="@drawable/bubble_widget_middle_default" android:adjustViewBounds="true" android:layout_alignParentBottom="true" android:layout_centerHorizontal="true" />
+        <TextView android:textSize="14.0dp" android:textColor="@color/black" android:id="@id/d6k" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginLeft="16.0dp" android:layout_marginTop="16.0dp" android:text="@string/qt" android:layout_alignParentLeft="true" android:layout_alignParentTop="true" android:textFontWeight="400" />
+    </RelativeLayout>
+    <RelativeLayout android:id="@id/jr4" android:padding="16.0dp" android:visibility="gone" android:layout_width="match_parent" android:layout_height="match_parent" android:layout_alignTop="@id/ahh" android:layout_alignBottom="@id/ahh">
+        <ImageView android:id="@id/a3c" android:layout_width="wrap_content" android:layout_height="match_parent" android:adjustViewBounds="true" android:layout_alignParentRight="true" android:layout_alignParentBottom="true" />
+        <ImageView android:id="@id/fmn" android:layout_width="20.0dp" android:layout_height="20.0dp" android:src="@drawable/icon_bubble_widget_heart_red" android:layout_alignParentLeft="true" android:layout_alignParentTop="true" />
+        <TextView android:textSize="14.0dp" android:textColor="#cccccc" android:id="@id/cbk" android:visibility="gone" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginLeft="5.0dp" android:text="@string/qq" android:layout_toRightOf="@id/fmn" android:layout_alignTop="@id/fmn" android:layout_alignBottom="@id/fmn" />
+        <LinearLayout android:orientation="horizontal" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_alignParentLeft="true" android:layout_alignParentBottom="true">
+            <FrameLayout android:layout_width="0.0dp" android:layout_height="wrap_content" android:layout_weight="380.0">
+                <LinearLayout android:layout_gravity="center_vertical" android:orientation="horizontal" android:id="@id/ldr" android:layout_width="wrap_content" android:layout_height="wrap_content">
+                    <TextView android:textSize="14.0dp" android:id="@id/yk" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/qo" android:textFontWeight="400" />
+                    <TextView android:textSize="14.0dp" android:ellipsize="end" android:id="@id/hbm" android:layout_width="wrap_content" android:layout_height="wrap_content" android:maxLines="1" android:layout_weight="1.0" android:textFontWeight="400" />
+                    <TextView android:textSize="14.0dp" android:id="@id/awz" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/qp" android:textFontWeight="400" />
+                </LinearLayout>
+            </FrameLayout>
+            <FrameLayout android:layout_width="0.0dp" android:layout_height="1.0dp" android:layout_weight="296.0" />
+        </LinearLayout>
+        <ImageView android:id="@id/bji" android:layout_width="wrap_content" android:layout_height="55.0dp" android:layout_marginBottom="16.5dp" android:adjustViewBounds="true" android:layout_alignParentLeft="true" android:layout_alignParentBottom="true" />
+    </RelativeLayout>
+</RelativeLayout>

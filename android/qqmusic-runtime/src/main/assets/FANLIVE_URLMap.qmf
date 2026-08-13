@@ -1,0 +1,280 @@
+{
+   "url_key":{
+      "basic_room":{
+         "url":"https://v.y.qq.com/m/client/basic/room.html?(params)"
+      },
+      "basic_cert":{
+         "url":"https://v.y.qq.com/m/client/basic/cert.html"
+      },
+      "pay_buylb":{
+         "url":"https://v.y.qq.com/m/client/pay/buylb.html"
+      },
+      "pay_profit":{
+         "url":"https://v.y.qq.com/m/client/pay/profit.html?_hidehd=1"
+      },
+      "pay_profit_details":{
+         "url":"https://v.y.qq.com/m/client/pay/profit_details.html"
+      },
+      "basic_data":{
+         "url":"https://v.y.qq.com/m/client/basic/data.html"
+      },
+      "basic_follower":{
+         "url":"https://v.y.qq.com/m/client/basic/follower.html?(params)"
+      },
+      "basic_fans":{
+         "url":"https://v.y.qq.com/m/client/basic/follower.html?(params)"
+      },
+      "basic_report":{
+         "url":"https://v.y.qq.com/m/client/basic/report.html?(params)"
+      },
+      "basic_sign":{
+         "url":"https://v.y.qq.com/m/client/basic/unitedsign.html"
+      },
+      "basic_share":{
+         "url":"https://v.y.qq.com/m/play.html?(params)"
+      },
+      "external_feedback":{
+         "url":"https://kg.qq.com/activity/supportTreehole/index.html#/home?(params)"
+      },
+      "basic_history":{
+         "url":"https://v.y.qq.com/m/client/basic/history.html"
+      },
+      "pay_user_rank":{
+         "url":"https://v.y.qq.com/m/client/basic/room_rank.html?percent=53&halfScreen=1&(params)"
+      },
+      "union_room_rank":{
+         "url":"https://v.y.qq.com/m/union/basic/room_rank.html?percent=53&halfScreen=1&(params)"
+      },
+      "pay_anchor_rank":{
+         "url":"https://v.y.qq.com/m/client/pay/anchor_rank.html?percent=53&halfScreen=1&(params)"
+      },
+      "basic_rank":{
+         "url":"https://v.y.qq.com/m/client/basic/rank.html?(params)"
+      },
+      "basic_license_agreement":{
+         "url":"https://v.y.qq.com/m/client/basic/license_agreement.html"
+      },
+      "basic_privacy_agreement":{
+         "url":"https://v.y.qq.com/m/client/basic/privacy_agreement.html"
+      },
+      "basic_blacklist":{
+         "url":"https://v.y.qq.com/m/client/basic/blacklist.html"
+      },
+      "basic_broadcast_agreement":{
+         "url":"https://y.qq.com/jzt/mslive/broadcast_agreement.html"
+      },
+      "jzt_mlive_copyright":{
+         "url":"https://y.qq.com/jzt/mslive/0a5dbb.html?jztid=515"
+      },
+      "basic_pwd":{
+         "url":"https://v.y.qq.com/m/client/basic/pwd.html"
+      },
+      "basic_lottery":{
+         "url":"https://v.y.qq.com/m/client/basic/lottery.html?(params)"
+      },
+      "basic_fans_list":{
+         "url":"https://v.y.qq.com/m/client/basic/fans.html?halfScreen=1&(params)"
+      },
+      "basic_fans_task":{
+         "url":"https://v.y.qq.com/m/client/basic/fans/task.html?(params)"
+      },
+      "basic_fans_manage":{
+         "url":"https://v.y.qq.com/m/client/basic/fans/manage.html?(params)"
+      },
+      "basic_fans_pay":{
+         "url":"https://v.y.qq.com/m/client/basic/fans/pay.html?(params)"
+      },
+      "basic_widget":{
+         "url":"https://v.y.qq.com/m/client/basic/widget.html"
+      },
+      "basic_noble":{
+         "url":"https://v.y.qq.com/m/client/basic/noble.html?_hidehd=1&(params)"
+      },
+      "my_noble":{
+         "url":"https://v.y.qq.com/m/client/basic/my_nobility.html?(params)"
+      },
+      "basic_voting":{
+         "url":"https://v.y.qq.com/m/client/basic/voting.html?percent=53&halfScreen=1&(params)"
+      },
+      "first_charge":{
+         "url":"https://v.y.qq.com/m/act/firstCharge/index.html?mode=half&(params)"
+      },
+      "mlive_rank":{
+         "url":"https://v.y.qq.com/m/client/basic/rank.html?(params)"
+      },
+      "basic_room_rank":{
+         "url":"https://v.y.qq.com/m/client/basic/room_rank.html?percent=53&halfScreen=1&(params)"
+      },
+      "ktv_gift_challenge_rank":{
+         "url":"https://v.y.qq.com/m/client/basic/ktv_song_challenge/rank.html?(params)"
+      },
+      "rif_multi_mic_link":{
+         "url":"https://y.qq.com/kg/minigame/newUnionMike_music/index.html?(params)"
+      },
+      "rif_multi_mic_link_index":{
+         "url": "https://y.qq.com/kg/minigame/newUnionMike_music/index.html?_hwvbg=transparent&anchorId=$anchorId&roomId=$roomId&showId=$showId&roomType=$roomType&showType=$showType&anchorEid=$anchorEid&liveType=$liveType&sourceType=$sourceType&fromtag=$fromtag&mikeId=$mikeId&authTypeAnchor=$authTypeAnchor&roomOwner=$roomOwner&roleType=$roleType&_hwvhg=68&_hideloading=1&openApi=1&tab=$tab#/index"
+      },
+      "rif_multi_mic_link_host":{
+         "url": "https://y.qq.com/kg/minigame/newUnionMike_music/index.html?openApi=1&_hwvbg=transparent&anchorId=$anchorId&roomId=$roomId&showId=$showId&roomType=$roomType&showType=$showType&anchorEid=$anchorEid&liveType=$liveType&sourceType=$sourceType&fromtag=$fromtag&mikeId=$mikeId&authTypeAnchor=$authTypeAnchor&roomOwner=$roomOwner&roleType=$roleType&tab=$tab&anchorNick=$anchorNick&_hwvhg=68&_hideloading=1#/Host"
+      },
+      "rif_multi_mic_link_member":{
+         "url": "https://y.qq.com/kg/minigame/newUnionMike_music/index.html?openApi=1&_hwvbg=transparent&anchorId=$anchorId&roomId=$roomId&showId=$showId&roomType=$roomType&showType=$showType&anchorEid=$anchorEid&liveType=$liveType&sourceType=$sourceType&fromtag=$fromtag&mikeId=$mikeId&authTypeAnchor=$authTypeAnchor&roomOwner=$roomOwner&roleType=$roleType&_hwvhg=68&multiMicType=$multiMicType&_hideloading=1#/Member"
+      },
+      "rif_multi_mic_link_joinpopup":{
+         "url": "https://y.qq.com/kg/minigame/newUnionMike_music/index.html?openApi=1&_hwvbg=transparent&anchorId=$anchorId&roomId=$roomId&showId=$showId&roomType=$roomType&showType=$showType&anchorEid=$anchorEid&liveType=$liveType&sourceType=$sourceType&fromtag=$fromtag&mikeId=$mikeId&authTypeAnchor=$authTypeAnchor&roomOwner=$roomOwner&roleType=$roleType&_hwvhp=130&_hideloading=1#/JoinPopup"
+      },
+      "rif_multi_mic_link_applypopup":{
+         "url": "https://y.qq.com/kg/minigame/newUnionMike_music/index.html?openApi=1&_hwvbg=transparent&anchorId=$anchorId&roomId=$roomId&showId=$showId&roomType=$roomType&showType=$showType&anchorEid=$anchorEid&liveType=$liveType&sourceType=$sourceType&fromtag=$fromtag&mikeId=$mikeId&authTypeAnchor=$authTypeAnchor&roomOwner=$roomOwner&roleType=$roleType&_hwvhp=130&_hideloading=1#/ApplyPopup"
+      },
+      "basic_room_pkrank":{
+         "url":"https://v.y.qq.com/m/client/basic/pkRank.html?percent=53&halfScreen=1&(params)"
+      },
+      "basic_room_pkroom":{
+         "url":"https://v.y.qq.com/m/client/basic/pkRoom.html?percent=53&halfScreen=1&(params)"
+      },
+      "basic_room_pkroom_rule":{
+         "url":"https://y.qq.com/kg/pyramid-act/TME-Interaction-Middle-WEB/act/imageRulePage/4396/interact.html?actId=4396"
+      },
+      "basic_room_pkrank_act_new":{
+            "url":"https://y.qq.com/tme-build-web/interact-live/pk_qualify_music/index.html?_hwvbg=transparent&_hideloading=1&openApi=1&tab=0&division=1&_hwvhg=68"
+      },
+      "basic_red_envelope":{
+         "url":"https://v.y.qq.com/m/client/basic/red_envelope.html?halfScreen=1&percent=100&hideBg=1&(params)"
+      },
+      "basic_task":{
+         "url":"https://v.y.qq.com/m/client/basic/task.html"
+      },
+      "basic_task_half":{
+         "url":"https://v.y.qq.com/m/client/basic/task.html?halfScreen=1&percent=75&(params)"
+      },
+      "luckybox_rule":{
+         "url":"https://v.y.qq.com/m/act/luckybox/rule.html?halfScreen=1&percent=75&(params)"
+      },
+      "basic_wish_club_page":{
+         "url":"https://v.y.qq.com/m/client/basic/wish_club/page/index.html?tab=start&app=fan&(params)"
+      },
+      "stream_url":{
+         "url":"http://3260.liveplay.myqcloud.com/live/(params).flv"
+      },
+      "music_hero_url":{
+         "url":"https://v.y.qq.com/m/client/basic/musicHero/home/index.html?_hidehd=1"
+      },
+      "pay_fanpiao":{
+         "url":"https://v.y.qq.com/m/client/pay/buylb.html?halfScreen=1&percent=53&(params)"
+      },
+      "fans_list":{
+         "url":"https://v.y.qq.com/m/client/basic/fans_list.html"
+      },
+      "basic_fans_list_new":{
+         "url":"https://v.y.qq.com/m/client/basic/fans.html?(params)"
+      },
+      "slap_dialog":{
+         "url":"https://v.y.qq.com/m/client/basic/slap.html?halfScreen=1&percent=100&hideBg=1&(params)"
+      },
+      "cover_guide":{
+         "url":"https://y.qq.com/jzt/7f3734/1c86e5.html"
+      },
+      "privilege_deco":{
+          "url":"https://v.y.qq.com/m/client/basic/privilege_deco.html?_miniplayer=1"
+      },
+      "basic_task2_half":{
+         "url":"https://v.y.qq.com/m/client/basic/task2.html?halfScreen=1&percent=75&(params)"
+      },
+      "basic_task2":{
+         "url":"https://v.y.qq.com/m/client/basic/task2.html"
+      },
+      "anchor_task":{
+          "url":"https://v.y.qq.com/m/client/basic/liveTask.html?halfScreen=1&percent=70&(params)"
+      },
+      "gift_achieve":{
+          "url":"https://v.y.qq.com/m/client/basic/giftAchieve.html?halfScreen=1&percent=70&(params)"
+      },
+      "ktv_smooth_effect_android":{
+          "url":"https://dlied5sdk.myapp.com/music/release/upload/t_mm_file_publish/4152652.zip"
+      },
+      "tme_king_pk_order_song":{
+          "url":"https://kg.qq.com/minigame/kingPk/index.html?halfScreen=1&(params)#/"
+      },
+      "tme_king_pk_record":{
+          "url":"https://kg.qq.com/minigame/kingPk/index.html?halfScreen=1&(params)#/record"
+      },
+      "tme_king_pk_rule":{
+          "url":"https://kg.qq.com/gtimg/music/common/upload/kgvisual/kcOBpNWGg/index.html#/"
+      },
+      "web_musicworld_disco_room":{
+          "url":"https://y.qq.com/m/client/m_world/index.html?halfScreen=1&hideBg=1&(params)"
+      },
+      "web_ugc_game_recharge":{
+          "url":"https://game.y.qq.com/tmegames/game_buy/index.html?openApi=1&_hwv=1&_hwvhg=54&_hwvbg=transparent&half=1&scene=icon&(params)"
+      },
+      "web_ugc_game_share":{
+          "url":"https://game.y.qq.com/tmegames/game_share/index.html?openApi=1&(params)"
+      },
+      "ktv_community_manager":{
+          "url":"https://v.y.qq.com/m/client/basic/ktv_community/communityPage.html?(params)"
+      },
+      "ktv_community_create":{
+          "url":"https://v.y.qq.com/m/client/basic/ktv_community/communityEquity.html?(params)"
+      },
+      "friend_list":{
+          "url":"https://v.y.qq.com/m/client/basic/friend.html?halfScreen=1&(params)"
+      },
+      "friend_invite":{
+          "url":"https://v.y.qq.com/m/client/basic/friend/send.html?halfScreen=1&(params)"
+      },
+      "friend_score":{
+          "url":"https://v.y.qq.com/m/client/basic/friend/score.html?halfScreen=1&(params)"
+      },
+      "no_call_pk_rank":{
+          "url":"https://v.y.qq.com/m/client/basic/noCallPkRank.html?halfScreen=1&(params)"
+      },
+      "day_pay_tip":{
+          "url":"https://v.y.qq.com/m/client/basic/day_pay_tip.html?halfScreen=1&hideBg=1&percent=100"
+      },
+      "web_ugc_game_create": {
+            "url": "https://game.y.qq.com/tmegames/game_applylist/game_create.html?openApi=1&_hwvbg=transparent&_hwv=1&_hwvhg=100&half=1&(params)"
+      },
+      "live_pre_set_shopping_cart":{
+            "url":"https://y.qq.com/tme-build-web/interact-live/live_shopping_cart/index.html"
+      },
+      "rif_multi_mic_pk_index": {
+          "url": "https://y.qq.com/kg/minigame/mike2pk_music/index.html?_hwvbg=transparent&openApi=1&halfScreen=1&percent=50&mikeId=$mikeId&pkId=$pkId&pkType=$pkType&anchorId=$anchorId&roomId=$roomId&showId=$showId&roomType=$roomType&showType=$showType&anchorEid=$anchorEid&liveType=$liveType&sourceType=$sourceType&fromtag=$fromtag&roomOwner=$roomOwner&roleType=$roleType&multiMicType=$multiMicType&from=$from&playType=$playType"
+      },
+      "rif_multi_mic_pk_pking": {
+           "url": "https://y.qq.com/kg/minigame/mike2pk_music/index.html?_hwvhp=410&_hwvbg=transparent&openApi=1&mikeId=$mikeId&pkId=$pkId&pkType=$pkType&anchorId=$anchorId&roomId=$roomId&showId=$showId&roomType=$roomType&showType=$showType&anchorEid=$anchorEid&liveType=$liveType&sourceType=$sourceType&fromtag=$fromtag&roomOwner=$roomOwner&roleType=$roleType&multiMicType=$multiMicType&from=$from&playType=$playType"
+      },
+      "rif_multi_mic_pk_create": {
+           "url": "https://y.qq.com/kg/minigame/mike2pk_music/index.html?_hwvhg=50&_hwvbg=transparent&openApi=1&mikeId=$mikeId&pkId=$pkId&pkType=$pkType&anchorId=$anchorId&roomId=$roomId&showId=$showId&roomType=$roomType&showType=$showType&anchorEid=$anchorEid&liveType=$liveType&sourceType=$sourceType&fromtag=$fromtag&roomOwner=$roomOwner&roleType=$roleType&multiMicType=$multiMicType&from=$from&playType=$playType#/PkCreate"
+      },
+      "rif_multi_mic_pk_topList": {
+           "url": "https://y.qq.com/kg/minigame/mike2pk_music/index.html?_hwvhg=68&_hwvbg=transparent&openApi=1&mikeId=$mikeId&pkId=$pkId&pkType=$pkType&anchorId=$anchorId&roomId=$roomId&showId=$showId&roomType=$roomType&showType=$showType&anchorEid=$anchorEid&liveType=$liveType&sourceType=$sourceType&fromtag=$fromtag&roomOwner=$roomOwner&roleType=$roleType&multiMicType=$multiMicType&from=$from&playType=$playType#/Toplist"
+      },
+      "rif_multi_mic_random_pk_1v3": {
+           "url": "https://y.qq.com/tme-build-web/interact-live/randomPK/index.html?_hwvhp=410&_hwvbg=transparent&openApi=1&mikeId=$mikeId&pkId=$pkId&pkType=$pkType&anchorId=$anchorId&liveType=$liveType&roomId=$roomId&showId=$showId&roomType=$roomType&showType=$showType&roomOwner=$roomOwner&roleType=$roleType&anchorEid=$anchorEid&sourceType=1&fromtag=$fromtag&multiMicType=$multiMicType&from=$from&playType=$playType"
+      },
+      "record_live_orientation": {
+           "url": "https://y.qq.com/kg/union_kg/m/basic/game_record/live.html?percent=35"
+      },
+      "record_live_promotion": {
+           "url": "https://y.qq.com/kg/union_kg/m/basic/game_record/promotion.html?percent=35&halfScreen=1"
+      },
+      "interact_live_pk_qualify_music": {
+           "url": "https://y.qq.com/tme-build-web/interact-live/pk_qualify_music/index.html?_hwvbg=transparent&anchorId=$anchorId&liveType=$liveType&roomId=$roomId&showId=$showId&roomType=$roomType&showType=$showType&authTypeAnchor=$authTypeAnchor&roomOwner=$roomOwner&roleType=$roleType&anchorEid=$anchorEid&sourceType=$sourceType&fromtag=$fromtag&_hwvhg=68&_hideloading=1&openApi=1&tab=0"
+      },
+      "crown_battle_act": {
+            "url":"https://v.y.qq.com/m/union/basic/crown.html?_hwvbg=transparent&_hideloading=1&openApi=1&tab=0&division=1&_hwvhg=68&showId=$showId&anchorId=$anchorId&roomType=$roomType&holderEid=$holderEid"
+            },
+      "crown_battle_rank_act": {
+            "url":"https://v.y.qq.com/m/union/basic/crown.html?_hwvbg=transparent&_hideloading=1&openApi=1&tab=0&division=1&_hwvhg=68&showId=$showId&anchorId=$anchorId&roomType=$roomType&enUin=$enUin&holderEid=$holderEid#/rank"
+      },
+      "wish_list_index": {
+           "url": "https://y.qq.com/kg/liveWishList_music/index.html?_hwvbg=transparent&_hwvhg=50&anchorId=$anchorId&liveType=$liveType&roomId=$roomId&showId=$showId&roomType=$roomType&showType=$showType&authTypeAnchor=$authTypeAnchor&roomOwner=$roomOwner&roleType=$roleType&anchorEid=$anchorEid&sourceType=$sourceType&fromtag=$fromtag&_hwvhg=68&_hideloading=1&openApi=1&tab=0"
+      },
+      "friends_auction": {
+           "url": "https://v.y.qq.com/m/union/basic/friends_auction.html?_hwvbg=transparent&_hideloading=1&openApi=1&_hwvhg=100&showId=$showId&anchorId=$anchorId&roomType=$roomType"
+      },
+      "svip_upgrade":{
+           "url": "https://i2.y.qq.com/n3/cm/pages/popup/vip_upgrade/index.html?aid=$aid&isHugeVip=0&tabs=2"
+      }
+   }
+}

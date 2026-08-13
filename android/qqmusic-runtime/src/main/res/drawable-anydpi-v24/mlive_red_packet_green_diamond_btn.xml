@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<vector android:height="77.47531dp" android:width="77.0dp" android:viewportWidth="162.0" android:viewportHeight="163.0"
+  xmlns:aapt="http://schemas.android.com/aapt" xmlns:android="http://schemas.android.com/apk/res/android">
+    <path android:fillColor="@drawable/qq_generated_mlive_red_packet_green_diamond_btn__0" android:pathData="M81,81.21m-77,0a77,77 0,1 1,154 0a77,77 0,1 1,-154 0" />
+    <path android:fillColor="@drawable/qq_generated_mlive_red_packet_green_diamond_btn__1" android:pathData="M80.64,81.57m-68.69,0a68.69,68.69 0,1 1,137.37 0a68.69,68.69 0,1 1,-137.37 0" />
+    <path android:fillColor="@drawable/qq_generated_mlive_red_packet_green_diamond_btn__2" android:pathData="M80.37,81.42m-65.07,0a65.07,65.07 0,1 1,130.14 0a65.07,65.07 0,1 1,-130.14 0" />
+    <path android:fillColor="@drawable/qq_generated_mlive_red_packet_green_diamond_btn__3" android:pathData="M62.57,42.51H103.85L103.14,49.05H61.86L62.57,42.51ZM59.23,59.64H103.34L102.62,66.27H58.51L59.23,59.64ZM88.02,46.42H95.36L91.16,85.31H83.82L88.02,46.42ZM71.16,46.47H78.36L77.05,58.64C76.06,67.8 73.65,78.59 61.86,85.51C60.78,83.93 58.36,81.45 56.71,80.3C67.08,74.53 69.05,66.03 69.85,58.59L71.16,46.47Z" />
+</vector>

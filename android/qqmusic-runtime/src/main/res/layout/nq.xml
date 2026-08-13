@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout android:layout_width="wrap_content" android:layout_height="wrap_content"
+  xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">
+    <com.tencent.qqmusic.ui.RoundedRelativeLayout android:id="@id/i72" android:layout_width="130.0dp" android:layout_height="230.0dp" app:a1j="hnz" app:a23="hnz" app:a27="hnz" app:ado="@dimen/kx">
+        <ImageView android:id="@id/i71" android:layout_width="match_parent" android:layout_height="match_parent" android:src="@drawable/dynamic_player_thumb" android:scaleType="fitXY" app:a1j="hnz" app:a23="hnz" app:a27="hnz" />
+        <ImageView android:id="@id/x0" android:visibility="gone" android:layout_width="29.0dp" android:layout_height="18.0dp" />
+    </com.tencent.qqmusic.ui.RoundedRelativeLayout>
+    <ImageView android:id="@id/e94" android:layout_width="30.0dp" android:layout_height="30.0dp" android:layout_marginTop="5.0dp" android:src="@drawable/switch_player_style" app:a23="hnz" app:a26="@id/i72" />
+    <TextView android:textSize="@dimen/c68" android:textColor="@color/skin_text_main_color" android:gravity="center" android:id="@id/hvz" android:layout_width="wrap_content" android:layout_height="wrap_content" app:a1d="@id/e94" app:a22="@id/e94" app:a27="@id/e94" />
+</androidx.constraintlayout.widget.ConstraintLayout>

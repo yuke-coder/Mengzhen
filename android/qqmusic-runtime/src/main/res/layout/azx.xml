@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout android:layout_width="match_parent" android:layout_height="match_parent"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <TextView android:textSize="@dimen/bfw" android:textColor="@color/guide_layer_pop_view_text_color" android:gravity="center" android:id="@id/ma4" android:background="@drawable/playlist_recommend_guide_bubble" android:paddingBottom="4.0dp" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/fn0" />
+</RelativeLayout>

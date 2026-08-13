@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout android:orientation="vertical" android:layout_width="match_parent" android:layout_height="wrap_content"
+  xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">
+    <androidx.constraintlayout.widget.ConstraintLayout android:layout_width="match_parent" android:layout_height="wrap_content">
+        <FrameLayout android:id="@id/n97" android:layout_width="wrap_content" android:layout_height="35.0dp" android:contentDescription="@string/ir6" app:a1d="hnz" app:a23="hnz" app:a27="hnz" />
+        <androidx.appcompat.widget.AppCompatTextView android:textSize="14.0dp" android:textColor="@color/white" android:ellipsize="end" android:id="@id/n86" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginLeft="10.5dp" android:maxLines="1" android:singleLine="true" app:a18="true" app:a1d="hnz" app:a1k="@id/n7z" app:a1t="0.0" app:a1u="hmg" app:a22="@id/n97" app:a27="hnz" />
+        <com.tencent.qqmusic.follow.ui.PortVideoFollowBtn android:id="@id/n7z" android:visibility="gone" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginLeft="5.0dp" app:a1d="hnz" app:a1j="hnz" app:a22="@id/n86" app:a27="hnz" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+    <com.tencent.expandabletextview.ExpandableTextView android:textSize="13.0dp" android:textColor="@color/white_80_transparent" android:ellipsize="end" android:gravity="center_vertical" android:id="@id/n87" android:layout_width="match_parent" android:layout_height="wrap_content" app:px=" " app:pz="@color/white" app:q2=" 展开" app:q5="2" app:q_="false" app:qa="true" app:qb="false" app:qc="true" app:qf="true" />
+</LinearLayout>

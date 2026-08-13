@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout android:orientation="vertical" android:background="#ffffff" android:layout_width="match_parent" android:layout_height="match_parent"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <com.tencent.picker.component.touchimageview.TouchImageViewPager android:id="@id/nax" android:scrollbars="vertical" android:layout_width="match_parent" android:layout_height="match_parent" />
+    <LinearLayout android:layout_gravity="top" android:orientation="vertical" android:id="@id/lz9" android:background="@color/picture_selector_title_bar_color" android:layout_width="match_parent" android:layout_height="@dimen/c_o">
+        <View android:layout_width="match_parent" android:layout_height="@dimen/c_q" />
+        <RelativeLayout android:layout_width="match_parent" android:layout_height="0.0dp" android:layout_weight="1.0">
+            <ImageView android:id="@id/a5n" android:layout_width="44.0dp" android:layout_height="44.0dp" android:src="@drawable/image_picker_back_btn" android:scaleType="centerInside" />
+            <TextView android:textSize="18.0sp" android:textColor="#000000" android:id="@id/id0" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="2/8" android:layout_centerInParent="true" />
+            <ImageView android:id="@id/bmg" android:background="@drawable/image_picker_delete_icon" android:visibility="gone" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginRight="15.0dp" android:layout_alignParentRight="true" android:layout_centerVertical="true" />
+            <View android:id="@id/bmh" android:visibility="gone" android:layout_width="50.0dp" android:layout_height="match_parent" android:layout_alignParentRight="true" android:layout_centerVertical="true" />
+            <FrameLayout android:layout_gravity="right|bottom" android:layout_width="50.0dp" android:layout_height="match_parent" android:layout_alignParentRight="true">
+                <com.tencent.picker.SelectionDotView android:layout_gravity="center" android:id="@id/jrz" android:layout_width="wrap_content" android:layout_height="wrap_content" />
+            </FrameLayout>
+            <View android:id="@id/jry" android:layout_width="64.0dp" android:layout_height="44.0dp" android:layout_alignParentRight="true" />
+        </RelativeLayout>
+        <View android:background="@color/picture_selector_title_bar_split" android:layout_width="match_parent" android:layout_height="1.0px" />
+    </LinearLayout>
+    <LinearLayout android:layout_gravity="bottom" android:orientation="vertical" android:id="@id/ahc" android:background="@color/picture_selector_title_bar_color" android:layout_width="match_parent" android:layout_height="wrap_content">
+        <View android:background="#c4c4c4" android:layout_width="match_parent" android:layout_height="1.0px" />
+        <RelativeLayout android:id="@id/cgf" android:visibility="gone" android:layout_width="match_parent" android:layout_height="50.0dp">
+            <TextView android:textSize="16.0sp" android:textColor="#ffffff" android:gravity="center" android:id="@id/cge" android:background="@drawable/picker_selection_finish_btn" android:layout_width="68.0dp" android:layout_height="30.0dp" android:layout_marginRight="15.0dp" android:text="完成(9)" android:layout_alignParentRight="true" android:layout_centerVertical="true" />
+        </RelativeLayout>
+    </LinearLayout>
+</FrameLayout>

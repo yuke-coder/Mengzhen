@@ -1,0 +1,9 @@
+{
+  "router": "openHalf",
+  "page_name": "dialog_vip_cashier",
+  "params": {
+    "scene": "test",
+    "debug": true,
+    "config_id": 1
+  }
+}

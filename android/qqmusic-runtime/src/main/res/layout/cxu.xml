@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.tencent.qqmusic.ui.RoundedRelativeLayout android:id="@id/i2j" android:background="@color/color_recommend_item_bg" android:paddingBottom="28.0dp" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginTop="28.0dp" android:paddingStart="@dimen/bg9" android:paddingEnd="@dimen/bg9" app:ado="7.5dp"
+  xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">
+    <RelativeLayout android:gravity="center_vertical" android:id="@id/jag" android:layout_width="match_parent" android:layout_height="30.0dp">
+        <androidx.appcompat.widget.AppCompatTextView android:textSize="17.0dp" android:textStyle="bold" android:textColor="@color/black" android:id="@id/g3m" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/fj0" android:layout_centerVertical="true" android:layout_alignParentStart="true" />
+        <TextView android:textSize="14.0dp" android:textColor="@color/black" android:id="@id/g3i" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/fiw" android:layout_centerVertical="true" android:layout_toStartOf="@id/g3h" />
+        <ImageView android:id="@id/g3h" android:layout_width="20.0dp" android:layout_height="20.0dp" android:src="@drawable/view_player_recommend_more_icon" android:tint="@color/black" android:layout_centerVertical="true" android:contentDescription="@string/fiw" android:layout_alignParentEnd="true" />
+    </RelativeLayout>
+    <androidx.recyclerview.widget.RecyclerView android:id="@id/g3g" android:clipToPadding="false" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginTop="15.0dp" android:layout_below="@id/jag" android:overScrollMode="never" android:nestedScrollingEnabled="false" />
+</com.tencent.qqmusic.ui.RoundedRelativeLayout>

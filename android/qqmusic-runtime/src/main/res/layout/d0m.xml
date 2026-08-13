@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout android:gravity="center_vertical" android:orientation="horizontal" android:paddingLeft="12.0dp" android:paddingRight="12.0dp" android:layout_width="match_parent" android:layout_height="match_parent" android:paddingHorizontal="12.0dp"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <LinearLayout android:gravity="center" android:orientation="vertical" android:id="@id/icq" android:focusable="true" android:clickable="true" android:layout_width="0.0dp" android:layout_height="match_parent" android:layout_weight="1.0">
+        <ImageView android:layout_width="24.0dp" android:layout_height="24.0dp" android:src="@drawable/singer_portait_save" android:scaleType="centerInside" />
+        <TextView android:textSize="11.0dp" android:textColor="@color/white" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="2.0dp" android:text="保存" />
+    </LinearLayout>
+    <LinearLayout android:gravity="center" android:orientation="vertical" android:id="@id/icm" android:layout_width="0.0dp" android:layout_height="match_parent" android:layout_weight="1.0">
+        <ImageView android:id="@id/icn" android:layout_width="24.0dp" android:layout_height="24.0dp" android:src="@drawable/singer_portait_hd" android:scaleType="centerInside" />
+        <TextView android:textSize="11.0dp" android:textColor="@color/white" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="2.0dp" android:text="高清" />
+    </LinearLayout>
+    <LinearLayout android:gravity="center" android:orientation="vertical" android:id="@id/ick" android:layout_width="0.0dp" android:layout_height="match_parent" android:layout_weight="1.0">
+        <ImageView android:id="@id/icl" android:layout_width="24.0dp" android:layout_height="24.0dp" android:src="@drawable/singer_portait_3d_on" android:scaleType="centerInside" />
+        <TextView android:textSize="11.0dp" android:textColor="@color/white" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="2.0dp" android:text="3D" />
+    </LinearLayout>
+    <LinearLayout android:gravity="center" android:orientation="vertical" android:id="@id/icr" android:focusable="true" android:visibility="gone" android:clickable="true" android:layout_width="0.0dp" android:layout_height="match_parent" android:layout_weight="1.0">
+        <ImageView android:layout_width="24.0dp" android:layout_height="24.0dp" android:src="@drawable/singer_portait_set_dress" android:scaleType="centerInside" />
+        <TextView android:textSize="11.0dp" android:textColor="@color/white" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="2.0dp" android:text="设装扮" />
+    </LinearLayout>
+    <LinearLayout android:gravity="center" android:orientation="vertical" android:id="@id/ico" android:layout_width="0.0dp" android:layout_height="match_parent" android:layout_weight="1.0">
+        <ImageView android:layout_width="24.0dp" android:layout_height="24.0dp" android:src="@drawable/singer_portait_total" android:scaleType="centerInside" />
+        <TextView android:textSize="11.0dp" android:textColor="@color/white" android:gravity="center" android:id="@id/icp" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="2.0dp" android:text="1/1" android:textAlignment="center" android:fontFeatureSettings="tnum" />
+    </LinearLayout>
+</LinearLayout>

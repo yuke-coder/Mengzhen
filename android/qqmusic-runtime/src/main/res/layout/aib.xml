@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout android:background="@drawable/material_ripple_background" android:paddingTop="5.5dp" android:paddingBottom="5.5dp" android:layout_width="match_parent" android:layout_height="wrap_content" android:minHeight="55.0dp" android:paddingStart="15.0dp" android:paddingEnd="15.0dp"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <CheckBox android:id="@id/hpm" android:background="@drawable/ic_edit_song_checkbox_live" android:focusable="false" android:focusableInTouchMode="false" android:clickable="false" android:layout_width="30.0dp" android:layout_height="30.0dp" android:layout_marginRight="8.0dp" android:checked="false" android:button="@null" android:layout_centerVertical="true" android:layout_marginEnd="8.0dp" />
+    <TextView android:textSize="15.0dp" android:textColor="@color/skin_text_main_color" android:ellipsize="end" android:id="@id/hpo" android:layout_width="match_parent" android:layout_height="wrap_content" android:singleLine="true" android:layout_toRightOf="@id/hpm" android:layout_centerVertical="true" android:layout_toEndOf="@id/hpm" />
+    <include android:layout_width="match_parent" android:layout_height="@dimen/rh" android:layout_marginLeft="53.0dp" android:layout_alignParentBottom="true" layout="@layout/ly" />
+</RelativeLayout>

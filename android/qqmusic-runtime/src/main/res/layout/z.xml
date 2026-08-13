@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout android:orientation="horizontal" android:id="@id/jk0" android:layout_width="match_parent" android:layout_height="match_parent"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <TextView android:textAppearance="?android:textAppearanceMedium" android:textColor="?android:textColorPrimary" android:gravity="center_vertical" android:id="@id/jjy" android:visibility="gone" android:layout_width="wrap_content" android:layout_height="match_parent" android:layout_marginBottom="2.0dp" android:drawablePadding="0.0dp" />
+    <ImageView android:layout_gravity="center_vertical" android:id="@id/jk2" android:focusable="true" android:layout_width="wrap_content" android:layout_height="match_parent" android:contentDescription="@string/y" style="?ag" />
+    <LinearLayout android:orientation="horizontal" android:id="@id/jlc" android:layout_width="wrap_content" android:layout_height="match_parent" android:layout_marginLeft="8.0dp" android:layout_marginRight="8.0dp" android:layout_weight="1.0" android:layoutDirection="locale">
+        <ImageView android:layout_gravity="center_vertical" android:id="@id/jms" android:visibility="gone" android:layout_width="@dimen/ae" android:layout_height="wrap_content" android:scaleType="centerInside" style="@style/pf" />
+        <LinearLayout android:layout_gravity="center_vertical" android:orientation="horizontal" android:id="@id/jmy" android:layout_width="wrap_content" android:layout_height="match_parent" android:layout_weight="1.0">
+            <view android:ellipsize="end" android:layout_gravity="center_vertical" android:id="@id/jnt" android:background="@null" android:paddingLeft="@dimen/af" android:paddingRight="@dimen/ag" android:layout_width="0.0dp" android:layout_height="36.0dp" android:singleLine="true" android:layout_weight="1.0" android:inputType="textAutoComplete|textNoSuggestions" android:dropDownAnchor="@id/jlc" android:imeOptions="actionSearch" android:dropDownHeight="wrap_content" android:dropDownHorizontalOffset="0.0dp" android:dropDownVerticalOffset="0.0dp" class="androidx.appcompat.widget.SearchView$SearchAutoComplete" />
+            <ImageView android:layout_gravity="center_vertical" android:id="@id/jkd" android:background="?selectableItemBackgroundBorderless" android:paddingLeft="8.0dp" android:paddingRight="8.0dp" android:focusable="true" android:layout_width="wrap_content" android:layout_height="match_parent" android:contentDescription="@string/w" />
+        </LinearLayout>
+        <LinearLayout android:orientation="horizontal" android:id="@id/kzw" android:layout_width="wrap_content" android:layout_height="match_parent">
+            <ImageView android:layout_gravity="center_vertical" android:id="@id/jlu" android:background="?selectableItemBackgroundBorderless" android:paddingLeft="16.0dp" android:paddingRight="16.0dp" android:focusable="true" android:visibility="gone" android:layout_width="wrap_content" android:layout_height="match_parent" android:contentDescription="@string/z" />
+            <ImageView android:layout_gravity="center_vertical" android:id="@id/jo8" android:background="?selectableItemBackgroundBorderless" android:paddingLeft="16.0dp" android:paddingRight="16.0dp" android:focusable="true" android:visibility="gone" android:layout_width="wrap_content" android:layout_height="match_parent" android:contentDescription="@string/a0" />
+        </LinearLayout>
+    </LinearLayout>
+</LinearLayout>

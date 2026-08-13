@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<merge android:layout_width="match_parent" android:layout_height="match_parent"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <ImageView android:id="@id/h8f" android:layout_width="match_parent" android:layout_height="0.0dp" android:scaleType="matrix" />
+    <ImageView android:id="@id/h8b" android:visibility="gone" android:layout_width="match_parent" android:layout_height="0.0dp" android:scaleType="matrix" />
+    <LinearLayout android:layout_gravity="center_horizontal" android:orientation="vertical" android:id="@id/h8c" android:visibility="gone" android:layout_width="match_parent" android:layout_height="wrap_content">
+        <ImageView android:layout_gravity="center" android:id="@id/h8e" android:visibility="gone" android:layout_width="200.0dp" android:layout_height="35.0dp" android:scaleType="centerInside" />
+        <TextView android:textSize="12.0dp" android:textColor="@color/white" android:gravity="center|top" android:id="@id/h8d" android:visibility="gone" android:layout_width="match_parent" android:layout_height="wrap_content" android:text="下拉查看" />
+    </LinearLayout>
+</merge>

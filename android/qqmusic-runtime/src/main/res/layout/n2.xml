@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout android:state_window_focused="false" android:id="@id/b99" android:background="#000c0d1d" android:paddingTop="@dimen/c_q" android:layout_width="match_parent" android:layout_height="@dimen/cau"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <RelativeLayout android:id="@id/f02" android:clickable="false" android:layout_width="wrap_content" android:layout_height="match_parent" android:layout_marginRight="4.0dp" android:layout_alignParentLeft="true">
+        <ImageView android:id="@id/a5j" android:background="@drawable/material_ripple_background_circle" android:focusable="true" android:layout_width="@dimen/cao" android:layout_height="@dimen/cao" android:src="@drawable/activity_back_selector_white" android:scaleType="centerInside" android:layout_centerInParent="true" android:contentDescription="@string/wf" />
+    </RelativeLayout>
+    <RelativeLayout android:id="@id/aup" android:layout_width="wrap_content" android:layout_height="match_parent" android:layout_marginLeft="60.0dp" android:layout_marginRight="60.0dp" android:layout_centerHorizontal="true">
+        <com.tencent.qqmusic.ui.customview.textview.ScrollTextView android:textSize="18.0sp" android:textStyle="bold" android:textColor="@color/white" android:ellipsize="end" android:gravity="center" android:id="@id/le5" android:layout_width="wrap_content" android:layout_height="wrap_content" android:singleLine="true" android:layout_centerVertical="true" style="@style/a4s" />
+    </RelativeLayout>
+    <ImageView android:id="@id/lyb" android:visibility="gone" android:layout_width="44.0dp" android:layout_height="44.0dp" android:src="@drawable/super_sound_share" android:scaleType="centerCrop" android:layout_alignParentRight="true" android:layout_alignParentBottom="true" android:contentDescription="@string/f8h" />
+    <ImageView android:id="@id/lwi" android:visibility="gone" android:layout_width="60.0dp" android:layout_height="25.0dp" android:layout_marginRight="16.0dp" android:layout_marginBottom="10.0dp" android:src="@drawable/ss_top_botton_use" android:scaleType="centerCrop" android:layout_alignParentRight="true" android:layout_alignParentBottom="true" />
+</RelativeLayout>

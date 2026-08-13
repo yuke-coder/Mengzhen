@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout android:paddingBottom="20.0dp" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginTop="@dimen/cau"
+  xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">
+    <androidx.constraintlayout.widget.ConstraintLayout android:background="@drawable/ss_official_effect_item_round_bg_d8" android:layout_width="match_parent" android:layout_height="60.0dp" android:layout_marginTop="10.0dp" app:a1j="hnz" app:a23="hnz" app:a27="hnz">
+        <com.tencent.component.widget.AsyncImageView android:id="@id/c3m" android:layout_width="40.0dp" android:layout_height="40.0dp" android:layout_marginLeft="16.0dp" app:a1d="hnz" app:a23="hnz" app:a27="hnz" />
+        <TextView android:textSize="18.0sp" android:textColor="#ffffff" android:id="@id/c3s" android:layout_width="wrap_content" android:layout_height="25.0dp" android:layout_marginLeft="16.0dp" app:a1d="hnz" app:a22="@id/c3m" app:a27="hnz" />
+        <TextView android:textSize="13.0sp" android:textColor="#0c0d1d" android:gravity="center" android:id="@id/c3t" android:background="@drawable/ss_detail_page_select_bg" android:layout_width="100.0dp" android:layout_height="25.0dp" android:layout_marginRight="16.0dp" android:text="@string/htr" app:a1d="hnz" app:a1j="hnz" app:a27="hnz" />
+        <TextView android:textSize="13.0sp" android:textColor="#0c0d1d" android:gravity="center" android:id="@id/c3n" android:background="@drawable/ss_detail_page_select_bg" android:visibility="invisible" android:layout_width="100.0dp" android:layout_height="25.0dp" android:layout_marginRight="16.0dp" android:text="@string/htl" app:a1d="hnz" app:a1j="hnz" app:a27="hnz" />
+        <TextView android:textSize="10.0dp" android:textColor="#0c0d1d" android:gravity="center" android:id="@id/c3o" android:background="@drawable/ss_detail_page_select_bg" android:visibility="visible" android:layout_width="100.0dp" android:layout_height="25.0dp" android:layout_marginRight="16.0dp" android:text="@string/htm" app:a1d="hnz" app:a1j="hnz" app:a27="hnz" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>

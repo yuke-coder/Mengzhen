@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout android:layout_gravity="center|bottom" android:id="@id/jdb" android:layout_width="match_parent" android:layout_height="wrap_content"
+  xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">
+    <com.tme.qqmusic.widget.base.view.GlideImageView android:id="@id/ec6" android:layout_width="match_parent" android:layout_height="match_parent" android:layout_marginTop="175.0dp" android:src="@drawable/flow_tunes_dialog_bg" android:scaleType="fitXY" app:a1x="hnz" app:a27="hnz" />
+    <com.tme.qqmusic.widget.base.view.GlideImageView android:id="@id/dan" android:layout_width="match_parent" android:layout_height="176.0dp" android:scaleType="fitXY" app:a1x="hnz" app:a27="hnz" />
+    <TextView android:textSize="18.0dp" android:textStyle="bold" android:textColor="#fbd786" android:gravity="center" android:id="@id/m6h" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginTop="30.0dp" android:text="检测到QQ音乐畅听耳机" app:a1x="hnz" app:a21="hnz" app:a26="@id/dan" />
+    <TextView android:textSize="13.0dp" android:textColor="#fad685" android:gravity="center" android:id="@id/m6g" android:visibility="gone" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginTop="8.0dp" android:text="" app:a26="@id/m6h" />
+    <com.tencent.qqmusic.ui.RoundedRelativeLayout android:id="@id/j8b" android:layout_width="290.0dp" android:layout_height="112.0dp" android:layout_marginTop="22.0dp" android:layout_marginBottom="40.0dp" app:a1x="hnz" app:a21="hnz" app:a26="@id/m6g" app:ado="2.0dp">
+        <com.tencent.component.widget.AsyncEffectImageView android:id="@id/content" android:layout_width="match_parent" android:layout_height="match_parent" android:scaleType="fitXY" />
+    </com.tencent.qqmusic.ui.RoundedRelativeLayout>
+    <com.tencent.qqmusic.ui.RoundedRelativeLayout android:id="@id/aim" android:background="#ffcd4b" android:layout_width="200.0dp" android:layout_height="50.0dp" android:layout_marginTop="22.0dp" android:layout_marginBottom="40.0dp" app:a1d="hnz" app:a1x="hnz" app:a21="hnz" app:a26="@id/j8b" app:ado="25.0dp">
+        <TextView android:textSize="14.0dp" android:textColor="@color/black" android:gravity="center" android:id="@id/m6d" android:layout_width="wrap_content" android:layout_height="match_parent" android:text="激活耳机权益" android:includeFontPadding="false" android:layout_centerInParent="true" android:importantForAccessibility="no" />
+    </com.tencent.qqmusic.ui.RoundedRelativeLayout>
+    <TextView android:textSize="10.0dp" android:textColor="#991a1a1a" android:gravity="center" android:id="@id/m6f" android:visibility="gone" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginTop="10.0dp" android:text="开通超级会员，继续尊享" app:a1j="hnz" app:a23="hnz" app:a26="@id/aim" />
+    <ImageView android:id="@id/aj6" android:background="@drawable/feature_close_icon" android:padding="5.0dp" android:focusable="true" android:clickable="true" android:layout_width="30.0dp" android:layout_height="30.0dp" android:layout_marginTop="25.0dp" android:layout_marginRight="10.0dp" android:contentDescription="@string/a75" app:a21="hnz" app:a27="hnz" />
+</androidx.constraintlayout.widget.ConstraintLayout>

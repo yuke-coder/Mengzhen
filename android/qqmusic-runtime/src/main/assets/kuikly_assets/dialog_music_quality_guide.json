@@ -1,0 +1,11 @@
+{
+  "router": "openHalf",
+  "page_name": "dialog_music_quality_guide",
+  "params": {
+    "scene": "player_guide",
+    "debug": true,
+    "theme": "dark",
+    "song_quality": 1,
+    "config_id": 19
+  }
+}

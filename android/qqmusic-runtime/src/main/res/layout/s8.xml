@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout android:layout_width="wrap_content" android:layout_height="wrap_content"
+  xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">
+    <TextView android:textSize="12.0sp" android:textColor="@color/white_80_transparent" android:gravity="center" android:id="@id/mkz" android:background="@drawable/putoo_ugc_popu_share_bg" android:paddingTop="9.0dp" android:paddingBottom="9.5dp" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="7.5dp" android:text="@string/fx6" android:paddingStart="10.0dp" android:paddingEnd="10.0dp" app:a1j="hnz" app:a23="hnz" app:a27="hnz" />
+    <com.tencent.qqmusic.fragment.mainpage.DeskPlusTriangleView android:id="@id/gc8" android:layout_width="15.0dp" android:layout_height="7.5dp" android:layout_marginRight="12.5dp" app:oa="@color/black_80_transparent" app:ob="mu_" app:a1e="@id/mkz" app:a1j="@id/mkz" />
+</androidx.constraintlayout.widget.ConstraintLayout>

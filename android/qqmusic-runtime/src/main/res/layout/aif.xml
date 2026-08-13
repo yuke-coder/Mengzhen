@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout android:background="@drawable/color_b2_click" android:paddingLeft="22.5dp" android:layout_width="match_parent" android:layout_height="wrap_content" android:minHeight="50.0dp"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <LinearLayout android:orientation="vertical" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginTop="30.0dp" android:layout_marginRight="120.0dp" android:layout_centerVertical="true">
+        <TextView android:textSize="14.0sp" android:textColor="@color/skin_text_main_color" android:id="@id/mcc" android:layout_width="wrap_content" android:layout_height="wrap_content" />
+        <TextView android:textSize="11.0sp" android:textColor="@color/skin_text_sub_color" android:id="@id/mnm" android:layout_width="wrap_content" android:layout_height="wrap_content" />
+    </LinearLayout>
+    <ImageView android:id="@id/ea9" android:background="@drawable/ic_bluetooth_setting_authorized" android:visibility="gone" android:layout_width="20.0dp" android:layout_height="20.0dp" android:layout_marginRight="16.0dp" android:layout_alignParentRight="true" android:layout_centerVertical="true" />
+    <ImageView android:id="@id/eaa" android:visibility="gone" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginRight="16.0dp" android:src="@drawable/arrow_right_grey" android:baselineAlignBottom="true" android:layout_alignParentRight="true" android:layout_centerVertical="true" />
+    <TextView android:textSize="12.0sp" android:textColor="@color/skin_text_sub_color" android:id="@id/m4y" android:visibility="gone" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginRight="@dimen/ax8" android:text="@string/gz8" android:layout_toLeftOf="@id/eaa" android:layout_centerVertical="true" />
+    <View android:id="@id/k0z" android:background="@drawable/z_color_l1" android:layout_width="match_parent" android:layout_height="1.0px" android:layout_marginTop="30.0dp" android:scaleType="fitXY" android:layout_alignParentBottom="true" />
+</RelativeLayout>

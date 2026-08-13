@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.tencent.qqmusic.ui.RoundedRelativeLayout android:id="@id/js9" android:background="@drawable/skin_sub_mask_img" android:layout_width="match_parent" android:layout_height="45.0dp" android:layout_marginLeft="16.0dp" android:layout_marginTop="15.0dp" android:layout_marginRight="16.0dp" app:ado="22.5dp"
+  xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">
+    <ViewFlipper android:id="@id/jsd" android:layout_width="match_parent" android:layout_height="match_parent" android:inAnimation="@anim/fg" android:outAnimation="@anim/fh" android:flipInterval="5000" android:autoStart="false">
+        <RelativeLayout android:id="@id/fu_" android:layout_width="match_parent" android:layout_height="match_parent">
+            <ImageView android:id="@id/fua" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginLeft="15.0dp" android:src="@drawable/long_track_banner_vip" android:layout_centerVertical="true" android:layout_marginStart="15.0dp" />
+            <FrameLayout android:id="@id/kfh" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginLeft="5.0dp" android:layout_marginRight="5.0dp" android:layout_toLeftOf="@id/js7" android:layout_toRightOf="@id/fua" android:layout_centerVertical="true" android:layout_marginStart="5.0dp" android:layout_marginEnd="5.0dp" android:layout_toStartOf="@id/js7" android:layout_toEndOf="@id/fua">
+                <com.tencent.qqmusic.ui.customview.textview.ScrollTextView android:textSize="14.0sp" android:textColor="@color/skin_text_main_color" android:ellipsize="end" android:id="@id/jsc" android:layout_width="wrap_content" android:layout_height="wrap_content" android:singleLine="true" />
+            </FrameLayout>
+            <com.tencent.qqmusic.ui.RoundedRelativeLayout android:id="@id/js7" android:background="@drawable/skin_sub_mask_img" android:paddingLeft="8.0dp" android:paddingRight="8.0dp" android:layout_width="wrap_content" android:layout_height="25.0dp" android:layout_marginRight="10.0dp" android:layout_alignParentRight="true" android:layout_centerVertical="true" android:layout_marginEnd="10.0dp" android:layout_alignParentEnd="true" app:ado="12.5dp">
+                <TextView android:textSize="14.0sp" android:textStyle="bold" android:textColor="@color/skin_text_main_color" android:id="@id/js6" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/mf" android:layout_centerVertical="true" />
+            </com.tencent.qqmusic.ui.RoundedRelativeLayout>
+        </RelativeLayout>
+    </ViewFlipper>
+</com.tencent.qqmusic.ui.RoundedRelativeLayout>

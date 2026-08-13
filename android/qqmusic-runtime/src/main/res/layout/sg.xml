@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout android:paddingBottom="@dimen/c9e" android:layout_width="match_parent" android:layout_height="wrap_content"
+  xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">
+    <com.tencent.qqmusic.ui.customview.RatioLayout android:orientation="vertical" android:id="@id/isv" android:background="@color/black" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_centerHorizontal="true">
+        <View android:id="@id/c9h" android:background="@color/black" android:layout_width="match_parent" android:layout_height="match_parent" android:layout_alignParentBottom="true" />
+        <FrameLayout android:id="@id/cl0" android:layout_width="match_parent" android:layout_height="match_parent">
+            <com.tencent.qqmusic.ui.customview.ScaleImageView android:layout_gravity="center" android:id="@id/bdq" android:visibility="gone" android:layout_width="match_parent" android:layout_height="match_parent" android:scaleType="matrix" app:afv="@dimen/kx" />
+            <com.tencent.qqmusic.ui.customview.ScaleImageView android:layout_gravity="center" android:id="@id/ce5" android:layout_width="match_parent" android:layout_height="match_parent" android:scaleType="matrix" app:afv="@dimen/kx" />
+            <ImageView android:layout_gravity="center" android:id="@id/ehm" android:background="@drawable/feed_video_play" android:layout_width="25.0dp" android:layout_height="30.0dp" android:scaleType="center" android:contentDescription="@null" />
+        </FrameLayout>
+    </com.tencent.qqmusic.ui.customview.RatioLayout>
+</RelativeLayout>

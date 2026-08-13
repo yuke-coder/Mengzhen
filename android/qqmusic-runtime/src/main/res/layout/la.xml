@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout android:layout_width="match_parent" android:layout_height="45.0dp"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <CheckBox android:id="@id/b21" android:background="@drawable/ic_edit_song_checkbox" android:focusable="false" android:focusableInTouchMode="false" android:clickable="false" android:layout_width="24.0dp" android:layout_height="24.0dp" android:layout_marginLeft="12.0dp" android:button="@null" android:layout_alignParentLeft="true" android:layout_centerVertical="true" />
+    <TextView android:textSize="18.0sp" android:textColor="@color/skin_text_main_color" android:id="@id/b20" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginLeft="12.0dp" android:layout_toRightOf="@id/b21" android:layout_centerVertical="true" />
+    <TextView android:textColor="@color/my_music_gray" android:id="@id/b23" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginLeft="12.0dp" android:layout_toRightOf="@id/b20" android:layout_centerVertical="true" />
+    <TextView android:textSize="14.0sp" android:textColor="@color/my_music_gray" android:id="@id/b22" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginRight="15.0dp" android:layout_alignParentRight="true" android:layout_centerVertical="true" />
+    <View android:background="@color/my_music_divider" android:layout_width="match_parent" android:layout_height="0.5dp" android:layout_alignLeft="@id/b20" />
+</RelativeLayout>

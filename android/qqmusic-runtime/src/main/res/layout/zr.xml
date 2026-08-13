@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout android:paddingBottom="6.0dp" android:layout_width="wrap_content" android:layout_height="wrap_content"
+  xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">
+    <com.tencent.component.widget.AsyncEffectImageView android:id="@id/h_t" android:layout_width="match_parent" android:layout_height="0.0dp" android:scaleType="fitXY" app:a1i="H,1:1" app:a21="hnz" app:a23="hnz" app:a27="hnz" />
+    <ImageView android:layout_gravity="center" android:id="@id/h_r" android:layout_width="0.0dp" android:layout_height="16.0dp" android:src="@drawable/bg_mv_play" app:a1d="@id/h_t" app:a1x="@id/h_q" app:a21="@id/h_t" />
+    <TextView android:textSize="10.0dp" android:textColor="@android:color/white" android:id="@id/h_s" android:paddingRight="7.0dp" android:layout_width="wrap_content" android:layout_height="wrap_content" android:includeFontPadding="false" app:a1d="@id/h_r" app:a21="@id/h_t" app:a27="@id/h_r" />
+    <ImageView android:id="@id/h_q" android:paddingLeft="7.0dp" android:layout_width="17.0dp" android:layout_height="16.0dp" android:src="@drawable/recommend_card_play_button" android:scaleType="fitCenter" app:a1d="@id/h_r" app:a20="@id/h_s" app:a27="@id/h_r" />
+    <TextView android:textSize="@dimen/b9g" android:textColor="@color/skin_text_main_color" android:ellipsize="end" android:id="@id/h_u" android:layout_width="0.0dp" android:layout_height="wrap_content" android:layout_marginTop="3.0dp" android:layout_marginBottom="3.0dp" android:lines="2" app:a1d="hnz" app:a1x="@id/h_t" app:a21="@id/h_t" app:a26="@id/h_t" />
+</androidx.constraintlayout.widget.ConstraintLayout>

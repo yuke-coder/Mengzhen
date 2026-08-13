@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout android:id="@id/b33" android:background="@color/white" android:layout_width="match_parent" android:layout_height="match_parent"
+  xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">
+    <LinearLayout android:id="@id/zf" android:layout_width="match_parent" android:layout_height="wrap_content" app:a1j="hnz" app:a23="hnz" app:a27="hnz">
+        <com.tencent.qqmusic.audioedit.widget.TitleToolbar android:id="@id/luu" android:layout_width="match_parent" android:layout_height="wrap_content" app:aql="@string/bup" />
+    </LinearLayout>
+    <androidx.recyclerview.widget.RecyclerView android:id="@id/jf2" android:layout_width="match_parent" android:layout_height="0.0dp" android:layout_marginTop="20.0dp" android:layout_marginBottom="40.0dp" app:a1e="@id/ajj" app:a26="@id/zf" />
+    <TextView android:id="@id/m9h" android:visibility="invisible" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/bu3" app:a1d="hnz" app:a1x="hnz" app:a21="hnz" app:a26="@id/zf" />
+    <Button android:id="@id/ajj" android:background="@drawable/bg_ae_import_jump_get_content" android:layout_width="wrap_content" android:layout_height="44.0dp" android:layout_marginBottom="43.0dp" android:text="@string/hm1" android:paddingStart="28.0dp" android:paddingEnd="28.0dp" android:layout_marginStart="70.0dp" android:layout_marginEnd="70.0dp" app:a1d="hnz" app:a1x="hnz" app:a21="hnz" />
+</androidx.constraintlayout.widget.ConstraintLayout>

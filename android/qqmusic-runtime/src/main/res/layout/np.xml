@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout android:id="@id/ba_" android:background="@drawable/ringtone_btn_default_bg" android:layout_width="79.0dp" android:layout_height="40.0dp" app:a1d="hnz" app:a1x="hnz" app:a21="hnz" app:a27="hnz" app:ado="4.0dp"
+  xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">
+    <ImageView android:id="@id/drp" android:paddingRight="3.0dp" android:visibility="gone" android:layout_width="16.0dp" android:layout_height="16.0dp" app:a1d="hnz" app:a1k="@id/mpc" app:a1u="hmg" app:a23="hnz" app:a27="hnz" />
+    <TextView android:textSize="13.0dp" android:textColor="@color/white" android:ellipsize="marquee" android:gravity="center" android:id="@id/mpc" android:layout_width="wrap_content" android:layout_height="match_parent" android:singleLine="true" android:marqueeRepeatLimit="marquee_forever" app:a1j="hnz" app:a22="@id/drp" />
+    <ImageView android:id="@id/ds8" android:visibility="gone" android:layout_width="16.0dp" android:layout_height="16.0dp" android:src="@drawable/icon_ring_edit_none" app:a1d="hnz" app:a1j="hnz" app:a23="hnz" app:a27="hnz" />
+    <ImageView android:id="@id/dt8" android:background="@drawable/ringtone_text_button_selected" android:visibility="gone" android:layout_width="match_parent" android:layout_height="match_parent" />
+    <TextView android:textSize="9.0dp" android:textColor="@color/black" android:gravity="center" android:id="@id/dsa" android:background="@drawable/ringtone_text_button_flag_bg" android:visibility="gone" android:layout_width="24.0dp" android:layout_height="13.0dp" app:a23="hnz" app:a27="hnz" />
+</androidx.constraintlayout.widget.ConstraintLayout>

@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout android:paddingLeft="30.0dp" android:paddingTop="10.0dp" android:paddingRight="30.0dp" android:paddingBottom="10.0dp" android:layout_width="match_parent" android:layout_height="match_parent"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <RelativeLayout android:id="@id/a4" android:background="@color/guide_toast_bg_color" android:layout_width="match_parent" android:layout_height="73.0dp" android:layout_centerInParent="true">
+        <RelativeLayout android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginLeft="10.0dp" android:layout_marginRight="10.0dp" android:minHeight="40.0dp" android:layout_centerInParent="true">
+            <TextView android:textSize="15.0sp" android:textColor="#ffffff" android:id="@id/lae" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="14.0dp" android:text="text_toasttext_toasttext_toasttext_toasttext_toasttext_toasttext_toast" android:singleLine="true" android:shadowColor="@color/black" android:shadowDx="2.0" android:shadowDy="2.0" android:layout_alignParentTop="true" android:layout_centerHorizontal="true" />
+            <TextView android:textSize="15.0sp" android:textColor="#ffffff" android:id="@id/laf" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginBottom="14.0dp" android:text="text_toasttext_toasttext_toasttext_toasttext_toasttext_toasttext_toast" android:singleLine="true" android:shadowColor="@color/black" android:shadowDx="2.0" android:shadowDy="2.0" android:layout_above="@id/ahc" android:layout_centerHorizontal="true" />
+            <View android:id="@id/ahc" android:layout_width="match_parent" android:layout_height="0.0dp" android:layout_alignParentBottom="true" />
+        </RelativeLayout>
+    </RelativeLayout>
+</RelativeLayout>

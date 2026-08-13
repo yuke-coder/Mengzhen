@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout android:layout_width="wrap_content" android:layout_height="wrap_content"
+  xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">
+    <androidx.appcompat.widget.AppCompatTextView android:textSize="18.0dp" android:textStyle="bold" android:id="@id/m78" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginTop="14.5dp" android:alpha="0.8" app:a1x="hnz" app:a27="hnz" />
+    <com.tencent.qqmusic.business.partplay.NoPaddingTextView android:gravity="center_vertical" android:id="@id/m77" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="1.0dp" android:minHeight="70.0dp" android:includeFontPadding="false" app:a1x="hnz" app:a26="@id/m78" app:aol="70.0dp" />
+</androidx.constraintlayout.widget.ConstraintLayout>

@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout android:background="@drawable/color_b2_click" android:layout_width="match_parent" android:layout_height="50.5dp"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <androidx.appcompat.widget.AppCompatTextView android:textSize="16.0dp" android:textColor="@color/skin_text_main_color" android:ellipsize="end" android:id="@id/lfw" android:paddingLeft="@dimen/blh" android:layout_width="wrap_content" android:layout_height="wrap_content" android:singleLine="true" android:layout_centerVertical="true" />
+    <ImageView android:id="@id/e0u" android:visibility="gone" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginRight="12.5dp" android:src="@drawable/music_offline_sign_normal" android:layout_alignParentRight="true" android:layout_centerVertical="true" />
+    <View android:id="@id/f2w" android:background="@drawable/z_color_l1" android:layout_width="match_parent" android:layout_height="1.0px" android:layout_alignParentRight="true" android:layout_alignParentBottom="true" />
+</RelativeLayout>

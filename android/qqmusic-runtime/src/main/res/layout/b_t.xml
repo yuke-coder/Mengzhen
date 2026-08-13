@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout android:layout_width="110.0dp" android:layout_height="45.0dp"
+  xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">
+    <com.tme.mlive.ui.animation.NewPagView android:id="@id/mlive_layout_info_card_info_gift_wall_item_bg" android:layout_width="0.0dp" android:layout_height="0.0dp" android:layout_marginTop="@dimen/sd" android:layout_marginStart="@dimen/s7" android:layout_marginEnd="@dimen/s7" app:a1d="hnz" app:a1j="hnz" app:a23="hnz" app:a27="hnz" />
+    <ImageView android:id="@id/mlive_layout_info_card_info_gift_wall_item_bg_iv" android:layout_width="0.0dp" android:layout_height="0.0dp" android:src="@drawable/mlive_gift_wall_info_card_normal_bg" app:a1d="hnz" app:a1j="hnz" app:a23="hnz" app:a27="hnz" />
+    <com.tme.qqmusic.widget.base.view.GlideImageView android:id="@id/mlive_layout_info_card_info_gift_wall_item_gift_iv" android:layout_width="32.0dp" android:layout_height="32.0dp" android:scaleType="centerCrop" android:layout_marginStart="10.0dp" app:a1d="hnz" app:a23="hnz" app:a27="hnz" />
+    <TextView android:textSize="12.0dp" android:textColor="#e3ffffff" android:ellipsize="end" android:gravity="center" android:id="@id/mlive_layout_info_card_info_gift_wall_item_gift_name" android:layout_width="0.0dp" android:layout_height="wrap_content" android:maxLines="1" android:layout_marginStart="@dimen/sh" android:layout_marginEnd="@dimen/rr" app:a1d="@id/mlive_layout_info_card_info_gift_wall_item_gift_iv" app:a1j="hnz" app:a22="@id/mlive_layout_info_card_info_gift_wall_item_gift_iv" app:a27="@id/mlive_layout_info_card_info_gift_wall_item_gift_iv" />
+</androidx.constraintlayout.widget.ConstraintLayout>

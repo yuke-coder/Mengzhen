@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout android:orientation="horizontal" android:background="@android:color/transparent" android:paddingTop="10.0dp" android:paddingBottom="10.0dp" android:layout_width="match_parent" android:layout_height="match_parent"
+  xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">
+    <androidx.constraintlayout.widget.ConstraintLayout android:layout_width="match_parent" android:layout_height="wrap_content">
+        <TextView android:id="@id/mgx" android:padding="16.0dp" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="1" android:paddingStart="21.0dp" android:paddingEnd="24.0dp" app:a1d="hnz" app:a23="hnz" app:a27="hnz" />
+        <com.tme.qqmusic.widget.base.view.GlideImageView android:id="@id/edx" android:src="@drawable/mlive_default_avatar" android:layout_toEndOf="@id/mgx" app:a1d="hnz" app:a22="@id/mgx" app:a27="hnz" app:a2q="24.0dp" style="@style/mo" />
+        <com.tme.qqmusic.widget.base.view.GlideImageView android:id="@id/edy" android:layout_width="13.0dp" android:layout_height="13.0dp" app:a1d="@id/edx" app:a1j="@id/edx" />
+        <TextView android:id="@id/mbi" android:visibility="gone" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="100" android:lines="1" android:layout_marginStart="14.0dp" app:a1d="hnz" app:a22="@id/edx" app:a27="hnz" />
+        <TextView android:id="@id/me6" android:paddingStart="10.0dp" android:paddingEnd="10.0dp" app:a18="true" app:a1d="hnz" app:a1k="@id/eva" app:a1t="0.0" app:a22="@id/mbi" app:a27="hnz" style="@style/ly" />
+        <RelativeLayout android:id="@id/eva" android:layout_width="wrap_content" android:layout_height="wrap_content" android:paddingEnd="20.0dp" app:a1d="hnz" app:a1j="hnz" app:a27="hnz">
+            <TextView android:id="@id/mb2" android:layout_width="wrap_content" android:layout_height="wrap_content" android:lines="1" android:layout_centerVertical="true" android:paddingStart="5.0dp" android:paddingEnd="5.0dp" />
+            <ImageView android:id="@id/ef1" android:layout_width="11.0dp" android:layout_height="11.0dp" android:src="@drawable/mlive_coin_icon" android:layout_centerVertical="true" android:alpha="0.6" android:layout_toEndOf="@id/mb2" />
+        </RelativeLayout>
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</LinearLayout>

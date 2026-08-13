@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout android:layout_width="match_parent" android:layout_height="match_parent"
+  xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">
+    <com.tencent.qqmusic.homepage.view.PageRecyclerView android:id="@id/j2y" android:scrollbars="vertical" android:clipChildren="false" android:layout_width="match_parent" android:layout_height="match_parent" android:overScrollMode="never" app:a17="true" app:a1d="hnz" app:a1x="hnz" app:a21="hnz" app:a27="hnz" />
+    <include android:layout_width="match_parent" android:layout_height="match_parent" app:a1d="hnz" app:a1x="hnz" app:a21="hnz" app:a27="hnz" layout="@layout/vg" />
+</androidx.constraintlayout.widget.ConstraintLayout>

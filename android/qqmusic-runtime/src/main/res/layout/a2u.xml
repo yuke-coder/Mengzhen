@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout android:clickable="true" android:layout_width="match_parent" android:layout_height="match_parent"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <include android:layout_width="match_parent" android:layout_height="match_parent" layout="@layout/m6" />
+    <LinearLayout android:orientation="vertical" android:clickable="true" android:layout_width="match_parent" android:layout_height="match_parent">
+        <include android:id="@id/lvi" layout="@layout/mu" />
+        <include android:id="@id/kaw" layout="@layout/czg" />
+        <View android:background="@drawable/z_color_l1" android:layout_width="match_parent" android:layout_height="0.5dp" android:layout_marginLeft="15.0dp" />
+        <include android:id="@id/kax" layout="@layout/czg" />
+        <View android:background="@drawable/z_color_l1" android:layout_width="match_parent" android:layout_height="0.5dp" android:layout_marginLeft="15.0dp" />
+        <include android:id="@id/kav" layout="@layout/czg" />
+        <View android:background="@drawable/z_color_l1" android:layout_width="match_parent" android:layout_height="0.5dp" android:layout_marginLeft="15.0dp" />
+        <include android:id="@id/kay" layout="@layout/czg" />
+        <View android:background="@drawable/z_color_l1" android:layout_width="match_parent" android:layout_height="0.5dp" android:layout_marginLeft="15.0dp" />
+    </LinearLayout>
+</RelativeLayout>

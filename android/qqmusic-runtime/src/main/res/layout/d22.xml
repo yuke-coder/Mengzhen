@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout android:gravity="center_vertical" android:background="@drawable/color_b2_click" android:paddingLeft="10.0dp" android:paddingRight="10.0dp" android:layout_width="match_parent" android:layout_height="wrap_content" android:minHeight="50.0dp"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <Button android:id="@id/kzv" android:paddingLeft="10.0dp" android:paddingRight="10.0dp" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="切换皮肤" android:layout_alignParentRight="true" />
+    <EditText android:textColor="@color/skin_text_main_color" android:textColorHint="@color/skin_text_sub_color" android:id="@id/c0o" android:paddingLeft="14.0dp" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginTop="8.0dp" android:layout_marginBottom="8.0dp" android:hint="输入要切换的皮肤id" android:layout_toLeftOf="@id/kzv" style="@style/ll" />
+</RelativeLayout>

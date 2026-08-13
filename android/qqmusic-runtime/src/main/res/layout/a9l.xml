@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout android:background="@drawable/call_selector_ring_two_panel" android:paddingTop="3.0dp" android:paddingBottom="3.0dp" android:layout_width="match_parent" android:layout_height="wrap_content"
+  xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">
+    <androidx.constraintlayout.widget.Guideline android:orientation="horizontal" android:id="@id/aof" android:layout_width="match_parent" android:layout_height="wrap_content" app:a1n="0.5" />
+    <androidx.constraintlayout.widget.Guideline android:orientation="vertical" android:id="@id/aog" android:layout_width="match_parent" android:layout_height="wrap_content" app:a1n="0.05" />
+    <TextView android:textSize="@dimen/iz" android:textStyle="bold" android:textColor="@android:color/black" android:gravity="center" android:id="@id/aoh" android:background="@drawable/call_ic_sim_vector_gray" android:layout_width="26.0dp" android:layout_height="26.0dp" app:a1d="hnz" app:a23="@id/aog" app:a27="hnz" />
+    <TextView android:textSize="@dimen/j0" android:textStyle="bold" android:textColor="@android:color/black" android:id="@id/aoi" android:paddingTop="3.0dp" android:paddingBottom="1.0dp" android:layout_width="wrap_content" android:layout_height="wrap_content" android:paddingStart="16.0dp" android:paddingEnd="6.0dp" app:a1d="@id/aof" app:a22="@id/aoh" />
+    <TextView android:textSize="@dimen/j0" android:textColor="@color/call_grey_light" android:id="@id/aoj" android:paddingTop="1.0dp" android:paddingBottom="3.0dp" android:layout_width="wrap_content" android:layout_height="wrap_content" android:paddingStart="16.0dp" android:paddingEnd="6.0dp" app:a22="@id/aoh" app:a27="@id/aof" />
+</androidx.constraintlayout.widget.ConstraintLayout>

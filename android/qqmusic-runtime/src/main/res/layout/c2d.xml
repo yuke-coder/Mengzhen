@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout android:gravity="center" android:layout_gravity="center" android:orientation="vertical" android:id="@id/bgs" android:background="@drawable/openplatform_open_custom_dialog_bg" android:layout_width="280.0dp" android:layout_height="wrap_content"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <TextView android:textSize="17.0dp" android:textColor="#161823" android:gravity="center" android:id="@id/bag" android:layout_width="match_parent" android:layout_height="96.0dp" />
+    <FrameLayout android:layout_gravity="center" android:id="@id/ba8" android:visibility="gone" android:layout_width="wrap_content" android:layout_height="wrap_content" />
+    <View android:id="@id/den" android:background="#1f161823" android:layout_width="match_parent" android:layout_height="0.5dp" />
+    <LinearLayout android:gravity="center" android:orientation="horizontal" android:id="@id/b2t" android:layout_width="match_parent" android:layout_height="47.5dp">
+        <TextView android:textSize="15.0dp" android:textColor="#bf161823" android:gravity="center" android:id="@id/at0" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/vw" android:layout_weight="1.0" />
+        <View android:layout_gravity="center|bottom" android:id="@id/n2r" android:background="#1f161823" android:layout_width="0.5dp" android:layout_height="47.5dp" />
+        <TextView android:textSize="15.0dp" android:textStyle="bold" android:textColor="#161823" android:gravity="center" android:id="@id/b_0" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/vx" android:layout_weight="1.0" />
+    </LinearLayout>
+</LinearLayout>

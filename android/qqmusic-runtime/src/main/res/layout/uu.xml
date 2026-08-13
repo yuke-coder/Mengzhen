@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout android:background="@color/transparent" android:focusable="true" android:layout_width="match_parent" android:layout_height="wrap_content"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <com.tencent.qqmusic.ui.SimpleTextView android:textSize="@dimen/bs8" android:textColor="@color/skin_text_main_color" android:ellipsize="end" android:gravity="center" android:id="@id/izg" android:layout_width="match_parent" android:layout_height="@dimen/ur" android:layout_alignParentBottom="true" />
+    <com.tencent.component.widget.AsyncEffectImageView android:id="@id/izf" android:layout_width="match_parent" android:layout_height="match_parent" android:src="@drawable/default_folder_mid" android:scaleType="centerCrop" android:layout_above="@id/izg" />
+    <LinearLayout android:id="@id/huq" android:background="@drawable/bg_mv_play" android:paddingLeft="5.0dp" android:paddingRight="5.0dp" android:layout_width="wrap_content" android:layout_height="17.0dp" android:layout_alignRight="@id/izf" android:layout_alignBottom="@id/izf">
+        <ImageView android:layout_gravity="center_vertical" android:id="@id/izh" android:paddingRight="2.0dp" android:layout_width="wrap_content" android:layout_height="wrap_content" android:src="@drawable/icon_musichall_play_small" />
+        <com.tencent.component.widget.AsyncImageView android:layout_gravity="center_vertical" android:id="@id/ize" android:visibility="gone" android:layout_width="14.0dp" android:layout_height="14.0dp" android:layout_marginRight="2.0dp" />
+        <TextView android:textSize="10.0sp" android:textColor="@color/white" android:ellipsize="end" android:gravity="center_vertical" android:id="@id/f5g" android:layout_width="wrap_content" android:layout_height="match_parent" android:text="0" android:singleLine="true" />
+    </LinearLayout>
+</RelativeLayout>

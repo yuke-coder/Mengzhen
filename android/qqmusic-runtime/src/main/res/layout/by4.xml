@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout android:orientation="vertical" android:id="@id/b_d" android:background="#edeff2" android:layout_width="match_parent" android:layout_height="wrap_content"
+  xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">
+    <RelativeLayout android:paddingLeft="20.0dp" android:paddingTop="9.0dp" android:paddingRight="20.0dp" android:paddingBottom="8.0dp" android:layout_width="match_parent" android:layout_height="60.0dp" android:layout_marginTop="12.0dp" android:paddingHorizontal="20.0dp">
+        <TextView android:textSize="18.0dp" android:textStyle="bold" android:textColor="@color/skin_text_main_color" android:gravity="center" android:id="@id/ldr" android:layout_width="wrap_content" android:layout_height="wrap_content" android:singleLine="true" android:fontFamily="PingFang SC" />
+        <TextView android:textSize="12.0dp" android:textColor="@color/skin_text_main_color" android:gravity="center" android:id="@id/kz2" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="3.0dp" android:singleLine="true" android:layout_below="@id/ldr" android:fontFamily="PingFang SC" />
+        <LinearLayout android:orientation="horizontal" android:id="@id/cf2" android:visibility="gone" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_alignParentBottom="true" android:layout_alignParentEnd="true">
+            <ImageView android:layout_gravity="center_vertical" android:id="@id/cf3" android:layout_width="10.0dp" android:layout_height="10.0dp" android:src="@drawable/musichall_ac_feedback_more" android:alpha="0.6" android:layout_marginEnd="6.0dp" />
+            <TextView android:textSize="12.0dp" android:textColor="@color/skin_text_main_color" android:gravity="center" android:layout_gravity="center_vertical" android:id="@id/cf1" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/e7t" android:singleLine="true" android:fontFamily="PingFang SC" />
+        </LinearLayout>
+    </RelativeLayout>
+    <com.tme.qqmusic.widget.base.view.MaxHeightRecyclerView android:id="@id/cf0" android:paddingLeft="15.0dp" android:paddingRight="15.0dp" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginTop="10.0dp" android:paddingHorizontal="15.0dp" app:a87="250.0dp" />
+    <com.tencent.qqmusic.ui.RoundedRelativeLayout android:layout_gravity="center_horizontal" android:background="@drawable/skin_highlight_img" android:layout_width="180.0dp" android:layout_height="50.0dp" android:layout_marginTop="15.0dp" android:layout_marginBottom="35.0dp" app:ado="25.0dp">
+        <TextView android:textSize="@dimen/c8f" android:textColor="@color/black" android:gravity="center" android:id="@id/b6v" android:layout_width="match_parent" android:layout_height="40.0dp" android:text="@string/e7u" android:singleLine="true" android:layout_centerInParent="true" android:fontFamily="PingFang SC" />
+    </com.tencent.qqmusic.ui.RoundedRelativeLayout>
+</LinearLayout>

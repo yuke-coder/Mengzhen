@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout android:orientation="vertical" android:paddingRight="10.0dp" android:layout_width="wrap_content" android:layout_height="wrap_content"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <FrameLayout android:layout_gravity="center" android:layout_width="wrap_content" android:layout_height="wrap_content">
+        <ImageView android:id="@id/ej4" android:background="@drawable/mstream_loading_background" android:layout_width="144.0dp" android:layout_height="90.0dp" android:foreground="@drawable/mstream_style_item_selector" />
+        <TextView android:textSize="17.0sp" android:textStyle="bold" android:layout_gravity="center" android:id="@id/bfa" android:padding="3.0dp" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="当前机位" />
+    </FrameLayout>
+    <TextView android:textSize="17.0sp" android:textStyle="bold" android:layout_gravity="center_horizontal" android:id="@id/mi0" android:padding="3.0dp" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="机位" />
+</LinearLayout>

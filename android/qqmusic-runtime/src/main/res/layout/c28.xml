@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout android:layout_width="match_parent" android:layout_height="wrap_content"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <RelativeLayout android:id="@id/vz" android:layout_width="match_parent" android:layout_height="160.0dp">
+        <ImageView android:id="@id/djz" android:focusable="false" android:focusableInTouchMode="false" android:visibility="gone" android:clickable="false" android:layout_width="match_parent" android:layout_height="160.0dp" android:src="@drawable/online_album_bg_mask" android:scaleType="fitXY" />
+        <com.tencent.component.widget.AsyncEffectImageView android:id="@id/dk0" android:focusable="false" android:focusableInTouchMode="false" android:clickable="false" android:layout_width="match_parent" android:layout_height="wrap_content" android:scaleType="centerCrop" />
+        <ImageView android:id="@id/dk3" android:background="@drawable/img_musichall_item_shade" android:focusable="false" android:focusableInTouchMode="false" android:fadingEdge="vertical" android:clickable="false" android:layout_width="match_parent" android:layout_height="160.0dp" android:scaleType="fitXY" android:layout_alignBottom="@id/dk0" />
+        <RelativeLayout android:orientation="horizontal" android:id="@id/mrl" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginBottom="8.0dp" android:layout_alignBottom="@id/dk0">
+            <LinearLayout android:orientation="horizontal" android:id="@id/dov" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginRight="10.0dp" android:layout_alignParentRight="true" android:layout_centerVertical="true">
+                <ImageView android:layout_gravity="center" android:id="@id/dk1" android:background="@drawable/topbar_order_add_selector" android:visibility="gone" android:fadingEdge="vertical" android:layout_width="48.0dp" android:layout_height="48.0dp" />
+                <ImageView android:layout_gravity="center" android:id="@id/dk2" android:background="@drawable/topbar_refresh_selector" android:visibility="gone" android:fadingEdge="vertical" android:layout_width="48.0dp" android:layout_height="48.0dp" />
+                <ImageView android:id="@id/ht7" android:layout_width="48.0dp" android:layout_height="48.0dp" android:src="@drawable/album_player_button_xml" />
+            </LinearLayout>
+            <LinearLayout android:gravity="center_vertical" android:orientation="vertical" android:id="@id/l8k" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginLeft="14.0dp" android:layout_toLeftOf="@id/dov" android:layout_alignParentLeft="true" android:layout_centerVertical="true">
+                <TextView android:textSize="18.0sp" android:textColor="#ffffff" android:ellipsize="end" android:gravity="left|bottom" android:id="@id/le4" android:scrollX="4.0dp" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="" android:maxLines="2" android:lineSpacingExtra="3.0dp" style="@style/oh" />
+                <TextView android:textSize="12.0sp" android:textColor="#ffffff" android:ellipsize="end" android:gravity="left|top" android:id="@id/l8j" android:paddingBottom="1.5dp" android:visibility="gone" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="" android:singleLine="true" style="@style/oh" />
+                <TextView android:textSize="18.0sp" android:textColor="#ffffff" android:ellipsize="end" android:gravity="center_vertical" android:layout_gravity="center_vertical" android:id="@id/k8u" android:paddingBottom="1.5dp" android:visibility="gone" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="" android:singleLine="true" style="@style/oh" />
+            </LinearLayout>
+        </RelativeLayout>
+    </RelativeLayout>
+    <RelativeLayout android:id="@id/h51" android:visibility="gone" android:layout_width="match_parent" android:layout_height="70.0dp" android:layout_marginLeft="12.0dp" android:layout_below="@id/vz">
+        <ImageView android:id="@id/h6o" android:layout_width="55.0dp" android:layout_height="50.0dp" android:src="@drawable/mv_tencent_video_icon" android:layout_centerVertical="true" />
+        <TextView android:textSize="15.0sp" android:textColor="#10a54f" android:gravity="center" android:id="@id/h6p" android:background="@drawable/mv_open_video_txt_bg" android:layout_width="55.0dp" android:layout_height="30.0dp" android:layout_marginRight="10.0dp" android:text="打开" android:layout_alignParentRight="true" android:layout_centerVertical="true" />
+        <RelativeLayout android:id="@id/f2r" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginLeft="10.0dp" android:layout_toLeftOf="@id/h6p" android:layout_toRightOf="@id/h6o" android:layout_centerVertical="true">
+            <TextView android:textSize="16.0sp" android:textColor="@color/skin_text_main_color" android:id="@id/h3r" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="海量高清MV资源" android:layout_alignParentLeft="true" />
+            <TextView android:textSize="12.0sp" android:textColor="@color/skin_text_sub_color" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="9.0dp" android:text="尽在腾讯视频" android:layout_below="@id/h3r" />
+        </RelativeLayout>
+    </RelativeLayout>
+</RelativeLayout>

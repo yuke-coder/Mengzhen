@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.tencent.karaoke.widget.dialog.ui.RoundedLinearLayout android:orientation="vertical" android:layout_width="match_parent" android:layout_height="wrap_content" android:maxWidth="296.0dp" karaoke:adl="4.0dp"
+  xmlns:android="http://schemas.android.com/apk/res/android" xmlns:karaoke="http://schemas.android.com/apk/res-auto">
+    <LinearLayout android:gravity="center" android:orientation="vertical" android:id="@id/nt_" android:background="@drawable/red_top_corner_dialog_bg" android:paddingLeft="16.0dp" android:paddingTop="25.0dp" android:paddingRight="16.0dp" android:paddingBottom="25.0dp" android:layout_width="match_parent" android:layout_height="wrap_content" android:maxWidth="260.0dp" android:minHeight="120.0dp">
+        <ImageView android:gravity="center" android:id="@id/ntb" android:visibility="gone" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="36.0dp" android:layout_marginBottom="20.0dp" android:src="@drawable/guide" />
+        <com.tencent.karaoke.widget.emotext.EmoTextview android:textSize="@dimen/c7z" android:textColor="@color/colorBlack" android:gravity="center" android:id="@id/nta" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/app_name" />
+        <View android:id="@id/nt8" android:background="@null" android:layout_width="match_parent" android:layout_height="16.0dp" />
+        <RelativeLayout android:id="@id/nt5" android:layout_width="match_parent" android:layout_height="wrap_content">
+            <com.tencent.karaoke.widget.emotext.EmoTextview android:textSize="@dimen/s4" android:textColor="@color/colorBlack" android:gravity="left" android:id="@id/nt6" android:scrollbars="none" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/qj" android:layout_centerHorizontal="true" android:lineSpacingExtra="5.0dp" />
+            <com.tencent.karaoke.widget.emotext.EmoTextview android:textSize="@dimen/s0" android:textColor="@color/colorGray" android:gravity="left" android:id="@id/nt7" android:scrollbars="none" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="10.0dp" android:text="@string/qj" android:layout_below="@id/nt6" android:layout_alignLeft="@id/nt6" android:lineSpacingExtra="5.0dp" />
+        </RelativeLayout>
+    </LinearLayout>
+    <View android:layout_gravity="top" android:id="@id/nsw" android:background="@color/lineE7" android:layout_width="match_parent" android:layout_height="0.5dp" />
+    <FrameLayout android:id="@id/nsx" android:layout_width="match_parent" android:layout_height="50.0dp" android:minHeight="50.0dp">
+        <LinearLayout android:orientation="horizontal" android:layout_width="match_parent" android:layout_height="match_parent">
+            <Button android:textSize="@dimen/c7z" android:textColor="@drawable/selector_common_dialog_button_text_color" android:id="@id/nsy" android:background="@drawable/selector_common_dialog_button_bg" android:layout_width="match_parent" android:layout_height="match_parent" android:text="@string/epl" android:layout_weight="1.0" />
+            <View android:id="@id/nt3" android:background="@color/lineE7" android:layout_width="0.5dp" android:layout_height="match_parent" />
+            <Button android:textSize="@dimen/c7z" android:textColor="@drawable/selector_common_dialog_button_text_color" android:id="@id/nsz" android:background="@drawable/selector_common_dialog_button_bg" android:layout_width="match_parent" android:layout_height="match_parent" android:text="@string/csa" android:layout_weight="1.0" />
+            <View android:id="@id/nt4" android:background="@color/lineE7" android:layout_width="0.5dp" android:layout_height="match_parent" />
+            <Button android:textSize="@dimen/c7z" android:textColor="@drawable/selector_common_dialog_button_text_color" android:id="@id/nt0" android:background="@drawable/selector_common_dialog_button_bg" android:layout_width="match_parent" android:layout_height="match_parent" android:text="@string/fq2" android:layout_weight="1.0" />
+        </LinearLayout>
+    </FrameLayout>
+    <LinearLayout android:orientation="vertical" android:id="@id/ntc" android:layout_width="match_parent" android:layout_height="wrap_content" android:minWidth="40.0dp">
+        <Button android:textSize="@dimen/c7z" android:textColor="@drawable/selector_common_dialog_button_text_color" android:id="@id/ntf" android:background="@drawable/selector_common_dialog_button_bg" android:layout_width="match_parent" android:layout_height="40.0dp" />
+        <View android:id="@id/nt1" android:background="@color/lineE7" android:layout_width="match_parent" android:layout_height="0.5dp" />
+        <Button android:textSize="@dimen/c7z" android:textColor="@drawable/selector_common_dialog_button_text_color" android:id="@id/nte" android:background="@drawable/selector_common_dialog_button_bg" android:layout_width="match_parent" android:layout_height="40.0dp" />
+        <View android:id="@id/nt2" android:background="@color/lineE7" android:layout_width="match_parent" android:layout_height="0.5dp" />
+        <Button android:textSize="@dimen/c7z" android:textColor="@drawable/selector_common_dialog_button_text_color" android:id="@id/ntd" android:background="@drawable/selector_common_dialog_button_bg" android:layout_width="match_parent" android:layout_height="40.0dp" />
+    </LinearLayout>
+</com.tencent.karaoke.widget.dialog.ui.RoundedLinearLayout>

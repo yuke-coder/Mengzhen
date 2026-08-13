@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout android:paddingLeft="30.0dp" android:layout_width="match_parent" android:layout_height="match_parent"
+  xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">
+    <androidx.constraintlayout.widget.Guideline android:orientation="horizontal" android:id="@id/fyr" android:layout_width="match_parent" android:layout_height="wrap_content" app:a1n="0.33" />
+    <com.lyricengine.ui.LineFeedAnimationLyricView android:id="@id/hw1" android:focusable="false" android:scrollbars="none" android:fadingEdgeLength="40.0dp" android:layout_width="match_parent" android:layout_height="200.0dp" android:layout_marginRight="36.0dp" android:overScrollMode="never" android:requiresFadingEdge="vertical" app:a26="@id/fyr" app:a6i="@color/white" app:a6j="#66ffffff" app:a6l="true" app:a6m="false" app:a6p="26.0dp" app:a6q="26.0dp" app:a6s="left" app:a6v="3.0dp" app:a72="50" app:a73="3.0dp" app:a7a="3.0dp" app:a7b="top" />
+    <FrameLayout android:id="@id/hbp" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginTop="30.0dp" android:layout_marginRight="75.0dp" app:a26="@id/hw1">
+        <com.tencent.qqmusic.ui.customview.textview.ScrollTextView android:textSize="20.0dp" android:textColor="@color/white" android:gravity="left" android:id="@id/hw4" android:layout_width="match_parent" android:layout_height="wrap_content" />
+    </FrameLayout>
+    <FrameLayout android:id="@id/hw3" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginTop="2.0dp" android:layout_marginRight="75.0dp" app:a26="@id/hbp">
+        <com.tencent.qqmusic.ui.customview.textview.ScrollTextView android:textSize="16.0dp" android:textColor="#80ffffff" android:gravity="left" android:id="@id/hw2" android:layout_width="match_parent" android:layout_height="wrap_content" />
+    </FrameLayout>
+    <androidx.appcompat.widget.AppCompatTextView android:textSize="11.0sp" android:textColor="@color/white_70_opacity" android:id="@id/hfm" android:visibility="gone" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginRight="80.0dp" android:layout_marginBottom="20.0dp" app:a1e="@id/hbp" />
+</androidx.constraintlayout.widget.ConstraintLayout>

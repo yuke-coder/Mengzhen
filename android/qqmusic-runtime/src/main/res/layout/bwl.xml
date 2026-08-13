@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout android:background="@color/black_80_transparent" android:layout_width="match_parent" android:layout_height="match_parent"
+  xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">
+    <ImageView android:id="@id/gvw" android:layout_width="match_parent" android:layout_height="match_parent" android:scaleType="centerCrop" android:contentDescription="@null" />
+    <com.tme.mlive.streamlive.ui.custom.PicShareView android:id="@id/gvz" android:layout_width="275.0dp" android:layout_height="238.0dp" android:layout_marginTop="20.0dp" app:a1x="hnz" app:a21="hnz" app:a27="hnz" />
+    <ImageView android:id="@id/gvy" android:background="@color/transparent" android:layout_width="30.0dp" android:layout_height="30.0dp" android:layout_marginTop="19.0dp" android:src="@drawable/mstream_close" android:scaleType="centerCrop" android:contentDescription="@string/d0_" android:layout_marginEnd="49.0dp" app:a1j="hnz" app:a27="hnz" />
+    <TextView android:textColor="@color/white_60_transparent" android:gravity="center" android:id="@id/gw0" android:background="@drawable/mstream_corner_17hdp_10_white" android:layout_width="125.0dp" android:layout_height="30.0dp" android:layout_marginTop="16.0dp" android:text="@string/ea0" android:drawablePadding="6.0dp" android:drawableStart="@drawable/mstream_pic_share_add" android:paddingStart="16.0dp" android:paddingEnd="16.0dp" app:a1x="hnz" app:a21="hnz" app:a26="@id/gvz" />
+    <androidx.recyclerview.widget.RecyclerView android:id="@id/gvx" android:layout_width="wrap_content" android:layout_height="40.0dp" android:layout_marginTop="20.0dp" android:layout_marginBottom="20.0dp" android:layout_centerHorizontal="true" app:a1d="hnz" app:a1x="hnz" app:a21="hnz" app:a26="@id/gw0" />
+</androidx.constraintlayout.widget.ConstraintLayout>

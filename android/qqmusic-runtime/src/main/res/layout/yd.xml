@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout android:id="@id/jt3" android:layout_width="match_parent" android:layout_height="match_parent"
+  xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">
+    <ImageView android:id="@id/c9o" android:background="@drawable/error_gift_pannel" android:layout_width="107.0dp" android:layout_height="107.0dp" app:a1e="@id/c_4" app:a1x="hnz" app:a21="hnz" app:a27="hnz" app:a29="hmg" />
+    <TextView android:textSize="16.0sp" android:textColor="#ffffff" android:gravity="center_horizontal" android:id="@id/c_4" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="15.0dp" android:text="@string/c46" android:singleLine="true" android:layout_below="@id/c9o" app:a1e="@id/c9n" app:a1x="hnz" app:a21="hnz" app:a26="@id/c9o" />
+    <TextView android:textSize="12.0sp" android:textColor="#7fffffff" android:gravity="center_horizontal" android:id="@id/c9n" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="10.0dp" android:text="@string/c45" android:maxLines="2" android:layout_below="@id/c_4" app:a1d="hnz" app:a1x="hnz" app:a21="hnz" app:a26="@id/c_4" />
+</androidx.constraintlayout.widget.ConstraintLayout>

@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout android:background="@color/transparent" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_alignWithParentIfMissing="true"
+  xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">
+    <com.tencent.qqmusic.ui.RoundedRelativeLayout android:id="@id/iwp" android:background="@color/recognize_desk_bg_color" android:layout_width="wrap_content" android:layout_height="@dimen/bq5" android:layout_centerHorizontal="true" app:ado="@dimen/bq4">
+        <LinearLayout android:gravity="center_vertical" android:orientation="horizontal" android:id="@id/iwc" android:layout_width="wrap_content" android:layout_height="match_parent" android:layout_alignParentLeft="true">
+            <LinearLayout android:gravity="center" android:orientation="horizontal" android:id="@id/ca9" android:layout_width="wrap_content" android:layout_height="match_parent">
+                <ImageView android:layout_width="@dimen/bpl" android:layout_height="@dimen/bpl" android:layout_marginLeft="2.0dp" android:layout_marginRight="2.0dp" android:src="@drawable/recognize_arrow_left" android:scaleType="fitCenter" android:rotation="180.0" android:layout_marginStart="2.0dp" android:layout_marginEnd="2.0dp" />
+                <ImageView android:layout_width="1.0px" android:layout_height="match_parent" android:src="@drawable/common_music_list_divider" android:scaleType="fitXY" android:alpha="0.4" />
+            </LinearLayout>
+            <LinearLayout android:gravity="center" android:orientation="vertical" android:id="@id/iws" android:layout_width="wrap_content" android:layout_height="match_parent" android:layout_marginLeft="@dimen/bpz" android:layout_marginStart="@dimen/bpz">
+                <ImageView android:layout_width="@dimen/bq0" android:layout_height="@dimen/bq0" android:src="@drawable/recognize_desk_logo" android:scaleType="fitCenter" />
+                <RelativeLayout android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="6.5999756dp">
+                    <ImageView android:id="@id/iwj" android:layout_width="@dimen/bpm" android:layout_height="@dimen/bpm" android:src="@drawable/recognize_desk_result_icon" android:scaleType="fitCenter" />
+                    <TextView android:textSize="8.0sp" android:textColor="@color/recognize_desk_result_count_text_color" android:ellipsize="end" android:gravity="center" android:id="@id/iwi" android:layout_width="12.0dp" android:layout_height="wrap_content" android:text="123" android:singleLine="true" android:layout_alignTop="@id/iwj" android:layout_alignRight="@id/iwj" />
+                </RelativeLayout>
+            </LinearLayout>
+        </LinearLayout>
+        <TextView android:textSize="12.0sp" android:textColor="@color/white" android:ellipsize="end" android:gravity="center" android:id="@id/ivz" android:visibility="invisible" android:layout_width="@dimen/bpz" android:layout_height="wrap_content" android:text="+1" android:singleLine="true" android:layout_toRightOf="@id/iwc" android:layout_centerVertical="true" />
+        <LinearLayout android:gravity="center" android:orientation="vertical" android:id="@id/iwm" android:layout_width="190.0dp" android:layout_height="match_parent" android:layout_toRightOf="@id/ivz">
+            <com.tencent.qqmusic.ui.minibar.video.VideoMinibarMarqueeView android:textSize="15.0sp" android:textStyle="bold" android:textColor="@color/white" android:ellipsize="marquee" android:id="@id/iwn" android:focusable="true" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/gac" android:singleLine="true" android:marqueeRepeatLimit="1" />
+            <LinearLayout android:gravity="center" android:orientation="horizontal" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="11.0dp">
+                <LinearLayout android:gravity="center" android:orientation="horizontal" android:id="@id/iwg" android:background="@drawable/recognize_desk_btn_bg" android:layout_width="wrap_content" android:layout_height="@dimen/bq2" android:layout_marginRight="9.0dp" android:minWidth="@dimen/bq3" android:layout_marginEnd="9.0dp">
+                    <ImageView android:id="@id/iwf" android:layout_width="@dimen/bq2" android:layout_height="@dimen/bq2" android:src="@drawable/play_icon" android:scaleType="fitCenter" />
+                    <TextView android:textSize="13.0sp" android:textColor="@color/white" android:ellipsize="end" android:id="@id/iwh" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/g_l" android:singleLine="true" />
+                </LinearLayout>
+                <LinearLayout android:gravity="center" android:orientation="horizontal" android:id="@id/iwe" android:background="@drawable/recognize_desk_btn_bg" android:layout_width="wrap_content" android:layout_height="@dimen/bq2" android:minWidth="@dimen/bq3">
+                    <TextView android:textSize="13.0sp" android:textColor="@color/white" android:ellipsize="end" android:id="@id/iwd" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/g_i" android:singleLine="true" />
+                </LinearLayout>
+            </LinearLayout>
+        </LinearLayout>
+        <LinearLayout android:gravity="center_vertical" android:orientation="horizontal" android:id="@id/iwo" android:layout_width="wrap_content" android:layout_height="match_parent" android:layout_toRightOf="@id/iwm">
+            <LinearLayout android:gravity="center" android:orientation="vertical" android:id="@id/iwt" android:layout_width="wrap_content" android:layout_height="match_parent" android:layout_marginLeft="@dimen/bpz" android:layout_marginStart="@dimen/bpz">
+                <ImageView android:layout_width="@dimen/bq0" android:layout_height="@dimen/bq0" android:src="@drawable/recognize_desk_logo" android:scaleType="fitCenter" />
+                <RelativeLayout android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="6.5999756dp">
+                    <ImageView android:id="@id/iwl" android:layout_width="@dimen/bpm" android:layout_height="@dimen/bpm" android:src="@drawable/recognize_desk_result_icon" android:scaleType="fitCenter" />
+                    <TextView android:textSize="8.0sp" android:textColor="@color/recognize_desk_result_count_text_color" android:ellipsize="end" android:gravity="center" android:id="@id/iwk" android:layout_width="12.0dp" android:layout_height="wrap_content" android:text="123" android:singleLine="true" android:layout_alignTop="@id/iwl" android:layout_alignRight="@id/iwl" />
+                </RelativeLayout>
+            </LinearLayout>
+            <TextView android:textSize="12.0sp" android:textColor="@color/white" android:ellipsize="end" android:gravity="center" android:id="@id/iw0" android:visibility="invisible" android:layout_width="@dimen/bpz" android:layout_height="wrap_content" android:text="+1" android:singleLine="true" android:layout_toRightOf="@id/iwm" android:layout_centerVertical="true" />
+            <LinearLayout android:gravity="center" android:orientation="horizontal" android:id="@id/cav" android:layout_width="wrap_content" android:layout_height="match_parent">
+                <ImageView android:layout_width="1.0px" android:layout_height="match_parent" android:src="@drawable/common_music_list_divider" android:scaleType="fitXY" android:alpha="0.4" />
+                <ImageView android:layout_width="@dimen/bpl" android:layout_height="@dimen/bpl" android:layout_marginLeft="2.0dp" android:layout_marginRight="2.0dp" android:src="@drawable/recognize_arrow_left" android:scaleType="fitCenter" android:layout_alignParentLeft="true" android:layout_marginStart="2.0dp" android:layout_marginEnd="2.0dp" />
+            </LinearLayout>
+        </LinearLayout>
+    </com.tencent.qqmusic.ui.RoundedRelativeLayout>
+    <com.tencent.qqmusic.ui.RoundedRelativeLayout android:gravity="center_horizontal" android:id="@id/iw6" android:background="@color/recognize_desk_bg_color" android:layout_width="wrap_content" android:layout_height="@dimen/bpo" android:minWidth="@dimen/bpo" android:layout_below="@id/iwp" android:layout_centerHorizontal="true" app:ado="@dimen/bpr">
+        <TextView android:textSize="13.0sp" android:textColor="@color/white" android:ellipsize="end" android:id="@id/iw2" android:visibility="gone" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginLeft="17.0dp" android:layout_marginRight="9.0dp" android:text="@string/g9s" android:singleLine="true" android:layout_centerVertical="true" android:layout_marginStart="17.0dp" android:layout_marginEnd="9.0dp" />
+        <ImageView android:id="@id/iw5" android:layout_width="@dimen/bpp" android:layout_height="@dimen/bpp" android:src="@drawable/recognize_desk_logo" android:layout_toRightOf="@id/iw2" android:layout_centerVertical="true" />
+        <TextView android:textSize="13.0sp" android:textColor="@color/white" android:ellipsize="end" android:id="@id/iw4" android:visibility="gone" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginLeft="9.0dp" android:layout_marginRight="17.0dp" android:text="@string/g9s" android:singleLine="true" android:layout_toRightOf="@id/iw5" android:layout_centerVertical="true" android:layout_marginStart="9.0dp" android:layout_marginEnd="17.0dp" />
+    </com.tencent.qqmusic.ui.RoundedRelativeLayout>
+</RelativeLayout>

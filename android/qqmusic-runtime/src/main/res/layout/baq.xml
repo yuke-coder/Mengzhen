@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout android:orientation="vertical" android:background="@color/white" android:layout_width="match_parent" android:layout_height="match_parent"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <LinearLayout android:gravity="center_vertical" android:orientation="horizontal" android:background="#6699ff" android:padding="8.0dp" android:layout_width="match_parent" android:layout_height="wrap_content">
+        <EditText android:textSize="@dimen/s2" android:textColor="@android:color/black" android:textColorHint="@color/white" android:id="@id/c_g" android:background="@drawable/mlive_edittext_round" android:padding="10.0dp" android:layout_width="match_parent" android:layout_height="50.0dp" android:layout_marginRight="8.0dp" android:hint="输入礼物ID" android:layout_weight="1.0" android:textFontWeight="300" />
+        <Button android:textSize="@dimen/s2" android:textColor="@android:color/black" android:textColorHint="@color/white" android:id="@id/akn" android:background="@drawable/mlive_button_round" android:layout_width="65.0dp" android:layout_height="40.0dp" android:text="播放" />
+    </LinearLayout>
+    <TextView android:textColor="@android:color/black" android:layout_gravity="center_horizontal" android:id="@id/akc" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_margin="@dimen/sm" android:text="↺点击刷新" />
+    <ProgressBar android:layout_gravity="center_horizontal" android:id="@id/ih6" android:visibility="gone" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginBottom="16.0dp" />
+    <TextView android:textSize="16.0sp" android:gravity="center" android:id="@id/m9h" android:visibility="gone" android:layout_width="match_parent" android:layout_height="wrap_content" android:text="暂无本地礼物资源" />
+    <androidx.recyclerview.widget.RecyclerView android:id="@id/jew" android:visibility="gone" android:layout_width="match_parent" android:layout_height="0.0dp" android:layout_weight="1.0" />
+    <FrameLayout android:layout_gravity="center" android:id="@id/ci1" android:background="#000000" android:visibility="gone" android:layout_width="match_parent" android:layout_height="match_parent">
+        <ImageView android:layout_gravity="end|top" android:id="@id/aio" android:background="@android:color/black" android:padding="8.0dp" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_margin="16.0dp" android:src="@android:drawable/ic_menu_close_clear_cancel" android:alpha="0.7" />
+    </FrameLayout>
+</LinearLayout>

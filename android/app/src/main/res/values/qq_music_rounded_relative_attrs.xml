@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- QQ Music RoundedRelativeLayout 的原始属性顺序。 -->
+    <declare-styleable name="RoundedRelativeLayout">
+        <attr name="jc" />
+        <attr name="adm" />
+        <attr name="ado" />
+        <attr name="aes" />
+    </declare-styleable>
+</resources>

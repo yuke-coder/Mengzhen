@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout android:id="@id/dae" android:background="@color/transparent" android:layout_width="match_parent" android:layout_height="match_parent"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <RelativeLayout android:id="@id/dad" android:layout_width="match_parent" android:layout_height="match_parent">
+        <include android:id="@id/dac" android:layout_width="match_parent" android:layout_height="0.0dp" android:layout_alignParentBottom="true" layout="@layout/mj" />
+    </RelativeLayout>
+</FrameLayout>

@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout android:layout_width="wrap_content" android:layout_height="wrap_content" android:minWidth="200.0dp"
+  xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">
+    <com.tencent.qqmusic.ui.RoundedRelativeLayout android:id="@id/i_z" android:background="#26a3ba" android:layout_width="wrap_content" android:layout_height="38.0dp" android:minWidth="200.0dp" app:ado="19.0dp">
+        <com.tencent.component.widget.AsyncEffectImageView android:id="@id/aah" android:layout_width="20.5dp" android:layout_height="19.0dp" android:layout_marginLeft="13.5dp" android:layout_centerVertical="true" />
+        <TextView android:textSize="12.0sp" android:textColor="@color/white" android:id="@id/aag" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginLeft="4.0dp" android:layout_toRightOf="@id/aah" android:layout_centerVertical="true" />
+        <TextView android:textSize="12.0sp" android:textColor="@color/white" android:id="@id/l74" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginLeft="9.5dp" android:layout_toRightOf="@id/aag" android:layout_centerVertical="true" />
+        <TextView android:textSize="12.0sp" android:textStyle="bold" android:textColor="@color/white" android:gravity="center" android:id="@id/jz_" android:background="@drawable/signin_background" android:layout_width="63.0dp" android:layout_height="21.0dp" android:layout_marginLeft="16.0dp" android:layout_marginRight="13.0dp" android:text="@string/h7m" android:layout_toRightOf="@id/l74" android:layout_centerVertical="true" />
+    </com.tencent.qqmusic.ui.RoundedRelativeLayout>
+</RelativeLayout>

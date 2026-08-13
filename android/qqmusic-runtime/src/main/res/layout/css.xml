@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout android:orientation="vertical" android:id="@id/lpl" android:background="@color/white" android:layout_width="match_parent" android:layout_height="wrap_content"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <TextView android:textSize="13.0sp" android:textColor="#661a1a1a" android:ellipsize="end" android:layout_gravity="center_horizontal" android:id="@id/lpm" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="27.0dp" android:layout_marginBottom="18.0dp" android:text="@string/if_" android:singleLine="true" />
+    <androidx.recyclerview.widget.RecyclerView android:id="@id/lpj" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_below="@id/lpm" />
+    <View android:id="@id/lpk" android:background="#1a1a1a1a" android:layout_width="match_parent" android:layout_height="0.5dp" />
+    <TextView android:textSize="15.0sp" android:textColor="@color/color_1A1A1A" android:gravity="center" android:id="@id/lpi" android:layout_width="match_parent" android:layout_height="57.5dp" android:text="@string/cancel" />
+</LinearLayout>

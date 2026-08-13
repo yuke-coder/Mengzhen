@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout android:orientation="vertical" android:clipChildren="false" android:layout_width="match_parent" android:layout_height="match_parent"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <com.tencent.qqmusic.business.timeline.ui.NestedChildSongRefreshableRecycleView android:id="@id/jem" android:clipChildren="false" android:layout_width="match_parent" android:layout_height="wrap_content" />
+    <ViewStub android:id="@id/b7q" android:visibility="gone" android:layout="@layout/mh" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginTop="60.0dp" />
+</LinearLayout>

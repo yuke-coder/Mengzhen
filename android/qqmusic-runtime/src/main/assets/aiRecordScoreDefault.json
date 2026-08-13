@@ -1,0 +1,8 @@
+{
+    "modelMainKey":"aiRecordScore",
+    "modelSubKey":"Normal",
+    "modelEngineType":"tfliteEngine",
+    "modelVersion":1,
+    "modelFileUrl":"https://d3g.qq.com/musicapp/kge/25221/aiRecordScore_Normal_tfliteEngine_0.tflite",
+    "modelFileState":1
+}

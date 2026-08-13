@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout android:id="@id/evz" android:visibility="gone" android:layout_width="match_parent" android:layout_height="wrap_content" app:a27="@id/lvf"
+  xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">
+    <TextView android:textSize="14.0sp" android:textColor="@color/skin_text_main_color" android:id="@id/md0" android:background="@drawable/bg_meditate_start" android:paddingLeft="16.0dp" android:paddingTop="7.0dp" android:paddingRight="16.0dp" android:paddingBottom="7.0dp" android:visibility="gone" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/cr1" android:includeFontPadding="false" app:a1d="@id/eg7" app:a1y="@id/eg7" app:a20="@id/d79" app:a27="@id/eg7" />
+    <ImageView android:id="@id/eg7" android:layout_width="0.0dp" android:layout_height="0.0dp" android:layout_marginTop="@dimen/ben" android:contentDescription="关闭禅定模式" app:a1i="H,1:1" app:a1x="@id/d74" app:a27="hnz" app:a2e="0.1" />
+    <androidx.constraintlayout.widget.ConstraintLayout android:id="@id/b0z" android:layout_width="wrap_content" android:layout_height="wrap_content" app:a1d="@id/eg7" app:a1y="@id/eg7" app:a20="@id/d79" app:a27="@id/eg7">
+        <TextView android:textSize="14.0sp" android:textColor="@color/skin_text_main_color" android:id="@id/md1" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/cqx" android:includeFontPadding="false" android:importantForAccessibility="no" app:a1d="hnz" app:a1x="hnz" app:a20="@id/mcs" app:a27="hnz" />
+        <TextView android:id="@id/mcs" android:layout_marginLeft="6.0dp" app:a1d="hnz" app:a1y="@id/md1" app:a20="@id/mct" app:a27="hnz" style="@style/n8" />
+        <TextView android:id="@id/mct" app:a1d="hnz" app:a1y="@id/mcs" app:a20="@id/mcu" app:a27="hnz" style="@style/n8" />
+        <TextView android:id="@id/mcu" app:a1d="hnz" app:a1y="@id/mct" app:a20="@id/mcv" app:a27="hnz" style="@style/n9" />
+        <TextView android:id="@id/mcv" app:a1d="hnz" app:a1y="@id/mcu" app:a20="@id/mcw" app:a27="hnz" style="@style/n8" />
+        <TextView android:id="@id/mcw" app:a1d="hnz" app:a1y="@id/mcv" app:a20="@id/mcx" app:a27="hnz" style="@style/n8" />
+        <TextView android:id="@id/mcx" app:a1d="hnz" app:a1y="@id/mcw" app:a20="@id/mcy" app:a27="hnz" style="@style/n9" />
+        <TextView android:id="@id/mcy" app:a1d="hnz" app:a1y="@id/mcx" app:a20="@id/mcz" app:a27="hnz" style="@style/n8" />
+        <TextView android:id="@id/mcz" app:a1d="hnz" app:a1y="@id/mcy" app:a21="hnz" app:a27="hnz" style="@style/n8" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+    <ImageView android:id="@id/eg8" android:layout_width="0.0dp" android:layout_height="0.0dp" android:scaleType="centerCrop" android:contentDescription="@string/ihk" app:a1d="@id/eg7" app:a1i="H,1:1" app:a1k="@id/d78" app:a27="@id/eg7" app:a2e="0.1" />
+    <androidx.constraintlayout.widget.Guideline android:orientation="vertical" android:id="@id/d74" android:layout_width="wrap_content" android:layout_height="wrap_content" app:a1n="0.048" />
+    <androidx.constraintlayout.widget.Guideline android:orientation="vertical" android:id="@id/d78" android:layout_width="wrap_content" android:layout_height="wrap_content" app:a1n="0.952" />
+    <androidx.constraintlayout.widget.Guideline android:orientation="vertical" android:id="@id/d79" android:layout_width="wrap_content" android:layout_height="wrap_content" app:a1n="0.872" />
+</androidx.constraintlayout.widget.ConstraintLayout>

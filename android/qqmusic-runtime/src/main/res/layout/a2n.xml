@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout android:orientation="vertical" android:layout_width="match_parent" android:layout_height="match_parent"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <include android:layout_width="match_parent" android:layout_height="match_parent" layout="@layout/m6" />
+    <View android:id="@id/m1o" android:background="@drawable/skin_sub_mask_img" android:visibility="visible" android:layout_width="match_parent" android:layout_height="@dimen/bcp" />
+    <include android:layout_width="match_parent" android:layout_height="match_parent" android:layout_below="@id/lvx" layout="@layout/a1x" />
+    <include android:id="@id/lvx" android:background="@drawable/skin_sub_mask_img" android:visibility="visible" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_below="@id/m1o" layout="@layout/al9" />
+    <View android:id="@id/jvc" android:background="@drawable/head_shadow" android:layout_width="match_parent" android:layout_height="@dimen/l9" android:layout_below="@id/lvx" />
+</RelativeLayout>

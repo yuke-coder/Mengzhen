@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout android:gravity="center_vertical" android:orientation="horizontal" android:id="@id/ae7" android:layout_width="match_parent" android:layout_height="62.0dp" android:layout_marginBottom="40.0dp"
+  xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">
+    <ImageView android:id="@id/f0f" android:layout_width="40.0dp" android:layout_height="40.0dp" android:layout_marginLeft="34.0dp" android:src="@drawable/personal_immerse_playmode_repeat_normal" android:scaleType="centerCrop" app:a1d="hnz" app:a23="hnz" app:a27="hnz" />
+    <ImageView android:id="@id/es0" android:layout_width="39.0dp" android:layout_height="39.0dp" android:layout_marginRight="23.0dp" android:src="@drawable/personal_immerse_pre_btn" android:scaleType="fitXY" app:a1d="hnz" app:a1k="@id/htu" app:a27="hnz" />
+    <ImageView android:id="@id/htu" android:layout_width="59.0dp" android:layout_height="59.0dp" android:src="@drawable/personal_immerse_pause_btn" android:scaleType="fitXY" app:a1d="hnz" app:a1j="hnz" app:a23="hnz" app:a27="hnz" />
+    <ImageView android:id="@id/he2" android:layout_width="39.0dp" android:layout_height="39.0dp" android:layout_marginLeft="23.0dp" android:src="@drawable/personal_immerse_next_btn" android:scaleType="fitXY" app:a1d="hnz" app:a22="@id/htu" app:a27="hnz" />
+    <ImageView android:id="@id/kei" android:layout_width="23.0dp" android:layout_height="18.5dp" android:layout_marginRight="32.5dp" android:src="@drawable/player_reward_song_list" android:scaleType="fitXY" app:a1d="hnz" app:a1j="hnz" app:a27="hnz" />
+</androidx.constraintlayout.widget.ConstraintLayout>

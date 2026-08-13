@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout android:orientation="vertical" android:layout_width="match_parent" android:layout_height="match_parent"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <include android:id="@id/naf" android:layout_width="match_parent" android:layout_height="match_parent" layout="@layout/m6" />
+    <View android:id="@id/m1o" android:background="@drawable/skin_sub_mask_img" android:visibility="visible" android:layout_width="match_parent" android:layout_height="@dimen/bcp" />
+    <include android:id="@id/b9_" android:background="@drawable/skin_sub_mask_img" android:visibility="visible" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_below="@id/m1o" layout="@layout/ctj" />
+    <com.tencent.qqmusic.ui.SimpleHorizontalScrollTab android:id="@id/j70" android:background="@drawable/skin_sub_mask_img" android:layout_width="match_parent" android:layout_height="@dimen/lp" android:layout_below="@id/b9_" />
+    <com.tencent.qqmusic.ui.MusicHallsViewPager android:id="@id/j6z" android:layout_width="match_parent" android:layout_height="match_parent" android:layout_below="@id/j70" />
+    <View android:background="@drawable/search_item_top_shadow" android:layout_width="match_parent" android:layout_height="22.0dp" android:layout_below="@id/j70" />
+</RelativeLayout>

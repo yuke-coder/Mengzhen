@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout android:orientation="vertical" android:layout_width="match_parent" android:layout_height="match_parent" android:importantForAccessibility="no"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <include android:id="@id/naf" android:layout_width="match_parent" android:layout_height="match_parent" layout="@layout/m6" />
+    <include android:id="@id/lv1" layout="@layout/n0" />
+    <LinearLayout android:orientation="horizontal" android:id="@id/fed" android:visibility="gone" android:layout_width="match_parent" android:layout_height="50.0dp" android:layout_below="@id/lv1">
+        <EditText android:textColor="@color/skin_text_main_color" android:textColorHint="@color/skin_text_sub_color" android:id="@id/c_j" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_margin="5.0dp" android:hint="输入关键字筛选" android:layout_weight="1.0" style="@style/ll" />
+        <Button android:id="@id/ajl" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginLeft="12.0dp" android:layout_marginTop="5.0dp" android:layout_marginRight="12.0dp" android:layout_marginBottom="5.0dp" android:text="确定" />
+    </LinearLayout>
+    <androidx.recyclerview.widget.RecyclerView android:id="@id/j33" android:paddingBottom="@dimen/aip" android:clipToPadding="false" android:layout_width="match_parent" android:layout_height="match_parent" android:layout_below="@id/fed" />
+</RelativeLayout>

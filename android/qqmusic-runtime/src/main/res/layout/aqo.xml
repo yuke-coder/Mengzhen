@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout android:id="@id/b0l" android:paddingBottom="10.0dp" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginRight="10.0dp"
+  xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">
+    <androidx.appcompat.widget.AppCompatTextView android:textSize="16.0dp" android:textColor="@color/black" android:ellipsize="end" android:gravity="left|center" android:id="@id/m3y" android:layout_width="0.0dp" android:layout_height="wrap_content" android:singleLine="true" android:includeFontPadding="false" android:textFontWeight="600" app:a1d="hnz" app:a1x="hnz" app:a20="@id/ebm" app:a27="hnz" />
+    <ImageView android:id="@id/ebm" android:layout_width="24.0dp" android:layout_height="24.0dp" android:layout_marginRight="13.0dp" android:src="@drawable/icon_ai_agent_command_list_entrance_mini" android:contentDescription="@string/bgz" app:a1d="hnz" app:a1y="@id/m3y" app:a20="@id/ecz" app:a27="hnz" />
+    <ImageView android:id="@id/ecz" android:layout_width="24.0dp" android:layout_height="24.0dp" android:layout_marginRight="13.0dp" android:src="@drawable/icon_ai_agent_fullscreen_entrance_mini" android:contentDescription="@string/bgz" app:a1d="hnz" app:a1y="@id/ebm" app:a20="@id/ebg" app:a27="hnz" />
+    <ImageView android:id="@id/ebg" android:layout_width="24.0dp" android:layout_height="24.0dp" android:src="@drawable/icon_ai_agent_window_close_mini" android:contentDescription="@string/a7j" app:a1d="hnz" app:a1y="@id/ecz" app:a21="hnz" app:a27="hnz" />
+</androidx.constraintlayout.widget.ConstraintLayout>

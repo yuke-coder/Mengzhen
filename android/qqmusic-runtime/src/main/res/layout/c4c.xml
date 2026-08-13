@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout android:gravity="center_vertical" android:orientation="horizontal" android:id="@id/inr" android:background="@color/transparent" android:layout_width="wrap_content" android:layout_height="wrap_content"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <View android:layout_width="0.0dp" android:layout_height="match_parent" android:layout_weight="1.0" />
+    <com.tencent.qqmusic.ui.RepeatingImageButton android:id="@id/ea" android:background="@drawable/shuffle_botton_xml" android:focusable="true" android:clickable="true" android:layout_width="25.0dp" android:layout_height="25.0dp" />
+    <View android:id="@id/dt" android:layout_width="0.0dp" android:layout_height="match_parent" android:layout_weight="1.0" />
+    <com.tencent.qqmusic.ui.RepeatingImageButton android:id="@id/if0" android:background="@drawable/mini_prebtn_xml" android:focusable="true" android:clickable="true" android:layout_width="@dimen/bf1" android:layout_height="@dimen/bf1" />
+    <View android:layout_width="0.0dp" android:layout_height="match_parent" android:layout_weight="1.0" />
+    <ImageButton android:id="@id/hp4" android:background="@color/transparent" android:focusable="true" android:clickable="true" android:layout_width="@dimen/bf0" android:layout_height="@dimen/bf0" android:src="@drawable/playbtn_xml" android:scaleType="centerInside" />
+    <View android:layout_width="0.0dp" android:layout_height="match_parent" android:layout_weight="1.0" />
+    <com.tencent.qqmusic.ui.RepeatingImageButton android:id="@id/he4" android:background="@drawable/mini_nextbtn_xml" android:focusable="true" android:clickable="true" android:layout_width="@dimen/bf1" android:layout_height="@dimen/bf1" />
+    <View android:id="@id/jvs" android:layout_width="0.0dp" android:layout_height="match_parent" android:layout_weight="1.0" />
+    <com.tencent.qqmusic.ui.RepeatingImageButton android:id="@id/jvu" android:background="@drawable/share_button_for_playing" android:focusable="true" android:clickable="true" android:layout_width="25.0dp" android:layout_height="25.0dp" />
+    <View android:layout_width="0.0dp" android:layout_height="match_parent" android:layout_weight="1.0" />
+</LinearLayout>

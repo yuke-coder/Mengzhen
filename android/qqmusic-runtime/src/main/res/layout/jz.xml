@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout android:paddingTop="25.0dp" android:paddingBottom="25.0dp" android:layout_width="match_parent" android:layout_height="wrap_content"
+  xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">
+    <com.tencent.qqmusic.ui.RoundedRelativeLayout android:id="@id/fkz" android:background="@color/ss_highlight_color" android:paddingTop="10.0dp" android:paddingBottom="10.0dp" android:layout_width="239.0dp" android:layout_height="wrap_content" android:layout_centerInParent="true" app:ado="22.0dp">
+        <com.tencent.qqmusic.bigfont.view.BigFontTextView android:textSize="@dimen/hu" android:textColor="@color/white" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/a73" android:layout_centerInParent="true" />
+    </com.tencent.qqmusic.ui.RoundedRelativeLayout>
+    <RelativeLayout android:id="@id/flj" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_centerInParent="true">
+        <com.tencent.component.widget.AsyncEffectImageView android:id="@id/h8i" android:layout_width="50.0dp" android:layout_height="50.0dp" android:src="@drawable/default_avatar" android:scaleType="fitXY" android:layout_centerVertical="true" android:layout_marginStart="25.0dp" />
+        <com.tencent.qqmusic.bigfont.view.BigFontTextView android:textSize="@dimen/hu" android:textColor="@color/black" android:ellipsize="end" android:id="@id/h8j" android:layout_width="wrap_content" android:layout_height="wrap_content" android:singleLine="true" android:layout_centerVertical="true" android:layout_marginStart="12.0dp" android:layout_marginEnd="25.0dp" android:layout_toEndOf="@id/h8i" />
+    </RelativeLayout>
+</RelativeLayout>

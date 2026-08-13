@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout android:id="@id/ess" android:background="@color/black" android:clipChildren="true" android:layout_width="match_parent" android:layout_height="match_parent"
+  xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">
+    <androidx.constraintlayout.widget.ConstraintLayout android:id="@id/lvr" android:layout_width="match_parent" android:layout_height="0.0dp" app:a1j="hnz" app:a1s="0.16" app:a23="hnz" app:a27="hnz">
+        <androidx.appcompat.widget.AppCompatTextView android:textSize="16.0dp" android:textColor="#ffffff" android:ellipsize="end" android:id="@id/mpc" android:visibility="visible" android:layout_width="wrap_content" android:layout_height="wrap_content" android:maxLines="1" android:includeFontPadding="false" app:a1d="hnz" app:a1x="hnz" app:a21="hnz" app:a27="hnz" app:a28="0.5765" />
+        <com.tencent.component.widget.AsyncImageView android:id="@id/dup" android:visibility="gone" android:layout_width="wrap_content" android:layout_height="16.0dp" android:layout_marginLeft="5.0dp" android:scaleType="fitXY" android:adjustViewBounds="true" app:a1d="@id/mpc" app:a22="@id/mpc" app:a27="@id/mpc" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+    <androidx.constraintlayout.widget.ConstraintLayout android:id="@id/etv" android:clipChildren="true" android:layout_width="match_parent" android:layout_height="0.0dp" app:a1e="@id/aes" app:a26="@id/lvr">
+        <com.tencent.qqmusic.ui.ClickAwareViewPager android:id="@id/kz1" android:paddingLeft="@dimen/b2_" android:paddingRight="@dimen/b2_" android:clipToPadding="false" android:layout_width="match_parent" android:layout_height="match_parent" android:overScrollMode="never" app:a1d="hnz" app:a1x="hnz" app:a21="hnz" app:a27="hnz" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+    <View android:id="@id/aes" android:layout_width="0.0dp" android:layout_height="0.0dp" app:a1d="hnz" app:a1s="0.16" app:a23="hnz" />
+    <com.tencent.qqmusic.ui.viewpagerdotsindicator.DotsIndicator android:id="@id/aer" android:visibility="visible" android:layout_width="wrap_content" android:layout_height="wrap_content" android:importantForAccessibility="no" app:o4="false" app:o5="@color/white_40_opacity" app:o6="3.5dp" app:o7="7.0dp" app:o8="3.5dp" app:o9="2.0" app:a1d="@id/aes" app:a1j="hnz" app:a23="hnz" app:a27="@id/aes" app:a28="0.3303" app:acj="false" app:ah2="@color/white_80_opacity" />
+</androidx.constraintlayout.widget.ConstraintLayout>

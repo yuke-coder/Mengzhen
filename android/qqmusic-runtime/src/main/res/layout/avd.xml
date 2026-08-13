@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout android:clipChildren="false" android:layout_width="match_parent" android:layout_height="36.0dp" android:layout_marginBottom="4.0dp"
+  xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">
+    <androidx.appcompat.widget.AppCompatTextView android:textSize="17.0dp" android:textStyle="bold" android:gravity="center" android:id="@id/nke" android:layout_width="wrap_content" android:layout_height="36.0dp" app:a1d="hnz" app:a1k="@id/nkd" app:a1u="kqf" app:a23="hnz" app:a27="hnz" />
+    <androidx.appcompat.widget.AppCompatImageView android:id="@id/nkd" android:layout_width="20.0dp" android:layout_height="20.0dp" android:src="@drawable/module_msichall_feedback_cross_v20" android:layout_marginStart="2.0dp" app:a1d="hnz" app:a1j="hnz" app:a1u="kqf" app:a22="@id/nke" app:a27="hnz" />
+</androidx.constraintlayout.widget.ConstraintLayout>

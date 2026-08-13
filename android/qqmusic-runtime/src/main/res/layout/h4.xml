@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout android:gravity="center" android:id="@id/wm" android:background="@drawable/album_detail_reserve_count_down_bg" android:paddingLeft="22.0dp" android:paddingRight="22.0dp" android:layout_width="match_parent" android:layout_height="50.0dp" android:layout_marginStart="20.0dp" android:layout_marginEnd="20.0dp" android:paddingHorizontal="22.0dp"
+  xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">
+    <TextView android:textSize="14.0dp" android:textColor="@color/skin_text_main_color" android:id="@id/b5r" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/oa" android:textFontWeight="400" />
+    <Space android:id="@id/kn2" android:layout_width="0.0dp" android:layout_height="match_parent" android:layout_weight="1.0" android:layout_marginStart="8.0dp" />
+    <TextView android:textSize="20.0dp" android:textColor="@color/skin_text_main_color" android:id="@id/nwh" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginEnd="6.0dp" android:textFontWeight="800" />
+    <TextView android:textSize="12.0dp" android:textColor="@color/skin_text_sub_color" android:id="@id/nwi" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/od" android:textFontWeight="400" />
+    <Space android:id="@id/knv" android:layout_width="0.0dp" android:layout_height="match_parent" android:layout_weight="1.0" />
+    <View android:id="@id/kod" android:background="#1a000000" android:layout_width="1.0dp" android:layout_height="14.0dp" />
+    <Space android:id="@id/knw" android:layout_width="0.0dp" android:layout_height="match_parent" android:layout_weight="1.0" />
+    <TextView android:textSize="20.0dp" android:textColor="@color/skin_text_main_color" android:id="@id/gsd" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginEnd="6.0dp" android:textFontWeight="800" />
+    <TextView android:textSize="12.0dp" android:textColor="@color/skin_text_sub_color" android:id="@id/gse" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/oc" android:textFontWeight="400" />
+    <Space android:id="@id/knd" android:layout_width="0.0dp" android:layout_height="match_parent" android:layout_weight="1.0" app:a1d="hnz" app:a22="@id/gse" app:a27="hnz" />
+    <View android:id="@id/koc" android:background="#1a000000" android:layout_width="1.0dp" android:layout_height="14.0dp" />
+    <Space android:id="@id/kne" android:layout_width="0.0dp" android:layout_height="match_parent" android:layout_weight="1.0" />
+    <TextView android:textSize="20.0dp" android:textColor="@color/skin_text_main_color" android:id="@id/bjk" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginEnd="6.0dp" android:textFontWeight="800" />
+    <TextView android:textSize="12.0dp" android:textColor="@color/skin_text_sub_color" android:id="@id/bke" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/ob" android:textFontWeight="400" />
+</LinearLayout>

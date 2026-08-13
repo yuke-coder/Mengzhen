@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout android:id="@id/item_layout" android:background="@drawable/material_ripple_background" android:layout_width="match_parent" android:layout_height="@dimen/b70" android:minHeight="@dimen/b70"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <include android:id="@id/ek" android:layout_width="wrap_content" android:layout_height="match_parent" android:layout_alignParentRight="true" android:layout_centerVertical="true" layout="@layout/b40" />
+    <TextView android:textSize="17.0sp" android:textColor="@color/skin_text_sub_color" android:gravity="center" android:id="@id/ir8" android:visibility="visible" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginLeft="10.0dp" android:layout_marginTop="8.0dp" android:minWidth="40.0dp" android:singleLine="true" android:layout_centerHorizontal="true" android:layout_alignWithParentIfMissing="true" style="@style/ll" />
+    <LinearLayout android:gravity="center_vertical" android:orientation="horizontal" android:id="@id/kfn" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginLeft="10.0dp" android:layout_marginTop="9.5dp" android:layout_marginRight="38.0dp" android:layout_toRightOf="@id/ir8">
+        <TextView android:textColor="@color/skin_text_main_color" android:id="@id/kfb" android:layout_width="wrap_content" android:includeFontPadding="false" android:layout_weight="1.0" style="@style/ln" />
+        <TextView android:textColor="@color/skin_text_main_color" android:id="@id/kfw" android:visibility="gone" android:layout_width="wrap_content" android:text="@string/bzf" style="@style/ln" />
+        <ImageView android:id="@id/kic" android:visibility="visible" android:layout_width="18.0dp" android:layout_height="10.0dp" android:layout_marginLeft="3.0dp" android:src="@drawable/hq_icon" android:scaleType="fitXY" />
+        <ImageView android:id="@id/h6e" android:visibility="visible" android:layout_width="18.0dp" android:layout_height="10.0dp" android:layout_marginLeft="3.0dp" android:src="@drawable/mv_song_list_tip_icon" android:scaleType="fitXY" />
+        <ImageView android:id="@id/khz" android:visibility="visible" android:layout_width="18.0dp" android:layout_height="10.0dp" android:layout_marginLeft="3.0dp" android:src="@drawable/exclusive_song_list_tip_icon" android:scaleType="fitXY" />
+        <ImageView android:id="@id/ki0" android:visibility="gone" android:layout_width="22.0dp" android:layout_height="10.0dp" android:layout_marginLeft="3.0dp" android:src="@drawable/new_song_list_tip_icon" android:scaleType="fitXY" />
+    </LinearLayout>
+    <TextView android:textSize="12.0dp" android:textColor="@color/skin_text_sub_color" android:id="@id/khe" android:layout_width="wrap_content" android:layout_marginTop="3.0dp" android:includeFontPadding="false" android:layout_below="@id/kfn" android:layout_alignLeft="@id/kfn" style="@style/ll" />
+</RelativeLayout>

@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout android:orientation="vertical" android:layout_width="match_parent" android:layout_height="wrap_content"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <include android:id="@id/c6m" layout="@layout/cbl" />
+    <View android:id="@id/bu5" android:background="@drawable/z_color_l1" android:visibility="visible" android:layout_width="match_parent" android:layout_height="0.5dp" android:layout_marginTop="5.0dp" />
+</LinearLayout>

@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout android:gravity="center" android:orientation="horizontal" android:background="@drawable/shape_ai_agent_input_image_tag_bg_light" android:paddingTop="4.0dp" android:paddingBottom="4.0dp" android:layout_width="wrap_content" android:layout_height="wrap_content" android:paddingStart="12.0dp" android:paddingEnd="3.0dp"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <TextView android:textSize="12.0dp" android:textColor="@color/black_90_opacity" android:ellipsize="end" android:gravity="center" android:id="@id/moe" android:layout_width="wrap_content" android:layout_height="wrap_content" android:singleLine="true" />
+    <ImageView android:id="@id/e_2" android:layout_width="20.0dp" android:layout_height="20.0dp" android:src="@drawable/icon_ai_agent_picture_bubble_arrow" />
+</LinearLayout>

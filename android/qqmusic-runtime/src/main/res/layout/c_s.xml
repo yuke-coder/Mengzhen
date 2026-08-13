@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout android:id="@id/ia5" android:background="@color/transparent" android:focusable="false" android:layout_width="match_parent" android:layout_height="@dimen/bt" android:minHeight="@dimen/bt"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <ImageButton android:id="@id/k1c" android:background="@drawable/switch_off" android:layout_width="55.0dp" android:layout_height="33.0dp" android:layout_marginRight="12.0dp" android:layout_alignParentRight="true" android:layout_centerVertical="true" android:layout_alignWithParentIfMissing="true" />
+    <ImageView android:id="@id/f0u" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginLeft="12.0dp" android:layout_alignParentLeft="true" android:layout_centerVertical="true" android:layout_alignWithParentIfMissing="true" />
+    <RelativeLayout android:id="@id/lfx" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginLeft="8.0dp" android:layout_marginRight="8.0dp" android:layout_toLeftOf="@id/k1c" android:layout_toRightOf="@id/f0u" android:layout_centerVertical="true">
+        <TextView android:textSize="18.0sp" android:textStyle="bold" android:textColor="@color/skin_text_main_color" android:id="@id/le4" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginBottom="2.0dp" android:layout_alignWithParentIfMissing="true" />
+        <TextView android:textSize="14.0sp" android:textColor="@color/skin_text_sub_color" android:id="@id/l03" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_below="@id/le4" android:layout_alignWithParentIfMissing="true" />
+    </RelativeLayout>
+    <TextView android:textSize="15.0sp" android:textColor="@color/skin_text_gray_color" android:id="@id/dcw" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginRight="12.0dp" android:layout_alignParentRight="true" android:layout_centerVertical="true" android:layout_alignWithParentIfMissing="true" />
+    <TextView android:textSize="16.0sp" android:textColor="@color/skin_text_sub_color" android:id="@id/auw" android:visibility="gone" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginLeft="12.0dp" android:layout_marginRight="12.0dp" android:layout_centerInParent="true" />
+</RelativeLayout>

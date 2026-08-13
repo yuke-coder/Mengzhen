@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout android:orientation="vertical" android:id="@id/nu1" android:background="@drawable/desk_widget_card_bg" android:layout_width="match_parent" android:layout_height="match_parent"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <FrameLayout android:layout_width="match_parent" android:layout_height="0.0dp" android:layout_weight="5.0" />
+    <LinearLayout android:layout_width="match_parent" android:layout_height="0.0dp" android:layout_weight="10.0">
+        <FrameLayout android:layout_width="12.0dp" android:layout_height="match_parent" />
+        <FrameLayout android:id="@id/cjb" android:layout_width="0.0dp" android:layout_height="match_parent" android:layout_weight="28.0">
+            <TextView android:textSize="12.0dp" android:textColor="#1a1a1a" android:layout_gravity="center_vertical" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/hnl" />
+        </FrameLayout>
+        <FrameLayout android:layout_width="0.0dp" android:layout_height="match_parent" android:layout_weight="42.0" />
+    </LinearLayout>
+    <LinearLayout android:gravity="center_vertical" android:layout_gravity="bottom" android:orientation="horizontal" android:id="@id/fhl" android:layout_width="match_parent" android:layout_height="0.0dp" android:layout_weight="40.0">
+        <FrameLayout android:layout_width="4.0dp" android:layout_height="match_parent" />
+        <RelativeLayout android:gravity="center_vertical" android:layout_width="80.0dp" android:layout_height="match_parent">
+            <ImageView android:id="@id/e_l" android:layout_width="80.0dp" android:layout_height="80.0dp" android:src="@drawable/icon_desk_widget_cover_bg_honor" android:layout_alignParentStart="true" />
+            <ImageView android:id="@id/ud" android:layout_width="match_parent" android:layout_height="match_parent" android:layout_marginTop="4.0dp" android:layout_marginBottom="12.0dp" android:src="@drawable/desk_widget_cover_default_bg_honor" android:scaleType="fitCenter" android:maxWidth="@dimen/pn" android:maxHeight="@dimen/pn" android:layout_alignBottom="@id/e_l" android:layout_marginStart="8.0dp" android:layout_marginEnd="8.0dp" android:layout_alignStart="@id/e_l" android:layout_alignEnd="@id/e_l" />
+            <ImageView android:layout_gravity="start|bottom" android:layout_width="10.0dp" android:layout_height="10.0dp" android:layout_marginBottom="4.0dp" android:src="@drawable/icon_desk_widget_qqmusic_logo_honor" android:layout_alignBottom="@id/ud" android:layout_marginStart="4.0dp" android:layout_alignStart="@id/ud" />
+        </RelativeLayout>
+        <FrameLayout android:layout_gravity="center_vertical" android:id="@id/cj4" android:layout_width="0.0dp" android:layout_height="wrap_content" android:layout_weight="28.0">
+            <LinearLayout android:layout_gravity="bottom" android:orientation="vertical" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginBottom="8.0dp">
+                <TextView android:textSize="12.0dp" android:textStyle="bold" android:textColor="#1a1a1a" android:ellipsize="end" android:id="@id/ldr" android:layout_width="match_parent" android:layout_height="wrap_content" android:text="@string/ho0" android:maxLines="2" />
+                <TextView android:textSize="10.0dp" android:textColor="#1a1a1a" android:ellipsize="end" android:id="@id/a0e" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginTop="2.0dp" android:text="@string/ho1" android:maxLines="1" />
+            </LinearLayout>
+        </FrameLayout>
+        <FrameLayout android:layout_width="0.0dp" android:layout_height="match_parent" android:layout_weight="6.0" />
+    </LinearLayout>
+    <LinearLayout android:gravity="center_vertical" android:orientation="horizontal" android:layout_width="match_parent" android:layout_height="0.0dp" android:layout_weight="20.0">
+        <RelativeLayout android:layout_width="0.0dp" android:layout_height="wrap_content" android:layout_weight="23.0">
+            <ImageView android:id="@id/bav" android:layout_width="28.0dp" android:layout_height="28.0dp" android:src="@drawable/icon_desk_widget_grey_fav" android:layout_alignParentEnd="true" />
+        </RelativeLayout>
+        <FrameLayout android:layout_width="0.0dp" android:layout_height="wrap_content" android:layout_weight="32.0">
+            <ImageView android:layout_gravity="center_horizontal" android:id="@id/baz" android:layout_width="36.0dp" android:layout_height="36.0dp" android:src="@drawable/icon_desk_widget_play" />
+        </FrameLayout>
+        <RelativeLayout android:layout_width="0.0dp" android:layout_height="wrap_content" android:layout_weight="23.0">
+            <ImageView android:id="@id/bay" android:layout_width="28.0dp" android:layout_height="28.0dp" android:src="@drawable/selector_desk_widget_next" />
+        </RelativeLayout>
+    </LinearLayout>
+    <FrameLayout android:layout_width="match_parent" android:layout_height="0.0dp" android:layout_weight="5.0" />
+</LinearLayout>

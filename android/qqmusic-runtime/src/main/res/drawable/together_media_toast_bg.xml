@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<shape
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <solid android:color="@color/together_room_talk_and_listen_stage_toast_color" />
+    <corners android:radius="17.0dp" />
+    <size android:height="34.0dp" />
+</shape>

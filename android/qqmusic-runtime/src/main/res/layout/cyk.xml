@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout android:orientation="vertical" android:clipChildren="false" android:layout_width="match_parent" android:layout_height="wrap_content"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <EditText android:id="@id/j4s" android:background="@color/transparent" android:layout_width="1.0px" android:layout_height="1.0px" />
+    <include android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginLeft="16.0dp" android:layout_marginRight="16.0dp" layout="@layout/cyp" />
+    <include android:layout_width="match_parent" android:layout_height="wrap_content" layout="@layout/cyq" />
+    <include android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginLeft="9.5dp" android:layout_marginRight="16.0dp" layout="@layout/cyw" />
+    <include android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginLeft="9.5dp" android:layout_marginRight="16.0dp" layout="@layout/cyl" />
+    <include android:id="@id/ewy" layout="@layout/cyo" />
+    <com.tencent.qqmusic.business.timeline.post.mention.MentionEditText android:textSize="16.0sp" android:textColor="@color/skin_text_main_color" android:textColorHint="@color/skin_text_guide_color" android:gravity="left|top" android:id="@id/c2j" android:background="@color/transparent" android:scrollbars="vertical" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginLeft="16.0dp" android:layout_marginRight="16.0dp" android:layout_marginBottom="18.0dp" android:hint="@string/e9p" android:maxLines="6" android:minLines="3" android:textCursorDrawable="@drawable/bg_mention_edittext_cursor" android:lineHeight="24.0dp" />
+    <FrameLayout android:id="@id/esg" android:layout_width="82.0dp" android:layout_height="82.0dp" android:layout_marginLeft="16.0dp">
+        <ImageView android:layout_gravity="center_horizontal" android:id="@id/dp5" android:background="@drawable/time_line_add_pic_dark" android:layout_width="25.0dp" android:layout_height="25.0dp" android:layout_marginTop="19.5dp" />
+        <TextView android:textSize="12.0sp" android:textColor="@color/skin_text_guide_color" android:layout_gravity="center_horizontal" android:id="@id/l96" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="48.5dp" android:text="图片/视频" />
+    </FrameLayout>
+    <RelativeLayout android:orientation="vertical" android:id="@id/c1y" android:visibility="visible" android:clipChildren="false" android:layout_width="match_parent" android:layout_height="wrap_content">
+        <LinearLayout android:orientation="vertical" android:id="@id/kv" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginTop="23.0dp" android:layout_below="@id/bxm">
+            <include android:id="@id/jrl" android:visibility="gone" layout="@layout/cyu" />
+            <include android:id="@id/jro" android:visibility="gone" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginLeft="16.0dp" android:layout_marginTop="10.0dp" android:layout_marginRight="16.0dp" android:layout_marginBottom="10.0dp" layout="@layout/cz0" />
+            <include android:id="@id/jri" android:visibility="gone" layout="@layout/cyn" />
+            <include android:id="@id/jr_" android:visibility="gone" layout="@layout/cym" />
+            <include android:id="@id/jr5" android:visibility="gone" layout="@layout/cyi" />
+            <include android:id="@id/jr6" android:visibility="gone" layout="@layout/cyj" />
+            <include android:id="@id/jrn" android:visibility="gone" layout="@layout/cys" />
+            <include android:id="@id/jrm" android:visibility="gone" layout="@layout/cyv" />
+        </LinearLayout>
+        <androidx.recyclerview.widget.RecyclerView android:id="@id/bxm" android:clipChildren="false" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginLeft="13.5dp" android:layout_marginRight="13.5dp" />
+    </RelativeLayout>
+    <com.tencent.qqmusic.ui.RoundedRelativeLayout android:id="@id/jru" android:visibility="visible" android:layout_width="match_parent" android:layout_height="190.0dp" android:layout_marginLeft="16.0dp" android:layout_marginRight="16.0dp">
+        <com.tencent.component.widget.AsyncEffectImageView android:id="@id/jrr" android:layout_width="match_parent" android:layout_height="match_parent" android:scaleType="centerCrop" />
+        <com.tencent.component.widget.AsyncEffectImageView android:id="@id/jrq" android:background="#00000000" android:layout_width="match_parent" android:layout_height="match_parent" android:scaleType="fitXY" android:layout_centerInParent="true" />
+        <ImageView android:background="@drawable/post_moment_video_play" android:layout_width="40.0dp" android:layout_height="40.0dp" android:layout_centerInParent="true" />
+        <ImageView android:id="@id/jrs" android:background="@drawable/material_ripple_background" android:layout_width="20.0dp" android:layout_height="16.0dp" android:src="@drawable/post_moment_delete_icon" android:scaleType="centerInside" android:layout_alignParentTop="true" android:layout_alignParentRight="true" android:contentDescription="@string/aj0" />
+        <View android:background="@drawable/post_moment_main_pic_bg" android:layout_width="match_parent" android:layout_height="32.0dp" android:layout_alignParentBottom="true" />
+        <TextView android:textSize="14.0sp" android:textColor="#ffffff" android:id="@id/jrt" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_margin="5.0dp" android:text="13:09" android:layout_alignParentRight="true" android:layout_alignParentBottom="true" />
+        <RelativeLayout android:id="@id/n3j" android:background="@drawable/timeline_post_video_contains_music_bg" android:layout_width="72.0dp" android:layout_height="25.0dp" android:layout_marginLeft="10.0dp" android:layout_marginBottom="8.0dp" android:layout_alignParentBottom="true">
+            <TextView android:textSize="12.0sp" android:textColor="#ffffff" android:gravity="center" android:id="@id/n3i" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="修改封面" android:layout_centerInParent="true" />
+        </RelativeLayout>
+    </com.tencent.qqmusic.ui.RoundedRelativeLayout>
+    <LinearLayout android:orientation="vertical" android:id="@id/c2r" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginLeft="16.0dp" android:layout_marginTop="20.0dp" android:layout_marginRight="16.0dp">
+        <View android:background="@drawable/bg_post_moment_divider" android:layout_width="match_parent" android:layout_height="0.5dp" />
+        <LinearLayout android:gravity="center_vertical" android:orientation="horizontal" android:layout_width="match_parent" android:layout_height="50.0dp">
+            <TextView android:textSize="14.0sp" android:textColor="@color/skin_text_main_color" android:id="@id/c2p" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginRight="10.0dp" android:text="视频标题" />
+            <FrameLayout android:layout_width="0.0dp" android:layout_height="50.0dp" android:layout_weight="1.0">
+                <EditText android:textSize="14.0sp" android:textColor="@color/skin_text_main_color" android:textColorHint="@color/skin_text_guide_color" android:gravity="right|center" android:id="@id/c2n" android:background="@color/transparent" android:paddingTop="8.0dp" android:paddingBottom="8.0dp" android:layout_width="match_parent" android:layout_height="match_parent" android:maxLines="4" android:maxLength="60" android:textCursorDrawable="@drawable/bg_mention_edittext_cursor" />
+                <TextView android:textSize="14.0sp" android:textColor="@color/skin_text_guide_color" android:gravity="right|center" android:id="@id/c2o" android:layout_width="match_parent" android:layout_height="match_parent" android:text="好的标题更可能被推荐，建议少于20字" />
+            </FrameLayout>
+        </LinearLayout>
+        <View android:id="@id/n40" android:background="@drawable/bg_post_moment_divider" android:layout_width="match_parent" android:layout_height="0.5dp" />
+        <LinearLayout android:gravity="center_vertical" android:orientation="horizontal" android:layout_width="match_parent" android:layout_height="50.0dp">
+            <TextView android:textSize="14.0sp" android:textColor="@color/skin_text_main_color" android:id="@id/c2m" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/fqz" />
+            <LinearLayout android:gravity="right|center" android:orientation="horizontal" android:id="@id/c2l" android:background="@color/transparent" android:layout_width="0.0dp" android:layout_height="wrap_content" android:layout_marginLeft="16.0dp" android:layout_marginRight="6.0dp" android:layout_weight="1.0">
+                <ImageView android:id="@id/gs4" android:visibility="gone" android:layout_width="14.0dp" android:layout_height="14.0dp" android:layout_marginRight="4.0dp" android:src="@drawable/moment_contains_music_icon" />
+                <TextView android:textSize="14.0sp" android:textColor="@color/skin_text_sub_color" android:ellipsize="end" android:id="@id/c2k" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="添加" android:maxLines="1" />
+            </LinearLayout>
+            <ImageView android:layout_gravity="right|center" android:background="@drawable/post_moment_arrow_right_normal" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginRight="5.0dp" />
+        </LinearLayout>
+        <View android:background="@drawable/bg_post_moment_divider" android:layout_width="match_parent" android:layout_height="0.5dp" />
+        <LinearLayout android:gravity="center_vertical" android:orientation="horizontal" android:id="@id/n9h" android:visibility="gone" android:layout_width="match_parent" android:layout_height="50.0dp">
+            <TextView android:textSize="14.0dp" android:textColor="@color/skin_text_main_color" android:id="@id/n9i" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="视频标签" />
+            <LinearLayout android:gravity="right|center" android:orientation="horizontal" android:layout_width="0.0dp" android:layout_height="wrap_content" android:layout_marginLeft="16.0dp" android:layout_marginRight="6.0dp" android:layout_weight="1.0">
+                <TextView android:textSize="14.0dp" android:textColor="@color/skin_text_sub_color" android:ellipsize="end" android:id="@id/n9g" android:layout_width="wrap_content" android:layout_height="wrap_content" android:maxLines="1" />
+                <View android:id="@id/n9p" android:background="@drawable/bg_video_tag_required_dot" android:layout_width="3.5dp" android:layout_height="3.5dp" android:layout_marginStart="6.0dp" />
+                <TextView android:textSize="14.0dp" android:textColor="@color/skin_text_sub_color" android:id="@id/n9q" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="必选" android:layout_marginStart="2.0dp" />
+            </LinearLayout>
+            <ImageView android:layout_gravity="right|center" android:background="@drawable/post_moment_arrow_right_normal" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginRight="5.0dp" />
+        </LinearLayout>
+        <View android:id="@id/n9f" android:background="@drawable/bg_post_moment_divider" android:visibility="gone" android:layout_width="match_parent" android:layout_height="0.5dp" />
+    </LinearLayout>
+</LinearLayout>

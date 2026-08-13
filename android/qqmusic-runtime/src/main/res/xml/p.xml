@@ -1,0 +1,3 @@
+<?xml version="1.0" encoding="utf-8"?>
+<appwidget-provider android:minWidth="@dimen/ajp" android:minHeight="@dimen/ajm" android:updatePeriodMillis="0" android:initialLayout="@layout/b96" android:previewImage="@drawable/miui_widget_44_preview_image"
+  xmlns:android="http://schemas.android.com/apk/res/android" />

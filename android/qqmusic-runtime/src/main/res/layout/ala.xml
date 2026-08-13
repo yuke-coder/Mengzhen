@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout android:orientation="horizontal" android:layout_width="match_parent" android:layout_height="match_parent"
+  xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">
+    <com.tencent.qqmusic.ui.RoundedRelativeLayout android:id="@id/n3m" android:layout_width="69.0dp" android:layout_height="match_parent" app:ado="8.0dp">
+        <com.tencent.component.widget.AsyncEffectImageView android:id="@id/n3l" android:background="@drawable/default_album_mid" android:layout_width="match_parent" android:layout_height="match_parent" android:scaleType="centerCrop" />
+        <LinearLayout android:gravity="center_vertical" android:orientation="horizontal" android:background="@drawable/bg_singer_pedia_mvinfo" android:paddingLeft="4.5dp" android:paddingRight="8.0dp" android:layout_width="match_parent" android:layout_height="24.0dp" android:layout_alignParentBottom="true">
+            <ImageView android:layout_width="16.0dp" android:layout_height="16.0dp" android:src="@drawable/icon_singer_pedia_video" />
+            <TextView android:textSize="10.0sp" android:textColor="@color/white" android:ellipsize="end" android:id="@id/k8r" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginLeft="6.0dp" android:maxLines="1" android:fontFamily="PingFangSC-Semibold" />
+        </LinearLayout>
+    </com.tencent.qqmusic.ui.RoundedRelativeLayout>
+    <LinearLayout android:layout_gravity="center_vertical" android:orientation="vertical" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginLeft="11.0dp">
+        <TextView android:textSize="16.0sp" android:textColor="@color/skin_text_main_color" android:ellipsize="end" android:id="@id/n9y" android:layout_width="wrap_content" android:layout_height="wrap_content" android:maxLines="2" />
+        <TextView android:textSize="12.0sp" android:textColor="@color/skin_text_sub_color" android:ellipsize="end" android:id="@id/n6z" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="5.0dp" android:maxLines="1" />
+    </LinearLayout>
+</LinearLayout>

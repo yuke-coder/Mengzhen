@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout android:gravity="center" android:orientation="horizontal" android:background="@drawable/search_hot_word" android:paddingRight="10.0dp" android:layout_width="wrap_content" android:layout_height="@dimen/bzr" android:layout_marginTop="10.0dp" android:layout_marginEnd="10.0dp"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <FrameLayout android:id="@id/jmq" android:layout_width="wrap_content" android:layout_height="wrap_content">
+        <Space android:layout_width="10.0dp" android:layout_height="0.0dp" />
+    </FrameLayout>
+    <ImageView android:id="@id/jmb" android:visibility="gone" android:layout_width="14.0dp" android:layout_height="14.0dp" android:layout_marginEnd="3.0dp" />
+    <TextView android:textSize="13.0dp" android:textColor="@color/search_hot_word_text_color" android:ellipsize="end" android:id="@id/jmm" android:layout_width="0.0dp" android:layout_height="wrap_content" android:singleLine="true" android:layout_weight="1.0" />
+    <com.tencent.component.widget.AsyncEffectImageView android:id="@id/j8k" android:visibility="gone" android:layout_width="14.0dp" android:layout_height="14.0dp" android:layout_marginLeft="3.0dp" />
+</LinearLayout>

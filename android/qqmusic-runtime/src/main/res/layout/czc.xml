@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.tencent.qqmusic.ui.RoundedRelativeLayout android:orientation="vertical" android:id="@id/jm7" android:paddingTop="@dimen/bws" android:paddingBottom="@dimen/bwq" android:layout_width="match_parent" android:layout_height="wrap_content" app:ado="7.0dp"
+  xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">
+    <androidx.constraintlayout.widget.ConstraintLayout android:id="@id/let" android:paddingLeft="@dimen/bwr" android:paddingRight="@dimen/bwr" android:layout_width="match_parent" android:layout_height="25.0dp" android:layout_marginBottom="8.0dp">
+        <TextView android:textSize="16.0dp" android:textStyle="bold" android:textColor="@color/skin_text_main_color" android:ellipsize="end" android:id="@id/jm6" android:layout_width="0.0dp" android:layout_height="wrap_content" android:maxLines="1" app:a1d="hnz" app:a1t="0.0" app:a1u="hmg" app:a1x="hnz" app:a20="@id/jm_" app:a27="hnz" app:a2b="nug" />
+        <LinearLayout android:gravity="center" android:orientation="horizontal" android:id="@id/jm_" android:background="@drawable/search_hot_word_play_bg" android:paddingLeft="10.5dp" android:paddingTop="5.5dp" android:paddingRight="10.5dp" android:paddingBottom="5.5dp" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginLeft="10.0dp" android:layout_marginStart="10.0dp" app:a1d="hnz" app:a1y="@id/jm6" app:a21="hnz" app:a27="hnz">
+            <ImageView android:id="@id/jm8" android:layout_width="wrap_content" android:layout_height="11.0dp" android:src="@drawable/search_icon_miniplay" android:adjustViewBounds="true" />
+            <TextView android:textSize="10.0sp" android:textStyle="bold" android:textColor="@color/skin_text_main_color" android:gravity="center" android:id="@id/jm9" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginLeft="4.0dp" android:text="@string/acf" android:layout_marginStart="4.0dp" />
+        </LinearLayout>
+    </androidx.constraintlayout.widget.ConstraintLayout>
+    <androidx.recyclerview.widget.RecyclerView android:id="@id/dfl" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_below="@id/let" />
+</com.tencent.qqmusic.ui.RoundedRelativeLayout>

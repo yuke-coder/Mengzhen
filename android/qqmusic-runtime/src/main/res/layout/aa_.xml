@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout android:background="@drawable/material_ripple_background" android:paddingTop="6.0dp" android:paddingRight="20.0dp" android:paddingBottom="6.0dp" android:layout_width="match_parent" android:layout_height="@dimen/lc"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <TextView android:textColor="@color/skin_text_sub_color" android:id="@id/l3" android:visibility="gone" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/hba" android:layout_alignParentRight="true" android:layout_centerVertical="true" android:layout_alignParentEnd="true" />
+    <ImageView android:id="@id/hl9" android:paddingLeft="20.0dp" android:layout_width="wrap_content" android:layout_height="match_parent" android:src="@drawable/my_music_add_new_folder" android:layout_alignParentRight="true" android:layout_centerVertical="true" />
+    <include android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginLeft="73.0dp" android:layout_marginRight="35.0dp" layout="@layout/b3o" />
+    <com.tencent.component.widget.AsyncEffectImageView android:id="@id/j02" android:layout_width="60.0dp" android:layout_height="60.0dp" android:layout_marginLeft="20.0dp" android:layout_centerVertical="true" />
+    <ImageView android:id="@id/nww" android:layout_width="60.0dp" android:layout_height="60.0dp" android:layout_marginLeft="20.0dp" android:src="@drawable/zadd_songs_play" android:scaleType="centerInside" />
+</RelativeLayout>

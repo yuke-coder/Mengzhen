@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout android:layout_width="wrap_content" android:layout_height="wrap_content" android:importantForAccessibility="no"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <RelativeLayout android:id="@id/gin" android:layout_width="@dimen/aw4" android:layout_height="wrap_content" android:layout_marginTop="12.0dp" android:layout_alignParentTop="true" android:importantForAccessibility="no">
+        <com.tencent.component.widget.AsyncEffectImageView android:id="@id/gim" android:layout_width="@dimen/aw3" android:layout_height="@dimen/aw3" android:scaleType="fitXY" android:layout_centerHorizontal="true" android:importantForAccessibility="no" />
+        <com.tencent.qqmusic.modular.framework.ui.text.SimpleTextView android:id="@id/gio" android:layout_width="match_parent" android:layout_height="20.0dp" android:layout_marginTop="-3.0dp" android:layout_below="@id/gim" android:layout_centerHorizontal="true" android:importantForAccessibility="no" />
+    </RelativeLayout>
+    <com.tencent.component.widget.AsyncEffectImageView android:id="@id/gil" android:visibility="gone" android:layout_width="30.0dp" android:layout_height="15.0dp" android:layout_marginLeft="34.0dp" android:layout_marginTop="5.0dp" android:scaleType="fitCenter" android:layout_alignLeft="@id/gin" android:layout_alignTop="@id/gin" android:importantForAccessibility="no" android:layout_marginStart="34.0dp" android:layout_alignStart="@id/gin" />
+</RelativeLayout>

@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout android:orientation="vertical" android:layout_width="match_parent" android:layout_height="match_parent"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <ImageView android:id="@id/h7_" android:layout_width="90.0dp" android:layout_height="90.0dp" android:layout_marginTop="200.0dp" android:src="@drawable/empty_community_drawable" android:scaleType="centerInside" android:layout_centerHorizontal="true" />
+    <TextView android:textSize="16.0dp" android:textColor="#cccccc" android:id="@id/h7b" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="10.0dp" android:text="暂无动态" android:layout_below="@id/h7_" android:layout_centerHorizontal="true" />
+</RelativeLayout>

@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu
+  xmlns:android="http://schemas.android.com/apk/res/android" xmlns:ktv="http://schemas.android.com/apk/res-auto">
+    <item android:icon="@drawable/vod_icon_search_large_black" android:enabled="true" android:id="@id/f1" android:visible="false" android:title="@string/search" ktv:ahr="yg" />
+    <item android:icon="@drawable/share_normal_black" android:enabled="true" android:id="@id/f2" android:visible="false" android:title="@string/share" ktv:ahr="yg" />
+</menu>

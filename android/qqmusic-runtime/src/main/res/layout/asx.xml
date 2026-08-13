@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout android:gravity="center" android:id="@id/bhh" android:background="@drawable/bg_custom_player_tab_container" android:layout_width="wrap_content" android:layout_height="38.0dp" android:paddingStart="2.0dp" android:paddingEnd="2.0dp"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <androidx.appcompat.widget.AppCompatTextView android:textSize="12.0sp" android:textColor="@color/black" android:gravity="center" android:id="@id/bhm" android:background="@drawable/bg_custom_player_tab" android:paddingLeft="12.0dp" android:paddingRight="12.0dp" android:layout_width="wrap_content" android:layout_height="34.0dp" android:text="@string/aea" />
+    <LinearLayout android:gravity="center" android:id="@id/bhj" android:paddingLeft="12.0dp" android:paddingRight="10.0dp" android:layout_width="wrap_content" android:layout_height="34.0dp">
+        <androidx.appcompat.widget.AppCompatTextView android:textSize="12.0sp" android:textColor="@color/white" android:gravity="center" android:id="@id/bhi" android:layout_width="wrap_content" android:layout_height="match_parent" android:text="@string/ae_" />
+        <ImageView android:layout_width="12.0dp" android:layout_height="wrap_content" android:src="@drawable/ss_super_vip" android:contentDescription="@string/br" />
+    </LinearLayout>
+</LinearLayout>

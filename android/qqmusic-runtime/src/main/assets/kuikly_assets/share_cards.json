@@ -1,0 +1,118 @@
+{
+  "router": "openHalf",
+  "page_name": "share_cards",
+  "container": {
+    "w_weight": "1",
+    "h_weight": "1",
+    "direction": "from-bottom",
+    "transparent": "TODO:背景透明",
+    "hideStatus": "TODO:是否隐藏状态栏"
+  },
+  "params": {
+
+    "baseInfo": {
+      "title": "好演出 一起看",
+      "subTitle": "去线上一起感受那些精彩瞬间",
+      "sceneType": "liveShare",
+      "shareContent": "https://y.qq.com/forest/VhicATaytWkpjHz1/index.html",
+      "bgImgUrl": "https://y.qq.com/music/photo_new/T011R500x500M000002XunCz49X9PO.jpg?max_age=2592000"
+    },
+    "cardList": [
+      {
+        "cardType": "video",
+        "url": "http://dldir1.qq.com/music/live/jayyuyueship.mp4",
+        "extra": {
+          "coverImg": "https://y.qq.com/music/photo_new/T011R1080x1920M000004WNq7r2iizrF.jpg?max_age=2592000",
+          "useMark": "1",
+          "markFade": "5",
+          "markLine1": "歌手",
+          "markLine2": "诚邀<b>茶纳CHINA</b>共同观看演出",
+          "markLine3": "【测试套餐】10000683多套餐免费+付费",
+          "markLine4": "",
+          "mute": "1"
+        }
+      },
+      {
+        "cardType": "img",
+        "subType": "template",
+        "bottomTips": "测试bottomTips",
+        "extra": {
+          "templateName": "live_share",
+          "params": {
+            "avatar": "http://thirdqq.qlogo.cn/g?b=sdk&k=aqNnxdPHJMVJL2LkshZPUg&kti=ZL9pqwAAAAE&s=140&t=1556883976",
+            "nick": "茶纳CHINA",
+            "vipIcon": "https://y.qq.com/mediastyle/lv-icon/v10/vip/2x/nsvip6.png?max_age=2592000",
+            "pendantImg": "http://y.gtimg.cn/music/common/upload/t_music_pendant_conf/3039347.gif",
+            "showName": "【测试套餐】10000683多套餐免费+付费",
+            "showTime": "",
+            "areaName": "内场",
+            "stamp": "",
+            "qrcodeUrl": "https://y.qq.com/forest/VhicATaytWkpjHz1/index.html",
+            "isHideAppointCnt": "false",
+            "userDesc": "成功预约本场演出，不见不散！",
+            "copyrightDesc": "立即扫码预约，观看精彩演出",
+            "ticketPrefix": "",
+            "ticketNum": "No.00000004",
+            "selfCount": "",
+            "shareCardTemplate": "live_share",
+            "shareCardBackground": "",
+            "posterWithOutLogo": "https://y.qq.com/music/photo_new/T011R500x500M000002XunCz49X9PO.jpg?max_age=2592000",
+            "cardBackgroundColor": "#a8a3a3",
+            "ticketMagicColor1": "#400a0a",
+            "ticketMagicColor2": "#e0cbcb"
+          }
+        }
+      },
+      {
+        "cardType": "img",
+        "subType": "template",
+        "extra": {
+          "templateName": "live_share",
+          "params": {
+            "avatar": "http://thirdqq.qlogo.cn/g?b=sdk&k=aqNnxdPHJMVJL2LkshZPUg&kti=ZL9pqwAAAAE&s=140&t=1556883976",
+            "nick": "茶纳CHINA",
+            "vipIcon": "https://y.qq.com/mediastyle/lv-icon/v10/vip/2x/nsvip6.png?max_age=2592000",
+            "pendantImg": "http://y.gtimg.cn/music/common/upload/t_music_pendant_conf/3039347.gif",
+            "showName": "【测试套餐】10000683多套餐免费+付费",
+            "showTime": "",
+            "areaName": "内场",
+            "stamp": "",
+            "qrcodeUrl": "https://y.qq.com/forest/VhicATaytWkpjHz1/index.html",
+            "isHideAppointCnt": "false",
+            "userDesc": "成功预约本场演出，不见不散！",
+            "copyrightDesc": "立即扫码预约，观看精彩演出",
+            "ticketPrefix": "",
+            "ticketNum": "No.00000004",
+            "selfCount": "",
+            "shareCardTemplate": "live_share",
+            "switchButtonText": ["测试歌词切换1","测试歌词切换2"],
+            "posterWithOutLogo": "https://y.qq.com/music/photo_new/T011R500x500M000002XunCz49X9PO.jpg?max_age=2592000",
+            "cardBackgroundColor": "#a8a3a3",
+            "ticketMagicColor1": "#400a0a",
+            "ticketMagicColor2": "#e0cbcb"
+          },
+          "shareCardBackground": "",
+          "showLyricsSwitcher": "1"
+        }
+      },
+      {
+        "cardType": "link",
+        "url": "https://y.qq.com/forest/VhicATaytWkpjHz1/index.html",
+        "extra": {
+          "userName": "茶纳CHINA",
+          "avatarImg": "http://thirdqq.qlogo.cn/g?b=sdk&k=aqNnxdPHJMVJL2LkshZPUg&kti=ZL9pqwAAAAE&s=140&t=1556883976",
+          "title": "分享标题",
+          "subTitle": "分享内容分享内容",
+          "demoImageUrl": "https://y.qq.com/music/photo_new/T011R300x300M0000030sXyE4OJucy.jpg?max_age=2592000",
+          "customTitles": ["测试1","测试2"],
+          "shareBigImg": "https://y.qq.com/music/photo_new/T011R300x300M0000030sXyE4OJucy.jpg?max_age=2592000",
+          "feedMediaSchema": "https://y.qq.com/forest/VhicATaytWkpjHz1/index.html",
+          "supportToFeed": "1",
+          "feedMediaTitle": "分享标题",
+          "feedMediaSubtitle": "分享内容分享内容",
+          "feedMediaCover": "https://y.qq.com/music/photo_new/T011R300x300M0000030sXyE4OJucy.jpg?max_age=2592000"
+        }
+      }
+    ]
+  }
+}

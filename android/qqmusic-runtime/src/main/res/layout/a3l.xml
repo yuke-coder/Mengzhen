@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout android:id="@id/cvs" android:layout_width="match_parent" android:layout_height="match_parent"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <include android:id="@id/fiu" android:visibility="gone" android:layout_width="match_parent" android:layout_height="match_parent" layout="@layout/mj" />
+    <com.tencent.qqmusic.business.timeline.ui.TimelineClipTopFrameLayout android:id="@id/b3a" android:layout_width="match_parent" android:layout_height="match_parent">
+        <com.tencent.qqmusic.business.timeline.ui.refreshable.RefreshableRecyclerViewNew android:id="@id/fz8" android:clipChildren="true" android:descendantFocusability="blocksDescendants" android:layout_width="match_parent" android:layout_height="match_parent" android:overScrollMode="never" />
+    </com.tencent.qqmusic.business.timeline.ui.TimelineClipTopFrameLayout>
+    <TextView android:gravity="center" android:id="@id/fz_" android:visibility="gone" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="@dimen/c0k" android:layout_centerHorizontal="true" />
+</RelativeLayout>

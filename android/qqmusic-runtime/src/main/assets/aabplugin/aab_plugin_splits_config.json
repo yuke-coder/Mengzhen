@@ -1,0 +1,13 @@
+{
+  "splitInfoVersion": "2",
+  "splits": [
+    {
+      "splitName": "demoplugin",
+      "minFeatureVersion": 1
+    },
+    {
+      "splitName": "karaokektvplugin",
+      "minFeatureVersion": 7300001
+    }
+  ]
+}

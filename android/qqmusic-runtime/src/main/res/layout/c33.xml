@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout android:layout_width="match_parent" android:layout_height="58.0dp"
+  xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">
+    <ImageView android:id="@id/jiy" android:layout_width="15.0dp" android:layout_height="15.0dp" android:src="@drawable/scroll_up_arrow_in_footer" android:layout_marginEnd="5.0dp" app:a1d="hnz" app:a1k="@id/jiz" app:a1u="hmg" app:a23="hnz" app:a27="hnz" />
+    <TextView android:textColor="@color/white" android:id="@id/jiz" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/f3y" android:alpha="0.9" app:a1d="hnz" app:a1j="hnz" app:a22="@id/jiy" app:a27="hnz" />
+</androidx.constraintlayout.widget.ConstraintLayout>

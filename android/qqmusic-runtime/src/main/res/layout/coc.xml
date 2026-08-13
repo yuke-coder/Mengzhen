@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.tencent.qqmusic.ui.RoundedRelativeLayout android:paddingLeft="10.5dp" android:paddingTop="4.5dp" android:paddingRight="10.5dp" android:paddingBottom="4.5dp" android:layout_width="wrap_content" android:layout_height="wrap_content" android:paddingHorizontal="10.5dp" android:paddingVertical="4.5dp"
+  xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">
+    <com.lyricengine.ui.MarqueeLyricView android:id="@id/k91" android:visibility="gone" android:scrollbars="none" android:layout_width="wrap_content" android:layout_height="wrap_content" app:a6j="#888888" app:a6l="true" app:a6q="13.0dp" app:a6s="left" app:a7b="center" />
+    <com.tencent.qqmusic.ui.MarqueeTextView android:textSize="12.0dp" android:textColor="@color/black" android:gravity="left|center" android:id="@id/fyq" android:visibility="visible" android:layout_width="match_parent" android:layout_height="wrap_content" android:singleLine="true" />
+</com.tencent.qqmusic.ui.RoundedRelativeLayout>

@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout android:gravity="right|bottom" android:orientation="vertical" android:id="@id/nsc" android:fitsSystemWindows="true" android:layout_width="match_parent" android:layout_height="match_parent"
+  xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">
+    <RelativeLayout android:id="@id/d6e" android:paddingBottom="5.0dp" android:visibility="gone" android:layout_width="wrap_content" android:layout_height="wrap_content">
+        <LinearLayout android:gravity="center" android:orientation="horizontal" android:id="@id/d5s" android:background="@drawable/callout_popup_bg" android:paddingLeft="@dimen/j4" android:paddingTop="@dimen/j5" android:paddingRight="@dimen/j4" android:paddingBottom="@dimen/j5" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginRight="10.0dp" android:layout_alignParentRight="true">
+            <TextView android:textSize="12.0sp" android:textColor="@color/white" android:id="@id/l9h" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/afb" />
+            <ImageButton android:id="@id/ama" android:background="@drawable/transparent" android:layout_width="10.0dp" android:layout_height="10.0dp" android:layout_marginLeft="6.0dp" android:src="@drawable/callout_popup_pointer_close" android:contentDescription="@string/a_6" />
+        </LinearLayout>
+        <ImageView android:paddingRight="60.0dp" android:layout_width="70.0dp" android:layout_height="6.0dp" android:layout_marginTop="-1.0dp" android:src="@drawable/callout_popup_pointer_down" android:layout_below="@id/d5s" android:layout_alignParentRight="true" />
+    </RelativeLayout>
+    <androidx.constraintlayout.widget.ConstraintLayout android:id="@id/hx8" android:background="#373b3d" android:visibility="gone" android:layout_width="match_parent" android:layout_height="wrap_content">
+        <TextView android:textSize="14.0sp" android:textColor="@color/white" android:id="@id/biz" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginLeft="15.0dp" android:layout_marginTop="10.0dp" android:text="@string/hoa" app:a23="hnz" app:a27="hnz" />
+        <TextView android:textSize="12.0sp" android:textColor="@color/ss_40_opacity_white_color" android:id="@id/biu" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginLeft="15.0dp" android:layout_marginTop="5.0dp" android:text="@string/ho5" app:a23="hnz" app:a26="@id/biz" />
+        <ImageView android:id="@id/biy" android:layout_width="46.0dp" android:layout_height="27.0dp" android:layout_marginRight="2.0dp" android:src="@drawable/switch_off" app:a1d="hnz" app:a21="hnz" app:a27="hnz" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+    <LinearLayout android:gravity="center_vertical" android:orientation="horizontal" android:id="@id/dwy" android:background="#373b3d" android:paddingLeft="10.0dp" android:paddingTop="10.0dp" android:paddingBottom="10.0dp" android:layout_width="match_parent" android:layout_height="wrap_content">
+        <EditText android:textSize="14.0sp" android:textColor="#80ffffff" android:id="@id/dwm" android:background="@drawable/danmu_comment_edittext_bg" android:padding="10.0dp" android:layout_width="0.0dp" android:layout_height="wrap_content" android:hint="@string/afe" android:layout_weight="1.0" android:imeOptions="flagNoExtractUi" />
+        <ImageView android:id="@id/alc" android:layout_width="30.0dp" android:layout_height="30.0dp" android:layout_marginLeft="8.0dp" android:src="@drawable/danmu_bubble_btn" android:contentDescription="@string/ab0" />
+        <TextView android:textSize="16.0sp" android:textColor="#ffffff" android:gravity="center" android:id="@id/jsh" android:paddingLeft="8.0dp" android:paddingRight="8.0dp" android:layout_width="50.0dp" android:layout_height="match_parent" android:text="发送" />
+    </LinearLayout>
+    <RelativeLayout android:id="@id/alf" android:background="#000000" android:visibility="gone" android:layout_width="match_parent" android:layout_height="@dimen/nf">
+        <include android:layout_width="match_parent" android:layout_height="match_parent" layout="@layout/o0" />
+        <include android:layout_width="match_parent" android:layout_height="match_parent" layout="@layout/mj" />
+        <androidx.viewpager.widget.ViewPager android:id="@id/ale" android:visibility="gone" android:layout_width="match_parent" android:layout_height="@dimen/nf" android:overScrollMode="never" />
+        <com.tencent.qqmusic.ui.DanmuBubblesScrollTab android:id="@id/alk" android:background="@color/black" android:visibility="gone" android:layout_width="match_parent" android:layout_height="40.0dp" android:layout_alignParentBottom="true" />
+    </RelativeLayout>
+</LinearLayout>

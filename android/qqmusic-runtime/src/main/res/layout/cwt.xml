@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout android:gravity="center_vertical" android:orientation="horizontal" android:layout_width="wrap_content" android:layout_height="wrap_content"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <com.tencent.component.widget.AsyncEffectImageView android:id="@id/fq7" android:layout_width="12.0dp" android:layout_height="12.0dp" android:scaleType="fitCenter" />
+    <androidx.appcompat.widget.AppCompatTextView android:textSize="10.0dp" android:textColor="@color/long_audio_content_card_subscribe_text_color" android:ellipsize="end" android:id="@id/fq9" android:layout_width="wrap_content" android:layout_height="wrap_content" android:maxWidth="121.0dp" android:maxLines="1" android:includeFontPadding="false" android:fontFamily="PingFang SC" android:layout_marginStart="4.0dp" android:lineHeight="12.0dp" />
+    <com.tencent.component.widget.AsyncEffectImageView android:id="@id/fq8" android:layout_width="9.0dp" android:layout_height="12.0dp" android:scaleType="fitCenter" android:layout_marginStart="2.0dp" />
+</LinearLayout>

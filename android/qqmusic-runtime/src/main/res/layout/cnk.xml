@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout android:layout_gravity="center" android:orientation="vertical" android:layout_width="wrap_content" android:layout_height="wrap_content"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <ImageView android:layout_gravity="center_horizontal" android:id="@id/kj7" android:layout_width="wrap_content" android:layout_height="wrap_content" android:scaleType="fitXY" />
+    <TextView android:textSize="@dimen/c7r" android:textColor="@color/skin_font_c5_old" android:gravity="center" android:layout_gravity="center_horizontal" android:id="@id/kj9" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="6.0dp" android:layout_marginBottom="10.0dp" />
+    <LinearLayout android:layout_width="310.0dp" android:layout_height="45.0dp" android:layout_marginTop="5.0dp">
+        <com.tme.karaoka.previewui.widget.MarqueeTipsView android:layout_gravity="center" android:id="@id/kj8" android:layout_width="match_parent" android:layout_height="40.0dp" android:layout_marginLeft="5.0dp" android:layout_marginRight="5.0dp" />
+    </LinearLayout>
+</LinearLayout>

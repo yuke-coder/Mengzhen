@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout android:layout_width="match_parent" android:layout_height="wrap_content"
+  xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">
+    <androidx.constraintlayout.widget.ConstraintLayout android:layout_width="0.0dp" android:layout_height="wrap_content" app:a18="true" app:a1d="hnz" app:a1t="0.0" app:a1u="hmg" app:a1x="hnz" app:a20="@id/i3a" app:a27="hnz" app:a2b="nug">
+        <androidx.appcompat.widget.AppCompatTextView android:textSize="15.0sp" android:textStyle="bold" android:textColor="@color/player_recommend_title_color" android:ellipsize="end" android:id="@id/i3b" android:layout_width="0.0dp" android:layout_height="wrap_content" android:singleLine="true" app:a18="true" app:a1d="hnz" app:a1t="0.0" app:a1u="hmg" app:a1x="hnz" app:a20="@id/i37" app:a27="hnz" app:a2b="nug" />
+        <androidx.constraintlayout.widget.ConstraintLayout android:id="@id/i37" android:background="@drawable/view_player_recommend_newsong_play_bg" android:paddingLeft="8.0dp" android:paddingRight="8.0dp" android:layout_width="wrap_content" android:layout_height="20.0dp" android:layout_marginLeft="8.0dp" android:layout_marginRight="10.0dp" app:a1d="hnz" app:a1y="@id/i3b" app:a21="hnz" app:a27="hnz">
+            <ImageView android:id="@id/i38" android:layout_width="10.0dp" android:layout_height="10.0dp" android:src="@drawable/player_recommend_play_icon" app:a1d="hnz" app:a1x="hnz" app:a20="@id/i39" app:a27="hnz" />
+            <androidx.appcompat.widget.AppCompatTextView android:textSize="10.0sp" android:textStyle="bold" android:textColor="@color/player_recommend_label_text_color" android:ellipsize="end" android:id="@id/i39" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginLeft="2.5dp" android:text="播放" android:singleLine="true" app:a1d="hnz" app:a1y="@id/i38" app:a27="hnz" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </androidx.constraintlayout.widget.ConstraintLayout>
+    <FrameLayout android:id="@id/i3a" android:layout_width="wrap_content" android:layout_height="wrap_content" app:a1d="hnz" app:a21="hnz" app:a27="hnz">
+        <com.tencent.qqmusic.business.playernew.view.playerrecommend.ui.PlayerRecommendCommonRefreshViewNew android:id="@id/i3_" android:visibility="gone" android:layout_width="wrap_content" android:layout_height="wrap_content" />
+        <androidx.constraintlayout.widget.ConstraintLayout android:id="@id/i34" android:focusable="true" android:clickable="true" android:layout_width="wrap_content" android:layout_height="wrap_content">
+            <androidx.appcompat.widget.AppCompatTextView android:textSize="14.0sp" android:textColor="@color/player_recommend_sub_text_color" android:gravity="center" android:id="@id/i36" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/e8e" android:includeFontPadding="false" android:lineSpacingExtra="0.0dp" app:a1d="hnz" app:a20="@id/i35" app:a27="hnz" />
+            <ImageView android:id="@id/i35" android:layout_width="20.0dp" android:layout_height="20.0dp" android:layout_marginLeft="4.0dp" android:src="@drawable/view_player_recommend_more_icon" android:scaleType="centerInside" android:contentDescription="@string/e8e" app:a1d="hnz" app:a21="hnz" app:a27="hnz" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </FrameLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>

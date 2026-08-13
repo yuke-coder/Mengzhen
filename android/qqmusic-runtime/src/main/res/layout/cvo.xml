@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout android:layout_width="match_parent" android:layout_height="match_parent"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <include android:layout_width="match_parent" android:layout_height="match_parent" layout="@layout/o0" />
+    <include android:layout_width="match_parent" android:layout_height="match_parent" layout="@layout/mj" />
+    <com.tencent.qqmusic.ui.customview.GridViewWithHeaderAndFooter android:id="@id/bih" android:padding="10.0dp" android:visibility="gone" android:scrollbars="none" android:clipToPadding="false" android:layout_width="match_parent" android:layout_height="match_parent" android:listSelector="@android:color/transparent" android:horizontalSpacing="10.0dp" android:verticalSpacing="10.0dp" android:numColumns="2" android:overScrollMode="never" />
+</RelativeLayout>

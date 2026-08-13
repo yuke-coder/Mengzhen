@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout android:gravity="center_vertical" android:orientation="horizontal" android:layout_width="wrap_content" android:layout_height="wrap_content"
+  xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">
+    <View android:id="@id/t6" android:background="#e5e9ea" android:layout_width="10.0dp" android:layout_height="2.0dp" />
+    <com.tencent.qqmusic.ui.RoundedConstraintLayout android:clipChildren="false" android:clipToPadding="false" android:layout_width="wrap_content" android:layout_height="@dimen/dy" app:kj="15.0dp">
+        <View android:id="@id/ad1" android:layout_width="0.0dp" android:layout_height="match_parent" app:a1x="hnz" app:a21="hnz" app:a27="hnz" />
+        <View android:id="@id/jpz" android:visibility="invisible" android:layout_width="0.0dp" android:layout_height="match_parent" app:a1x="hnz" app:a21="hnz" app:a27="hnz" />
+        <LinearLayout android:gravity="center" android:orientation="horizontal" android:id="@id/fc2" android:paddingLeft="21.0dp" android:paddingTop="11.0dp" android:paddingRight="21.0dp" android:paddingBottom="11.0dp" android:layout_width="wrap_content" android:layout_height="@dimen/dy" android:minWidth="@dimen/dz" app:a1x="hnz" app:a27="hnz">
+            <RelativeLayout android:id="@id/jbp" android:layout_width="15.0dp" android:layout_height="15.0dp" android:layout_marginRight="4.0dp">
+                <ProgressBar android:id="@id/e_i" android:visibility="visible" android:layout_width="15.0dp" android:layout_height="15.0dp" android:indeterminate="true" android:indeterminateOnly="true" android:indeterminateDrawable="@drawable/im_session_icn_loading_indicator" android:indeterminateDuration="2000" />
+                <ImageView android:id="@id/e_g" android:layout_width="match_parent" android:layout_height="match_parent" />
+            </RelativeLayout>
+            <TextView android:textSize="13.0dp" android:textColor="@color/black_80_opacity" android:ellipsize="end" android:id="@id/e_h" android:layout_width="wrap_content" android:layout_height="wrap_content" android:singleLine="true" />
+        </LinearLayout>
+    </com.tencent.qqmusic.ui.RoundedConstraintLayout>
+</LinearLayout>

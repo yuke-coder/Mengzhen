@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout android:id="@id/mlive_ktv_topic_label_pick_label_cl" android:background="@drawable/mlive_ktv_mode_topic_bg" android:layout_width="match_parent" android:layout_height="375.0dp" android:layout_marginTop="8.0dp"
+  xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">
+    <TextView android:textSize="16.0sp" android:textStyle="bold" android:textColor="@color/black" android:id="@id/mlive_ktv_topic_label_pick_label_tv" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="10.0dp" android:layout_marginBottom="10.0dp" android:text="@string/dsq" android:layout_marginStart="15.0dp" app:a23="hnz" app:a27="hnz" />
+    <androidx.core.widget.NestedScrollView android:orientation="vertical" android:id="@id/mlive_ktv_topic_label_content_scroll_view" android:layout_width="0.0dp" android:layout_height="200.0dp" android:layout_margin="15.0dp" android:fillViewport="true" app:a1e="@id/beg" app:a1j="hnz" app:a23="hnz" app:a26="@id/mlive_ktv_topic_label_pick_label_tv">
+        <LinearLayout android:orientation="vertical" android:layout_width="match_parent" android:layout_height="200.0dp">
+            <com.tme.mlive.ui.topic.LabelGroupView android:id="@id/mlive_ktv_topic_label_content_gv" android:focusable="true" android:focusableInTouchMode="true" android:layout_width="match_parent" android:layout_height="wrap_content" />
+            <TextView android:textSize="10.0sp" android:textColor="#22d59c" android:id="@id/mlive_anchor_tag_pick_desc_tips_tv" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="10.0dp" android:text="@string/e20" />
+            <TextView android:textSize="10.0sp" android:textColor="#1a1a1a" android:id="@id/mlive_anchor_tag_pick_desc_content_tv" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="10.0dp" android:text="@string/e1z" />
+        </LinearLayout>
+    </androidx.core.widget.NestedScrollView>
+    <TextView android:textSize="18.0sp" android:textColor="@color/white" android:gravity="center" android:id="@id/beg" android:background="@drawable/mlive_create_button_bg" android:layout_width="161.0dp" android:layout_height="45.0dp" android:layout_marginTop="40.0dp" android:layout_marginBottom="20.0dp" android:text="@string/dbk" app:a1d="hnz" app:a1j="hnz" app:a23="hnz" app:a26="@id/mlive_ktv_topic_label_content_scroll_view" />
+</androidx.constraintlayout.widget.ConstraintLayout>

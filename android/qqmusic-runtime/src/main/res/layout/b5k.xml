@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout android:orientation="vertical" android:layout_width="wrap_content" android:layout_height="wrap_content"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <com.tme.beautify.widget.EmoTextview android:textSize="14.0sp" android:textColor="@color/kk_color_white" android:ellipsize="middle" android:id="@id/iah" android:background="@drawable/lmf_beautify_popup_bubble_background" android:padding="10.0dp" android:layout_width="wrap_content" android:layout_height="wrap_content" android:maxWidth="250.0dp" android:singleLine="true" android:drawablePadding="5.0dp" />
+    <View android:layout_gravity="center_horizontal" android:id="@id/iag" android:background="@drawable/lmf_beautify_popup_bubble_bulge" android:layout_width="10.0dp" android:layout_height="10.0dp" />
+</LinearLayout>

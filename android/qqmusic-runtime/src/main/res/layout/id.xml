@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout android:id="@id/jb2" android:layout_width="wrap_content" android:layout_height="wrap_content"
+  xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">
+    <com.tencent.component.widget.AsyncImageView android:id="@id/dc7" android:layout_width="136.0dp" android:layout_height="136.0dp" android:scaleType="centerCrop" app:a1j="hnz" app:a23="hnz" app:a27="hnz" />
+    <ImageView android:layout_width="22.0dp" android:layout_height="16.0dp" android:layout_marginTop="8.0dp" android:src="@drawable/auto_close_healing_super_vip_icon" android:layout_marginEnd="9.0dp" app:a1j="hnz" app:a27="hnz" />
+    <TextView android:textSize="27.0sp" android:textStyle="bold" android:textColor="@color/white" android:id="@id/dca" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="75.0dp" android:layout_marginStart="10.0dp" app:a23="hnz" app:a27="hnz" />
+    <TextView android:textSize="12.0sp" android:textColor="@color/white_60_opacity" android:id="@id/dc9" android:layout_width="wrap_content" android:layout_height="wrap_content" app:a23="@id/dca" app:a26="@id/dca" />
+    <ImageView android:id="@id/dc8" android:layout_width="136.0dp" android:layout_height="45.0dp" app:a1j="hnz" app:a23="hnz" app:a26="@id/dc7" />
+    <TextView android:textSize="16.0sp" android:textColor="@color/white" android:id="@id/dc_" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/u8" app:a1d="@id/dc8" app:a23="@id/dca" app:a27="@id/dc8" />
+    <ImageView android:layout_width="20.0dp" android:layout_height="20.0dp" android:src="@drawable/auto_close_healing_play_icon" android:layout_marginEnd="12.0dp" app:a1d="@id/dc8" app:a1j="hnz" app:a27="@id/dc8" />
+</androidx.constraintlayout.widget.ConstraintLayout>

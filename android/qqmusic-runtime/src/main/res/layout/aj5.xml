@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout android:id="@id/b_d" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_margin="2.5dp"
+  xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">
+    <com.tencent.component.widget.AsyncImageView android:id="@id/dne" android:layout_width="match_parent" android:layout_height="0.0dp" android:scaleType="centerCrop" app:a1i="1:1" app:a1x="hnz" app:a27="hnz" />
+    <TextView android:textSize="14.0sp" android:textColor="#ffffff" android:gravity="center" android:id="@id/m2_" android:background="@drawable/post_moment_main_pic_bg" android:visibility="gone" android:layout_width="match_parent" android:layout_height="26.0dp" android:text="主显示图" android:layout_alignParentBottom="true" app:a1x="hnz" app:a27="hnz" />
+    <FrameLayout android:id="@id/bmf" android:paddingLeft="8.0dp" android:paddingBottom="8.0dp" android:layout_width="wrap_content" android:layout_height="wrap_content" android:contentDescription="@string/aiq" app:a21="hnz" app:a27="hnz">
+        <ImageView android:background="@drawable/feed_cell_post_delete_bg" android:layout_width="20.0dp" android:layout_height="16.0dp" android:src="@drawable/post_moment_delete_icon" android:layout_alignParentRight="true" />
+    </FrameLayout>
+    <TextView android:textSize="10.0sp" android:textColor="#fff" android:gravity="center" android:id="@id/k8w" android:background="@drawable/rounded_shape_alpha_black" android:visibility="gone" android:layout_width="28.0dp" android:layout_height="15.0dp" android:layout_margin="5.0dp" android:text="动图" app:a1d="hnz" app:a21="hnz" />
+</androidx.constraintlayout.widget.ConstraintLayout>

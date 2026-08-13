@@ -1,0 +1,131 @@
+{
+  "router": "openHalf",
+  "page_name": "dialog_universal_style",
+  "debug": 0,
+  "container": {},
+  "params": {
+    "id": "512",
+    "viewId": "23167",
+    "renderType": "RENDER_TYPE_KUIKLY",
+    "styleType": 7,
+    "styleItemType": "STYLE_ITEM_TYPE_COMMON",
+    "pop_url": {
+      "auto_rene_url": "https://y.qq.com/forest/R__a7LX00UtR-A2y/index.html",
+      "vip_argument": "https://y.qq.com/forest/ou5v6U56CuFum3Yz/index.html",
+      "pay_url": "https://fastest.y.qq.com/m/basic/client/kuikly_pay/vip_next/index.html?_tde_id=40017",
+      "aid": "music.cg.wanliu.return.svip"
+    },
+    "extra": {
+      "HighLevelMemberIcon": {
+        "level": 9
+      }
+    },
+    "display": {
+      "title": "%svip%您的豪华绿钻即将过期",
+      "subTitle": "续费会员，享受继续领续费会员",
+      "texts": [
+        {
+          "name": "operation",
+          "content": "这是图片的描述文案",
+          "description": "description"
+        }
+      ],
+      "buttons": [
+        {
+          "name": "MAIN",
+          "title": "%d元立即续费",
+          "description": "角标文案",
+          "link": {
+            "type": "LINK_TYPE_PAY"
+          }
+        },
+        {
+          "name": "STOP",
+          "title": "3天内不再提示",
+          "link": {
+            "type": "LINK_TYPE_STOP"
+          }
+        }
+      ],
+      "images": [
+        {
+          "name": "TITLEIMAGE",
+          "url": "https://y.qq.com/music/common/upload/t_cm3_photo_publish/7044892.png"
+        },
+        {
+          "name": "TICKETIMAGE",
+          "url": "https://y.qq.com/music/common/upload/t_cm3_photo_publish/7053338.png"
+        },
+        {
+          "name": "BACKGROUND",
+          "url": "https://y.qq.com/music/common/upload/t_cm3_photo_publish/7053334.png"
+        },
+        {
+          "name": "CORNERIMAGE",
+          "url": "https://y.qq.com/music/common/upload/t_cm3_photo_publish/7053333.png"
+        }
+      ],
+      "countdown": {
+        "endTime": "24: 00: 00"
+      },
+      "attributeList": [
+        {
+          "name": "pop_url",
+          "value": {
+            "auto_rene_url": "https://y.qq.com/forest/R__a7LX00UtR-A2y/index.html",
+            "vip_argument": "https://y.qq.com/forest/ou5v6U56CuFum3Yz/index.html",
+            "pay_url": "https://fastest.y.qq.com/m/basic/client/kuikly_pay/vip_next/index.html?_tde_id=40017"
+          }
+        },
+        {
+          "name": "FontColor",
+          "value": "#000000"
+        },
+        {
+          "name": "NormalAgreementColor",
+          "value": "#000000"
+        },
+        {
+          "name": "PriceCardColor",
+          "value": "#ffffff"
+        },
+        {
+          "name": "auto_rene_url",
+          "value": "https://y.qq.com/forest/R__a7LX00UtR-A2y/index.html"
+        },
+        {
+          "name": "vip_argument",
+          "value": "https://y.qq.com/forest/ou5v6U56CuFum3Yz/index.html"
+        },
+        {
+          "name": "pay_url",
+          "value": "https://fastest.y.qq.com/m/basic/client/kuikly_pay/vip_next/index.html?_tde_id=40017"
+        },
+        {
+          "name": "aid"
+        }
+      ]
+    },
+    "memberShipInfo": {
+      "vipType": "VIP_TYPE_AD",
+      "priceItem": {
+        "reportId": "music_cjhy_64311",
+        "price": 500,
+        "originalPrice": 600,
+        "productPayType": 10
+      }
+    },
+    "report": {
+      "abt": {
+        "moduleKey": "0"
+      }
+    },
+    "cycle": {},
+    "styleId": 57,
+    "businessCode": 1,
+    "data": {
+      "banners": {"music_cjhy_1089362":{"id":10195,"styleInfo":{"type":8,"songInfo":{"songType":0,"songName":"","albumCover":"","content":""},"rights":[],"banners":[],"brandRightsPool":{"title":"","rulesText":"","showNums":0,"brands":[]},"premiumVipScoreProductBanner":{"backgroundImage":"https://fastest.y.qq.com/pangu-img/P68340723R670X300T0605565.png","fontColor":"","premiumVipScoreProducts":[{"title":"回答我崽种","productID":10453,"productName":"中国移动流量话费福利","originalPrice":500,"exchangedCount":0,"lackAmount":0,"productImage":"https://fastest.y.qq.com/pangu-img/P11451590R750X750T0715635.png"}]}},"priority":100}},
+      "offer":[{"id":1000092,"offers":[{"id":"music_cjhy_1089362","type":0,"product":{"business":"vip","productID":"1200291609770742","skuID":"2200290907002507","activityID":"0","periodUnit":4,"periodNumber":1,"marketPrice":12000,"price":8800,"renewPrice":0,"payType":2,"platform":1,"productExtraSpec":{"groupMemberNums":0,"useTMEPay":false,"disableGiftPremiunVipScore":false},"limit":{"limit":{"effectiveEndTime":0,"availableStock":0,"isShowStock":false},"isLimitStock":false},"premiumVipScore":120},"pack":{"name":"超级会员3个月【老平台自动同步】itemTag:2354_881303","group":"cjhy","text":"","icon":"","image":"","traceTag":"music_1000092_cjhy_2_8800_93_0_1089362"},"upgrade":{"maxMonths":0,"maxDays":0,"defaultMonths":1,"defaultDays":0},"paymentAction":{"type":0,"jumpURL":""},"incentive":{"discountStyle":0,"discountText":"","buttonText":"","mainText":"季卡","mainOperateText":"仅29.4元/月","viceOperateText":"","icon":"","countdownDuration":0,"contractSignOperateText":""},"abtStrategyID":"30833046","categoryTag":"cjhy","gift":{"gifts":[]},"deductionActivity":{"deductionActivities":[]},"activityType":0,"rescissionConfig":{"rescissionRecoveryDays":0},"isContractTrial":false,"priceOfferGroupID":1000092,"mutexType":1,"coupons":[],"discountActivity":{"activityID":"0","activityType":0,"limit":{"effectiveEndTime":0,"availableStock":0,"isShowStock":false},"isLimitStock":false},"conditionalActivity":{"conditionalActivities":[]},"midasActivity":{"experienceVip":false,"disableGiftPremiunVipScore":false},"marketingActivity":{"discountActivity":{"activityID":"","activityType":0,"limit":{"effectiveEndTime":0,"availableStock":0,"isShowStock":false},"isLimitStock":false}},"customPrize":{"id":10007,"prizeItems":[{"prizeType":1,"value":2}]}}],"abtExperimentID":0}]
+    }
+  }
+}

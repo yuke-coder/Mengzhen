@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout android:id="@id/lqy" android:paddingLeft="14.0dp" android:layout_width="wrap_content" android:layout_height="38.0dp"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <TextView android:textSize="12.0sp" android:textColor="@color/black" android:ellipsize="end" android:id="@id/lqz" android:background="@drawable/bg_together_room_emoji_item_selector" android:paddingLeft="38.0dp" android:paddingTop="8.5dp" android:paddingRight="16.0dp" android:paddingBottom="8.5dp" android:layout_width="wrap_content" android:layout_height="wrap_content" android:maxLines="1" android:includeFontPadding="false" android:layout_alignParentBottom="true" />
+    <com.tencent.component.widget.AsyncImageView android:id="@id/lqx" android:layout_width="38.0dp" android:layout_height="38.0dp" />
+</RelativeLayout>

@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout android:layout_width="@dimen/as_" android:layout_height="@dimen/as9"
+  xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">
+    <ImageView android:id="@id/mlive_red_packet_big_pendent_cover" android:layout_width="match_parent" android:layout_height="match_parent" android:src="@drawable/mlive_pendant_red_packet_big_cover" />
+    <com.tme.qqmusic.widget.base.view.GlideImageView android:id="@id/mlive_red_packet_pendent_big_avatar_iv" android:layout_width="29.0dp" android:layout_height="29.0dp" android:layout_marginTop="14.0dp" app:a1x="hnz" app:a21="hnz" app:a27="hnz" />
+    <TextView android:textSize="10.0dp" android:textColor="@color/white" android:gravity="center" android:id="@id/mlive_red_packet_pendent_big_tip_tv" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="13.0dp" android:text="@string/dtz" app:a1x="hnz" app:a21="hnz" app:a26="@id/mlive_red_packet_pendent_big_avatar_iv" />
+    <TextView android:textSize="14.0dp" android:textColor="@color/white" android:gravity="center_vertical" android:id="@id/mlive_red_packet_pendent_big_amount_tv" android:visibility="gone" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginBottom="8.0dp" android:adjustViewBounds="true" android:drawableLeft="@drawable/mlive_coin_icon" android:drawablePadding="3.0dp" app:a1x="hnz" app:a21="hnz" app:a26="@id/mlive_red_packet_pendent_big_tip_tv" />
+</androidx.constraintlayout.widget.ConstraintLayout>

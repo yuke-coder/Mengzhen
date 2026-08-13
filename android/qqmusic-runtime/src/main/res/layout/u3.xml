@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout android:id="@id/cl3" android:layout_width="match_parent" android:layout_height="wrap_content"
+  xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">
+    <Chronometer android:textSize="25.0sp" android:textStyle="bold" android:textColor="@color/white" android:id="@id/az5" android:visibility="gone" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="2.5dp" android:includeFontPadding="false" android:layout_marginStart="0.0dp" app:a23="hnz" app:a27="hnz" />
+    <LinearLayout android:gravity="center_vertical" android:id="@id/iqj" android:background="@drawable/focus_radio_top_tag_btn_bg" android:visibility="gone" android:layout_width="wrap_content" android:layout_height="30.0dp" app:a1j="hnz" app:a27="hnz">
+        <TextView android:textSize="14.0sp" android:textColor="@color/white" android:gravity="center" android:id="@id/iqi" android:layout_width="wrap_content" android:layout_height="21.0dp" android:text="@string/b8u" android:singleLine="true" android:includeFontPadding="false" />
+        <ImageView android:background="@drawable/focus_radio_label_icon" android:layout_width="13.0dp" android:layout_height="13.0dp" />
+    </LinearLayout>
+    <FrameLayout android:id="@id/ipz" android:layout_width="wrap_content" android:layout_height="26.0dp" android:layout_marginTop="12.5dp" app:a23="hnz" app:a26="@id/az5" />
+    <TextView android:textSize="12.0sp" android:textColor="#ccffffff" android:gravity="center" android:id="@id/iqh" android:layout_width="wrap_content" android:layout_height="wrap_content" android:maxWidth="130.0dp" android:singleLine="true" android:layout_marginStart="4.0dp" app:a1d="@id/ipz" app:a22="@id/ipz" app:a27="@id/ipz" />
+</androidx.constraintlayout.widget.ConstraintLayout>

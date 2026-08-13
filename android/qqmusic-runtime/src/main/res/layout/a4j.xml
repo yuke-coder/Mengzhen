@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout android:orientation="vertical" android:background="@drawable/live_gift_pop_bg" android:layout_width="wrap_content" android:layout_height="wrap_content"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <TextView android:id="@id/js2" android:text="自定义" style="@style/h2" />
+    <View android:background="#25ffffff" android:layout_width="110.0dp" android:layout_height="1.0dp" android:layout_marginLeft="5.0dp" android:layout_marginRight="5.0dp" />
+    <LinearLayout android:orientation="horizontal" android:id="@id/d0y" android:layout_width="120.0dp" android:layout_height="wrap_content">
+        <TextView android:text="99" style="@style/h3" />
+        <TextView android:text="天长地久" style="@style/h4" />
+    </LinearLayout>
+    <View android:background="#25ffffff" android:layout_width="110.0dp" android:layout_height="1.0dp" android:layout_marginLeft="5.0dp" android:layout_marginRight="5.0dp" />
+    <LinearLayout android:orientation="horizontal" android:id="@id/d0x" android:layout_width="120.0dp" android:layout_height="wrap_content">
+        <TextView android:text="66" style="@style/h3" />
+        <TextView android:text="六六大顺" style="@style/h4" />
+    </LinearLayout>
+    <View android:background="#25ffffff" android:layout_width="110.0dp" android:layout_height="1.0dp" android:layout_marginLeft="5.0dp" android:layout_marginRight="5.0dp" />
+    <LinearLayout android:orientation="horizontal" android:id="@id/d0w" android:layout_width="120.0dp" android:layout_height="wrap_content">
+        <TextView android:text="20" style="@style/h3" />
+        <TextView android:text="爱你无悔" style="@style/h4" />
+    </LinearLayout>
+    <View android:background="#25ffffff" android:layout_width="110.0dp" android:layout_height="1.0dp" android:layout_marginLeft="5.0dp" android:layout_marginRight="5.0dp" />
+    <LinearLayout android:orientation="horizontal" android:id="@id/d0v" android:layout_width="120.0dp" android:layout_height="wrap_content">
+        <TextView android:text="10" style="@style/h3" />
+        <TextView android:text="十全十美" style="@style/h4" />
+    </LinearLayout>
+    <View android:background="#25ffffff" android:layout_width="110.0dp" android:layout_height="1.0dp" android:layout_marginLeft="5.0dp" android:layout_marginRight="5.0dp" />
+    <LinearLayout android:orientation="horizontal" android:id="@id/d0u" android:layout_width="120.0dp" android:layout_height="wrap_content">
+        <TextView android:text="1" style="@style/h3" />
+        <TextView android:text="一心一意" style="@style/h4" />
+    </LinearLayout>
+</LinearLayout>

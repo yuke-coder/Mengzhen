@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout android:layout_gravity="center_vertical" android:layout_width="match_parent" android:layout_height="wrap_content"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <LinearLayout android:gravity="center" android:id="@id/dja" android:layout_width="@dimen/bb0" android:layout_height="@dimen/bb0" android:layout_alignParentLeft="true" android:layout_centerInParent="true">
+        <ImageView android:gravity="center" android:id="@id/did" android:paddingLeft="5.0dp" android:paddingRight="5.0dp" android:layout_width="wrap_content" android:layout_height="wrap_content" android:src="@drawable/icon_notification" android:scaleType="centerCrop" />
+    </LinearLayout>
+    <LinearLayout android:layout_gravity="center_vertical" android:orientation="vertical" android:id="@id/j86" android:layout_width="match_parent" android:layout_height="match_parent" android:layout_marginLeft="5.0dp" android:layout_marginRight="20.0dp" android:layout_toRightOf="@id/dja">
+        <LinearLayout android:orientation="horizontal" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="5.0dp">
+            <ImageView android:gravity="center" android:layout_gravity="center_vertical" android:layout_width="12.0dp" android:layout_height="12.0dp" android:src="@drawable/download_notification_title_icon" android:scaleType="fitCenter" />
+            <TextView android:textAppearance="?android:textAppearanceMediumInverse" android:textSize="12.0dp" android:textColor="?android:textColorSecondary" android:ellipsize="marquee" android:gravity="center_vertical" android:id="@id/kzh" android:fadingEdge="horizontal" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="QQ音乐正在为你下载:" android:singleLine="true" style="@style/ni" />
+        </LinearLayout>
+        <LinearLayout android:orientation="horizontal" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginTop="4.0dp">
+            <TextView android:textAppearance="?android:textAppearanceMediumInverse" android:textColor="?android:textColorPrimary" android:ellipsize="marquee" android:id="@id/ldr" android:fadingEdge="horizontal" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="部落冲突-皇室战争" android:singleLine="true" style="@style/ni" />
+            <TextView android:textAppearance="?android:textAppearanceMediumInverse" android:textColor="?android:textColorPrimary" android:ellipsize="marquee" android:gravity="right" android:id="@id/hq1" android:fadingEdge="horizontal" android:layout_width="0.0dp" android:layout_height="wrap_content" android:singleLine="true" android:layout_weight="1.0" style="@style/ni" />
+        </LinearLayout>
+        <LinearLayout android:gravity="center" android:orientation="vertical" android:layout_width="match_parent" android:layout_height="match_parent">
+            <ProgressBar android:id="@id/ih6" android:layout_width="match_parent" android:layout_height="2.0dp" android:progressDrawable="@drawable/notification_progressbar" style="?android:progressBarStyleHorizontal" />
+        </LinearLayout>
+    </LinearLayout>
+    <ImageButton android:layout_gravity="center_vertical" android:id="@id/hhq" android:background="@null" android:padding="8.0dp" android:layout_width="wrap_content" android:layout_height="wrap_content" android:src="@drawable/notification_exit" android:layout_alignParentTop="true" android:layout_alignParentRight="true" android:contentDescription="@string/euy" />
+</RelativeLayout>

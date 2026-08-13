@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.tencent.qqmusic.ui.RoundedRelativeLayout android:background="@drawable/bg_list_bottom_sheet_dialog" android:paddingLeft="20.0dp" android:paddingRight="20.0dp" android:layout_width="match_parent" android:layout_height="wrap_content" app:ado="2.0dp"
+  xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">
+    <LinearLayout android:orientation="vertical" android:id="@id/fdx" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_alignParentTop="true" />
+    <androidx.recyclerview.widget.RecyclerView android:id="@id/jrw" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_above="@id/fdn" android:layout_below="@id/fdx" />
+    <LinearLayout android:orientation="vertical" android:id="@id/fdn" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_alignParentBottom="true" />
+    <FrameLayout android:id="@id/cew" android:layout_width="match_parent" android:layout_height="100.0dp">
+        <ProgressBar android:layout_gravity="center" android:layout_width="30.0dp" android:layout_height="30.0dp" android:indeterminate="true" android:indeterminateOnly="true" android:indeterminateDrawable="@drawable/icn_loading_indicator" android:indeterminateDuration="2000" />
+    </FrameLayout>
+</com.tencent.qqmusic.ui.RoundedRelativeLayout>

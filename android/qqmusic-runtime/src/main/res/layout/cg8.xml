@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.tencentmusic.ad.integration.nativead.TMENativeAdContainer android:id="@id/jjo" android:visibility="gone" android:layout_width="match_parent" android:layout_height="125.0dp" android:layout_marginTop="17.0dp" android:layout_marginStart="16.0dp" android:layout_marginEnd="16.0dp"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <com.tencent.qqmusic.ui.RoundedRelativeLayout android:id="@id/ho" android:layout_width="match_parent" android:layout_height="match_parent">
+        <ImageView android:id="@id/a_z" android:layout_width="match_parent" android:layout_height="match_parent" android:scaleType="fitXY" android:contentDescription="广告" />
+        <com.tencent.component.widget.AsyncEffectImageView android:id="@id/i_" android:layout_width="222.0dp" android:layout_height="match_parent" android:scaleType="fitXY" android:layout_alignParentStart="true" />
+        <RelativeLayout android:id="@id/m5" android:background="@color/white_70_transparent" android:layout_width="match_parent" android:layout_height="match_parent" android:layout_toEndOf="@id/i_" android:layout_alignParentEnd="true">
+            <LinearLayout android:gravity="center_vertical" android:orientation="horizontal" android:id="@id/hk" android:background="@drawable/bg_ad_close" android:paddingTop="2.0dp" android:paddingBottom="3.0dp" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_alignParentTop="true" android:paddingStart="3.0dp" android:paddingEnd="3.0dp" android:layout_alignParentEnd="true">
+                <TextView android:textSize="10.0sp" android:textColor="@color/white" android:id="@id/i4" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginStart="3.0dp" />
+                <ImageView android:id="@id/hm" android:layout_width="13.0dp" android:layout_height="13.0dp" android:src="@drawable/ic_search_banner_close_btn" android:contentDescription="关闭" />
+            </LinearLayout>
+            <com.tencent.qqmusic.business.live.ui.view.RoundAvatarImage android:id="@id/m6" android:layout_width="35.0dp" android:layout_height="35.0dp" android:layout_marginTop="26.0dp" android:src="@drawable/default_user_avatar" android:layout_centerHorizontal="true" />
+            <TextView android:textSize="11.0sp" android:textColor="#747474" android:ellipsize="end" android:gravity="center" android:id="@id/m7" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="5.0dp" android:layout_marginBottom="5.0dp" android:text="赫莲娜" android:maxLines="1" android:layout_below="@id/m6" android:layout_centerHorizontal="true" android:layout_marginStart="8.0dp" android:layout_marginEnd="8.0dp" />
+            <androidx.appcompat.widget.AppCompatButton android:textSize="11.0sp" android:textColor="@color/white" android:ellipsize="end" android:gravity="center" android:id="@id/hd" android:background="@drawable/bg_ad_button" android:paddingLeft="14.0dp" android:paddingRight="14.0dp" android:layout_width="wrap_content" android:layout_height="24.0dp" android:layout_marginTop="6.0dp" android:text="@string/cqo" android:maxLines="1" android:layout_below="@id/m7" android:layout_centerHorizontal="true" android:layout_marginStart="8.0dp" android:layout_marginEnd="8.0dp" />
+        </RelativeLayout>
+    </com.tencent.qqmusic.ui.RoundedRelativeLayout>
+</com.tencentmusic.ad.integration.nativead.TMENativeAdContainer>

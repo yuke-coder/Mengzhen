@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.tme.mlive.ui.custom.link.LiveLinkAnchorView android:layout_width="match_parent" android:layout_height="match_parent"
+  xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">
+    <TextView android:textSize="16.0sp" android:textColor="@color/white" android:gravity="center" android:id="@id/mlive_link_list_anchor_multi_link_entrance" android:background="@drawable/mlive_shape_multi_link_anchor_entrance" android:visibility="gone" android:layout_width="343.0dp" android:layout_height="45.0dp" android:layout_marginTop="10.0dp" android:text="@string/dkj" app:a1j="hnz" app:a23="hnz" app:a27="hnz" />
+    <com.tme.mlive.ui.custom.recycleview.LoadMoreRecycleView android:id="@id/mlive_link_list_anchor_content" android:layout_width="0.0dp" android:layout_height="0.0dp" android:layout_marginTop="@dimen/s1" app:a1d="hnz" app:a1x="hnz" app:a21="hnz" app:a26="@id/mlive_link_list_anchor_multi_link_entrance" />
+</com.tme.mlive.ui.custom.link.LiveLinkAnchorView>

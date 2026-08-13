@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- QQ Music TabPager 的原始属性顺序：divider、pager、tab、shadow、title。 -->
+    <declare-styleable name="TabPager">
+        <attr name="o1" />
+        <attr name="aax" />
+        <attr name="an6" />
+        <attr name="an7" />
+        <attr name="aqk" />
+    </declare-styleable>
+</resources>

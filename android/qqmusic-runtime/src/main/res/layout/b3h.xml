@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout android:id="@id/njs" android:paddingTop="@dimen/cg8" android:paddingBottom="@dimen/cg8" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginLeft="@dimen/cg7" android:layout_marginRight="@dimen/cg7" android:layout_marginHorizontal="@dimen/cg7" android:paddingVertical="@dimen/cg8"
+  xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">
+    <androidx.appcompat.widget.AppCompatTextView android:textSize="@dimen/cfx" android:ellipsize="end" android:id="@id/njy" android:layout_width="match_parent" android:layout_height="wrap_content" android:maxLines="1" app:a1j="hnz" app:a23="hnz" app:a27="hnz" />
+    <com.tencent.qqmusic.ui.customview.textview.MarqueeExtendTextView android:textSize="@dimen/cf5" android:id="@id/njx" android:layout_width="match_parent" android:layout_height="@dimen/cgb" android:singleLine="true" app:a1e="@id/njt" app:a1k="@id/njy" app:a23="@id/njy" app:a26="@id/njy" />
+    <androidx.appcompat.widget.LinearLayoutCompat android:orientation="vertical" android:id="@id/njt" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginTop="@dimen/cg5" app:a1d="hnz" app:a1j="hnz" app:a23="hnz" app:a26="@id/njx">
+        <androidx.appcompat.widget.LinearLayoutCompat android:orientation="vertical" android:id="@id/njw" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_weight="1.0" />
+        <androidx.cardview.widget.CardView android:id="@id/nju" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_weight="1.0" android:elevation="0.0dp" app:gs="@dimen/cg6" app:gt="0.0dp">
+            <com.tencent.component.widget.AsyncEffectImageView android:id="@id/njv" android:layout_width="match_parent" android:layout_height="match_parent" android:scaleType="centerCrop" android:contentDescription="@string/abs" />
+        </androidx.cardview.widget.CardView>
+    </androidx.appcompat.widget.LinearLayoutCompat>
+</androidx.constraintlayout.widget.ConstraintLayout>

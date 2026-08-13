@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<selector
+  xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">
+    <item app:alj="false">
+        <shape android:shape="rectangle">
+            <solid android:color="@color/kk_color_line_black" />
+        </shape>
+    </item>
+    <item app:alj="true">
+        <shape android:shape="rectangle">
+            <solid android:color="@color/kk_color_line_white" />
+        </shape>
+    </item>
+    <item>
+        <shape android:shape="rectangle">
+            <solid android:color="@color/kk_color_line_black" />
+        </shape>
+    </item>
+</selector>

@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout android:layout_width="match_parent" android:layout_height="match_parent"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <LinearLayout android:gravity="center_horizontal" android:layout_gravity="center_horizontal" android:orientation="vertical" android:id="@id/ba_" android:background="@drawable/song_no_right_alert_dialog_top_bg" android:layout_width="296.0dp" android:layout_height="wrap_content">
+        <RelativeLayout android:id="@id/dbe" android:paddingLeft="@dimen/c8i" android:paddingTop="15.0dp" android:paddingRight="@dimen/c8j" android:layout_width="@dimen/c8m" android:layout_height="@dimen/c8l">
+            <com.tencent.component.widget.AsyncImageView android:id="@id/lb_" android:layout_width="match_parent" android:layout_height="match_parent" android:src="@drawable/song_nocopyright" android:scaleType="fitXY" android:layout_alignParentBottom="true" android:layout_centerHorizontal="true" />
+        </RelativeLayout>
+        <View android:background="@color/white" android:layout_width="match_parent" android:layout_height="@dimen/c8h" />
+        <LinearLayout android:orientation="vertical" android:id="@id/g83" android:background="@color/white" android:paddingLeft="@dimen/c8q" android:paddingRight="@dimen/c8r" android:layout_width="match_parent" android:layout_height="wrap_content">
+            <TextView android:textSize="@dimen/c8s" android:textColor="@color/black" android:gravity="center_horizontal" android:layout_gravity="center_horizontal" android:id="@id/lbb" android:layout_width="match_parent" android:layout_height="wrap_content" android:text="个性主题提示" android:singleLine="true" android:includeFontPadding="false" />
+            <com.tencent.qqmusic.ui.AutoWrapTextView android:textSize="@dimen/c8p" android:gravity="left" android:layout_gravity="center_horizontal" android:id="@id/lba" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="11.0dp" android:text="检测到个性主题有新版本，是否下载更新？" />
+        </LinearLayout>
+        <View android:background="@color/white" android:layout_width="match_parent" android:layout_height="@dimen/c8o" />
+        <View android:background="@color/no_copyright_song_dialog_diver" android:layout_width="match_parent" android:layout_height="1.0dp" />
+        <LinearLayout android:orientation="horizontal" android:id="@id/ad_" android:background="@drawable/song_no_rightalert_dialog_bottom_bg" android:layout_width="match_parent" android:layout_height="wrap_content">
+            <TextView android:textSize="@dimen/fo" android:textColor="@color/skin_highlight_color" android:ellipsize="end" android:gravity="center" android:id="@id/id1" android:layout_width="0.0dp" android:layout_height="45.0dp" android:text="立即更新" android:singleLine="true" android:includeFontPadding="false" android:layout_weight="1.0" />
+        </LinearLayout>
+    </LinearLayout>
+</LinearLayout>

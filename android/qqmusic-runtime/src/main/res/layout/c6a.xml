@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout android:fitsSystemWindows="true" android:layout_width="match_parent" android:layout_height="match_parent"
+  xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">
+    <androidx.viewpager.widget.ViewPager android:id="@id/i1t" android:layout_width="match_parent" android:layout_height="0.0dp" app:a1e="@id/i1u" app:a1j="hnz" app:a23="hnz" app:a27="hnz" />
+    <com.tencent.qqmusic.ui.ViewPagerCircleIndicator android:layout_gravity="center_horizontal" android:id="@id/i1u" android:background="@color/transparent" android:layout_width="match_parent" android:layout_height="16.0dp" android:layout_marginBottom="41.0dp" android:layout_alignParentBottom="true" app:a1d="hnz" app:a1j="hnz" app:a23="hnz" />
+    <ViewStub android:id="@id/heo" android:visibility="gone" android:layout="@layout/c5y" android:layout_width="wrap_content" android:layout_height="wrap_content" app:a1d="hnz" app:a1j="hnz" app:a23="hnz" app:a27="hnz" />
+    <ViewStub android:id="@id/fij" android:visibility="gone" android:layout="@layout/mj" android:layout_width="wrap_content" android:layout_height="wrap_content" app:a1d="hnz" app:a1j="hnz" app:a23="hnz" app:a27="hnz" />
+</androidx.constraintlayout.widget.ConstraintLayout>

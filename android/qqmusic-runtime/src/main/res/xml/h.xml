@@ -1,0 +1,3 @@
+<?xml version="1.0" encoding="utf-8"?>
+<appwidget-provider android:minWidth="@dimen/ajq" android:minHeight="@dimen/ajn" android:updatePeriodMillis="0" android:initialLayout="@layout/b8c" android:previewImage="@drawable/medal_sign_in_preview"
+  xmlns:android="http://schemas.android.com/apk/res/android" />

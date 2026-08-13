@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout android:background="@drawable/main_bg" android:layout_width="match_parent" android:layout_height="match_parent"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <include android:id="@id/hp6" android:layout_width="match_parent" android:layout_height="@dimen/cau" layout="@layout/mu" />
+    <RelativeLayout android:id="@id/bwo" android:background="@drawable/skin_common_listitem_bg" android:paddingBottom="18.0dp" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_below="@id/hp6">
+        <ImageView android:id="@id/hp5" android:layout_width="100.0dp" android:layout_height="100.0dp" android:src="@drawable/download_song_history_ic_cloud" android:scaleType="centerInside" android:layout_alignParentTop="true" android:layout_centerHorizontal="true" />
+        <TextView android:textSize="14.0sp" android:textColor="@color/white" android:gravity="center" android:id="@id/bwp" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginTop="18.0dp" android:layout_below="@id/hp5" />
+    </RelativeLayout>
+    <include android:id="@id/bwn" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_alignParentBottom="true" layout="@layout/k6" />
+    <View android:id="@id/hld" android:background="@drawable/z_color_l1" android:layout_width="match_parent" android:layout_height="0.5dp" android:layout_above="@id/bwn" />
+    <ListView android:id="@id/mul" android:layout_width="match_parent" android:layout_height="match_parent" android:cacheColorHint="#00000000" android:divider="@null" android:dividerHeight="0.0dp" android:layout_above="@id/hld" android:layout_below="@id/bwo" android:overScrollMode="never" />
+    <ViewStub android:id="@id/bwm" android:layout="@layout/mh" android:layout_width="match_parent" android:layout_height="match_parent" android:layout_below="@id/hp6" />
+    <include android:layout_width="match_parent" android:layout_height="match_parent" android:layout_below="@id/hp6" layout="@layout/mj" />
+</RelativeLayout>

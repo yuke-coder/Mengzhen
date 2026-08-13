@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="azb">0.0dp</dimen>
+    <dimen name="azd">22.0dp</dimen>
+    <dimen name="aze">48.0dp</dimen>
+    <dimen name="azi">48.0dp</dimen>
+    <dimen name="azj">48.0dp</dimen>
+    <dimen name="azw">0.0dp</dimen>
+</resources>

@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout android:layout_width="match_parent" android:layout_height="100.0dp" android:layerType="software"
+  xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">
+    <com.tencent.qqmusic.modular.module.musichall.views.focus.CyclicViewPager android:layout_gravity="center" android:id="@id/gdj" android:clipChildren="false" android:layout_width="match_parent" android:layout_height="match_parent" android:contentDescription="@string/e77" android:importantForAccessibility="yes" />
+    <FrameLayout android:layout_gravity="bottom" android:id="@id/gdi" android:layout_width="match_parent" android:layout_height="24.0dp">
+        <com.tencent.qqmusic.modular.module.musichall.views.focus.IconPageIndicator android:id="@id/gdh" android:layout_width="wrap_content" android:layout_height="24.0dp" android:layout_marginLeft="22.5dp" android:layout_marginRight="22.5dp" android:layout_marginHorizontal="22.5dp" />
+    </FrameLayout>
+    <RelativeLayout android:layout_gravity="right|bottom" android:id="@id/gdg" android:visibility="gone" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginBottom="12.5dp" android:layout_marginEnd="22.5dp">
+        <TextView android:textSize="14.0sp" android:id="@id/h1t" android:visibility="invisible" android:layout_width="1.0dp" android:layout_height="wrap_content" android:maxLines="1" android:singleLine="true" android:layout_alignParentEnd="true" />
+        <com.tencent.qqmusic.modular.module.musichall.views.focus.CyclicPageIndicator android:id="@id/gdf" android:layout_width="wrap_content" android:layout_height="0.0dp" android:layout_alignTop="@id/h1t" android:layout_alignBottom="@id/h1t" android:layout_alignParentEnd="true" app:hf="true" app:n5="@color/white_50_opacity" app:n6="2" app:n7="3.0dp" app:ah1="@color/white" app:ah3="3.0dp" />
+    </RelativeLayout>
+</FrameLayout>

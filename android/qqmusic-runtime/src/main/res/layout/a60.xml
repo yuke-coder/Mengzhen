@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout android:orientation="horizontal" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginBottom="12.0dp"
+  xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">
+    <LinearLayout android:orientation="horizontal" android:id="@id/cg4" android:layout_width="wrap_content" android:layout_height="wrap_content" app:a1d="hnz" app:a1x="hnz" app:a27="hnz">
+        <androidx.appcompat.widget.AppCompatTextView android:textSize="14.0sp" android:textColor="@color/skin_text_sub_color" android:id="@id/cgb" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/bwe" />
+        <ImageView android:layout_gravity="center_vertical" android:id="@id/cg3" android:layout_width="8.0dp" android:layout_height="6.0dp" android:layout_marginLeft="3.0dp" android:src="@drawable/homepage_tab_switch_icon" />
+    </LinearLayout>
+    <LinearLayout android:orientation="horizontal" android:id="@id/kjn" android:layout_width="wrap_content" android:layout_height="wrap_content" app:a1d="hnz" app:a21="hnz" app:a27="hnz">
+        <androidx.appcompat.widget.AppCompatTextView android:textSize="14.0sp" android:textColor="@color/skin_text_sub_color" android:id="@id/kk0" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/bok" />
+        <ImageView android:layout_gravity="center_vertical" android:id="@id/kjg" android:layout_width="8.0dp" android:layout_height="6.0dp" android:layout_marginLeft="3.0dp" android:src="@drawable/homepage_tab_switch_icon" />
+    </LinearLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>

@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout android:layout_width="match_parent" android:layout_height="match_parent"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <include android:id="@id/naf" android:layout_width="match_parent" android:layout_height="match_parent" layout="@layout/m6" />
+    <include android:id="@id/lv1" android:layout_width="match_parent" android:layout_height="@dimen/cau" layout="@layout/mu" />
+    <androidx.recyclerview.widget.RecyclerView android:id="@id/jex" android:paddingBottom="20.0dp" android:scrollbars="none" android:clipToPadding="true" android:layout_width="match_parent" android:layout_height="match_parent" android:cacheColorHint="#00000000" android:divider="@null" android:layout_below="@id/lv1" android:overScrollMode="never" />
+    <include android:id="@id/fiu" android:visibility="gone" android:layout_width="match_parent" android:layout_height="match_parent" android:layout_below="@id/lv1" layout="@layout/mj" />
+    <ViewStub android:id="@id/kys" android:visibility="gone" android:layout="@layout/mh" android:layout_width="match_parent" android:layout_height="match_parent" android:layout_below="@id/lv1" android:layout_centerHorizontal="true" android:layout_centerVertical="true" />
+    <ViewStub android:id="@id/kyt" android:visibility="gone" android:layout="@layout/yc" android:layout_width="match_parent" android:layout_height="match_parent" android:layout_below="@id/lv1" android:layout_centerHorizontal="true" android:layout_centerVertical="true" />
+</RelativeLayout>

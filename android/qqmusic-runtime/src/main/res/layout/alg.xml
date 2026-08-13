@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout android:layout_width="match_parent" android:layout_height="30.0dp"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <androidx.appcompat.widget.AppCompatTextView android:textSize="11.0dp" android:textColor="@color/skin_text_main_color" android:gravity="center" android:id="@id/nro" android:layout_width="match_parent" android:layout_height="match_parent" />
+    <View android:id="@id/aan" android:background="@drawable/default_skin_divider_color_bg" android:layout_width="1.0dp" android:layout_height="match_parent" />
+    <View android:layout_gravity="bottom" android:id="@id/aam" android:background="@drawable/default_skin_divider_color_bg" android:layout_width="match_parent" android:layout_height="1.0dp" />
+    <View android:layout_gravity="right" android:id="@id/aao" android:background="@drawable/default_skin_divider_color_bg" android:visibility="gone" android:layout_width="1.0dp" android:layout_height="match_parent" android:layout_marginBottom="1.0dp" />
+</FrameLayout>

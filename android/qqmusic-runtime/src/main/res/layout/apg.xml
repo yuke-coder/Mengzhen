@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout android:background="@android:color/white" android:layout_width="match_parent" android:layout_height="wrap_content"
+  xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">
+    <androidx.appcompat.widget.AppCompatTextView android:textSize="18.0sp" android:textStyle="bold" android:textColor="@android:color/black" android:id="@id/epm" android:padding="16.0dp" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="输入需要展示的音质序号(流水号)" app:a1j="hnz" app:a23="hnz" app:a27="hnz" />
+    <androidx.constraintlayout.widget.Guideline android:orientation="vertical" android:id="@id/epl" android:layout_width="wrap_content" android:layout_height="wrap_content" app:a1n="0.5" />
+    <androidx.appcompat.widget.AppCompatTextView android:textColor="@color/gray_text" android:id="@id/epk" android:padding="10.0dp" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="输入展示的音质权益序号:" app:a1_="@id/epj" app:a1j="@id/epl" app:a26="@id/epm" />
+    <EditText android:textColor="@android:color/black" android:textColorHint="@color/gray_text" android:id="@id/epj" android:padding="10.0dp" android:layout_width="120.0dp" android:layout_height="wrap_content" android:hint="权益序号" android:inputType="number" app:a23="@id/epl" app:a26="@id/epm" />
+    <Button android:id="@id/epi" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="确认" app:a1j="hnz" app:a23="hnz" app:a26="@id/epj" />
+    <View android:id="@id/epo" android:background="@color/gray_text" android:layout_width="match_parent" android:layout_height="1.0dp" android:layout_marginTop="5.0dp" android:layout_marginBottom="5.0dp" app:a1j="hnz" app:a23="hnz" app:a26="@id/epi" />
+    <androidx.appcompat.widget.AppCompatTextView android:textColor="@color/gray_text" android:id="@id/epn" android:layout_width="wrap_content" android:layout_height="wrap_content" android:paddingStart="16.0dp" android:paddingEnd="16.0dp" app:a1j="hnz" app:a23="hnz" app:a26="@id/epo" />
+</androidx.constraintlayout.widget.ConstraintLayout>

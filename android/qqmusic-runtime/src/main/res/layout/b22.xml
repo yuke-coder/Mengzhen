@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout android:paddingBottom="40.0dp" android:layout_width="match_parent" android:layout_height="wrap_content"
+  xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">
+    <com.tencent.component.widget.AsyncImageView android:id="@id/c3m" android:layout_width="70.0dp" android:layout_height="70.0dp" android:layout_marginTop="@dimen/cau" app:a1j="hnz" app:a23="hnz" app:a27="hnz" />
+    <TextView android:textSize="22.0dp" android:textColor="#fefefe" android:id="@id/c3s" android:layout_width="wrap_content" android:layout_height="31.0dp" app:a1j="hnz" app:a23="hnz" app:a26="@id/c3m" />
+    <TextView android:textSize="16.0sp" android:textColor="#0c0d1d" android:gravity="center" android:id="@id/c3t" android:background="@drawable/ss_detail_page_select_bg" android:layout_width="130.0dp" android:layout_height="36.0dp" android:layout_marginTop="20.0dp" android:text="@string/htr" app:a1j="hnz" app:a23="hnz" app:a26="@id/c3s" />
+    <TextView android:textSize="16.0sp" android:textColor="#0c0d1d" android:gravity="center" android:id="@id/c3n" android:background="@drawable/ss_detail_page_select_bg" android:visibility="invisible" android:layout_width="130.0dp" android:layout_height="36.0dp" android:layout_marginTop="20.0dp" android:text="@string/htl" app:a1j="hnz" app:a23="hnz" app:a26="@id/c3s" />
+    <TextView android:textSize="16.0dp" android:textColor="#0c0d1d" android:gravity="center" android:id="@id/c3o" android:background="@drawable/ss_detail_page_select_bg" android:visibility="invisible" android:layout_width="130.0dp" android:layout_height="36.0dp" android:layout_marginTop="20.0dp" android:text="@string/htm" app:a1j="hnz" app:a23="hnz" app:a26="@id/c3s" />
+</androidx.constraintlayout.widget.ConstraintLayout>

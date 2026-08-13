@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout android:background="@drawable/transparent" android:layout_width="match_parent" android:layout_height="match_parent"
+  xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">
+    <androidx.constraintlayout.widget.ConstraintLayout android:id="@id/btb" android:background="@drawable/dislike_block_dialog_main_bg" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginLeft="39.5dp" android:layout_marginRight="39.5dp" android:layout_marginStart="39.5dp" android:layout_marginEnd="39.5dp" app:a1e="@id/ecc" app:a1j="hnz" app:a1t="0.5" app:a23="hnz" app:a27="hnz" app:a28="0.5" app:a29="hmg">
+        <com.tencent.qqmusic.ui.RoundedRelativeLayout android:id="@id/j_v" android:layout_width="match_parent" android:layout_height="wrap_content" app:a1j="hnz" app:a23="hnz" app:a27="hnz" app:adm="fwy|je9" app:ado="@dimen/r4">
+            <ImageView android:layout_width="match_parent" android:layout_height="wrap_content" android:src="@drawable/dislike_block_dialog_head_bg" android:scaleType="centerCrop" />
+        </com.tencent.qqmusic.ui.RoundedRelativeLayout>
+        <TextView android:textSize="14.0sp" android:textStyle="bold" android:textColor="@color/black" android:id="@id/m8h" android:layout_width="0.0dp" android:layout_height="wrap_content" android:layout_marginLeft="21.5dp" android:layout_marginTop="32.5dp" android:layout_marginRight="21.5dp" android:lineSpacingExtra="4.0dp" app:a1j="hnz" app:a23="hnz" app:a26="@id/j_v" />
+        <Button android:textSize="18.0sp" android:textStyle="bold" android:textColor="@color/white" android:id="@id/ecd" android:background="@drawable/dislike_block_dialog_confirm_btn_bg" android:layout_width="200.0dp" android:layout_height="35.0dp" android:layout_marginTop="27.5dp" android:layout_marginBottom="36.0dp" android:text="@string/asz" app:a1d="hnz" app:a1j="hnz" app:a23="hnz" app:a26="@id/m8h" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+    <ImageView android:layout_gravity="center_horizontal" android:id="@id/ecc" android:background="@drawable/dialog_fragment_btn_close" android:layout_width="30.0dp" android:layout_height="30.0dp" android:layout_marginTop="24.0dp" app:a1d="hnz" app:a1j="hnz" app:a1t="0.5" app:a23="hnz" app:a26="@id/btb" />
+</androidx.constraintlayout.widget.ConstraintLayout>

@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout android:orientation="vertical" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginRight="11.0dp"
+  xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">
+    <com.tencent.component.widget.AsyncEffectImageView android:id="@id/ngf" android:layout_width="30.0dp" android:layout_height="30.0dp" app:ado="4.0dp" />
+    <com.tencent.component.widget.AsyncEffectImageView android:layout_gravity="right|bottom" android:id="@id/ngg" android:layout_width="10.0dp" android:layout_height="10.0dp" />
+</FrameLayout>

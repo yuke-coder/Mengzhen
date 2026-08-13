@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.tencent.qqmusic.business.playernew.view.playersong.playersongvideo.view.FixedConstraintLayout android:id="@id/i6b" android:layout_width="match_parent" android:layout_height="wrap_content"
+  xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">
+    <androidx.constraintlayout.widget.ConstraintLayout android:id="@id/i61" android:layout_width="match_parent" android:layout_height="wrap_content">
+        <ImageView android:id="@id/i62" android:layout_width="0.0dp" android:layout_height="0.0dp" android:scaleType="fitXY" android:importantForAccessibility="no" app:a1d="hnz" app:a1j="hnz" app:a23="hnz" app:a27="hnz" />
+        <TextView android:textSize="14.0sp" android:textColor="@color/white" android:ellipsize="end" android:gravity="start|center" android:id="@id/i63" android:layout_width="wrap_content" android:layout_height="@dimen/bhz" android:lines="1" app:a1d="hnz" app:a1x="hnz" />
+        <Space android:id="@id/i6c" android:layout_width="@dimen/bht" android:layout_height="@dimen/bht" android:importantForAccessibility="no" app:a1d="hnz" app:a1y="@id/i63" />
+        <TextView android:textSize="14.0sp" android:textColor="@color/white" android:ellipsize="end" android:gravity="start|center" android:id="@id/i64" android:visibility="gone" android:layout_width="wrap_content" android:layout_height="@dimen/bhz" android:lines="1" app:a1d="hnz" app:a1y="@id/i6c" />
+        <com.tencent.qqmusic.ui.viewpager.LoopViewPager android:id="@id/i67" android:clipChildren="false" android:layout_width="match_parent" android:layout_height="wrap_content" app:a1e="@id/i63" app:a1x="hnz" app:a21="hnz" />
+        <ImageView android:id="@id/i60" android:paddingLeft="15.0dp" android:paddingTop="7.0dp" android:paddingRight="15.0dp" android:paddingBottom="7.0dp" android:layout_width="45.0dp" android:layout_height="29.0dp" android:scaleType="fitXY" android:contentDescription="@string/a7j" app:a1e="@id/i67" app:a21="hnz" />
+        <include android:id="@id/i5x" android:layout_width="@dimen/bhi" android:layout_height="@dimen/bhh" android:layout_marginRight="@dimen/bhj" app:a1d="hnz" app:a21="hnz" layout="@layout/c9v" />
+        <include android:id="@id/i5y" android:layout_width="@dimen/bhi" android:layout_height="@dimen/bhh" android:layout_marginRight="@dimen/bhj" app:a1d="hnz" app:a21="hnz" layout="@layout/c9v" />
+        <include android:id="@id/i5z" android:layout_width="@dimen/bhi" android:layout_height="@dimen/bhh" android:layout_marginRight="@dimen/bhk" app:a1d="hnz" app:a21="hnz" layout="@layout/c9v" />
+        <View android:id="@id/i68" android:layout_width="@dimen/bhu" android:layout_height="@dimen/bhr" android:layout_marginRight="@dimen/bhj" android:layout_marginBottom="@dimen/bht" android:importantForAccessibility="no" app:a1d="hnz" app:a21="hnz" />
+        <TextView android:textSize="9.0dp" android:textStyle="bold" android:textColor="@color/black" android:gravity="center" android:id="@id/i65" android:background="@drawable/round_white" android:visibility="invisible" android:layout_width="16.0dp" android:layout_height="16.0dp" android:maxLines="1" app:a1e="@id/i5x" app:a1y="@id/i5z" app:a21="@id/i68" app:a27="@id/i5x" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</com.tencent.qqmusic.business.playernew.view.playersong.playersongvideo.view.FixedConstraintLayout>

@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout android:layout_width="wrap_content" android:layout_height="match_parent"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <com.tencent.component.widget.AsyncEffectImageView android:id="@id/gr7" android:layout_width="50.0dp" android:layout_height="50.0dp" android:layout_marginLeft="15.0dp" android:layout_marginTop="10.0dp" android:layout_marginRight="15.0dp" android:layout_centerHorizontal="true" />
+    <TextView android:textSize="12.0sp" android:textColor="@android:color/black" android:ellipsize="end" android:id="@id/gra" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="5.0dp" android:maxWidth="70.0dp" android:maxLines="1" android:layout_below="@id/gr7" android:layout_centerHorizontal="true" />
+</RelativeLayout>

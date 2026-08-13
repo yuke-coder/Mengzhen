@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout android:id="@id/gac" android:layout_width="match_parent" android:layout_height="match_parent"
+  xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">
+    <include android:id="@id/naf" android:layout_width="match_parent" android:layout_height="match_parent" layout="@layout/m6" />
+    <include android:id="@id/lvi" app:a1j="hnz" app:a23="hnz" app:a27="hnz" layout="@layout/n0" />
+    <androidx.constraintlayout.widget.ConstraintLayout android:id="@id/blv" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginLeft="20.0dp" android:layout_marginRight="20.0dp">
+        <ImageView android:id="@id/ds0" android:clickable="false" android:layout_width="match_parent" android:layout_height="5.0dp" android:layout_marginTop="7.0dp" android:src="@drawable/header_lt_rt_round" app:a26="@id/mpb" />
+        <androidx.constraintlayout.widget.ConstraintLayout android:id="@id/kza" android:background="@drawable/skin_mask_img" android:layout_width="match_parent" android:layout_height="wrap_content" app:a26="@id/ds0">
+            <androidx.constraintlayout.widget.ConstraintLayout android:id="@id/ew6" android:paddingLeft="16.0dp" android:paddingRight="16.0dp" android:layout_width="match_parent" android:layout_height="40.0dp" app:a27="hnz">
+                <androidx.appcompat.widget.AppCompatTextView android:textSize="15.0dp" android:textColor="@color/skin_text_main_color" android:id="@id/mps" android:clickable="false" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="默认模式" app:a1d="hnz" app:a1x="hnz" app:a27="hnz" />
+                <CheckBox android:id="@id/ay1" android:background="@drawable/checkbox_default_new" android:clickable="false" android:layout_width="20.0dp" android:layout_height="20.0dp" android:checked="true" android:button="@null" app:a1d="hnz" app:a21="hnz" app:a27="hnz" />
+            </androidx.constraintlayout.widget.ConstraintLayout>
+            <androidx.constraintlayout.widget.ConstraintLayout android:id="@id/evi" android:paddingLeft="16.0dp" android:paddingRight="16.0dp" android:layout_width="match_parent" android:layout_height="40.0dp" app:a26="@id/ew6">
+                <androidx.appcompat.widget.AppCompatTextView android:textSize="15.0dp" android:textColor="@color/skin_text_main_color" android:id="@id/mpp" android:clickable="false" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="简洁模式" app:a1d="hnz" app:a1x="hnz" app:a27="hnz" />
+                <CheckBox android:id="@id/axy" android:background="@drawable/checkbox_default_new" android:clickable="false" android:layout_width="20.0dp" android:layout_height="20.0dp" android:checked="true" android:button="@null" app:a1d="hnz" app:a21="hnz" app:a27="hnz" />
+            </androidx.constraintlayout.widget.ConstraintLayout>
+            <androidx.constraintlayout.widget.ConstraintLayout android:id="@id/et3" android:paddingLeft="16.0dp" android:paddingRight="16.0dp" android:layout_width="match_parent" android:layout_height="40.0dp" app:a26="@id/evi">
+                <androidx.appcompat.widget.AppCompatTextView android:textSize="15.0dp" android:textColor="@color/skin_text_main_color" android:id="@id/mpe" android:clickable="false" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="大字模式" app:a1d="hnz" app:a1x="hnz" app:a27="hnz" />
+                <CheckBox android:id="@id/axo" android:background="@drawable/checkbox_default_new" android:clickable="false" android:layout_width="20.0dp" android:layout_height="20.0dp" android:checked="false" android:button="@null" app:a1d="hnz" app:a21="hnz" app:a27="hnz" />
+            </androidx.constraintlayout.widget.ConstraintLayout>
+            <androidx.constraintlayout.widget.ConstraintLayout android:id="@id/ev7" android:paddingLeft="16.0dp" android:paddingRight="16.0dp" android:visibility="gone" android:layout_width="match_parent" android:layout_height="40.0dp" app:a26="@id/et3">
+                <androidx.appcompat.widget.AppCompatTextView android:textSize="15.0dp" android:textColor="@color/skin_text_main_color" android:id="@id/mpm" android:clickable="false" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="尊贵模式" app:a1d="hnz" app:a1x="hnz" app:a27="hnz" />
+                <com.tencent.component.widget.AsyncImageView android:id="@id/drd" android:layout_width="17.0dp" android:layout_height="17.0dp" android:layout_marginLeft="5.0dp" android:src="@drawable/huge_vip_mode_flag_icon" app:a1d="hnz" app:a1y="@id/mpm" app:a27="hnz" />
+                <CheckBox android:id="@id/axu" android:background="@drawable/checkbox_default_new" android:clickable="false" android:layout_width="20.0dp" android:layout_height="20.0dp" android:checked="false" android:button="@null" app:a1d="hnz" app:a21="hnz" app:a27="hnz" />
+            </androidx.constraintlayout.widget.ConstraintLayout>
+        </androidx.constraintlayout.widget.ConstraintLayout>
+        <ImageView android:id="@id/drz" android:layout_width="match_parent" android:layout_height="5.0dp" android:src="@drawable/footer_lb_rb_round" app:a26="@id/kza" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+    <View android:layout_width="match_parent" android:layout_height="@dimen/l9" app:a1x="hnz" app:a26="@id/lvi" />
+</androidx.constraintlayout.widget.ConstraintLayout>

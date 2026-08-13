@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout android:layout_width="match_parent" android:layout_height="match_parent"
+  xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">
+    <ImageView android:id="@id/f2i" android:layout_width="320.0dp" android:layout_height="320.0dp" android:layout_marginTop="140.0dp" app:a1x="hnz" app:a21="hnz" app:a27="hnz" />
+    <ImageView android:id="@id/a3c" android:layout_width="200.0dp" android:layout_height="200.0dp" android:layout_marginTop="200.0dp" android:src="@drawable/default_avatar" app:a1x="hnz" app:a21="hnz" app:a27="hnz" />
+    <TextView android:textSize="20.0dp" android:textStyle="bold" android:textColor="@color/white" android:id="@id/mrh" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="30.0dp" android:text="CHUU" app:a1x="hnz" app:a21="hnz" app:a26="@id/a3c" />
+    <TextView android:textSize="12.0dp" android:textColor="@color/white_50_opacity" android:id="@id/mri" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="语音 · 0:15" app:a1x="hnz" app:a21="hnz" app:a26="@id/mrh" />
+    <ImageView android:id="@id/nq1" android:layout_width="240.0dp" android:layout_height="40.0dp" android:layout_marginTop="120.0dp" app:a1x="hnz" app:a21="hnz" app:a26="@id/mri" />
+</androidx.constraintlayout.widget.ConstraintLayout>

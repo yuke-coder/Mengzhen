@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout android:orientation="horizontal" android:id="@id/hzz" android:background="@drawable/bg_player_long_audio_free_mode" android:paddingLeft="10.0dp" android:paddingTop="3.0dp" android:paddingRight="10.0dp" android:paddingBottom="3.0dp" android:layout_width="match_parent" android:layout_height="match_parent" android:paddingHorizontal="10.0dp" android:paddingVertical="3.0dp"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <TextView android:textSize="11.0sp" android:textColor="@color/white" android:id="@id/i00" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="体验会员" />
+    <TextView android:textSize="11.0sp" android:textColor="@color/white" android:id="@id/i02" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginStart="4.0dp" />
+</LinearLayout>

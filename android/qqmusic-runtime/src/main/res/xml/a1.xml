@@ -1,0 +1,3 @@
+<?xml version="1.0" encoding="utf-8"?>
+<card-provider app:tm="@mipmap/e" app:tn="@string/app_name" app:aac="@string/app_name" app:aad="n" app:aai="mre" app:aaj="156" app:ac5="@drawable/oppo_card_preview_2x2"
+  xmlns:app="http://schemas.android.com/apk/res-auto" />

@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout android:background="@drawable/skin_sub_mask_img" android:layout_width="match_parent" android:layout_height="match_parent"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <RelativeLayout android:id="@id/k75" android:background="@android:color/transparent" android:layout_width="match_parent" android:layout_height="wrap_content">
+        <com.tencent.component.widget.AsyncEffectImageView android:layout_gravity="fill" android:id="@id/cuy" android:layout_width="match_parent" android:layout_height="match_parent" android:scaleType="centerCrop" android:contentDescription="@string/h_6" android:alpha="0.0" />
+        <com.tencent.component.widget.AsyncEffectImageView android:layout_gravity="fill" android:id="@id/cvt" android:visibility="invisible" android:layout_width="match_parent" android:layout_height="match_parent" android:src="@drawable/default_avatar_rectangle" android:scaleType="centerCrop" android:contentDescription="@string/h_6" android:alpha="1.0" />
+        <ImageView android:layout_gravity="fill" android:background="@drawable/title_matte" android:visibility="visible" android:layout_width="match_parent" android:layout_height="match_parent" android:scaleType="centerCrop" />
+        <include android:id="@id/aui" android:layout_width="wrap_content" android:layout_height="@dimen/v7" android:layout_alignParentBottom="true" layout="@layout/kq" />
+        <RelativeLayout android:gravity="center" android:id="@id/d0a" android:background="@drawable/singer_fragment_label_shape" android:visibility="gone" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginBottom="15.0dp" android:layout_above="@id/aui" android:layout_alignParentRight="true" android:layout_alignWithParentIfMissing="true">
+            <TextView android:textColor="@color/white" android:layout_gravity="center" android:id="@id/cvl" android:background="@null" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/h_5" android:singleLine="true" />
+        </RelativeLayout>
+        <LinearLayout android:gravity="center_vertical" android:orientation="horizontal" android:id="@id/cur" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginBottom="15.0dp" android:layout_above="@id/aui" android:layout_centerHorizontal="true" android:layout_alignWithParentIfMissing="true">
+            <com.tencent.qqmusic.ui.FollowButton android:id="@id/cup" android:layout_width="@dimen/v2" android:layout_height="@dimen/v1" />
+            <LinearLayout android:gravity="center" android:id="@id/d0_" android:background="@drawable/follow_btn_bg" android:layout_width="@dimen/v2" android:layout_height="@dimen/v1" android:layout_marginLeft="8.0dp">
+                <Button android:textColor="@color/white" android:id="@id/cvk" android:background="@null" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/h_5" android:singleLine="true" />
+            </LinearLayout>
+            <Button android:textColor="@color/white" android:ellipsize="end" android:id="@id/cuz" android:background="@drawable/follow_btn_bg" android:visibility="gone" android:layout_width="@dimen/v2" android:layout_height="@dimen/v1" android:layout_marginLeft="8.0dp" android:text="@string/fu0" android:maxLines="1" />
+        </LinearLayout>
+        <LinearLayout android:gravity="center" android:layout_gravity="center_horizontal" android:orientation="horizontal" android:id="@id/cuu" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="5.0dp" android:layout_marginBottom="12.0dp" android:layout_above="@id/cur" android:layout_centerHorizontal="true">
+            <TextView android:textSize="12.0sp" android:textColor="@color/white" android:gravity="center" android:id="@id/cuv" android:background="@android:color/transparent" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginLeft="3.0dp" android:layout_marginRight="3.0dp" android:maxHeight="20.0dp" android:singleLine="true" android:includeFontPadding="false" />
+            <ImageView android:id="@id/cus" android:visibility="gone" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginLeft="4.0dp" android:layout_marginRight="4.0dp" android:src="@drawable/singer_fans_extra_info" />
+        </LinearLayout>
+        <RelativeLayout android:id="@id/cvm" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginLeft="20.0dp" android:layout_marginRight="20.0dp" android:layout_above="@id/cuu" android:layout_centerHorizontal="true">
+            <com.tencent.qqmusic.activity.newplayeractivity.ui.ScrollMoreTextView android:textSize="25.0sp" android:textColor="@color/white" android:gravity="center" android:id="@id/cuw" android:layout_width="wrap_content" android:layout_height="wrap_content" android:singleLine="true" android:layout_centerHorizontal="true" android:contentDescription="@string/h_g" />
+            <com.tencent.component.widget.AsyncImageView android:id="@id/cuq" android:layout_width="17.0dp" android:layout_height="17.0dp" android:layout_marginLeft="6.0dp" android:layout_toRightOf="@id/cuw" android:layout_centerVertical="true" />
+        </RelativeLayout>
+        <com.tencent.component.widget.AsyncEffectImageView android:layout_gravity="center" android:id="@id/cux" android:visibility="invisible" android:layout_width="70.0dp" android:layout_height="70.0dp" android:layout_marginBottom="8.0dp" android:src="@drawable/default_avatar_singer" android:scaleType="fitXY" android:layout_above="@id/cvm" android:layout_centerHorizontal="true" android:contentDescription="@string/h_6" />
+    </RelativeLayout>
+</RelativeLayout>

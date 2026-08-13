@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<kk.design.layout.KKConstraintLayout android:id="@id/ifn" android:visibility="gone" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginBottom="10.0dp" app:a1e="@id/if6" app:a1x="hnz" app:a21="hnz"
+  xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">
+    <kk.design.layout.KKArrowLayout android:clipChildren="false" android:layout_width="wrap_content" android:layout_height="56.0dp" app:wr="#ef282828" app:wt="dcl" app:wv="aax" app:ww="8.0dp" app:wx="16.5dp" app:wy="8.0dp" app:a23="hnz">
+        <TextView android:textSize="14.0sp" android:textColor="#ffffff" android:id="@id/ia4" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginLeft="10.0dp" android:layout_marginRight="10.0dp" android:text="发布作品让更多人看到" android:layout_marginHorizontal="10.0dp" app:a1d="hnz" app:a1j="hnz" app:a23="hnz" app:a27="hnz" />
+    </kk.design.layout.KKArrowLayout>
+</kk.design.layout.KKConstraintLayout>

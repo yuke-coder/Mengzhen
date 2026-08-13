@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.tencent.qqmusic.ui.RoundedConstraintLayout android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginRight="6.0dp" app:kj="50.0dp"
+  xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">
+    <LinearLayout android:gravity="center_vertical" android:orientation="horizontal" android:id="@id/b_d" android:paddingLeft="10.0dp" android:paddingTop="7.5dp" android:paddingRight="14.0dp" android:paddingBottom="7.5dp" android:layout_width="wrap_content" android:layout_height="wrap_content" android:paddingVertical="7.5dp">
+        <ImageView android:layout_gravity="center_vertical" android:id="@id/did" android:layout_width="wrap_content" android:layout_height="20.0dp" android:src="@drawable/icon_comment_topic" android:adjustViewBounds="true" />
+        <androidx.appcompat.widget.AppCompatTextView android:textSize="12.0dp" android:textColor="@color/default_text_main_color" android:layout_gravity="center_vertical" android:id="@id/m06" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginLeft="2.0dp" />
+    </LinearLayout>
+</com.tencent.qqmusic.ui.RoundedConstraintLayout>

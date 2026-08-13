@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout android:layout_width="wrap_content" android:layout_height="wrap_content"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <RelativeLayout android:id="@id/gg9" android:layout_width="140.0dp" android:layout_height="140.0dp" android:importantForAccessibility="no">
+        <com.tencent.component.widget.AsyncEffectImageView android:id="@id/gga" android:layout_width="140.0dp" android:layout_height="140.0dp" android:importantForAccessibility="no" />
+        <ImageView android:layout_width="31.699982dp" android:layout_height="11.699982dp" android:layout_marginLeft="10.0dp" android:layout_marginBottom="10.0dp" android:src="@drawable/recommend_fanlive_label_icon_v20" android:layout_alignParentBottom="true" android:layout_alignParentStart="true" />
+        <LinearLayout android:gravity="center_vertical" android:orientation="horizontal" android:id="@id/gfq" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginRight="10.0dp" android:layout_marginBottom="10.0dp" android:layout_alignParentBottom="true" android:layout_alignParentEnd="true">
+            <androidx.appcompat.widget.AppCompatTextView android:textSize="9.0dp" android:textStyle="bold" android:textColor="@android:color/white" android:gravity="center" android:layout_gravity="center_vertical" android:id="@id/gfr" android:layout_width="wrap_content" android:layout_height="wrap_content" android:importantForAccessibility="no" />
+        </LinearLayout>
+    </RelativeLayout>
+    <com.tencent.qqmusic.modular.framework.ui.text.SimpleTextView android:id="@id/gkb" android:layout_width="0.0dp" android:layout_height="14.0dp" android:layout_marginTop="6.0dp" android:layout_below="@id/gg9" android:layout_alignLeft="@id/gg9" android:layout_alignRight="@id/gg9" android:importantForAccessibility="no" android:layout_alignStart="@id/gg9" android:layout_alignEnd="@id/gg9" />
+    <androidx.appcompat.widget.AppCompatTextView android:textSize="12.0dp" android:textColor="@color/skin_text_mid_color" android:ellipsize="end" android:id="@id/gk5" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="3.0dp" android:lines="1" android:includeFontPadding="false" android:layout_below="@id/gkb" android:layout_alignLeft="@id/gg9" android:layout_alignRight="@id/gg9" android:layout_alignStart="@id/gg9" android:layout_alignEnd="@id/gg9" />
+</RelativeLayout>

@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout android:background="@drawable/main_bg" android:layout_width="match_parent" android:layout_height="match_parent"
+  xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">
+    <FrameLayout android:id="@id/n4j" android:layout_width="match_parent" android:layout_height="match_parent" android:layout_centerInParent="true" />
+    <View android:id="@id/d2c" android:layout_width="match_parent" android:layout_height="1.0px" android:layout_marginTop="52.0dp" />
+    <TextView android:textSize="10.0sp" android:id="@id/bew" android:layout_width="50.0dp" android:layout_height="wrap_content" android:layout_marginLeft="10.0dp" android:layout_above="@id/d2c" android:layout_alignBottom="@id/d2c" />
+    <TextView android:textSize="10.0sp" android:gravity="center" android:id="@id/m0p" android:layout_width="50.0dp" android:layout_height="wrap_content" android:layout_toRightOf="@id/bew" android:layout_above="@id/d2c" android:layout_alignBottom="@id/d2c" />
+    <SeekBar android:id="@id/jpc" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_below="@id/d2c" />
+    <Spinner android:id="@id/jh1" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_below="@id/jpc" />
+</RelativeLayout>

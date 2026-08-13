@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout android:id="@id/mz1" android:layout_width="match_parent" android:layout_height="match_parent"
+  xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">
+    <androidx.constraintlayout.widget.ConstraintLayout android:id="@id/mwi" android:layout_width="40.0dp" android:layout_height="40.0dp" app:a1x="hnz" app:a27="hnz">
+        <com.tencent.qqmusic.business.live.ui.view.RoundAvatarImage android:id="@id/jdp" android:layout_width="40.0dp" android:layout_height="40.0dp" android:scaleType="centerCrop" app:a1x="hnz" app:a27="hnz" />
+        <com.tencent.qqmusic.ui.RoundedConstraintLayout android:layout_width="40.0dp" android:layout_height="40.0dp" app:ki="fwy|je9|ezp|isw" app:kj="@dimen/bm" app:a1x="hnz" app:a27="hnz">
+            <com.tencent.component.widget.AsyncEffectImageView android:id="@id/kqj" android:layout_width="40.0dp" android:layout_height="40.0dp" android:scaleType="centerCrop" app:a1x="hnz" app:a27="hnz" />
+        </com.tencent.qqmusic.ui.RoundedConstraintLayout>
+        <com.tencent.component.widget.AsyncEffectImageView android:id="@id/djo" android:layout_width="14.0dp" android:layout_height="14.0dp" app:a1d="@id/jdp" app:a21="@id/jdp" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+    <androidx.constraintlayout.widget.ConstraintLayout android:layout_width="0.0dp" android:layout_height="40.0dp" app:a1j="hnz" app:a1y="@id/mwi" app:a21="hnz" app:a22="@id/mwi" app:a27="hnz" app:a2b="kqe">
+        <TextView android:textSize="14.0dp" android:textColor="@color/skin_text_main_color" android:ellipsize="end" android:id="@id/mz_" android:layout_width="0.0dp" android:layout_height="wrap_content" android:layout_marginLeft="10.0dp" android:layout_marginTop="2.0dp" android:layout_marginRight="16.0dp" android:text="喜欢小狗的钱钱" android:maxLines="1" app:a1x="hnz" app:a20="@id/cq_" app:a27="hnz" />
+        <TextView android:textSize="14.0dp" android:textColor="@color/skin_text_main_color" android:ellipsize="end" android:id="@id/avi" android:visibility="gone" android:layout_width="0.0dp" android:layout_height="wrap_content" android:layout_marginLeft="10.0dp" android:layout_marginRight="16.0dp" android:text="喜欢小狗的钱钱" android:maxLines="1" app:a1d="hnz" app:a1x="hnz" app:a20="@id/cq_" app:a27="hnz" />
+        <TextView android:textSize="10.0dp" android:textColor="@color/skin_text_sub_color" android:ellipsize="end" android:id="@id/mwz" android:layout_width="0.0dp" android:layout_height="wrap_content" android:layout_marginRight="16.0dp" android:layout_marginBottom="2.0dp" android:text="欧美音乐咨询达人" android:maxLines="1" app:a1d="hnz" app:a1x="@id/mz_" app:a20="@id/cq_" />
+        <com.tencent.qqmusic.follow.FollowPlusButton android:id="@id/cq_" android:layout_width="wrap_content" android:layout_height="wrap_content" app:a1d="hnz" app:a21="hnz" app:a27="hnz" app:aif="0" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>

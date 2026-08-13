@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout android:orientation="horizontal" android:id="@id/etf" android:layout_width="match_parent" android:layout_height="50.0dp"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <TextView android:textSize="15.0dp" android:textColor="@color/common_dialog_button_text_normal_color" android:gravity="center" android:id="@id/hc7" android:layout_width="0.0dp" android:layout_height="match_parent" android:text="取消" android:layout_weight="1.0" />
+    <View android:id="@id/n2n" android:background="@color/common_dialog_spit_line_color" android:layout_width="0.5dp" android:layout_height="match_parent" />
+    <TextView android:textSize="15.0dp" android:textColor="@color/common_dialog_button_text_highlight_color" android:gravity="center" android:id="@id/id1" android:layout_width="0.0dp" android:layout_height="match_parent" android:text="确认" android:layout_weight="1.0" />
+</LinearLayout>

@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView android:orientation="vertical" android:layout_width="match_parent" android:layout_height="match_parent"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <LinearLayout android:gravity="center_horizontal" android:orientation="vertical" android:layout_width="match_parent" android:layout_height="match_parent">
+        <ImageView android:id="@id/f3q" android:background="@drawable/empty_music_list" android:layout_width="@dimen/list_empty_image_length" android:layout_height="@dimen/list_empty_image_length" android:layout_marginTop="@dimen/to" />
+        <TextView android:textSize="16.0sp" android:textColor="@color/empty_view_color" android:gravity="center_horizontal" android:id="@id/f3s" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginTop="@dimen/tq" android:text="@string/cf2" android:singleLine="true" />
+        <TextView android:textSize="14.0sp" android:textColor="@color/empty_view_color" android:gravity="center|top" android:id="@id/f3o" android:paddingLeft="15.0dp" android:paddingRight="15.0dp" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginTop="@dimen/tn" android:lineSpacingExtra="4.0dp" />
+        <Button android:textSize="12.0dp" android:textColor="@color/skin_action_button_text" android:ellipsize="end" android:gravity="center" android:id="@id/f3m" android:background="@drawable/empty_view_round_button_border" android:paddingLeft="10.0dp" android:paddingTop="5.0dp" android:paddingRight="10.0dp" android:paddingBottom="5.0dp" android:visibility="invisible" android:layout_width="wrap_content" android:layout_height="30.0dp" android:layout_marginTop="25.0dp" android:singleLine="true" android:includeFontPadding="false" />
+        <FrameLayout android:id="@id/f3p" android:visibility="gone" android:layout_width="match_parent" android:layout_height="0.0dp" android:layout_marginTop="20.0dp" android:layout_weight="1.0" />
+    </LinearLayout>
+</ScrollView>

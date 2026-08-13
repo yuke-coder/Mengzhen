@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout android:background="@drawable/setting_list_item_bg" android:layout_width="match_parent" android:layout_height="wrap_content" android:minHeight="60.0dp"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <LinearLayout android:orientation="vertical" android:id="@id/fx7" android:background="@drawable/my_music_green_bg" android:layout_width="match_parent" android:layout_height="wrap_content">
+        <include android:id="@id/lv1" android:layout_width="match_parent" android:layout_height="@dimen/cau" layout="@layout/mu" />
+    </LinearLayout>
+    <LinearLayout android:orientation="vertical" android:id="@id/b_d" android:layout_width="match_parent" android:layout_height="match_parent" android:layout_below="@id/fx7">
+        <ListView android:id="@id/gy8" android:paddingLeft="@dimen/acj" android:paddingTop="@dimen/acl" android:paddingRight="@dimen/acj" android:paddingBottom="@dimen/ach" android:scrollbars="none" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginLeft="@dimen/c18" android:layout_marginRight="@dimen/c19" android:cacheColorHint="#00000000" android:divider="#00000000" android:overScrollMode="never" />
+        <RelativeLayout android:id="@id/f3t" android:paddingLeft="5.0dp" android:paddingTop="5.0dp" android:paddingRight="5.0dp" android:paddingBottom="5.0dp" android:layout_width="match_parent" android:layout_height="50.0dp">
+            <TextView android:textSize="16.0sp" android:textColor="@color/skin_highlight_color" android:ellipsize="end" android:id="@id/bkl" android:visibility="visible" android:layout_width="wrap_content" android:layout_height="match_parent" android:singleLine="true" android:layout_centerVertical="true" />
+            <ImageButton android:id="@id/l2q" android:background="@color/transparent" android:visibility="visible" android:layout_width="64.0dp" android:layout_height="28.0dp" android:layout_alignParentRight="true" android:layout_centerVertical="true" />
+            <TextView android:textSize="16.0sp" android:textColor="@color/skin_highlight_color" android:id="@id/e36" android:visibility="visible" android:layout_width="wrap_content" android:layout_height="match_parent" android:singleLine="true" android:layout_toLeftOf="@id/l2q" android:layout_centerVertical="true" />
+            <ImageView android:id="@id/k0z" android:background="@drawable/my_music_green_bg" android:layout_width="match_parent" android:layout_height="1.0dp" android:layout_alignParentBottom="true" />
+        </RelativeLayout>
+        <RelativeLayout android:id="@id/f3y" android:paddingLeft="5.0dp" android:paddingTop="5.0dp" android:paddingRight="5.0dp" android:paddingBottom="5.0dp" android:layout_width="match_parent" android:layout_height="50.0dp">
+            <TextView android:textSize="16.0sp" android:textColor="@color/skin_highlight_color" android:ellipsize="end" android:id="@id/m13" android:visibility="visible" android:layout_width="wrap_content" android:layout_height="match_parent" android:singleLine="true" android:layout_centerVertical="true" />
+            <ImageButton android:id="@id/m15" android:background="@color/transparent" android:visibility="visible" android:layout_width="64.0dp" android:layout_height="28.0dp" android:layout_alignParentRight="true" android:layout_centerVertical="true" />
+            <ImageView android:id="@id/m14" android:background="@drawable/my_music_green_bg" android:layout_width="match_parent" android:layout_height="1.0dp" android:layout_alignParentBottom="true" />
+        </RelativeLayout>
+        <RelativeLayout android:id="@id/f3w" android:paddingLeft="5.0dp" android:paddingTop="5.0dp" android:paddingRight="5.0dp" android:paddingBottom="5.0dp" android:layout_width="match_parent" android:layout_height="50.0dp">
+            <TextView android:textSize="16.0sp" android:textColor="@color/skin_highlight_color" android:ellipsize="end" android:id="@id/fjg" android:visibility="visible" android:layout_width="wrap_content" android:layout_height="match_parent" android:text="@string/gi4" android:singleLine="true" android:layout_centerVertical="true" />
+            <ImageButton android:id="@id/fjh" android:background="@color/transparent" android:visibility="visible" android:layout_width="64.0dp" android:layout_height="28.0dp" android:layout_alignParentRight="true" android:layout_centerVertical="true" />
+            <ImageView android:id="@id/fji" android:background="@drawable/my_music_green_bg" android:layout_width="match_parent" android:layout_height="1.0dp" android:layout_alignParentBottom="true" />
+        </RelativeLayout>
+        <RelativeLayout android:id="@id/f3v" android:paddingLeft="5.0dp" android:paddingTop="5.0dp" android:paddingRight="5.0dp" android:paddingBottom="5.0dp" android:layout_width="match_parent" android:layout_height="50.0dp">
+            <TextView android:textSize="16.0sp" android:textColor="@color/skin_highlight_color" android:ellipsize="end" android:id="@id/e0p" android:visibility="visible" android:layout_width="wrap_content" android:layout_height="match_parent" android:text="@string/exc" android:singleLine="true" android:layout_centerVertical="true" />
+            <ImageButton android:id="@id/e0q" android:background="@color/transparent" android:visibility="visible" android:layout_width="64.0dp" android:layout_height="28.0dp" android:layout_alignParentRight="true" android:layout_centerVertical="true" />
+            <ImageView android:id="@id/e0r" android:background="@drawable/my_music_green_bg" android:layout_width="match_parent" android:layout_height="1.0dp" android:layout_alignParentBottom="true" />
+        </RelativeLayout>
+        <RelativeLayout android:id="@id/f3x" android:paddingLeft="5.0dp" android:paddingTop="5.0dp" android:paddingRight="5.0dp" android:paddingBottom="5.0dp" android:layout_width="match_parent" android:layout_height="50.0dp">
+            <TextView android:textSize="16.0dp" android:textColor="@color/skin_highlight_color" android:ellipsize="end" android:id="@id/hpp" android:visibility="visible" android:layout_width="wrap_content" android:layout_height="match_parent" android:text="@string/eq5" android:singleLine="true" android:layout_centerVertical="true" />
+            <ImageButton android:id="@id/hpq" android:background="@color/transparent" android:visibility="visible" android:layout_width="64.0dp" android:layout_height="28.0dp" android:layout_alignParentRight="true" android:layout_centerVertical="true" />
+            <ImageView android:id="@id/hpr" android:background="@drawable/my_music_green_bg" android:layout_width="match_parent" android:layout_height="1.0dp" android:layout_alignParentBottom="true" />
+        </RelativeLayout>
+        <RelativeLayout android:id="@id/f3z" android:paddingLeft="5.0dp" android:paddingTop="5.0dp" android:paddingRight="5.0dp" android:paddingBottom="5.0dp" android:layout_width="match_parent" android:layout_height="50.0dp">
+            <TextView android:textSize="16.0dp" android:textColor="@color/skin_highlight_color" android:ellipsize="end" android:id="@id/mv4" android:layout_width="wrap_content" android:layout_height="match_parent" android:text="@string/eq9" android:singleLine="true" android:layout_centerVertical="true" />
+            <ImageView android:id="@id/mv5" android:background="@drawable/my_music_green_bg" android:layout_width="match_parent" android:layout_height="1.0dp" android:layout_alignParentBottom="true" />
+        </RelativeLayout>
+        <RelativeLayout android:id="@id/f3u" android:paddingLeft="5.0dp" android:paddingTop="5.0dp" android:paddingRight="5.0dp" android:paddingBottom="5.0dp" android:layout_width="match_parent" android:layout_height="50.0dp">
+            <TextView android:textSize="16.0sp" android:textColor="@color/skin_highlight_color" android:ellipsize="end" android:id="@id/b2e" android:visibility="visible" android:layout_width="wrap_content" android:layout_height="match_parent" android:text="@string/epu" android:singleLine="true" android:layout_centerVertical="true" />
+        </RelativeLayout>
+        <FrameLayout android:id="@id/kzy" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginTop="10.0dp">
+            <Button android:layout_gravity="center_horizontal" android:id="@id/kzx" android:layout_width="200.0dp" android:layout_height="wrap_content" android:text="@string/epr" />
+        </FrameLayout>
+    </LinearLayout>
+</RelativeLayout>

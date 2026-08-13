@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<merge android:layout_width="match_parent" android:layout_height="match_parent"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <com.tencent.qqmusic.business.timeline.ui.refreshable.RefreshableRecyclerViewNew android:id="@id/f9i" android:layout_width="match_parent" android:layout_height="match_parent" android:overScrollMode="never" android:paddingStart="16.0dp" android:paddingEnd="16.0dp" />
+    <ViewStub android:id="@id/f8x" android:layout="@layout/ye" android:layout_width="match_parent" android:layout_height="match_parent" />
+</merge>

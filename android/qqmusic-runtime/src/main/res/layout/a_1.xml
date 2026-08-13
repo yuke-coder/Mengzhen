@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout android:orientation="vertical" android:clipChildren="false" android:layout_width="match_parent" android:layout_height="wrap_content"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <include layout="@layout/cyy" />
+    <View android:id="@id/na9" android:layout_width="match_parent" android:layout_height="0.5dp" android:layout_marginLeft="19.0dp" />
+    <EditText android:textSize="14.0sp" android:textColor="@color/skin_text_main_color" android:textColorHint="@color/skin_text_guide_color" android:gravity="left|center" android:id="@id/c2j" android:background="@color/transparent" android:padding="16.0dp" android:scrollbars="vertical" android:layout_width="match_parent" android:layout_height="wrap_content" android:minHeight="67.0dp" android:hint="@string/bam" android:maxLines="9" android:maxLength="100" android:textCursorDrawable="@drawable/bg_mention_edittext_cursor" android:lineHeight="19.0dp" />
+    <TextView android:textSize="12.0sp" android:textColor="@color/skin_text_sub_color" android:layout_gravity="right" android:id="@id/m73" android:visibility="gone" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="11.0dp" android:layout_marginRight="16.0dp" android:layout_marginBottom="16.0dp" />
+    <View android:id="@id/n_u" android:layout_width="match_parent" android:layout_height="10.0dp" />
+</LinearLayout>

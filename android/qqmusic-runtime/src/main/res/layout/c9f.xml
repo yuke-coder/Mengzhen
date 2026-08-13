@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout android:layout_width="match_parent" android:layout_height="match_parent"
+  xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">
+    <include android:id="@id/i6j" android:layout_width="128.0dp" android:layout_height="72.0dp" android:layout_marginLeft="10.0dp" app:a23="hnz" app:a27="hnz" layout="@layout/c9v" />
+    <FrameLayout android:id="@id/i6_" android:visibility="visible" android:layout_width="128.0dp" android:layout_height="72.0dp" android:layout_marginLeft="10.0dp" app:a23="hnz" app:a27="hnz" />
+    <com.tencent.component.widget.AsyncImageView android:id="@id/i6l" android:layout_width="19.0dp" android:layout_height="11.0dp" android:layout_marginLeft="10.0dp" android:layout_marginTop="10.0dp" android:scaleType="centerCrop" app:a22="@id/i6j" app:a27="hnz" />
+    <TextView android:textSize="14.0sp" android:textColor="@color/white" android:ellipsize="end" android:id="@id/i6m" android:layout_width="0.0dp" android:layout_height="wrap_content" android:layout_marginLeft="10.0dp" android:layout_marginTop="6.0dp" android:layout_marginRight="15.0dp" android:maxLines="2" android:includeFontPadding="false" app:a1j="hnz" app:a22="@id/i6j" app:a26="@id/i6l" />
+</androidx.constraintlayout.widget.ConstraintLayout>

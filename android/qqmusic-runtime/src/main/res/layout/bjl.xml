@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout android:layout_width="match_parent" android:layout_height="wrap_content"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <org.libpag.PAGView android:id="@id/mlive_preview_anchor_linked_speaking" android:layout_width="match_parent" android:layout_height="41.5dp" android:layout_alignParentBottom="true" />
+</RelativeLayout>

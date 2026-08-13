@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout android:layout_width="match_parent" android:layout_height="70.0dp"
+  xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">
+    <ImageView android:id="@id/d_z" android:layout_width="40.0dp" android:layout_height="40.0dp" android:layout_marginLeft="20.0dp" android:src="@drawable/download_finish_notification_area_large" app:a1d="hnz" app:a1x="hnz" app:a27="hnz" />
+    <TextView android:textSize="15.0sp" android:textStyle="bold" android:textColor="@color/skin_text_main_color" android:id="@id/da2" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginLeft="10.0dp" android:maxLines="1" app:a1y="@id/d_z" app:a27="@id/d_z" />
+    <TextView android:textSize="12.0sp" android:textColor="@color/skin_text_sub_color" android:id="@id/da1" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginLeft="10.0dp" android:text="您下载的应用已完成" android:maxLines="1" app:a1d="@id/d_z" app:a1y="@id/d_z" />
+    <TextView android:textColor="@color/white" android:gravity="center" android:id="@id/da0" android:background="@drawable/bg_solid_button" android:layout_width="60.0dp" android:layout_height="30.0dp" android:layout_marginRight="10.0dp" android:text="安装" android:maxLines="1" app:a1d="hnz" app:a20="@id/d_y" app:a27="hnz" />
+    <ImageView android:id="@id/d_y" android:layout_width="30.0dp" android:layout_height="30.0dp" android:layout_marginRight="10.0dp" android:src="@drawable/ic_bt_close" app:a1d="hnz" app:a21="hnz" app:a27="hnz" />
+</androidx.constraintlayout.widget.ConstraintLayout>

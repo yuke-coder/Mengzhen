@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout android:layout_width="match_parent" android:layout_height="68.0dp"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <ImageView android:id="@id/dne" android:layout_width="65.0dp" android:layout_height="65.0dp" android:scaleType="centerCrop" android:layout_centerVertical="true" />
+    <TextView android:textSize="16.0sp" android:textColor="#262626" android:ellipsize="end" android:id="@id/hbm" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginLeft="10.0dp" android:text="相机胶卷啊首发首发啊首发啊首发肤" android:maxLines="1" android:maxLength="12" android:layout_toRightOf="@id/dne" android:layout_centerVertical="true" />
+    <TextView android:textSize="16.0sp" android:textColor="#777777" android:id="@id/bbh" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginLeft="10.0dp" android:text="(241)" android:layout_toRightOf="@id/hbm" android:layout_centerVertical="true" />
+    <View android:background="@drawable/image_picker_right_arrow" android:layout_width="8.0dp" android:layout_height="13.0dp" android:layout_marginRight="16.0sp" android:layout_alignParentRight="true" android:layout_centerVertical="true" />
+    <View android:background="#f5f5f5" android:layout_width="match_parent" android:layout_height="1.0dp" android:layout_marginLeft="65.0dp" android:layout_marginBottom="1.0dp" android:layout_alignParentBottom="true" />
+</RelativeLayout>

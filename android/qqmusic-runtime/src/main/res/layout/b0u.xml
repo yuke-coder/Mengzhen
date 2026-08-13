@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<merge android:layout_width="match_parent" android:layout_height="wrap_content"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <View android:id="@id/bu2" android:background="@drawable/skin_divider_img" android:layout_width="match_parent" android:layout_height="6.0dp" android:layout_marginTop="2.0dp" />
+    <LinearLayout android:id="@id/dbf" android:layout_width="match_parent" android:layout_height="60.0dp" android:layout_marginTop="12.0dp" android:layout_below="@id/bu2">
+        <RelativeLayout android:layout_gravity="center_vertical" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginLeft="16.0dp" android:layout_marginRight="5.0dp" android:layout_weight="1.0">
+            <LinearLayout android:orientation="horizontal" android:id="@id/iu6" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginBottom="2.0dp">
+                <TextView android:textSize="16.0dp" android:textStyle="bold" android:textColor="@color/skin_text_main_color" android:ellipsize="middle" android:layout_gravity="center_vertical" android:id="@id/iu5" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/vn" android:singleLine="true" android:layout_weight="1.0" />
+                <ImageView android:layout_gravity="center_vertical" android:id="@id/ej5" android:layout_width="24.0dp" android:layout_height="24.0dp" android:layout_marginLeft="2.0dp" android:src="@drawable/icon_refresh" android:scaleType="fitCenter" android:contentDescription="@string/a4a" />
+            </LinearLayout>
+            <TextView android:textSize="12.0dp" android:textColor="@color/skin_text_sub_color" android:ellipsize="middle" android:id="@id/itq" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/bc9" android:singleLine="true" android:layout_below="@id/iu6" />
+        </RelativeLayout>
+        <TextView android:textSize="12.0dp" android:textColor="@color/skin_text_sub_color" android:layout_gravity="center_vertical" android:id="@id/a36" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="自动播放" />
+        <ImageView android:layout_gravity="center_vertical" android:id="@id/el5" android:layout_width="55.0dp" android:layout_height="33.0dp" android:layout_marginRight="14.0dp" android:src="@drawable/switch_off_clicked" />
+    </LinearLayout>
+    <com.tencent.qqmusic.business.timeline.ui.RefreshableRecyclerView android:id="@id/j33" android:scrollbars="vertical" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginRight="15.0dp" android:layout_below="@id/dbf" />
+    <TextView android:textSize="12.0dp" android:textColor="@color/skin_text_sub_color" android:gravity="center" android:id="@id/ca7" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="30.0dp" android:text="@string/g6v" android:drawablePadding="2.0dp" android:layout_below="@id/j33" android:layout_centerInParent="true" android:drawableEnd="@drawable/album_rec_view_all_icon" />
+    <com.tencent.qqmusic.business.timeline.ui.LoadMoreFooterView android:id="@id/fi4" android:layout_width="match_parent" android:layout_height="wrap_content" />
+</merge>

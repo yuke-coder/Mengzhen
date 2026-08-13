@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView android:orientation="vertical" android:background="@drawable/main_bg" android:layout_width="match_parent" android:layout_height="match_parent"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <LinearLayout android:orientation="vertical" android:layout_width="match_parent" android:layout_height="wrap_content">
+        <include android:id="@id/fb_" android:layout_width="match_parent" android:layout_height="@dimen/cau" layout="@layout/mu" />
+        <Button android:id="@id/fbb" android:layout_width="200.0dp" android:layout_height="50.0dp" android:text="开始视频直播" />
+        <Button android:id="@id/fbc" android:layout_width="200.0dp" android:layout_height="50.0dp" android:text="跳转web多人语音房间" />
+        <Button android:id="@id/fb1" android:layout_width="200.0dp" android:layout_height="50.0dp" android:text="创建扑通房间" />
+        <LinearLayout android:orientation="horizontal" android:layout_width="wrap_content" android:layout_height="wrap_content">
+            <Button android:id="@id/fan" android:layout_width="200.0dp" android:layout_height="50.0dp" android:text="加入直播" />
+            <EditText android:id="@id/fb4" android:layout_width="wrap_content" android:layout_height="50.0dp" android:text="12478" android:hint="请输入showId" android:inputType="number" />
+        </LinearLayout>
+        <LinearLayout android:orientation="horizontal" android:layout_width="wrap_content" android:layout_height="wrap_content">
+            <Button android:id="@id/faw" android:layout_width="200.0dp" android:layout_height="50.0dp" android:text="加入官方直播间（视频）" />
+            <EditText android:id="@id/fax" android:layout_width="wrap_content" android:layout_height="50.0dp" android:text="16000" android:hint="请输入showId" android:inputType="number" />
+        </LinearLayout>
+        <LinearLayout android:orientation="horizontal" android:layout_width="match_parent" android:layout_height="wrap_content">
+            <Button android:id="@id/lsz" android:layout_width="200.0dp" android:layout_height="50.0dp" android:text="加入一起系列房间" />
+            <EditText android:id="@id/lt0" android:layout_width="match_parent" android:layout_height="50.0dp" android:hint="空建房，ShowMid进房" android:inputType="text" />
+        </LinearLayout>
+        <RelativeLayout android:background="@drawable/skin_common_listitem_bg" android:layout_width="match_parent" android:layout_height="50.0dp" android:minHeight="@dimen/axm">
+            <ImageButton android:id="@id/il6" android:background="@drawable/switch_off" android:layout_width="55.0dp" android:layout_height="33.0dp" android:layout_marginRight="12.5dp" android:layout_alignParentRight="true" android:layout_centerVertical="true" />
+            <TextView android:textColor="@color/skin_text_main_color" android:layout_width="wrap_content" android:layout_marginLeft="@dimen/c16" android:text="扑通房间HLS调试" android:layout_alignParentLeft="true" android:layout_centerVertical="true" style="@style/ln" />
+        </RelativeLayout>
+        <RelativeLayout android:background="@drawable/skin_common_listitem_bg" android:layout_width="match_parent" android:layout_height="50.0dp" android:minHeight="50.0dp">
+            <TextView android:textColor="@color/skin_text_main_color" android:layout_width="wrap_content" android:layout_marginLeft="@dimen/c16" android:text="开启音频保存到本地" android:layout_alignParentLeft="true" android:layout_centerVertical="true" style="@style/ln" />
+            <ImageButton android:id="@id/fb3" android:background="@drawable/switch_off" android:layout_width="55.0dp" android:layout_height="33.0dp" android:layout_marginRight="12.5dp" android:layout_alignParentRight="true" android:layout_centerVertical="true" />
+        </RelativeLayout>
+        <RelativeLayout android:background="@drawable/skin_common_listitem_bg" android:layout_width="match_parent" android:layout_height="50.0dp" android:minHeight="50.0dp">
+            <TextView android:textColor="@color/skin_text_main_color" android:layout_width="wrap_content" android:layout_marginLeft="@dimen/c16" android:text="debug包支持上报" android:layout_alignParentLeft="true" android:layout_centerVertical="true" style="@style/ln" />
+            <ImageButton android:id="@id/faq" android:background="@drawable/switch_off" android:layout_width="55.0dp" android:layout_height="33.0dp" android:layout_marginRight="12.5dp" android:layout_alignParentRight="true" android:layout_centerVertical="true" />
+        </RelativeLayout>
+        <RelativeLayout android:background="@drawable/skin_common_listitem_bg" android:layout_width="match_parent" android:layout_height="50.0dp" android:minHeight="50.0dp">
+            <TextView android:textColor="@color/skin_text_main_color" android:layout_width="wrap_content" android:layout_marginLeft="@dimen/c16" android:text="测试环境去除实名认证" android:layout_alignParentLeft="true" android:layout_centerVertical="true" style="@style/ln" />
+            <ImageButton android:id="@id/fap" android:background="@drawable/switch_off" android:layout_width="55.0dp" android:layout_height="33.0dp" android:layout_marginRight="12.5dp" android:layout_alignParentRight="true" android:layout_centerVertical="true" />
+        </RelativeLayout>
+        <RelativeLayout android:background="@drawable/skin_common_listitem_bg" android:layout_width="match_parent" android:layout_height="50.0dp" android:minHeight="50.0dp">
+            <TextView android:textColor="@color/skin_text_main_color" android:layout_width="wrap_content" android:layout_marginLeft="@dimen/c16" android:text="跳转h5观看直播" android:layout_alignParentLeft="true" android:layout_centerVertical="true" style="@style/ln" />
+            <ImageButton android:id="@id/fau" android:background="@drawable/switch_off" android:layout_width="55.0dp" android:layout_height="33.0dp" android:layout_marginRight="12.5dp" android:layout_alignParentRight="true" android:layout_centerVertical="true" />
+        </RelativeLayout>
+        <LinearLayout android:layout_width="match_parent" android:layout_height="50.0dp">
+            <Button android:id="@id/ajp" android:layout_width="0.0dp" android:layout_height="match_parent" android:text="新流直播调试入口" android:layout_weight="1.0" />
+        </LinearLayout>
+        <LinearLayout android:layout_width="match_parent" android:layout_height="50.0dp">
+            <Button android:id="@id/fay" android:layout_width="0.0dp" android:layout_height="match_parent" android:text="推流直播" android:layout_weight="1.0" />
+            <EditText android:id="@id/faz" android:layout_width="0.0dp" android:layout_height="match_parent" android:text="10000042" android:hint="ShowId" android:layout_weight="1.0" android:inputType="number" />
+        </LinearLayout>
+        <LinearLayout android:layout_width="match_parent" android:layout_height="50.0dp">
+            <Button android:id="@id/fb5" android:layout_width="0.0dp" android:layout_height="match_parent" android:text="新流直播" android:layout_weight="1.0" />
+            <EditText android:id="@id/fb8" android:layout_width="0.0dp" android:layout_height="match_parent" android:text="10000042" android:hint="ShowId" android:layout_weight="1.0" android:inputType="number" />
+        </LinearLayout>
+        <LinearLayout android:layout_width="match_parent" android:layout_height="50.0dp">
+            <TextView android:gravity="center" android:id="@id/fb6" android:layout_width="80.0dp" android:layout_height="match_parent" android:text="横屏链接" />
+            <EditText android:id="@id/fav" android:layout_width="0.0dp" android:layout_height="match_parent" android:text="" android:hint="landscape_live_url" android:layout_weight="1.0" />
+        </LinearLayout>
+        <LinearLayout android:layout_width="match_parent" android:layout_height="50.0dp">
+            <TextView android:gravity="center" android:id="@id/fb7" android:layout_width="80.0dp" android:layout_height="match_parent" android:text="竖屏链接" />
+            <EditText android:id="@id/fb0" android:layout_width="0.0dp" android:layout_height="match_parent" android:text="" android:hint="portrait_live_url" android:layout_weight="1.0" />
+        </LinearLayout>
+        <RelativeLayout android:background="@drawable/skin_common_listitem_bg" android:layout_width="match_parent" android:layout_height="50.0dp" android:minHeight="50.0dp">
+            <TextView android:textColor="@color/skin_text_main_color" android:layout_width="wrap_content" android:layout_marginLeft="@dimen/c16" android:text="显示自研标识" android:layout_alignParentLeft="true" android:layout_centerVertical="true" style="@style/ln" />
+            <ImageButton android:id="@id/fb2" android:background="@drawable/switch_off" android:layout_width="55.0dp" android:layout_height="33.0dp" android:layout_marginRight="12.5dp" android:layout_alignParentRight="true" android:layout_centerVertical="true" />
+        </RelativeLayout>
+        <RelativeLayout android:background="@drawable/skin_common_listitem_bg" android:layout_width="match_parent" android:layout_height="50.0dp" android:minHeight="50.0dp">
+            <TextView android:textColor="@color/skin_text_main_color" android:layout_width="wrap_content" android:layout_marginLeft="@dimen/c16" android:text="直播测试环境" android:layout_alignParentLeft="true" android:layout_centerVertical="true" style="@style/ln" />
+            <ImageButton android:id="@id/far" android:background="@drawable/switch_off" android:layout_width="55.0dp" android:layout_height="33.0dp" android:layout_marginRight="12.5dp" android:layout_alignParentRight="true" android:layout_centerVertical="true" />
+        </RelativeLayout>
+        <RelativeLayout android:background="@drawable/skin_common_listitem_bg" android:layout_width="match_parent" android:layout_height="50.0dp" android:minHeight="50.0dp">
+            <TextView android:textColor="@color/skin_text_main_color" android:layout_width="wrap_content" android:layout_marginLeft="@dimen/c16" android:text="推流直播使用 Video Proxy" android:layout_alignParentLeft="true" android:layout_centerVertical="true" style="@style/ln" />
+            <ImageButton android:id="@id/fb9" android:background="@drawable/switch_off" android:layout_width="55.0dp" android:layout_height="33.0dp" android:layout_marginRight="12.5dp" android:layout_alignParentRight="true" android:layout_centerVertical="true" />
+        </RelativeLayout>
+        <Button android:id="@id/fas" android:layout_width="200.0dp" android:layout_height="50.0dp" android:text="验证礼物资源" />
+        <Button android:id="@id/jh3" android:layout_width="200.0dp" android:layout_height="50.0dp" android:text="扫一扫" />
+        <TextView android:textColor="@color/skin_text_main_color" android:id="@id/fao" android:layout_width="match_parent" android:layout_height="wrap_content" />
+        <Button android:id="@id/fat" android:layout_width="200.0dp" android:layout_height="50.0dp" android:text="jsApi验证" />
+        <RelativeLayout android:background="@drawable/skin_common_listitem_bg" android:layout_width="match_parent" android:layout_height="50.0dp" android:minHeight="50.0dp">
+            <TextView android:textColor="@color/skin_text_main_color" android:layout_width="wrap_content" android:layout_marginLeft="@dimen/c16" android:text="验证后台下发trtc so" android:layout_alignParentLeft="true" android:layout_centerVertical="true" style="@style/ln" />
+            <ImageButton android:id="@id/fba" android:background="@drawable/switch_off" android:layout_width="55.0dp" android:layout_height="33.0dp" android:layout_marginRight="12.5dp" android:layout_alignParentRight="true" android:layout_centerVertical="true" />
+        </RelativeLayout>
+        <Button android:textColor="@color/skin_text_main_color" android:id="@id/aii" android:layout_width="wrap_content" android:layout_marginLeft="@dimen/c16" android:text="清除直播站内推送记录" android:layout_alignParentLeft="true" android:layout_centerVertical="true" style="@style/ln" />
+        <Button android:id="@id/f7m" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="跳转到真人歌单页面" />
+        <Button android:id="@id/f_u" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="跳转到录制页面" />
+        <Switch android:id="@id/bky" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="强制TRTC进房" />
+        <Switch android:id="@id/bkg" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="交友房间强制走webrtc" />
+    </LinearLayout>
+</ScrollView>

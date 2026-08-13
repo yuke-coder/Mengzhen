@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.tme.qqmusic.widget.base.view.RoundedFrameLayout android:layout_width="match_parent" android:layout_height="match_parent" app:t_="7.0dp"
+  xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">
+    <com.tme.qqmusic.widget.base.view.GlideImageView android:id="@id/mlive_normal_pendent_src" android:layout_width="match_parent" android:layout_height="match_parent" android:scaleType="centerCrop" app:a1d="hnz" app:a1x="hnz" />
+</com.tme.qqmusic.widget.base.view.RoundedFrameLayout>

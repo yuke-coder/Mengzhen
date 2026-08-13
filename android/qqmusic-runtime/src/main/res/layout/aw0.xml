@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout android:layout_width="wrap_content" android:layout_height="wrap_content"
+  xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">
+    <com.tencent.qqmusic.albumdetail.ui.view.LongAudioCollectButton android:id="@id/foh" android:layout_width="wrap_content" android:layout_height="30.0dp" android:layout_marginLeft="16.0dp" android:layout_marginTop="17.0dp" app:a23="hnz" app:a27="hnz" />
+    <LinearLayout android:gravity="center_vertical" android:orientation="horizontal" android:id="@id/fe0" android:background="@drawable/shape_long_audio_new_collect_collect" android:layout_width="wrap_content" android:layout_height="30.0dp" android:layout_marginLeft="8.0dp" android:layout_marginTop="17.0dp" android:layout_marginRight="16.0dp" app:a18="true" app:a1d="hnz" app:a1j="hnz" app:a1t="0.0" app:a22="@id/foh" app:a27="hnz" app:a28="0.0">
+        <ImageView android:id="@id/edv" android:layout_width="23.0dp" android:layout_height="23.0dp" android:layout_marginLeft="10.0dp" android:layout_marginTop="7.0dp" android:layout_marginBottom="7.0dp" android:src="@drawable/ic_long_audio_comment" android:importantForAccessibility="no" />
+        <TextView android:textSize="12.0sp" android:textColor="@color/white" android:layout_gravity="center" android:id="@id/maa" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="7.0dp" android:layout_marginBottom="7.0dp" />
+        <TextView android:textSize="12.0sp" android:textColor="@color/white_50_opacity" android:ellipsize="end" android:layout_gravity="center" android:id="@id/ma_" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginLeft="5.0dp" android:layout_marginTop="7.0dp" android:layout_marginRight="10.0dp" android:layout_marginBottom="7.0dp" android:singleLine="true" />
+    </LinearLayout>
+    <View android:id="@id/dav" android:layout_width="match_parent" android:layout_height="0.0dp" android:layout_marginTop="0.0dp" app:a23="hnz" app:a26="@id/foh" />
+</androidx.constraintlayout.widget.ConstraintLayout>

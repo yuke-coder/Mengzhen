@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout android:background="@android:color/white" android:layout_width="match_parent" android:layout_height="wrap_content"
+  xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">
+    <androidx.appcompat.widget.AppCompatTextView android:textSize="16.0sp" android:textStyle="bold" android:textColor="@android:color/black" android:id="@id/epd" android:padding="16.0dp" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="输入需要展示的样式 ID 及 权益 ID" app:a1j="hnz" app:a23="hnz" app:a27="hnz" />
+    <androidx.constraintlayout.widget.Guideline android:orientation="vertical" android:id="@id/epc" android:layout_width="wrap_content" android:layout_height="wrap_content" app:a1n="0.5" />
+    <EditText android:textColor="@android:color/black" android:textColorHint="@color/gray_text" android:id="@id/epb" android:layout_width="100.0dp" android:layout_height="wrap_content" android:hint="输入样式ID" android:inputType="number" app:a1j="@id/epc" app:a23="hnz" app:a26="@id/epd" />
+    <androidx.appcompat.widget.AppCompatTextView android:textColor="@android:color/black" android:id="@id/epg" android:padding="10.0dp" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="样式 ID" app:a1e="@id/epb" app:a23="hnz" app:a26="@id/epd" />
+    <EditText android:textColor="@android:color/black" android:textColorHint="@color/gray_text" android:id="@id/epa" android:layout_width="100.0dp" android:layout_height="wrap_content" android:hint="输入权益ID" android:inputType="number" app:a1j="hnz" app:a23="@id/epc" app:a26="@id/epd" />
+    <androidx.appcompat.widget.AppCompatTextView android:textColor="@android:color/black" android:id="@id/epf" android:padding="14.0dp" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="权益 ID" app:a1e="@id/epa" app:a23="@id/epc" app:a26="@id/epd" />
+    <Button android:id="@id/ep_" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="确认" app:a1j="hnz" app:a23="hnz" app:a26="@id/epa" />
+    <View android:id="@id/eph" android:background="@color/gray_text" android:layout_width="match_parent" android:layout_height="1.0dp" android:layout_marginTop="5.0dp" android:layout_marginBottom="5.0dp" app:a1j="hnz" app:a23="hnz" app:a26="@id/ep_" />
+    <androidx.appcompat.widget.AppCompatTextView android:textColor="@color/gray_text" android:id="@id/epe" android:layout_width="wrap_content" android:layout_height="wrap_content" android:paddingStart="16.0dp" android:paddingEnd="16.0dp" app:a1j="hnz" app:a23="hnz" app:a26="@id/eph" />
+</androidx.constraintlayout.widget.ConstraintLayout>

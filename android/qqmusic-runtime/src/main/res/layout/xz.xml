@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout android:id="@id/grz" android:layout_width="match_parent" android:layout_height="match_parent" android:layout_marginBottom="@dimen/b3t"
+  xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">
+    <FrameLayout android:id="@id/nha" android:layout_width="match_parent" android:layout_height="wrap_content" app:a27="hnz" />
+    <com.tencent.qqmusic.fragment.kuikly.view.TouchDispatchFrameLayout android:id="@id/fzz" android:layout_width="match_parent" android:layout_height="0.0dp" app:a1d="hnz" app:a26="@id/nha" />
+    <FrameLayout android:id="@id/g01" android:visibility="gone" android:layout_width="match_parent" android:layout_height="match_parent" />
+    <View android:id="@id/g00" android:layout_width="match_parent" android:layout_height="match_parent" />
+</androidx.constraintlayout.widget.ConstraintLayout>

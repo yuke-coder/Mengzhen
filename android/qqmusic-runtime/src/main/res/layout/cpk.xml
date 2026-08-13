@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout android:background="@color/transparent" android:layout_width="match_parent" android:layout_height="wrap_content"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <com.tencent.qqmusic.business.playernew.view.musicvideomode.MusicVideoRefreshLayout android:id="@id/az2" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginLeft="24.0dp" android:layout_marginTop="24.0dp" android:layout_marginRight="24.0dp">
+        <androidx.recyclerview.widget.RecyclerView android:id="@id/az1" android:layout_width="match_parent" android:layout_height="wrap_content" android:overScrollMode="never" />
+    </com.tencent.qqmusic.business.playernew.view.musicvideomode.MusicVideoRefreshLayout>
+</FrameLayout>

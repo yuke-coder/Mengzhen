@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout android:layout_width="wrap_content" android:layout_height="wrap_content"
+  xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">
+    <TextView android:textSize="15.0dp" android:textColor="@color/skin_text_main_color" android:gravity="center|bottom" android:id="@id/x2" android:paddingBottom="6.0dp" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="专辑" android:maxLines="1" app:a1d="hnz" app:a1j="hnz" app:a23="hnz" app:a27="hnz" />
+    <ImageView android:id="@id/x1" android:layout_width="5.0dp" android:layout_height="5.0dp" android:src="@drawable/ic_red_dot_new2" android:layout_marginStart="1.0dp" app:a22="@id/x2" app:a27="hnz" />
+</androidx.constraintlayout.widget.ConstraintLayout>

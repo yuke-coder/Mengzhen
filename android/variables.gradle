@@ -1,7 +1,11 @@
 ext {
     minSdkVersion = 31
     compileSdkVersion = 37
-    targetSdkVersion = 37
+    // The bundled QQ Music 20.6 runtime still uses the pre-Android-13
+    // dynamic receiver contract in its MainService. Keep the host target at
+    // the last compatible level so the imported service can initialize on
+    // Android 15 without a SecurityException before the native pages load.
+    targetSdkVersion = 32
     androidxActivityVersion = '1.13.0'
     androidxAppCompatVersion = '1.7.1'
     androidxCoordinatorLayoutVersion = '1.3.0'

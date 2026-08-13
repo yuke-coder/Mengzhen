@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout android:background="@drawable/material_ripple_background" android:layout_width="match_parent" android:layout_height="wrap_content"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <View android:id="@id/kyw" android:clickable="false" android:layout_width="2.0dp" android:layout_height="1.0dp" android:layout_centerHorizontal="true" />
+    <include android:id="@id/h4f" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginLeft="20.0dp" android:layout_marginRight="5.0dp" android:layout_marginBottom="24.0dp" android:layout_toLeftOf="@id/kyw" layout="@layout/bz1" />
+    <include android:id="@id/h4j" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginLeft="3.0dp" android:layout_marginRight="20.0dp" android:layout_marginBottom="24.0dp" android:layout_toRightOf="@id/kyw" layout="@layout/bz1" />
+</RelativeLayout>

@@ -1,0 +1,2 @@
+-keep class com.tencent.qqmusic.business.customskin.player.PDEditActivity { *; }
+-keep class com.tencent.qqmusic.business.customskin.player.** { *; }

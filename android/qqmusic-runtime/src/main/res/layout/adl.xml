@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout android:paddingBottom="40.0dp" android:layout_width="match_parent" android:layout_height="wrap_content"
+  xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">
+    <include android:id="@id/na4" android:layout_width="match_parent" android:layout_height="wrap_content" app:a27="hnz" layout="@layout/ade" />
+    <androidx.recyclerview.widget.RecyclerView android:id="@id/it3" android:layout_width="match_parent" android:layout_height="48.0dp" android:layout_marginTop="12.0dp" app:a26="@id/na4" />
+    <ImageView android:id="@id/dt8" android:background="@drawable/hs_light_board_edit_text_bg" android:visibility="gone" android:layout_width="match_parent" android:layout_height="58.0dp" android:layout_marginTop="12.0dp" android:src="@drawable/defined_player_edit_selected" android:layout_marginStart="26.0dp" android:layout_marginEnd="26.0dp" app:a23="hnz" app:a26="@id/it3" />
+    <ImageView android:id="@id/c2h" android:background="@drawable/hs_light_board_edit_text_bg" android:layout_width="match_parent" android:layout_height="50.0dp" android:layout_marginTop="16.0dp" android:layout_marginStart="30.0dp" android:layout_marginEnd="30.0dp" app:a23="hnz" app:a26="@id/it3" />
+    <TextView android:textSize="14.0dp" android:textColor="@color/white" android:layout_gravity="center_vertical" android:id="@id/chf" android:layout_width="wrap_content" android:layout_height="match_parent" android:maxLines="1" android:layout_marginStart="15.0dp" app:a1d="@id/c2h" app:a23="@id/c2h" app:a27="@id/c2h" />
+    <EditText android:textSize="14.0dp" android:textColor="@color/white" android:textColorHint="#4dffffff" android:layout_gravity="center_vertical" android:id="@id/c_t" android:background="@null" android:focusableInTouchMode="true" android:layout_width="0.0dp" android:layout_height="match_parent" android:hint="" android:cursorVisible="true" android:maxLines="1" android:inputType="text" android:textCursorDrawable="@null" android:layout_marginStart="7.0dp" app:a1d="@id/c2h" app:a1k="@id/b2h" app:a22="@id/chf" app:a27="@id/c2h" app:a2q="15.0dp" />
+    <FrameLayout android:id="@id/b2h" android:layout_width="50.0dp" android:layout_height="0.0dp" app:a1d="@id/c2h" app:a1j="@id/c2h" app:a27="@id/c2h">
+        <ImageView android:layout_gravity="center" android:id="@id/b2i" android:background="@drawable/icon_hs_player_light_board_edit_close_text" android:layout_width="20.0dp" android:layout_height="20.0dp" />
+    </FrameLayout>
+    <TextView android:textSize="11.0dp" android:textColor="#ff0000" android:id="@id/jfw" android:visibility="gone" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="7.0dp" app:a23="@id/chf" app:a26="@id/c2h" />
+    <include android:id="@id/n_c" android:visibility="gone" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginTop="12.0dp" app:a26="@id/c2h" app:a2r="20.0dp" layout="@layout/adf" />
+</androidx.constraintlayout.widget.ConstraintLayout>

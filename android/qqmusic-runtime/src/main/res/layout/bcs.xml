@@ -1,0 +1,3 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.tme.mlive.ui.animation.NewPagView android:id="@id/mlive_cross_pk_countdown_view" android:background="@drawable/mlive_link_pk_progress_center" android:visibility="gone" android:layout_width="70.0dp" android:layout_height="70.0dp"
+  xmlns:android="http://schemas.android.com/apk/res/android" />

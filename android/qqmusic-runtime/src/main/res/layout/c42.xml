@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout android:layout_width="match_parent" android:layout_height="match_parent"
+  xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">
+    <androidx.constraintlayout.widget.ConstraintLayout android:id="@id/ex0" android:visibility="gone" android:layout_width="match_parent" android:layout_height="match_parent" app:a1d="hnz" app:a1x="hnz" app:a21="hnz" app:a27="hnz">
+        <androidx.constraintlayout.widget.Guideline android:orientation="vertical" android:id="@id/evw" android:layout_width="wrap_content" android:layout_height="match_parent" app:a1n="0.923" />
+        <androidx.constraintlayout.widget.Guideline android:orientation="vertical" android:id="@id/evv" android:layout_width="wrap_content" android:layout_height="match_parent" app:a1n="0.077" />
+        <androidx.constraintlayout.widget.Guideline android:orientation="horizontal" android:id="@id/evx" android:layout_width="match_parent" android:layout_height="wrap_content" app:a1n="0.104" />
+        <FrameLayout android:layout_width="wrap_content" android:layout_height="wrap_content" app:a1x="@id/evv" app:a26="@id/evx">
+            <include android:id="@id/inn" app:a1x="@id/evv" app:a26="@id/evx" layout="@layout/c41" />
+        </FrameLayout>
+        <FrameLayout android:layout_width="wrap_content" android:layout_height="wrap_content" app:a1j="@id/evw" app:a26="@id/evx">
+            <include android:id="@id/ino" app:a1x="@id/evv" app:a26="@id/evx" layout="@layout/c40" />
+        </FrameLayout>
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>

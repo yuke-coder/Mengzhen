@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout android:layout_width="match_parent" android:layout_height="wrap_content"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <RelativeLayout android:id="@id/ba_" android:background="@color/transparent" android:padding="@dimen/fa" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_centerInParent="true">
+        <RelativeLayout android:orientation="vertical" android:id="@id/ho6" android:background="@drawable/rounded_corners_dialog" android:paddingLeft="20.0dp" android:paddingRight="20.0dp" android:paddingBottom="30.0dp" android:layout_width="280.0dp" android:layout_height="wrap_content">
+            <TextView android:textSize="17.0sp" android:textColor="#31c27c" android:id="@id/n_4" android:padding="0.0dp" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="20.0dp" android:text="@string/bjl" android:layout_centerHorizontal="true" />
+            <LinearLayout android:orientation="horizontal" android:id="@id/gs5" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginTop="20.0dp" android:layout_marginBottom="20.0dp" android:layout_below="@id/n_4">
+                <com.tencent.qqmusic.fragment.profile.FanFollowTextView android:textSize="72.0sp" android:textStyle="bold" android:textColor="#000000" android:ellipsize="none" android:gravity="center" android:id="@id/gs7" android:layout_width="0.0dp" android:layout_height="wrap_content" android:text="12345" android:singleLine="true" android:layout_weight="1.0" />
+                <TextView android:textSize="14.0sp" android:textColor="#777777" android:paddingBottom="16.0dp" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/bjk" android:singleLine="true" />
+            </LinearLayout>
+            <LinearLayout android:gravity="bottom" android:orientation="horizontal" android:id="@id/n_5" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_below="@id/gs5" android:layout_centerHorizontal="true">
+                <TextView android:textSize="12.0sp" android:textColor="#777777" android:padding="0.0dp" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/bji" />
+                <TextView android:textSize="14.0sp" android:textColor="#ff2dc37d" android:id="@id/gs6" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="10" />
+                <TextView android:textSize="12.0sp" android:textColor="#777777" android:padding="0.0dp" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/bjk" />
+            </LinearLayout>
+        </RelativeLayout>
+        <RelativeLayout android:orientation="vertical" android:id="@id/ho7" android:background="@drawable/rounded_bottom_half_green" android:paddingLeft="20.0dp" android:paddingRight="20.0dp" android:layout_width="280.0dp" android:layout_height="wrap_content" android:layout_below="@id/ho6">
+            <Button android:textColor="@color/white" android:id="@id/hkc" android:background="@drawable/rounded_bottom_half_green" android:padding="0.0dp" android:layout_width="200.0dp" android:layout_height="50.0dp" android:text="@string/bjj" android:layout_centerHorizontal="true" />
+        </RelativeLayout>
+    </RelativeLayout>
+    <ImageView android:id="@id/close_btn" android:background="@drawable/alertview_btn_close_green" android:layout_width="@dimen/f_" android:layout_height="@dimen/f_" android:layout_alignRight="@id/ba_" />
+</RelativeLayout>

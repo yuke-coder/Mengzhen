@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout android:layout_width="match_parent" android:layout_height="match_parent"
+  xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">
+    <View android:id="@id/j5z" android:background="#b3000000" android:layout_width="match_parent" android:layout_height="match_parent" />
+    <LinearLayout android:layout_gravity="bottom" android:orientation="vertical" android:id="@id/gy0" android:background="@drawable/song_record_reverb_sheet_bg" android:layout_width="match_parent" android:layout_height="wrap_content">
+        <androidx.recyclerview.widget.RecyclerView android:id="@id/gy3" android:layout_width="match_parent" android:layout_height="70.0dp" android:layout_marginTop="20.0dp" android:layout_marginBottom="8.0dp" />
+        <FrameLayout android:id="@id/gy2" android:background="@drawable/bg_song_record_multi_reverb_desc" android:layout_width="match_parent" android:layout_height="50.0dp" android:layout_marginLeft="20.0dp" android:layout_marginRight="21.0dp">
+            <TextView android:textSize="12.0dp" android:textColor="#ffffff" android:layout_gravity="center_vertical" android:id="@id/gy1" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginLeft="11.0dp" android:layout_marginRight="89.0dp" android:text="突出李荣浩声线中圆润慵懒特点，强化磁性气息细节和混响效果。" android:maxLines="1" android:lineHeight="16.0dp" />
+            <LinearLayout android:layout_gravity="right|center" android:orientation="horizontal" android:layout_width="wrap_content" android:layout_height="wrap_content">
+                <ImageView android:layout_gravity="center_vertical" android:id="@id/a8w" android:visibility="visible" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginRight="14.0dp" android:src="@drawable/ic_record_multi_reverb_more_desc" />
+                <TextView android:textSize="12.0sp" android:textColor="#e6ffffff" android:layout_gravity="center_vertical" android:id="@id/gy4" android:background="@drawable/bg_multi_reverb_reset" android:paddingLeft="11.0dp" android:paddingTop="3.0dp" android:paddingRight="11.0dp" android:paddingBottom="3.0dp" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginRight="12.0dp" android:text="重置" />
+            </LinearLayout>
+        </FrameLayout>
+        <FrameLayout android:id="@id/gxz" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginTop="8.0dp" />
+    </LinearLayout>
+    <FrameLayout android:layout_gravity="bottom" android:id="@id/j60" android:background="@drawable/hover_baifenbi" android:visibility="gone" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginBottom="100.0dp">
+        <kk.design.KKTextView android:gravity="center" android:layout_gravity="center" android:id="@id/j63" android:paddingLeft="12.0dp" android:paddingTop="5.0dp" android:paddingRight="12.0dp" android:paddingBottom="5.0dp" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginBottom="3.0dp" android:text="0%" app:a0f="g7m" app:a0g="bj0" />
+    </FrameLayout>
+</FrameLayout>

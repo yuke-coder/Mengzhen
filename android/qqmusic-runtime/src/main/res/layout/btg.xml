@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout android:orientation="vertical" android:id="@id/go5" android:layout_width="match_parent" android:layout_height="wrap_content"
+  xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">
+    <androidx.appcompat.widget.AppCompatTextView android:textSize="@dimen/c8d" android:textColor="@color/skin_text_main_color" android:ellipsize="end" android:id="@id/go7" android:paddingTop="@dimen/awx" android:paddingBottom="@dimen/aww" android:layout_width="match_parent" android:layout_height="wrap_content" android:maxLines="1" />
+    <View android:id="@id/go6" android:background="@drawable/default_skin_mask_color_bg" android:layout_width="match_parent" android:layout_height="@dimen/awu" android:alpha="0.1" />
+</LinearLayout>

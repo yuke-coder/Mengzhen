@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<shape android:shape="rectangle"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <solid android:color="@color/my_music_green" />
+    <size android:height="16.0dp" android:width="45.0dp" />
+    <corners android:topLeftRadius="8.0dp" android:topRightRadius="8.0dp" android:bottomLeftRadius="8.0dp" android:bottomRightRadius="8.0dp" />
+</shape>

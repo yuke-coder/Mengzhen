@@ -1,0 +1,89 @@
+{
+  "router": "openHalf",
+  "page_name": "live_share_half_panel",
+  "container": {
+    "w_weight": "1",
+    "h_weight": "1",
+    "direction": "from-bottom",
+    "transparent": "TODO:背景透明",
+    "hideStatus": "TODO:是否隐藏状态栏"
+  },
+  "params": {
+    "baseInfo": {
+      "title": "主标题",
+      "subTitle": "副标题：去线上一起感受那些精彩瞬间",
+      "bgImgUrl": "https://img-qn.51miz.com/preview/photo/00/01/51/17/new-P-1511728-4536481EO.jpg!/quality/90/unsharp/true/compress/true/format/jpg/fw/1080",
+      "sceneType": "xxx",
+      "shareContent": "xxx",
+      "shareChannelTitle": "演出分享至"
+    },
+    "cardList": [
+      {
+        "cardType": "img",
+        "subType": "url",
+        "title": "主标题",
+        "subTitle": "副标题：去线上一起感受那些精彩瞬间",
+        "url": "https://y.qq.com/music/photo_new/T011R1080x1920M000002Fi73o3yVAxK.jpg?max_age=2592000",
+        "bottomTips": "点击跳转",
+        "bgImgUrl": "https://img-qn.51miz.com/preview/photo/00/01/51/17/new-P-1511728-4536481EO.jpg!/quality/90/unsharp/true/compress/true/format/jpg/fw/1080",
+        "extra": {
+          "templateName": "xxx",
+          "imgCardName": "演出邀请卡2"
+        }
+      },
+      {
+        "cardType": "img",
+        "subType": "template",
+        "bottomTips": "点击跳转",
+        "bgImgUrl": "https://pic.mksucai.com/00/40/14/92c23c9e1a1d6e65.webp",
+        "extra": {
+          "templateName": "xxx",
+          "params": {
+            "xxx": "xxx"
+          }
+        }
+      },
+      {
+        "cardType": "video",
+        "url": "http://dldir1.qq.com/music/live/roywang.mp4",
+        "bottomTips": "点击跳转",
+        "extra": {
+          "coverImg": "https://y.qq.com/music/photo_new/T011R1080x1920M000004WNq7r2iizrF.jpg?max_age=2592000",
+          "useMark": "1",
+          "markLine1": "第一行，可显示歌手名",
+          "markLine2": "第二行，诚邀XXX共同观看演出",
+          "markLine3": "第三行，可以是演出名",
+          "markLine4": "第四行，可以是演出时间",
+          "mute": "1",
+          "videoCardName": "演出视频2"
+        }
+      },
+      {
+        "cardType": "link",
+        "url": "https://example.com/shareLink",
+        "extra": {
+          "userName": "茶纳CHINA",
+          "avatarImg": "http://thirdqq.qlogo.cn/g?b=sdk&k=Kp86oMIfn60YPg9Axd2x3A&s=140&t=1556883976",
+          "title": "分享标题",
+          "subTitle": "分享内容分享内容分享内容分享内容分享内容分享内容",
+          "demoImageUrl": "https://y.qq.com/music/photo_new/T011R300x300M000004BZe6T3WgCA2.jpg?max_age=2592000",
+          "customTitles": [
+            "个性文案1",
+            "个性文案2"
+          ],
+          "shareBigImg": "https://y.qq.com/music/photo_new/T011R300x300M000004BZe6T3WgCA2.jpg?max_age=2592000",
+          "feedMediaSchema": "qqmusic://qq.com/media/showXLive?p=%7B%22showid%22%3A%2210000348%22%2C%22from%22%3A%22h5sahre-Putoo%22%7D",
+          "supportToFeed": "1",
+          "feedMediaTitle": "分享标题",
+          "feedMediaSubtitle": "分享内容分享内容分享内容分享内容分享内容分享内容",
+          "feedMediaCover": "https://y.qq.com/music/photo_new/T011R300x300M000004BZe6T3WgCA2.jpg?max_age=2592000"
+        }
+      }
+    ],
+    "pageConfig": {
+      "hideStatus": 0,
+      "lockHorScreen": 0,
+      "transparent": 0
+    }
+  }
+}

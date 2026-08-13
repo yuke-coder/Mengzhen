@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout android:gravity="center" android:orientation="horizontal" android:id="@id/jmc" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_centerInParent="true"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <ImageView android:id="@id/c1w" android:layout_width="@dimen/hc" android:layout_height="@dimen/hc" android:src="@drawable/big_font_search_icon" android:scaleType="fitXY" android:importantForAccessibility="no" />
+    <com.tencent.qqmusic.bigfont.view.BigFontTextView android:textSize="@dimen/ht" android:textColor="@color/skin_text_guide_color" android:ellipsize="end" android:gravity="center" android:id="@id/c2g" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/xf" android:singleLine="true" />
+    <com.tencent.qqmusic.bigfont.view.BigFontTextView android:textSize="@dimen/ht" android:textColor="@color/skin_text_guide_color" android:ellipsize="end" android:gravity="center" android:id="@id/sub_edit_text" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginLeft="7.0dp" android:singleLine="true" android:layout_marginStart="7.0dp" />
+</LinearLayout>

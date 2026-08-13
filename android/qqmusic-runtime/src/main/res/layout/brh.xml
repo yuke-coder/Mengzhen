@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout android:layout_width="match_parent" android:layout_height="wrap_content"
+  xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">
+    <com.tencent.qqmusic.modular.module.musichall.views.recycler.BlockRoomRecyclerView android:id="@id/j2y" android:layout_width="match_parent" android:layout_height="wrap_content" android:overScrollMode="never" app:a1j="hnz" app:a23="hnz" app:a27="hnz" />
+    <com.tencent.qqmusic.ui.RecyclerSimpleIndicator android:id="@id/dvh" android:visibility="gone" android:layout_width="30.0dp" android:layout_height="4.0dp" android:layout_marginTop="10.0dp" app:a1j="hnz" app:a23="hnz" app:a26="@id/j2y" />
+</androidx.constraintlayout.widget.ConstraintLayout>

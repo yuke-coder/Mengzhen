@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout android:orientation="vertical" android:layout_width="match_parent" android:layout_height="wrap_content"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <com.tme.karaoka.previewui.volume.BubbleView android:id="@id/alt" android:visibility="invisible" android:layout_width="wrap_content" android:layout_height="wrap_content" />
+    <SeekBar android:id="@id/hbj" android:layout_width="match_parent" android:layout_height="wrap_content" android:maxHeight="4.0dp" android:max="100" android:progress="0" android:progressDrawable="@drawable/record_preview_progressbar_bg" android:minHeight="4.0dp" android:thumb="@drawable/vertical_seek_bar_thumb" android:thumbOffset="0.0dp" android:splitTrack="false" android:min="0" />
+</LinearLayout>

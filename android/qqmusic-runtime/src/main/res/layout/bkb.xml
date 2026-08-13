@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.tme.qqmusic.widget.base.view.SmoothHorizontalScrollView android:id="@id/mlive_smooth_scroll_view_layout" android:scrollbars="none" android:fadingEdgeLength="10.0dp" android:layout_width="wrap_content" android:layout_height="match_parent" android:fillViewport="true" android:requiresFadingEdge="horizontal"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <LinearLayout android:gravity="center_vertical" android:orientation="horizontal" android:id="@id/df1" android:layout_width="match_parent" android:layout_height="match_parent">
+        <TextView android:id="@id/mlive_smooth_text_tv1" android:layout_width="wrap_content" android:layout_height="match_parent" />
+        <Space android:id="@id/mlive_smooth_space" android:layout_width="30.0dp" android:layout_height="match_parent" />
+        <TextView android:id="@id/mlive_smooth_text_tv2" android:layout_width="wrap_content" android:layout_height="match_parent" />
+    </LinearLayout>
+</com.tme.qqmusic.widget.base.view.SmoothHorizontalScrollView>

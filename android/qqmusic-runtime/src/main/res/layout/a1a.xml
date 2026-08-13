@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout android:orientation="vertical" android:layout_width="match_parent" android:layout_height="match_parent"
+  xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">
+    <include android:id="@id/naf" android:layout_width="match_parent" android:layout_height="match_parent" layout="@layout/m6" />
+    <include android:id="@id/lvi" android:layout_width="match_parent" android:layout_height="@dimen/cau" android:layout_alignParentTop="true" layout="@layout/mu" />
+    <com.tencent.qqmusic.ui.RoundedRelativeLayout android:id="@id/jdd" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginLeft="@dimen/s8" android:layout_marginTop="@dimen/rr" android:layout_marginRight="@dimen/s8" android:layout_below="@id/lvi" android:layout_marginHorizontal="@dimen/s8" app:ado="4.0dp">
+        <androidx.recyclerview.widget.RecyclerView android:id="@id/e6d" android:layout_width="match_parent" android:layout_height="wrap_content" />
+    </com.tencent.qqmusic.ui.RoundedRelativeLayout>
+</RelativeLayout>

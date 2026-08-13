@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout android:layout_width="match_parent" android:layout_height="match_parent"
+  xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">
+    <com.tencent.component.widget.AsyncImageView android:id="@id/cz7" android:layout_width="100.0dp" android:layout_height="100.0dp" android:scaleType="centerCrop" app:a1e="@id/cza" app:a1x="hnz" app:a21="hnz" app:a27="hnz" app:a29="hmg" />
+    <TextView android:textSize="16.0sp" android:textColor="@color/black" android:gravity="center" android:id="@id/cza" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="10.0dp" android:text="@string/fh9" app:a1d="hnz" app:a1x="hnz" app:a21="hnz" app:a26="@id/cz7" />
+    <ImageView android:id="@id/ch1" android:visibility="gone" android:layout_width="42.0dp" android:layout_height="45.0dp" android:layout_marginTop="54.0dp" android:layout_marginRight="33.0dp" android:src="@drawable/musicworld_transparent_loading_close_light" app:a21="hnz" app:a27="hnz" />
+</androidx.constraintlayout.widget.ConstraintLayout>

@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout android:layout_width="wrap_content" android:layout_height="wrap_content"
+  xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">
+    <com.tencent.qqmusic.ui.RoundedRelativeLayout android:id="@id/cpq" android:layout_width="106.0dp" android:layout_height="230.0dp" android:layout_marginLeft="8.0dp" android:importantForAccessibility="no" app:a1x="hnz" app:a21="hnz" app:a27="hnz" app:ado="8.0dp">
+        <com.tencent.component.widget.AsyncImageView android:id="@id/cpp" android:visibility="gone" android:layout_width="match_parent" android:layout_height="match_parent" android:scaleType="fitXY" android:importantForAccessibility="no" />
+        <com.tencent.component.widget.AsyncImageView android:id="@id/cpo" android:layout_width="match_parent" android:layout_height="match_parent" android:scaleType="fitXY" android:importantForAccessibility="no" />
+    </com.tencent.qqmusic.ui.RoundedRelativeLayout>
+    <ImageView android:layout_gravity="right|top" android:id="@id/cpl" android:background="@drawable/diy_folder_vip_background" android:visibility="gone" android:layout_width="15.0dp" android:layout_height="9.0dp" android:layout_marginTop="3.0dp" android:layout_marginRight="3.0dp" android:scaleType="centerCrop" app:a21="hnz" app:a27="hnz" />
+    <com.tencent.component.widget.AsyncEffectImageView android:layout_gravity="right|top" android:id="@id/cpw" android:visibility="gone" android:layout_width="9.0dp" android:layout_height="9.0dp" android:layout_marginTop="3.0dp" android:layout_marginRight="6.0dp" android:scaleType="centerCrop" app:a21="hnz" app:a27="hnz" />
+    <TextView android:textSize="13.0sp" android:textColor="@color/skin_text_main_color" android:id="@id/cpn" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="8.0dp" app:a1x="hnz" app:a21="hnz" app:a26="@id/cpq" />
+    <TextView android:textSize="12.0sp" android:textColor="@color/white" android:gravity="center" android:id="@id/cpf" android:background="@drawable/edit_folder_dynamic_head_pic_card_btn_bg" android:layout_width="75.0dp" android:layout_height="28.0dp" android:layout_marginTop="13.0dp" android:layout_marginBottom="24.799988dp" android:text="@string/ha2" app:a1d="hnz" app:a1x="hnz" app:a21="hnz" app:a26="@id/cpn" />
+</androidx.constraintlayout.widget.ConstraintLayout>

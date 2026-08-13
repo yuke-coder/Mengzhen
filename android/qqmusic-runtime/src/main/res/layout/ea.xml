@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout android:orientation="vertical" android:id="@id/jq6" android:background="@drawable/main_bg" android:layout_width="match_parent" android:layout_height="match_parent"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <include android:id="@id/jr0" android:background="@color/transparent" android:layout_width="match_parent" android:layout_height="@dimen/cau" android:layout_alignParentTop="true" layout="@layout/mu" />
+    <include android:id="@id/jqo" android:visibility="visible" android:layout_width="match_parent" android:layout_height="@dimen/lh" android:layout_below="@id/jr0" layout="@layout/ci3" />
+    <ListView android:id="@id/jq5" android:layout_width="match_parent" android:layout_height="match_parent" android:divider="@color/transparent" android:layout_below="@id/jqo" />
+    <ViewStub android:id="@id/fiy" android:layout="@layout/mj" android:layout_width="match_parent" android:layout_height="match_parent" android:layout_below="@id/jr0" />
+    <ViewStub android:id="@id/c7n" android:layout="@layout/mh" android:layout_width="match_parent" android:layout_height="match_parent" android:layout_below="@id/jr0" />
+</RelativeLayout>

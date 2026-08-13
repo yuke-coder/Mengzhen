@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout android:gravity="center_vertical" android:orientation="vertical" android:layout_width="match_parent" android:layout_height="match_parent"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <TextView android:textSize="16.0sp" android:textColor="@color/white_60_opacity" android:layout_gravity="center_horizontal" android:id="@id/mdn" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/bi0" />
+    <TextView android:textSize="14.0sp" android:textColor="@color/white_30_opacity" android:gravity="center" android:layout_gravity="center_horizontal" android:id="@id/mb3" android:visibility="visible" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginLeft="32.0dp" android:layout_marginTop="6.0dp" android:layout_marginRight="32.0dp" android:text="@string/bi6" android:layout_marginStart="32.0dp" android:layout_marginEnd="32.0dp" />
+    <TextView android:textSize="14.0sp" android:textColor="@color/white" android:gravity="center" android:layout_gravity="center_horizontal" android:id="@id/mbd" android:background="@drawable/game_friend_open_big" android:paddingLeft="20.0dp" android:paddingRight="20.0dp" android:visibility="visible" android:layout_width="102.0dp" android:layout_height="30.0dp" android:layout_marginTop="16.0dp" android:paddingStart="20.0dp" android:paddingEnd="20.0dp" />
+    <LinearLayout android:gravity="center" android:layout_gravity="center_horizontal" android:orientation="vertical" android:id="@id/fep" android:layout_width="wrap_content" android:layout_height="wrap_content">
+        <com.airbnb.lottie.LottieAnimationView android:layout_gravity="center" android:id="@id/ih6" android:layout_width="40.0dp" android:layout_height="40.0dp" android:scaleType="fitCenter" />
+        <TextView android:textSize="14.0sp" android:textColor="@color/white_30_opacity" android:gravity="center" android:layout_gravity="center_horizontal" android:visibility="visible" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginLeft="32.0dp" android:layout_marginRight="32.0dp" android:text="正在载入" android:layout_marginStart="32.0dp" android:layout_marginEnd="32.0dp" />
+    </LinearLayout>
+</LinearLayout>

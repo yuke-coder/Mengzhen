@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout android:layout_width="match_parent" android:layout_height="wrap_content"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <RelativeLayout android:id="@id/csd" android:layout_width="match_parent" android:layout_height="89.0dp">
+        <TextView android:textSize="12.0sp" android:textColor="@color/skin_text_guide_color" android:gravity="center" android:id="@id/b8b" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="16.0dp" android:layout_centerHorizontal="true" />
+        <TextView android:textSize="12.0sp" android:textColor="@color/skin_text_guide_color" android:gravity="center" android:id="@id/b8a" android:visibility="gone" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="11.5dp" android:text="自动同步该账号下最近播放的1000首歌曲" android:layout_below="@id/b8b" android:layout_centerHorizontal="true" />
+    </RelativeLayout>
+</RelativeLayout>

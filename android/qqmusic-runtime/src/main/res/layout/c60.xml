@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout android:gravity="top" android:id="@id/jb2" android:paddingTop="15.0dp" android:layout_width="match_parent" android:layout_height="84.0dp"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <RelativeLayout android:gravity="center_vertical" android:layout_width="match_parent" android:layout_height="60.0dp">
+        <TextView android:textSize="15.0dp" android:textColor="@color/skin_text_main_color" android:ellipsize="end" android:gravity="start|center" android:id="@id/mfz" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginLeft="15.0dp" android:text="@string/fn3" android:maxLines="1" android:layout_toLeftOf="@id/eht" android:layout_alignParentLeft="true" android:layout_marginStart="15.0dp" android:layout_toStartOf="@id/eht" android:layout_alignParentStart="true" />
+        <TextView android:textSize="11.0dp" android:textColor="@color/skin_text_sub_color" android:ellipsize="middle" android:gravity="start|center" android:id="@id/mfy" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginLeft="15.0dp" android:text="@string/fn1" android:singleLine="true" android:layout_toLeftOf="@id/eht" android:layout_below="@id/mfz" android:layout_alignParentLeft="true" android:layout_marginStart="15.0dp" android:layout_toStartOf="@id/eht" android:layout_alignParentStart="true" />
+        <ImageView android:id="@id/eht" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginRight="15.0dp" android:src="@drawable/ss_switch_off" android:layout_alignParentRight="true" android:layout_marginEnd="15.0dp" android:layout_alignParentEnd="true" />
+    </RelativeLayout>
+</RelativeLayout>

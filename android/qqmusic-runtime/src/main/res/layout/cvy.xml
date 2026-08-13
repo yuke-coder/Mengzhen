@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout android:gravity="center" android:layout_gravity="center" android:orientation="vertical" android:id="@id/j94" android:paddingTop="8.0dp" android:paddingBottom="8.0dp" android:layout_width="match_parent" android:layout_height="wrap_content"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <FrameLayout android:layout_width="60.0dp" android:layout_height="60.0dp" android:layout_marginLeft="10.0dp" android:layout_marginRight="10.0dp">
+        <ImageView android:background="@drawable/putoo_group_subscribe_rights_item_bg" android:layout_width="match_parent" android:layout_height="match_parent" />
+        <com.tencent.component.widget.AsyncImageView android:layout_gravity="center" android:id="@id/j95" android:layout_width="30.0dp" android:layout_height="30.0dp" android:scaleType="centerInside" />
+    </FrameLayout>
+    <TextView android:textSize="@dimen/bmi" android:textColor="@color/putoo_group_vip_tab_rights_item_color" android:ellipsize="end" android:gravity="center" android:layout_gravity="center" android:id="@id/j96" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="10.0dp" android:maxWidth="75.0dp" android:singleLine="true" />
+</LinearLayout>

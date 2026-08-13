@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout android:id="@id/fk3" android:background="@null" android:layout_width="match_parent" android:layout_height="match_parent"
+  xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">
+    <com.tencent.qqmusic.business.lockscreennew.LockScreenMaskView android:id="@id/fjz" android:layout_width="match_parent" android:layout_height="match_parent" />
+    <RelativeLayout android:id="@id/fk4" android:background="#00000000" android:layout_width="match_parent" android:layout_height="match_parent">
+        <com.tencent.component.widget.AsyncEffectImageView android:id="@id/k76" android:layout_width="match_parent" android:layout_height="match_parent" android:scaleType="centerCrop" />
+        <View android:background="@drawable/mask_bg" android:layout_width="match_parent" android:layout_height="match_parent" android:layout_alignParentLeft="true" android:layout_alignParentTop="true" android:layout_alignParentStart="true" />
+        <RelativeLayout android:gravity="center" android:id="@id/fk5" android:paddingTop="19.0dp" android:paddingBottom="19.0dp" android:focusable="true" android:focusableInTouchMode="true" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_alignParentBottom="true" android:contentDescription="@string/ch0">
+            <ImageButton android:id="@id/fk2" android:background="@anim/cb" android:layout_width="28.0dp" android:layout_height="15.0dp" android:layout_centerHorizontal="true" android:layout_centerVertical="true" android:importantForAccessibility="no" />
+        </RelativeLayout>
+        <LinearLayout android:orientation="vertical" android:id="@id/u" android:paddingTop="@dimen/c_q" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginLeft="@dimen/aeg">
+            <LinearLayout android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="10.0dp">
+                <TextView android:textSize="@dimen/aek" android:textColor="#ffffffff" android:id="@id/lcg" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginLeft="-2.0dp" android:text="20:06" />
+                <TextView android:textSize="@dimen/aef" android:textColor="#ffffffff" android:id="@id/bjg" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginLeft="@dimen/aee" android:text="2月18日 星期二" android:singleLine="true" />
+            </LinearLayout>
+            <androidx.constraintlayout.widget.ConstraintLayout android:id="@id/nuk" android:layout_width="match_parent" android:layout_height="wrap_content">
+                <TextView android:textSize="@dimen/aej" android:textColor="#99ffffff" android:ellipsize="marquee" android:id="@id/kj5" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="@dimen/aey" android:maxWidth="@dimen/aex" android:text="Walking on Water" android:singleLine="true" app:a1x="hnz" app:a27="hnz" />
+                <TextView android:textSize="@dimen/aei" android:textColor="#99ffffff" android:ellipsize="marquee" android:gravity="start" android:id="@id/k8s" android:layout_width="wrap_content" android:layout_height="wrap_content" android:maxWidth="@dimen/aex" android:text="Melorman" android:singleLine="true" app:a1d="hnz" app:a1x="hnz" app:a26="@id/kj5" />
+            </androidx.constraintlayout.widget.ConstraintLayout>
+        </LinearLayout>
+        <LinearLayout android:gravity="center_horizontal" android:orientation="horizontal" android:id="@id/bam" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginLeft="25.0dp" android:layout_marginRight="25.0dp" android:layout_marginBottom="18.0dp" android:baselineAligned="false" android:layout_above="@id/fk5">
+            <LinearLayout android:orientation="vertical" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_weight="1.0">
+                <ImageButton android:layout_gravity="center" android:id="@id/fjt" android:background="@drawable/lockscreen_button_repeat_normal_mode_dynamic" android:layout_width="@dimen/aew" android:layout_height="@dimen/aew" android:scaleType="fitXY" android:contentDescription="@string/cgw" />
+            </LinearLayout>
+            <LinearLayout android:orientation="vertical" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_weight="1.0">
+                <ImageButton android:layout_gravity="center" android:id="@id/fjy" android:background="@drawable/lockscreen_pre_dynamic" android:layout_width="@dimen/aew" android:layout_height="@dimen/aew" android:scaleType="fitXY" android:contentDescription="@string/ch9" />
+            </LinearLayout>
+            <LinearLayout android:orientation="vertical" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_weight="1.0">
+                <ImageButton android:layout_gravity="center" android:id="@id/fjx" android:background="@drawable/lockscreen_play_dynamic" android:layout_width="@dimen/aew" android:layout_height="@dimen/aew" android:scaleType="fitXY" android:contentDescription="@string/ch8" />
+            </LinearLayout>
+            <LinearLayout android:orientation="vertical" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_weight="1.0">
+                <ImageButton android:layout_gravity="center" android:id="@id/fjw" android:background="@drawable/lockscreen_next_dynamic" android:layout_width="@dimen/aew" android:layout_height="@dimen/aew" android:scaleType="fitXY" android:contentDescription="@string/ch5" />
+            </LinearLayout>
+            <LinearLayout android:orientation="vertical" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_weight="1.0">
+                <ImageButton android:layout_gravity="center" android:id="@id/fjv" android:background="@drawable/lockscreen_button_pressed_dynamic" android:layout_width="@dimen/aew" android:layout_height="@dimen/aew" android:scaleType="fitXY" android:contentDescription="@string/ch4" />
+            </LinearLayout>
+        </LinearLayout>
+        <RelativeLayout android:layout_width="match_parent" android:layout_height="match_parent" android:layout_marginLeft="15.0dp" android:layout_marginTop="15.0dp" android:layout_marginRight="15.0dp" android:layout_marginBottom="19.0dp" android:layout_above="@id/bam" android:layout_below="@id/u">
+            <com.tencent.qqmusic.ui.customview.CenterInsideSquareLayout android:id="@id/w0" android:padding="1.0px" android:visibility="invisible" android:layout_width="match_parent" android:layout_height="match_parent" android:layout_centerInParent="true">
+                <com.tencent.component.widget.AsyncEffectImageView android:id="@id/kqi" android:background="#44ff0000" android:layout_width="match_parent" android:layout_height="match_parent" android:scaleType="fitXY" />
+                <ImageView android:id="@id/kqr" android:background="@drawable/lockscreen_square_line" android:layout_width="match_parent" android:layout_height="match_parent" android:scaleType="fitXY" />
+                <ImageView android:id="@id/bnk" android:layout_width="match_parent" android:layout_height="match_parent" android:src="@drawable/lock_lyric_mask" android:scaleType="fitXY" />
+            </com.tencent.qqmusic.ui.customview.CenterInsideSquareLayout>
+            <com.lyricengine.widget.LyricScrollView android:id="@id/bni" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginLeft="@dimen/aec" android:layout_marginRight="@dimen/aec" android:layout_marginBottom="10.0dp" android:layout_alignBottom="@id/w0" android:overScrollMode="never" app:f="3" app:gq="@string/fh0" app:nd="@string/fg9" app:a6a="锁屏歌词" app:a7f="2.0dp" app:a_p="@string/fgq" app:agq="@string/fgm" />
+            <ImageView android:id="@id/k1s" android:background="@drawable/lrc_sing_this_song_btn" android:focusable="false" android:visibility="gone" android:layout_width="@dimen/aec" android:layout_height="@dimen/aec" android:layout_alignBottom="@id/bni" android:layout_alignParentRight="true" android:contentDescription="@string/f8v" />
+            <LinearLayout android:gravity="center" android:orientation="horizontal" android:id="@id/fhm" android:background="@drawable/bg_lock_screen_kge" android:paddingLeft="8.5dp" android:paddingTop="4.5dp" android:paddingRight="8.5dp" android:paddingBottom="4.5dp" android:visibility="gone" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginBottom="40.0dp" android:layout_above="@id/bni" android:layout_centerHorizontal="true">
+                <ImageView android:layout_width="16.0dp" android:layout_height="16.0dp" android:src="@drawable/icon_lock_screen_kge" />
+                <TextView android:textSize="11.0dp" android:textColor="@color/white" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginLeft="3.5dp" android:text="@string/ch3" />
+                <ImageView android:layout_width="5.0dp" android:layout_height="8.0dp" android:layout_marginLeft="3.0dp" android:src="@drawable/icon_lock_screen_arrow_right" />
+            </LinearLayout>
+            <com.tencent.qqmusic.videoplayer.VideoPlayerLinearLayout android:gravity="center" android:id="@id/fk1" android:padding="1.0px" android:visibility="gone" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_centerInParent="true">
+                <com.tencent.component.widget.AsyncEffectImageView android:id="@id/fk0" android:visibility="gone" android:layout_width="match_parent" android:layout_height="match_parent" android:scaleType="centerCrop" />
+            </com.tencent.qqmusic.videoplayer.VideoPlayerLinearLayout>
+        </RelativeLayout>
+    </RelativeLayout>
+</RelativeLayout>

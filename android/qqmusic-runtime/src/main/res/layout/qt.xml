@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout android:background="@drawable/diamonds_background" android:layout_width="230.0dp" android:layout_height="wrap_content"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <TextView android:textSize="14.0sp" android:textColor="@color/white" android:id="@id/bqw" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="13.5dp" android:layout_alignParentTop="true" android:layout_centerHorizontal="true" />
+    <TextView android:textSize="12.0sp" android:textColor="@color/white" android:id="@id/bqv" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginLeft="15.0dp" android:layout_marginTop="11.5dp" android:layout_marginRight="15.0dp" android:layout_marginBottom="15.0dp" android:layout_below="@id/bqw" android:lineSpacingExtra="4.0dp" />
+</RelativeLayout>

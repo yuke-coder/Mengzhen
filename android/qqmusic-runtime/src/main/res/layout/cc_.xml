@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.tencent.qqmusic.ui.RoundedRelativeLayout android:id="@id/ikc" android:layout_width="106.5dp" android:layout_height="150.0dp" android:layout_marginRight="@dimen/bmo" app:ado="@dimen/bmo"
+  xmlns:app="http://schemas.android.com/apk/res-auto" xmlns:android="http://schemas.android.com/apk/res/android">
+    <com.tencent.component.widget.AsyncEffectImageView android:id="@id/ikk" android:layout_width="match_parent" android:layout_height="match_parent" android:scaleType="fitXY" />
+    <com.tencent.qqmusic.business.live.ui.view.RoundAvatarImage android:id="@id/ikj" android:layout_width="64.0dp" android:layout_height="64.0dp" android:layout_marginTop="15.0dp" android:layout_centerHorizontal="true" android:contentDescription="@string/imx" />
+    <TextView android:textSize="15.0sp" android:textColor="#1a1a1a" android:ellipsize="end" android:gravity="center" android:id="@id/ikm" android:paddingLeft="@dimen/bmo" android:paddingRight="@dimen/bmo" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="8.0dp" android:maxLines="1" android:layout_below="@id/ikj" android:layout_centerHorizontal="true" android:fontFamily="PingFangSC-Medium" />
+    <TextView android:textSize="11.5sp" android:textColor="#991a1a1a" android:ellipsize="end" android:gravity="center" android:id="@id/ikl" android:paddingLeft="@dimen/bmo" android:paddingRight="@dimen/bmo" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="1.0dp" android:layout_marginBottom="8.0dp" android:maxLines="2" android:layout_below="@id/ikm" android:layout_centerHorizontal="true" android:fontFamily="PingFangSC-Regular" />
+</com.tencent.qqmusic.ui.RoundedRelativeLayout>

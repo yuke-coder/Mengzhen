@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout android:id="@id/e2q" android:background="@drawable/material_ripple_background" android:paddingLeft="10.0dp" android:layout_width="match_parent" android:layout_height="55.0dp" android:minHeight="55.0dp"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <CheckBox android:id="@id/e2p" android:background="@drawable/ic_edit_song_checkbox" android:focusable="false" android:focusableInTouchMode="false" android:clickable="false" android:layout_width="@dimen/ti" android:layout_height="@dimen/ti" android:layout_marginLeft="6.0dp" android:layout_marginRight="16.0dp" android:checked="false" android:button="@null" android:layout_alignParentLeft="true" android:layout_centerVertical="true" />
+    <ImageView android:id="@id/kfv" android:background="@drawable/cloud_local_new" android:visibility="gone" android:layout_width="28.0dp" android:layout_height="14.0dp" android:layout_marginRight="16.0dp" android:scaleType="fitXY" android:layout_alignParentRight="true" android:layout_centerVertical="true" />
+    <RelativeLayout android:id="@id/kf0" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginRight="10.0dp" android:layout_toLeftOf="@id/kfv" android:layout_toRightOf="@id/e2p" android:layout_centerVertical="true">
+        <LinearLayout android:id="@id/e2t" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_alignParentLeft="true" android:layout_alignParentTop="true">
+            <TextView android:textSize="15.0sp" android:textColor="@color/skin_text_main_color" android:ellipsize="end" android:id="@id/e2s" android:fadingEdge="none" android:layout_width="wrap_content" android:layout_height="wrap_content" android:singleLine="true" android:layout_weight="1.0" />
+        </LinearLayout>
+        <RelativeLayout android:id="@id/e2r" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginTop="3.0dp" android:layout_marginRight="3.0dp" android:layout_below="@id/e2t">
+            <include android:id="@id/kh9" android:layout_width="wrap_content" android:layout_height="wrap_content" layout="@layout/cn8" />
+        </RelativeLayout>
+    </RelativeLayout>
+</RelativeLayout>

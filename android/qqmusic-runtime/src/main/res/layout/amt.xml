@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout android:layout_width="48.0dp" android:layout_height="48.0dp"
+  xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">
+    <ImageView android:id="@id/dt8" android:layout_width="match_parent" android:layout_height="match_parent" android:src="@drawable/defined_player_edit_selected" />
+    <com.tencent.qqmusic.ui.RoundedConstraintLayout android:id="@id/n_p" android:layout_width="40.0dp" android:layout_height="40.0dp" app:kj="4.0dp" app:a1d="hnz" app:a1x="hnz" app:a21="hnz" app:a27="hnz">
+        <com.tencent.component.widget.AsyncImageView android:id="@id/dq4" android:layout_width="match_parent" android:layout_height="match_parent" />
+    </com.tencent.qqmusic.ui.RoundedConstraintLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>

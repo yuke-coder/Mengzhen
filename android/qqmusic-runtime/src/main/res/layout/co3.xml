@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout android:layout_width="match_parent" android:layout_height="match_parent"
+  xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">
+    <androidx.constraintlayout.widget.ConstraintLayout android:id="@id/krt" android:layout_width="0.0dp" android:layout_height="0.0dp" app:a1d="hnz" app:a1i="17:33" app:a1j="hnz" app:a23="hnz" app:a27="hnz">
+        <ImageView android:id="@id/joa" android:layout_width="0.0dp" android:layout_height="0.0dp" android:src="@drawable/car_selected_seat" app:a1d="hnz" app:a1i="0.76" app:a1j="hnz" app:a1t="0.3106" app:a23="hnz" app:a27="hnz" app:a28="0.4821" app:a2e="0.2235" />
+        <ImageView android:id="@id/job" android:layout_width="0.0dp" android:layout_height="0.0dp" android:src="@drawable/car_selected_seat" app:a1d="hnz" app:a1i="0.76" app:a1j="hnz" app:a1t="0.6894" app:a23="hnz" app:a27="hnz" app:a28="0.4821" app:a2e="0.2235" />
+        <ImageView android:id="@id/joc" android:layout_width="0.0dp" android:layout_height="0.0dp" android:src="@drawable/car_selected_seat" app:a1d="hnz" app:a1i="0.76" app:a1j="hnz" app:a1t="0.3106" app:a23="hnz" app:a27="hnz" app:a28="0.7143" app:a2e="0.2235" />
+        <ImageView android:id="@id/jod" android:layout_width="0.0dp" android:layout_height="0.0dp" android:src="@drawable/car_selected_seat" app:a1d="hnz" app:a1i="0.76" app:a1j="hnz" app:a1t="0.6894" app:a23="hnz" app:a27="hnz" app:a28="0.7143" app:a2e="0.2235" />
+        <ImageView android:id="@id/joe" android:visibility="gone" android:layout_width="0.0dp" android:layout_height="0.0dp" android:src="@drawable/car_selected_seat" app:a1d="hnz" app:a1i="0.76" app:a1j="hnz" app:a1t="0.3106" app:a23="hnz" app:a27="hnz" app:a28="0.4821" app:a2e="0.2235" />
+        <ImageView android:id="@id/jof" android:visibility="gone" android:layout_width="0.0dp" android:layout_height="0.0dp" android:src="@drawable/car_selected_seat" app:a1d="hnz" app:a1i="0.76" app:a1j="hnz" app:a1t="0.6894" app:a23="hnz" app:a27="hnz" app:a28="0.4821" app:a2e="0.2235" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>

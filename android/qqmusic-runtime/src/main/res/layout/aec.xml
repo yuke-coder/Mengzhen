@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout android:orientation="vertical" android:layout_width="match_parent" android:layout_height="wrap_content"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <include android:id="@id/bwx" layout="@layout/aej" />
+    <RelativeLayout android:id="@id/bvo" android:background="@color/transparent" android:paddingLeft="10.0dp" android:layout_width="match_parent" android:layout_height="50.0dp" android:minHeight="50.0dp">
+        <LinearLayout android:orientation="horizontal" android:id="@id/bvk" android:paddingRight="10.0dp" android:clickable="true" android:layout_width="wrap_content" android:layout_height="50.0dp" android:layout_alignParentRight="true" android:layout_centerVertical="true">
+            <ImageView android:layout_gravity="center_vertical" android:id="@id/bvl" android:layout_width="wrap_content" android:layout_height="wrap_content" android:src="@drawable/common_list_header_mutilchoose" />
+            <TextView android:textSize="16.0sp" android:textColor="@color/skin_text_main_color" android:layout_gravity="center_vertical" android:id="@id/bvg" android:visibility="gone" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/a_a" />
+        </LinearLayout>
+        <LinearLayout android:id="@id/bvq" android:layout_width="match_parent" android:layout_height="50.0dp" android:layout_toLeftOf="@id/bvk">
+            <ImageView android:layout_gravity="center_vertical" android:id="@id/bvm" android:padding="6.0dp" android:layout_width="40.0dp" android:layout_height="40.0dp" android:src="@drawable/ic_download_list_start" android:scaleType="centerCrop" />
+            <TextView android:textSize="16.0sp" android:textColor="@color/skin_text_main_color" android:gravity="center_vertical" android:layout_gravity="center_vertical" android:id="@id/bvp" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="全部开始" android:includeFontPadding="false" />
+            <TextView android:textSize="16.0sp" android:textColor="@color/skin_text_main_color" android:gravity="center_vertical" android:layout_gravity="center_vertical" android:id="@id/bvn" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="(20)" android:includeFontPadding="false" />
+        </LinearLayout>
+    </RelativeLayout>
+</LinearLayout>

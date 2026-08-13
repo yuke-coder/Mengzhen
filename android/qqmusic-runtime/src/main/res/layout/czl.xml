@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView android:layout_width="375.0dp" android:layout_height="wrap_content"
+  xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">
+    <androidx.constraintlayout.widget.ConstraintLayout android:paddingBottom="20.0dp" android:layout_width="375.0dp" android:layout_height="wrap_content">
+        <com.tencent.component.widget.AsyncEffectImageView android:id="@id/dt9" android:layout_width="375.0dp" android:layout_height="375.0dp" app:a1x="hnz" app:a21="hnz" app:a27="hnz" />
+        <ImageView android:id="@id/dtf" android:layout_width="76.5dp" android:layout_height="76.5dp" android:layout_marginRight="20.0dp" android:layout_marginBottom="20.0dp" app:a1d="@id/dt9" app:a21="@id/dt9" />
+        <com.tencent.qqmusic.share.view.NoScrollListView android:id="@id/fx4" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginLeft="20.0dp" android:layout_marginRight="20.0dp" android:minHeight="88.0dp" app:a1x="hnz" app:a26="@id/dt9" />
+        <androidx.appcompat.widget.AppCompatTextView android:textSize="20.0dp" android:ellipsize="end" android:id="@id/ml1" android:paddingLeft="20.0dp" android:paddingRight="20.0dp" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="24.0dp" android:maxLines="1" android:alpha="0.8" app:a1x="hnz" app:a26="@id/fx4" />
+        <androidx.appcompat.widget.AppCompatTextView android:textSize="30.0dp" android:textStyle="bold" android:id="@id/ml2" android:paddingLeft="20.0dp" android:paddingRight="20.0dp" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="6.0dp" android:alpha="0.8" app:a1x="hnz" app:a26="@id/ml1" />
+        <ImageView android:id="@id/dtg" android:layout_width="70.0dp" android:layout_height="17.0dp" android:layout_marginLeft="20.0dp" android:layout_marginTop="32.0dp" android:src="@drawable/icon_share_card_logo_vip" android:layout_centerVertical="true" app:a1x="hnz" app:a26="@id/ml2" />
+        <androidx.appcompat.widget.AppCompatTextView android:textSize="12.0dp" android:textColor="@color/white" android:id="@id/m67" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginLeft="4.0dp" android:text="歌曲成就" android:includeFontPadding="false" app:a1d="@id/dtg" app:a1y="@id/dtg" app:a27="@id/dtg" />
+        <androidx.appcompat.widget.AppCompatTextView android:textSize="12.0dp" android:id="@id/mkj" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginLeft="20.0dp" android:layout_marginTop="6.0dp" app:a1x="hnz" app:a26="@id/dtg" />
+        <ImageView android:id="@id/dth" android:layout_width="50.0dp" android:layout_height="50.0dp" android:layout_marginRight="20.0dp" app:a1d="hnz" app:a21="hnz" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</ScrollView>

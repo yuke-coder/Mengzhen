@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout android:id="@id/alf" android:layout_width="match_parent" android:layout_height="match_parent"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <ImageView android:id="@id/eb5" android:layout_width="match_parent" android:layout_height="match_parent" android:src="@drawable/main_bg" android:scaleType="centerCrop" />
+    <include android:layout_width="match_parent" android:layout_height="match_parent" layout="@layout/o0" />
+    <include android:layout_width="match_parent" android:layout_height="match_parent" layout="@layout/mj" />
+    <androidx.viewpager.widget.ViewPager android:id="@id/alu" android:visibility="gone" android:layout_width="match_parent" android:layout_height="match_parent" android:overScrollMode="never" />
+    <com.tencent.qqmusic.ui.DanmuBubblesScrollTab android:id="@id/alk" android:background="@drawable/skin_floor_img" android:visibility="gone" android:layout_width="match_parent" android:layout_height="40.0dp" android:layout_alignParentBottom="true" />
+</RelativeLayout>

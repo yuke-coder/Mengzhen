@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout android:id="@id/dfk" android:layout_width="match_parent" android:layout_height="wrap_content"
+  xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">
+    <LinearLayout android:gravity="center_horizontal" android:orientation="vertical" android:id="@id/dg4" android:visibility="gone" android:layout_width="match_parent" android:layout_height="match_parent">
+        <ProgressBar android:layout_gravity="center" android:id="@id/kai" android:layout_width="30.0dp" android:layout_height="30.0dp" android:layout_marginTop="100.0dp" android:layout_marginBottom="10.0dp" android:indeterminate="true" android:indeterminateOnly="true" android:indeterminateDrawable="@drawable/icn_loading_indicator" android:indeterminateDuration="2000" />
+        <TextView android:textColor="@color/skin_text_sub_color" android:id="@id/fir" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginLeft="5.0dp" android:text="@string/cd1" android:layout_marginStart="5.0dp" />
+    </LinearLayout>
+    <androidx.core.widget.NestedScrollView android:id="@id/dfs" android:layout_width="match_parent" android:layout_height="wrap_content">
+        <LinearLayout android:orientation="vertical" android:layout_width="match_parent" android:layout_height="wrap_content">
+            <LinearLayout android:orientation="vertical" android:id="@id/dd8" android:layout_width="match_parent" android:layout_height="wrap_content" app:a36="jil|c8f">
+                <com.tencent.qqmusic.fragment.search.view.SearchTopAdView android:id="@id/jjb" android:visibility="gone" android:layout_width="match_parent" android:layout_height="wrap_content" />
+                <com.tencent.qqmusic.fragment.search.view.SearchFunctionView android:id="@id/jlt" android:paddingLeft="@dimen/by6" android:paddingRight="@dimen/by6" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginBottom="20.0dp" />
+                <FrameLayout android:id="@id/jjz" android:visibility="gone" android:layout_width="match_parent" android:layout_height="137.0dp" android:layout_marginLeft="16.0dp" android:layout_marginRight="16.0dp" android:layout_marginBottom="25.0dp" />
+                <include android:id="@id/jjo" layout="@layout/cg8" />
+                <include android:id="@id/jkh" layout="@layout/cge" />
+                <com.tencent.qqmusic.fragment.search.view.SearchHistoryView android:id="@id/jly" android:paddingLeft="@dimen/by6" android:paddingRight="@dimen/by6" android:visibility="gone" android:layout_width="match_parent" android:layout_height="wrap_content" />
+                <LinearLayout android:orientation="vertical" android:id="@id/jna" android:paddingLeft="@dimen/by6" android:paddingRight="@dimen/by6" android:visibility="gone" android:layout_width="match_parent" android:layout_height="wrap_content">
+                    <LinearLayout android:gravity="center_vertical" android:orientation="horizontal" android:id="@id/jnb" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="2.0dp" android:layout_marginBottom="3.0dp">
+                        <TextView android:textSize="16.0sp" android:textStyle="bold" android:textColor="@color/skin_text_main_color" android:ellipsize="end" android:layout_width="match_parent" android:layout_height="wrap_content" android:text="@string/gn1" android:lines="1" android:includeFontPadding="false" />
+                        <ImageView android:id="@id/jnd" android:padding="2.0dp" android:visibility="visible" android:layout_width="25.0dp" android:layout_height="25.0dp" android:src="@drawable/icon_search_recommend_refresh" android:contentDescription="@string/gmt" />
+                    </LinearLayout>
+                    <com.tencent.qqmusic.fragment.search.ExtendFlowLayout android:id="@id/jnc" android:padding="0.0dp" android:layout_width="match_parent" android:layout_height="wrap_content" app:gp="false" app:a8_="5" />
+                </LinearLayout>
+            </LinearLayout>
+            <com.tencent.qqmusic.fragment.search.view.SearchHotWordView android:id="@id/jma" android:visibility="gone" android:layout_width="wrap_content" android:layout_height="wrap_content" />
+        </LinearLayout>
+    </androidx.core.widget.NestedScrollView>
+</RelativeLayout>

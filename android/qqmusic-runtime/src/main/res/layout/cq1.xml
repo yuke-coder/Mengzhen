@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout android:orientation="horizontal" android:descendantFocusability="blocksDescendants" android:layout_width="match_parent" android:layout_height="wrap_content" android:baselineAligned="false"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <LinearLayout android:gravity="center" android:orientation="vertical" android:id="@id/lb8" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginLeft="@dimen/c97" android:layout_marginTop="@dimen/c96" android:layout_marginRight="1.0dp" android:layout_marginBottom="@dimen/c95" android:layout_weight="1.0">
+        <RelativeLayout android:layout_width="match_parent" android:layout_height="wrap_content">
+            <com.tencent.qqmusic.ui.TopCenterImageView android:id="@id/lb6" android:layout_width="match_parent" android:layout_height="match_parent" android:scaleType="centerCrop" />
+            <com.tencent.component.widget.AsyncEffectImageView android:id="@id/lb4" android:visibility="invisible" android:layout_width="30.0dp" android:layout_height="30.0dp" android:layout_alignParentTop="true" />
+        </RelativeLayout>
+        <LinearLayout android:gravity="center_vertical" android:orientation="horizontal" android:layout_width="match_parent" android:layout_height="match_parent" android:layout_marginLeft="10.0dp" android:layout_marginTop="7.0dp" android:layout_marginRight="10.0dp" android:baselineAligned="false">
+            <RelativeLayout android:layout_width="0.0dp" android:layout_height="match_parent" android:layout_weight="1.0">
+                <TextView android:textSize="14.0sp" android:textColor="@color/skin_text_main_color" android:ellipsize="end" android:id="@id/f3e" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="王菲" android:singleLine="true" android:layout_alignParentLeft="true" android:layout_centerVertical="true" />
+            </RelativeLayout>
+            <RelativeLayout android:layout_width="0.0dp" android:layout_height="match_parent" android:layout_weight="1.0">
+                <TextView android:textSize="12.0sp" android:textColor="@color/skin_text_sub_color" android:id="@id/f3g" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="10k" android:layout_alignParentRight="true" android:layout_centerVertical="true" />
+            </RelativeLayout>
+        </LinearLayout>
+        <include android:id="@id/lb2" android:layout_width="match_parent" android:layout_height="match_parent" android:layout_marginLeft="10.0dp" android:layout_marginTop="7.0dp" android:layout_marginRight="10.0dp" layout="@layout/cq0" />
+    </LinearLayout>
+    <LinearLayout android:gravity="center" android:orientation="vertical" android:id="@id/lb9" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginLeft="1.0dp" android:layout_marginTop="@dimen/c96" android:layout_marginRight="@dimen/c97" android:layout_marginBottom="@dimen/c95" android:layout_weight="1.0">
+        <RelativeLayout android:layout_width="match_parent" android:layout_height="wrap_content">
+            <com.tencent.qqmusic.ui.TopCenterImageView android:id="@id/lb7" android:layout_width="match_parent" android:layout_height="match_parent" android:scaleType="centerCrop" />
+            <com.tencent.component.widget.AsyncEffectImageView android:id="@id/lb5" android:visibility="invisible" android:layout_width="30.0dp" android:layout_height="30.0dp" android:layout_alignParentTop="true" />
+        </RelativeLayout>
+        <LinearLayout android:gravity="center_vertical" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginLeft="10.0dp" android:layout_marginTop="7.0dp" android:layout_marginRight="10.0dp" android:baselineAligned="false">
+            <RelativeLayout android:layout_width="0.0dp" android:layout_height="match_parent" android:layout_weight="1.0">
+                <TextView android:textSize="14.0sp" android:textColor="@color/skin_text_main_color" android:ellipsize="end" android:id="@id/f3f" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="王菲" android:singleLine="true" android:layout_alignParentLeft="true" android:layout_centerVertical="true" />
+            </RelativeLayout>
+            <RelativeLayout android:layout_width="0.0dp" android:layout_height="match_parent" android:layout_weight="1.0">
+                <TextView android:textSize="12.0sp" android:textColor="@color/skin_text_sub_color" android:id="@id/f3h" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="10k" android:layout_alignParentRight="true" android:layout_centerVertical="true" />
+            </RelativeLayout>
+        </LinearLayout>
+        <include android:id="@id/lb3" android:layout_width="match_parent" android:layout_height="match_parent" android:layout_marginLeft="10.0dp" android:layout_marginTop="7.0dp" android:layout_marginRight="10.0dp" layout="@layout/cq0" />
+    </LinearLayout>
+</LinearLayout>

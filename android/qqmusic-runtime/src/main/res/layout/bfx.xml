@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout android:paddingTop="6.0dp" android:paddingBottom="6.0dp" android:layout_width="match_parent" android:layout_height="wrap_content"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <RelativeLayout android:id="@id/ev1" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_alignParentStart="true">
+        <com.tme.qqmusic.widget.base.view.GlideImageView android:id="@id/edx" android:src="@drawable/mlive_default_avatar" style="@style/mo" />
+        <TextView android:gravity="center" android:id="@id/mcf" android:background="@drawable/mlive_selector_mark_anchor" android:visibility="invisible" android:text="@string/do4" android:layout_alignBottom="@id/edx" android:layout_centerHorizontal="true" android:layout_centerVertical="true" style="@style/mn" />
+    </RelativeLayout>
+    <LinearLayout android:orientation="vertical" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_alignBaseline="@id/ev1" android:layout_centerVertical="true" android:paddingStart="10.0dp" android:paddingEnd="10.0dp" android:layout_toStartOf="@id/euq" android:layout_toEndOf="@id/ev1">
+        <LinearLayout android:gravity="center_vertical" android:orientation="horizontal" android:id="@id/me7" android:layout_width="wrap_content" android:layout_height="wrap_content">
+            <TextView android:id="@id/mbi" android:layout_width="wrap_content" android:layout_height="wrap_content" android:lines="1" />
+            <TextView android:id="@id/me6" android:layout_weight="1.0" style="@style/ly" />
+            <com.tme.qqmusic.widget.base.view.GlideImageView android:id="@id/eh4" android:layout_width="13.0dp" android:layout_height="13.0dp" android:layout_marginStart="3.0dp" />
+        </LinearLayout>
+        <TextView android:textSize="11.0dp" android:ellipsize="end" android:id="@id/md4" android:paddingTop="3.0dp" android:layout_width="match_parent" android:layout_height="wrap_content" android:maxWidth="179.0dp" android:maxLines="2" android:layout_below="@id/me6" />
+    </LinearLayout>
+    <RelativeLayout android:id="@id/euq" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_centerVertical="true" android:layout_alignParentEnd="true">
+        <Button android:id="@id/aj_" android:background="@drawable/mlive_selector_anchor_follow" android:text="@string/db0" style="@style/m9" />
+        <ProgressBar android:id="@id/iht" android:visibility="gone" android:layout_width="26.0dp" android:layout_height="26.0dp" android:indeterminate="true" android:layout_centerHorizontal="true" android:layout_centerVertical="true" android:indeterminateTint="@color/mlive_gray_136" />
+    </RelativeLayout>
+</RelativeLayout>

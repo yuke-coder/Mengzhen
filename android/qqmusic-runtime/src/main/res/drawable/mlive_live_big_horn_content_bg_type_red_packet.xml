@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<shape
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <gradient android:startColor="@color/mlive_live_big_horn_content_bg_start_type_red_packet" android:endColor="@color/mlive_live_big_horn_content_bg_end_type_red_packet" android:angle="180.0" />
+    <corners android:radius="@dimen/apq" />
+</shape>

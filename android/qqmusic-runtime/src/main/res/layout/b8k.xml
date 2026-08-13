@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout android:layout_width="match_parent" android:layout_height="match_parent"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <include android:id="@id/naf" android:layout_width="match_parent" android:layout_height="match_parent" layout="@layout/m6" />
+    <include android:id="@id/lv1" android:layout_width="match_parent" android:layout_height="@dimen/cau" android:layout_alignParentTop="true" layout="@layout/mu" />
+    <LinearLayout android:orientation="vertical" android:id="@id/jb3" android:background="@drawable/skin_common_tab_img" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_alignParentBottom="true">
+        <RelativeLayout android:id="@id/ieo" android:visibility="visible" android:layout_width="match_parent" android:layout_height="55.0dp">
+            <LinearLayout android:id="@id/jh8" android:visibility="visible" android:layout_width="match_parent" android:layout_height="match_parent">
+                <TextView android:textSize="14.0sp" android:textColor="@color/skin_text_main_color" android:gravity="center" android:id="@id/bhc" android:layout_width="0.0dp" android:layout_height="match_parent" android:text="自定义扫描" android:layout_weight="1.0" />
+                <View android:background="@drawable/z_color_l1" android:layout_width="1.0dp" android:layout_height="match_parent" />
+                <TextView android:textSize="14.0sp" android:textColor="@color/skin_text_main_color" android:gravity="center" android:id="@id/cns" android:layout_width="0.0dp" android:layout_height="match_parent" android:text="扫描设置" android:layout_weight="1.0" />
+            </LinearLayout>
+            <Button android:textSize="18.0sp" android:textColor="@color/white" android:id="@id/jh5" android:background="@drawable/bg_solid_button" android:visibility="gone" android:layout_width="85.0dp" android:layout_height="40.0dp" android:text="@string/cancel" android:layout_centerInParent="true" />
+            <Button android:textSize="18.0sp" android:textColor="@color/white" android:gravity="center" android:id="@id/jh9" android:background="@drawable/bg_solid_button" android:paddingLeft="20.0dp" android:paddingRight="20.0dp" android:visibility="gone" android:layout_width="wrap_content" android:layout_height="40.0dp" android:layout_marginLeft="25.0dp" android:layout_marginRight="25.0dp" android:text="添加到本地文件(10000首)" android:singleLine="true" android:layout_centerInParent="true" />
+        </RelativeLayout>
+        <LinearLayout android:gravity="center_vertical" android:layout_gravity="center_horizontal" android:id="@id/hgo" android:paddingBottom="11.0dp" android:visibility="gone" android:layout_width="wrap_content" android:layout_height="wrap_content">
+            <ToggleButton android:id="@id/hgn" android:background="@drawable/toggle_selector" android:layout_width="15.0dp" android:layout_height="12.0dp" android:checked="false" android:textOn="" android:textOff="" />
+            <TextView android:textSize="12.0sp" android:textColor="@color/skin_text_sub_color" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginLeft="4.0dp" android:text="记住本次扫描的文件夹" />
+        </LinearLayout>
+    </LinearLayout>
+    <RelativeLayout android:id="@id/jht" android:visibility="visible" android:layout_width="match_parent" android:layout_height="match_parent" android:layout_above="@id/jb3" android:layout_below="@id/lv1">
+        <ImageView android:id="@id/jhs" android:layout_width="@dimen/buo" android:layout_height="@dimen/buo" android:layout_marginTop="@dimen/bue" android:src="@drawable/scanning_forlder_icon" android:layout_centerHorizontal="true" />
+        <RelativeLayout android:id="@id/lf5" android:visibility="visible" android:layout_width="match_parent" android:layout_height="match_parent" android:layout_below="@id/jhs">
+            <TextView android:textSize="20.0sp" android:textColor="@color/skin_text_main_color" android:id="@id/ifs" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="30.0dp" android:text="一键扫描手机内的歌曲文件" android:layout_centerHorizontal="true" />
+            <LinearLayout android:orientation="horizontal" android:id="@id/cfy" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="25.0dp" android:layout_below="@id/ifs" android:layout_centerHorizontal="true">
+                <CheckBox android:id="@id/cfx" android:background="@drawable/ic_edit_song_checkbox" android:layout_width="24.0dp" android:layout_height="24.0dp" android:layout_marginLeft="12.0dp" android:layout_marginRight="12.0dp" android:checked="false" android:button="@null" />
+                <TextView android:textSize="16.0sp" android:textColor="@color/skin_text_main_color" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/b81" />
+            </LinearLayout>
+            <LinearLayout android:orientation="horizontal" android:id="@id/cfw" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="15.0dp" android:layout_below="@id/cfy" android:layout_centerHorizontal="true">
+                <CheckBox android:id="@id/cfv" android:background="@drawable/ic_edit_song_checkbox" android:layout_width="24.0dp" android:layout_height="24.0dp" android:layout_marginLeft="12.0dp" android:layout_marginRight="12.0dp" android:checked="false" android:button="@null" />
+                <TextView android:textSize="16.0sp" android:textColor="@color/skin_text_main_color" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/b80" />
+            </LinearLayout>
+            <Button android:textSize="18.0sp" android:textColor="@color/white" android:id="@id/jh4" android:background="@drawable/bg_solid_button" android:layout_width="122.0dp" android:layout_height="40.0dp" android:layout_marginBottom="30.0dp" android:text="@string/gjj" android:layout_alignParentBottom="true" android:layout_centerHorizontal="true" />
+        </RelativeLayout>
+        <RelativeLayout android:id="@id/jhj" android:visibility="invisible" android:layout_width="match_parent" android:layout_height="match_parent" android:layout_below="@id/jhs">
+            <LinearLayout android:orientation="vertical" android:id="@id/jba" android:visibility="visible" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginTop="20.0dp" android:layout_centerHorizontal="true">
+                <TextView android:textSize="16.0sp" android:textColor="@color/skin_text_main_color" android:layout_gravity="center" android:id="@id/jho" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="scan_result_title" android:singleLine="true" />
+                <TextView android:textSize="14.0sp" android:textColor="@color/skin_text_main_color" android:ellipsize="start" android:layout_gravity="center" android:id="@id/jhk" android:layout_width="@dimen/bun" android:layout_height="wrap_content" android:layout_marginTop="25.0dp" android:text="scan_path" android:singleLine="true" />
+                <ProgressBar android:id="@id/jhq" android:focusable="false" android:layout_width="match_parent" android:layout_height="1.0dp" android:layout_marginLeft="20.0dp" android:layout_marginTop="40.0dp" android:layout_marginRight="20.0dp" android:indeterminateOnly="false" android:progressDrawable="@drawable/download_path_progress_bar" android:thumb="@drawable/a_empty" android:thumbOffset="0.0dp" />
+            </LinearLayout>
+            <TextView android:textSize="16.0sp" android:textColor="@color/skin_text_main_color" android:id="@id/jhn" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="63.0dp" android:text="scan_result_subtitle" android:layout_below="@id/jba" android:layout_centerHorizontal="true" />
+        </RelativeLayout>
+        <ImageView android:id="@id/jhr" android:layout_width="@dimen/buo" android:layout_height="@dimen/buo" android:layout_marginTop="@dimen/bue" android:src="@drawable/scanning_animation" android:layout_alignLeft="@id/jhs" android:layout_centerHorizontal="true" android:layout_alignStart="@id/jhs" />
+    </RelativeLayout>
+    <RelativeLayout android:id="@id/jh6" android:visibility="invisible" android:layout_width="match_parent" android:layout_height="match_parent" android:layout_above="@id/jb3" android:layout_below="@id/lv1">
+        <ImageView android:id="@id/jhm" android:layout_width="150.0dp" android:layout_height="150.0dp" android:layout_marginTop="-30.0dp" android:src="@drawable/scanning_forlder_icon" android:layout_centerHorizontal="true" />
+        <TextView android:textSize="@dimen/b35" android:textColor="@color/skin_text_main_color" android:id="@id/jhl" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="-30.0dp" android:layout_marginBottom="15.0dp" android:text="扫描到156首歌曲" android:layout_below="@id/jhm" android:layout_centerHorizontal="true" />
+        <TextView android:textSize="@dimen/b35" android:textColor="@color/skin_text_main_color" android:gravity="center" android:id="@id/cfz" android:layout_width="wrap_content" android:layout_height="40.0dp" android:text="6个文件被过滤" android:layout_alignParentBottom="true" android:layout_centerHorizontal="true" />
+        <View android:background="@drawable/z_color_l1" android:layout_width="match_parent" android:layout_height="0.5dp" android:layout_below="@id/jhl" />
+        <CheckBox android:id="@id/br2" android:background="@drawable/ic_edit_song_checkbox" android:layout_width="20.0dp" android:layout_height="20.0dp" android:layout_marginLeft="20.0dp" android:layout_marginTop="20.0dp" android:layout_marginRight="20.0dp" android:layout_marginBottom="20.0dp" android:checked="false" android:button="@null" android:layout_below="@id/jhl" />
+        <TextView android:textSize="@dimen/b35" android:textColor="@color/skin_text_main_color" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="全选" android:layout_toRightOf="@id/br2" android:layout_alignTop="@id/br2" />
+        <TextView android:textSize="@dimen/b35" android:textColor="@color/skin_text_main_color" android:id="@id/dam" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginRight="12.0dp" android:text="已选0个" android:layout_alignTop="@id/br2" android:layout_alignParentRight="true" />
+        <ListView android:id="@id/jh7" android:scrollbars="none" android:layout_width="match_parent" android:layout_height="match_parent" android:cacheColorHint="#00000000" android:divider="@null" android:dividerHeight="0.0dp" android:layout_above="@id/cfz" android:layout_below="@id/br2" android:fastScrollEnabled="false" android:overScrollMode="never" />
+        <View android:background="@drawable/z_color_l1" android:layout_width="match_parent" android:layout_height="0.5dp" android:layout_below="@id/br2" />
+        <View android:background="@drawable/z_color_l1" android:layout_width="match_parent" android:layout_height="0.5dp" android:layout_below="@id/jh7" />
+    </RelativeLayout>
+</RelativeLayout>

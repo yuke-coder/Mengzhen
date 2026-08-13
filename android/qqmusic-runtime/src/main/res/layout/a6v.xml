@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout android:id="@id/f1j" android:layout_width="match_parent" android:layout_height="match_parent"
+  xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">
+    <FrameLayout android:orientation="horizontal" android:id="@id/c1v" android:background="@color/black" android:paddingLeft="8.0dp" android:paddingRight="13.0dp" android:layout_width="match_parent" android:layout_height="100.0dp" app:a1x="hnz" app:a27="hnz">
+        <androidx.appcompat.widget.AppCompatImageView android:layout_gravity="bottom" android:id="@id/c0u" android:layout_width="27.0dp" android:layout_height="27.0dp" android:layout_marginBottom="10.0dp" android:src="@drawable/port_mv_top_close_b" />
+        <androidx.appcompat.widget.AppCompatTextView android:textSize="13.0dp" android:textColor="@color/black" android:gravity="center" android:layout_gravity="right|bottom" android:id="@id/c1u" android:background="@drawable/bg_singer_letter_edit_done" android:layout_width="55.0dp" android:layout_height="27.0dp" android:layout_marginBottom="10.0dp" android:text="@string/aui" />
+    </FrameLayout>
+    <RelativeLayout android:background="@color/black_60_opacity" android:layout_width="match_parent" android:layout_height="0.0dp" app:a1d="hnz" app:a1x="hnz" app:a26="@id/c1v">
+        <RelativeLayout android:background="@color/color_1A1A1A" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_alignParentBottom="true">
+            <androidx.recyclerview.widget.RecyclerView android:id="@id/jes" android:layout_width="match_parent" android:layout_height="60.0dp" android:layout_marginLeft="38.0dp" android:layout_marginRight="38.0dp" android:overScrollMode="never" android:layout_marginHorizontal="38.0dp" />
+            <androidx.recyclerview.widget.RecyclerView android:id="@id/jer" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginLeft="15.0dp" android:layout_marginRight="15.0dp" android:layout_below="@id/jes" android:overScrollMode="never" android:layout_marginHorizontal="15.0dp" />
+        </RelativeLayout>
+    </RelativeLayout>
+    <ScrollView android:id="@id/k42" android:scrollbars="none" android:layout_width="0.0dp" android:layout_height="wrap_content" android:layout_marginTop="80.0dp" android:layout_marginBottom="10.0dp" app:a1x="hnz" app:a21="hnz" app:a26="@id/c1v">
+        <com.tencent.qqmusic.ui.PasteObservableEditText android:textSize="20.0sp" android:textColor="@color/white" android:textColorHint="@color/white" android:gravity="top" android:id="@id/k41" android:background="@color/transparent" android:layout_width="match_parent" android:layout_height="wrap_content" android:hint="@string/bnf" android:textCursorDrawable="@drawable/bg_singer_letter_edit_color_cursor" />
+    </ScrollView>
+</androidx.constraintlayout.widget.ConstraintLayout>

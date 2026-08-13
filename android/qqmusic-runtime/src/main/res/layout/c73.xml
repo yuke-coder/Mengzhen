@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout android:id="@id/i4i" android:layout_width="match_parent" android:layout_height="match_parent"
+  xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">
+    <com.tencent.qqmusic.ui.RepeatingImageButton android:id="@id/bottom_action_btn_comment_btn" android:background="@color/transparent" android:focusable="true" android:visibility="visible" android:clickable="true" android:layout_width="0.0dp" android:layout_height="0.0dp" android:src="@drawable/personal_player_btn_comment_normal" android:scaleType="fitCenter" android:contentDescription="@string/f80" app:a1d="hnz" app:a1j="hnz" app:a23="hnz" app:a27="hnz" />
+    <TextView android:textSize="9.0dp" android:textColor="#99ffffff" android:id="@id/abj" android:visibility="gone" android:layout_width="wrap_content" android:layout_height="wrap_content" android:singleLine="true" android:importantForAccessibility="no" app:a23="@id/l_w" app:a26="@id/l_w" />
+    <Space android:id="@id/l_w" android:layout_width="0.0dp" android:layout_height="0.0dp" app:a1i="W,2.9:12" app:a1j="@id/bottom_action_btn_comment_btn" app:a27="@id/bottom_action_btn_comment_btn" app:a2e="0.38" />
+</androidx.constraintlayout.widget.ConstraintLayout>

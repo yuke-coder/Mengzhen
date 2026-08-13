@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout android:orientation="vertical" android:background="@color/transparent" android:layout_width="@dimen/biz" android:layout_height="wrap_content"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <View android:background="@drawable/rounded_dialog_top_background" android:layout_width="match_parent" android:layout_height="4.0dp" />
+    <include android:id="@id/ia5" layout="@layout/c_u" />
+    <include android:id="@id/br0" layout="@layout/m7" />
+    <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content">
+        <include android:id="@id/am3" android:layout_width="match_parent" android:layout_height="@dimen/biv" layout="@layout/c_n" />
+    </LinearLayout>
+</LinearLayout>

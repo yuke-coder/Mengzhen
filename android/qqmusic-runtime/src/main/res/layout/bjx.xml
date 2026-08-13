@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout android:layout_gravity="center_vertical" android:layout_width="wrap_content" android:layout_height="match_parent" android:layout_marginLeft="2.0dp" android:layout_marginRight="2.0dp" android:paddingStart="6.0dp" android:paddingEnd="6.0dp"
+  xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">
+    <TextView android:textSize="@dimen/ar7" android:textColor="@color/white_50_transparent" android:gravity="center" android:id="@id/mlive_song_tab_title" android:layout_width="40.0dp" android:layout_height="wrap_content" android:text="点歌" android:textAlignment="center" app:a1d="hnz" app:a1x="hnz" app:a21="hnz" app:a27="hnz" />
+    <View android:id="@id/mlive_song_tab_indicator" android:background="@drawable/mlive_song_panel_tab_indicator" android:layout_width="32.0dp" android:layout_height="4.0dp" app:a1d="hnz" app:a1j="hnz" app:a23="hnz" />
+    <View android:id="@id/mlive_song_tab_tip" android:background="@drawable/mlive_ic_red_dot" android:visibility="visible" android:layout_width="4.0dp" android:layout_height="4.0dp" app:a1y="@id/mlive_song_tab_title" app:a27="@id/mlive_song_tab_title" />
+</androidx.constraintlayout.widget.ConstraintLayout>

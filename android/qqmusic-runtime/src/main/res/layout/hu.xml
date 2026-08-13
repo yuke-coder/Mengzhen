@@ -1,0 +1,3 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.tencent.qqmusic.fragment.mymusic.recommend.BottomCropImageView android:id="@id/xs" android:layout_width="match_parent" android:layout_height="wrap_content" android:src="@drawable/main_bg" android:layout_alignParentBottom="true"
+  xmlns:android="http://schemas.android.com/apk/res/android" />

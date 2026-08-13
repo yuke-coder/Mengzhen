@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout android:id="@id/kiu" android:layout_width="match_parent" android:layout_height="match_parent"
+  xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">
+    <RelativeLayout android:id="@id/kir" android:layout_width="match_parent" android:layout_height="wrap_content">
+        <RelativeLayout android:id="@id/kit" android:layout_width="match_parent" android:layout_height="@dimen/c5z" android:layout_centerHorizontal="true">
+            <FrameLayout android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_alignParentBottom="true" android:layout_centerHorizontal="true">
+                <com.tme.karaoka.previewui.mvlayer.MVView android:id="@id/kik" android:background="@color/transparent" android:layout_width="wrap_content" android:layout_height="wrap_content" />
+            </FrameLayout>
+            <TextView android:textSize="65.0sp" android:textColor="#f36660" android:id="@id/kiy" android:focusable="false" android:visibility="invisible" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/he3" android:layout_alignParentBottom="true" android:layout_centerHorizontal="true" />
+            <TextView android:textSize="15.0sp" android:textColor="#f9ca52" android:id="@id/kj1" android:layout_width="wrap_content" android:layout_height="15.0dp" android:layout_marginLeft="30.0dp" android:layout_marginTop="25.0dp" android:text="New" />
+            <TextView android:textSize="15.0sp" android:textColor="#fca653" android:id="@id/kiz" android:layout_width="wrap_content" android:layout_height="15.0dp" android:text="Best" android:layout_toRightOf="@id/kj1" android:layout_alignBottom="@id/kj1" />
+            <ImageView android:id="@id/kj0" android:visibility="gone" android:layout_width="25.0dp" android:layout_height="21.0dp" android:layout_marginRight="5.0dp" android:src="@drawable/songedit_crown_icon" android:layout_alignRight="@id/kiy" android:layout_alignBottom="@id/kj1" />
+            <ImageView android:id="@id/kiw" android:layout_width="22.0dp" android:layout_height="22.0dp" android:layout_marginBottom="16.0dp" android:src="@drawable/songedit_score_text" android:layout_toRightOf="@id/kiy" android:layout_alignBottom="@id/kiy" />
+            <RelativeLayout android:id="@id/kiv" android:focusable="true" android:layout_width="match_parent" android:layout_height="match_parent" android:layout_alignLeft="@id/kiy" android:layout_alignTop="@id/kiy" android:layout_alignRight="@id/kiw" android:layout_alignBottom="@id/kiy" android:contentDescription="得分" />
+        </RelativeLayout>
+        <RelativeLayout android:id="@id/kio" android:layout_width="@dimen/c5w" android:layout_height="@dimen/c5x" android:layout_alignParentTop="true" android:layout_centerHorizontal="true" />
+        <ImageView android:id="@id/kiq" android:visibility="gone" android:layout_width="@dimen/c5w" android:layout_height="@dimen/c5x" android:src="@drawable/bg_light" android:layout_alignParentTop="true" android:layout_centerHorizontal="true" />
+        <ImageView android:id="@id/kip" android:visibility="invisible" android:layout_width="wrap_content" android:layout_height="@dimen/c5v" android:layout_marginTop="@dimen/c5y" android:src="@drawable/icon_big_sss" android:layout_alignParentTop="true" android:layout_centerHorizontal="true" />
+        <TextView android:textSize="20.0sp" android:textColor="#f36660" android:id="@id/kix" android:visibility="invisible" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="18.0dp" android:layout_marginRight="44.0dp" android:text="@string/he3" android:layout_alignParentTop="true" android:layout_alignParentRight="true" />
+        <FrameLayout android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="18.0dp" android:layout_marginRight="44.0dp" android:layout_alignParentTop="true" android:layout_alignParentRight="true">
+            <com.tme.karaoka.previewui.mvlayer.MVView android:id="@id/kij" android:background="@color/transparent" android:layout_width="wrap_content" android:layout_height="wrap_content" />
+        </FrameLayout>
+        <TextView android:textSize="14.0sp" android:gravity="center" android:id="@id/kis" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="@dimen/c5t" android:layout_below="@id/kip" android:layout_centerHorizontal="true" />
+        <FrameLayout android:id="@id/kgp" android:layout_width="match_parent" android:layout_height="@dimen/c60" android:layout_marginTop="0.0dp" android:layout_below="@id/kis" android:layout_centerHorizontal="true">
+            <kk.design.KKImageView android:layout_gravity="center_horizontal" android:id="@id/kim" android:layout_width="60.0dp" android:layout_height="60.0dp" android:layout_marginTop="@dimen/bur" app:kkImageRadiusSize="60.0dp" />
+            <kk.design.KKImageView android:layout_gravity="center_horizontal" android:id="@id/kil" android:layout_width="60.0dp" android:layout_height="60.0dp" android:layout_marginTop="@dimen/bur" app:kkImageRadiusSize="60.0dp" />
+            <ImageView android:layout_gravity="center_horizontal" android:id="@id/kin" android:visibility="gone" android:layout_width="25.0dp" android:layout_height="21.0dp" android:layout_marginTop="@dimen/buq" android:src="@drawable/songedit_crown_icon" />
+        </FrameLayout>
+        <LinearLayout android:orientation="vertical" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginTop="12.0dp" android:layout_marginBottom="18.0dp" android:layout_alignParentBottom="true">
+            <RelativeLayout android:layout_gravity="center_horizontal" android:id="@id/kgo" android:background="@drawable/song_preview_know_button_background" android:paddingBottom="27.0dp" android:layout_width="160.0dp" android:layout_height="40.0dp">
+                <TextView android:textSize="@dimen/c7z" android:textStyle="bold" android:textColor="@color/skin_font_c3" android:gravity="center" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/era" android:maxLines="1" android:layout_centerInParent="true" />
+            </RelativeLayout>
+        </LinearLayout>
+    </RelativeLayout>
+</RelativeLayout>

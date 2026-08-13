@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout android:orientation="vertical" android:id="@id/n7j" android:background="@drawable/video_tab_collection_action_sheet_bg" android:layout_width="match_parent" android:layout_height="match_parent"
+  xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">
+    <androidx.constraintlayout.widget.ConstraintLayout android:id="@id/n7n" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginTop="20.0dp" android:paddingStart="20.0dp" android:paddingEnd="20.0dp">
+        <TextView android:textSize="16.0dp" android:textColor="@color/white" android:ellipsize="end" android:id="@id/n7l" android:layout_width="wrap_content" android:layout_height="wrap_content" android:singleLine="true" android:includeFontPadding="false" app:a18="true" app:a1k="@id/n7m" app:a1t="0.0" app:a1u="hmg" app:a23="hnz" app:a27="hnz" />
+        <TextView android:textSize="16.0dp" android:textColor="@color/white" android:id="@id/n7m" android:layout_width="wrap_content" android:layout_height="wrap_content" android:singleLine="true" android:includeFontPadding="false" app:a1_="@id/n7l" app:a1j="hnz" app:a22="@id/n7l" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+    <FrameLayout android:id="@id/n7k" android:layout_width="match_parent" android:layout_height="0.0dp" android:layout_marginTop="10.0dp" android:layout_weight="1.0">
+        <androidx.recyclerview.widget.RecyclerView android:id="@id/n7f" android:layout_width="match_parent" android:layout_height="match_parent" android:overScrollMode="never" />
+        <RelativeLayout android:id="@id/n7i" android:visibility="gone" android:layout_width="match_parent" android:layout_height="match_parent">
+            <LinearLayout android:gravity="center_horizontal" android:orientation="vertical" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_centerInParent="true">
+                <com.airbnb.lottie.LottieAnimationView android:id="@id/n7g" android:layout_width="42.0dp" android:layout_height="42.0dp" />
+                <TextView android:textSize="13.0dp" android:textColor="#82858d" android:id="@id/n7h" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="7.0dp" android:text="加载中" android:includeFontPadding="false" />
+            </LinearLayout>
+        </RelativeLayout>
+        <RelativeLayout android:id="@id/n7_" android:visibility="gone" android:layout_width="match_parent" android:layout_height="match_parent">
+            <LinearLayout android:gravity="center_horizontal" android:orientation="vertical" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_centerInParent="true">
+                <TextView android:textSize="16.0dp" android:textColor="#ccffffff" android:gravity="center_horizontal" android:id="@id/n79" android:layout_width="match_parent" android:layout_height="wrap_content" android:text="@string/ccs" android:singleLine="true" android:includeFontPadding="false" />
+                <TextView android:textSize="13.0dp" android:textColor="#80ffffff" android:gravity="center" android:layout_gravity="center" android:id="@id/n78" android:background="@drawable/video_tab_collection_error_retry_btn_bg" android:layout_width="109.0dp" android:layout_height="40.0dp" android:layout_marginTop="22.0dp" android:text="@string/igy" android:maxLines="1" android:includeFontPadding="false" />
+            </LinearLayout>
+        </RelativeLayout>
+    </FrameLayout>
+</LinearLayout>

@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout android:background="@android:color/white" android:padding="16.0dp" android:layout_width="match_parent" android:layout_height="match_parent"
+  xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">
+    <Button android:id="@id/ao_" android:layout_width="match_parent" android:layout_height="wrap_content" android:text="通话1" app:a1j="hnz" app:a23="hnz" app:a27="hnz" />
+    <Button android:id="@id/aoc" android:layout_width="match_parent" android:layout_height="wrap_content" android:text="来电1" app:a1j="hnz" app:a23="hnz" app:a26="@id/ao_" />
+    <Button android:id="@id/aod" android:layout_width="match_parent" android:layout_height="wrap_content" android:text="来电2" app:a1j="hnz" app:a23="hnz" app:a26="@id/aoc" />
+    <Button android:id="@id/aoa" android:layout_width="match_parent" android:layout_height="wrap_content" android:text="通话2(FIXME)" app:a1j="hnz" app:a23="hnz" app:a26="@id/aod" />
+    <Button android:id="@id/aob" android:layout_width="match_parent" android:layout_height="wrap_content" android:text="外部数据启动" app:a1j="hnz" app:a23="hnz" app:a26="@id/aoa" />
+</androidx.constraintlayout.widget.ConstraintLayout>

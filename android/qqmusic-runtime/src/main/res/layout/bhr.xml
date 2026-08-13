@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout android:paddingTop="@dimen/rr" android:paddingBottom="30.0dp" android:layout_width="match_parent" android:layout_height="wrap_content"
+  xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">
+    <com.tme.qqmusic.widget.base.view.GlideImageView android:id="@id/mlive_layout_gift_wall_single_gift_icon_iv" android:layout_width="104.0dp" android:layout_height="104.0dp" android:layout_marginTop="10.0dp" android:layout_marginEnd="@dimen/sh" app:a1j="hnz" app:a27="hnz" />
+    <include android:id="@id/mlive_layout_gift_wall_single_gift_info" android:layout_width="0.0dp" android:layout_height="wrap_content" android:layout_marginTop="30.0dp" app:a1d="hnz" app:a1k="@id/mlive_layout_gift_wall_single_gift_icon_iv" app:a23="hnz" app:a27="hnz" layout="@layout/bhq" />
+</androidx.constraintlayout.widget.ConstraintLayout>

@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout android:orientation="vertical" android:id="@id/jd3" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginBottom="@dimen/hp"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <com.tencent.qqmusic.bigfont.view.BigFontTextView android:textSize="@dimen/hu" android:textColor="@color/big_font_voice_assistant_normal_text_color" android:id="@id/mid" android:layout_width="wrap_content" android:layout_height="wrap_content" />
+    <com.tencent.qqmusic.ui.RoundedRelativeLayout android:layout_gravity="center" android:id="@id/je1" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginTop="@dimen/hq">
+        <LinearLayout android:orientation="vertical" android:id="@id/je0" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginBottom="16.0dp">
+            <include android:id="@id/eyd" android:layout_width="match_parent" android:layout_height="wrap_content" layout="@layout/j3" />
+            <com.tencent.qqmusic.bigfont.view.BigFontTextView android:textSize="@dimen/hs" android:textColor="@color/big_font_voice_assistant_desc_text_color" android:gravity="center_vertical" android:id="@id/mm7" android:visibility="gone" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginLeft="16.0dp" android:layout_marginTop="16.0dp" />
+        </LinearLayout>
+        <View android:id="@id/e2b" android:background="@drawable/skin_divider_img" android:visibility="visible" android:layout_width="match_parent" android:layout_height="0.5dp" android:layout_below="@id/je0" />
+        <include android:id="@id/eut" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_below="@id/e2b" layout="@layout/iy" />
+    </com.tencent.qqmusic.ui.RoundedRelativeLayout>
+</LinearLayout>

@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout android:layout_width="match_parent" android:layout_height="match_parent"
+  xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">
+    <androidx.constraintlayout.widget.ConstraintLayout android:id="@id/eyx" android:layout_width="match_parent" android:layout_height="40.0dp" app:a1j="hnz" app:a23="hnz" app:a27="hnz" app:a28="0.0">
+        <ImageView android:id="@id/ebg" android:layout_width="19.0dp" android:layout_height="19.0dp" android:src="@drawable/ic_clip_close" android:layout_marginStart="20.0dp" app:a1d="@id/mpc" app:a1k="@id/mpc" app:a1t="0.0" app:a23="hnz" app:a27="@id/mpc" />
+        <TextView android:textSize="17.0sp" android:textColor="#1a1a1a" android:id="@id/mpc" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/i5x" android:fontFamily="sans-serif-medium" app:a1d="hnz" app:a1j="hnz" app:a23="hnz" app:a27="hnz" />
+        <TextView android:textSize="17.0sp" android:textColor="#1a1a1a" android:id="@id/m3t" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/bu1" android:fontFamily="sans-serif-medium" android:layout_marginEnd="20.0dp" app:a1d="@id/mpc" app:a1j="hnz" app:a27="@id/mpc" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+    <androidx.coordinatorlayout.widget.CoordinatorLayout android:id="@id/euo" android:layout_width="0.0dp" android:layout_height="0.0dp" android:layout_marginStart="20.0dp" app:a1d="hnz" app:a1j="hnz" app:a23="hnz" app:a26="@id/eyx">
+        <com.google.android.material.appbar.AppBarLayout android:layout_width="match_parent" android:layout_height="wrap_content" app:pa="0.0dp">
+            <androidx.constraintlayout.widget.ConstraintLayout android:id="@id/eun" android:background="@color/white" android:focusable="true" android:focusableInTouchMode="true" android:layout_width="match_parent" android:layout_height="wrap_content" app:a36="jil">
+                <ImageView android:id="@id/ejh" android:layout_width="30.0dp" android:layout_height="30.0dp" android:src="@drawable/ic_search_hint" app:a1d="@id/c_p" app:a23="@id/c_p" app:a27="@id/c_p" />
+                <EditText android:textSize="14.0sp" android:textColor="@color/black" android:textColorHint="@color/black_40_opacity" android:id="@id/c_p" android:background="@drawable/background_search_edit" android:layout_width="0.0dp" android:layout_height="30.0dp" android:layout_marginTop="20.0dp" android:hint="@string/a7i" android:inputType="text" android:imeOptions="actionSearch" android:paddingStart="30.0dp" android:layout_marginEnd="20.0dp" app:a1k="@id/m65" app:a23="hnz" app:a27="hnz" />
+                <TextView android:textSize="14.0sp" android:textColor="@color/black_90_opacity" android:id="@id/m65" android:visibility="gone" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/cancel" android:fontFamily="sans-serif-medium" android:layout_marginEnd="10.0dp" app:a1d="@id/c_p" app:a1j="hnz" app:a27="@id/c_p" />
+                <androidx.recyclerview.widget.RecyclerView android:id="@id/jev" android:layout_width="0.0dp" android:layout_height="wrap_content" android:layout_marginTop="15.0dp" app:a1j="hnz" app:a23="hnz" app:a26="@id/c_p" />
+                <com.google.android.material.tabs.TabLayout android:id="@id/eys" android:layout_width="wrap_content" android:layout_height="36.0dp" app:a1j="hnz" app:a1t="0.0" app:a23="hnz" app:a26="@id/jev" app:aml="@drawable/default_tab_indicator" app:an1="#1a1a1a" app:an3="@style/g8" app:an4="#991a1a1a" />
+            </androidx.constraintlayout.widget.ConstraintLayout>
+        </com.google.android.material.appbar.AppBarLayout>
+        <androidx.constraintlayout.widget.ConstraintLayout android:id="@id/eui" android:layout_width="match_parent" android:layout_height="match_parent" app:a14="@string/appbar_scrolling_view_behavior">
+            <androidx.viewpager2.widget.ViewPager2 android:id="@id/hnh" android:layout_width="0.0dp" android:layout_height="0.0dp" android:layout_marginTop="17.0dp" app:a1d="hnz" app:a1j="hnz" app:a23="hnz" app:a27="hnz" />
+            <androidx.recyclerview.widget.RecyclerView android:id="@id/jfd" android:visibility="invisible" android:layout_width="0.0dp" android:layout_height="0.0dp" android:layout_marginTop="20.0dp" app:a1d="hnz" app:a1j="hnz" app:a23="hnz" app:a27="hnz" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </androidx.coordinatorlayout.widget.CoordinatorLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>

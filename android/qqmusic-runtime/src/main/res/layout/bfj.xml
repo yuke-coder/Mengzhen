@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout android:layout_gravity="center" android:id="@id/mlive_medal_layout" android:layout_width="wrap_content" android:layout_height="wrap_content"
+  xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">
+    <com.tme.qqmusic.widget.base.view.GlideImageView android:id="@id/mlive_medal_img" android:layout_width="wrap_content" android:layout_height="wrap_content" android:scaleType="fitCenter" android:contentDescription="@null" app:a1d="hnz" app:a1x="hnz" app:a21="hnz" app:a27="hnz" />
+    <TextView android:textSize="8.0dp" android:textColor="@color/white" android:gravity="center" android:id="@id/mlive_medal_content" android:layout_width="wrap_content" android:layout_height="wrap_content" android:includeFontPadding="false" android:textDirection="ltr" android:layout_marginStart="16.0dp" app:a1d="hnz" app:a1x="hnz" app:a21="hnz" app:a27="hnz" />
+    <ViewStub android:id="@id/mlive_icon_text_capsule_stub" android:layout="@layout/bfm" android:layout_width="wrap_content" android:layout_height="16.0dp" app:a1d="hnz" app:a1x="hnz" app:a27="hnz" />
+</androidx.constraintlayout.widget.ConstraintLayout>

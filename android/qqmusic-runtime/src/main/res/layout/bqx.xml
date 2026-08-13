@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout android:layout_width="400.0dp" android:layout_height="300.0dp"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <com.tencent.component.widget.AsyncEffectImageView android:id="@id/gga" android:layout_width="match_parent" android:layout_height="match_parent" android:importantForAccessibility="no" />
+    <LinearLayout android:orientation="horizontal" android:id="@id/gk1" android:layout_width="wrap_content" android:layout_height="20.0dp" android:layout_marginTop="22.0dp" android:importantForAccessibility="no">
+        <com.tencent.component.widget.AsyncEffectImageView android:layout_gravity="center_vertical" android:id="@id/gk0" android:visibility="gone" android:layout_width="20.0dp" android:layout_height="14.0dp" android:layout_marginTop="1.0dp" android:importantForAccessibility="no" />
+        <TextView android:textSize="14.0dp" android:textStyle="bold" android:textColor="@color/white" android:ellipsize="end" android:gravity="start|center" android:id="@id/gkb" android:layout_width="wrap_content" android:layout_height="20.0dp" android:layout_marginLeft="3.5dp" android:lines="1" android:importantForAccessibility="no" android:layout_marginStart="3.5dp" />
+    </LinearLayout>
+    <com.tencent.qqmusic.modular.module.musichall.views.recycler.BlockRoomRecyclerView android:layout_gravity="center|top" android:id="@id/gd8" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginTop="61.0dp" />
+</FrameLayout>

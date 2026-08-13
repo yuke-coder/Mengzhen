@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout android:id="@id/i2f" android:layout_width="match_parent" android:layout_height="wrap_content"
+  xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">
+    <include android:id="@id/i33" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginTop="11.0dp" app:a1e="@id/i2n" app:a27="hnz" layout="@layout/cxs" />
+    <androidx.recyclerview.widget.RecyclerView android:id="@id/i2n" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginTop="16.0dp" app:a1x="hnz" app:a21="hnz" app:a26="@id/i33" />
+</androidx.constraintlayout.widget.ConstraintLayout>

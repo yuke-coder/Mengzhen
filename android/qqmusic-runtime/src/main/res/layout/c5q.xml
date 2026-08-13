@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout android:background="@drawable/black_color_without_alpha" android:layout_width="match_parent" android:layout_height="match_parent"
+  xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">
+    <com.tencent.qqmusic.business.fullscreen.video.PortVideoLayout android:id="@id/iba" android:layout_width="match_parent" android:layout_height="match_parent" />
+    <FrameLayout android:id="@id/h6_" android:layout_width="match_parent" android:layout_height="match_parent">
+        <com.tencent.component.widget.AsyncImageView android:layout_gravity="center" android:id="@id/h6d" android:visibility="gone" android:layout_width="match_parent" android:layout_height="wrap_content" android:src="@drawable/black_color" android:scaleType="centerCrop" />
+    </FrameLayout>
+    <ImageView android:id="@id/gsu" android:visibility="gone" android:layout_width="29.0dp" android:layout_height="29.0dp" android:layout_marginTop="49.0dp" android:layout_marginRight="13.0dp" android:src="@drawable/play_video_more_icon" app:a21="hnz" app:a27="hnz" />
+</androidx.constraintlayout.widget.ConstraintLayout>

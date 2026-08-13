@@ -1,0 +1,13 @@
+{
+  "router": "openHalf",
+  "page_name": "dialog_city_player_select_bg",
+  "debug": 0,
+  "container": {
+    "w_weight": "1",
+    "h_weight": "0.95",
+    "gravity": "bottom",
+    "direction": "from-bottom"
+  },
+  "params": {
+  }
+}

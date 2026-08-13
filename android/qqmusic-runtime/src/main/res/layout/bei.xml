@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout android:paddingLeft="13.0dp" android:paddingRight="13.0dp" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginTop="12.0dp" android:paddingHorizontal="13.0dp"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <ImageView android:id="@id/mlive_friend_user_logo" android:layout_width="40.0dp" android:layout_height="40.0dp" android:layout_marginTop="5.0dp" android:layout_marginBottom="5.0dp" android:src="@drawable/mlive_default_avatar" android:layout_marginStart="5.0dp" android:layout_marginEnd="12.0dp" android:layout_marginVertical="5.0dp" />
+    <ImageView android:id="@id/mlive_friend_user_avatar_pendant" android:visibility="gone" android:layout_width="50.0dp" android:layout_height="50.0dp" />
+    <LinearLayout android:orientation="horizontal" android:id="@id/mlive_friend_user_labels" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_centerVertical="true" android:layout_marginEnd="4.0dp" android:layout_toEndOf="@id/mlive_friend_user_logo" />
+    <TextView android:textSize="12.0sp" android:textColor="@color/mlive_friend_user_button_text" android:gravity="center" android:id="@id/mlive_friend_user_button" android:background="@drawable/mlive_friend_user_button_bg" android:layout_width="72.0dp" android:layout_height="29.0dp" android:text="@string/d8k" android:layout_centerVertical="true" android:layout_marginEnd="7.0dp" android:layout_alignParentEnd="true" />
+    <TextView android:textSize="14.0sp" android:textColor="@color/white" android:ellipsize="end" android:id="@id/mlive_friend_user_name" android:layout_width="match_parent" android:layout_height="wrap_content" android:singleLine="true" android:layout_centerVertical="true" android:layout_toStartOf="@id/mlive_friend_user_button" android:layout_toEndOf="@id/mlive_friend_user_labels" />
+</RelativeLayout>

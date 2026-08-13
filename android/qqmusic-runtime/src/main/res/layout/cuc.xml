@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout android:orientation="vertical" android:background="@drawable/color_b15" android:layout_width="match_parent" android:layout_height="wrap_content"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <TextView android:textSize="15.0sp" android:textStyle="normal" android:textColor="@color/common_grid_title_color_selector" android:gravity="center" android:id="@id/g0y" android:layout_width="match_parent" android:layout_height="55.0dp" android:text="@string/cpz" />
+    <View android:id="@id/afm" android:background="@drawable/z_color_l1" android:layout_width="match_parent" android:layout_height="1.0px" />
+    <TextView android:textSize="15.0sp" android:textStyle="normal" android:textColor="@color/common_grid_title_color_selector" android:gravity="center" android:id="@id/cfj" android:layout_width="match_parent" android:layout_height="55.0dp" android:text="@string/b71" />
+    <View android:id="@id/afn" android:background="@drawable/z_color_l1" android:layout_width="match_parent" android:layout_height="1.0px" />
+    <TextView android:textSize="15.0sp" android:textStyle="normal" android:textColor="@color/common_grid_title_color_selector" android:gravity="center" android:id="@id/at0" android:layout_width="match_parent" android:layout_height="55.0dp" android:text="@string/cancel" />
+</LinearLayout>

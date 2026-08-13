@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout android:layout_width="90.0dp" android:layout_height="90.0dp"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <ImageView android:id="@id/lc9" android:layout_width="80.0dp" android:layout_height="80.0dp" android:scaleType="centerCrop" android:layout_centerInParent="true" />
+    <View android:id="@id/lc8" android:background="@drawable/bg_preview_thumb_item_selected" android:visibility="invisible" android:layout_width="match_parent" android:layout_height="match_parent" />
+</RelativeLayout>

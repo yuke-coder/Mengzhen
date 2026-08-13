@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout android:gravity="center_vertical" android:orientation="horizontal" android:id="@id/h94" android:layout_width="match_parent" android:layout_height="75.0dp" android:layout_marginLeft="20.0dp" android:layout_marginTop="20.0dp" android:layout_marginRight="20.0dp" android:layout_marginBottom="12.0dp"
+  xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">
+    <androidx.constraintlayout.widget.ConstraintLayout android:id="@id/h9v" android:contentDescription="@string/en6" style="@style/a40">
+        <ImageView android:id="@id/my_music_my_favorite_img" android:src="@drawable/ic_my_music_my_favorite" android:contentDescription="@string/en7" app:a1x="hnz" app:a21="hnz" app:a27="hnz" style="@style/a4_" />
+        <com.tencent.qqmusic.ui.DigitalRedDot android:id="@id/h9y" android:visibility="gone" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="@dimen/b7i" app:a21="@id/my_music_my_favorite_img" app:a27="@id/my_music_my_favorite_img" />
+        <TextView android:id="@id/h9z" android:layout_marginTop="0.0dp" android:text="@string/en6" android:includeFontPadding="false" android:layout_alignWithParentIfMissing="true" app:a1x="hnz" app:a21="hnz" app:a26="@id/my_music_my_favorite_img" style="@style/a4e" />
+        <com.tencent.qqmusic.ui.customview.textview.BracketsEllipsisTextView android:id="@id/h9x" android:includeFontPadding="false" android:layout_below="@id/h9z" app:a1x="hnz" app:a21="hnz" app:a26="@id/h9z" style="@style/a4a" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+    <androidx.constraintlayout.widget.ConstraintLayout android:id="@id/h_j" android:contentDescription="@string/eni" style="@style/a40">
+        <ImageView android:id="@id/h_l" android:src="@drawable/ic_my_music_recent_playlist" android:contentDescription="@string/eni" app:a1x="hnz" app:a21="hnz" app:a27="hnz" style="@style/a4_" />
+        <com.tencent.qqmusic.ui.DigitalRedDot android:id="@id/h_n" android:visibility="gone" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="@dimen/b7i" app:a21="@id/h_l" app:a27="@id/h_l" />
+        <TextView android:id="@id/h_m" android:layout_marginTop="0.0dp" android:text="@string/eni" android:includeFontPadding="false" android:layout_alignWithParentIfMissing="true" app:a1x="hnz" app:a21="hnz" app:a26="@id/h_l" style="@style/a4e" />
+        <TextView android:id="@id/h_k" android:includeFontPadding="false" app:a1x="hnz" app:a21="hnz" app:a26="@id/h_m" style="@style/a4a" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+    <androidx.constraintlayout.widget.ConstraintLayout android:id="@id/h9l" android:contentDescription="@string/en5" style="@style/a40">
+        <ImageView android:id="@id/h9o" android:src="@drawable/ic_my_music_local_song" android:contentDescription="@string/en5" app:a1x="hnz" app:a21="hnz" app:a27="hnz" style="@style/a4_" />
+        <com.tencent.qqmusic.ui.DigitalRedDot android:id="@id/h9p" android:visibility="gone" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="@dimen/b7i" app:a21="@id/h9o" app:a27="@id/h9o" />
+        <TextView android:id="@id/h9q" android:layout_marginTop="0.0dp" android:text="@string/en5" android:includeFontPadding="false" android:layout_alignWithParentIfMissing="true" app:a1x="hnz" app:a21="hnz" app:a26="@id/h9o" style="@style/a4e" />
+        <com.tencent.qqmusic.ui.customview.textview.CommaWrapTextView android:id="@id/h9n" android:layout_width="wrap_content" android:includeFontPadding="false" android:layout_alignWithParentIfMissing="true" app:a1x="hnz" app:a21="hnz" app:a26="@id/h9q" style="@style/a4a" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+    <androidx.constraintlayout.widget.ConstraintLayout android:id="@id/h_d" android:contentDescription="@string/eyw" style="@style/a40">
+        <ImageView android:id="@id/h_g" android:src="@drawable/ic_my_music_paid_songs" android:contentDescription="@string/eyw" app:a1x="hnz" app:a21="hnz" app:a27="hnz" style="@style/a4_" />
+        <com.tencent.qqmusic.ui.DigitalRedDot android:id="@id/h_h" android:visibility="gone" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="@dimen/b7i" app:a21="@id/h_g" app:a27="@id/h_g" />
+        <TextView android:id="@id/h_i" android:layout_marginTop="0.0dp" android:text="@string/eyw" android:includeFontPadding="false" android:layout_alignWithParentIfMissing="true" app:a1x="hnz" app:a21="hnz" app:a26="@id/h_g" style="@style/a4e" />
+        <TextView android:id="@id/h_f" android:includeFontPadding="false" app:a1x="hnz" app:a21="hnz" app:a26="@id/h_i" style="@style/a4a" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+    <androidx.constraintlayout.widget.ConstraintLayout android:id="@id/h9f" android:visibility="gone" android:contentDescription="@string/emm" style="@style/a40">
+        <ImageView android:id="@id/h9h" android:src="@drawable/ic_my_music_follows" android:contentDescription="@string/emm" app:a1x="hnz" app:a21="hnz" app:a27="hnz" style="@style/a4_" />
+        <com.tencent.qqmusic.ui.DigitalRedDot android:id="@id/h9i" android:visibility="gone" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="@dimen/b7i" app:a21="@id/h9h" app:a27="@id/h9h" />
+        <TextView android:id="@id/h9j" android:layout_marginTop="0.0dp" android:text="@string/emm" android:includeFontPadding="false" android:layout_alignWithParentIfMissing="true" app:a1x="hnz" app:a21="hnz" app:a26="@id/h9h" style="@style/a4e" />
+        <TextView android:id="@id/h9g" android:includeFontPadding="false" app:a1x="hnz" app:a21="hnz" app:a26="@id/h9j" style="@style/a4a" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</LinearLayout>

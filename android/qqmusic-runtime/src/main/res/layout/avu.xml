@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout android:layout_width="match_parent" android:layout_height="match_parent"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <TextView android:textSize="@dimen/z8" android:textColor="@color/guide_layer_pop_view_text_color" android:background="@drawable/local_music_guide_bubble" android:paddingLeft="@dimen/z6" android:paddingTop="@dimen/z9" android:paddingRight="@dimen/z7" android:paddingBottom="@dimen/z5" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="@dimen/ze" android:text="@string/cf6" android:contentDescription="@string/cf6" />
+</RelativeLayout>

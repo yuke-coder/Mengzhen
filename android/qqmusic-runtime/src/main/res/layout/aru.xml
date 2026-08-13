@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.tencent.qqmusic.ui.RoundedRelativeLayout android:id="@id/esu" android:layout_width="match_parent" android:layout_height="wrap_content" app:ado="3.0dp"
+  xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">
+    <com.tencent.qqmusic.ui.RoundedRelativeLayout android:id="@id/eaq" android:layout_width="46.0dp" android:layout_height="46.0dp" android:layout_marginTop="4.0dp" android:layout_marginBottom="4.0dp" android:layout_centerVertical="true" android:layout_marginStart="4.0dp">
+        <com.tencent.component.widget.AsyncEffectImageView android:id="@id/eap" android:layout_width="match_parent" android:layout_height="match_parent" app:afv="3.0dp" />
+        <com.tencent.component.widget.AsyncEffectImageView android:id="@id/ear" android:background="@color/transparent" android:layout_width="match_parent" android:layout_height="match_parent" android:layout_centerVertical="true" app:afv="3.0dp" />
+    </com.tencent.qqmusic.ui.RoundedRelativeLayout>
+    <TextView android:textStyle="bold" android:textColor="@color/skin_text_main_color" android:ellipsize="end" android:id="@id/m5f" android:layout_width="wrap_content" android:layout_height="wrap_content" android:maxLines="1" android:layout_centerVertical="true" android:paddingStart="10.0dp" android:layout_toStartOf="@id/m5e" android:layout_toEndOf="@id/eaq" />
+    <TextView android:ellipsize="end" android:id="@id/m5e" android:layout_width="wrap_content" android:layout_height="wrap_content" android:maxLines="1" android:drawablePadding="5.0dp" android:layout_centerVertical="true" android:layout_marginEnd="1.0dp" android:layout_toStartOf="@id/eao" />
+    <ImageView android:id="@id/eao" android:layout_width="15.0dp" android:layout_height="15.0dp" android:src="@drawable/arrow_right_folder_banner" android:layout_centerVertical="true" android:layout_marginEnd="8.0dp" android:layout_alignParentEnd="true" />
+</com.tencent.qqmusic.ui.RoundedRelativeLayout>

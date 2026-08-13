@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout android:orientation="vertical" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginStart="8.0dp" android:layout_marginEnd="8.0dp"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <com.tme.qqmusic.widget.base.view.GlideImageView android:id="@id/mlive_activity_giveaway_item_iv" android:layout_width="59.0dp" android:layout_height="59.0dp" />
+    <TextView android:textSize="11.0sp" android:textColor="@color/black" android:layout_gravity="center" android:id="@id/mlive_activity_giveaway_item_count_tv" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Title" android:alpha="0.6" />
+    <TextView android:textSize="11.0sp" android:textColor="@color/black" android:layout_gravity="center" android:id="@id/mlive_activity_giveaway_item_name_tv" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Subtitle" android:alpha="0.6" />
+</LinearLayout>

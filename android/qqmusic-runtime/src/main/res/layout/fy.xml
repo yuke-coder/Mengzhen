@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout android:id="@id/na" android:visibility="gone" android:layout_width="match_parent" android:layout_height="wrap_content"
+  xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">
+    <LinearLayout android:orientation="vertical" android:id="@id/p5" android:visibility="visible" android:layout_width="match_parent" android:layout_height="wrap_content" app:a1j="hnz" app:a23="hnz" app:a27="hnz">
+        <LinearLayout android:orientation="horizontal" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginTop="@dimen/rr">
+            <com.tencent.component.widget.AsyncEffectImageView android:layout_gravity="center_vertical" android:id="@id/p9" android:visibility="gone" android:layout_width="17.0dp" android:layout_height="16.0dp" app:afv="4.0dp" />
+            <TextView android:textSize="12.0dp" android:textStyle="bold" android:textColor="@color/skin_text_title_ad_name_color" android:layout_gravity="center_vertical" android:id="@id/p8" android:visibility="gone" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginLeft="3.0dp" android:singleLine="true" />
+            <com.tencent.expandabletextview.ExpandableTextView android:textSize="12.0dp" android:textColor="@color/skin_text_sub_color" android:ellipsize="end" android:gravity="left|center" android:layout_gravity="center_vertical" android:id="@id/p6" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginLeft="5.0dp" android:lineSpacingExtra="@dimen/sg" app:a1j="hnz" app:a23="hnz" app:a27="hnz" />
+        </LinearLayout>
+        <com.tencent.expandabletextview.ExpandableTextView android:textSize="12.0dp" android:textColor="@color/skin_text_sub_color" android:ellipsize="end" android:gravity="left|center" android:id="@id/p7" android:visibility="gone" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginTop="4.0dp" android:lineSpacingExtra="@dimen/sg" app:pz="@color/skin_text_main_color" app:q5="1" app:qc="true" />
+    </LinearLayout>
+    <com.tencent.expandabletextview.ExpandableTextView android:textSize="12.0dp" android:textColor="@color/skin_text_sub_color" android:ellipsize="end" android:gravity="left|center" android:id="@id/ne" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginTop="@dimen/rr" android:lineSpacingExtra="@dimen/sg" app:pz="@color/skin_text_main_color" app:q8="@color/skin_text_main_color" app:qc="true" app:a1j="hnz" app:a23="hnz" app:a27="hnz" />
+</androidx.constraintlayout.widget.ConstraintLayout>

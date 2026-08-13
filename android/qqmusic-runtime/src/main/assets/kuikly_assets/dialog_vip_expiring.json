@@ -1,0 +1,44 @@
+{
+  "router": "openHalf",
+  "page_name": "dialog_vip_expiring",
+  "debug": 0,
+  "container": {
+    "w_weight": "0.95",
+    "h_weight": "0.95",
+    "gravity": "bottom",
+    "direction": "from-bottom"
+  },
+  "params": {
+    "page": [
+      {
+        "style": "top_webp",
+        "topbar": {
+          "type": "png",
+          "url": "https://y.qq.com/music/common/upload/new_remind_viewid_v2/5720789.png"
+        },
+        "base": {
+          "title": "您即将失去超级会员特权",
+          "background": {
+            "type": "gradient",
+            "colors": [
+              "#FFFFF7E7",
+              "#FFFBDDA2"
+            ],
+            "direction": "to-top"
+          }
+        },
+        "body": {
+          "remain_time": "10000"
+        },
+        "buttons": [
+          {
+            "text": "立即续费",
+            "text_color": "#000000",
+            "color": "#FFCD4B",
+            "url": "https://i.y.qq.com/n2/m/myservice/index.html?entry=27&tab1=svip&tab2=eight&aid=music.tq.recent.vipsong&_hidehd=1"
+          }
+        ]
+      }
+    ]
+  }
+}

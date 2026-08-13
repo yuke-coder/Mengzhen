@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout android:id="@id/e1a" android:background="@color/album_default_bg_color" android:layout_width="match_parent" android:layout_height="wrap_content"
+  xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">
+    <com.tencent.expandabletextview.ExpandableTextView android:textColor="@color/album_base_info_dark_color" android:id="@id/m2c" android:layout_width="match_parent" android:layout_height="wrap_content" android:includeFontPadding="false" android:lineSpacingExtra="3.0dp" android:paddingStart="@dimen/eo" android:paddingEnd="@dimen/eo" app:pw="@color/album_assist_info_dark_color" app:px="收起" app:pz="@color/album_assist_info_dark_color" app:q2="展开" app:q5="7" app:q9="false" app:q_="false" app:qa="true" app:qb="false" app:qc="true" app:qd="false" app:qe="false" app:a1x="hnz" app:a23="hnz" app:a27="hnz" />
+    <Space android:id="@id/m2d" android:layout_width="0.0dp" android:layout_height="25.0dp" app:a1d="hnz" app:a1j="hnz" app:a23="hnz" app:a26="@id/m2c" />
+</androidx.constraintlayout.widget.ConstraintLayout>

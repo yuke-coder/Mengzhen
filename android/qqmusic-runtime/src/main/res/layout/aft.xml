@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout android:layout_width="match_parent" android:layout_height="match_parent"
+  xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">
+    <FrameLayout android:id="@id/nq8" android:layout_width="match_parent" android:layout_height="match_parent" app:a1x="hnz" app:a27="hnz" />
+    <com.tencent.qqmusic.homepage.view.HomepageCDShelfMaskView android:id="@id/nqc" android:visibility="gone" android:layout_width="match_parent" android:layout_height="match_parent" android:scaleType="centerCrop" app:a1x="hnz" app:a27="hnz" />
+</androidx.constraintlayout.widget.ConstraintLayout>

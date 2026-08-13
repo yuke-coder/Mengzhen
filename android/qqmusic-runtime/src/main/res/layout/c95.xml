@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout android:id="@id/i6n" android:clipChildren="false" android:clipToPadding="false" android:layout_width="match_parent" android:layout_height="match_parent" android:contentDescription="@string/f7m"
+  xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">
+    <androidx.constraintlayout.widget.Guideline android:orientation="vertical" android:id="@id/d88" android:layout_width="wrap_content" android:layout_height="wrap_content" app:a1n="0.8462" />
+    <com.tencent.qqmusic.ui.FixedSizeFrameLayout android:id="@id/hxx" android:clipChildren="false" android:layout_width="0.0dp" android:layout_height="match_parent" app:a1d="hnz" app:a1i="H,1:1" app:a1j="@id/d88" app:a27="hnz" />
+</androidx.constraintlayout.widget.ConstraintLayout>

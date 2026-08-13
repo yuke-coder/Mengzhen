@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout android:id="@id/kv8" android:layout_width="wrap_content" android:layout_height="wrap_content"
+  xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">
+    <com.tencent.component.widget.AsyncEffectImageView android:id="@id/kvf" android:layout_width="60.0dp" android:layout_height="60.0dp" android:scaleType="centerCrop" android:importantForAccessibility="no" app:a1j="hnz" app:a23="hnz" app:a27="hnz" />
+    <androidx.appcompat.widget.AppCompatTextView android:textSize="@dimen/ru" android:textColor="@color/skin_text_main_color" android:ellipsize="end" android:id="@id/kvg" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="5.0dp" android:maxWidth="60.0dp" android:lines="1" app:a1j="hnz" app:a23="hnz" app:a26="@id/kvf" />
+    <LinearLayout android:gravity="center" android:orientation="horizontal" android:id="@id/kve" android:background="@color/white" android:paddingLeft="10.0dp" android:paddingRight="10.0dp" android:layout_width="wrap_content" android:layout_height="21.0dp" android:layout_marginTop="6.0dp" app:a1j="hnz" app:a23="hnz" app:a26="@id/kvg">
+        <androidx.appcompat.widget.AppCompatTextView android:textSize="@dimen/rr" android:textColor="@color/skin_text_mid_color" android:id="@id/kun" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="去领取" />
+    </LinearLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>

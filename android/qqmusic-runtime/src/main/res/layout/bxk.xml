@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout android:orientation="horizontal" android:id="@id/gs_" android:paddingTop="@dimen/b00" android:paddingBottom="@dimen/azy" android:layout_width="match_parent" android:layout_height="wrap_content"
+  xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">
+    <FrameLayout android:layout_width="0.0dp" android:layout_height="match_parent" android:layout_weight="1.0">
+        <com.google.android.material.button.MaterialButton android:gravity="start|center" android:layout_gravity="start" android:id="@id/gsa" android:layout_width="wrap_content" android:layout_height="@dimen/azz" android:insetTop="0.0dp" android:insetBottom="0.0dp" app:ug="@drawable/ic_menu_arrow_down_black_24dp" app:uj="l8f" app:ul="4.0dp" />
+    </FrameLayout>
+    <com.google.android.material.button.MaterialButton android:gravity="center" android:id="@id/gsc" android:layout_width="@dimen/b1h" android:layout_height="@dimen/azz" android:insetTop="0.0dp" android:insetBottom="0.0dp" android:contentDescription="@string/eaw" app:ug="@drawable/ic_keyboard_arrow_left_black_24dp" />
+    <com.google.android.material.button.MaterialButton android:gravity="center" android:id="@id/gsb" android:layout_width="@dimen/b1h" android:layout_height="@dimen/azz" android:insetTop="0.0dp" android:insetBottom="0.0dp" android:contentDescription="@string/eav" app:ug="@drawable/ic_keyboard_arrow_right_black_24dp" />
+</LinearLayout>

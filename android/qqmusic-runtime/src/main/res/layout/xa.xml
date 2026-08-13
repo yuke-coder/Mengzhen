@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout android:layout_width="match_parent" android:layout_height="match_parent"
+  xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">
+    <RelativeLayout android:gravity="center_vertical" android:id="@id/j_o" android:background="@drawable/shape_game_rank_bg" android:visibility="gone" android:layout_width="match_parent" android:layout_height="40.0dp" android:layout_marginLeft="20.0dp" android:layout_marginTop="10.0dp" android:layout_marginRight="20.0dp">
+        <androidx.constraintlayout.widget.ConstraintLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_toLeftOf="@id/ebj" android:layout_centerVertical="true">
+            <TextView android:textSize="12.0sp" android:textColor="@color/white" android:id="@id/mp8" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginLeft="16.0dp" android:text="@string/bi6" android:singleLine="true" android:layout_centerVertical="true" app:a18="true" app:a1d="hnz" app:a1t="0.0" app:a1u="hmg" app:a1x="hnz" app:a20="@id/m_v" app:a27="hnz" />
+            <TextView android:textColor="@color/black_70_opacity" android:gravity="center" android:id="@id/m_v" android:background="@drawable/game_friend_open_small" android:layout_width="51.0dp" android:layout_height="21.0dp" android:layout_marginLeft="11.0dp" android:layout_marginRight="10.0dp" android:layout_toRightOf="@id/mp8" android:layout_centerVertical="true" app:a1d="hnz" app:a1y="@id/mp8" app:a21="hnz" app:a27="hnz" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
+        <ImageView android:id="@id/ebj" android:background="@drawable/game_tip_close" android:layout_width="25.0dp" android:layout_height="25.0dp" android:layout_marginRight="15.0dp" android:layout_alignParentRight="true" android:layout_centerVertical="true" />
+    </RelativeLayout>
+    <androidx.recyclerview.widget.RecyclerView android:id="@id/jf1" android:layout_width="match_parent" android:layout_height="match_parent" android:layout_marginLeft="5.0dp" android:layout_marginTop="10.0dp" android:layout_marginRight="5.0dp" android:layout_above="@id/jfs" android:layout_below="@id/j_o" />
+    <com.tencent.qqmusic.game.ui.view.GameEmptyView android:id="@id/c7g" android:visibility="gone" android:layout_width="match_parent" android:layout_height="match_parent" android:layout_marginLeft="20.0dp" android:layout_marginTop="10.0dp" android:layout_marginRight="20.0dp" android:layout_above="@id/jfs" android:layout_below="@id/j_o" />
+    <RelativeLayout android:id="@id/jfs" android:layout_width="match_parent" android:layout_height="65.0dp" android:layout_marginLeft="5.0dp" android:layout_marginTop="15.0dp" android:layout_marginRight="5.0dp" android:layout_marginBottom="30.0dp" android:layout_alignParentBottom="true">
+        <include layout="@layout/afn" />
+    </RelativeLayout>
+</RelativeLayout>

@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout android:gravity="center" android:orientation="vertical" android:layout_width="wrap_content" android:layout_height="wrap_content"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <View android:id="@id/o4" android:background="@drawable/bg_ai_assistant_popup_window_triangle_up" android:visibility="gone" android:layout_width="12.5dp" android:layout_height="12.5dp" />
+    <LinearLayout android:orientation="vertical" android:id="@id/jpw" android:background="@drawable/bg_ai_assistant_popup_window" android:paddingLeft="21.0dp" android:paddingTop="15.0dp" android:paddingRight="21.0dp" android:paddingBottom="15.0dp" android:layout_width="wrap_content" android:layout_height="wrap_content">
+        <ImageView android:gravity="center" android:layout_width="@dimen/e7" android:layout_height="@dimen/e7" android:src="@drawable/ai_assistant_pop_copy_icon" />
+        <TextView android:textSize="10.0dp" android:textColor="@color/white_50_opacity" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/i8" />
+    </LinearLayout>
+    <View android:id="@id/o3" android:background="@drawable/bg_ai_assistant_popup_window_triangle_down" android:layout_width="12.5dp" android:layout_height="12.5dp" />
+</LinearLayout>

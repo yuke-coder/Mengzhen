@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout android:orientation="vertical" android:paddingTop="19.0dp" android:layout_width="match_parent" android:layout_height="wrap_content"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <FrameLayout android:layout_width="match_parent" android:layout_height="wrap_content">
+        <RelativeLayout android:layout_gravity="center_vertical" android:orientation="horizontal" android:paddingRight="17.0dp" android:layout_width="match_parent" android:layout_height="wrap_content">
+            <androidx.appcompat.widget.AppCompatTextView android:textSize="16.0sp" android:textStyle="bold" android:textColor="@color/skin_text_main_color" android:ellipsize="end" android:id="@id/aum" android:visibility="gone" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginRight="10.0dp" android:text="" android:maxLines="1" android:layout_toLeftOf="@id/aun" android:layout_alignParentLeft="true" android:layout_centerVertical="true" android:fontFamily="PingFangSC-Semibold" />
+            <androidx.appcompat.widget.AppCompatTextView android:textSize="13.0sp" android:textColor="@color/skin_text_sub_color" android:ellipsize="end" android:gravity="center" android:id="@id/aun" android:visibility="gone" android:layout_width="wrap_content" android:layout_height="wrap_content" android:maxWidth="100.0dp" android:text="@string/e9w" android:maxLines="1" android:drawableRight="@drawable/arrow_right_grey" android:drawablePadding="-5.0dp" android:layout_alignParentRight="true" android:layout_centerVertical="true" android:fontFamily="PingFangSC-Regular" />
+        </RelativeLayout>
+        <FrameLayout android:gravity="center" android:id="@id/k8m" android:background="@drawable/musichall_recommend_newsong_play" android:layout_width="55.0dp" android:layout_height="28.0dp" android:layout_marginLeft="75.0dp">
+            <ImageView android:layout_gravity="center_vertical" android:id="@id/k8l" android:layout_width="wrap_content" android:layout_height="9.0dp" android:layout_marginLeft="14.0dp" android:src="@drawable/search_icon_miniplay" android:adjustViewBounds="true" />
+            <androidx.appcompat.widget.AppCompatTextView android:textSize="10.0sp" android:textStyle="bold" android:textColor="@color/skin_text_main_color" android:gravity="center" android:layout_gravity="center_vertical" android:id="@id/k8n" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginLeft="25.0dp" android:text="@string/acf" android:fontFamily="PingFangSC-Semibold" />
+        </FrameLayout>
+    </FrameLayout>
+    <com.tencent.qqmusic.homepage.singer.pedia.views.DisScrollHorizontalEndRecyclerView android:id="@id/k70" android:paddingTop="11.0dp" android:clipToPadding="false" android:layout_width="match_parent" android:layout_height="wrap_content" android:overScrollMode="never" />
+</LinearLayout>

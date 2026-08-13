@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout android:orientation="horizontal" android:layout_width="wrap_content" android:layout_height="@dimen/ca1"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <View android:id="@id/gr6" android:visibility="gone" android:layout_width="12.0dp" android:layout_height="match_parent" />
+    <LinearLayout android:orientation="vertical" android:layout_width="wrap_content" android:layout_height="wrap_content">
+        <ImageView android:id="@id/gr7" android:background="@drawable/together_action_bg_normal" android:padding="5.0dp" android:layout_width="50.0dp" android:layout_height="50.0dp" android:layout_marginLeft="12.0dp" android:layout_marginTop="19.0dp" android:layout_marginRight="12.0dp" android:src="@drawable/together_action_share_normal" />
+        <TextView android:textSize="11.0sp" android:textColor="@color/together_room_normal_text_color" android:ellipsize="end" android:layout_gravity="center_horizontal" android:id="@id/gra" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="5.0dp" android:maxWidth="70.0dp" android:maxLines="1" />
+    </LinearLayout>
+    <View android:id="@id/gr5" android:visibility="gone" android:layout_width="12.0dp" android:layout_height="match_parent" />
+</LinearLayout>

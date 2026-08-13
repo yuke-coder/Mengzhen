@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout android:orientation="horizontal" android:id="@id/n70" android:background="@drawable/video_tab_bottom_cover" android:paddingLeft="20.0dp" android:paddingRight="90.0dp" android:layout_width="match_parent" android:layout_height="wrap_content"
+  xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">
+    <Space android:id="@id/n74" android:layout_width="match_parent" android:layout_height="0.0dp" app:a1d="hnz" app:a1j="hnz" app:a23="hnz" />
+    <include android:layout_width="match_parent" android:layout_height="wrap_content" app:a1e="@id/n74" app:a1x="hnz" app:a21="hnz" layout="@layout/cv8" />
+    <include android:layout_width="match_parent" android:layout_height="wrap_content" app:a1e="@id/n9_" app:a1x="hnz" layout="@layout/cv4" />
+</androidx.constraintlayout.widget.ConstraintLayout>

@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<merge android:gravity="center" android:orientation="horizontal" android:background="@color/black_8_transparent" android:layout_width="match_parent" android:layout_height="match_parent"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <LinearLayout android:gravity="center" android:layout_gravity="center" android:orientation="vertical" android:id="@id/fg4" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_weight="1.0">
+        <TextView android:textSize="15.0dp" android:textColor="@color/white_transparent_50_percent" android:gravity="center_horizontal" android:id="@id/mgw" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="11.5dp" android:layout_marginBottom="11.5dp" android:text="@string/ayt" />
+    </LinearLayout>
+    <LinearLayout android:gravity="center" android:layout_gravity="center" android:orientation="vertical" android:id="@id/fdi" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_weight="1.0">
+        <TextView android:textSize="15.0dp" android:textColor="@color/white_transparent_50_percent" android:gravity="center_horizontal" android:id="@id/m9t" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="11.5dp" android:layout_marginBottom="11.5dp" android:text="@string/ayr" />
+    </LinearLayout>
+    <LinearLayout android:gravity="center" android:layout_gravity="center" android:orientation="vertical" android:id="@id/fg_" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_weight="1.0">
+        <TextView android:textSize="15.0dp" android:textColor="@color/white_transparent_50_percent" android:gravity="center_horizontal" android:id="@id/mhe" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="11.5dp" android:layout_marginBottom="11.5dp" android:text="@string/ayu" />
+    </LinearLayout>
+    <LinearLayout android:gravity="center" android:layout_gravity="center" android:orientation="vertical" android:id="@id/feq" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_weight="1.0">
+        <TextView android:textSize="15.0dp" android:textColor="@color/white_transparent_50_percent" android:gravity="center_horizontal" android:id="@id/mc4" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="11.5dp" android:layout_marginBottom="11.5dp" android:text="@string/ays" />
+    </LinearLayout>
+</merge>

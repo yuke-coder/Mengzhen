@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout android:id="@id/njn" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_margin="@dimen/cg0"
+  xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">
+    <com.tme.qqmusic.widget.base.view.CornerConstraintLayout android:id="@id/njl" android:layout_width="match_parent" android:layout_height="0.0dp" app:lg="@dimen/cfz" app:a1d="hnz" app:a1i="167.5:90" app:a1j="hnz" app:a23="hnz" app:a27="hnz" />
+    <com.tencent.component.widget.AsyncEffectImageView android:id="@id/njm" android:layout_width="match_parent" android:layout_height="0.0dp" app:a1d="hnz" app:a1i="167.5:90" app:a1j="hnz" app:a23="hnz" app:a27="hnz" />
+    <androidx.appcompat.widget.AppCompatTextView android:textSize="@dimen/cg4" android:ellipsize="end" android:id="@id/njq" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="@dimen/cg1" android:maxLines="1" android:lines="1" android:layout_marginStart="@dimen/cg1" app:a1d="@id/njr" app:a23="hnz" />
+    <androidx.constraintlayout.widget.Guideline android:orientation="horizontal" android:id="@id/njr" android:layout_width="wrap_content" android:layout_height="match_parent" app:a1n="0.4444" />
+    <androidx.appcompat.widget.AppCompatTextView android:textSize="@dimen/cg2" android:textColor="@color/vip_tab_catalogue_item_subtitle_text_color" android:ellipsize="end" android:id="@id/njo" android:layout_width="wrap_content" android:layout_height="wrap_content" android:maxLines="1" android:lines="1" app:a23="@id/njq" app:a26="@id/njr" />
+    <androidx.appcompat.widget.AppCompatImageView android:id="@id/njp" android:layout_width="@dimen/cg3" android:layout_height="@dimen/cg3" android:src="@drawable/icon_vip_tab_catalogue_item_subtitle_end_icon" app:a1d="@id/njo" app:a22="@id/njo" app:a27="@id/njo" />
+</androidx.constraintlayout.widget.ConstraintLayout>

@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout android:layout_width="match_parent" android:layout_height="match_parent"
+  xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">
+    <FrameLayout android:id="@id/nq8" android:layout_width="0.0dp" android:layout_height="0.0dp" android:layout_marginTop="-100.0dp" app:a1d="hnz" app:a1x="hnz" app:a21="hnz" app:a27="hnz" />
+    <com.tencent.qqmusic.ui.blurmask.BlurOverlayView android:id="@id/dba" android:visibility="gone" android:layout_width="0.0dp" android:layout_height="0.0dp" app:a1d="hnz" app:a1x="hnz" app:a21="hnz" app:a27="hnz" app:ae2="12.5dp" app:ae3="1.0" />
+    <com.tencent.qqmusic.homepage.view.HomepageCDShelfMaskView android:id="@id/nqc" android:visibility="gone" android:layout_width="match_parent" android:layout_height="match_parent" android:layout_marginTop="-80.0dp" app:a1x="hnz" app:a27="hnz" />
+    <com.tencent.component.widget.AsyncEffectImageView android:id="@id/auf" android:layout_width="0.0dp" android:layout_height="0.0dp" android:scaleType="centerCrop" app:a1d="hnz" app:a1s="0.8" app:a1x="hnz" app:a21="hnz" />
+</androidx.constraintlayout.widget.ConstraintLayout>

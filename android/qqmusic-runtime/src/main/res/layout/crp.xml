@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout android:id="@id/ln_" android:background="@drawable/tme_ad_reward_switch_button_gray_bg" android:visibility="gone" android:layout_width="wrap_content" android:layout_height="28.0dp" android:layout_marginBottom="245.0dp" app:a1d="hnz" app:a1j="hnz" app:a23="hnz"
+  xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">
+    <ImageView android:id="@id/lna" android:layout_width="13.0dp" android:layout_height="13.5dp" android:layout_marginLeft="10.5dp" android:src="@drawable/tme_ad_reward_switch_icon" android:scaleType="fitXY" android:layout_alignParentLeft="true" android:layout_centerVertical="true" android:layout_marginStart="10.5dp" android:layout_alignParentStart="true" />
+    <TextView android:textSize="13.0dp" android:textColor="#ffffff" android:gravity="center" android:id="@id/lnb" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginLeft="5.5dp" android:layout_marginRight="10.5dp" android:text="@string/i7g" android:layout_toRightOf="@id/lna" android:layout_centerVertical="true" android:layout_toEndOf="@id/lna" />
+</RelativeLayout>

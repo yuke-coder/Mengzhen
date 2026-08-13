@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout android:layout_width="match_parent" android:layout_height="match_parent"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <androidx.recyclerview.widget.RecyclerView android:id="@id/ltt" android:scrollbars="none" android:layout_width="match_parent" android:layout_height="match_parent" android:divider="@color/transparent" android:overScrollMode="never" />
+    <LinearLayout android:gravity="center" android:orientation="vertical" android:id="@id/ltq" android:visibility="gone" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_centerInParent="true">
+        <TextView android:textSize="13.0sp" android:textColor="@color/together_room_unselect_text_color" android:gravity="center" android:id="@id/lts" android:padding="10.0dp" android:visibility="visible" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/igu" android:drawablePadding="5.0dp" />
+        <TextView android:textColor="@color/together_play_list_item_name_normal" android:gravity="center" android:id="@id/ltp" android:background="@drawable/together_play_list_empty_btn_bg" android:paddingTop="5.0dp" android:paddingBottom="5.0dp" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="5.0dp" android:text="@string/id3" android:paddingStart="25.0dp" android:paddingEnd="25.0dp" />
+    </LinearLayout>
+</RelativeLayout>

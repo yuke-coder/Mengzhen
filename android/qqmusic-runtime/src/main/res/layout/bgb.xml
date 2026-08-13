@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout android:layout_width="match_parent" android:layout_height="wrap_content"
+  xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">
+    <LinearLayout android:orientation="horizontal" android:id="@id/mlive_audio_official_test_area" android:visibility="gone" android:layout_width="match_parent" android:layout_height="wrap_content" app:a27="hnz">
+        <Button android:id="@id/l80" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="动画单循环" app:a23="hnz" app:a27="hnz" />
+        <Button android:id="@id/l81" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="动画单到双" app:a23="hnz" app:a27="hnz" />
+        <Button android:id="@id/l7x" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="动画双循环" app:a23="hnz" app:a27="hnz" />
+        <Button android:id="@id/l7y" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="动画双到单" app:a23="hnz" app:a27="hnz" />
+        <Button android:id="@id/l7z" android:visibility="gone" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="preload" app:a23="hnz" app:a27="hnz" />
+    </LinearLayout>
+    <FrameLayout android:id="@id/mlive_audio_official_vap_view_container" android:layout_width="match_parent" android:layout_height="0.0dp" app:a1i="750:850" app:a1j="hnz" app:a23="hnz" app:a27="hnz" />
+    <TextView android:textSize="18.0sp" android:textColor="@color/white_85_transparent" android:gravity="center" android:id="@id/mlive_audio_official_vap_loading_tv" android:visibility="gone" android:layout_width="match_parent" android:layout_height="0.0dp" android:text="@string/do3" app:a1d="@id/mlive_audio_official_vap_view_container" app:a1i="1:1" app:a1x="hnz" app:a21="hnz" app:a27="@id/mlive_audio_official_vap_view_container" />
+</androidx.constraintlayout.widget.ConstraintLayout>

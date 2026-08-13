@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout android:id="@id/ige" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginBottom="10.0dp"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <RelativeLayout android:id="@id/igc" android:layout_width="match_parent" android:layout_height="match_parent">
+        <com.tencent.qqmusic.ui.TopCenterImageView android:layout_gravity="fill" android:id="@id/igb" android:layout_width="match_parent" android:layout_height="match_parent" android:scaleType="centerCrop" />
+        <ImageView android:layout_gravity="fill" android:id="@id/igd" android:background="@drawable/title_matte" android:visibility="visible" android:layout_width="match_parent" android:layout_height="match_parent" android:scaleType="centerCrop" />
+        <RelativeLayout android:gravity="center_horizontal" android:layout_gravity="center_horizontal" android:layout_width="match_parent" android:layout_height="260.0dp" android:layout_alignParentBottom="true">
+            <include android:id="@id/h7y" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_alignParentBottom="true" layout="@layout/cbh" />
+            <LinearLayout android:id="@id/cq9" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginBottom="20.0dp" android:layout_above="@id/h7y" android:layout_centerHorizontal="true">
+                <com.tencent.qqmusic.ui.FollowButtonNoSkin android:id="@id/crh" android:layout_width="75.0dp" android:layout_height="26.0dp" android:layout_weight="1.0" />
+                <View android:id="@id/crg" android:layout_width="9.0dp" android:layout_height="28.0dp" android:layout_weight="0.0" />
+                <RelativeLayout android:id="@id/dlb" android:background="@drawable/follow_no_skin_btn_bg" android:paddingLeft="10.0dp" android:paddingRight="10.0dp" android:layout_width="75.0dp" android:layout_height="26.0dp">
+                    <TextView android:textSize="14.0sp" android:textColor="@color/white" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="私信" android:layout_centerInParent="true" />
+                </RelativeLayout>
+            </LinearLayout>
+            <RelativeLayout android:id="@id/mza" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginBottom="20.0dp" android:layout_above="@id/cq9" android:layout_centerHorizontal="true" android:layout_alignWithParentIfMissing="true">
+                <TextView android:textSize="18.0sp" android:textColor="@color/white" android:ellipsize="end" android:id="@id/mz_" android:layout_width="wrap_content" android:layout_height="wrap_content" android:maxWidth="210.0dp" android:text="夏天的夏天" android:singleLine="true" android:includeFontPadding="false" android:layout_alignParentLeft="true" />
+                <com.tencent.component.widget.AsyncImageView android:id="@id/nh0" android:visibility="gone" android:layout_width="20.0dp" android:layout_height="23.0dp" android:layout_marginLeft="8.0dp" android:minHeight="23.0dp" android:layout_toRightOf="@id/mz_" />
+                <com.tencent.component.widget.AsyncImageView android:id="@id/nh1" android:visibility="gone" android:layout_width="20.0dp" android:layout_height="20.0dp" android:layout_marginLeft="4.0dp" android:layout_toRightOf="@id/nh0" />
+                <com.tencent.component.widget.AsyncImageView android:id="@id/nh2" android:visibility="gone" android:layout_width="20.0dp" android:layout_height="20.0dp" android:layout_marginLeft="4.0dp" android:layout_toRightOf="@id/nh1" />
+                <com.tencent.component.widget.AsyncImageView android:id="@id/nh3" android:visibility="gone" android:layout_width="20.0dp" android:layout_height="20.0dp" android:layout_marginLeft="4.0dp" android:layout_toRightOf="@id/nh2" />
+                <com.tencent.component.widget.AsyncImageView android:id="@id/nh4" android:visibility="gone" android:layout_width="18.0dp" android:layout_height="23.0dp" android:layout_marginLeft="4.0dp" android:layout_toRightOf="@id/nh3" />
+            </RelativeLayout>
+            <RelativeLayout android:id="@id/mx8" android:layout_width="50.0dp" android:layout_height="50.0dp" android:layout_marginBottom="10.0dp" android:layout_above="@id/mza" android:layout_centerHorizontal="true">
+                <com.tencent.component.widget.AsyncEffectImageView android:id="@id/mx7" android:layout_width="50.0dp" android:layout_height="50.0dp" android:layout_centerHorizontal="true" />
+                <com.tencent.component.widget.AsyncImageView android:id="@id/mz4" android:visibility="gone" android:layout_width="20.0dp" android:layout_height="20.0dp" android:layout_alignRight="@id/mx7" android:layout_alignBottom="@id/mx7" />
+            </RelativeLayout>
+        </RelativeLayout>
+    </RelativeLayout>
+</RelativeLayout>

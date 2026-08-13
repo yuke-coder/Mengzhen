@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<merge android:id="@id/ddv" android:layout_width="wrap_content" android:layout_height="@dimen/a09"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <com.tencent.component.widget.AsyncImageView android:id="@id/ddw" android:visibility="gone" android:layout_width="16.0dp" android:layout_height="16.0dp" android:layout_marginRight="3.5dp" />
+    <TextView android:textSize="14.0dp" android:textColor="@color/white" android:gravity="center" android:id="@id/ddu" android:layout_width="wrap_content" android:layout_height="match_parent" />
+</merge>

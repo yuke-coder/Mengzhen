@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout android:id="@id/fwb" android:background="@drawable/shape_drawable_radius_17" android:layout_width="match_parent" android:layout_height="wrap_content"
+  xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">
+    <ImageView android:layout_gravity="center_vertical" android:id="@id/fwa" android:layout_width="12.0dp" android:layout_height="12.0dp" android:src="@drawable/lp_qc_code_add_icon" app:a1d="hnz" app:a1u="hmg" app:a1x="hnz" app:a20="@id/fwc" app:a27="hnz" />
+    <TextView android:textSize="14.0dp" android:textColor="@color/white_60_transparent" android:layout_gravity="center_vertical" android:id="@id/fwc" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginLeft="3.0dp" android:text="添加二维码" android:layout_centerVertical="true" app:a1d="hnz" app:a1y="@id/fwa" app:a21="hnz" app:a27="hnz" />
+</androidx.constraintlayout.widget.ConstraintLayout>

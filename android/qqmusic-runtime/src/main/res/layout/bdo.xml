@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout android:layout_width="match_parent" android:layout_height="match_parent"
+  xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">
+    <com.google.android.material.tabs.TabLayout android:id="@id/mlive_gift_card_fragment_group_container_indicator" android:background="@drawable/mlive_gift_sub_tab_bg" android:padding="0.0dp" android:layout_width="270.0dp" android:layout_height="26.0dp" app:a1j="hnz" app:a23="hnz" app:a27="hnz" app:amq="0.0dp" app:amw="0.0dp" app:amx="0.0dp" app:amy="0.0dp" app:amz="0.0dp" app:an0="@color/transparent" />
+    <androidx.viewpager2.widget.ViewPager2 android:id="@id/mlive_gift_card_fragment_group_container_content" android:layout_width="match_parent" android:layout_height="200.0dp" android:layout_marginTop="10.0dp" app:a26="@id/mlive_gift_card_fragment_group_container_indicator" />
+    <LinearLayout android:gravity="center" android:orientation="vertical" android:id="@id/mlive_gift_card_fragment_group_container_empty" android:visibility="visible" android:layout_width="match_parent" android:layout_height="match_parent">
+        <ImageView android:layout_width="110.0dp" android:layout_height="110.0dp" android:src="@drawable/mlive_song_content_play_empty_icon" />
+        <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/d5m" />
+    </LinearLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>

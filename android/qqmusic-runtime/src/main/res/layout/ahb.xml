@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout android:paddingLeft="16.0dp" android:paddingRight="16.0dp" android:layout_width="match_parent" android:layout_height="wrap_content" android:paddingHorizontal="16.0dp"
+  xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">
+    <ImageView android:id="@id/f9f" android:layout_width="match_parent" android:layout_height="match_parent" android:src="@drawable/fans_ranking" android:scaleType="fitXY" app:a1j="hnz" app:a23="hnz" app:a27="hnz" />
+    <com.tencent.qqmusic.business.live.ui.view.RoundAvatarImage android:id="@id/f9h" android:layout_width="40.0dp" android:layout_height="40.0dp" android:layout_marginRight="39.0dp" android:src="@drawable/default_avatar" android:layout_marginEnd="39.0dp" app:a1d="@id/f9f" app:a1j="@id/f9f" app:a27="@id/f9f" />
+    <com.tencent.qqmusic.business.live.ui.view.RoundAvatarImage android:id="@id/f9g" android:layout_width="40.0dp" android:layout_height="40.0dp" android:layout_marginRight="72.0dp" android:src="@drawable/default_avatar" android:layout_marginEnd="72.0dp" app:a1d="@id/f9f" app:a1j="@id/f9f" app:a27="@id/f9f" />
+    <com.tencent.qqmusic.business.live.ui.view.RoundAvatarImage android:id="@id/f9e" android:layout_width="40.0dp" android:layout_height="40.0dp" android:layout_marginRight="103.0dp" android:src="@drawable/default_avatar" android:layout_marginEnd="103.0dp" app:a1d="@id/f9f" app:a1j="@id/f9f" app:a27="@id/f9f" />
+</androidx.constraintlayout.widget.ConstraintLayout>

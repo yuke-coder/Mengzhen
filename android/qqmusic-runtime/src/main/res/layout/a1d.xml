@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout android:id="@id/cu5" android:background="@drawable/skin_sub_mask_img" android:layout_width="match_parent" android:layout_height="match_parent"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <FrameLayout android:id="@id/io8" android:layout_width="match_parent" android:layout_height="match_parent" android:layout_marginBottom="-31.0dp">
+        <ImageView android:id="@id/io7" android:layout_width="match_parent" android:layout_height="match_parent" android:src="@drawable/main_bg" android:scaleType="centerCrop" />
+    </FrameLayout>
+    <include android:id="@id/ioc" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_alignParentTop="true" layout="@layout/b0m" />
+    <com.tencent.qqmusic.business.fullscreen.video.PortVideoLayout android:id="@id/iba" android:focusable="true" android:visibility="gone" android:layout_width="match_parent" android:layout_height="match_parent" android:layout_below="@id/ioc" />
+    <ViewStub android:layout_gravity="center" android:id="@id/b7x" android:layout="@layout/ye" android:layout_width="match_parent" android:layout_height="match_parent" android:layout_below="@id/ioc" />
+    <ViewStub android:layout_gravity="center" android:id="@id/b7f" android:layout_width="match_parent" android:layout_height="match_parent" android:layout_below="@id/ioc" />
+    <ViewStub android:layout_gravity="center" android:id="@id/b7r" android:layout_width="match_parent" android:layout_height="match_parent" android:layout_below="@id/ioc" />
+    <ViewStub android:layout_gravity="center" android:id="@id/b80" android:layout_width="match_parent" android:layout_height="match_parent" android:layout_below="@id/ioc" />
+</RelativeLayout>

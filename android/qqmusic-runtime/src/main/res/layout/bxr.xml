@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout android:orientation="@integer/ad" android:layout_width="wrap_content" android:layout_height="match_parent"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <include layout="@layout/bxt" />
+    <LinearLayout android:orientation="vertical" android:id="@id/gwf" android:layout_width="wrap_content" android:layout_height="match_parent">
+        <FrameLayout android:id="@id/gwe" android:paddingLeft="@dimen/azc" android:paddingRight="@dimen/azc" android:paddingBottom="@dimen/azb" android:layout_width="match_parent" android:layout_height="0.0dp" android:layout_weight="1.0" android:paddingStart="@dimen/azc" android:paddingEnd="@dimen/azc" />
+        <include android:layout_width="match_parent" android:layout_height="@dimen/az_" layout="@layout/bxq" />
+    </LinearLayout>
+</LinearLayout>

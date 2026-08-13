@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout android:gravity="top" android:layout_width="70.0dp" android:layout_height="match_parent"
+  xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">
+    <FrameLayout android:id="@id/din" android:background="@drawable/lmf_beautify_lens_item_icon_bg" android:layout_width="56.0dp" android:layout_height="56.0dp" android:layout_marginTop="20.0dp" android:layout_centerHorizontal="true">
+        <kk.design.KKImageView android:layout_gravity="center" android:id="@id/dir" android:layout_width="50.0dp" android:layout_height="50.0dp" android:scaleType="centerCrop" app:kkImageRadiusDirection="xt" app:kkImageRadiusSize="4.0dp" app:yk="hfs" />
+        <ImageView android:layout_gravity="right|bottom" android:id="@id/kvy" android:layout_width="20.0dp" android:layout_height="20.0dp" android:layout_marginRight="3.0dp" android:layout_marginBottom="3.0dp" android:src="@drawable/lmf_beautify_icon_un_download" />
+        <TextView android:textSize="12.0dp" android:textColor="@android:color/white" android:gravity="center" android:layout_gravity="center" android:id="@id/gaj" android:background="@drawable/lmf_beautify_lens_item_icon_fg" android:layout_width="50.0dp" android:layout_height="50.0dp" />
+    </FrameLayout>
+    <LinearLayout android:gravity="center" android:orientation="horizontal" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="8.0dp" android:layout_below="@id/din" android:layout_centerHorizontal="true">
+        <ImageView android:id="@id/f1_" android:background="@drawable/lmf_beautify_lens_item_title_modify_dot" android:layout_width="5.0dp" android:layout_height="5.0dp" android:layout_marginRight="3.0dp" />
+        <TextView android:textSize="14.0dp" android:textColor="@drawable/lmf_beautify_lens_item_title_color" android:id="@id/f19" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="美化" android:singleLine="true" />
+    </LinearLayout>
+</RelativeLayout>

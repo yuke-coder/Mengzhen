@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout android:background="@drawable/material_ripple_background" android:layout_width="match_parent" android:layout_height="@dimen/lc" android:layout_marginLeft="@dimen/acb" android:layout_marginRight="@dimen/acb" android:minHeight="@dimen/lc"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <com.tencent.component.widget.AsyncEffectImageView android:id="@id/vz" android:layout_width="@dimen/le" android:layout_height="@dimen/le" android:layout_marginLeft="@dimen/ld" android:layout_alignParentLeft="true" android:layout_centerVertical="true" />
+    <ImageView android:id="@id/uf" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginRight="@dimen/ld" android:src="@drawable/arrow_right_grey" android:layout_alignParentRight="true" android:layout_centerVertical="true" />
+    <RelativeLayout android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginLeft="12.0dp" android:layout_marginRight="12.0dp" android:layout_toLeftOf="@id/uf" android:layout_toRightOf="@id/vz" android:layout_centerVertical="true">
+        <TextView android:textColor="@color/skin_text_main_color" android:id="@id/we" android:layout_width="wrap_content" style="@style/ln" />
+        <TextView android:textColor="@color/skin_text_sub_color" android:id="@id/wd" android:layout_width="wrap_content" android:layout_below="@id/we" style="@style/ll" />
+    </RelativeLayout>
+</RelativeLayout>

@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout android:layout_width="wrap_content" android:layout_height="60.0dp"
+  xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">
+    <TextView android:textColor="@color/white" android:gravity="center_vertical" android:id="@id/mlive_popupwindow_voice_comment_tips_content" android:background="@drawable/mlive_popupwindow_audio_record_tips_bg" android:paddingLeft="12.0dp" android:paddingRight="12.0dp" android:layout_width="@dimen/alm" android:layout_height="55.0dp" android:text="@string/e47" android:maxLines="2" android:paddingHorizontal="12.0dp" app:a1e="@id/mlive_popupwindow_voice_comment_tips_arrow" app:a1x="hnz" app:a21="hnz" app:a27="hnz" />
+    <com.tme.qqmusic.widget.base.view.TriangleView android:layout_gravity="center_horizontal" android:id="@id/mlive_popupwindow_voice_comment_tips_arrow" android:layout_width="10.0dp" android:layout_height="5.0dp" android:translationX="-75.0dp" android:translationY="-1.0px" app:a1d="hnz" app:a1x="hnz" app:a21="hnz" app:a26="@id/mlive_popupwindow_voice_comment_tips_content" app:aay="@color/themeColor" />
+</androidx.constraintlayout.widget.ConstraintLayout>

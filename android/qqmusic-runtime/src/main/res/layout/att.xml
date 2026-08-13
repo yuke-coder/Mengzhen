@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout android:id="@id/fij" android:layout_width="match_parent" android:layout_height="match_parent"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <ProgressBar android:id="@id/ih6" android:layout_width="30.0dp" android:layout_height="30.0dp" android:layout_marginBottom="10.0dp" android:indeterminate="true" android:indeterminateOnly="true" android:indeterminateDrawable="@drawable/icn_loading_indicator" android:indeterminateDuration="2000" android:layout_centerInParent="true" />
+    <androidx.appcompat.widget.AppCompatTextView android:textColor="@color/skin_text_main_color" android:id="@id/fir" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="20.0dp" android:text="@string/cd1" android:layout_below="@id/ih6" android:layout_centerHorizontal="true" />
+</RelativeLayout>

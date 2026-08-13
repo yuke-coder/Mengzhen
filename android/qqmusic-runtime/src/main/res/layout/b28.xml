@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout android:id="@id/jd3" android:paddingLeft="16.0dp" android:paddingTop="10.0dp" android:paddingRight="16.0dp" android:paddingBottom="14.0dp" android:layout_width="match_parent" android:layout_height="wrap_content"
+  xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">
+    <TextView android:textSize="11.0dp" android:textColor="@color/skin_text_guide_color" android:ellipsize="end" android:id="@id/met" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="一起听" android:maxLines="1" app:a1x="hnz" app:a27="hnz" />
+    <com.tme.qqmusic.widget.base.view.GlideImageView android:id="@id/d2a" android:layout_width="40.0dp" android:layout_height="40.0dp" android:scaleType="centerCrop" app:a1d="hnz" app:a23="hnz" app:a26="@id/met" />
+    <LinearLayout android:gravity="center_vertical" android:orientation="vertical" android:id="@id/ffb" android:layout_width="0.0dp" android:layout_height="wrap_content" android:layout_marginLeft="10.0dp" android:layout_marginRight="10.0dp" app:a1d="@id/d2a" app:a1y="@id/d2a" app:a20="@id/akd" app:a27="@id/d2a">
+        <TextView android:textSize="15.0dp" android:textColor="@color/skin_text_main_color" android:ellipsize="end" android:id="@id/mey" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="用户" android:maxLines="1" />
+        <TextView android:textSize="12.0dp" android:textColor="@color/skin_text_sub_color" android:ellipsize="end" android:id="@id/meu" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="4.0dp" android:text="邀请和你一起听歌" android:maxLines="1" />
+    </LinearLayout>
+    <ImageView android:id="@id/aib" android:layout_width="40.0dp" android:layout_height="40.0dp" android:layout_marginBottom="4.0dp" android:src="@drawable/player_together_push_accept" app:a1d="hnz" app:a21="hnz" app:a27="@id/d2a" />
+    <ImageView android:id="@id/akd" android:layout_width="40.0dp" android:layout_height="40.0dp" android:layout_marginRight="16.0dp" android:layout_marginBottom="4.0dp" android:src="@drawable/player_together_push_cancle" app:a1d="hnz" app:a20="@id/aib" app:a27="@id/d2a" />
+</androidx.constraintlayout.widget.ConstraintLayout>

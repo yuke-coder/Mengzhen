@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout android:layout_width="wrap_content" android:layout_height="wrap_content"
+  xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">
+    <com.tencent.qqmusic.ui.RoundedRelativeLayout android:id="@id/exw" android:layout_width="wrap_content" android:layout_height="wrap_content" app:a1x="hnz" app:a27="hnz" app:ado="7.5dp">
+        <com.tencent.component.widget.AsyncImageView android:id="@id/dtl" android:layout_width="@dimen/c1u" android:layout_height="@dimen/c1q" android:scaleType="fitXY" />
+        <TextureView android:id="@id/lat" android:visibility="gone" android:layout_width="@dimen/c1u" android:layout_height="@dimen/c1q" />
+        <LinearLayout android:gravity="center_vertical" android:orientation="horizontal" android:id="@id/fc3" android:visibility="gone" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_alignParentLeft="true" android:layout_alignParentTop="true">
+            <TextView android:textSize="10.0dp" android:textColor="@color/black" android:id="@id/m4l" android:paddingLeft="6.0dp" android:paddingTop="2.0dp" android:paddingRight="6.0dp" android:paddingBottom="2.0dp" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="限免3次" />
+            <ImageView android:id="@id/e_j" android:visibility="gone" android:layout_width="16.0dp" android:layout_height="16.0dp" android:layout_marginLeft="2.0dp" android:layout_marginRight="4.0dp" android:src="@drawable/icon_super_vip" android:importantForAccessibility="no" />
+        </LinearLayout>
+        <ImageView android:id="@id/ebs" android:visibility="gone" android:layout_width="wrap_content" android:layout_height="wrap_content" android:src="@drawable/icon_share_card_new" android:layout_alignParentLeft="true" android:layout_alignParentTop="true" android:importantForAccessibility="no" />
+    </com.tencent.qqmusic.ui.RoundedRelativeLayout>
+    <include android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginTop="11.5dp" app:a1x="hnz" app:a21="hnz" app:a26="@id/exw" layout="@layout/clf" />
+</androidx.constraintlayout.widget.ConstraintLayout>

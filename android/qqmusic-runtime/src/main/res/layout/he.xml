@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout android:id="@id/hf5" android:background="@drawable/transparent" android:layout_width="match_parent" android:layout_height="match_parent"
+  xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">
+    <RelativeLayout android:id="@id/cqj" android:background="@drawable/putoo_group_signin_dialog_bg" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginLeft="39.5dp" android:layout_marginRight="39.5dp" android:layout_marginStart="39.5dp" android:layout_marginEnd="39.5dp" app:a1d="hnz" app:a1j="hnz" app:a23="hnz" app:a27="hnz">
+        <TextView android:textSize="16.0sp" android:textColor="#e61a1a1a" android:ellipsize="end" android:gravity="center" android:id="@id/crm" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/i4t" android:maxLines="2" android:includeFontPadding="false" android:layout_centerHorizontal="true" android:layout_marginStart="25.0dp" android:layout_marginEnd="25.0dp" />
+        <com.tencent.qqmusic.community.putoo.concern.MaxHeightScrollView android:scrollbarStyle="outsideInset" android:id="@id/bn7" android:scrollbars="vertical" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginTop="16.0dp" android:layout_marginBottom="30.0dp" android:layout_below="@id/crm" android:paddingStart="30.0dp" android:paddingEnd="21.5dp" android:layout_marginEnd="8.5dp" app:a98="184.0dp">
+            <FrameLayout android:layout_width="match_parent" android:layout_height="wrap_content">
+                <TextView android:textSize="14.0sp" android:id="@id/bnb" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="欢迎来到吃瓜小组，我们将会为你推荐优质的吃瓜资讯，以及各种有意思的圈内趣闻，请大家遵守扑通社区公约，共同爱护社区，请勿在小组内发布恶意抹黑他人的动态，包括音乐人和制作人，理性讨论，禁止恶意中伤等言论." android:lineSpacingExtra="5.0dp" android:lineHeight="18.0dp" />
+            </FrameLayout>
+        </com.tencent.qqmusic.community.putoo.concern.MaxHeightScrollView>
+        <View android:id="@id/bu2" android:background="@color/common_dialog_spit_line_color" android:layout_width="match_parent" android:layout_height="0.5dp" android:layout_marginTop="30.0dp" android:layout_above="@id/jzb" />
+        <TextView android:textSize="15.0dp" android:textColor="@color/common_dialog_button_text_normal_color" android:gravity="center" android:id="@id/jzb" android:layout_width="match_parent" android:layout_height="50.599976dp" android:text="@string/h7m" android:layout_below="@id/bn7" android:layout_centerHorizontal="true" />
+    </RelativeLayout>
+    <ImageView android:id="@id/crn" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginLeft="39.5dp" android:layout_marginRight="39.5dp" android:src="@drawable/putoo_follow_top_welcome" app:a1e="@id/cqj" app:a1j="hnz" app:a23="hnz" />
+    <ImageView android:layout_gravity="center_horizontal" android:id="@id/bo_" android:background="@drawable/dialog_fragment_btn_close" android:layout_width="30.0dp" android:layout_height="30.0dp" android:layout_marginTop="25.0dp" app:a1j="hnz" app:a23="hnz" app:a26="@id/cqj" />
+</androidx.constraintlayout.widget.ConstraintLayout>

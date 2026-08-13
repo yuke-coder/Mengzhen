@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout android:layout_width="match_parent" android:layout_height="match_parent"
+  xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">
+    <com.tencent.component.widget.AsyncImageView android:id="@id/lkm" android:layout_width="match_parent" android:layout_height="match_parent" android:scaleType="centerCrop" android:contentDescription="@null" />
+    <View android:id="@id/j6t" android:background="@drawable/reward_dialog_bg" android:layout_width="match_parent" android:layout_height="160.0dp" android:layout_marginTop="62.0dp" android:layout_marginStart="28.0dp" android:layout_marginEnd="28.0dp" app:a1j="hnz" app:a23="hnz" app:a27="hnz" />
+    <TextView android:textSize="41.0dp" android:textStyle="bold" android:textColor="#ffffff" android:gravity="center" android:id="@id/ljn" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="27.0dp" android:drawableStart="@drawable/tme_ad_earning_gold_icon" app:a1k="@id/lms" app:a1u="hmg" app:a23="hnz" app:a27="@id/j6t" />
+    <TextView android:textColor="#ffffff" android:gravity="bottom" android:id="@id/lms" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="27.0dp" app:a1_="@id/ljn" app:a1j="hnz" app:a22="@id/ljn" app:a27="hnz" />
+    <TextView android:textSize="18.0dp" android:textColor="#ffffff" android:id="@id/lml" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="15.0dp" android:text="@string/i63" android:layout_marginStart="40.0dp" android:layout_marginEnd="40.0dp" app:a1e="@id/lmm" app:a1j="hnz" app:a23="hnz" app:a26="@id/ljn" />
+    <TextView android:textSize="14.0dp" android:textColor="#aeaeae" android:id="@id/lmm" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="6.0dp" android:layout_marginBottom="25.0dp" android:text="@string/ajp" app:a1d="@id/j6t" app:a1j="hnz" app:a23="hnz" app:a26="@id/lml" />
+</androidx.constraintlayout.widget.ConstraintLayout>

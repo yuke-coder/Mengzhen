@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout android:id="@id/b_c" android:layout_width="match_parent" android:layout_height="match_parent"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <com.tencent.qqmusic.modular.module.musichall.views.recycler.CellRecyclerView android:id="@id/cvv" android:paddingBottom="@dimen/ait" android:scrollbars="none" android:clipToPadding="false" android:layout_width="match_parent" android:layout_height="match_parent" />
+    <ViewStub android:id="@id/cvz" android:visibility="gone" android:layout="@layout/yc" android:layout_width="match_parent" android:layout_height="match_parent" android:layout_alignWithParentIfMissing="true" />
+    <ViewStub android:id="@id/cw1" android:visibility="gone" android:layout="@layout/bs1" android:layout_width="match_parent" android:layout_height="match_parent" android:layout_alignWithParentIfMissing="true" />
+    <ViewStub android:id="@id/cvy" android:visibility="gone" android:layout="@layout/mh" android:layout_width="match_parent" android:layout_height="match_parent" android:layout_alignWithParentIfMissing="true" />
+    <ViewStub android:id="@id/cw0" android:visibility="gone" android:layout="@layout/mj" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="50.0dp" android:layout_centerHorizontal="true" android:layout_centerVertical="true" />
+</RelativeLayout>

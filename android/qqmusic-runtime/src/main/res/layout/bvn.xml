@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout android:layout_width="wrap_content" android:layout_height="wrap_content"
+  xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">
+    <com.tencent.qqmusic.ui.RoundedConstraintLayout android:id="@id/grh" android:focusable="true" android:focusableInTouchMode="true" android:layout_width="match_parent" android:layout_height="match_parent">
+        <com.tencent.component.widget.AsyncEffectImageView android:id="@id/grg" android:layout_width="match_parent" android:layout_height="match_parent" android:src="@drawable/default_vip_tab_cover" />
+        <androidx.appcompat.widget.AppCompatTextView android:textSize="12.0dp" android:id="@id/gri" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginLeft="16.0dp" android:layout_marginRight="16.0dp" android:layout_marginBottom="10.0dp" android:maxLines="1" android:singleLine="true" app:a1d="hnz" />
+        <androidx.appcompat.widget.AppCompatTextView android:textSize="16.0dp" android:id="@id/grj" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginLeft="16.0dp" android:layout_marginRight="16.0dp" android:layout_marginBottom="5.0dp" android:maxLines="1" android:singleLine="true" app:a1e="@id/gri" />
+    </com.tencent.qqmusic.ui.RoundedConstraintLayout>
+</FrameLayout>

@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout android:id="@id/jku" android:paddingLeft="16.0dp" android:paddingRight="16.0dp" android:layout_width="match_parent" android:layout_height="wrap_content" android:minHeight="81.0dp"
+  xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">
+    <com.tencent.component.widget.AsyncEffectImageView android:id="@id/ejl" android:layout_width="182.0dp" android:layout_height="76.0dp" android:scaleType="fitXY" app:a1x="hnz" app:a27="hnz" />
+    <View android:id="@id/g79" android:layout_width="match_parent" android:layout_height="5.0dp" app:a1x="hnz" app:a26="@id/ejl" />
+    <androidx.constraintlayout.widget.ConstraintLayout android:id="@id/azt" android:layout_width="0.0dp" android:layout_height="wrap_content" app:a1x="hnz" app:a21="hnz" app:a26="@id/g79">
+        <com.tencent.component.widget.AsyncEffectImageView android:id="@id/ejk" android:visibility="gone" android:layout_width="20.0dp" android:layout_height="20.0dp" android:scaleType="fitXY" app:a1d="hnz" app:a1x="hnz" app:a20="@id/mjo" app:a27="hnz" />
+        <TextView android:textSize="12.0dp" android:textColor="@color/white" android:ellipsize="end" android:gravity="left" android:id="@id/mjo" android:visibility="gone" android:layout_width="0.0dp" android:layout_height="wrap_content" android:layout_marginLeft="5.0dp" android:singleLine="true" android:textFontWeight="400" app:a1d="hnz" app:a1y="@id/ejk" app:a20="@id/mjn" app:a27="hnz" />
+        <TextView android:textSize="11.0dp" android:textColor="@color/black" android:ellipsize="end" android:id="@id/mjn" android:paddingLeft="10.0dp" android:paddingTop="7.0dp" android:paddingRight="10.0dp" android:paddingBottom="7.0dp" android:visibility="gone" android:layout_width="0.0dp" android:layout_height="wrap_content" android:singleLine="true" android:maxLength="8" android:textFontWeight="600" app:a1d="hnz" app:a21="hnz" app:a27="hnz" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>

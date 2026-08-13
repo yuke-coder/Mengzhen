@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout android:orientation="vertical" android:id="@id/a37" android:paddingLeft="@dimen/by6" android:paddingTop="10.0dp" android:paddingRight="@dimen/by6" android:paddingBottom="10.0dp" android:layout_width="match_parent" android:layout_height="wrap_content"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <LinearLayout android:gravity="center_vertical" android:orientation="horizontal" android:id="@id/l0d" android:layout_width="wrap_content" android:layout_height="wrap_content">
+        <TextView android:textSize="@dimen/bwd" android:textColor="@color/skin_text_main_color" android:ellipsize="end" android:gravity="center_vertical" android:id="@id/ldc" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginRight="10.0dp" android:singleLine="true" />
+        <TextView android:textSize="@dimen/bwd" android:textColor="@color/search_hot_word_text_color_new" android:ellipsize="end" android:gravity="center" android:id="@id/alr" android:background="@drawable/search_hot_word_new" android:paddingLeft="@dimen/bw_" android:paddingTop="@dimen/bwe" android:paddingRight="@dimen/bw_" android:paddingBottom="@dimen/bwe" android:layout_width="wrap_content" android:layout_height="wrap_content" android:singleLine="true" />
+    </LinearLayout>
+    <LinearLayout android:gravity="center_vertical" android:orientation="vertical" android:id="@id/l0e" android:layout_width="wrap_content" android:layout_height="wrap_content">
+        <TextView android:textSize="@dimen/bwd" android:textColor="@color/skin_text_main_color" android:ellipsize="end" android:gravity="center_vertical" android:id="@id/ldd" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginRight="10.0dp" android:singleLine="true" />
+        <TextView android:textSize="@dimen/bwd" android:textColor="@color/search_hot_word_text_color_new" android:ellipsize="end" android:gravity="center" android:id="@id/als" android:background="@drawable/search_hot_word_new" android:paddingLeft="@dimen/bw_" android:paddingTop="@dimen/bwe" android:paddingRight="@dimen/bw_" android:paddingBottom="@dimen/bwe" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="@dimen/bzh" android:singleLine="true" />
+    </LinearLayout>
+</LinearLayout>

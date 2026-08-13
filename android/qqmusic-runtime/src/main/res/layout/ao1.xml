@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout android:gravity="center" android:orientation="vertical" android:layout_width="match_parent" android:layout_height="match_parent"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <LinearLayout android:gravity="center" android:orientation="vertical" android:id="@id/fig" android:background="@drawable/ktv_plugin_loading_background" android:paddingTop="24.0dp" android:paddingBottom="24.0dp" android:layout_width="270.0dp" android:layout_height="wrap_content" android:paddingVertical="24.0dp">
+        <TextView android:textSize="20.0dp" android:textStyle="bold" android:textColor="@color/black" android:gravity="center" android:id="@id/lg1" android:visibility="gone" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginBottom="16.0dp" android:text="加载失败" android:maxLines="2" />
+        <TextView android:textSize="15.0dp" android:textStyle="normal" android:textColor="@color/black" android:gravity="center" android:id="@id/kzp" android:visibility="gone" android:layout_width="match_parent" android:layout_height="wrap_content" android:text="正在初始化歌房，请稍等" android:maxLines="2" />
+        <ProgressBar android:id="@id/ih6" android:layout_width="match_parent" android:layout_height="5.0dp" android:layout_marginLeft="30.0dp" android:layout_marginTop="16.0dp" android:layout_marginRight="30.0dp" android:max="100" android:progress="0" android:progressDrawable="@drawable/ktv_plugin_loading_progressbar_bg" android:layout_below="@id/lg1" android:layout_marginStart="30.0dp" android:layout_marginEnd="30.0dp" style="?android:progressBarStyleHorizontal" />
+        <TextView android:textSize="15.0dp" android:textStyle="normal" android:textColor="@color/black" android:gravity="center" android:id="@id/cancel_tv" android:background="@drawable/ktv_plugin_loading_button_background" android:padding="5.0dp" android:layout_width="120.0dp" android:layout_height="40.0dp" android:layout_marginTop="24.0dp" android:text="@string/cancel" android:layout_alignParentBottom="true" />
+    </LinearLayout>
+</LinearLayout>

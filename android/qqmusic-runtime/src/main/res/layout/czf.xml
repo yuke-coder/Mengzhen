@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout android:id="@id/jd3" android:background="@drawable/picker_selection_selected_circle" android:layout_width="21.0dp" android:layout_height="21.0dp"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <TextView android:textSize="14.0sp" android:textColor="#ffffff" android:layout_gravity="center" android:id="@id/dvg" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="1" />
+</FrameLayout>

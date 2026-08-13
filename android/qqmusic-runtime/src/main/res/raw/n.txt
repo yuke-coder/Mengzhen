@@ -1,0 +1,49 @@
+[wx_asr_vad]
+###################### 16k  online ######################
+vad_mode               = online
+output_data_ms         = 40
+sample_rate            = 16000 
+opt_spk_ms             = 5000
+max_spk_ms             = 60000
+begin_win_ms           = 400
+begin_confirm_ms       = 300
+begin_padding_ms       = 150
+end_padding_ms         = 580
+
+end_sil_decrease_slope = -0.01
+spk_maintain_win_ms        = 380:300:240
+spk_maintain_confirm_ms    = 100:80:60
+
+#==============================
+
+# default value
+sil_timeout            = 300
+
+# for user_timeout mapping to internal sil_timeout 
+sil_timeout_mapping = 800:650:500
+sil_timeout_grade = 300:120:0
+
+#==============================
+preprocess_alc_enable = false
+
+frame_classifier.type                   = dnn
+frame_classifier.frame_smooth           = true           
+frame_classifier.model                  = model/model.16k/version.16k.20210322/model_16k_20210121_iter07.bin
+frame_classifier.feature.name           = FBank_16k_E_C_40_Online 
+frame_classifier.feature.cms_path       = model/model.16k/version.16k.20210322/CMS_40dim_chi.bin
+frame_classifier.feature.remove_zero    = 0
+frame_classifier.feature.energy_floor   = 1.5
+frame_classifier.feature.cms_mask       = 39
+
+#==============================
+# default value for auto select by sil_timeout
+frame_classifier.sil_thresh             = 0.65:0.65:0.65 
+
+# for user speech_noise_thresh [-1,0,1] mapping to internal sil_thresh
+frame_classifier.sil_thresh_mapping     = 0.80:0.65:0.5
+#==============================
+
+
+frame_classifier.net_input_win          = 4:1:0
+frame_classifier.frame_mtm              = 20
+

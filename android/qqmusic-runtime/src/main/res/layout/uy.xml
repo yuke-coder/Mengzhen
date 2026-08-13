@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout android:orientation="vertical" android:layout_width="match_parent" android:layout_height="wrap_content"
+  xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">
+    <androidx.constraintlayout.widget.ConstraintLayout android:id="@id/kdp" android:layout_width="match_parent" android:layout_height="wrap_content">
+        <View android:id="@id/ke3" android:layout_width="match_parent" android:layout_height="86.0dp" app:a1d="hnz" app:a1x="hnz" app:a21="hnz" app:a27="hnz" />
+        <View android:id="@id/kea" android:background="@drawable/material_ripple_background" android:layout_width="match_parent" android:layout_height="86.0dp" app:a1d="@id/ke5" app:a1x="hnz" app:a21="hnz" app:a27="@id/ke5" />
+        <com.tencent.component.widget.AsyncImageView android:id="@id/ke5" android:layout_width="70.0dp" android:layout_height="70.0dp" android:layout_marginLeft="16.0dp" android:layout_marginTop="8.0dp" android:layout_marginBottom="8.0dp" android:scaleType="fitXY" app:a1d="hnz" app:a1x="hnz" app:a27="hnz" />
+        <TextView android:textSize="24.0sp" android:id="@id/dve" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginLeft="16.0dp" app:a1e="@id/kft" app:a1y="@id/ke5" app:a27="@id/ke5" app:a29="hmg" />
+        <TextView android:textSize="14.0sp" android:ellipsize="end" android:id="@id/kft" android:layout_width="0.0dp" android:layout_height="wrap_content" android:layout_marginLeft="16.0dp" android:layout_marginTop="4.0dp" android:layout_marginRight="16.0dp" android:layout_marginBottom="6.0dp" android:maxLines="1" app:a1e="@id/fut" app:a1v="1.0" app:a1y="@id/ke5" app:a20="@id/gt6" app:a26="@id/dve" app:a2m="0.0dp" />
+        <androidx.appcompat.widget.LinearLayoutCompat android:gravity="center_vertical" android:orientation="horizontal" android:id="@id/fut" android:background="@drawable/lover_folder_song_item_tips_bg" android:paddingLeft="4.0dp" android:paddingRight="4.0dp" android:visibility="gone" android:layout_width="wrap_content" android:layout_height="15.0dp" android:layout_marginLeft="16.0dp" app:a1d="@id/ke5" app:a1y="@id/ke5">
+            <com.tencent.component.widget.AsyncEffectImageView android:id="@id/fur" android:layout_width="10.0dp" android:layout_height="10.0dp" />
+            <com.tencent.component.widget.AsyncEffectImageView android:id="@id/fus" android:layout_width="10.0dp" android:layout_height="10.0dp" android:layout_marginLeft="1.0dp" />
+            <TextView android:textSize="9.0sp" android:textColor="@color/default_text_sub_color" android:id="@id/fuu" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginLeft="4.0dp" />
+        </androidx.appcompat.widget.LinearLayoutCompat>
+        <ViewStub android:id="@id/kz0" android:layout="@layout/b1s" android:inflatedId="@id/kyz" android:layout_width="0.0dp" android:layout_height="wrap_content" android:layout_marginLeft="16.0dp" app:a1d="@id/ke5" app:a1v="1.0" app:a1y="@id/ke5" app:a20="@id/gt6" app:a27="@id/ke5" />
+        <ImageView android:id="@id/gt6" android:background="@null" android:paddingTop="8.0dp" android:paddingBottom="8.0dp" android:layout_width="wrap_content" android:layout_height="wrap_content" android:src="@drawable/item_more_icon" android:scaleType="center" android:contentDescription="@string/e9w" android:paddingEnd="@dimen/lk" app:a1d="hnz" app:a21="hnz" app:a27="hnz" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+    <ViewStub android:id="@id/dy2" android:layout="@layout/a_7" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginTop="-8.0dp" />
+</LinearLayout>

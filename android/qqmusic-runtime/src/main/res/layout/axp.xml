@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout android:orientation="horizontal" android:paddingTop="1.0dp" android:paddingBottom="14.5dp" android:layout_width="@dimen/ak_" android:layout_height="35.5dp"
+  xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">
+    <com.tencent.qqmusic.ui.RoundedConstraintLayout android:id="@id/g_y" android:layout_width="@dimen/ak_" android:layout_height="20.0dp" app:kj="10.0dp" app:a1d="hnz" app:a1j="hnz" app:a23="hnz" app:a27="hnz">
+        <ImageView android:id="@id/g_v" android:layout_width="@dimen/ak_" android:layout_height="match_parent" android:src="@drawable/miyou_zone_default_bg" app:a1d="hnz" app:a1j="hnz" app:a27="hnz" />
+        <ImageView android:id="@id/g_w" android:layout_width="0.0dp" android:layout_height="match_parent" android:src="@drawable/miyou_zone_highlight_bg" app:a1d="hnz" app:a23="hnz" app:a27="hnz" />
+        <ImageView android:id="@id/g_z" android:layout_width="0.0dp" android:layout_height="match_parent" android:src="@drawable/miyou_zone_stripe_bg" android:scaleType="centerCrop" app:a1d="hnz" app:a23="hnz" app:a27="hnz" />
+        <TextView android:textSize="11.0dp" android:textStyle="bold" android:textColor="@color/white" android:ellipsize="end" android:gravity="center" android:id="@id/g_x" android:layout_width="match_parent" android:layout_height="match_parent" android:singleLine="true" android:includeFontPadding="false" app:a1d="hnz" app:a1j="hnz" app:a23="hnz" app:a27="hnz" />
+    </com.tencent.qqmusic.ui.RoundedConstraintLayout>
+</LinearLayout>

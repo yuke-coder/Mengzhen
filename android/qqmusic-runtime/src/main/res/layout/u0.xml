@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout android:gravity="center_vertical" android:layout_width="wrap_content" android:layout_height="wrap_content"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <LinearLayout android:gravity="center_vertical" android:orientation="horizontal" android:id="@id/es9" android:background="@drawable/focus_radio_danmu_item_view_bg" android:paddingLeft="2.5dp" android:paddingRight="10.0dp" android:layout_width="wrap_content" android:layout_height="34.0dp">
+        <com.tencent.qqmusic.modular.framework.ui.image.CircleImageView android:id="@id/a3c" android:layout_width="29.0dp" android:layout_height="29.0dp" android:scaleType="centerCrop" />
+        <TextView android:textSize="14.0sp" android:textColor="@color/white" android:ellipsize="end" android:gravity="center_vertical" android:id="@id/g66" android:layout_width="wrap_content" android:layout_height="match_parent" android:singleLine="true" android:includeFontPadding="false" android:layout_marginStart="5.0dp" />
+        <com.tencent.component.widget.AsyncImageView android:id="@id/did" android:visibility="gone" android:layout_width="25.0dp" android:layout_height="25.0dp" android:layout_marginLeft="5.0dp" />
+    </LinearLayout>
+</FrameLayout>

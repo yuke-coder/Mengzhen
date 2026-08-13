@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout android:layout_width="match_parent" android:layout_height="53.0dp"
+  xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">
+    <ImageView android:id="@id/n8d" android:layout_width="23.0dp" android:layout_height="23.0dp" android:src="@drawable/musichall_icon_song_like_new" app:a1d="hnz" app:a1j="hnz" app:a27="hnz" />
+    <androidx.constraintlayout.widget.Guideline android:orientation="vertical" android:id="@id/n8e" android:layout_width="wrap_content" android:layout_height="wrap_content" app:a1m="102.0dp" />
+    <TextView android:textSize="15.0dp" android:textColor="@color/white" android:ellipsize="end" android:id="@id/n8g" android:layout_width="0.0dp" android:layout_height="wrap_content" android:maxLines="1" app:a1d="hnz" app:a1k="@id/n8h" app:a1t="0.0" app:a1u="hmg" app:a23="hnz" app:a27="hnz" />
+    <androidx.appcompat.widget.AppCompatTextView android:textSize="9.0dp" android:gravity="center" android:id="@id/n8h" android:paddingTop="1.0dp" android:paddingBottom="1.0dp" android:visibility="gone" android:layout_width="wrap_content" android:layout_height="14.0dp" android:minWidth="22.0dp" android:includeFontPadding="false" android:paddingStart="3.0dp" android:paddingEnd="3.0dp" android:layout_marginStart="4.0dp" app:a1d="hnz" app:a1k="@id/n8f" app:a22="@id/n8g" app:a27="hnz" />
+    <ImageView android:id="@id/n8f" android:visibility="gone" android:layout_width="20.0dp" android:layout_height="20.0dp" android:src="@drawable/icon_video_tab_playing_song" android:layout_marginStart="12.0dp" app:a1d="hnz" app:a1k="@id/n8e" app:a22="@id/n8h" app:a27="hnz" />
+</androidx.constraintlayout.widget.ConstraintLayout>

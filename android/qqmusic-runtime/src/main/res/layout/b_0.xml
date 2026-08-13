@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout android:id="@id/f7c" android:layout_width="match_parent" android:layout_height="match_parent"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <ImageView android:layout_width="match_parent" android:layout_height="match_parent" android:src="@drawable/mlive_search_song_bg" android:scaleType="centerCrop" android:contentDescription="@null" />
+    <Space android:id="@id/mlive_create_notch_header" android:layout_width="match_parent" android:layout_height="0.0dp" />
+    <com.tme.qqmusic.widget.base.view.LiveBaseViewPager android:id="@id/mlive_create_fragment" android:layout_width="match_parent" android:layout_height="match_parent" />
+    <LinearLayout android:gravity="center" android:orientation="horizontal" android:id="@id/mlive_title_layout" android:layout_width="match_parent" android:layout_height="40.0dp" android:layout_marginLeft="60.0dp" android:layout_marginTop="14.0dp" android:layout_marginRight="60.0dp" android:layout_below="@id/mlive_create_notch_header">
+        <TextView android:textSize="16.0sp" android:textColor="@color/white_50_transparent" android:gravity="center" android:id="@id/mlive_create_audio_button" android:visibility="gone" android:layout_width="0.0dp" android:layout_height="match_parent" android:text="@string/d30" android:layout_weight="1.0" />
+        <TextView android:textSize="16.0sp" android:textColor="@color/white_50_transparent" android:gravity="center" android:id="@id/mlive_create_audio_friend_button" android:visibility="gone" android:layout_width="0.0dp" android:layout_height="match_parent" android:text="@string/d31" android:layout_weight="1.0" />
+        <TextView android:textSize="16.0sp" android:textColor="@color/white_50_transparent" android:gravity="center" android:id="@id/mlive_create_video_button" android:visibility="gone" android:layout_width="0.0dp" android:layout_height="match_parent" android:text="@string/d32" android:layout_weight="1.0" />
+    </LinearLayout>
+    <ImageView android:id="@id/mlive_create_back" android:layout_width="30.0dp" android:layout_height="30.0dp" android:src="@drawable/mlive_back" android:layout_alignTop="@id/mlive_title_layout" android:layout_alignBottom="@id/mlive_title_layout" android:layout_marginStart="15.0dp" />
+    <LinearLayout android:gravity="center" android:orientation="horizontal" android:id="@id/mlive_user_agreement_layout" android:visibility="gone" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="20.0dp" android:layout_marginBottom="65.0dp" android:layout_alignParentBottom="true" android:layout_centerHorizontal="true">
+        <CheckBox android:layout_gravity="center_vertical" android:id="@id/mlive_user_agreement_cb" android:background="@drawable/mlive_useragreement_check_state" android:layout_width="10.0dp" android:layout_height="10.0dp" android:checked="true" android:button="@null" />
+        <TextView android:textSize="12.0sp" android:textColor="@color/white" android:ellipsize="none" android:gravity="center" android:layout_gravity="center_vertical" android:id="@id/mlive_user_agreement_tv" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginLeft="7.0dp" android:text="@string/e3m" android:scrollHorizontally="false" />
+    </LinearLayout>
+</RelativeLayout>

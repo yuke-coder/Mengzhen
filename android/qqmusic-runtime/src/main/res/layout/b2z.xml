@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout android:layout_gravity="start" android:id="@id/c0d" android:layout_width="match_parent" android:layout_height="match_parent"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <com.tencent.qgame.animplayer.AnimView android:id="@id/c0e" android:layout_width="match_parent" android:layout_height="match_parent" />
+    <ImageView android:id="@id/c0c" android:layout_width="30.0dp" android:layout_height="30.0dp" android:layout_marginTop="54.0dp" android:src="@drawable/icon_player_video_easter_egg_close" android:layout_marginStart="30.0dp" />
+</FrameLayout>

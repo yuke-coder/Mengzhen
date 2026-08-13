@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout android:orientation="vertical" android:layout_width="match_parent" android:layout_height="match_parent"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <include android:id="@id/lv1" android:layout_width="match_parent" android:layout_height="@dimen/cau" layout="@layout/mu" />
+    <android.opengl.GLSurfaceView android:id="@id/l1x" android:layout_width="match_parent" android:layout_height="match_parent" android:layout_below="@id/lv1" />
+    <ImageView android:id="@id/e8o" android:layout_width="300.0dp" android:layout_height="534.0dp" android:layout_centerInParent="true" />
+    <RelativeLayout android:id="@id/l7c" android:layout_width="300.0dp" android:layout_height="400.0dp" android:layout_centerInParent="true" />
+</RelativeLayout>

@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout android:id="@id/g0c" android:layout_width="match_parent" android:layout_height="match_parent" music:bc="j74"
+  xmlns:android="http://schemas.android.com/apk/res/android" xmlns:music="http://schemas.android.com/apk/res-auto">
+    <include android:id="@id/k2t" android:layout_width="match_parent" android:layout_height="match_parent" layout="@layout/m6" />
+    <include android:id="@id/k2s" layout="@layout/mu" />
+    <View android:background="@drawable/head_shadow" android:layout_width="match_parent" android:layout_height="@dimen/l9" android:layout_below="@id/k2s" />
+    <include android:id="@id/k2p" android:layout_width="match_parent" android:layout_height="60.0dp" android:layout_below="@id/k2s" layout="@layout/ali" />
+    <ScrollView android:id="@id/k2q" android:clipChildren="false" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_below="@id/k2p">
+        <EditText android:textSize="15.0sp" android:textColor="@color/skin_text_main_color" android:gravity="left|top" android:orientation="vertical" android:id="@id/k2r" android:background="@drawable/transparent" android:scrollbars="vertical" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginLeft="20.0dp" android:layout_marginTop="16.799988dp" android:layout_marginRight="20.0dp" android:hint="@string/h8x" android:maxLines="8" android:minLines="8" android:lineSpacingExtra="5.0dp" android:inputType="textMultiLine" android:textCursorDrawable="@drawable/bg_mention_edittext_cursor" />
+    </ScrollView>
+    <include android:id="@id/k2o" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginTop="30.0dp" android:layout_below="@id/k2q" layout="@layout/alh" />
+</RelativeLayout>

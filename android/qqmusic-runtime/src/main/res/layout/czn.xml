@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView android:layout_width="375.0dp" android:layout_height="wrap_content"
+  xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">
+    <RelativeLayout android:layout_width="375.0dp" android:layout_height="wrap_content" android:minHeight="600.0dp">
+        <ImageView android:id="@id/a93" android:layout_width="375.0dp" android:layout_height="216.5dp" android:src="@drawable/bg_music_album_card2_top" />
+        <ImageView android:id="@id/nbi" android:layout_width="180.0dp" android:layout_height="180.0dp" android:layout_marginLeft="58.5dp" android:layout_marginTop="36.5dp" />
+        <androidx.constraintlayout.widget.ConstraintLayout android:id="@id/gv8" android:background="@drawable/bg_music_album_card2_bottom" android:layout_width="375.0dp" android:layout_height="wrap_content" android:minHeight="383.5dp" android:layout_below="@id/nbi">
+            <TextView android:textSize="20.0sp" android:textStyle="bold" android:textColor="@color/black" android:ellipsize="end" android:id="@id/mkg" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginLeft="35.0dp" android:layout_marginTop="47.5dp" android:maxLines="2" android:layout_marginEnd="155.0dp" app:a23="hnz" app:a27="hnz" />
+            <TextView android:textSize="14.0sp" android:textColor="@color/black_50_transparent" android:ellipsize="end" android:id="@id/mkh" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="10.0dp" android:maxWidth="285.0dp" android:singleLine="true" app:a1x="@id/mkg" app:a26="@id/mkg" />
+            <ImageView android:id="@id/dip" android:layout_width="18.5dp" android:layout_height="18.5dp" android:src="@drawable/icon_share_album_card_collect" android:layout_marginEnd="4.5dp" app:a1d="@id/m6r" app:a1k="@id/m6r" app:a27="@id/m6r" />
+            <TextView android:textSize="14.0sp" android:textColor="@color/black_50_transparent" android:ellipsize="end" android:id="@id/m6r" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="52.5dp" android:singleLine="true" android:layout_marginEnd="35.0dp" app:a1j="hnz" app:a27="hnz" />
+            <com.tencent.qqmusic.share.view.NoScrollListView android:id="@id/fx2" android:paddingBottom="104.0dp" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginTop="30.0dp" android:minHeight="68.0dp" android:layout_marginStart="35.0dp" android:layout_marginEnd="35.0dp" app:a23="hnz" app:a26="@id/mkh" />
+            <com.tencent.qqmusic.camerascan.share.cardtemplate.ShareCardBottomView android:id="@id/nbf" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginLeft="35.0dp" android:layout_marginRight="35.0dp" android:layout_marginBottom="30.0dp" app:a1d="hnz" app:a1x="hnz" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </RelativeLayout>
+</ScrollView>

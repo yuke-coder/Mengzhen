@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginTop="25.0dp" android:maxWidth="75.0dp"
+  xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">
+    <com.tencent.component.widget.AsyncEffectImageView android:id="@id/l4i" android:layout_width="60.0dp" android:layout_height="60.0dp" android:scaleType="centerCrop" android:layout_centerHorizontal="true" />
+    <ImageView android:id="@id/l4g" android:layout_width="wrap_content" android:layout_height="wrap_content" android:src="@drawable/tabsetting_item_icon" android:layout_alignLeft="@id/l4i" android:layout_alignTop="@id/l4i" />
+    <ImageView android:id="@id/l4f" android:layout_width="wrap_content" android:layout_height="wrap_content" android:src="@drawable/tabsetting_item_arrow" android:layout_alignLeft="@id/l4i" android:layout_alignTop="@id/l4i" />
+    <androidx.appcompat.widget.AppCompatTextView android:textSize="@dimen/bmj" android:textColor="@color/skin_text_sub_color" android:ellipsize="end" android:gravity="center" android:id="@id/l4j" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="10.0dp" android:maxWidth="75.0dp" android:maxLines="1" android:includeFontPadding="false" android:layout_below="@id/l4i" android:layout_centerHorizontal="true" />
+</RelativeLayout>

@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <LinearLayout android:gravity="center" android:id="@id/iw3" android:background="@drawable/recognize_desk_close_panel_bg" android:layout_width="match_parent" android:layout_height="@dimen/bpq" android:layout_alignWithParentIfMissing="true">
+        <ImageView android:id="@id/iw1" android:layout_width="@dimen/bpn" android:layout_height="@dimen/bpn" android:src="@drawable/recognize_desk_close_normal" />
+    </LinearLayout>
+</LinearLayout>

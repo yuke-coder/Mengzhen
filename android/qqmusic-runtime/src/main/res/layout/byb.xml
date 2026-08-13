@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout android:id="@id/h14" android:layout_width="@dimen/b3v" android:layout_height="@dimen/b3v" android:layout_marginRight="@dimen/b3u"
+  xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">
+    <ImageView android:id="@id/g8x" android:visibility="gone" android:layout_width="match_parent" android:layout_height="match_parent" android:src="@drawable/minibar_loading_expand" android:scaleType="centerCrop" />
+    <ImageView android:id="@id/g8n" android:visibility="gone" android:layout_width="match_parent" android:layout_height="match_parent" android:src="@drawable/minibar_circle_expand" android:scaleType="centerCrop" />
+    <com.tencent.qqmusic.ui.minibar.ArcImageView android:id="@id/g9a" android:visibility="gone" android:layout_width="match_parent" android:layout_height="match_parent" app:vb="2.0" />
+    <ImageView android:id="@id/g90" android:visibility="gone" android:layout_width="match_parent" android:layout_height="match_parent" android:src="@drawable/minibar_btn_pause_expand" android:scaleType="centerCrop" android:contentDescription="@string/f7s" />
+    <ImageView android:id="@id/g93" android:visibility="gone" android:layout_width="match_parent" android:layout_height="match_parent" android:src="@drawable/minibar_btn_play_expand" android:scaleType="centerCrop" android:contentDescription="@string/f7t" />
+</FrameLayout>

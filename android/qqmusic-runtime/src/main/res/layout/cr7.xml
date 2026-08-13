@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout android:id="@id/lhs" android:layout_width="match_parent" android:layout_height="match_parent"
+  xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">
+    <ImageView android:id="@id/lmu" android:visibility="visible" android:layout_width="match_parent" android:layout_height="match_parent" android:scaleType="centerCrop" />
+    <FrameLayout android:id="@id/ln1" android:background="@android:color/transparent" android:visibility="gone" android:layout_width="match_parent" android:layout_height="match_parent">
+        <ImageView android:id="@id/ln0" android:visibility="gone" android:layout_width="match_parent" android:layout_height="match_parent" android:scaleType="centerCrop" />
+    </FrameLayout>
+    <ImageView android:id="@id/lmx" android:layout_width="match_parent" android:layout_height="match_parent" android:scaleType="centerCrop" />
+    <TextView android:textSize="18.0sp" android:textColor="@android:color/white" android:ellipsize="end" android:id="@id/lmy" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginBottom="180.0dp" android:lines="1" app:a1d="hnz" app:a1j="hnz" app:a23="hnz" />
+    <TextView android:textSize="15.0sp" android:textColor="@android:color/white" android:ellipsize="end" android:id="@id/lmz" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginBottom="150.0dp" android:lines="1" android:alpha="0.9" app:a1d="hnz" app:a1j="hnz" app:a23="hnz" />
+    <LinearLayout android:gravity="center" android:orientation="horizontal" android:id="@id/lmv" android:background="@drawable/tme_ad_feed_close_bg_50_radius" android:layout_width="wrap_content" android:layout_height="32.0dp" android:layout_marginTop="80.0dp" android:paddingStart="10.0dp" android:paddingEnd="10.0dp" android:layout_marginEnd="20.0dp" app:a1j="hnz" app:a27="hnz">
+        <TextView android:textStyle="bold" android:textColor="@android:color/white" android:id="@id/lmw" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="关闭" />
+        <ImageView android:layout_width="16.0dp" android:layout_height="16.0dp" android:src="@drawable/tme_ad_ic_express_close" android:scaleType="fitXY" android:contentDescription="close icon" android:layout_marginStart="2.0dp" android:layout_marginEnd="2.0dp" />
+    </LinearLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>

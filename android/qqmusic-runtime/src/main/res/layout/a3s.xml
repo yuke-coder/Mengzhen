@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout android:paddingTop="5.0dp" android:paddingBottom="5.0dp" android:layout_width="match_parent" android:layout_height="wrap_content" android:paddingStart="15.0dp" android:paddingEnd="15.0dp"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <TextView android:textSize="15.0dp" android:textColor="#80ffffff" android:ellipsize="end" android:id="@id/bl8" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="dec_music_title " android:maxLines="1" />
+</androidx.constraintlayout.widget.ConstraintLayout>

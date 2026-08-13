@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout android:layout_width="match_parent" android:layout_height="75.0dp"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <com.tencent.qqmusic.modular.module.musichall.views.focus.CyclicViewPager android:id="@id/jl6" android:paddingBottom="5.0dp" android:layout_width="match_parent" android:layout_height="match_parent" />
+    <com.tencent.qqmusic.fragment.search.view.SearchIconPageIndicator android:layout_gravity="center|bottom" android:id="@id/jl7" android:layout_width="match_parent" android:layout_height="24.0dp" />
+</FrameLayout>

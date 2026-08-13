@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout android:layout_gravity="center_horizontal" android:background="@drawable/mlive_shape_bg_live_pk_props" android:layout_width="wrap_content" android:layout_height="26.0dp" android:paddingEnd="10.0dp"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <ImageView android:layout_gravity="center_vertical" android:id="@id/mlive_live_pk_prop_iv" android:layout_width="16.0dp" android:layout_height="21.0dp" android:src="@drawable/mlive_icon_live_pk_prop_blood" android:layout_marginStart="9.0dp" />
+    <TextView android:textSize="10.0sp" android:textColor="@color/white" android:layout_gravity="center_vertical" android:id="@id/mlive_live_pk_prop_title_tv" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginStart="5.0dp" />
+</LinearLayout>

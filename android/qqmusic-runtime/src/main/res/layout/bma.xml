@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout android:layout_gravity="center" android:orientation="vertical" android:layout_width="wrap_content" android:layout_height="wrap_content" android:minHeight="40.0dp"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <ImageView android:id="@id/mlive_task_popup_guide_top_arrow" android:visibility="gone" android:layout_width="wrap_content" android:layout_height="wrap_content" android:src="@drawable/mlive_guide_arrow_up_icon" />
+    <FrameLayout android:layout_gravity="center" android:id="@id/mlive_task_popup_guide_content_parent" android:background="@drawable/mlive_guide_popup_window_bg" android:layout_width="wrap_content" android:layout_height="wrap_content" android:minWidth="80.0dp">
+        <TextView android:textSize="13.0dp" android:textColor="@color/white" android:ellipsize="end" android:gravity="center_vertical" android:id="@id/mlive_task_popup_guide_content" android:padding="10.0dp" android:layout_width="match_parent" android:layout_height="match_parent" android:includeFontPadding="false" android:lineSpacingExtra="2.0dp" />
+    </FrameLayout>
+    <ImageView android:id="@id/mlive_task_popup_guide_bottom_arrow" android:visibility="gone" android:layout_width="wrap_content" android:layout_height="wrap_content" android:src="@drawable/mlive_guide_arrow_down_icon" />
+</LinearLayout>

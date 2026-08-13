@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout android:clickable="true" android:layout_width="match_parent" android:layout_height="match_parent"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <include android:layout_width="match_parent" android:layout_height="match_parent" layout="@layout/m6" />
+    <include android:id="@id/lvi" android:layout_width="match_parent" android:layout_height="@dimen/cau" layout="@layout/mu" />
+    <LinearLayout android:gravity="center_vertical" android:orientation="horizontal" android:id="@id/hl7" android:background="@drawable/color_b2_click" android:layout_width="match_parent" android:layout_height="60.0dp" android:layout_marginBottom="0.5dp" android:layout_below="@id/lvi">
+        <TextView android:textColor="@color/skin_text_main_color" android:gravity="center_vertical" android:layout_width="0.0dp" android:layout_height="match_parent" android:layout_marginLeft="@dimen/c16" android:text="@string/fhk" android:layout_weight="1.0" android:contentDescription="@string/fhk" android:layout_marginStart="@dimen/c16" style="@style/ln" />
+        <ImageButton android:id="@id/i0r" android:background="@drawable/switch_off" android:layout_width="55.0dp" android:layout_height="33.0dp" android:layout_marginRight="@dimen/c17" android:contentDescription="@string/cgv" />
+    </LinearLayout>
+    <ScrollView android:layout_width="match_parent" android:layout_height="match_parent" android:layout_below="@id/hl7">
+        <LinearLayout android:orientation="vertical" android:id="@id/mw2" android:layout_width="match_parent" android:layout_height="match_parent">
+            <LinearLayout android:orientation="horizontal" android:padding="14.0dp" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginBottom="0.5dp" android:baselineAligned="false">
+                <LinearLayout android:orientation="vertical" android:id="@id/ayt" android:layout_width="0.0dp" android:layout_height="wrap_content" android:layout_marginRight="7.0dp" android:layout_weight="1.0">
+                    <ImageView android:id="@id/mw3" android:background="@drawable/skin_common_listitem_bg" android:clickable="false" android:layout_width="match_parent" android:layout_height="wrap_content" android:src="@drawable/sample_notification_style_qqmusic" android:scaleType="fitCenter" android:adjustViewBounds="true" android:contentDescription="@string/gyl" />
+                    <LinearLayout android:orientation="horizontal" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginTop="14.0dp">
+                        <TextView android:textColor="@color/skin_text_main_color" android:layout_width="0.0dp" android:layout_height="wrap_content" android:text="@string/gyl" android:layout_weight="1.0" style="@style/ln" />
+                        <ImageView android:id="@id/ays" android:layout_width="18.0dp" android:layout_height="18.0dp" android:src="@drawable/pop_menu_item_mark" />
+                    </LinearLayout>
+                </LinearLayout>
+                <LinearLayout android:orientation="vertical" android:id="@id/ayx" android:layout_width="0.0dp" android:layout_height="wrap_content" android:layout_marginLeft="7.0dp" android:layout_weight="1.0">
+                    <ImageView android:id="@id/mvw" android:background="@drawable/skin_common_listitem_bg" android:layout_width="match_parent" android:layout_height="wrap_content" android:src="@drawable/sample_notification_style_system" android:scaleType="fitCenter" android:adjustViewBounds="true" android:contentDescription="@string/gym" />
+                    <LinearLayout android:orientation="horizontal" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginTop="14.0dp">
+                        <TextView android:textColor="@color/skin_text_main_color" android:layout_width="0.0dp" android:layout_height="wrap_content" android:text="@string/gym" android:layout_weight="1.0" style="@style/ln" />
+                        <ImageView android:id="@id/ayw" android:layout_width="18.0dp" android:layout_height="18.0dp" android:src="@drawable/pop_menu_item_mark" />
+                    </LinearLayout>
+                    <TextView android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginTop="2.0dp" android:text="样式仅供参考，实现效果以各手机适配样式为准" android:singleLine="false" style="@style/ll" />
+                </LinearLayout>
+            </LinearLayout>
+        </LinearLayout>
+    </ScrollView>
+</RelativeLayout>

@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout android:layout_gravity="bottom" android:orientation="horizontal" android:background="@drawable/tme_ad_seek_bar_background" android:paddingLeft="15.0dp" android:paddingRight="15.0dp" android:layout_width="match_parent" android:layout_height="30.5dp" android:layout_alignParentBottom="true"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <TextView android:textSize="10.0dp" android:textColor="#ffffff" android:gravity="center" android:layout_gravity="center" android:id="@id/lne" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="00:00" />
+    <SeekBar android:layout_gravity="center" android:id="@id/ln2" android:layout_width="1.0dp" android:layout_height="wrap_content" android:maxHeight="3.0dp" android:max="100" android:progress="50" android:indeterminateOnly="false" android:progressDrawable="@drawable/tme_ad_seek_progress_drawable" android:minHeight="3.0dp" android:thumb="@drawable/tme_ad_seek_bar_thumb" android:layout_weight="1.0" android:paddingStart="7.5dp" android:paddingEnd="7.5dp" />
+    <TextView android:textSize="10.0dp" android:textColor="#ffffff" android:gravity="center" android:layout_gravity="center" android:id="@id/lng" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="00:00" />
+</LinearLayout>

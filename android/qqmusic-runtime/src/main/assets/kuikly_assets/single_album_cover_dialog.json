@@ -1,0 +1,51 @@
+{
+  "router": "openHalf",
+  "page_name": "dialog_single_album_cover",
+  "container": {
+    "w_weight": "0.95",
+    "h_weight": "0.95",
+    "dim_behind": 1
+  },
+  "params": {
+    "page": [
+      {
+        "base": {
+          "title": "当前付费歌曲限时免费收听中",
+          "subtitle": "限时免费·即将到期"
+        },
+        "exposure": {
+          "id": "5016065"
+        },
+        "buttons": [
+          {
+            "text": "开通会员畅享",
+            "color": "#00F8AC",
+            "text_color": "#000000",
+            "url": "https://i.y.qq.com/n2/m/myservice/v3/index.html?_hidehd=1&tab1=svip&tab2=cjhy&entry=165&music.song.playpageicontc.freesong.android",
+            "click": {
+              "id": "1017372"
+            }
+          }
+        ],
+        "body": {
+          "images": [
+            {
+              "url": "http://thirdqq.qlogo.cn/g?b=sdk&k=aqNnxdPHJMVJL2LkshZPUg&kti=ZL9pqwAAAAE&s=140&t=1556883976",
+              "background": {
+                "type": "resource",
+                "name": "qmkuikly_limit_free_song_dialog_bg"
+              },
+              "corner_mark": {
+                "type": "text",
+                "position": "top_right",
+                "text_content": "限免",
+                "text_color": "#000000",
+                "text_bg_color": "#00F8AC"
+              }
+            }
+          ]
+        }
+      }
+    ]
+  }
+}

@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout android:layout_width="match_parent" android:layout_height="@dimen/ax4" android:layout_marginTop="7.0dp" android:layout_marginBottom="7.0dp"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <RelativeLayout android:id="@id/ceh" android:background="@drawable/timeline_song_rectangle_dark_background" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_centerHorizontal="true">
+        <com.tencent.component.widget.AsyncEffectImageView android:id="@id/ce2" android:layout_width="@dimen/ax4" android:layout_height="@dimen/ax4" android:src="@drawable/default_folder_mid" android:scaleType="fitXY" android:layout_centerVertical="true" />
+        <ImageView android:id="@id/k_z" android:visibility="invisible" android:layout_width="5.5999756dp" android:layout_height="match_parent" android:src="@drawable/cell_post_round_magic" android:layout_toRightOf="@id/ce2" android:layout_centerVertical="true" />
+        <RelativeLayout android:id="@id/ce9" android:layout_width="22.0dp" android:layout_height="22.0dp" android:layout_alignRight="@id/ce2" android:layout_alignBottom="@id/ce2" />
+        <ImageView android:id="@id/cea" android:layout_width="15.0dp" android:layout_height="15.0dp" android:layout_marginRight="4.1999817dp" android:layout_marginBottom="4.1999817dp" android:src="@drawable/cell_post_play" android:layout_alignRight="@id/ce2" android:layout_alignBottom="@id/ce2" />
+        <LinearLayout android:orientation="vertical" android:id="@id/kdg" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginLeft="@dimen/c_4" android:layout_marginRight="10.0dp" android:layout_toRightOf="@id/jds" android:layout_centerVertical="true">
+            <LinearLayout android:gravity="center_vertical" android:orientation="horizontal" android:layout_width="match_parent" android:layout_height="wrap_content">
+                <TextView android:textSize="@dimen/c9x" android:textColor="@color/skin_floor_color" android:ellipsize="end" android:gravity="center" android:id="@id/kbp" android:background="@drawable/rounded_shape_black" android:paddingLeft="2.0dp" android:paddingRight="2.0dp" android:visibility="visible" android:layout_width="wrap_content" android:layout_height="14.0dp" android:layout_marginTop="1.0dp" android:text="@string/i4m" android:maxLength="10" />
+                <TextView android:textSize="@dimen/c_0" android:textColor="@color/skin_text_main_color" android:ellipsize="end" android:id="@id/kbq" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginLeft="@dimen/c9z" android:maxWidth="125.0dp" android:maxLines="1" />
+            </LinearLayout>
+            <TextView android:textSize="@dimen/c9s" android:textColor="@color/skin_text_sub_color" android:ellipsize="end" android:id="@id/kbr" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="@dimen/c9y" android:maxLines="1" />
+        </LinearLayout>
+    </RelativeLayout>
+    <ImageView android:id="@id/bmp" android:visibility="gone" android:layout_width="20.0dp" android:layout_height="16.0dp" android:src="@drawable/post_moment_delete_icon" android:layout_alignParentRight="true" />
+    <ImageView android:id="@id/kbo" android:layout_width="26.0dp" android:layout_height="26.0dp" android:layout_marginRight="7.0dp" android:src="@drawable/official_folder_header_like_black" android:layout_alignParentRight="true" android:layout_centerVertical="true" android:contentDescription="@null" android:layout_marginEnd="7.0dp" android:layout_alignParentEnd="true" />
+</RelativeLayout>

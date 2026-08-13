@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- QQ Music BlurOverlayView 的原始属性顺序。 -->
+    <declare-styleable name="BlurOverlayView">
+        <attr name="a_x" />
+        <attr name="aa5" />
+        <attr name="ae2" />
+        <attr name="ae3" />
+        <attr name="ae4" />
+        <attr name="aee" />
+        <attr name="aen" />
+    </declare-styleable>
+</resources>

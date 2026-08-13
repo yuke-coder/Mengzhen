@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout android:orientation="vertical" android:id="@id/bo4" android:paddingLeft="30.0dp" android:paddingTop="15.0dp" android:paddingRight="30.0dp" android:paddingBottom="30.0dp" android:layout_width="match_parent" android:layout_height="wrap_content"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <TextView android:textSize="@dimen/h0" android:gravity="center_horizontal" android:id="@id/a38" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginBottom="30.0dp" android:text="@string/up" android:contentDescription="@string/up" />
+    <RelativeLayout android:orientation="horizontal" android:layout_width="match_parent" android:layout_height="37.5dp" android:layout_marginBottom="25.0dp">
+        <View android:background="@drawable/dialog_custom_auto_close_et_background" android:paddingLeft="10.0dp" android:focusable="false" android:layout_width="match_parent" android:layout_height="match_parent" />
+        <EditText android:textSize="@dimen/r3" android:id="@id/c_d" android:background="@drawable/dialog_custom_auto_close_et" android:paddingLeft="10.0dp" android:focusable="true" android:layout_width="match_parent" android:layout_height="match_parent" android:layout_marginLeft="1.0dp" android:layout_marginTop="1.0dp" android:layout_marginRight="1.0dp" android:layout_marginBottom="1.0dp" android:maxLength="4" android:inputType="number" style="@style/a3d" />
+        <TextView android:textSize="@dimen/gx" android:gravity="center_vertical" android:id="@id/mdh" android:paddingRight="10.0dp" android:layout_width="wrap_content" android:layout_height="match_parent" android:text="@string/um" android:layout_alignParentRight="true" />
+    </RelativeLayout>
+    <Button android:textSize="@dimen/gx" android:textColor="@color/action_sheet_forbid_color" android:id="@id/aku" android:background="@drawable/dialog_custom_auto_close_confirm_btn" android:layout_width="match_parent" android:layout_height="40.0dp" android:text="@string/uk" />
+</LinearLayout>

@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout android:orientation="horizontal" android:id="@id/jd3" android:clickable="true" android:layout_width="match_parent" android:layout_height="45.0dp"
+  xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">
+    <ImageView android:id="@id/bmt" android:layout_width="@dimen/my" android:layout_height="@dimen/my" android:layout_marginRight="@dimen/ms" android:src="@drawable/playlist_icon_delete" android:scaleType="fitXY" android:contentDescription="@string/aiq" app:a1d="hnz" app:a1j="hnz" app:a27="hnz" />
+    <ImageView android:id="@id/aml" android:focusable="true" android:visibility="gone" android:clickable="true" android:layout_width="@dimen/my" android:layout_height="@dimen/my" android:src="@drawable/playlist_icon_paper_clip" android:contentDescription="@string/hg_" app:a1d="hnz" app:a1k="@id/bmt" app:a27="hnz" />
+    <RelativeLayout android:id="@id/kfm" android:layout_width="0.0dp" android:layout_height="45.0dp" android:layout_centerVertical="true" app:a1d="hnz" app:a23="hnz" app:a27="hnz" app:a2c="nug">
+        <TextView android:textSize="15.0sp" android:textColor="@color/skin_text_main_color" android:ellipsize="end" android:gravity="left|center" android:id="@id/kfs" android:paddingLeft="18.0dp" android:paddingRight="2.0dp" android:layout_width="wrap_content" android:layout_height="wrap_content" android:singleLine="true" android:layout_alignParentLeft="true" android:layout_centerInParent="true" />
+        <LinearLayout android:orientation="horizontal" android:id="@id/djc" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_toRightOf="@id/kfs" android:layout_centerVertical="true">
+            <ImageView android:id="@id/ngw" android:visibility="gone" android:layout_width="@dimen/bio" android:layout_height="@dimen/bin" android:layout_marginRight="3.0dp" android:src="@drawable/pay_icon_in_cell_old" />
+            <ImageView android:id="@id/e0z" android:visibility="gone" android:layout_width="@dimen/bio" android:layout_height="@dimen/bin" android:layout_marginRight="3.0dp" android:src="@drawable/hq_icon" />
+        </LinearLayout>
+        <TextView android:textSize="12.0sp" android:textColor="@color/skin_text_sub_color" android:ellipsize="end" android:gravity="left|center" android:id="@id/k5i" android:paddingRight="30.0dp" android:layout_width="wrap_content" android:layout_height="wrap_content" android:singleLine="true" android:layout_toRightOf="@id/djc" android:layout_centerInParent="true" />
+    </RelativeLayout>
+    <ImageView android:id="@id/e0w" android:layout_width="30.0dp" android:layout_height="30.0dp" android:src="@drawable/list_icon_playing" app:a1d="hnz" app:a1k="@id/e0v" app:a1t="0.0" app:a1u="hmg" app:a22="@id/kfm" app:a27="hnz" />
+    <ImageView android:id="@id/e0v" android:padding="5.0dp" android:layout_width="30.0dp" android:layout_height="30.0dp" android:src="@drawable/miniplayer_icon_playlist_playnext" app:a1d="hnz" app:a1k="@id/aml" app:a22="@id/e0w" app:a27="hnz" />
+</androidx.constraintlayout.widget.ConstraintLayout>

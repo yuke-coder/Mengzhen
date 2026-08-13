@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layer-list
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <item android:id="@id/a5y">
+        <rotate android:fromDegrees="45.0" android:pivotX="14.999998%" android:pivotY="-35.000004%">
+            <shape android:shape="rectangle">
+                <solid android:color="#cc000000" />
+            </shape>
+        </rotate>
+    </item>
+</layer-list>

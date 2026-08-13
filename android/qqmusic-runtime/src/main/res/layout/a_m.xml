@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout android:id="@id/bz" android:background="@drawable/material_ripple_background" android:paddingRight="20.0dp" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginBottom="@dimen/zz"
+  xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">
+    <com.tencent.component.widget.AsyncEffectImageView android:id="@id/k5m" android:layout_width="90.0dp" android:layout_height="90.0dp" android:scaleType="centerCrop" app:a1x="hnz" app:a27="hnz" app:afv="7.5dp" />
+    <TextView android:textSize="15.0sp" android:textColor="@color/skin_text_main_color" android:ellipsize="end" android:id="@id/k5o" android:layout_width="225.5dp" android:layout_height="wrap_content" android:layout_marginLeft="9.0dp" android:layout_marginTop="10.5dp" android:layout_marginRight="35.0dp" android:text="史上唱片销量最高的女歌手TOP10史上唱史上唱片最高的女歌手TOP10史上唱史上唱片" android:maxLines="2" app:a1y="@id/k5m" app:a27="hnz" />
+    <TextView android:textSize="12.0sp" android:textColor="@color/skin_text_sub_color" android:ellipsize="end" android:id="@id/k5n" android:layout_width="225.5dp" android:layout_height="wrap_content" android:layout_marginLeft="9.0dp" android:layout_marginTop="8.5dp" android:layout_marginRight="35.0dp" android:text="新迪杰音乐制作  阅读22.4万" android:maxLines="2" app:a1y="@id/k5m" app:a26="@id/k5o" />
+</androidx.constraintlayout.widget.ConstraintLayout>

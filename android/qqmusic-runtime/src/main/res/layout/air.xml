@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.tencent.qqmusic.ui.RoundedRelativeLayout android:id="@id/ba_" android:padding="2.0dp" android:layout_width="154.0dp" android:layout_height="88.0dp" app:ado="8.0dp"
+  xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">
+    <TextView android:textSize="12.0dp" android:textColor="@color/white" android:gravity="center" android:id="@id/fws" android:background="#1e1e1f" android:layout_width="match_parent" android:layout_height="match_parent" android:text="@string/ahq" android:includeFontPadding="false" />
+    <com.tencent.component.widget.AsyncImageView android:id="@id/fwr" android:background="#1e1e1f" android:layout_width="match_parent" android:layout_height="match_parent" android:scaleType="fitXY" />
+    <ImageView android:id="@id/fwt" android:visibility="gone" android:layout_width="match_parent" android:layout_height="match_parent" android:src="@drawable/bg_font_style_pic_in_use_flag" />
+    <com.tencent.qqmusic.ui.SquareRoundProgressView android:id="@id/e5a" android:visibility="gone" android:layout_width="match_parent" android:layout_height="match_parent" android:scaleType="fitXY" />
+    <FrameLayout android:gravity="center" android:id="@id/fww" android:background="@drawable/custom_lyric_font_flag_bg" android:layout_width="25.0dp" android:layout_height="12.5dp" android:layout_marginTop="1.0dp" android:layout_marginRight="1.0dp" android:layout_alignParentTop="true" android:layout_alignParentRight="true">
+        <com.tencent.component.widget.AsyncImageView android:layout_gravity="center" android:id="@id/fwv" android:layout_width="14.0dp" android:layout_height="10.0dp" android:scaleType="fitCenter" />
+        <androidx.appcompat.widget.AppCompatTextView android:textSize="7.0sp" android:textColor="#fbe390" android:layout_gravity="center" android:id="@id/fwi" android:visibility="gone" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="已购" />
+    </FrameLayout>
+    <ImageView android:id="@id/drt" android:layout_width="18.0dp" android:layout_height="18.0dp" android:src="@drawable/custom_lyric_font_download_icon" android:scaleType="centerCrop" android:layout_alignParentBottom="true" android:layout_alignParentEnd="true" />
+</com.tencent.qqmusic.ui.RoundedRelativeLayout>

@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout android:orientation="vertical" android:layout_width="match_parent" android:layout_height="wrap_content"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <LinearLayout android:orientation="horizontal" android:layout_width="match_parent" android:layout_height="wrap_content">
+        <Button android:textSize="16.0sp" android:textColor="#ffffff" android:id="@id/l0m" android:background="@drawable/ss_super_bass_select_button" android:layout_width="0.0dp" android:layout_height="60.0dp" android:layout_weight="1.0" />
+        <Button android:textSize="16.0sp" android:textColor="#ffffff" android:id="@id/l0n" android:background="@drawable/ss_super_bass_select_button" android:layout_width="0.0dp" android:layout_height="60.0dp" android:layout_marginLeft="10.5dp" android:layout_weight="1.0" />
+        <Button android:textSize="16.0sp" android:textColor="#ffffff" android:id="@id/l0o" android:background="@drawable/ss_super_bass_select_button" android:layout_width="0.0dp" android:layout_height="60.0dp" android:layout_marginLeft="10.5dp" android:layout_weight="1.0" />
+    </LinearLayout>
+    <LinearLayout android:orientation="vertical" android:id="@id/l0l" android:background="@drawable/ss_official_effect_item_round_bg" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginTop="20.0dp">
+        <TextView android:textSize="12.0sp" android:textColor="#ffffff" android:layout_gravity="center" android:id="@id/l0p" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginLeft="16.0dp" android:layout_marginTop="20.0dp" android:layout_marginRight="16.0dp" android:text="@string/hk5" android:lineSpacingMultiplier="1.0" android:textAlignment="center" />
+        <TextView android:textSize="12.0sp" android:textColor="#4cffffff" android:layout_gravity="center" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="5.0dp" android:text="@string/hwy" />
+        <LinearLayout android:orientation="horizontal" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginTop="20.0dp" android:layout_marginBottom="25.0dp" android:baselineAligned="false">
+            <include android:layout_gravity="center" android:id="@id/eqa" android:layout_width="0.0dp" android:layout_height="wrap_content" android:layout_weight="1.0" layout="@layout/cow" />
+            <include android:layout_gravity="center" android:id="@id/eq_" android:layout_width="0.0dp" android:layout_height="wrap_content" android:layout_weight="1.0" layout="@layout/cow" />
+        </LinearLayout>
+    </LinearLayout>
+</LinearLayout>

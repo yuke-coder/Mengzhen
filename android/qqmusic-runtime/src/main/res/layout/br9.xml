@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout android:layout_width="match_parent" android:layout_height="wrap_content"
+  xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">
+    <ImageView android:id="@id/gk7" android:layout_width="20.0dp" android:layout_height="20.0dp" android:layout_marginTop="28.0dp" android:src="@drawable/module_musichall_central_title_more" android:scaleType="centerInside" android:importantForAccessibility="no" app:a21="hnz" app:a27="hnz" />
+    <com.tencent.qqmusic.ui.MainDeskTitleTabView android:id="@id/h0z" android:layout_width="0.0dp" android:layout_height="32.0dp" android:layout_marginLeft="0.0dp" android:layout_marginTop="23.0dp" android:layout_marginRight="0.0dp" app:v_="0.0dp" app:a1d="hnz" app:a1x="hnz" app:a20="@id/gk7" app:a27="hnz" app:a_r="false" app:aqm="14.0dp" />
+</androidx.constraintlayout.widget.ConstraintLayout>

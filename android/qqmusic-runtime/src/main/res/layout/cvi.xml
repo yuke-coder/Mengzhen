@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout android:id="@id/a4o" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="20.0dp" android:layout_marginBottom="30.0dp"
+  xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">
+    <ImageView android:id="@id/a4p" android:layout_width="60.0dp" android:layout_height="60.0dp" android:src="@drawable/module_musichall_block_jump_more_v20" android:scaleType="fitXY" android:importantForAccessibility="no" app:a1e="@id/a4q" app:a1x="hnz" app:a21="hnz" app:a27="hnz" />
+    <androidx.appcompat.widget.AppCompatTextView android:textSize="13.0dp" android:textColor="@color/skin_text_gray_color" android:gravity="center_horizontal" android:id="@id/a4q" android:layout_width="match_parent" android:layout_height="20.0dp" android:layout_marginTop="10.0dp" android:importantForAccessibility="no" app:a1d="hnz" app:a1x="@id/a4p" app:a21="@id/a4p" app:a26="@id/a4p" />
+</androidx.constraintlayout.widget.ConstraintLayout>

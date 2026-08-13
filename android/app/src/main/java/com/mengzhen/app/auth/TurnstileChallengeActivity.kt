@@ -13,12 +13,15 @@ import android.webkit.WebResourceError
 import android.webkit.WebResourceRequest
 import android.webkit.WebView
 import android.webkit.WebViewClient
-import androidx.appcompat.app.AppCompatActivity
+import android.webkit.RenderProcessGoneDetail
 import com.mengzhen.app.data.api.ApiClient
 
-class TurnstileChallengeActivity : AppCompatActivity() {
+class TurnstileChallengeActivity : Activity() {
     private lateinit var webView: WebView
     private var completed = false
+    private val timeoutRunnable = Runnable {
+        finishWithError("安全验证超时，请检查网络后重试")
+    }
 
     @SuppressLint("SetJavaScriptEnabled")
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -52,15 +55,35 @@ class TurnstileChallengeActivity : AppCompatActivity() {
                         finishWithError("安全验证页面加载失败，请检查网络后重试")
                     }
                 }
+
+                override fun onReceivedHttpError(
+                    view: WebView,
+                    request: WebResourceRequest,
+                    errorResponse: android.webkit.WebResourceResponse,
+                ) {
+                    if (request.isForMainFrame && errorResponse.statusCode >= 400) {
+                        finishWithError("安全验证页面加载失败，请重试")
+                    }
+                }
+
+                override fun onRenderProcessGone(
+                    view: WebView,
+                    detail: RenderProcessGoneDetail,
+                ): Boolean {
+                    finishWithError("安全验证进程异常，请重试")
+                    return true
+                }
             }
         }
 
         setContentView(webView)
+        webView.postDelayed(timeoutRunnable, TIMEOUT_MS)
         webView.loadUrl(CHALLENGE_URL)
     }
 
     override fun onDestroy() {
         if (::webView.isInitialized) {
+            webView.removeCallbacks(timeoutRunnable)
             webView.removeJavascriptInterface(BRIDGE_NAME)
             webView.stopLoading()
             webView.destroy()
@@ -71,6 +94,7 @@ class TurnstileChallengeActivity : AppCompatActivity() {
     private fun finishWithToken(token: String) {
         if (completed) return
         completed = true
+        webView.removeCallbacks(timeoutRunnable)
         setResult(
             Activity.RESULT_OK,
             Intent().putExtra(EXTRA_TOKEN, token),
@@ -81,6 +105,7 @@ class TurnstileChallengeActivity : AppCompatActivity() {
     private fun finishWithError(message: String) {
         if (completed) return
         completed = true
+        if (::webView.isInitialized) webView.removeCallbacks(timeoutRunnable)
         setResult(
             Activity.RESULT_CANCELED,
             Intent().putExtra(EXTRA_ERROR, message),
@@ -89,7 +114,6 @@ class TurnstileChallengeActivity : AppCompatActivity() {
     }
 
     private fun showInteractiveChallenge() {
-        webView.setBackgroundColor(Color.WHITE)
         webView.alpha = 1f
     }
 
@@ -124,6 +148,7 @@ class TurnstileChallengeActivity : AppCompatActivity() {
 
         private const val BRIDGE_NAME = "MengzhenTurnstile"
         private const val MAX_TOKEN_LENGTH = 2_048
+        private const val TIMEOUT_MS = 30_000L
         private const val CHALLENGE_PATH = "/auth/native-turnstile"
         private const val CHALLENGE_URL = "${ApiClient.BASE_URL}$CHALLENGE_PATH"
 

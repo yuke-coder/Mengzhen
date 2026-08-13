@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout android:clipChildren="false" android:clipToPadding="false" android:layout_width="match_parent" android:layout_height="match_parent"
+  xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">
+    <com.tencent.qqmusic.ui.RoundedConstraintLayout android:id="@id/jdg" android:clipChildren="false" android:clipToPadding="false" android:layout_width="0.0dp" android:layout_height="0.0dp" android:importantForAccessibility="no" app:a1d="hnz" app:a1i="375:600" app:a1x="hnz" app:a21="hnz" app:a27="hnz">
+        <ImageView android:id="@id/dos" android:layout_width="0.0dp" android:layout_height="0.0dp" android:scaleType="fitXY" app:a1d="hnz" app:a1i="375:600" app:a1x="hnz" app:a21="hnz" app:a27="hnz" />
+        <ImageView android:id="@id/ngy" android:layout_width="56.5dp" android:layout_height="24.0dp" android:src="@drawable/icon_share_card_vip" android:layout_alignParentTop="true" android:layout_alignParentRight="true" app:a21="hnz" app:a27="hnz" />
+        <ImageView android:id="@id/l32" android:visibility="gone" android:layout_width="0.0dp" android:layout_height="0.0dp" android:layout_marginRight="24.0dp" android:layout_marginBottom="28.0dp" android:src="@drawable/switch_qrcode_icon" app:a1d="hnz" app:a1i="1:1" app:a21="hnz" app:a2e="0.1333" />
+    </com.tencent.qqmusic.ui.RoundedConstraintLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>

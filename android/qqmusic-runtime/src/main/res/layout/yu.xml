@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout android:orientation="vertical" android:background="@drawable/main_bg" android:clickable="true" android:layout_width="match_parent" android:layout_height="match_parent" android:importantForAccessibility="no"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <include android:id="@id/lv1" android:layout_width="match_parent" android:layout_height="@dimen/cau" layout="@layout/mu" />
+    <RelativeLayout android:id="@id/ex_" android:background="@drawable/color_b2_click" android:paddingLeft="15.0dp" android:focusable="true" android:layout_width="match_parent" android:layout_height="50.5dp">
+        <TextView android:textColor="@color/skin_text_main_color" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="显示消息中心数字红点" android:layout_centerVertical="true" style="@style/ln" />
+        <ImageView android:id="@id/ej7" android:background="@drawable/switch_off" android:clickable="false" android:layout_width="55.0dp" android:layout_height="33.0dp" android:layout_marginRight="12.5dp" android:layout_alignParentRight="true" android:layout_centerVertical="true" android:importantForAccessibility="no" />
+        <View android:background="@drawable/z_color_l1" android:layout_width="match_parent" android:layout_height="1.0px" android:layout_alignParentRight="true" android:layout_alignParentBottom="true" android:importantForAccessibility="no" />
+    </RelativeLayout>
+    <RelativeLayout android:id="@id/ew1" android:background="@drawable/color_b2_click" android:paddingLeft="15.0dp" android:focusable="true" android:layout_width="match_parent" android:layout_height="50.5dp">
+        <TextView android:textColor="@color/skin_text_main_color" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="接收消息通知" android:layout_centerVertical="true" style="@style/ln" />
+        <ImageView android:id="@id/egh" android:background="@drawable/switch_off" android:clickable="false" android:layout_width="55.0dp" android:layout_height="33.0dp" android:layout_marginRight="12.5dp" android:layout_alignParentRight="true" android:layout_centerVertical="true" />
+        <View android:background="@drawable/z_color_l1" android:layout_width="match_parent" android:layout_height="1.0px" android:layout_alignParentRight="true" android:layout_alignParentBottom="true" />
+    </RelativeLayout>
+</LinearLayout>

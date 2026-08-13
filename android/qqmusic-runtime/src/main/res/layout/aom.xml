@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<kk.design.layout.KKLinearLayout android:gravity="center" android:orientation="horizontal" android:id="@id/eoi" android:layout_width="wrap_content" android:layout_height="wrap_content"
+  xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">
+    <kk.design.KKImageView android:id="@id/eox" android:layout_width="@dimen/a3r" android:layout_height="@dimen/a3r" android:layout_marginEnd="@dimen/a3q" app:yk="hfs" />
+    <kk.design.KKTextView android:ellipsize="end" android:id="@id/eoy" android:layout_width="wrap_content" android:layout_height="wrap_content" android:maxLines="1" app:a0f="ka9" />
+</kk.design.layout.KKLinearLayout>

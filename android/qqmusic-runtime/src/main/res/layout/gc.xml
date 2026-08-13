@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout android:id="@id/q" android:background="@drawable/main_bg" android:layout_width="match_parent" android:layout_height="match_parent"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <RelativeLayout android:id="@id/c1t" android:paddingLeft="@dimen/ld" android:paddingTop="@dimen/c_q" android:paddingRight="@dimen/ld" android:layout_width="match_parent" android:layout_height="@dimen/cau" android:layout_alignParentTop="true">
+        <androidx.appcompat.widget.AppCompatTextView android:textSize="15.0sp" android:textColor="@color/skin_text_sub_color" android:gravity="center_vertical" android:id="@id/m63" android:layout_width="wrap_content" android:layout_height="match_parent" android:text="@string/cancel" />
+        <androidx.appcompat.widget.AppCompatTextView android:textSize="18.0sp" android:textStyle="bold" android:textColor="@color/skin_text_main_color" android:gravity="center_vertical" android:id="@id/c1j" android:layout_width="wrap_content" android:layout_height="match_parent" android:text="@string/bbe" android:layout_centerHorizontal="true" />
+        <androidx.appcompat.widget.AppCompatTextView android:textSize="15.0sp" android:textColor="@color/skin_highlight_color" android:gravity="center_vertical" android:id="@id/m8o" android:layout_width="wrap_content" android:layout_height="match_parent" android:text="@string/wg" android:layout_alignParentRight="true" />
+    </RelativeLayout>
+    <androidx.recyclerview.widget.RecyclerView android:id="@id/eqt" android:paddingLeft="12.0dp" android:paddingRight="12.0dp" android:layout_width="match_parent" android:layout_height="match_parent" android:layout_below="@id/c1t" android:overScrollMode="never" />
+    <include android:id="@id/c7a" android:visibility="gone" android:layout_width="match_parent" android:layout_height="match_parent" android:layout_below="@id/c1t" layout="@layout/mj" />
+    <ViewStub android:id="@id/nf8" android:visibility="gone" android:layout="@layout/mh" android:layout_width="match_parent" android:layout_height="match_parent" android:layout_below="@id/c1t" />
+    <View android:background="@drawable/head_shadow" android:layout_width="match_parent" android:layout_height="@dimen/l9" android:layout_below="@id/c1t" />
+</RelativeLayout>

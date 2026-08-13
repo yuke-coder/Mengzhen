@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout android:gravity="center_horizontal" android:orientation="vertical" android:background="@drawable/skin_common_listitem_bg" android:layout_width="match_parent" android:layout_height="wrap_content"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <View android:layout_width="match_parent" android:layout_height="20.0dp" />
+    <LinearLayout android:gravity="center_horizontal" android:orientation="horizontal" android:layout_width="match_parent" android:layout_height="match_parent">
+        <ImageView android:layout_width="20.0dp" android:layout_height="20.0dp" android:src="@drawable/profile_master_forbidden" />
+        <View android:layout_width="9.5dp" android:layout_height="20.0dp" />
+        <TextView android:textSize="12.0sp" android:textColor="@color/skin_text_main_color" android:gravity="center" android:layout_width="wrap_content" android:layout_height="match_parent" android:text="@string/cq7" />
+    </LinearLayout>
+    <View android:layout_width="match_parent" android:layout_height="17.0dp" />
+</LinearLayout>

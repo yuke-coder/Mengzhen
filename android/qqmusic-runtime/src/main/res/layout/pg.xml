@@ -1,0 +1,136 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout android:orientation="vertical" android:focusable="true" android:focusableInTouchMode="true" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginLeft="10.0dp" android:layout_marginRight="10.0dp"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <TextView android:textSize="12.0sp" android:layout_gravity="center_vertical" android:paddingTop="5.0dp" android:paddingBottom="5.0dp" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="基础信息" style="@style/lo" />
+    <LinearLayout android:gravity="center_vertical" android:orientation="horizontal" android:paddingLeft="@dimen/bef" android:paddingRight="@dimen/bef" android:layout_width="match_parent" android:layout_height="24.0dp">
+        <TextView android:textSize="12.0sp" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Name:" style="@style/lk" />
+        <TextView android:textSize="12.0sp" android:id="@id/kfb" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginLeft="5.0dp" android:text="浮夸" style="@style/lk" />
+    </LinearLayout>
+    <LinearLayout android:gravity="center_vertical" android:orientation="horizontal" android:paddingLeft="@dimen/bef" android:paddingRight="@dimen/bef" android:layout_width="match_parent" android:layout_height="24.0dp">
+        <TextView android:textSize="12.0sp" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Singer:" style="@style/lk" />
+        <TextView android:textSize="12.0sp" android:id="@id/khi" android:background="@null" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginLeft="5.0dp" android:text="2" style="@style/lk" />
+    </LinearLayout>
+    <LinearLayout android:gravity="center_vertical" android:orientation="horizontal" android:paddingLeft="@dimen/bef" android:paddingRight="@dimen/bef" android:layout_width="match_parent" android:layout_height="24.0dp">
+        <TextView android:textSize="12.0sp" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Album:" style="@style/lk" />
+        <TextView android:textSize="12.0sp" android:id="@id/kbh" android:background="@null" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginLeft="5.0dp" android:text="2" style="@style/lk" />
+    </LinearLayout>
+    <LinearLayout android:gravity="center_vertical" android:orientation="horizontal" android:paddingLeft="@dimen/bef" android:paddingRight="@dimen/bef" android:layout_width="match_parent" android:layout_height="24.0dp">
+        <TextView android:textSize="12.0sp" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="ID:" style="@style/lk" />
+        <TextView android:textSize="12.0sp" android:id="@id/kd1" android:background="@null" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginLeft="5.0dp" android:text="11111" style="@style/lk" />
+    </LinearLayout>
+    <LinearLayout android:gravity="center_vertical" android:orientation="horizontal" android:paddingLeft="@dimen/bef" android:paddingRight="@dimen/bef" android:layout_width="match_parent" android:layout_height="24.0dp">
+        <TextView android:textSize="12.0sp" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Type:" style="@style/lk" />
+        <TextView android:textSize="12.0sp" android:id="@id/kib" android:background="@null" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginLeft="5.0dp" android:text="2" style="@style/lk" />
+    </LinearLayout>
+    <LinearLayout android:gravity="center_vertical" android:orientation="horizontal" android:paddingLeft="@dimen/bef" android:paddingRight="@dimen/bef" android:layout_width="match_parent" android:layout_height="24.0dp">
+        <TextView android:textSize="12.0sp" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Mid:" style="@style/lk" />
+        <TextView android:textSize="12.0sp" android:id="@id/kf5" android:background="@null" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginLeft="5.0dp" android:text="2" style="@style/lk" />
+    </LinearLayout>
+    <LinearLayout android:gravity="center_vertical" android:orientation="horizontal" android:paddingLeft="@dimen/bef" android:paddingRight="@dimen/bef" android:layout_width="match_parent" android:layout_height="24.0dp">
+        <TextView android:textSize="12.0sp" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="MediaMid:" style="@style/lk" />
+        <TextView android:textSize="12.0sp" android:id="@id/kf1" android:background="@null" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginLeft="5.0dp" android:text="2" style="@style/lk" />
+    </LinearLayout>
+    <LinearLayout android:gravity="center_vertical" android:orientation="horizontal" android:paddingLeft="@dimen/bef" android:paddingRight="@dimen/bef" android:layout_width="match_parent" android:layout_height="24.0dp">
+        <TextView android:textSize="12.0sp" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="TryMMid:" style="@style/lk" />
+        <TextView android:textSize="12.0sp" android:id="@id/ki_" android:background="@null" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginLeft="5.0dp" android:text="2" style="@style/lk" />
+    </LinearLayout>
+    <LinearLayout android:gravity="center_vertical" android:orientation="horizontal" android:paddingLeft="@dimen/bef" android:paddingRight="@dimen/bef" android:layout_width="match_parent" android:layout_height="24.0dp">
+        <TextView android:textSize="12.0sp" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="OtherMMid:" style="@style/lk" />
+        <TextView android:textSize="12.0sp" android:id="@id/kga" android:background="@null" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginLeft="5.0dp" android:text="2" style="@style/lk" />
+    </LinearLayout>
+    <TextView android:textSize="12.0sp" android:layout_gravity="center_vertical" android:paddingTop="5.0dp" android:paddingBottom="5.0dp" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="品质信息" style="@style/lo" />
+    <LinearLayout android:gravity="center_vertical" android:orientation="horizontal" android:paddingLeft="@dimen/bef" android:paddingRight="@dimen/bef" android:layout_width="match_parent" android:layout_height="24.0dp">
+        <TextView android:textSize="12.0sp" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="当前播放码率:" style="@style/lk" />
+        <TextView android:textSize="12.0sp" android:id="@id/kdi" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginLeft="5.0dp" style="@style/lk" />
+    </LinearLayout>
+    <LinearLayout android:gravity="center_vertical" android:orientation="horizontal" android:paddingLeft="@dimen/bef" android:paddingRight="@dimen/bef" android:layout_width="match_parent" android:layout_height="24.0dp">
+        <TextView android:textSize="12.0sp" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="96k OGG:" style="@style/lk" />
+        <TextView android:textSize="12.0sp" android:id="@id/kde" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginLeft="5.0dp" android:text="浮夸" style="@style/lk" />
+    </LinearLayout>
+    <LinearLayout android:gravity="center_vertical" android:orientation="horizontal" android:paddingLeft="@dimen/bef" android:paddingRight="@dimen/bef" android:layout_width="match_parent" android:layout_height="24.0dp">
+        <TextView android:textSize="12.0sp" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="128k MP3:" style="@style/lk" />
+        <TextView android:textSize="12.0sp" android:id="@id/kd_" android:background="@null" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginLeft="5.0dp" android:text="2" style="@style/lk" />
+    </LinearLayout>
+    <LinearLayout android:gravity="center_vertical" android:orientation="horizontal" android:paddingLeft="@dimen/bef" android:paddingRight="@dimen/bef" android:layout_width="match_parent" android:layout_height="24.0dp">
+        <TextView android:textSize="12.0sp" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="192k OGG:" style="@style/lk" />
+        <TextView android:textSize="12.0sp" android:id="@id/kda" android:background="@null" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginLeft="5.0dp" android:text="11111" style="@style/lk" />
+    </LinearLayout>
+    <LinearLayout android:gravity="center_vertical" android:orientation="horizontal" android:paddingLeft="@dimen/bef" android:paddingRight="@dimen/bef" android:layout_width="match_parent" android:layout_height="24.0dp">
+        <TextView android:textSize="12.0sp" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="320k OGG:" style="@style/lk" />
+        <TextView android:textSize="12.0sp" android:id="@id/kdc" android:background="@null" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginLeft="5.0dp" android:text="2" style="@style/lk" />
+    </LinearLayout>
+    <LinearLayout android:gravity="center_vertical" android:orientation="horizontal" android:paddingLeft="@dimen/bef" android:paddingRight="@dimen/bef" android:layout_width="match_parent" android:layout_height="24.0dp">
+        <TextView android:textSize="12.0sp" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="320k MP3:" style="@style/lk" />
+        <TextView android:textSize="12.0sp" android:id="@id/kdb" android:background="@null" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginLeft="5.0dp" android:text="2" style="@style/lk" />
+    </LinearLayout>
+    <LinearLayout android:gravity="center_vertical" android:orientation="horizontal" android:paddingLeft="@dimen/bef" android:paddingRight="@dimen/bef" android:layout_width="match_parent" android:layout_height="24.0dp">
+        <TextView android:textSize="12.0sp" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="SQ:" style="@style/lk" />
+        <TextView android:textSize="12.0sp" android:id="@id/kdx" android:background="@null" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginLeft="5.0dp" android:text="2" style="@style/lk" />
+    </LinearLayout>
+    <LinearLayout android:gravity="center_vertical" android:orientation="horizontal" android:paddingLeft="@dimen/bef" android:paddingRight="@dimen/bef" android:layout_width="match_parent" android:layout_height="24.0dp">
+        <TextView android:textSize="12.0sp" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Hi-Res:" style="@style/lk" />
+        <TextView android:textSize="12.0sp" android:id="@id/kdo" android:background="@null" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginLeft="5.0dp" android:text="2" style="@style/lk" />
+    </LinearLayout>
+    <LinearLayout android:gravity="center_vertical" android:orientation="horizontal" android:paddingLeft="@dimen/bef" android:paddingRight="@dimen/bef" android:layout_width="match_parent" android:layout_height="24.0dp">
+        <TextView android:textSize="12.0sp" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Vinyl:" style="@style/lk" />
+        <TextView android:textSize="12.0sp" android:id="@id/ke0" android:background="@null" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginLeft="5.0dp" android:text="2" style="@style/lk" />
+    </LinearLayout>
+    <LinearLayout android:gravity="center_vertical" android:orientation="horizontal" android:paddingLeft="@dimen/bef" android:paddingRight="@dimen/bef" android:layout_width="match_parent" android:layout_height="24.0dp">
+        <TextView android:textSize="12.0sp" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Dolby:" style="@style/lk" />
+        <TextView android:textSize="12.0sp" android:id="@id/kdj" android:background="@null" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginLeft="5.0dp" android:text="2" style="@style/lk" />
+    </LinearLayout>
+    <LinearLayout android:gravity="center_vertical" android:orientation="horizontal" android:paddingLeft="@dimen/bef" android:paddingRight="@dimen/bef" android:layout_width="match_parent" android:layout_height="24.0dp">
+        <TextView android:textSize="12.0sp" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="360RA:" style="@style/lk" />
+        <TextView android:textSize="12.0sp" android:id="@id/kdd" android:background="@null" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginLeft="5.0dp" android:text="2" style="@style/lk" />
+    </LinearLayout>
+    <LinearLayout android:gravity="center_vertical" android:orientation="horizontal" android:paddingLeft="@dimen/bef" android:paddingRight="@dimen/bef" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginTop="5.0dp" android:layout_marginBottom="5.0dp">
+        <TextView android:textSize="12.0sp" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Master:" style="@style/lk" />
+        <TextView android:textSize="12.0sp" android:id="@id/kdu" android:background="@null" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginLeft="5.0dp" android:text="2" android:singleLine="false" style="@style/lk" />
+    </LinearLayout>
+    <LinearLayout android:gravity="center_vertical" android:orientation="horizontal" android:paddingLeft="@dimen/bef" android:paddingRight="@dimen/bef" android:layout_width="match_parent" android:layout_height="24.0dp">
+        <TextView android:textSize="12.0sp" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Galaxy:" style="@style/lk" />
+        <TextView android:textSize="12.0sp" android:id="@id/kdl" android:background="@null" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginLeft="5.0dp" android:text="2" style="@style/lk" />
+    </LinearLayout>
+    <LinearLayout android:gravity="center_vertical" android:orientation="horizontal" android:paddingLeft="@dimen/bef" android:paddingRight="@dimen/bef" android:layout_width="match_parent" android:layout_height="24.0dp">
+        <TextView android:textSize="12.0sp" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Galaxy51:" style="@style/lk" />
+        <TextView android:textSize="12.0sp" android:id="@id/kdm" android:background="@null" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginLeft="5.0dp" android:text="2" style="@style/lk" />
+    </LinearLayout>
+    <LinearLayout android:gravity="center_vertical" android:orientation="horizontal" android:paddingLeft="@dimen/bef" android:paddingRight="@dimen/bef" android:layout_width="match_parent" android:layout_height="24.0dp">
+        <TextView android:textSize="12.0sp" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Galaxy714:" style="@style/lk" />
+        <TextView android:textSize="12.0sp" android:id="@id/kdn" android:background="@null" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginLeft="5.0dp" android:text="2" style="@style/lk" />
+    </LinearLayout>
+    <TextView android:textSize="12.0sp" android:layout_gravity="center_vertical" android:paddingTop="5.0dp" android:paddingBottom="5.0dp" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="缓存信息" style="@style/lo" />
+    <LinearLayout android:gravity="center_vertical" android:orientation="horizontal" android:paddingLeft="@dimen/bef" android:paddingRight="@dimen/bef" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginTop="5.0dp" android:layout_marginBottom="5.0dp">
+        <TextView android:textSize="12.0sp" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="缓存:" style="@style/lk" />
+        <TextView android:textSize="12.0sp" android:id="@id/kbm" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginLeft="5.0dp" android:text="浮夸" android:singleLine="false" style="@style/lk" />
+    </LinearLayout>
+    <LinearLayout android:gravity="center_vertical" android:orientation="horizontal" android:paddingLeft="@dimen/bef" android:paddingRight="@dimen/bef" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginTop="5.0dp" android:layout_marginBottom="5.0dp">
+        <TextView android:textSize="12.0sp" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="加密缓存:" style="@style/lk" />
+        <TextView android:textSize="12.0sp" android:id="@id/kcc" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginLeft="5.0dp" android:text="浮夸" android:singleLine="false" style="@style/lk" />
+    </LinearLayout>
+    <LinearLayout android:gravity="center_vertical" android:orientation="horizontal" android:paddingLeft="@dimen/bef" android:paddingRight="@dimen/bef" android:layout_width="match_parent" android:layout_height="24.0dp">
+        <TextView android:textSize="12.0sp" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="P2P缓存:" style="@style/lk" />
+        <TextView android:textSize="12.0sp" android:id="@id/kbn" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginLeft="5.0dp" android:text="浮夸" style="@style/lk" />
+    </LinearLayout>
+    <LinearLayout android:gravity="center_vertical" android:orientation="horizontal" android:paddingLeft="@dimen/bef" android:paddingRight="@dimen/bef" android:layout_width="match_parent" android:layout_height="24.0dp">
+        <TextView android:textSize="12.0sp" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="加密P2P缓存:" style="@style/lk" />
+        <TextView android:textSize="12.0sp" android:id="@id/kcd" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginLeft="5.0dp" android:text="浮夸" style="@style/lk" />
+    </LinearLayout>
+    <TextView android:textSize="12.0sp" android:layout_gravity="center_vertical" android:paddingTop="5.0dp" android:paddingBottom="5.0dp" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="本地文件信息" style="@style/lo" />
+    <LinearLayout android:gravity="center_vertical" android:orientation="horizontal" android:paddingLeft="@dimen/bef" android:paddingRight="@dimen/bef" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginTop="5.0dp" android:layout_marginBottom="5.0dp">
+        <TextView android:textSize="12.0sp" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Path:" style="@style/lk" />
+        <TextView android:textSize="12.0sp" android:id="@id/kds" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginLeft="5.0dp" android:text="浮夸" android:singleLine="false" style="@style/lk" />
+    </LinearLayout>
+    <LinearLayout android:gravity="center_vertical" android:orientation="horizontal" android:paddingLeft="@dimen/bef" android:paddingRight="@dimen/bef" android:layout_width="match_parent" android:layout_height="24.0dp">
+        <TextView android:textSize="12.0sp" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Size:" style="@style/lk" />
+        <TextView android:textSize="12.0sp" android:id="@id/kdt" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginLeft="5.0dp" android:text="浮夸" style="@style/lk" />
+    </LinearLayout>
+    <LinearLayout android:gravity="center_vertical" android:orientation="horizontal" android:paddingLeft="@dimen/bef" android:paddingRight="@dimen/bef" android:layout_width="match_parent" android:layout_height="24.0dp">
+        <TextView android:textSize="12.0sp" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="MediaMid:" style="@style/lk" />
+        <TextView android:textSize="12.0sp" android:id="@id/kdr" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginLeft="5.0dp" android:text="浮夸" style="@style/lk" />
+    </LinearLayout>
+    <LinearLayout android:gravity="center_vertical" android:orientation="horizontal" android:paddingLeft="@dimen/bef" android:paddingRight="@dimen/bef" android:layout_width="match_parent" android:layout_height="24.0dp">
+        <TextView android:textSize="12.0sp" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Bitrate:" style="@style/lk" />
+        <TextView android:textSize="12.0sp" android:id="@id/kdq" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginLeft="5.0dp" android:text="浮夸" style="@style/lk" />
+    </LinearLayout>
+</LinearLayout>

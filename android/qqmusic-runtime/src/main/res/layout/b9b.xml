@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout android:gravity="center" android:id="@android:id/background" android:layout_width="match_parent" android:layout_height="match_parent"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <ImageView android:id="@id/w4" android:layout_width="match_parent" android:layout_height="match_parent" android:src="@drawable/miui_widget_22_search_default_dy" android:scaleType="centerCrop" />
+    <ImageView android:id="@id/g1f" android:layout_width="match_parent" android:layout_height="match_parent" android:src="@drawable/miui_widget_small_mask_base" android:scaleType="centerCrop" />
+    <LinearLayout android:orientation="vertical" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_centerInParent="true">
+        <ImageView android:layout_gravity="center_horizontal" android:layout_width="wrap_content" android:layout_height="wrap_content" android:src="@drawable/miui_widget_22_search_icon" />
+        <TextView android:textSize="12.0dp" android:textStyle="bold" android:textColor="@color/white" android:layout_gravity="center_horizontal" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="5.0dp" android:text="@string/csz" />
+    </LinearLayout>
+</RelativeLayout>

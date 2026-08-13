@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout android:layout_width="@dimen/dw" android:layout_height="@dimen/dv"
+  xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">
+    <androidx.constraintlayout.widget.Guideline android:orientation="vertical" android:id="@id/d5w" android:layout_width="wrap_content" android:layout_height="match_parent" app:a1l="14.0dp" />
+    <androidx.constraintlayout.widget.Guideline android:orientation="vertical" android:id="@id/d6i" android:layout_width="wrap_content" android:layout_height="match_parent" app:a1m="14.0dp" />
+    <androidx.constraintlayout.widget.Guideline android:orientation="horizontal" android:id="@id/d6q" android:layout_width="match_parent" android:layout_height="wrap_content" app:a1n="0.2158" />
+    <androidx.constraintlayout.widget.Guideline android:orientation="vertical" android:id="@id/d6o" android:layout_width="match_parent" android:layout_height="wrap_content" app:a1n="0.0544" />
+    <androidx.constraintlayout.widget.Guideline android:orientation="vertical" android:id="@id/d6p" android:layout_width="match_parent" android:layout_height="wrap_content" app:a1n="0.5" />
+    <androidx.constraintlayout.widget.Guideline android:orientation="horizontal" android:id="@id/d5r" android:layout_width="match_parent" android:layout_height="wrap_content" app:a1n="0.4981" />
+    <androidx.constraintlayout.widget.Guideline android:orientation="horizontal" android:id="@id/d5q" android:layout_width="match_parent" android:layout_height="wrap_content" app:a1n="0.7026" />
+    <androidx.constraintlayout.widget.Guideline android:orientation="horizontal" android:id="@id/d5l" android:layout_width="match_parent" android:layout_height="wrap_content" app:a1n="0.8281" />
+    <ImageView android:id="@id/ed9" android:layout_width="0.0dp" android:layout_height="0.0dp" android:src="@drawable/bg_ai_assistant_game_task_share_card" app:a1d="hnz" app:a1x="hnz" app:a21="hnz" app:a27="hnz" />
+    <TextView android:textSize="20.0dp" android:textStyle="bold" android:textColor="@color/black" android:ellipsize="end" android:gravity="left|center" android:id="@id/m_m" android:layout_width="0.0dp" android:layout_height="wrap_content" android:singleLine="true" android:includeFontPadding="false" app:a1x="@id/d6o" app:a21="@id/d6p" app:a27="@id/d6q" />
+    <TextView android:textSize="15.0dp" android:textColor="#25302c" android:ellipsize="end" android:gravity="left|center" android:id="@id/m_j" android:layout_width="0.0dp" android:layout_height="0.0dp" android:maxLines="4" android:includeFontPadding="false" app:a1d="@id/d5q" app:a1x="@id/d5w" app:a21="@id/d6i" app:a27="@id/d5r" />
+    <TextView android:textSize="22.5dp" android:textStyle="bold" android:textColor="@color/black" android:ellipsize="end" android:gravity="left|center" android:id="@id/m_l" android:layout_width="0.0dp" android:layout_height="wrap_content" android:layout_marginRight="5.0dp" android:singleLine="true" android:includeFontPadding="false" app:a1x="@id/d5w" app:a20="@id/ed_" app:a27="@id/d5l" />
+    <LinearLayout android:gravity="left|center" android:orientation="horizontal" android:id="@id/fdq" android:layout_width="0.0dp" android:layout_height="wrap_content" android:layout_marginTop="3.0dp" android:layout_marginRight="5.0dp" app:a1x="@id/d5w" app:a20="@id/ed_" app:a26="@id/m_l">
+        <com.tencent.qqmusic.modular.framework.ui.image.CircleImageView android:id="@id/ed8" android:layout_width="@dimen/du" android:layout_height="@dimen/du" android:src="@drawable/default_avatar" />
+        <TextView android:textSize="14.0dp" android:textColor="@color/black_40_opacity" android:ellipsize="end" android:gravity="left|center" android:id="@id/m_k" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginLeft="5.0dp" android:singleLine="true" android:includeFontPadding="false" />
+    </LinearLayout>
+    <ImageView android:id="@id/ed_" android:layout_width="38.0dp" android:layout_height="38.0dp" app:a1d="@id/fdq" app:a21="@id/d6i" />
+</androidx.constraintlayout.widget.ConstraintLayout>

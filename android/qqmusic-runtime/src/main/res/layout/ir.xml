@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout android:id="@id/g0h" android:layout_width="match_parent" android:layout_height="@dimen/hb"
+  xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">
+    <ImageView android:id="@id/jmg" android:visibility="gone" android:layout_width="match_parent" android:layout_height="match_parent" android:src="@drawable/search_input_shadow" android:scaleType="fitXY" android:contentDescription="@null" app:a1d="hnz" app:a27="hnz" />
+    <RelativeLayout android:id="@id/g0f" android:clickable="true" android:layout_width="0.0dp" android:layout_height="39.0dp" android:layout_marginStart="16.0dp" android:layout_marginEnd="16.0dp" app:a1d="hnz" app:a1k="@id/jn_" app:a23="hnz" app:a27="hnz">
+        <com.tencent.qqmusic.ui.RoundedRelativeLayout android:layout_width="match_parent" android:layout_height="match_parent" app:ado="22.5dp">
+            <View android:id="@id/g0g" android:layout_width="match_parent" android:layout_height="match_parent" />
+        </com.tencent.qqmusic.ui.RoundedRelativeLayout>
+        <com.tencent.qqmusic.bigfont.view.BigFontSearchInputAnimationView android:id="@id/c0v" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginLeft="2.0dp" android:layout_centerVertical="true" android:layout_marginStart="2.0dp" app:ash="ezx" />
+    </RelativeLayout>
+    <ImageView android:id="@id/jn_" android:visibility="gone" android:layout_width="30.0dp" android:layout_height="30.0dp" android:layout_alignWithParentIfMissing="true" android:contentDescription="@null" android:layout_marginEnd="@dimen/bxi" app:a1d="hnz" app:a1k="@id/i9p" app:a27="hnz" />
+    <RelativeLayout android:id="@id/i9p" android:background="@drawable/podcast_record_background" android:visibility="gone" android:layout_width="65.0dp" android:layout_height="32.0dp" android:layout_marginEnd="@dimen/bxi" app:a1d="hnz" app:a1k="@id/m2p" app:a27="hnz">
+        <ImageView android:id="@id/i9q" android:layout_width="wrap_content" android:layout_height="wrap_content" android:src="@drawable/podcast_record_icon" android:layout_centerVertical="true" android:layout_marginStart="9.5dp" />
+        <TextView android:textSize="13.0dp" android:textColor="@color/skin_button_text_color" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/gcn" android:includeFontPadding="false" android:layout_centerVertical="true" android:layout_marginEnd="12.5dp" android:layout_alignParentEnd="true" />
+    </RelativeLayout>
+    <TextView android:textSize="@dimen/c8d" android:textColor="@color/skin_button_text_color" android:gravity="center" android:id="@id/m2p" android:background="@drawable/podcast_record_background" android:paddingLeft="12.0dp" android:paddingRight="12.0dp" android:visibility="gone" android:layout_width="wrap_content" android:layout_height="32.0dp" android:text="@string/cl9" android:includeFontPadding="false" android:layout_marginEnd="12.5dp" app:a1d="hnz" app:a1j="hnz" app:a27="hnz" />
+</androidx.constraintlayout.widget.ConstraintLayout>

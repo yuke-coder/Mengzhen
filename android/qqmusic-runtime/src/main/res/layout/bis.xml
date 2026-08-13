@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout android:layout_width="match_parent" android:layout_height="wrap_content"
+  xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">
+    <com.tme.mlive.ui.custom.gift.OfficialReceiverLayout android:id="@id/mlive_gift_panel_send_to" android:background="@color/black_10_transparent" android:layout_width="match_parent" android:layout_height="55.0dp" android:paddingStart="20.0dp" android:paddingEnd="10.5dp" app:a1j="hnz" app:a1k="hnz" app:a23="hnz" app:a27="hnz">
+        <ImageView android:id="@id/mlive_gift_candidate_send_avatar" android:layout_width="40.0dp" android:layout_height="40.0dp" app:a1d="hnz" app:a23="hnz" app:a27="hnz" />
+        <ImageView android:id="@id/mlive_candidate_item_select" android:layout_width="40.0dp" android:layout_height="40.0dp" android:src="@drawable/mlive_gift_send_select_guest" android:contentDescription="@null" app:a1d="hnz" app:a23="hnz" app:a27="hnz" />
+        <TextView android:textColor="@color/white_70_transparent" android:id="@id/mlive_gift_candidate_send_tips" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/d_x" android:layout_marginStart="12.0dp" app:a1d="hnz" app:a22="@id/mlive_candidate_item_select" app:a27="hnz" />
+        <TextView android:textColor="@color/white" android:ellipsize="end" android:id="@id/mlive_gift_candidate_send_name" android:layout_width="wrap_content" android:layout_height="wrap_content" android:maxWidth="60.0dp" android:singleLine="true" android:layout_marginStart="6.0dp" app:a1d="hnz" app:a22="@id/mlive_gift_candidate_send_tips" app:a27="hnz" />
+        <ImageView android:id="@id/mlive_gift_candidate_arrow" android:visibility="gone" android:layout_width="10.5dp" android:layout_height="11.0dp" android:src="@drawable/mlive_arrow_right" android:layout_marginStart="4.299988dp" app:a1d="hnz" app:a22="@id/mlive_gift_candidate_send_name" app:a27="hnz" />
+        <LinearLayout android:gravity="end|center" android:orientation="horizontal" android:id="@id/mlive_gift_candidate_title_tips" android:visibility="visible" android:layout_width="0.0dp" android:layout_height="20.0dp" android:layout_marginStart="20.0dp" app:a1d="@id/mlive_gift_candidate_send_name" app:a1j="hnz" app:a22="@id/mlive_gift_candidate_send_name" app:a27="@id/mlive_gift_candidate_send_name">
+            <ImageView android:layout_gravity="center_vertical" android:id="@id/mlive_gift_title_tips_icon" android:layout_width="13.0dp" android:layout_height="13.0dp" />
+            <TextView android:textSize="12.0sp" android:textColor="@color/white_70_transparent" android:ellipsize="end" android:gravity="center_vertical" android:layout_gravity="right" android:id="@id/mlive_gift_title_tips_content" android:layout_width="wrap_content" android:layout_height="match_parent" android:singleLine="true" android:includeFontPadding="false" />
+        </LinearLayout>
+    </com.tme.mlive.ui.custom.gift.OfficialReceiverLayout>
+    <ViewStub android:id="@id/mlive_gift_panel_normal_send_to_vs" android:layout="@layout/bir" android:layout_width="match_parent" android:layout_height="wrap_content" app:a1j="hnz" app:a1k="hnz" app:a23="hnz" app:a27="hnz" />
+</androidx.constraintlayout.widget.ConstraintLayout>

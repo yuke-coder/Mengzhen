@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout android:id="@id/fsl" android:background="@drawable/shape_long_audio_recommend" android:layout_width="wrap_content" android:layout_height="wrap_content"
+  xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">
+    <com.tencent.component.widget.AsyncEffectImageView android:id="@id/fsi" android:visibility="gone" android:layout_width="18.0dp" android:layout_height="18.0dp" android:layout_marginLeft="4.0dp" android:scaleType="fitXY" app:a1d="hnz" app:a23="hnz" app:a27="hnz" />
+    <ImageView android:id="@id/fsj" android:visibility="gone" android:layout_width="5.0dp" android:layout_height="8.0dp" android:layout_marginLeft="3.0dp" android:layout_marginRight="4.0dp" android:src="@drawable/ic_long_audio_recommend_jump_more" app:a1d="hnz" app:a1j="hnz" app:a22="@id/fsk" app:a27="hnz" />
+    <TextView android:textSize="10.0dp" android:textColor="@color/skin_text_main_color" android:id="@id/fsk" android:visibility="gone" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginLeft="2.0dp" android:maxWidth="130.0dp" android:lines="1" android:singleLine="true" app:a18="true" app:a1d="hnz" app:a1k="@id/fsj" app:a1t="0.0" app:a22="@id/fsi" app:a27="hnz" app:a2m="4.0dp" app:a2o="4.0dp" app:a2p="4.0dp" app:a2r="4.0dp" />
+</androidx.constraintlayout.widget.ConstraintLayout>

@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout android:layout_width="45.0dp" android:layout_height="80.0dp" android:layout_marginLeft="5.0dp" android:layout_marginRight="5.0dp"
+  xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">
+    <com.tme.mlive.ui.custom.AvatarImageView android:id="@id/f5y" android:layout_width="40.0dp" android:layout_height="40.0dp" android:layout_marginTop="@dimen/rr" app:a1j="hnz" app:a23="hnz" app:a27="hnz" />
+    <ImageView android:id="@id/f62" android:visibility="visible" android:layout_width="42.0dp" android:layout_height="42.0dp" android:src="@drawable/mlive_gift_send_select_guest" android:contentDescription="@null" app:a1d="@id/f5y" app:a1j="@id/f5y" app:a23="@id/f5y" app:a27="@id/f5y" />
+    <TextView android:textSize="9.0sp" android:gravity="center" android:id="@id/f5z" android:background="@drawable/mlive_friend_gift_identity_bg" android:layout_width="30.0dp" android:layout_height="12.0dp" android:textAlignment="center" app:a1d="@id/f62" app:a1j="@id/f62" app:a23="@id/f62" />
+    <TextView android:textSize="9.0sp" android:textColor="@color/white" android:gravity="center" android:id="@id/f61" android:background="@drawable/mlive_friend_gift_position_bg" android:layout_width="12.0dp" android:layout_height="12.0dp" android:layout_alignBottom="@id/f5y" app:a1d="@id/f62" app:a1j="@id/f62" />
+    <ImageView android:textSize="9.0sp" android:id="@id/f63" android:background="@drawable/mlive_friend_gift_select" android:layout_width="12.0dp" android:layout_height="12.0dp" app:a1d="@id/f62" app:a1j="@id/f62" />
+    <TextView android:textSize="9.0sp" android:textColor="@color/white" android:ellipsize="end" android:gravity="center" android:id="@id/f60" android:layout_width="wrap_content" android:layout_height="wrap_content" android:maxLines="1" android:lines="1" android:layout_alignBottom="@id/f5y" app:a1d="hnz" app:a1j="hnz" app:a23="hnz" app:a26="@id/f62" />
+</androidx.constraintlayout.widget.ConstraintLayout>

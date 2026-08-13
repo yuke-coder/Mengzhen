@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout android:paddingTop="10.0dp" android:paddingBottom="10.0dp" android:layout_width="match_parent" android:layout_height="wrap_content" android:paddingStart="20.0dp" android:paddingEnd="20.0dp"
+  xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">
+    <FrameLayout android:id="@id/n7b" android:layout_width="50.0dp" android:layout_height="62.0dp" app:a1d="hnz" app:a23="hnz" app:a27="hnz">
+        <com.tencent.component.widget.AsyncEffectImageView android:id="@id/n7a" android:layout_width="match_parent" android:layout_height="match_parent" android:scaleType="centerCrop" />
+        <View android:id="@id/n7c" android:background="@color/black_50_transparent" android:visibility="gone" android:layout_width="match_parent" android:layout_height="match_parent" />
+        <TextView android:textSize="10.0dp" android:textColor="@color/white" android:layout_gravity="center" android:id="@id/n7d" android:visibility="gone" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/iqx" />
+    </FrameLayout>
+    <TextView android:textSize="13.0dp" android:textColor="@color/white" android:ellipsize="end" android:id="@id/n7e" android:layout_width="0.0dp" android:layout_height="wrap_content" android:maxLines="2" android:layout_marginStart="15.0dp" app:a18="true" app:a1d="hnz" app:a1j="hnz" app:a22="@id/n7b" app:a27="hnz" />
+</androidx.constraintlayout.widget.ConstraintLayout>

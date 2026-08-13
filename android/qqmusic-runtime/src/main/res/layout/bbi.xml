@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout android:orientation="vertical" android:background="@color/gray_f5" android:paddingLeft="16.0dp" android:paddingRight="16.0dp" android:layout_width="match_parent" android:layout_height="match_parent" android:paddingHorizontal="16.0dp"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <LinearLayout android:gravity="center_vertical" android:background="@drawable/mlive_anchor_highlight_corner_bg" android:paddingLeft="16.0dp" android:paddingRight="16.0dp" android:layout_width="match_parent" android:layout_height="50.0dp" android:layout_marginTop="20.0dp" android:paddingHorizontal="16.0dp">
+        <TextView android:textSize="14.0dp" android:textColor="@color/black" android:layout_width="0.0dp" android:layout_height="wrap_content" android:text="@string/cuy" android:layout_weight="1.0" />
+        <ImageView android:id="@id/mlive_anchor_highlight_switch" android:layout_width="46.0dp" android:layout_height="27.0dp" android:src="@drawable/mlive_switching_off" />
+    </LinearLayout>
+    <LinearLayout android:gravity="center_vertical" android:layout_gravity="end" android:id="@id/mlive_anchor_highlight_filter_container" android:paddingTop="20.0dp" android:paddingBottom="20.0dp" android:visibility="gone" android:layout_width="wrap_content" android:layout_height="wrap_content" android:paddingEnd="10.0dp" android:paddingVertical="20.0dp">
+        <TextView android:textColor="@color/black" android:id="@id/mlive_anchor_highlight_filter" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/cum" android:paddingEnd="10.0dp" />
+        <ImageView android:id="@id/mlive_anchor_highlight_filter_arrow" android:layout_width="16.0dp" android:layout_height="16.0dp" android:src="@drawable/mlive_arrow_down_black" />
+    </LinearLayout>
+    <androidx.recyclerview.widget.RecyclerView android:id="@id/mlive_anchor_highlight_recyclerView" android:paddingLeft="15.0dp" android:paddingRight="15.0dp" android:layout_width="match_parent" android:layout_height="0.0dp" android:layout_marginBottom="15.0dp" android:layout_weight="1.0" android:paddingHorizontal="15.0dp" />
+    <LinearLayout android:gravity="center" android:orientation="vertical" android:id="@id/mlive_anchor_highlight_empty" android:paddingBottom="50.0dp" android:visibility="gone" android:layout_width="match_parent" android:layout_height="0.0dp" android:layout_weight="1.0">
+        <ImageView android:id="@id/mlive_anchor_highlight_empty_icon" android:layout_width="107.0dp" android:layout_height="107.0dp" android:src="@drawable/mlive_audio_history_empty" android:scaleType="centerCrop" />
+        <TextView android:textSize="14.0sp" android:textColor="@color/black_50_transparent" android:gravity="center" android:id="@id/mlive_anchor_highlight_empty_desc" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="10.0dp" android:text="@string/cup" android:textAlignment="center" />
+    </LinearLayout>
+</LinearLayout>

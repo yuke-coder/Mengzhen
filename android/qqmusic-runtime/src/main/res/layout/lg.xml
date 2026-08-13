@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout android:layout_width="match_parent" android:layout_height="match_parent"
+  xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">
+    <com.tencent.component.widget.AsyncImageView android:id="@id/dq0" android:layout_width="match_parent" android:layout_height="0.0dp" android:contentDescription="@string/a77" app:a1i="h,2.8823:1" app:a1x="hnz" app:a21="hnz" app:a27="hnz" />
+    <androidx.constraintlayout.widget.ConstraintLayout android:background="#f1f2fe" android:paddingTop="22.0dp" android:paddingBottom="22.0dp" android:layout_width="match_parent" android:layout_height="wrap_content" app:a1d="hnz" app:a1x="hnz" app:a21="hnz" app:a26="@id/dq0">
+        <TextView android:textSize="14.0dp" android:textColor="#991a1a1a" android:gravity="center" android:id="@id/m6g" android:layout_width="match_parent" android:layout_height="wrap_content" android:text="" app:a1x="hnz" app:a21="hnz" />
+        <TextView android:textSize="26.0dp" android:textStyle="bold" android:textColor="#1a1a1a" android:gravity="center" android:id="@id/m6h" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginTop="8.0dp" android:text="" app:a26="@id/m6g" />
+        <com.tencent.qqmusic.ui.RoundedRelativeLayout android:id="@id/aim" android:background="#1c1c38" android:layout_width="273.0dp" android:layout_height="40.0dp" android:layout_marginTop="22.0dp" app:a1e="@id/m6f" app:a1x="hnz" app:a21="hnz" app:a26="@id/m6h" app:ado="20.0dp">
+            <TextView android:textSize="16.0dp" android:textColor="@color/white" android:gravity="center" android:id="@id/m6d" android:layout_width="wrap_content" android:layout_height="match_parent" android:text="" android:includeFontPadding="false" android:layout_centerInParent="true" android:importantForAccessibility="no" />
+        </com.tencent.qqmusic.ui.RoundedRelativeLayout>
+        <TextView android:textSize="13.0dp" android:textColor="#991a1a1a" android:ellipsize="end" android:gravity="center" android:id="@id/m6e" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginTop="18.0dp" android:layout_marginBottom="17.5dp" android:singleLine="true" android:includeFontPadding="false" android:layout_centerInParent="true" app:a1x="hnz" app:a21="hnz" app:a26="@id/aim" />
+        <TextView android:textSize="14.0dp" android:textColor="@color/skin_highlight_color" android:gravity="center" android:id="@id/m6f" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginTop="13.5dp" android:layout_marginBottom="3.5dp" android:includeFontPadding="false" android:layout_centerInParent="true" app:a1x="hnz" app:a21="hnz" app:a26="@id/aim" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>

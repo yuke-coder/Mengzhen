@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout android:layout_width="match_parent" android:layout_height="match_parent"
+  xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">
+    <com.tencent.qqmusic.business.playernew.view.playersong.definedplayer.UnClickAbleFrameLayout android:id="@id/dev" android:layout_width="match_parent" android:layout_height="match_parent" />
+    <androidx.constraintlayout.widget.ConstraintLayout android:id="@id/fiu" android:background="#1f1f1f" android:visibility="gone" android:layout_width="match_parent" android:layout_height="match_parent">
+        <com.tencent.qqmusic.pag.QQMusicPAGSafeView android:id="@id/fip" android:layout_width="50.0dp" android:layout_height="50.0dp" app:a1d="hnz" app:a1x="hnz" app:a21="hnz" app:a27="hnz" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+    <androidx.constraintlayout.widget.ConstraintLayout android:layout_gravity="center" android:id="@id/c_9" android:background="#1f1f1f" android:visibility="gone" android:layout_width="match_parent" android:layout_height="match_parent">
+        <androidx.constraintlayout.widget.Guideline android:orientation="horizontal" android:id="@id/c9r" android:layout_width="wrap_content" android:layout_height="wrap_content" app:a1n="0.5" />
+        <androidx.appcompat.widget.AppCompatTextView android:textSize="16.0dp" android:textColor="#ffffff" android:ellipsize="end" android:id="@id/c_b" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginBottom="5.0dp" android:text="@string/ccs" android:maxLines="1" android:includeFontPadding="false" app:a1e="@id/c9r" app:a1j="hnz" app:a23="hnz" />
+        <androidx.appcompat.widget.AppCompatTextView android:textSize="16.0dp" android:textColor="#ffffff" android:ellipsize="end" android:id="@id/c_7" android:background="@drawable/shape_border_white_50" android:paddingLeft="15.0dp" android:paddingTop="7.0dp" android:paddingRight="15.0dp" android:paddingBottom="7.5dp" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="5.0dp" android:text="点击重试" android:maxLines="1" android:includeFontPadding="false" app:a1j="hnz" app:a23="hnz" app:a26="@id/c_b" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</FrameLayout>

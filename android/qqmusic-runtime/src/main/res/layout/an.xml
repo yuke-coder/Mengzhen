@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout android:gravity="center_vertical" android:orientation="horizontal" android:background="@color/transparent" android:paddingLeft="15.0dp" android:focusable="false" android:layout_width="match_parent" android:layout_height="wrap_content"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <LinearLayout android:orientation="horizontal" android:layout_width="0.0dp" android:layout_height="wrap_content" android:layout_weight="1.0">
+        <ImageView android:layout_gravity="center_vertical" android:id="@id/hpa" android:visibility="visible" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginRight="5.0dp" android:src="@drawable/digital_album_in_cell" />
+        <TextView android:textSize="13.0sp" android:textColor="@color/skin_highlight_color" android:gravity="left|center" android:id="@id/hpb" android:focusable="false" android:clickable="false" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginRight="6.0dp" android:text="@string/im6" android:includeFontPadding="false" />
+    </LinearLayout>
+    <LinearLayout android:orientation="horizontal" android:layout_width="wrap_content" android:layout_height="wrap_content">
+        <TextView android:textSize="12.0sp" android:textColor="@color/white" android:gravity="center" android:layout_gravity="right|center" android:id="@id/c4" android:background="@drawable/open_ffb_buy_button_background" android:paddingLeft="10.0dp" android:paddingRight="10.0dp" android:visibility="gone" android:layout_width="wrap_content" android:layout_height="25.0dp" android:layout_marginRight="15.0dp" android:text="@string/mf" android:maxLines="1" android:includeFontPadding="false" />
+        <TextView android:textSize="12.0sp" android:textColor="@color/skin_highlight_color" android:gravity="center" android:layout_gravity="right|center" android:id="@id/hp_" android:background="@drawable/open_ffb_button_background" android:paddingLeft="10.0dp" android:paddingRight="10.0dp" android:visibility="visible" android:layout_width="wrap_content" android:layout_height="25.0dp" android:layout_marginRight="15.0dp" android:text="@string/exb" android:maxLines="1" android:includeFontPadding="false" />
+    </LinearLayout>
+</LinearLayout>

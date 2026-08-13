@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout android:background="@drawable/main_bg" android:layout_width="match_parent" android:layout_height="match_parent"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <RelativeLayout android:id="@id/gbj" android:background="@drawable/skin_sub_mask_img" android:layout_width="match_parent" android:layout_height="@dimen/cau">
+        <ImageView android:id="@id/gaz" android:focusable="true" android:layout_width="45.0dp" android:layout_height="45.0dp" android:src="@drawable/back_normal_black" android:scaleType="centerInside" android:layout_alignParentBottom="true" />
+        <TextView android:textSize="18.0sp" android:textStyle="bold" android:textColor="@color/skin_text_main_color" android:ellipsize="end" android:gravity="center" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/e68" android:singleLine="true" android:layout_alignTop="@id/gaz" android:layout_alignBottom="@id/gaz" android:layout_centerInParent="true" />
+    </RelativeLayout>
+    <com.tencent.qqmusic.business.timeline.ui.RefreshableRecyclerView android:id="@id/gbf" android:layout_width="match_parent" android:layout_height="match_parent" android:layout_marginLeft="18.0dp" android:layout_marginTop="5.0dp" android:layout_marginRight="18.0dp" android:layout_marginBottom="5.0dp" android:layout_below="@id/gbj" />
+    <ViewStub android:id="@id/gbe" android:visibility="gone" android:layout="@layout/yc" android:layout_width="match_parent" android:layout_height="match_parent" android:layout_below="@id/gbj" />
+    <ViewStub android:id="@id/gbc" android:visibility="gone" android:layout="@layout/mh" android:layout_width="match_parent" android:layout_height="match_parent" android:layout_below="@id/gbj" />
+    <include android:id="@id/gbg" android:visibility="gone" android:layout_width="match_parent" android:layout_height="match_parent" android:layout_below="@id/gbj" layout="@layout/mj" />
+</RelativeLayout>

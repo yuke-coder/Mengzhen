@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout android:gravity="center" android:orientation="horizontal" android:background="@drawable/callout_popup_bg" android:paddingLeft="@dimen/j4" android:paddingTop="@dimen/j5" android:paddingRight="@dimen/j4" android:paddingBottom="@dimen/j5" android:layout_width="wrap_content" android:layout_height="wrap_content"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <ImageView android:id="@id/dnn" android:visibility="gone" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginEnd="2.0dp" />
+    <TextView android:textSize="12.0sp" android:textColor="@color/white" android:id="@id/l9h" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="登录听歌60分钟，QQ等级加速0.5天!" />
+    <ImageButton android:id="@id/ama" android:background="@drawable/transparent" android:visibility="gone" android:layout_width="14.0dp" android:layout_height="14.0dp" android:layout_marginLeft="4.0dp" android:src="@drawable/callout_popup_pointer_close" />
+    <LinearLayout android:gravity="center_vertical" android:id="@id/art" android:visibility="visible" android:layout_width="wrap_content" android:layout_height="wrap_content">
+        <View android:id="@id/hmh" android:layout_width="20.0dp" android:layout_height="1.0dp" />
+        <TextView android:textSize="12.0sp" android:textStyle="bold" android:textColor="@color/skin_highlight_color" android:id="@id/gsi" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/aoc" />
+        <ImageView android:id="@id/gsh" android:layout_width="15.0dp" android:layout_height="15.0dp" android:src="@drawable/callout_pop_window_arrow" />
+    </LinearLayout>
+</LinearLayout>

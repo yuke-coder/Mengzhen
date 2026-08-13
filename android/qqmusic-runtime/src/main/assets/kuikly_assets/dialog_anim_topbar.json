@@ -1,0 +1,96 @@
+{
+  "router": "openHalf",
+  "page_name": "dialog_anim_topbar",
+  "ui_debug": 0,
+  "container": {
+    "w_weight": "0.95",
+    "h_weight": "1",
+    "dim_behind": 1
+  },
+  "params": {
+    "page": [
+      {
+        "height": 800,
+        "radius": [
+          20
+        ],
+        "close": {
+          "design": "close_button_white",
+          "rules": {
+            "file_name": "qmkuikly_close_white",
+            "notify_event": "EVENT_DIALOG_CLOSE"
+          }
+        },
+        "exposure": {
+          "id": "5018337"
+        },
+        "topbar": {
+          "height": 350,
+          "type": "png",
+          "url": "https://mm.woa.com/static/mnt/ceph_fuse/mm/upload/t_mm_file_publish/6901533.webp"
+        },
+        "base": {
+          "title_first": 1,
+          "title": "蔚来车主",
+          "title_color": "#FFECC1",
+          "title_front_icon": "https://y.qq.com/music/common/upload/ocs/54075a214a4c99a3c3b666484e3f2709.png",
+          "subtitle": "你的爱车已经支持杜比全景声音质",
+          "subtitle_color": "#FFECC1",
+          "title_font_size": 36,
+          "subtitle_font_size": 28,
+          "background": {
+            "type": "gradient",
+            "colors": [
+              "#FF2A2A2A",
+              "#FF1C1C1C"
+            ],
+            "direction": "to-top"
+          }
+        },
+        "buttons": [
+          {
+            "text": "领取手机+车机体验",
+            "text_color": "#2A2A2A",
+            "color": "#FFCD4B",
+            "url": "qmkuikly://qq.com/svipRightsTrial/startCarQualityTrial?p={\"Opt\":\"1\",\"CarAppId\":\"2000000215\"}",
+            "click": {
+              "id": ""
+            },
+            "close_current": false,
+            "close_same_page": false
+          }
+        ],
+        "bottom": {
+          "design": "text_link",
+          "rules": {
+            "text": "点我",
+            "jump_url": "qmkuikly://qq.com/ui/closePage?p={}",
+            "notify_event": "EVENT_FEEDBACK_CLOSE",
+            "close_page": true
+          }
+        },
+        "body": {
+          "atoms": [
+            {
+              "design": "quality_card",
+              "rules": {
+                "quality": 0,
+                "margin_bottom": 50,
+                "quality_list": [
+                  {
+                    "title": "杜比全景声",
+                    "desc_strings": [
+                      "更有包裹感的卓越聆听体验",
+                      "让声音在车内全方位流动"
+                    ],
+                    "image_url": "https://y.qq.com/music/common/upload/ocs/38ead79b2710a90f70557461c666eb1e.png"
+                  }
+                ]
+              }
+            }
+          ]
+        }
+      }
+    ]
+  }
+}

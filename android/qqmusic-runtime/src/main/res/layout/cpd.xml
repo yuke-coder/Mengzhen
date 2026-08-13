@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout android:background="@android:color/white" android:paddingTop="100.0dp" android:layout_width="match_parent" android:layout_height="match_parent"
+  xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">
+    <androidx.appcompat.widget.AppCompatTextView android:id="@id/b9n" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginLeft="10.0dp" android:layout_marginTop="80.0dp" android:text="额外光照" app:a1x="hnz" app:a27="hnz" />
+    <CheckBox android:id="@id/b9o" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginRight="10.0dp" android:checked="true" app:a1d="@id/b9n" app:a1y="@id/b9n" app:a21="hnz" app:a27="@id/b9n" />
+    <androidx.appcompat.widget.AppCompatTextView android:id="@id/b9p" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginLeft="10.0dp" android:layout_marginTop="10.0dp" android:text="MSAA" app:a1x="hnz" app:a26="@id/b9n" />
+    <CheckBox android:id="@id/b9q" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginRight="10.0dp" android:checked="true" app:a1d="@id/b9p" app:a21="hnz" app:a27="@id/b9p" />
+    <androidx.appcompat.widget.AppCompatTextView android:id="@id/b9r" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginLeft="10.0dp" android:layout_marginTop="10.0dp" android:text="FXAA" app:a1x="hnz" app:a26="@id/b9p" />
+    <CheckBox android:id="@id/b9s" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginRight="10.0dp" android:checked="true" app:a1d="@id/b9r" app:a21="hnz" app:a27="@id/b9r" />
+    <androidx.appcompat.widget.AppCompatTextView android:id="@id/b9t" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginLeft="10.0dp" android:layout_marginTop="10.0dp" android:text="SSAO" app:a1x="hnz" app:a26="@id/b9r" />
+    <CheckBox android:id="@id/b9u" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginRight="10.0dp" android:checked="true" app:a1d="@id/b9t" app:a21="hnz" app:a27="@id/b9t" />
+    <androidx.appcompat.widget.AppCompatTextView android:id="@id/b9v" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginLeft="10.0dp" android:layout_marginTop="10.0dp" android:text="BLOOM" app:a1x="hnz" app:a26="@id/b9t" />
+    <CheckBox android:id="@id/b9w" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginRight="10.0dp" android:checked="true" app:a1d="@id/b9v" app:a21="hnz" app:a27="@id/b9v" />
+    <androidx.appcompat.widget.AppCompatTextView android:id="@id/b9x" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginLeft="10.0dp" android:layout_marginTop="10.0dp" android:text="调试开关是否打开" app:a1x="hnz" app:a26="@id/b9v" />
+    <CheckBox android:id="@id/b9y" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginRight="10.0dp" android:checked="true" app:a1d="@id/b9x" app:a21="hnz" app:a27="@id/b9x" />
+</androidx.constraintlayout.widget.ConstraintLayout>

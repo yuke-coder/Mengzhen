@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout android:orientation="vertical" android:clickable="true" android:layout_width="match_parent" android:layout_height="60.0dp"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <FrameLayout android:layout_gravity="center" android:id="@id/ery" android:background="@drawable/timeline_last_seen_bg_light" android:layout_width="246.0dp" android:layout_height="30.0dp">
+        <LinearLayout android:layout_gravity="center" android:orientation="horizontal" android:layout_width="wrap_content" android:layout_height="wrap_content">
+            <ImageView android:layout_gravity="center_vertical" android:id="@id/j3k" android:layout_width="15.0dp" android:layout_height="15.0dp" android:src="@drawable/timeline_last_seen_refresh_light" />
+            <TextView android:textSize="14.0sp" android:textColor="#ffffff" android:layout_gravity="center_vertical" android:id="@id/l8d" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginLeft="6.0dp" android:text="上次看到这里，点击回顶部刷新" />
+        </LinearLayout>
+    </FrameLayout>
+</FrameLayout>

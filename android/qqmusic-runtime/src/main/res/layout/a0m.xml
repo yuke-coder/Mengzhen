@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout android:orientation="vertical" android:background="#000000" android:clickable="true" android:layout_width="match_parent" android:layout_height="match_parent"
+  xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">
+    <include android:layout_width="match_parent" android:layout_height="wrap_content" layout="@layout/c39" />
+    <androidx.constraintlayout.widget.ConstraintLayout android:id="@id/ba_" android:layout_width="match_parent" android:layout_height="match_parent">
+        <FrameLayout android:id="@id/n6k" android:layout_width="0.0dp" android:layout_height="0.0dp" app:a1e="@id/he0" app:a1v="1.0" app:a1x="hnz" app:a21="hnz" app:a27="hnz" app:a2_="1.0">
+            <com.tencent.picker.CustomVideoView android:layout_gravity="center" android:id="@id/n_1" android:background="#000000" android:layout_width="match_parent" android:layout_height="match_parent" android:foregroundGravity="center" />
+            <ImageView android:layout_gravity="center" android:id="@id/if9" android:background="#000000" android:layout_width="match_parent" android:layout_height="match_parent" />
+            <ImageView android:layout_gravity="center" android:id="@id/htu" android:background="@drawable/timeline_play" android:visibility="gone" android:layout_width="64.0dp" android:layout_height="64.0dp" />
+        </FrameLayout>
+        <FrameLayout android:id="@id/he0" android:background="#ffffff" android:focusable="true" android:clickable="true" android:layout_width="match_parent" android:layout_height="58.0dp" app:a1d="hnz" app:a1x="hnz" app:a21="hnz" app:a26="@id/n6k">
+            <TextView android:textSize="14.0sp" android:textColor="#ffffff" android:gravity="center" android:layout_gravity="right|center" android:id="@id/he3" android:background="@drawable/picker_selection_next_step_btn" android:layout_width="74.0dp" android:layout_height="30.0dp" android:layout_marginRight="16.0dp" android:text="@string/e9m" />
+        </FrameLayout>
+        <SeekBar android:id="@id/jpk" android:layout_width="match_parent" android:layout_height="11.0dp" android:layout_marginBottom="1.0dp" android:progressDrawable="@drawable/picker_seekbar_progressbar" android:thumb="@drawable/picker_seek_bar_thumb" android:thumbOffset="0.0dp" android:paddingStart="0.0dp" android:paddingEnd="0.0dp" app:a1e="@id/he0" app:a1x="hnz" app:a21="hnz" app:a27="@id/he0" />
+        <TextView android:textSize="11.0sp" android:textColor="#ffffff" android:id="@id/bfb" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginLeft="16.0dp" android:layout_marginBottom="3.0dp" android:text="00:00" app:a1e="@id/jpk" app:a1x="hnz" />
+        <TextView android:textSize="11.0sp" android:textColor="#ffffff" android:id="@id/y5" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginRight="16.0dp" android:layout_marginBottom="3.0dp" android:text="00:00" app:a1e="@id/jpk" app:a21="hnz" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</LinearLayout>

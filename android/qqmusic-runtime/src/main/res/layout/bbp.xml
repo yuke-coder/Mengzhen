@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.tme.qqmusic.widget.base.view.CornerConstraintLayout android:id="@id/mlive_gift_card_fragment_ad_container" android:layout_width="match_parent" android:layout_height="wrap_content" android:minHeight="@dimen/anx" app:lm="10.0dp"
+  xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">
+    <androidx.constraintlayout.widget.ConstraintLayout android:id="@id/mlive_gift_card_fragment_ad_cl" android:layout_width="match_parent" android:layout_height="wrap_content" android:minHeight="@dimen/anw" app:a1d="hnz">
+        <ImageView android:id="@id/mlive_gift_card_fragment_ad" android:visibility="gone" android:layout_width="wrap_content" android:layout_height="40.0dp" android:adjustViewBounds="true" app:a1d="hnz" app:a1j="hnz" />
+        <FrameLayout android:id="@id/mlive_gift_card_fragment_ad_web_fl" android:visibility="visible" android:layout_width="match_parent" android:layout_height="@dimen/anw" app:a1d="hnz" app:a1j="hnz" />
+        <com.tme.mlive.ui.custom.gift.GiftBannerTipView android:id="@id/mlive_gift_card_fragment_gift_banner_tip_bar" android:visibility="gone" android:layout_width="wrap_content" android:layout_height="wrap_content" app:a1d="hnz" app:a1j="hnz" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+    <com.tme.qqmusic.widget.base.view.CornerConstraintLayout android:background="@color/mlive_fragment_card_background" android:layout_width="match_parent" android:layout_height="wrap_content" app:lm="10.0dp" app:a1d="hnz">
+        <androidx.recyclerview.widget.RecyclerView android:id="@id/mlive_gift_color_panel" android:visibility="gone" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginTop="10.0dp" android:layout_marginStart="20.0dp" android:layout_marginEnd="20.0dp" app:a1d="hnz" app:a1j="hnz" app:a23="hnz" app:a27="hnz" />
+        <com.tme.mlive.ui.custom.gift.GiftWallTipBarView android:id="@id/mlive_gift_card_fragment_gift_wall_tip_bar" android:visibility="gone" android:layout_width="match_parent" android:layout_height="27.0dp" android:layout_marginTop="10.0dp" app:a1d="hnz" app:a1j="hnz" app:a23="hnz" app:a27="hnz" />
+        <com.tme.mlive.ui.custom.gift.GiftCardDescView android:id="@id/mlive_gift_card_fragment_gift_desc" android:visibility="gone" android:layout_width="match_parent" android:layout_height="54.0dp" app:a1d="hnz" app:a1j="hnz" app:a23="hnz" app:a27="hnz" />
+    </com.tme.qqmusic.widget.base.view.CornerConstraintLayout>
+</com.tme.qqmusic.widget.base.view.CornerConstraintLayout>

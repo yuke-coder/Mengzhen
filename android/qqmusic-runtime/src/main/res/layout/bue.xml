@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginTop="16.0dp"
+  xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">
+    <com.tencent.component.widget.AsyncEffectImageView android:id="@id/a3c" android:layout_width="60.0dp" android:layout_height="60.0dp" android:src="@drawable/together_room_default_avatar" android:scaleType="centerCrop" app:a1d="@id/kny" app:a1j="hnz" app:a23="hnz" app:a27="@id/kny" />
+    <ImageView android:id="@id/kny" android:visibility="invisible" android:layout_width="72.0dp" android:layout_height="72.0dp" android:scaleType="centerCrop" app:a1j="hnz" app:a23="hnz" app:a27="hnz" />
+    <ImageView android:id="@id/h37" android:visibility="visible" android:layout_width="20.0dp" android:layout_height="20.0dp" android:src="@drawable/together_room_mute" android:scaleType="centerCrop" app:a1d="@id/a3c" app:a1j="@id/a3c" />
+    <LinearLayout android:gravity="center" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginTop="8.0dp" app:a1d="hnz" app:a1j="hnz" app:a23="hnz" app:a26="@id/a3c">
+        <ImageView android:id="@id/jci" android:layout_width="14.0dp" android:layout_height="14.0dp" android:scaleType="centerCrop" android:layout_marginEnd="4.0dp" />
+        <TextView android:textSize="12.0sp" android:textColor="#1a1a1a" android:ellipsize="end" android:gravity="start|center" android:layout_gravity="center" android:id="@id/hbm" android:padding="0.0dp" android:layout_width="wrap_content" android:layout_height="wrap_content" android:singleLine="true" android:includeFontPadding="false" android:lineHeight="17.0dp" />
+    </LinearLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>

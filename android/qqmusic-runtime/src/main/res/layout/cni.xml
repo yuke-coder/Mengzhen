@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout android:layout_width="match_parent" android:layout_height="match_parent"
+  xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">
+    <RelativeLayout android:id="@id/czt" android:background="@drawable/get_honor_bg" android:layout_width="match_parent" android:layout_height="match_parent" />
+    <androidx.constraintlayout.widget.ConstraintLayout android:id="@id/czq" android:background="@drawable/get_honor_container_bg" android:layout_width="315.0dp" android:layout_height="470.0dp" app:a1d="hnz" app:a1x="hnz" app:a21="hnz" app:a27="hnz">
+        <RelativeLayout android:layout_gravity="center_horizontal" android:id="@id/kgo" android:background="@drawable/get_honor_button_bg" android:layout_width="165.0dp" android:layout_height="40.0dp" android:layout_marginTop="365.0dp" app:a1x="hnz" app:a21="hnz" app:a27="hnz">
+            <TextView android:textSize="@dimen/c7v" android:textColor="@color/skin_font_c3" android:gravity="center" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/era" android:maxLines="1" android:layout_centerInParent="true" />
+        </RelativeLayout>
+        <androidx.constraintlayout.widget.ConstraintLayout android:id="@id/d04" android:layout_width="150.0dp" android:layout_height="30.0dp" android:layout_marginBottom="130.0dp" app:a1d="hnz" app:a1x="hnz" app:a21="hnz">
+            <com.tme.karaoka.previewui.widget.KaraLottieView android:id="@id/d02" android:clickable="false" android:layout_width="45.0dp" android:layout_height="32.0dp" app:a1d="@id/d01" app:a1x="@id/d01" app:a21="@id/d01" app:a27="@id/d01" />
+            <com.tme.karaoka.previewui.widget.KaraLottieView android:id="@id/d08" android:clickable="false" android:layout_width="45.0dp" android:layout_height="32.0dp" android:layout_marginLeft="4.5dp" app:a1d="@id/d07" app:a1x="@id/d07" app:a21="@id/d07" app:a27="@id/d07" />
+            <kk.design.KKTextView android:id="@id/d03" android:visibility="invisible" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginBottom="4.0dp" android:text="评级" app:a0f="g7m" app:a0g="bj0" app:a1d="hnz" app:a1x="hnz" />
+            <kk.design.KKTextView android:id="@id/d09" android:visibility="invisible" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginLeft="54.0dp" android:layout_marginBottom="4.0dp" android:text="评分" app:a0f="g7m" app:a0g="bj0" app:a1d="hnz" app:a1y="@id/d03" />
+            <kk.design.KKTextView android:id="@id/d07" android:layout_width="36.0dp" android:layout_height="wrap_content" android:layout_marginLeft="4.5dp" app:a0f="g7m" app:a0g="bj0" app:a1d="hnz" app:a1y="@id/d09" />
+            <kk.design.KKTextView android:id="@id/d01" android:layout_width="30.0dp" android:layout_height="wrap_content" android:layout_marginLeft="4.25dp" app:a0f="g7m" app:a0g="bj0" app:a1d="hnz" app:a1y="@id/d03" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
+        <com.tme.karaoka.previewui.widget.KaraLottieView android:id="@id/czw" android:clickable="false" android:layout_width="310.0dp" android:layout_height="310.0dp" app:a1d="@id/czu" app:a1x="hnz" app:a21="hnz" app:a27="@id/czu" app:a4u="true" />
+        <androidx.viewpager.widget.ViewPager android:id="@id/czu" android:layout_width="match_parent" android:layout_height="180.0dp" android:layout_marginTop="47.0dp" app:a1x="hnz" app:a21="hnz" app:a27="hnz" />
+        <kk.design.KKImageView android:id="@id/d06" android:visibility="gone" android:layout_width="24.0dp" android:layout_height="24.0dp" android:layout_marginTop="157.0dp" android:layout_marginRight="20.0dp" android:src="@drawable/get_honors_right_arrow" app:a21="hnz" app:a27="hnz" />
+        <kk.design.KKImageView android:id="@id/czs" android:layout_width="124.5dp" android:layout_height="16.0dp" android:layout_marginTop="23.0dp" android:src="@drawable/get_honor_congratulations" app:yj="hfs" app:a1x="hnz" app:a21="hnz" app:a27="hnz" />
+        <kk.design.KKImageView android:id="@id/d00" android:visibility="gone" android:layout_width="24.0dp" android:layout_height="24.0dp" android:layout_marginLeft="20.0dp" android:layout_marginTop="157.0dp" android:src="@drawable/get_honors_left_arrow" app:a1x="hnz" app:a27="hnz" />
+        <kk.design.KKTextView android:id="@id/d05" android:visibility="gone" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="239.0dp" android:text="歌声打败了深圳95%的用户获得" app:a0f="ka9" app:a0g="bj0" app:a1x="hnz" app:a21="hnz" app:a27="hnz" />
+        <kk.design.KKTextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="422.5dp" android:text="发布作品时即可获得荣誉勋章" app:a0f="ka9" app:a0g="bj0" app:a1x="hnz" app:a21="hnz" app:a27="hnz" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+    <androidx.constraintlayout.widget.ConstraintLayout android:id="@id/czx" android:visibility="invisible" android:layout_width="match_parent" android:layout_height="match_parent" app:a1x="hnz" app:a21="hnz" app:a27="hnz">
+        <ImageView android:id="@id/czv" android:layout_width="match_parent" android:layout_height="match_parent" />
+        <kk.design.KKImageView android:id="@id/czy" android:layout_width="180.0dp" android:layout_height="180.0dp" android:layout_marginTop="176.5dp" android:src="@drawable/transparent" app:a1x="hnz" app:a21="hnz" app:a27="hnz" />
+        <kk.design.KKImageView android:id="@id/czz" android:layout_width="60.0dp" android:layout_height="60.0dp" android:layout_marginLeft="3.0dp" android:layout_marginBottom="41.799988dp" android:src="@drawable/transparent" app:kkImageRadiusDirection="xt" app:kkImageRadiusSize="30.0dp" app:a1d="@id/czy" app:a1x="@id/czy" app:a21="@id/czy" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+    <com.tme.karaoka.previewui.widget.KaraLottieView android:id="@id/czr" android:clickable="false" android:layout_width="match_parent" android:layout_height="match_parent" app:a1d="hnz" app:a1x="hnz" app:a21="hnz" app:a27="hnz" />
+    <kk.design.KKTextView android:gravity="center" android:id="@id/czp" android:visibility="invisible" android:layout_width="252.0dp" android:layout_height="wrap_content" android:layout_marginTop="95.0dp" app:a0c="ifr" app:a0e="aaf" app:a0g="bj0" app:a1d="@id/czx" app:a1x="hnz" app:a21="hnz" app:a27="@id/czx" />
+</androidx.constraintlayout.widget.ConstraintLayout>

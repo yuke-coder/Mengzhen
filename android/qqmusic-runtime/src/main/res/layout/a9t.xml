@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout android:visibility="visible" android:layout_width="match_parent" android:layout_height="match_parent"
+  xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">
+    <ImageView android:id="@id/aou" android:layout_width="@dimen/id" android:layout_height="@dimen/id" android:src="@drawable/call_ic_call_end" android:contentDescription="@string/a1q" android:layout_marginEnd="200.0dp" app:a1d="hnz" app:a1j="hnz" app:a23="hnz" app:a27="hnz" app:a28="0.85" />
+    <TextView android:textSize="@dimen/j0" android:id="@id/arj" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="@dimen/is" android:text="@string/a1q" app:a1j="@id/aou" app:a23="@id/aou" app:a26="@id/aou" />
+    <ImageView android:id="@id/aot" android:layout_width="@dimen/id" android:layout_height="@dimen/id" android:src="@drawable/call_ic_call_accept" android:contentDescription="@string/a10" android:layout_marginStart="200.0dp" android:elevation="@dimen/is" app:a1d="hnz" app:a1j="hnz" app:a23="hnz" app:a27="hnz" app:a28="0.85" />
+    <TextView android:textSize="@dimen/j0" android:id="@id/ari" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="@dimen/is" android:text="@string/a10" android:elevation="@dimen/is" app:a1j="@id/aot" app:a23="@id/aot" app:a26="@id/aot" />
+</androidx.constraintlayout.widget.ConstraintLayout>

@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout android:gravity="center_horizontal" android:orientation="vertical" android:id="@id/euf" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginTop="60.0dp"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <androidx.appcompat.widget.AppCompatTextView android:textSize="12.0dp" android:textColor="@color/skin_text_mid_color" android:gravity="center" android:id="@id/m9l" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/ija" android:maxLines="1" android:singleLine="true" />
+    <androidx.appcompat.widget.AppCompatTextView android:textSize="12.0dp" android:textColor="@color/skin_highlight_color" android:gravity="center" android:id="@id/ajb" android:background="@drawable/empty_view_round_button_border" android:layout_width="wrap_content" android:layout_height="36.0dp" android:layout_marginTop="14.0dp" android:text="@string/ijb" android:paddingStart="24.0dp" android:paddingEnd="24.0dp" />
+</LinearLayout>

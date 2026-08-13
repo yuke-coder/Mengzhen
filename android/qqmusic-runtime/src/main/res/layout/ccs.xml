@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout android:id="@id/jfq" android:background="@color/pickerview_bg_topbar" android:layout_width="match_parent" android:layout_height="match_parent"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <Button android:textSize="@dimen/bea" android:textColor="@drawable/selector_pickerview_btn" android:gravity="left|center" android:id="@id/ai1" android:background="@android:color/transparent" android:paddingLeft="@dimen/bec" android:layout_width="wrap_content" android:layout_height="match_parent" android:text="@string/f54" android:textAllCaps="false" />
+    <TextView android:textSize="@dimen/bed" android:textColor="@color/pickerview_topbar_title" android:gravity="center" android:id="@id/m3b" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_toLeftOf="@id/ai7" android:layout_toRightOf="@id/ai1" android:layout_centerVertical="true" />
+    <Button android:textSize="@dimen/bea" android:textColor="@drawable/selector_pickerview_btn" android:gravity="right|center" android:id="@id/ai7" android:background="@android:color/transparent" android:paddingRight="@dimen/bec" android:layout_width="wrap_content" android:layout_height="match_parent" android:text="@string/f5_" android:layout_alignParentRight="true" android:textAllCaps="false" />
+</RelativeLayout>

@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginStart="8.0dp"
+  xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">
+    <androidx.constraintlayout.widget.ConstraintLayout android:id="@id/e3u" android:layout_width="106.5dp" android:layout_height="0.0dp" app:a1i="H,106.5:60" app:a23="hnz" app:a27="hnz">
+        <com.tencent.qqmusic.ui.RoundedRelativeLayout android:id="@id/e28" android:layout_width="0.0dp" android:layout_height="0.0dp" app:a1d="hnz" app:a1i="W,1:1" app:a22="@id/e29" app:a27="hnz" app:ado="8.0dp">
+            <com.tencent.component.widget.AsyncEffectImageView android:id="@id/e27" android:layout_width="match_parent" android:layout_height="match_parent" android:src="@drawable/my_music_recommend_entrance_default_cover" />
+        </com.tencent.qqmusic.ui.RoundedRelativeLayout>
+        <Space android:id="@id/e29" android:layout_width="0.0dp" android:layout_height="0.0dp" app:a1d="@id/e3p" app:a1i="W,46.5:60" app:a23="@id/e3p" app:a27="@id/e3p" />
+        <com.tencent.qqmusic.ui.RoundedConstraintLayout android:id="@id/e3p" android:layout_width="0.0dp" android:layout_height="0.0dp" app:a1d="hnz" app:a1i="W,1:1" app:a23="hnz" app:a27="hnz" app:ado="8.0dp">
+            <Space android:id="@id/e3r" android:layout_width="0.0dp" android:layout_height="0.0dp" app:a1d="hnz" app:a1i="W,13.5:60" app:a23="hnz" app:a27="hnz" />
+            <com.tencent.qqmusic.ui.MirroringImageView android:id="@id/e3q" android:layout_width="0.0dp" android:layout_height="0.0dp" android:src="@drawable/my_music_recommend_entrance_default_blur_cover" android:scaleType="centerCrop" app:a1d="hnz" app:a1i="W,1:1" app:a22="@id/e3r" app:a27="hnz" />
+            <com.tencent.component.widget.AsyncEffectImageView android:id="@id/e3o" android:layout_width="0.0dp" android:layout_height="0.0dp" app:a1d="hnz" app:a1j="hnz" app:a23="hnz" app:a27="hnz" />
+        </com.tencent.qqmusic.ui.RoundedConstraintLayout>
+        <ImageView android:id="@id/e3n" android:layout_width="0.0dp" android:layout_height="0.0dp" app:a1d="@id/e3p" app:a1i="W,1:1" app:a1j="@id/e3p" app:a1s="0.5" app:a23="@id/e3p" app:a27="@id/e3p" />
+        <include android:visibility="gone" android:layout_width="wrap_content" android:layout_height="20.0dp" app:a1d="@id/e28" app:a1j="@id/e28" layout="@layout/c0f" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+    <TextView android:id="@id/e7h" android:layout_marginTop="8.0dp" android:text="@string/en6" android:layout_alignWithParentIfMissing="true" app:a23="hnz" app:a26="@id/e3u" style="@style/a4e" />
+    <com.tencent.qqmusic.ui.customview.textview.BracketsEllipsisTextView android:id="@id/e26" android:layout_marginStart="4.0dp" app:a1d="@id/e7h" app:a22="@id/e7h" app:a27="@id/e7h" style="@style/a4e" />
+    <com.tencent.qqmusic.ui.DigitalRedDot android:id="@id/e6q" android:visibility="gone" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginStart="4.0dp" app:a1d="@id/e26" app:a22="@id/e26" app:a27="@id/e26" />
+</androidx.constraintlayout.widget.ConstraintLayout>

@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout android:layout_width="match_parent" android:layout_height="match_parent"
+  xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">
+    <com.tencent.qqmusic.ui.RoundedRelativeLayout android:id="@id/bt2" android:layout_width="100.0dp" android:layout_height="100.0dp" app:a1d="hnz" app:a1j="hnz" app:a23="hnz" app:a27="hnz" app:ado="2.0dp">
+        <ImageView android:id="@id/bt_" android:layout_width="match_parent" android:layout_height="match_parent" android:src="@drawable/disk_with_square_mask" />
+        <ImageView android:id="@id/vz" android:layout_width="match_parent" android:layout_height="match_parent" android:src="@drawable/album_only_mask" />
+    </com.tencent.qqmusic.ui.RoundedRelativeLayout>
+    <ImageView android:id="@id/a5l" android:layout_width="35.0dp" android:layout_height="35.0dp" android:src="@drawable/bring_to_front_icon" app:a1e="@id/bt2" app:a1k="@id/bt2" app:a23="@id/bt2" app:a27="@id/bt2" />
+</androidx.constraintlayout.widget.ConstraintLayout>

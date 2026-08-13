@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout android:paddingBottom="40.0dp" android:layout_width="match_parent" android:layout_height="wrap_content"
+  xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">
+    <include android:id="@id/na4" android:layout_width="match_parent" android:layout_height="wrap_content" app:a27="hnz" layout="@layout/adg" />
+    <androidx.recyclerview.widget.RecyclerView android:id="@id/a8f" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginTop="30.0dp" app:a26="@id/na4" />
+    <androidx.recyclerview.widget.RecyclerView android:id="@id/a8g" android:visibility="gone" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginTop="15.0dp" app:a26="@id/a8f" />
+    <include android:id="@id/n_c" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginTop="20.0dp" app:a26="@id/a8g" layout="@layout/adh" />
+    <include android:id="@id/n_g" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginTop="20.0dp" app:a26="@id/n_c" layout="@layout/adh" />
+</androidx.constraintlayout.widget.ConstraintLayout>

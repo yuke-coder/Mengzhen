@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<merge android:layout_width="match_parent" android:layout_height="match_parent"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <com.tencent.qqmusic.business.playernew.view.playersong.tme3dplayer.background.TME3dPlayerBackgroundImgView android:layout_gravity="center" android:id="@id/lc5" android:visibility="gone" android:layout_width="match_parent" android:layout_height="match_parent" />
+    <com.tencent.qqmusic.business.playernew.view.playersong.tme3dplayer.background.TME3dPlayerBackgroundView android:layout_gravity="center" android:id="@id/lc4" android:visibility="gone" android:layout_width="match_parent" android:layout_height="match_parent" />
+    <com.tencent.qqmusic.business.playernew.view.playersong.tme3dplayer.SizeChangeAwareFrameLayout android:layout_gravity="center" android:id="@id/lc6" android:layout_width="match_parent" android:layout_height="match_parent" />
+</merge>

@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout android:id="@id/b_d" android:layout_width="match_parent" android:layout_height="match_parent"
+  xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">
+    <include android:id="@id/naf" android:layout_width="match_parent" android:layout_height="match_parent" layout="@layout/m6" />
+    <LinearLayout android:orientation="vertical" android:id="@id/lv2" android:layout_width="match_parent" android:layout_height="wrap_content" app:a23="hnz" app:a27="hnz">
+        <androidx.constraintlayout.widget.ConstraintLayout android:state_window_focused="false" android:id="@id/lvi" android:layout_width="match_parent" android:layout_height="@dimen/caw" android:paddingStart="10.0dp" android:paddingEnd="10.0dp">
+            <com.tencent.qqmusic.business.customskin.player.view.NewCustomPlayerScrollTab android:id="@id/b8p" android:layout_width="0.0dp" android:layout_height="@dimen/cao" android:layout_centerHorizontal="true" app:a1d="hnz" app:a1k="@id/jj8" app:a22="@id/a5j" />
+            <ImageView android:id="@id/a5j" android:background="@drawable/material_ripple_background_circle" android:layout_width="@dimen/cao" android:layout_height="@dimen/cao" android:src="@drawable/activity_back_selector" android:scaleType="centerInside" android:contentDescription="@string/wf" app:a1d="hnz" app:a23="hnz" />
+            <ImageView android:id="@id/jj8" android:background="@drawable/material_ripple_background_circle" android:paddingTop="5.0dp" android:paddingBottom="7.0dp" android:visibility="gone" android:layout_width="@dimen/cao" android:layout_height="@dimen/cao" android:scaleType="centerInside" android:contentDescription="@string/gl8" android:paddingStart="6.0dp" android:paddingEnd="6.0dp" app:a1d="hnz" app:a1k="@id/g8g" />
+            <ImageView android:id="@id/g8g" android:background="@drawable/material_ripple_background_circle" android:paddingTop="5.0dp" android:paddingBottom="7.0dp" android:visibility="gone" android:layout_width="@dimen/cao" android:layout_height="@dimen/cao" android:scaleType="centerInside" android:contentDescription="@string/csb" android:paddingStart="6.0dp" android:paddingEnd="6.0dp" app:a1d="hnz" app:a1j="hnz" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </LinearLayout>
+    <com.tencent.qqmusic.ui.customview.viewpager.CustomSkinViewPager android:id="@id/bhb" android:paddingLeft="10.0dp" android:paddingRight="10.0dp" android:layout_width="match_parent" android:layout_height="0.0dp" app:a1d="hnz" app:a1x="hnz" app:a21="hnz" app:a26="@id/lv2" />
+    <View android:id="@id/af7" android:layout_width="match_parent" android:layout_height="@dimen/n2" app:a1e="@id/af6" app:a1j="hnz" app:a23="hnz" />
+    <LinearLayout android:gravity="center_vertical" android:orientation="vertical" android:id="@id/af6" android:layout_width="match_parent" android:layout_height="@dimen/n1" app:a1d="hnz" app:a1j="hnz" app:a23="hnz" />
+</androidx.constraintlayout.widget.ConstraintLayout>

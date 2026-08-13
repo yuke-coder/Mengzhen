@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<shape android:shape="rectangle"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <corners android:radius="@dimen/alp" />
+    <gradient android:startColor="@color/mlive_bottom_btn_convenient_gift_bottom_bg_color" android:endColor="@color/mlive_bottom_btn_convenient_gift_top_bg_color" android:angle="0.0" />
+</shape>

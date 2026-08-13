@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout android:id="@id/jb_" android:layout_width="match_parent" android:layout_height="match_parent"
+  xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">
+    <com.tencent.qqmusic.ui.dragtouchimageview.DragTouchImageView android:id="@id/m11" android:background="@color/transparent" android:visibility="gone" android:layout_width="match_parent" android:layout_height="match_parent" android:scaleType="centerInside" />
+    <com.tencent.qqmusic.ui.dragtouchimageview.DragLargeImageView android:id="@id/ero" android:background="@color/transparent" android:layout_width="match_parent" android:layout_height="match_parent" />
+    <com.tencent.qqmusic.ui.CircularProgressView android:layout_gravity="center" android:id="@id/fiq" android:visibility="invisible" android:layout_width="40.0dp" android:layout_height="40.0dp" app:cb="#7f000000" app:cc="4.0dp" app:ac9="#ffffff" app:acb="4.0dp" />
+</FrameLayout>

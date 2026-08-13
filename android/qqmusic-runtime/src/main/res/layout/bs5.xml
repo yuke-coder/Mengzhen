@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.tencent.qqmusic.ui.RoundedRelativeLayout android:id="@id/ese" android:visibility="gone" android:layout_width="match_parent" android:layout_height="wrap_content" app:ado="6.0dp"
+  xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">
+    <RelativeLayout android:id="@id/e9e" android:paddingTop="8.0dp" android:paddingBottom="8.0dp" android:layout_width="match_parent" android:layout_height="wrap_content" android:paddingStart="10.0dp" android:paddingEnd="10.0dp">
+        <com.tencent.component.widget.AsyncEffectImageView android:id="@id/e9f" android:layout_width="20.0dp" android:layout_height="20.0dp" android:layout_centerVertical="true" android:importantForAccessibility="no" />
+        <TextView android:textSize="12.0dp" android:textColor="@color/skin_text_sub_color" android:ellipsize="end" android:id="@id/m3m" android:layout_width="wrap_content" android:layout_height="wrap_content" android:maxLines="1" android:layout_centerVertical="true" android:paddingStart="10.0dp" android:layout_toStartOf="@id/m3l" android:layout_toEndOf="@id/e9f" />
+        <TextView android:textSize="11.0dp" android:textColor="@color/long_audio_recommend_vip_banner" android:ellipsize="end" android:id="@id/m3l" android:layout_width="wrap_content" android:layout_height="wrap_content" android:maxLines="1" android:drawablePadding="5.0dp" android:layout_centerVertical="true" android:layout_marginEnd="8.0dp" android:layout_toStartOf="@id/e9d" />
+        <com.tencent.component.widget.AsyncEffectImageView android:id="@id/e9d" android:layout_width="5.0dp" android:layout_height="8.0dp" android:src="@drawable/ic_long_audio_vip_banner_more" android:layout_centerVertical="true" android:importantForAccessibility="no" android:layout_alignParentEnd="true" />
+    </RelativeLayout>
+</com.tencent.qqmusic.ui.RoundedRelativeLayout>

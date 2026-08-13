@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.tencent.qqmusic.ui.RoundedConstraintLayout android:id="@id/gwy" android:layout_width="match_parent" android:layout_height="match_parent" app:kj="@dimen/kx"
+  xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">
+    <View android:background="@drawable/bg_personaily_shadow_top_to_bot" android:layout_width="match_parent" android:layout_height="45.0dp" />
+    <View android:id="@id/gov" android:background="@drawable/bg_personily_newsong_coner" android:layout_width="35.0dp" android:layout_height="35.0dp" app:a1j="hnz" app:a27="hnz" />
+    <ImageView android:id="@id/god" android:layout_width="40.0dp" android:layout_height="15.0dp" android:layout_marginTop="8.0dp" android:layout_marginRight="7.0dp" android:src="@drawable/recommend_daily_new" android:layout_marginEnd="7.0dp" app:a1j="hnz" app:a27="hnz" />
+</com.tencent.qqmusic.ui.RoundedConstraintLayout>

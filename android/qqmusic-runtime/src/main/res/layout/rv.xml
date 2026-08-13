@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout android:layout_width="match_parent" android:layout_height="wrap_content"
+  xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">
+    <TextView android:textSize="15.0sp" android:textColor="@color/skin_text_main_color" android:id="@id/c25" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginLeft="19.0dp" android:layout_marginTop="13.0dp" android:layout_marginBottom="13.0dp" android:text="共234首" android:layout_marginStart="19.0dp" app:a1d="hnz" app:a23="hnz" app:a27="hnz" />
+    <ImageView android:id="@id/c2e" android:layout_width="wrap_content" android:layout_height="wrap_content" android:src="@drawable/sort_mode_change_normal" android:importantForAccessibility="no" app:a1d="@id/c2f" app:a1k="@id/c2f" app:a27="@id/c2f" />
+    <TextView android:textSize="15.0sp" android:textColor="@color/skin_text_main_color" android:id="@id/c2f" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginRight="19.0dp" android:text="@string/b0w" android:contentDescription="@string/b0w" android:layout_marginEnd="19.0dp" app:a1d="hnz" app:a1j="hnz" app:a27="hnz" />
+</androidx.constraintlayout.widget.ConstraintLayout>

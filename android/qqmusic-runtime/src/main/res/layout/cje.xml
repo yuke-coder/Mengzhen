@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout android:id="@id/jd3" android:layout_width="match_parent" android:layout_height="68.0dp"
+  xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">
+    <androidx.constraintlayout.widget.Guideline android:orientation="horizontal" android:id="@id/e7z" android:layout_width="wrap_content" android:layout_height="wrap_content" app:a1l="6.0dp" />
+    <androidx.constraintlayout.widget.Guideline android:orientation="horizontal" android:id="@id/e1k" android:layout_width="wrap_content" android:layout_height="wrap_content" app:a1m="6.0dp" />
+    <com.tencent.component.widget.AsyncEffectImageView android:id="@id/a3u" android:layout_width="56.0dp" android:layout_height="56.0dp" android:layout_marginLeft="16.0dp" app:a1d="@id/e1k" app:a1x="hnz" app:a27="@id/e7z" app:afv="6.0dp" />
+    <TextView android:textSize="15.0dp" android:textColor="@color/skin_text_main_color" android:ellipsize="end" android:id="@id/lg1" android:layout_width="0.0dp" android:layout_height="wrap_content" android:layout_marginLeft="16.0dp" android:lines="1" android:includeFontPadding="false" app:a1e="@id/fhb" app:a1t="0.0" app:a1u="hmg" app:a1y="@id/a3u" app:a20="@id/e3" app:a27="@id/e7z" app:a2b="nug" />
+    <LinearLayout android:gravity="left|center" android:orientation="horizontal" android:id="@id/fhb" android:layout_width="0.0dp" android:layout_height="wrap_content" android:layout_marginLeft="16.0dp" app:a1e="@id/bnb" app:a1y="@id/a3u" app:a20="@id/e3" app:a26="@id/lg1">
+        <com.tencent.component.widget.AsyncEffectImageView android:id="@id/eld" android:layout_width="wrap_content" android:layout_height="14.0dp" android:layout_marginRight="4.0dp" />
+        <TextView android:textSize="12.0dp" android:textColor="@color/skin_text_sub_color" android:ellipsize="end" android:gravity="left" android:id="@id/kzp" android:layout_width="wrap_content" android:layout_height="wrap_content" android:lines="1" android:includeFontPadding="false" />
+    </LinearLayout>
+    <TextView android:textSize="12.0dp" android:textColor="@color/skin_text_sub_color" android:ellipsize="end" android:id="@id/bnb" android:layout_width="0.0dp" android:layout_height="wrap_content" android:layout_marginLeft="16.0dp" android:lines="1" android:includeFontPadding="false" app:a1d="@id/e1k" app:a1t="0.0" app:a1y="@id/a3u" app:a20="@id/e3" app:a26="@id/fhb" app:a2b="nug" />
+    <ImageView android:id="@id/e3" android:layout_width="@dimen/bct" android:layout_height="@dimen/bct" android:layout_marginRight="8.0dp" android:src="@drawable/search_item_unfavor_new" app:a1d="@id/e1k" app:a20="@id/ek" app:a27="@id/e7z" />
+    <ImageView android:id="@id/ek" android:layout_width="@dimen/bct" android:layout_height="@dimen/bct" android:layout_marginRight="16.0dp" android:src="@drawable/search_item_more_new" android:contentDescription="@string/e9w" app:a1d="@id/e1k" app:a21="hnz" app:a27="@id/e7z" />
+</androidx.constraintlayout.widget.ConstraintLayout>

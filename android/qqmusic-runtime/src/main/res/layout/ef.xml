@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout android:orientation="vertical" android:layout_width="match_parent" android:layout_height="match_parent"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <include android:id="@id/naf" android:layout_width="match_parent" android:layout_height="match_parent" layout="@layout/m6" />
+    <View android:id="@id/m1o" android:background="@drawable/skin_sub_mask_img" android:visibility="visible" android:layout_width="match_parent" android:layout_height="@dimen/bcp" />
+    <include android:id="@id/b9_" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginBottom="8.0dp" android:layout_below="@id/m1o" layout="@layout/cth" />
+    <androidx.recyclerview.widget.RecyclerView android:id="@id/jwa" android:layout_width="match_parent" android:layout_height="match_parent" android:layout_marginBottom="-20.0dp" android:layout_above="@id/jq1" android:layout_below="@id/b9_" />
+    <include android:id="@id/cp1" android:visibility="gone" android:layout_width="match_parent" android:layout_height="match_parent" android:layout_marginBottom="-20.0dp" android:layout_above="@id/jq1" android:layout_below="@id/b9_" layout="@layout/eg" />
+    <LinearLayout android:orientation="vertical" android:id="@id/jq1" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_alignParentBottom="true">
+        <View android:background="@drawable/post_moment_bottom_bar_bg" android:layout_width="match_parent" android:layout_height="20.0dp" android:layout_above="@id/jq1" />
+        <FrameLayout android:focusable="true" android:clickable="true" android:layout_width="match_parent" android:layout_height="58.0dp">
+            <LinearLayout android:gravity="center_vertical" android:orientation="horizontal" android:id="@id/cp3" android:layout_width="wrap_content" android:layout_height="match_parent" android:layout_marginLeft="16.0dp">
+                <androidx.appcompat.widget.AppCompatTextView android:textSize="16.0sp" android:textColor="@color/skin_text_sub_color" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="已选 " />
+                <androidx.appcompat.widget.AppCompatTextView android:textSize="16.0sp" android:textColor="@color/skin_highlight_color" android:id="@id/kc0" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="0" />
+                <androidx.appcompat.widget.AppCompatTextView android:textSize="16.0sp" android:textColor="@color/skin_text_sub_color" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text=" 首" />
+                <ImageView android:id="@id/jrk" android:layout_width="20.0dp" android:layout_height="20.0dp" android:src="@drawable/ic_live_arrow_right" />
+            </LinearLayout>
+            <androidx.appcompat.widget.AppCompatTextView android:enabled="false" android:textSize="14.0sp" android:textColor="#ffffff" android:gravity="center" android:layout_gravity="right|center" android:id="@id/b_5" android:background="@drawable/share_folder_add_bg" android:layout_width="74.0dp" android:layout_height="30.0dp" android:layout_marginRight="16.0dp" android:text="@string/evy" />
+        </FrameLayout>
+    </LinearLayout>
+    <include android:id="@id/cp5" android:visibility="gone" android:layout_width="match_parent" android:layout_height="match_parent" layout="@layout/eh" />
+</RelativeLayout>

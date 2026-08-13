@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView android:layout_width="match_parent" android:layout_height="match_parent"
+  xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">
+    <androidx.constraintlayout.widget.ConstraintLayout android:paddingTop="10.0dp" android:paddingBottom="15.0dp" android:layout_width="match_parent" android:layout_height="wrap_content">
+        <LinearLayout android:orientation="horizontal" android:id="@id/mlive_finish_guest_recommend_layout" android:visibility="gone" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginTop="25.0dp" app:a1x="hnz" app:a21="hnz" app:a26="@id/mlive_finish_audio_history_list">
+            <TextView android:textSize="16.0sp" android:textStyle="bold" android:textColor="@color/white" android:id="@id/mlive_finish_guest_recommend_title" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginLeft="16.0dp" android:text="@string/d72" />
+            <TextView android:textSize="14.0sp" android:textColor="@color/black" android:gravity="center" android:layout_gravity="center_vertical" android:id="@id/mlive_finish_guest_countdown" android:background="@drawable/mlive_finish_countdown_bg" android:paddingLeft="6.0dp" android:paddingRight="6.0dp" android:layout_width="wrap_content" android:layout_height="16.0dp" android:layout_marginLeft="4.5dp" android:includeFontPadding="false" />
+        </LinearLayout>
+        <androidx.constraintlayout.widget.ConstraintLayout android:id="@id/mlive_finish_audio_history_title_container" android:visibility="gone" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginLeft="16.0dp" android:layout_marginTop="15.0dp" android:layout_marginRight="16.0dp" app:a27="hnz">
+            <TextView android:textSize="16.0sp" android:textColor="@color/white" android:gravity="center_vertical" android:id="@id/mlive_finish_audio_history_title" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/d6w" app:a1d="hnz" app:a1x="hnz" app:a27="hnz" />
+            <TextView android:textSize="12.0sp" android:textColor="@color/white_50_transparent" android:gravity="center_vertical" android:id="@id/mlive_finish_audio_history_title_btn" android:layout_width="wrap_content" android:layout_height="18.0dp" android:text="@string/d6x" android:drawablePadding="7.0dp" android:drawableEnd="@drawable/mlive_arrow_right" app:a1d="hnz" app:a1j="hnz" app:a27="hnz" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
+        <androidx.recyclerview.widget.RecyclerView android:orientation="horizontal" android:id="@id/mlive_finish_audio_history_list" android:visibility="gone" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginTop="8.0dp" app:a26="@id/mlive_finish_audio_history_title_container" />
+        <androidx.recyclerview.widget.RecyclerView android:id="@id/mlive_finish_guest_recommend" android:visibility="gone" android:layout_width="match_parent" android:layout_height="150.0dp" android:layout_marginTop="16.0dp" app:a1x="hnz" app:a21="hnz" app:a26="@id/mlive_finish_guest_recommend_layout" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</ScrollView>

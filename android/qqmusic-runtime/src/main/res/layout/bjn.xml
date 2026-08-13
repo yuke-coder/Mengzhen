@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout android:layout_width="match_parent" android:layout_height="match_parent"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <com.tme.qqmusic.widget.base.view.GlideImageView android:id="@id/mlive_preview_background" android:background="@color/black_60_transparent" android:visibility="gone" android:layout_width="match_parent" android:layout_height="match_parent" android:scaleType="centerCrop" />
+    <com.tme.mlive.ui.custom.preview.MLivePreviewAnchorLinkingView android:id="@id/mlive_preview_linking" android:visibility="gone" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_centerInParent="true" />
+    <com.tme.mlive.ui.custom.preview.MLivePreviewStatusView android:id="@id/mlive_preview_status" android:visibility="gone" android:layout_width="match_parent" android:layout_height="match_parent" android:layout_centerInParent="true" />
+    <com.tme.mlive.ui.custom.TRTCVideoView android:id="@id/mlive_preview_primary" android:layout_width="match_parent" android:layout_height="match_parent" />
+    <com.tme.mlive.ui.custom.preview.MLivePreviewAnchorLinkedView android:id="@id/mlive_preview_linked" android:visibility="gone" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_alignParentBottom="true" />
+</RelativeLayout>

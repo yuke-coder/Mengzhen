@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout android:layout_width="80.0dp" android:layout_height="wrap_content"
+  xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">
+    <com.tme.qqmusic.widget.base.view.GlideImageView android:id="@id/mlive_sheet_item_icon" android:layout_width="50.0dp" android:layout_height="50.0dp" android:layout_marginLeft="10.0dp" android:layout_marginTop="10.0dp" android:layout_marginRight="10.0dp" android:alpha="0.7" app:a1x="hnz" app:a21="hnz" app:a27="hnz" />
+    <TextView android:textSize="12.0sp" android:textColor="@android:color/white" android:ellipsize="end" android:id="@id/mlive_sheet_item_text" android:paddingBottom="5.0dp" android:layout_width="wrap_content" android:layout_height="wrap_content" android:maxWidth="70.0dp" android:maxLines="1" android:layout_below="@id/mlive_sheet_item_icon" android:alpha="0.7" app:a1d="hnz" app:a1x="hnz" app:a21="hnz" app:a26="@id/mlive_sheet_item_icon" />
+    <View android:id="@id/mlive_sheet_item_tip" android:background="@drawable/mlive_ic_red_dot" android:visibility="gone" android:layout_width="5.0dp" android:layout_height="5.0dp" android:layout_marginTop="9.0dp" android:layout_marginStart="40.0dp" app:a1x="@id/mlive_sheet_item_icon" app:a27="@id/mlive_sheet_item_icon" />
+</androidx.constraintlayout.widget.ConstraintLayout>

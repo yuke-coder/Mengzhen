@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout android:layout_width="match_parent" android:layout_height="match_parent"
+  xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">
+    <View android:id="@id/mlive_pk_winner_bg" android:background="@color/black_50_transparent" android:layout_width="match_parent" android:layout_height="match_parent" android:alpha="0.0" />
+    <com.tme.mlive.ui.animation.NewPagView android:id="@id/mlive_pk_winner_pag" android:layout_width="match_parent" android:layout_height="wrap_content" app:a1j="hnz" app:a23="hnz" app:a27="hnz" />
+    <androidx.constraintlayout.widget.ConstraintLayout android:id="@id/mlive_pk_winner_avatar_container" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="190.0dp" android:alpha="0.0" app:a1j="hnz" app:a23="hnz" app:a27="hnz">
+        <com.tme.qqmusic.widget.base.view.GlideImageView android:id="@id/mlive_pk_winner_avatar_iv" android:layout_width="100.0dp" android:layout_height="100.0dp" android:src="@drawable/mlive_default_avatar" app:a1d="hnz" app:a1j="hnz" app:a23="hnz" app:a27="hnz" />
+        <ImageView android:id="@id/mlive_pk_winner_avatar_border" android:layout_width="184.0dp" android:layout_height="184.0dp" android:src="@drawable/mlive_pk_winner_avatar_broder" android:scaleType="fitXY" app:a1d="@id/mlive_pk_winner_avatar_iv" app:a1j="@id/mlive_pk_winner_avatar_iv" app:a23="@id/mlive_pk_winner_avatar_iv" app:a27="@id/mlive_pk_winner_avatar_iv" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+    <androidx.constraintlayout.widget.ConstraintLayout android:id="@id/mlive_pk_winner_anim_info_container" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="170.0dp" android:alpha="0.0" app:a1j="hnz" app:a23="hnz" app:a27="@id/mlive_pk_winner_avatar_container">
+        <androidx.constraintlayout.widget.ConstraintLayout android:id="@id/mlive_pk_winner_anim_info_layout" android:background="@drawable/mlive_pk_winner_anim_info_bg" android:layout_width="wrap_content" android:layout_height="27.0dp" android:minWidth="240.0dp" app:a1j="hnz" app:a23="hnz" app:a27="hnz">
+            <com.tme.qqmusic.widget.base.view.GlideImageView android:id="@id/mlive_pk_winner_anim" android:layout_width="18.0dp" android:layout_height="18.0dp" android:layout_marginStart="37.0dp" app:a1d="hnz" app:a1u="hmg" app:a1x="hnz" app:a20="@id/mlive_pk_winner_anim_content" app:a27="hnz" />
+            <TextView android:textSize="12.0sp" android:textColor="@color/white" android:gravity="left" android:id="@id/mlive_pk_winner_anim_content" android:layout_width="wrap_content" android:layout_height="wrap_content" android:paddingStart="3.0dp" android:layout_marginEnd="37.0dp" app:a1d="hnz" app:a1y="@id/mlive_pk_winner_anim" app:a21="hnz" app:a27="hnz" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
+        <androidx.constraintlayout.widget.ConstraintLayout android:id="@id/mlive_pk_winner_anim_fabulous_layout" android:background="@drawable/mlive_pk_winner_anim_fabulous_bg" android:layout_width="52.0dp" android:layout_height="52.0dp" android:layout_marginTop="17.5dp" app:a1j="hnz" app:a23="hnz" app:a26="@id/mlive_pk_winner_anim_info_layout">
+            <ImageView android:id="@id/mlive_pk_winner_anim_fabulous_iv" android:layout_width="22.0dp" android:layout_height="22.0dp" android:src="@drawable/mlive_pk_anim_fabulous" android:alpha="0.0" app:a1e="@id/ga5" app:a1j="hnz" app:a23="hnz" app:a27="hnz" app:a29="hmg" />
+            <TextView android:textSize="11.0sp" android:id="@id/ga5" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/dq8" app:a1d="hnz" app:a1j="hnz" app:a23="hnz" app:a26="@id/mlive_pk_winner_anim_fabulous_iv" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>

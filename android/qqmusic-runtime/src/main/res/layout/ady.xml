@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout android:layout_width="match_parent" android:layout_height="wrap_content"
+  xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">
+    <include android:id="@id/na4" android:visibility="gone" android:layout_width="match_parent" android:layout_height="wrap_content" app:a27="hnz" layout="@layout/adg" />
+    <View android:id="@id/ne2" android:background="#ffffff" android:layout_width="match_parent" android:layout_height="1.0dp" android:layout_marginLeft="20.0dp" android:alpha="0.12" app:a23="hnz" app:a27="hnz" />
+    <TextView android:textSize="18.0dp" android:textColor="#ffffff" android:id="@id/moa" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginLeft="20.0dp" android:layout_marginTop="16.0dp" android:layout_marginBottom="16.0dp" app:a23="hnz" app:a26="@id/ne2" />
+    <ImageView android:id="@id/el5" android:focusable="false" android:clickable="false" android:layout_width="50.0dp" android:layout_height="33.0dp" android:layout_marginTop="16.0dp" android:layout_marginRight="20.0dp" android:layout_marginBottom="16.0dp" android:src="@drawable/switch_off_new_default_skin_fg" android:scaleType="centerCrop" app:a1d="hnz" app:a1j="hnz" app:a26="@id/ne2" />
+</androidx.constraintlayout.widget.ConstraintLayout>

@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout android:id="@id/mlive_record_screen_panel_root" android:background="@drawable/mlive_record_screen_bg" android:layout_width="match_parent" android:layout_height="match_parent"
+  xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">
+    <TextView android:textSize="16.0dp" android:textColor="@color/white" android:gravity="center" android:id="@id/mlive_record_screen_start_game" android:background="@drawable/mlive_start_game_button_bg" android:layout_width="133.0dp" android:layout_height="35.0dp" android:layout_marginBottom="128.0dp" android:text="@string/dts" app:a1d="hnz" app:a1j="hnz" app:a23="hnz" app:a27="hnz" />
+    <TextView android:textSize="12.0dp" android:textColor="@color/white" android:gravity="center" android:id="@id/mlive_start_game_tip_2" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginBottom="30.0dp" android:text="@string/dtv" android:maxLines="1" app:a1e="@id/mlive_record_screen_start_game" app:a1j="hnz" app:a23="hnz" />
+    <TextView android:textSize="16.0dp" android:textColor="@color/white" android:gravity="center" android:id="@id/mlive_start_game_tip" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginBottom="8.0dp" android:text="@string/dtu" app:a1e="@id/mlive_start_game_tip_2" app:a1j="hnz" app:a23="hnz" />
+    <com.tme.mlive.ui.custom.LiveFadingRecyclerView android:id="@id/mlive_record_comment_list" android:visibility="gone" android:layout_width="136.0dp" android:layout_height="128.0dp" app:a1d="hnz" app:a23="hnz" app:a2e="0.66" />
+</androidx.constraintlayout.widget.ConstraintLayout>

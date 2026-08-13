@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginLeft="16.0dp" android:layout_marginRight="16.0dp"
+  xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">
+    <LinearLayout android:orientation="horizontal" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginTop="7.5dp">
+        <LinearLayout android:gravity="center_vertical" android:id="@id/mlive_cross_pk_my_room_name_layout" android:background="@drawable/mlive_friend_cross_pk_panel_left_room_name_red_bg" android:paddingTop="7.5dp" android:layout_width="0.0dp" android:layout_height="34.5dp" android:layout_marginTop="7.5dp" android:layout_weight="1.0" android:paddingStart="7.5dp" android:paddingEnd="60.0dp">
+            <com.tme.qqmusic.widget.base.view.GlideImageView android:id="@id/mlive_cross_pk_my_room_rank_gv" android:visibility="gone" android:layout_width="16.0dp" android:layout_height="11.0dp" android:paddingEnd="5.0dp" />
+            <TextView android:textSize="10.0dp" android:textColor="@color/white" android:ellipsize="end" android:id="@id/mlive_cross_pk_my_room_name" android:layout_width="wrap_content" android:layout_height="wrap_content" android:maxLines="1" android:maxEms="6" />
+        </LinearLayout>
+        <FrameLayout android:id="@id/mlive_cross_pk_peer_room_name_layout" android:background="@drawable/mlive_friend_cross_pk_panel_right_room_name_blue_bg" android:paddingTop="7.5dp" android:layout_width="0.0dp" android:layout_height="34.5dp" android:layout_marginTop="7.5dp" android:layout_weight="1.0" android:paddingEnd="7.5dp">
+            <LinearLayout android:gravity="center_vertical" android:layout_gravity="end" android:id="@id/mlive_cross_pk_peer_room_name_linearlayout" android:layout_width="wrap_content" android:layout_height="match_parent" android:layout_marginStart="40.0dp">
+                <ImageView android:id="@id/mlive_cross_pk_peer_room_mute_iv" android:layout_width="20.0dp" android:layout_height="20.0dp" android:src="@drawable/mlive_cross_pk_peer_room_unmute" />
+                <TextView android:textSize="10.0dp" android:textColor="@color/white" android:ellipsize="end" android:id="@id/mlive_cross_pk_peer_room_name" android:layout_width="0.0dp" android:layout_height="wrap_content" android:maxLines="1" android:maxEms="6" android:layout_weight="1.0" />
+                <com.tme.qqmusic.widget.base.view.GlideImageView android:id="@id/mlive_cross_pk_peer_room_rank_gv" android:layout_width="16.0dp" android:layout_height="11.0dp" android:paddingStart="5.0dp" />
+            </LinearLayout>
+        </FrameLayout>
+    </LinearLayout>
+    <RelativeLayout android:id="@id/mlive_cross_pk_progress_layout" android:layout_width="match_parent" android:layout_height="30.0dp">
+        <FrameLayout android:id="@id/mlive_cross_pk_progress" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_centerVertical="true">
+            <View android:layout_gravity="start|center" android:id="@id/mlive_cross_pk_progress_right" android:layout_width="wrap_content" android:layout_height="15.0dp" />
+            <com.tme.mlive.module.multi.view.CrossPKProgressLeftView android:layout_gravity="start|center" android:id="@id/mlive_cross_pk_progress_left" android:layout_width="wrap_content" android:layout_height="15.0dp" />
+            <ImageView android:layout_gravity="start|center" android:id="@id/mlive_cross_pk_progress_center" android:background="@drawable/mlive_cross_pk_progress_center" android:visibility="invisible" android:layout_width="13.0dp" android:layout_height="15.0dp" />
+        </FrameLayout>
+        <com.tme.mlive.ui.animation.NewPagView android:id="@id/mlive_cross_pk_progress_anim" android:visibility="gone" android:layout_width="match_parent" android:layout_height="30.0dp" />
+        <ImageView android:id="@id/mlive_cross_pk_display_left_gift_icon" android:visibility="invisible" android:layout_width="9.0dp" android:layout_height="9.0dp" android:src="@drawable/mlive_friend_cross_pk_score" android:scaleType="centerInside" android:layout_centerVertical="true" android:layout_marginStart="7.5dp" android:layout_alignParentStart="true" />
+        <ImageView android:id="@id/mlive_cross_pk_display_right_gift_icon" android:visibility="invisible" android:layout_width="9.0dp" android:layout_height="9.0dp" android:src="@drawable/mlive_friend_cross_pk_score" android:scaleType="centerInside" android:layout_centerVertical="true" android:layout_marginEnd="7.5dp" android:layout_alignParentEnd="true" />
+        <TextView android:textSize="10.0dp" android:textStyle="bold" android:textColor="@color/white" android:gravity="center" android:id="@id/mlive_cross_pk_display_left_gift_num" android:visibility="invisible" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="0" android:includeFontPadding="false" android:layout_centerVertical="true" android:layout_marginStart="3.0dp" android:layout_toEndOf="@id/mlive_cross_pk_display_left_gift_icon" />
+        <TextView android:textSize="10.0dp" android:textStyle="bold" android:textColor="@color/white" android:gravity="center" android:id="@id/mlive_cross_pk_display_right_gift_num" android:visibility="invisible" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="0" android:includeFontPadding="false" android:layout_centerVertical="true" android:layout_marginEnd="3.0dp" android:layout_toStartOf="@id/mlive_cross_pk_display_right_gift_icon" />
+    </RelativeLayout>
+    <FrameLayout android:id="@id/mlive_cross_pk_time_ll" android:visibility="invisible" android:layout_width="75.0dp" android:layout_height="25.0dp" android:layout_marginTop="22.5dp" android:layout_centerHorizontal="true">
+        <TextView android:textSize="13.0dp" android:textColor="@color/white" android:gravity="center" android:id="@id/mlive_cross_pk_time" android:layout_width="match_parent" android:layout_height="match_parent" />
+        <ImageView android:id="@id/mlive_cross_pk_rule" android:layout_width="4.0dp" android:layout_height="6.0dp" android:layout_marginTop="9.5dp" android:src="@drawable/mlive_cross_pk_rule" android:layout_marginStart="58.0dp" />
+    </FrameLayout>
+    <ImageView android:id="@id/mlive_cross_pk_title" android:layout_width="61.5dp" android:layout_height="10.5dp" android:layout_marginTop="9.5dp" android:src="@drawable/mlive_cross_pk_panel_title" android:layout_centerHorizontal="true" android:paddingEnd="5.0dp" />
+</RelativeLayout>

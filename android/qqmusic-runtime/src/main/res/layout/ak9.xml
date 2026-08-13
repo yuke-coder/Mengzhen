@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout android:layout_width="match_parent" android:layout_height="wrap_content"
+  xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">
+    <include android:id="@id/na4" android:layout_width="match_parent" android:layout_height="wrap_content" app:a27="hnz" layout="@layout/ak6" />
+    <LinearLayout android:orientation="vertical" android:id="@id/nlo" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginTop="10.0dp" app:a26="@id/na4">
+        <TextView android:textSize="13.0dp" android:textColor="#ffffff" android:id="@id/nls" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="10.0dp" android:text="@string/iu2" android:layout_marginStart="20.0dp" />
+        <FrameLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginTop="10.0dp">
+            <com.tencent.qqmusic.business.partplay.PartPlayHorizontalBar android:layout_gravity="center_vertical" android:id="@id/nlp" android:layout_width="match_parent" android:layout_height="12.0dp" />
+            <SeekBar android:layout_gravity="center_vertical" android:id="@id/nlq" android:background="@null" android:paddingTop="5.0dp" android:paddingBottom="5.0dp" android:layout_width="match_parent" android:layout_height="wrap_content" android:maxHeight="5.0dp" android:minHeight="5.0dp" android:thumbOffset="0.0dp" android:paddingStart="20.0dp" android:paddingEnd="20.0dp" />
+        </FrameLayout>
+        <androidx.constraintlayout.widget.ConstraintLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginTop="6.0dp" android:layout_marginStart="20.0dp" android:layout_marginEnd="20.0dp">
+            <TextView android:textSize="11.0dp" android:textColor="#99ffffff" android:id="@id/nlj" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/iua" app:a1d="hnz" app:a23="hnz" app:a27="hnz" />
+            <TextView android:textSize="11.0dp" android:textColor="#99ffffff" android:id="@id/nlg" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/iu9" app:a1d="hnz" app:a1j="hnz" app:a23="hnz" app:a27="hnz" />
+            <TextView android:textSize="11.0dp" android:textColor="#99ffffff" android:id="@id/nl6" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/its" app:a1d="hnz" app:a1j="hnz" app:a27="hnz" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </LinearLayout>
+    <LinearLayout android:orientation="vertical" android:id="@id/hvh" android:visibility="gone" android:layout_width="match_parent" android:layout_height="wrap_content" app:a26="@id/nlo">
+        <TextView android:textSize="13.0dp" android:textColor="#ffffff" android:id="@id/hvl" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="20.0dp" android:text="@string/iu0" android:layout_marginStart="20.0dp" />
+        <FrameLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginTop="10.0dp">
+            <com.tencent.qqmusic.business.partplay.PartPlayHorizontalBar android:layout_gravity="center_vertical" android:id="@id/hvi" android:layout_width="match_parent" android:layout_height="12.0dp" />
+            <SeekBar android:layout_gravity="center_vertical" android:id="@id/hvj" android:background="@null" android:paddingTop="5.0dp" android:paddingBottom="5.0dp" android:layout_width="match_parent" android:layout_height="wrap_content" android:maxHeight="5.0dp" android:minHeight="5.0dp" android:thumbOffset="0.0dp" android:paddingStart="20.0dp" android:paddingEnd="20.0dp" />
+        </FrameLayout>
+        <RelativeLayout android:paddingLeft="20.0dp" android:paddingRight="20.0dp" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginTop="6.0dp">
+            <TextView android:textSize="11.0dp" android:textColor="#99ffffff" android:id="@id/ko6" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/ezy" android:layout_alignParentEnd="true" />
+            <LinearLayout android:orientation="horizontal" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_toStartOf="@id/ko6">
+                <TextView android:textSize="11.0dp" android:textColor="#99ffffff" android:layout_width="0.0dp" android:layout_height="wrap_content" android:text="@string/ezw" android:layout_weight="1.0" />
+                <TextView android:textSize="11.0dp" android:textColor="#99ffffff" android:layout_width="0.0dp" android:layout_height="wrap_content" android:text="@string/f00" android:layout_weight="1.0" />
+                <TextView android:textSize="11.0dp" android:textColor="#99ffffff" android:layout_width="0.0dp" android:layout_height="wrap_content" android:text="@string/ezx" android:layout_weight="1.0" />
+            </LinearLayout>
+        </RelativeLayout>
+    </LinearLayout>
+    <LinearLayout android:orientation="vertical" android:id="@id/nla" android:visibility="gone" android:layout_width="match_parent" android:layout_height="wrap_content" app:a26="@id/hvh">
+        <TextView android:textSize="13.0dp" android:textColor="#ffffff" android:id="@id/huo" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="20.0dp" android:text="@string/itu" android:layout_marginStart="20.0dp" />
+        <FrameLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginTop="10.0dp">
+            <com.tencent.qqmusic.business.partplay.PartPlayHorizontalBar android:layout_gravity="center_vertical" android:id="@id/hul" android:layout_width="match_parent" android:layout_height="12.0dp" />
+            <SeekBar android:layout_gravity="center_vertical" android:id="@id/hum" android:background="@null" android:paddingTop="5.0dp" android:paddingBottom="5.0dp" android:layout_width="match_parent" android:layout_height="wrap_content" android:maxHeight="5.0dp" android:minHeight="5.0dp" android:thumbOffset="0.0dp" android:paddingStart="20.0dp" android:paddingEnd="20.0dp" />
+        </FrameLayout>
+        <androidx.constraintlayout.widget.ConstraintLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginTop="6.0dp" android:layout_marginStart="20.0dp" android:layout_marginEnd="20.0dp">
+            <TextView android:textSize="11.0dp" android:textColor="#99ffffff" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/ezf" app:a1d="hnz" app:a23="hnz" app:a27="hnz" />
+            <TextView android:textSize="11.0dp" android:textColor="#99ffffff" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/ezh" app:a1d="hnz" app:a1j="hnz" app:a23="hnz" app:a27="hnz" />
+            <TextView android:textSize="11.0dp" android:textColor="#99ffffff" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/ezc" app:a1d="hnz" app:a1j="hnz" app:a27="hnz" />
+            <TextView android:textSize="11.0dp" android:textColor="#99ffffff" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/ezg" app:a1d="hnz" app:a1k="@id/nld" app:a23="hnz" app:a27="hnz" />
+            <TextView android:textSize="11.0dp" android:textColor="#99ffffff" android:id="@id/nld" android:visibility="invisible" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/ezh" app:a1d="hnz" app:a1j="hnz" app:a23="hnz" app:a27="hnz" />
+            <TextView android:textSize="11.0dp" android:textColor="#99ffffff" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/ezd" app:a1d="hnz" app:a1j="hnz" app:a22="@id/nld" app:a27="hnz" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
+        <androidx.constraintlayout.widget.ConstraintLayout android:layout_gravity="center_horizontal" android:id="@id/j51" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="16.0dp" android:layout_marginBottom="8.0dp">
+            <ImageView android:id="@id/j50" android:layout_width="16.0dp" android:layout_height="16.0dp" android:src="@drawable/vocal_accom_advance_setting_reset" app:a1d="hnz" app:a23="hnz" app:a27="hnz" app:apx="#80ffffff" />
+            <TextView android:textSize="12.0dp" android:textColor="#ffffff" android:id="@id/j52" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/itz" app:a1d="hnz" app:a22="@id/j50" app:a27="hnz" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </LinearLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>

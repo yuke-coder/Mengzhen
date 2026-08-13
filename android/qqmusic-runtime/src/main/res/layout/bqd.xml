@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout android:id="@id/module_musichall_main_layout" android:layout_width="wrap_content" android:layout_height="wrap_content"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <com.tencent.component.widget.AsyncEffectImageView android:id="@id/gga" android:layout_width="226.0dp" android:layout_height="130.0dp" android:importantForAccessibility="no" />
+    <RelativeLayout android:id="@id/gkr" android:background="@color/black" android:layout_width="226.0dp" android:layout_height="130.0dp">
+        <FrameLayout android:id="@id/gge" android:layout_width="match_parent" android:layout_height="match_parent" android:layout_centerInParent="true" android:importantForAccessibility="no" />
+    </RelativeLayout>
+    <TextView android:textSize="10.0dp" android:textColor="@android:color/white" android:gravity="left" android:layout_gravity="center_vertical" android:id="@id/gea" android:paddingLeft="8.0dp" android:paddingBottom="5.5dp" android:layout_width="60.0dp" android:layout_height="wrap_content" android:layout_alignLeft="@id/gga" android:layout_alignBottom="@id/gga" android:importantForAccessibility="no" />
+    <LinearLayout android:gravity="center_vertical" android:orientation="horizontal" android:id="@id/gdz" android:paddingLeft="3.0dp" android:paddingRight="8.0dp" android:paddingBottom="5.0dp" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_alignRight="@id/gga" android:layout_alignBottom="@id/gga">
+        <ImageView android:layout_gravity="center_vertical" android:layout_width="16.0dp" android:layout_height="15.0dp" android:layout_marginRight="3.0dp" android:src="@drawable/module_musichall_card_video" android:scaleType="centerInside" android:importantForAccessibility="no" />
+        <TextView android:textSize="10.0dp" android:textColor="@android:color/white" android:gravity="center" android:layout_gravity="center_vertical" android:id="@id/ge0" android:paddingBottom="0.5dp" android:layout_width="wrap_content" android:layout_height="wrap_content" android:importantForAccessibility="no" />
+    </LinearLayout>
+    <com.tencent.qqmusic.modular.framework.ui.text.SimpleTextView android:id="@id/gkb" android:layout_width="0.0dp" android:layout_height="60.0dp" android:layout_marginTop="5.0dp" android:layout_below="@id/gga" android:layout_alignLeft="@id/gga" android:layout_alignRight="@id/gga" android:importantForAccessibility="no" android:layout_alignStart="@id/gga" android:layout_alignEnd="@id/gga" />
+    <com.tencent.qqmusic.modular.framework.ui.text.SimpleTextView android:id="@id/gjp" android:layout_width="0.0dp" android:layout_height="60.0dp" android:layout_below="@id/gkb" android:layout_alignLeft="@id/gga" android:layout_alignRight="@id/gga" android:importantForAccessibility="no" android:layout_alignStart="@id/gga" android:layout_alignEnd="@id/gga" />
+</RelativeLayout>

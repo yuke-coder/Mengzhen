@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.tencent.qqmusic.business.playercommon.normalplayer.ui.PlayerConstraintLayout android:id="@id/i5r" android:background="@color/black" android:clipChildren="false" android:layout_width="match_parent" android:layout_height="match_parent"
+  xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">
+    <com.airbnb.lottie.LottieAnimationView android:id="@id/fi3" android:visibility="gone" android:layout_width="50.0dp" android:layout_height="50.0dp" app:a1d="hnz" app:a1j="hnz" app:a23="hnz" app:a27="hnz" app:a4n="true" />
+    <com.scwang.smartrefresh.layout.SmartRefreshLayout android:id="@id/j3l" android:layout_width="match_parent" android:layout_height="match_parent" app:a1j="hnz" app:a23="hnz" app:a27="hnz">
+        <com.tencent.qqmusic.business.playernew.view.playersong.playerradio.NestedScrollingRecycleView android:id="@id/j33" android:layout_width="match_parent" android:layout_height="match_parent" app:a1j="hnz" app:a23="hnz" app:a27="hnz" />
+    </com.scwang.smartrefresh.layout.SmartRefreshLayout>
+</com.tencent.qqmusic.business.playercommon.normalplayer.ui.PlayerConstraintLayout>

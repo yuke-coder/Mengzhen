@@ -1,0 +1,3 @@
+<?xml version="1.0" encoding="utf-8"?>
+<kk.design.compose.KKMultiLineEditText android:id="@id/eon" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginLeft="@dimen/a6v" android:layout_marginRight="@dimen/a6v"
+  xmlns:android="http://schemas.android.com/apk/res/android" />

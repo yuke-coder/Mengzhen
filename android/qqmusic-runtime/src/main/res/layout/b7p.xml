@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout android:id="@id/hx5" android:layout_width="match_parent" android:layout_height="wrap_content"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <ImageView android:id="@id/jrv" android:layout_width="20.0dp" android:layout_height="20.0dp" android:layout_marginRight="22.0dp" android:src="@drawable/player_lyric_selection_page_selected" android:layout_alignParentRight="true" android:layout_centerVertical="true" android:alpha="0.6" />
+    <TextView android:textSize="@dimen/bgi" android:textColor="@color/player_lyric_selection_page_text_color" android:ellipsize="end" android:gravity="center_vertical" android:id="@id/fyp" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginLeft="24.0dp" android:layout_marginTop="@dimen/bj8" android:layout_marginRight="10.0dp" android:layout_marginBottom="@dimen/bj8" android:layout_toLeftOf="@id/jrv" android:layout_alignParentLeft="true" android:layout_centerVertical="true" />
+</RelativeLayout>

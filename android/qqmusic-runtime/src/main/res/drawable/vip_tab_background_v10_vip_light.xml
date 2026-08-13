@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layer-list
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <item android:id="@id/nhd">
+        <bitmap android:src="@drawable/main_bg" />
+    </item>
+    <item android:gravity="fill_horizontal|top" android:id="@id/nhe">
+        <bitmap android:src="@drawable/vip_tab_mask_v10_vip_light" />
+    </item>
+</layer-list>

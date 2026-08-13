@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout android:orientation="horizontal" android:background="@drawable/skin_floor_img" android:layout_width="match_parent" android:layout_height="64.5dp"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <View android:background="#08000000" android:layout_width="match_parent" android:layout_height="1.0dp" />
+    <LinearLayout android:gravity="center" android:orientation="horizontal" android:id="@id/f_z" android:layout_width="wrap_content" android:layout_height="match_parent">
+        <TextView android:textSize="17.0sp" android:textColor="@color/skin_text_main_color" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/cab" android:layout_marginStart="19.0dp" />
+        <TextView android:textSize="17.0sp" android:textColor="@color/skin_highlight_color" android:gravity="center_vertical" android:id="@id/f_y" android:layout_width="wrap_content" android:layout_height="match_parent" />
+        <TextView android:textSize="17.0sp" android:textColor="@color/skin_text_main_color" android:gravity="center_vertical" android:layout_width="wrap_content" android:layout_height="match_parent" android:text="@string/cac" />
+        <ImageView android:id="@id/f5v" android:visibility="gone" android:layout_width="20.0dp" android:layout_height="20.0dp" android:src="@drawable/ic_live_arrow_right" />
+    </LinearLayout>
+    <Button android:textSize="16.0sp" android:textColor="@color/white" android:gravity="center" android:id="@id/mzk" android:background="@drawable/bg_live_button_new_enabled" android:paddingLeft="32.0dp" android:paddingRight="32.0dp" android:visibility="gone" android:layout_width="wrap_content" android:layout_height="35.0dp" android:text="@string/bzq" android:layout_centerVertical="true" android:layout_marginStart="14.0dp" />
+    <Button android:textSize="16.0sp" android:textColor="@color/white" android:gravity="center" android:id="@id/kvs" android:background="@drawable/bg_live_button_new_enabled" android:paddingLeft="32.0dp" android:paddingRight="32.0dp" android:layout_width="wrap_content" android:layout_height="35.0dp" android:text="@string/cbd" android:layout_centerVertical="true" android:layout_marginEnd="14.0dp" android:layout_alignParentEnd="true" />
+</RelativeLayout>

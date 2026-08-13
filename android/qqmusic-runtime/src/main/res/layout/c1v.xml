@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout android:orientation="vertical" android:paddingTop="2.0dp" android:paddingRight="8.0dp" android:paddingBottom="2.0dp" android:layout_width="wrap_content" android:layout_height="wrap_content" android:paddingEnd="8.0dp"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <LinearLayout android:orientation="horizontal" android:id="@id/f2r" android:paddingTop="6.0dp" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginLeft="@dimen/baq" android:layout_marginStart="@dimen/baq">
+        <TextView android:textAppearance="@style/sl" android:ellipsize="marquee" android:id="@id/ldr" android:fadingEdge="horizontal" android:layout_width="match_parent" android:layout_height="wrap_content" android:singleLine="true" android:layout_weight="1.0" />
+        <DateTimeView android:textAppearance="@style/sj" android:layout_gravity="center" android:id="@id/lcg" android:paddingLeft="8.0dp" android:visibility="gone" android:layout_width="wrap_content" android:layout_height="wrap_content" android:singleLine="true" android:layout_weight="0.0" android:paddingStart="8.0dp" />
+        <Chronometer android:textAppearance="@style/sj" android:layout_gravity="center" android:id="@id/az5" android:paddingLeft="8.0dp" android:visibility="gone" android:layout_width="wrap_content" android:layout_height="wrap_content" android:singleLine="true" android:layout_weight="0.0" android:paddingStart="8.0dp" />
+    </LinearLayout>
+    <TextView android:textAppearance="@style/sg" android:ellipsize="marquee" android:id="@id/l8e" android:visibility="gone" android:fadingEdge="horizontal" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginLeft="@dimen/baq" android:layout_marginTop="-2.0dp" android:layout_marginBottom="-2.0dp" android:singleLine="true" android:layout_marginStart="@dimen/baq" />
+    <LinearLayout android:gravity="center_vertical" android:orientation="horizontal" android:id="@id/f2t" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginLeft="@dimen/baq" android:layout_marginStart="@dimen/baq">
+        <TextView android:textAppearance="@style/sh" android:ellipsize="marquee" android:layout_gravity="center" android:id="@id/l8d" android:fadingEdge="horizontal" android:layout_width="0.0dp" android:layout_height="wrap_content" android:singleLine="true" android:layout_weight="1.0" />
+        <TextView android:textAppearance="@style/se" android:gravity="center" android:layout_gravity="center" android:id="@id/dvk" android:paddingLeft="8.0dp" android:layout_width="wrap_content" android:layout_height="wrap_content" android:singleLine="true" android:layout_weight="0.0" android:paddingStart="8.0dp" />
+    </LinearLayout>
+</LinearLayout>

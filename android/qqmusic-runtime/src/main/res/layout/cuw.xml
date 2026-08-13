@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.tencent.qqmusic.business.videotab.covers.NoTouchConstraintLayout android:id="@id/n72" android:background="@drawable/bg_video_tab_collection_50_opacity_percent" android:clipToPadding="false" android:layout_width="match_parent" android:layout_height="35.0dp"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <androidx.recyclerview.widget.RecyclerView android:id="@id/jft" android:clickable="false" android:clipToPadding="false" android:layout_width="match_parent" android:layout_height="match_parent" android:overScrollMode="never" android:importantForAccessibility="no" />
+</com.tencent.qqmusic.business.videotab.covers.NoTouchConstraintLayout>

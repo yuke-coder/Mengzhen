@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout android:layout_gravity="center|top" android:clipChildren="false" android:layout_width="wrap_content" android:layout_height="wrap_content" android:maxHeight="@dimen/bi1"
+  xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">
+    <androidx.constraintlayout.widget.ConstraintLayout android:id="@id/b_v" android:background="@drawable/bg_player_top_guide_light" android:clipToPadding="false" android:layout_width="match_parent" android:layout_height="30.0dp">
+        <com.tencent.qqmusic.ui.RoundedConstraintLayout android:id="@id/drm" android:layout_width="35.0dp" android:layout_height="35.0dp" app:kh="true" app:ki="ezp" app:kj="15.0dp" app:a1d="hnz" app:a1x="hnz">
+            <com.tencent.component.widget.AsyncEffectImageView android:id="@id/dos" android:layout_width="35.0dp" android:layout_height="35.0dp" android:scaleType="centerCrop" app:a1d="hnz" app:a1x="hnz" />
+        </com.tencent.qqmusic.ui.RoundedConstraintLayout>
+        <com.tencent.qqmusic.ui.customview.textview.ScrollTextView android:textSize="12.0dp" android:textColor="@color/skin_text_mid_color" android:ellipsize="marquee" android:id="@id/mrg" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginLeft="5.0dp" android:layout_marginRight="20.0dp" android:maxLines="1" app:a18="true" app:a1d="hnz" app:a1t="0.0" app:a1u="hmg" app:a1y="@id/drm" app:a20="@id/kzt" app:a27="hnz" app:a2b="nug" />
+        <androidx.appcompat.widget.AppCompatTextView android:textSize="12.0dp" android:textColor="@color/skin_text_main_color" android:ellipsize="end" android:id="@id/kzt" android:layout_width="wrap_content" android:layout_height="wrap_content" android:maxLines="1" app:a1d="hnz" app:a20="@id/b3j" app:a27="hnz" />
+        <ImageView android:id="@id/b3j" android:layout_width="20.0dp" android:layout_height="20.0dp" android:layout_marginRight="7.0dp" android:src="@drawable/ai_listen_companion_guide_close_icon" app:a1d="hnz" app:a21="hnz" app:a27="hnz" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</FrameLayout>

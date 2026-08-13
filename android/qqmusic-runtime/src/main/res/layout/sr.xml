@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout android:layout_width="match_parent" android:layout_height="@dimen/c_2" android:layout_marginBottom="@dimen/c9d"
+  xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">
+    <RelativeLayout android:id="@id/ceh" android:background="@color/timeline_song_background_dark_theme" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_centerHorizontal="true">
+        <com.tencent.qqmusic.ui.RoundedRelativeLayout android:id="@id/ce3" android:layout_width="@dimen/c_2" android:layout_height="@dimen/c_2" android:layout_centerVertical="true" app:adm="fwy|ezp" app:ado="@dimen/kx">
+            <com.tencent.component.widget.AsyncEffectImageView android:id="@id/ce2" android:layout_width="match_parent" android:layout_height="match_parent" android:src="@drawable/putoo_feed_mask_bg" android:scaleType="fitXY" />
+            <RelativeLayout android:id="@id/ce9" android:layout_width="30.0dp" android:layout_height="30.0dp" android:layout_centerInParent="true" />
+            <ImageView android:id="@id/cea" android:layout_width="24.0dp" android:layout_height="24.0dp" android:src="@drawable/putoo_feed_play" android:scaleType="fitXY" android:layout_centerInParent="true" />
+        </com.tencent.qqmusic.ui.RoundedRelativeLayout>
+        <ImageView android:id="@id/k_z" android:visibility="invisible" android:layout_width="5.5999756dp" android:layout_height="match_parent" android:src="@drawable/cell_post_square_magic" android:layout_toRightOf="@id/ce3" android:layout_centerVertical="true" />
+        <LinearLayout android:orientation="vertical" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginLeft="@dimen/c_4" android:layout_marginRight="@dimen/c9c" android:layout_toRightOf="@id/jds" android:layout_centerVertical="true">
+            <LinearLayout android:gravity="center_vertical" android:orientation="horizontal" android:layout_width="match_parent" android:layout_height="wrap_content">
+                <TextView android:textSize="@dimen/c9x" android:textColor="@color/skin_floor_color" android:ellipsize="end" android:gravity="center" android:id="@id/did" android:background="@drawable/rounded_shape_black" android:paddingLeft="2.0dp" android:paddingRight="2.0dp" android:visibility="visible" android:layout_width="wrap_content" android:layout_height="14.0dp" android:layout_marginTop="1.0dp" android:text="有声节目" android:maxLength="10" />
+                <TextView android:textSize="@dimen/c_0" android:textColor="@color/skin_text_main_color" android:ellipsize="end" android:id="@id/cee" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginLeft="@dimen/c9z" android:maxWidth="173.0dp" android:text="123" android:maxLines="1" />
+            </LinearLayout>
+            <LinearLayout android:orientation="horizontal" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginTop="@dimen/c9y">
+                <TextView android:textSize="@dimen/c9s" android:textColor="@color/skin_text_sub_color" android:ellipsize="end" android:id="@id/ce1" android:layout_width="wrap_content" android:layout_height="wrap_content" android:maxLines="1" />
+                <TextView android:textSize="@dimen/c9s" android:textColor="@color/skin_text_sub_color" android:id="@id/b5s" android:visibility="gone" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="，" />
+                <TextView android:textSize="@dimen/c9s" android:textColor="@color/skin_text_sub_color" android:id="@id/ce_" android:layout_width="wrap_content" android:layout_height="wrap_content" android:maxLines="1" />
+            </LinearLayout>
+        </LinearLayout>
+    </RelativeLayout>
+    <ImageView android:id="@id/bmp" android:background="@drawable/feed_cell_post_delete_bg" android:visibility="gone" android:layout_width="20.0dp" android:layout_height="20.0dp" android:src="@drawable/cell_post_delete" android:layout_alignParentRight="true" />
+</RelativeLayout>

@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout android:id="@id/kg4" android:layout_width="wrap_content" android:layout_height="match_parent" android:paddingEnd="10.0dp"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <LinearLayout android:gravity="center_vertical" android:orientation="horizontal" android:id="@id/kg5" android:background="@drawable/song_or_folder_filter_item_bg" android:paddingTop="5.5dp" android:paddingBottom="5.5dp" android:layout_width="wrap_content" android:layout_height="match_parent" android:paddingStart="12.0dp" android:paddingEnd="12.0dp" android:layout_alignParentStart="true">
+        <TextView android:textSize="13.0sp" android:textColor="@color/skin_text_main_color" android:ellipsize="end" android:id="@id/kg6" android:layout_width="wrap_content" android:layout_height="wrap_content" android:maxLines="1" android:includeFontPadding="false" />
+        <ImageView android:id="@id/kg3" android:padding="5.0dp" android:visibility="gone" android:layout_width="17.5dp" android:layout_height="17.5dp" android:src="@drawable/icon_song_folder_filter_selected_close" android:scaleType="centerInside" android:contentDescription="@string/a7j" />
+    </LinearLayout>
+</RelativeLayout>

@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout android:id="@id/mlive_layout_midi_module_link_panel" android:visibility="gone" android:clipChildren="false" android:layout_width="match_parent" android:layout_height="wrap_content"
+  xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">
+    <com.tme.audio.score.ui.KSNoteMIDIView android:id="@id/mlive_midi_score_combine_mv" android:clipChildren="false" android:layout_width="match_parent" android:layout_height="@dimen/ars" android:layout_marginTop="21.0dp" app:a1j="hnz" app:a23="hnz" app:a27="hnz" />
+    <TextView android:textSize="11.0sp" android:textColor="@color/white_60_transparent" android:gravity="center" android:id="@id/mlive_song_midi_score_link_label_tv" android:background="@drawable/mlive_song_midi_score_preview_bg" android:layout_width="wrap_content" android:layout_height="18.0dp" android:layout_marginTop="8.0dp" android:minWidth="50.0dp" android:text="0分" android:paddingStart="10.0dp" android:paddingEnd="10.0dp" app:a23="hnz" app:a26="@id/mlive_midi_score_combine_mv" />
+    <include android:id="@id/mlive_song_midi_score_link_result" android:visibility="gone" android:layout_width="0.0dp" android:layout_height="wrap_content" android:layout_marginTop="20.0dp" app:a1d="hnz" app:a1j="hnz" app:a23="hnz" app:a27="hnz" layout="@layout/blo" />
+</androidx.constraintlayout.widget.ConstraintLayout>

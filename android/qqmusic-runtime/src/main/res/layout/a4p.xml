@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout android:id="@id/b_d" android:background="@drawable/main_bg" android:layout_width="match_parent" android:layout_height="match_parent"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <include android:id="@id/ig7" android:layout_width="match_parent" android:layout_height="@dimen/cau" layout="@layout/mu" />
+    <com.tencent.qqmusic.business.timeline.ui.RefreshableRecyclerView android:id="@id/igr" android:layout_width="match_parent" android:layout_height="match_parent" android:layout_below="@id/ig7" android:overScrollMode="never" />
+    <include android:id="@id/igj" android:layout_width="match_parent" android:layout_height="match_parent" android:layout_centerHorizontal="true" android:layout_centerVertical="true" layout="@layout/mj" />
+    <ViewStub android:id="@id/b7q" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_below="@id/ig7" android:layout_alignWithParentIfMissing="true" />
+</RelativeLayout>

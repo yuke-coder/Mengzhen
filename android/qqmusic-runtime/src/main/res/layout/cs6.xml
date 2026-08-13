@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout android:focusable="true" android:clickable="true" android:layout_width="wrap_content" android:layout_height="wrap_content"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <RelativeLayout android:gravity="center" android:id="@id/ldf" android:background="@drawable/toast_download_mv_background" android:paddingLeft="@dimen/c_y" android:paddingTop="@dimen/ca0" android:paddingRight="@dimen/c_y" android:paddingBottom="@dimen/ca0" android:layout_width="wrap_content" android:layout_height="wrap_content" android:minWidth="120.0dp" android:minHeight="63.0dp" android:layout_centerInParent="true" android:alpha="0.75">
+        <RelativeLayout android:id="@id/lz_" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginBottom="15.0dp" android:layout_centerHorizontal="true">
+            <ImageView android:id="@id/fii" android:background="@drawable/toast_download_mv_ok" android:layout_width="32.0dp" android:layout_height="32.0dp" android:contentDescription="@string/app_name" />
+            <ProgressBar android:id="@id/fie" android:visibility="gone" android:layout_width="32.0dp" android:layout_height="32.0dp" android:indeterminate="true" android:indeterminateOnly="true" android:indeterminateDrawable="@drawable/loading_indicator" android:indeterminateDuration="1000" />
+        </RelativeLayout>
+        <com.tencent.qqmusic.business.live.ui.view.AvoidLastLineSingleCharTextView android:textSize="@dimen/b6y" android:textColor="@color/mv_toast_text_color" android:gravity="center" android:id="@id/fis" android:layout_width="wrap_content" android:layout_height="wrap_content" android:shadowColor="@color/black" android:shadowDx="2.0" android:shadowDy="2.0" android:layout_below="@id/lz_" android:layout_centerHorizontal="true" />
+        <TextView android:id="@id/a6d" android:visibility="gone" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="15.0dp" android:layout_below="@id/fis" android:layout_centerHorizontal="true" />
+    </RelativeLayout>
+</RelativeLayout>

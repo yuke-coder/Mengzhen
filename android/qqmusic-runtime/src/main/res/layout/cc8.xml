@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout android:orientation="vertical" android:id="@id/ikc" android:layout_width="106.5dp" android:layout_height="wrap_content" android:layout_marginRight="@dimen/bmo"
+  xmlns:app="http://schemas.android.com/apk/res-auto" xmlns:android="http://schemas.android.com/apk/res/android">
+    <androidx.constraintlayout.widget.ConstraintLayout android:layout_width="match_parent" android:layout_height="117.0dp" app:a1x="hnz" app:a21="hnz" app:a27="hnz">
+        <View android:id="@id/a5z" android:background="@drawable/mixarea_putoomall_album_bg" android:layout_width="match_parent" android:layout_height="0.0dp" app:a1d="hnz" app:a1x="hnz" app:a21="hnz" app:a27="hnz" />
+        <ImageView android:id="@id/drw" android:background="@drawable/mixarea_album_bg" android:layout_width="0.0dp" android:layout_height="0.0dp" android:layout_marginTop="2.5dp" app:a1i="1.05:1" app:a1x="hnz" app:a21="hnz" app:a27="hnz" app:a2e="0.97" />
+        <ImageView android:background="@drawable/mixarea_putoomall_album" android:layout_width="0.0dp" android:layout_height="0.0dp" app:a1d="hnz" app:a1i="1:1" app:a1t="0.71" app:a1x="hnz" app:a21="hnz" app:a27="hnz" app:a28="0.31" app:a2e="0.601" />
+        <com.tencent.component.widget.AsyncEffectImageView android:id="@id/dru" android:layout_width="0.0dp" android:layout_height="0.0dp" android:src="@drawable/default_folder_mid" android:scaleType="centerCrop" app:a1d="hnz" app:a1i="1:1" app:a1t="0.34" app:a1x="hnz" app:a21="hnz" app:a27="hnz" app:a28="0.29" app:a2e="0.657" />
+        <TextView android:textSize="10.5sp" android:textStyle="bold" android:textColor="@color/skin_text_main_color" android:ellipsize="end" android:id="@id/g_a" android:layout_width="0.0dp" android:layout_height="wrap_content" android:layout_marginTop="9.0dp" android:maxLines="1" android:singleLine="true" android:importantForAccessibility="no" android:fontFamily="PingFangSC-Semibold" app:a1x="hnz" app:a21="hnz" app:a26="@id/dru" app:a2e="0.8" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+    <LinearLayout android:orientation="horizontal" android:id="@id/k1w" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="8.0dp">
+        <FrameLayout android:id="@id/ik9" android:layout_width="wrap_content" android:layout_height="wrap_content">
+            <com.tencent.component.widget.AsyncEffectImageView android:id="@id/ik_" android:layout_width="@dimen/bmn" android:layout_height="@dimen/bmn" app:a1x="hnz" app:a27="hnz" />
+            <com.tencent.qqmusic.business.recommend.view.MultiAvatarsView android:gravity="center" android:id="@id/ikb" android:visibility="gone" android:layout_width="wrap_content" android:layout_height="@dimen/bmn" app:a1x="hnz" app:a27="hnz" />
+            <com.tencent.component.widget.AsyncEffectImageView android:layout_gravity="right|bottom" android:id="@id/ika" android:visibility="gone" android:layout_width="10.0dp" android:layout_height="10.0dp" android:scaleType="centerCrop" />
+        </FrameLayout>
+        <TextView android:textSize="12.5sp" android:textColor="@color/skin_text_main_color" android:ellipsize="end" android:layout_gravity="center_vertical" android:id="@id/g__" android:layout_width="0.0dp" android:layout_height="wrap_content" android:layout_marginLeft="5.0dp" android:maxLines="1" android:layout_weight="1.0" android:fontFamily="PingFangSC-Regular" />
+    </LinearLayout>
+</LinearLayout>

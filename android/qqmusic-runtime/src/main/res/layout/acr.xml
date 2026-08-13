@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout android:id="@id/exc" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginBottom="15.0dp"
+  xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">
+    <com.tencent.qqmusic.ui.RoundedRelativeLayout android:id="@id/etw" android:layout_width="58.0dp" android:layout_height="58.0dp" app:a1d="hnz" app:a23="hnz" app:a27="hnz" app:ado="5.0dp">
+        <com.tencent.component.widget.AsyncImageView android:id="@id/ebt" android:layout_width="match_parent" android:layout_height="match_parent" android:scaleType="centerCrop" />
+        <ImageView android:id="@id/ehr" android:layout_width="20.0dp" android:layout_height="20.0dp" android:src="@drawable/ic_clip_pause" android:layout_centerInParent="true" />
+    </com.tencent.qqmusic.ui.RoundedRelativeLayout>
+    <TextView android:textSize="14.0sp" android:textColor="@color/black_90_opacity" android:ellipsize="end" android:id="@id/mmc" android:layout_width="0.0dp" android:layout_height="wrap_content" android:maxLines="1" android:fontFamily="sans-serif-light" android:layout_marginStart="16.0dp" app:a1e="@id/mlr" app:a1k="@id/eyr" app:a22="@id/etw" app:a27="@id/etw" />
+    <TextView android:textSize="12.0sp" android:textColor="@color/black_50_opacity" android:ellipsize="end" android:id="@id/mlr" android:layout_width="0.0dp" android:layout_height="wrap_content" android:maxLines="1" app:a1d="@id/etw" app:a1k="@id/eyr" app:a23="@id/mmc" app:a26="@id/mmc" />
+    <FrameLayout android:id="@id/eyr" android:layout_width="56.0dp" android:layout_height="30.0dp" android:layout_marginEnd="@dimen/o1" app:a1d="hnz" app:a1j="hnz" app:a27="hnz">
+        <com.airbnb.lottie.LottieAnimationView android:layout_gravity="center" android:id="@id/fum" android:visibility="invisible" android:layout_width="30.0dp" android:layout_height="30.0dp" app:a4n="true" app:a4u="true" />
+        <ImageView android:layout_gravity="center" android:id="@id/ech" android:padding="10.0dp" android:visibility="invisible" android:layout_width="50.0dp" android:layout_height="50.0dp" android:src="@drawable/ic_clip_download" />
+        <Button android:textSize="14.0sp" android:textColor="@color/black" android:layout_gravity="center" android:id="@id/al3" android:background="@drawable/border_clip_use" android:visibility="invisible" android:layout_width="56.0dp" android:layout_height="30.0dp" android:text="@string/ghi" />
+    </FrameLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>

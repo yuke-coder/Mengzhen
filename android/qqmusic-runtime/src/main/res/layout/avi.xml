@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout android:gravity="center_vertical" android:orientation="horizontal" android:id="@id/evm" android:background="#373b3d" android:paddingLeft="12.0dp" android:paddingTop="7.0dp" android:paddingRight="12.0dp" android:paddingBottom="7.0dp" android:visibility="gone" android:layout_width="match_parent" android:layout_height="45.0dp"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <EditText android:textSize="16.0sp" android:textColor="@color/white" android:textColorHint="#80ffffff" android:id="@id/f_3" android:background="@drawable/search_item_bg" android:paddingLeft="10.0dp" android:paddingRight="10.0dp" android:layout_width="0.0dp" android:layout_height="match_parent" android:hint="@string/c9q" android:layout_weight="1.0" />
+    <ImageView android:id="@id/f_8" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginLeft="10.0dp" android:src="@drawable/live_horn_close" android:contentDescription="@string/c5f" android:layout_marginStart="10.0dp" />
+    <TextView android:textSize="16.0sp" android:textColor="@color/white" android:gravity="center" android:id="@id/f_7" android:layout_width="50.0dp" android:layout_height="match_parent" android:text="@string/buz" />
+</LinearLayout>

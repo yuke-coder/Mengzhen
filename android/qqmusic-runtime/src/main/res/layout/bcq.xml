@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout android:orientation="vertical" android:background="@drawable/mlive_anchor_wish_list_gift_set_dialog_bg" android:layout_width="match_parent" android:layout_height="wrap_content"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <androidx.appcompat.widget.AppCompatTextView android:textSize="16.0dp" android:textColor="@color/white" android:gravity="center_vertical" android:layout_width="match_parent" android:layout_height="54.0dp" android:text="@string/cvh" android:includeFontPadding="false" android:paddingStart="20.0dp" />
+    <View android:background="@color/white_10_transparent" android:layout_width="match_parent" android:layout_height="0.5dp" />
+    <androidx.recyclerview.widget.RecyclerView android:id="@id/mlive_gift_selection_rv" android:layout_width="match_parent" android:layout_height="200.0dp" android:layout_marginTop="5.0dp" />
+    <androidx.recyclerview.widget.RecyclerView android:id="@id/mlive_gift_num_selection_rv" android:background="@drawable/mlive_anchor_wish_list_gift_select_num_bg" android:layout_width="match_parent" android:layout_height="28.0dp" android:layout_marginTop="5.0dp" android:layout_marginStart="@dimen/rr" android:layout_marginEnd="@dimen/rr" />
+    <androidx.appcompat.widget.AppCompatTextView android:textSize="16.0dp" android:textStyle="bold" android:textColor="@color/white" android:gravity="center" android:layout_gravity="center" android:id="@id/mlive_gift_selection_confirm" android:background="@drawable/mlive_gift_selection_btn_bg" android:paddingLeft="15.0dp" android:paddingRight="15.0dp" android:layout_width="175.0dp" android:layout_height="32.0dp" android:layout_marginTop="10.0dp" android:layout_marginBottom="@dimen/anu" android:text="@string/d1i" android:paddingHorizontal="15.0dp" />
+</LinearLayout>

@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout android:background="@color/white" android:paddingTop="100.0dp" android:paddingBottom="10.0dp" android:layout_width="match_parent" android:layout_height="match_parent" android:paddingStart="10.0dp" android:paddingEnd="10.0dp"
+  xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">
+    <ScrollView android:orientation="vertical" android:layout_width="match_parent" android:layout_height="match_parent">
+        <androidx.constraintlayout.widget.ConstraintLayout android:paddingBottom="40.0dp" android:layout_width="match_parent" android:layout_height="wrap_content">
+            <EditText android:layout_gravity="center_horizontal" android:id="@id/c_i" android:layout_width="200.0dp" android:layout_height="wrap_content" android:hint="输入 server 的 ip" app:a23="hnz" app:a27="hnz" />
+            <EditText android:layout_gravity="center_horizontal" android:id="@id/c_l" android:layout_width="200.0dp" android:layout_height="wrap_content" android:layout_marginTop="5.0dp" android:hint="输入 server 的 port" app:a23="hnz" app:a26="@id/c_i" />
+            <Button android:layout_gravity="center_horizontal" android:id="@id/ais" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="连接QPlay设备" android:layout_marginStart="10.0dp" app:a1d="@id/c_l" app:a22="@id/c_l" app:a27="@id/c_l" />
+            <Button android:layout_gravity="center_horizontal" android:id="@id/al0" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="30.0dp" android:text="切换到ogg模式" app:a23="hnz" app:a26="@id/c_l" />
+            <Button android:layout_gravity="center_horizontal" android:id="@id/akz" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="切换到FLAC模式" android:layout_marginStart="10.0dp" app:a1d="@id/al0" app:a22="@id/al0" app:a27="@id/al0" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </ScrollView>
+</androidx.constraintlayout.widget.ConstraintLayout>

@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout android:id="@id/fw9" android:layout_width="match_parent" android:layout_height="match_parent"
+  xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">
+    <View android:id="@id/d5d" android:layout_width="match_parent" android:layout_height="0.0dp" app:a1i="15:1" app:a27="hnz" />
+    <FrameLayout android:id="@id/fw8" android:layout_width="0.0dp" android:layout_height="wrap_content" app:a1d="hnz" app:a1j="hnz" app:a23="hnz" app:a26="@id/d5d" app:a2b="hq1" app:a2e="0.8">
+        <androidx.constraintlayout.widget.ConstraintLayout android:layout_gravity="top" android:layout_width="match_parent" android:layout_height="wrap_content">
+            <View android:layout_width="match_parent" android:layout_height="0.0dp" app:a1d="hnz" app:a1i="9:16" app:a1j="hnz" app:a23="hnz" app:a27="hnz" />
+            <com.tencent.component.widget.AsyncEffectImageView android:layout_gravity="center" android:id="@id/fwg" android:layout_width="0.0dp" android:layout_height="0.0dp" android:scaleType="center" app:a1d="hnz" app:a1j="hnz" app:a23="hnz" app:a27="hnz" />
+            <ImageView android:layout_gravity="center" android:id="@id/fv4" android:layout_width="0.0dp" android:layout_height="0.0dp" android:src="@color/black" app:a1d="hnz" app:a1j="hnz" app:a23="hnz" app:a27="hnz" />
+            <com.tencent.component.widget.AsyncEffectImageView android:layout_gravity="center" android:id="@id/fwh" android:visibility="gone" android:layout_width="0.0dp" android:layout_height="0.0dp" android:scaleType="center" app:a1d="hnz" app:a1j="hnz" app:a23="hnz" app:a27="hnz" />
+            <com.tencent.qqmusic.lyricposter.view.StyleTextView android:id="@id/fwf" android:layout_width="0.0dp" android:layout_height="0.0dp" app:a1d="hnz" app:a1j="hnz" app:a23="hnz" app:a27="hnz" />
+            <androidx.constraintlayout.widget.ConstraintLayout android:layout_width="match_parent" android:layout_height="wrap_content" app:a1d="hnz" app:a1j="hnz" app:a23="hnz">
+                <androidx.constraintlayout.widget.Guideline android:orientation="vertical" android:id="@id/d74" android:layout_width="wrap_content" android:layout_height="wrap_content" app:a1n="0.1" />
+                <androidx.constraintlayout.widget.Guideline android:orientation="vertical" android:id="@id/d78" android:layout_width="wrap_content" android:layout_height="wrap_content" app:a1n="0.9" />
+                <include android:id="@id/fv8" android:layout_width="0.0dp" android:layout_height="wrap_content" app:a1e="@id/d70" app:a1j="@id/d78" app:a23="@id/d74" layout="@layout/cx4" />
+                <View android:id="@id/d70" android:layout_width="match_parent" android:layout_height="0.0dp" app:a1d="hnz" app:a1i="16.5:1" />
+            </androidx.constraintlayout.widget.ConstraintLayout>
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </FrameLayout>
+    <com.tencent.qqmusic.lyricposter.view.LPAlphaSeekBar android:id="@id/fv3" android:visibility="gone" android:layout_width="30.0dp" android:layout_height="70.0dp" android:layout_marginTop="20.0dp" android:layout_marginRight="5.0dp" app:a1j="@id/fw8" app:a27="@id/fw8" />
+    <LinearLayout android:gravity="center" android:orientation="vertical" android:id="@id/fv2" android:background="@color/lyric_poster_guide_back" android:visibility="gone" android:layout_width="0.0dp" android:layout_height="0.0dp" app:a1d="@id/fw8" app:a1x="@id/fw8" app:a21="@id/fw8" app:a27="@id/fw8">
+        <ImageView android:layout_width="wrap_content" android:layout_height="wrap_content" android:src="@drawable/lyric_poster_control_guide_up" android:contentDescription="@string/aax" />
+        <ImageView android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="40.0dp" android:src="@drawable/lyric_poster_control_guide_down" android:contentDescription="@string/aax" />
+    </LinearLayout>
+    <TextView android:textColor="@color/white" android:gravity="center" android:layout_gravity="center_horizontal" android:id="@id/fvp" android:background="@drawable/lyric_poster_bg_filter_name" android:padding="5.0dp" android:visibility="gone" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="5.0dp" app:a1x="@id/fw8" app:a21="@id/fw8" app:a27="@id/fw8" />
+    <include android:layout_width="0.0dp" android:layout_height="0.0dp" app:a1d="@id/fw8" app:a1x="hnz" app:a21="hnz" app:a27="@id/fw8" app:a2e="0.801" layout="@layout/cx1" />
+</androidx.constraintlayout.widget.ConstraintLayout>

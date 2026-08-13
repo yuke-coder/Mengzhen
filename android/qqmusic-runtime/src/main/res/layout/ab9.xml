@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout android:background="@drawable/bg_ai_feature_card" android:paddingTop="@dimen/s1" android:paddingBottom="@dimen/s1" android:layout_width="94.0dp" android:layout_height="wrap_content" android:minHeight="126.0dp"
+  xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">
+    <androidx.appcompat.widget.AppCompatTextView android:textSize="12.0sp" android:textColor="@color/black_50_opacity" android:ellipsize="end" android:gravity="center" android:id="@id/me" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/fp" android:maxLines="1" app:a1d="hnz" app:a1u="hmg" app:a1x="hnz" app:a20="@id/mb" app:a27="hnz" app:a28="0.5" />
+    <ImageView android:id="@id/mb" android:layout_width="7.0dp" android:layout_height="15.0dp" android:layout_marginLeft="2.0dp" android:src="@drawable/ai_assistant_bot_more_arrow" app:a1d="hnz" app:a1y="@id/me" app:a21="hnz" app:a27="hnz" />
+</androidx.constraintlayout.widget.ConstraintLayout>

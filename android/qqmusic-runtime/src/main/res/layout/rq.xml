@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout android:state_window_focused="false" android:id="@id/lei" android:paddingTop="@dimen/c_q" android:clickable="true" android:layout_width="match_parent" android:layout_height="@dimen/cau"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <TextView android:textSize="15.0sp" android:textColor="@color/skin_text_main_color" android:gravity="center" android:id="@id/at2" android:layout_width="60.0dp" android:layout_height="match_parent" android:text="@string/cancel" android:layout_alignParentStart="true" />
+    <TextView android:textSize="18.0sp" android:textStyle="bold" android:textColor="@color/skin_text_main_color" android:gravity="center" android:id="@id/lg1" android:layout_width="wrap_content" android:layout_height="match_parent" android:text="@string/b_n" android:layout_centerHorizontal="true" />
+    <TextView android:enabled="false" android:textSize="15.0sp" android:textColor="@color/white" android:gravity="center" android:id="@id/ii_" android:background="@drawable/post_folder_interactive_btn_bg" android:layout_width="62.0dp" android:layout_height="match_parent" android:layout_marginTop="7.5dp" android:layout_marginRight="16.0dp" android:layout_marginBottom="7.5dp" android:text="@string/wg" android:layout_alignParentRight="true" />
+</RelativeLayout>

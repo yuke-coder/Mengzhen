@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout android:orientation="vertical" android:layout_width="wrap_content" android:layout_height="wrap_content"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <View android:layout_gravity="right" android:id="@id/a0c" android:background="@drawable/gps_holder_popup_layout_top_arrow_bg" android:layout_width="12.0dp" android:layout_height="12.0dp" android:layout_marginRight="40.0dp" />
+    <TextView android:textSize="11.0dp" android:textColor="@color/white" android:gravity="center" android:id="@id/mpc" android:background="@drawable/gps_holder_popup_layout_tv_bg" android:paddingLeft="10.0dp" android:paddingTop="7.0dp" android:paddingRight="10.0dp" android:paddingBottom="7.0dp" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/bkp" />
+</LinearLayout>

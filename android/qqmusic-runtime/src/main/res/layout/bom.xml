@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout android:background="#f1f5f7" android:focusableInTouchMode="true" android:layout_width="match_parent" android:layout_height="match_parent"
+  xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">
+    <include android:id="@id/tc" android:layout_width="match_parent" android:layout_height="@dimen/cau" app:a27="hnz" layout="@layout/bop" />
+    <ScrollView android:layout_width="match_parent" android:layout_height="0.0dp" app:a1d="hnz" app:a1x="hnz" app:a21="hnz" app:a26="@id/tc">
+        <androidx.constraintlayout.widget.ConstraintLayout android:paddingTop="15.0dp" android:paddingBottom="20.0dp" android:layout_width="match_parent" android:layout_height="wrap_content">
+            <androidx.constraintlayout.widget.ConstraintLayout android:id="@id/sx" android:background="@drawable/ai_assistant_setting_item_bg" android:paddingTop="5.0dp" android:paddingBottom="5.0dp" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginLeft="20.0dp" android:layout_marginRight="20.0dp" android:layout_marginHorizontal="20.0dp" app:a27="hnz">
+                <include android:id="@id/mp" android:layout_width="match_parent" android:layout_height="wrap_content" app:a27="hnz" layout="@layout/bon" />
+                <include android:id="@id/tn" android:layout_width="match_parent" android:layout_height="wrap_content" app:a26="@id/mp" layout="@layout/bon" />
+                <include android:id="@id/th" android:layout_width="match_parent" android:layout_height="wrap_content" app:a26="@id/tn" layout="@layout/bon" />
+                <include android:id="@id/te" android:layout_width="match_parent" android:layout_height="wrap_content" app:a26="@id/th" layout="@layout/bon" />
+            </androidx.constraintlayout.widget.ConstraintLayout>
+            <androidx.appcompat.widget.AppCompatTextView android:textSize="12.0sp" android:textColor="@color/black_50_opacity" android:id="@id/pl" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginLeft="20.0dp" android:layout_marginTop="20.0dp" android:layout_marginRight="20.0dp" android:text="@string/hq" android:layout_marginHorizontal="20.0dp" app:a1x="hnz" app:a26="@id/sx" />
+            <androidx.recyclerview.widget.RecyclerView android:id="@id/pm" android:background="@drawable/ai_assistant_setting_item_bg" android:paddingTop="5.0dp" android:paddingBottom="5.0dp" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginLeft="20.0dp" android:layout_marginTop="10.0dp" android:layout_marginRight="20.0dp" android:layout_marginHorizontal="20.0dp" app:a1x="hnz" app:a21="hnz" app:a26="@id/pl" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </ScrollView>
+</androidx.constraintlayout.widget.ConstraintLayout>

@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout android:background="@drawable/toast_download_mv_background" android:layout_width="200.0dp" android:layout_height="89.0dp"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <LinearLayout android:orientation="vertical" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_centerInParent="true">
+        <TextView android:textSize="16.0sp" android:textColor="@color/white" android:gravity="center" android:layout_gravity="center_horizontal" android:id="@id/iyh" android:paddingLeft="@dimen/c_y" android:paddingTop="12.0dp" android:paddingRight="@dimen/c_y" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="识别歌曲" />
+        <ImageView android:layout_gravity="center_horizontal" android:id="@id/h4b" android:layout_width="88.0dp" android:layout_height="14.0dp" android:layout_marginTop="13.0dp" android:layout_marginBottom="8.0dp" android:src="@drawable/recognize_qqmusic_logo" android:layout_alignParentBottom="true" android:layout_centerHorizontal="true" android:contentDescription="@string/app_name" />
+    </LinearLayout>
+</RelativeLayout>

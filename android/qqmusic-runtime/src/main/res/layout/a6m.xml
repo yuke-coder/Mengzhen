@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.appcompat.widget.LinearLayoutCompat android:gravity="center_horizontal" android:orientation="vertical" android:paddingTop="100.0dp" android:layout_width="match_parent" android:layout_height="match_parent"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <androidx.appcompat.widget.AppCompatImageView android:id="@id/jq2" android:layout_width="29.0dp" android:layout_height="29.0dp" android:src="@drawable/loveletter_keyboard" />
+    <androidx.appcompat.widget.AppCompatTextView android:textColor="@color/white_60_opacity" android:id="@id/c2y" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="11.5dp" android:text="@string/bng" />
+</androidx.appcompat.widget.LinearLayoutCompat>

@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout android:orientation="vertical" android:background="@drawable/main_bg" android:layout_width="match_parent" android:layout_height="match_parent"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <include android:id="@id/lv1" layout="@layout/mu" />
+    <FrameLayout android:id="@id/lgi" android:layout_width="match_parent" android:layout_height="match_parent" android:layout_marginTop="100.0dp">
+        <LinearLayout android:orientation="vertical" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginLeft="10.0dp" android:layout_marginRight="10.0dp">
+            <androidx.appcompat.widget.AppCompatTextView android:textSize="30.0sp" android:textStyle="bold" android:textColor="@color/black" android:layout_width="match_parent" android:layout_height="wrap_content" android:text="@string/b15" />
+            <androidx.appcompat.widget.AppCompatTextView android:textSize="25.0sp" android:textColor="@color/black" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginTop="20.0dp" android:text="@string/b18" />
+            <androidx.appcompat.widget.AppCompatTextView android:textSize="14.0sp" android:textColor="@color/black" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginTop="10.0dp" android:text="@string/b16" />
+            <androidx.appcompat.widget.AppCompatTextView android:textSize="25.0sp" android:textColor="@color/black" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginTop="20.0dp" android:text="@string/b19" />
+            <androidx.appcompat.widget.AppCompatTextView android:textSize="14.0sp" android:textColor="@color/black" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginTop="10.0dp" android:text="@string/b17" />
+        </LinearLayout>
+    </FrameLayout>
+    <androidx.appcompat.widget.AppCompatImageView android:id="@id/j3c" android:background="@color/common_highlight_green" android:layout_width="60.0dp" android:layout_height="60.0dp" android:layout_margin="60.0dp" android:src="@drawable/icon_refresh" android:layout_alignParentRight="true" android:layout_alignParentBottom="true" />
+</RelativeLayout>

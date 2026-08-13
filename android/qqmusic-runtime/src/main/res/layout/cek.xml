@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout android:orientation="vertical" android:background="#000000" android:layout_width="match_parent" android:layout_height="match_parent"
+  xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">
+    <androidx.constraintlayout.widget.ConstraintLayout android:background="#000000" android:layout_width="match_parent" android:layout_height="match_parent" app:a26="@id/hsp">
+        <View android:id="@id/kgs" android:visibility="visible" android:layout_width="match_parent" android:layout_height="50.0dp" app:a1x="hnz" app:a27="hnz" />
+        <include android:id="@id/eng" android:layout_width="match_parent" android:layout_height="50.0dp" app:a26="@id/kgs" layout="@layout/cbc" />
+        <com.tme.karaoka.previewui.widget.NoClickCoordinatorLayout android:orientation="vertical" android:id="@id/bb7" android:background="#000000" android:layout_width="match_parent" android:layout_height="0.0dp" app:a1e="@id/if6" app:a26="@id/eng">
+            <com.google.android.material.appbar.AppBarLayout android:orientation="vertical" android:id="@id/zd" android:background="#000000" android:fadingEdge="none" android:layout_width="match_parent" android:layout_height="wrap_content" app:pa="0.0dp">
+                <com.tme.karaoka.previewui.widget.ScaleBarLayout android:gravity="center" android:layout_gravity="center" android:id="@id/jgz" android:background="@color/transparent" android:layout_width="match_parent" android:layout_height="250.0dp" android:minHeight="0.0dp" app:a15="hnl" app:a16="1.0" app:a36="jil|ca1">
+                    <RelativeLayout android:id="@id/k_y" android:background="#000000" android:clickable="true" android:layout_width="match_parent" android:layout_height="match_parent">
+                        <com.tme.karaoka.previewui.widget.BannerView android:id="@id/hbb" android:background="#000000" android:layout_width="match_parent" android:layout_height="match_parent" android:layout_centerInParent="true" />
+                        <com.tencent.lyric.widget.LyricViewSingleLine android:id="@id/kgn" android:visibility="visible" android:layout_width="match_parent" android:layout_height="28.0dp" android:layout_marginBottom="10.0dp" android:layout_alignParentBottom="true" android:layout_centerHorizontal="true" app:a5_="true" app:a5b="18.0dp" app:a5d="@color/colorWhite" app:a5i="@dimen/c7v" app:a5j="@color/white_50_transparent" app:a5o="25.0dp" app:a5p="21.0dp" app:a5r="true" app:a65="false" app:a6f="@dimen/c7v" />
+                    </RelativeLayout>
+                </com.tme.karaoka.previewui.widget.ScaleBarLayout>
+                <include layout="@layout/c18" />
+            </com.google.android.material.appbar.AppBarLayout>
+            <androidx.core.widget.NestedScrollView android:id="@id/hav" android:clickable="false" android:layout_width="match_parent" android:layout_height="match_parent" android:fillViewport="true" android:overScrollMode="never" app:a14="com.google.android.material.appbar.AppBarLayout$ScrollingViewBehavior">
+                <androidx.constraintlayout.widget.ConstraintLayout android:background="#000000" android:layout_width="match_parent" android:layout_height="match_parent">
+                    <LinearLayout android:orientation="vertical" android:id="@id/j0n" android:layout_width="match_parent" android:layout_height="wrap_content" app:a26="@id/htt">
+                        <include android:visibility="visible" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginLeft="20.0dp" android:layout_marginRight="8.0dp" layout="@layout/cnh" />
+                        <include android:visibility="visible" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginLeft="20.0dp" android:layout_marginRight="8.0dp" layout="@layout/cng" />
+                        <include layout="@layout/cf6" />
+                    </LinearLayout>
+                </androidx.constraintlayout.widget.ConstraintLayout>
+            </androidx.core.widget.NestedScrollView>
+        </com.tme.karaoka.previewui.widget.NoClickCoordinatorLayout>
+        <include layout="@layout/cem" />
+        <include layout="@layout/cej" />
+        <include layout="@layout/ceo" />
+        <include layout="@layout/cen" />
+        <com.tme.karaoka.previewui.save.SavingAnimationView android:id="@id/kj6" android:background="#dd000000" android:visibility="gone" android:layout_width="match_parent" android:layout_height="match_parent" />
+        <com.tme.karaoka.previewui.publish.PublishLoadingView android:id="@id/ifo" android:background="#dd000000" android:visibility="gone" android:layout_width="match_parent" android:layout_height="match_parent" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+    <ViewStub android:id="@id/hde" android:layout="@layout/aym" android:layout_width="match_parent" android:layout_height="match_parent" />
+    <ViewStub android:id="@id/rn" android:layout="@layout/cei" android:layout_width="match_parent" android:layout_height="match_parent" />
+</androidx.constraintlayout.widget.ConstraintLayout>

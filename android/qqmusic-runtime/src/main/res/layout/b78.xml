@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout android:paddingTop="17.0dp" android:paddingBottom="13.0dp" android:layout_width="match_parent" android:layout_height="wrap_content"
+  xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">
+    <FrameLayout android:id="@id/frq" android:layout_width="wrap_content" android:layout_height="23.0dp" android:layout_marginStart="16.0dp" app:a23="hnz" app:a27="hnz">
+        <com.tencent.qqmusic.business.live.ui.view.RoundAvatarImage android:id="@id/frp" android:layout_width="23.0dp" android:layout_height="23.0dp" />
+        <com.tencent.qqmusic.business.recommend.view.MultiAvatarsView android:id="@id/fru" android:visibility="gone" android:layout_width="wrap_content" android:layout_height="23.0dp" />
+    </FrameLayout>
+    <ImageView android:id="@id/frs" android:paddingRight="8.0dp" android:layout_width="28.0dp" android:layout_height="23.0dp" android:src="@drawable/right_white_arrow" android:scaleType="fitCenter" android:importantForAccessibility="no" android:layout_marginEnd="8.0dp" app:a1d="@id/frq" app:a1j="hnz" app:a27="@id/frq" />
+    <TextView android:textSize="14.0dp" android:textColor="@color/white_60_opacity" android:gravity="right|center" android:id="@id/frt" android:paddingLeft="8.0dp" android:layout_width="wrap_content" android:layout_height="23.0dp" android:text="更多" android:maxLines="1" app:a1d="@id/frq" app:a1k="@id/frs" app:a27="@id/frq" />
+    <TextView android:textSize="14.0dp" android:textColor="@color/white" android:ellipsize="end" android:gravity="start|center" android:id="@id/frv" android:layout_width="wrap_content" android:layout_height="23.0dp" android:maxLines="1" android:layout_marginStart="5.0dp" android:layout_marginEnd="16.0dp" app:a18="true" app:a1d="@id/frq" app:a1k="@id/frt" app:a1t="0.0" app:a1u="hmg" app:a22="@id/frq" app:a27="@id/frq" />
+    <androidx.recyclerview.widget.RecyclerView android:id="@id/frw" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginTop="10.0dp" app:a26="@id/frq" />
+</androidx.constraintlayout.widget.ConstraintLayout>

@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout android:visibility="gone" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_alignParentTop="true" android:layout_alignWithParentIfMissing="true"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <TextView android:textSize="12.0sp" android:textColor="@color/skin_text_sub_color" android:id="@id/ios" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/a8z" android:layout_alignParentLeft="true" android:layout_alignParentTop="true" />
+    <FrameLayout android:id="@id/bmm" android:paddingLeft="4.0dp" android:paddingTop="2.0dp" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_alignParentTop="true" android:contentDescription="@string/aiq" android:layout_alignParentEnd="true">
+        <ImageView android:background="@drawable/feed_cell_post_delete_bg" android:layout_width="12.5dp" android:layout_height="12.5dp" android:src="@drawable/comment_pic_delete" />
+    </FrameLayout>
+    <TextView android:textSize="12.0sp" android:textColor="@color/skin_text_sub_color" android:id="@id/fxk" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginLeft="2.0dp" android:layout_marginRight="9.0dp" android:layout_toLeftOf="@id/bmm" android:layout_toRightOf="@id/ios" android:layout_alignParentTop="true" />
+</RelativeLayout>

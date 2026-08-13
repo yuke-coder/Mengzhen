@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="utf-8"?>
+<merge android:layout_width="match_parent" android:layout_height="match_parent"
+  xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">
+    <com.tencent.qqmusic.ui.viewpagerdotsindicator.DotsIndicator android:id="@id/lwf" android:visibility="gone" android:layout_width="wrap_content" android:layout_height="wrap_content" app:o6="2.0dp" app:o7="4.0dp" app:o8="2.0dp" app:o9="2.5" app:a1d="@id/lw7" app:a1j="hnz" app:a23="hnz" app:a27="@id/lw7" app:acj="false" />
+</merge>

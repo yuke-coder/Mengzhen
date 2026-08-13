@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout android:id="@id/ipp" android:clipChildren="false" android:layout_width="match_parent" android:layout_height="match_parent"
+  xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">
+    <ImageView android:id="@id/ipt" android:layout_width="match_parent" android:layout_height="match_parent" android:src="@drawable/main_bg" android:scaleType="centerCrop" />
+    <com.tencent.qqmusic.fragment.newradarsearch.detail.view.RadarWebRecyclerView android:id="@id/ipn" android:paddingBottom="@dimen/aie" android:clipChildren="false" android:clipToPadding="false" android:layout_width="match_parent" android:layout_height="match_parent" android:nestedScrollingEnabled="true" />
+    <ViewStub android:id="@id/b7f" android:visibility="gone" android:layout="@layout/mj" android:layout_width="match_parent" android:layout_height="match_parent" />
+    <ViewStub android:id="@id/b7q" android:layout="@layout/mh" android:layout_width="match_parent" android:layout_height="match_parent" android:layout_marginTop="@dimen/cau" android:layout_alignWithParentIfMissing="true" />
+    <ViewStub android:id="@id/b7r" android:layout="@layout/yc" android:layout_width="match_parent" android:layout_height="match_parent" android:layout_marginTop="@dimen/cau" />
+    <androidx.constraintlayout.widget.ConstraintLayout android:layout_gravity="end|top" android:id="@id/ipl" android:visibility="gone" android:layout_width="76.0dp" android:layout_height="28.0dp" android:layout_marginTop="62.0dp" android:layout_marginEnd="20.0dp">
+        <ImageView android:id="@id/ipj" android:layout_width="0.0dp" android:layout_height="0.0dp" android:src="@drawable/radar_search_detail_actions" android:scaleType="centerCrop" app:a1d="hnz" app:a1j="hnz" app:a23="hnz" app:a27="hnz" />
+        <View android:id="@id/nbe" android:layout_width="0.0dp" android:layout_height="0.0dp" app:a1d="hnz" app:a1k="@id/n_o" app:a23="hnz" app:a27="hnz" app:a2e="0.5" />
+        <View android:id="@id/n_o" android:layout_width="0.0dp" android:layout_height="0.0dp" app:a1d="hnz" app:a1j="hnz" app:a22="@id/nbe" app:a27="hnz" app:a2e="0.5" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</FrameLayout>

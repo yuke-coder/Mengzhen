@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout android:paddingBottom="10.0dp" android:layout_width="match_parent" android:layout_height="match_parent"
+  xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">
+    <ImageView android:id="@id/close_btn" android:padding="10.0dp" android:layout_width="wrap_content" android:layout_height="wrap_content" android:src="@drawable/close_btn" android:layout_alignParentTop="true" android:contentDescription="关闭" android:layout_marginEnd="10.0dp" android:layout_alignParentEnd="true" />
+    <LinearLayout android:gravity="center_horizontal" android:orientation="vertical" android:background="@drawable/authorize_bg" android:paddingBottom="12.0dp" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_below="@id/close_btn" android:layout_marginStart="20.0dp" android:layout_marginEnd="20.0dp">
+        <LinearLayout android:gravity="center_horizontal" android:orientation="horizontal" android:background="@drawable/login_dialog_bg" android:layout_width="match_parent" android:layout_height="wrap_content">
+            <ImageView android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="34.539978dp" android:src="@drawable/login_icon" />
+        </LinearLayout>
+        <TextView android:textSize="17.0dp" android:textColor="@color/black" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="20.0dp" android:text="请选择唱歌方式" />
+        <Button android:textSize="13.0dp" android:textColor="@color/white" android:id="@id/d2q" android:background="@drawable/account_btn_bg" android:layout_width="wrap_content" android:layout_height="48.0dp" android:layout_marginTop="10.0dp" android:layout_marginBottom="5.0dp" android:text="去全民K歌APP唱" android:paddingStart="36.5dp" android:paddingEnd="36.5dp" />
+        <TextView android:textSize="13.0dp" android:textColor="@color/black" android:id="@id/flf" android:padding="5.0dp" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="用Q音账号授权登录" />
+    </LinearLayout>
+</RelativeLayout>

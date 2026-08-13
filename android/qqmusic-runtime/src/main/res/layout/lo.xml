@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout android:background="@drawable/material_ripple_background" android:layout_width="match_parent" android:layout_height="60.0dp" android:minHeight="60.0dp"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <com.tencent.qqmusic.ui.DigitalRedDot android:id="@id/b41" android:visibility="gone" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginLeft="5.0dp" android:layout_marginRight="5.0dp" android:layout_toLeftOf="@id/b3w" android:layout_centerVertical="true" />
+    <RelativeLayout android:id="@id/b43" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginLeft="@dimen/k_" android:layout_toLeftOf="@id/b41" android:layout_centerVertical="true">
+        <LinearLayout android:orientation="horizontal" android:id="@id/b46" android:layout_width="wrap_content" android:layout_height="wrap_content">
+            <TextView android:textSize="14.0sp" android:textColor="@color/skin_text_main_color" android:ellipsize="end" android:layout_gravity="center_vertical" android:id="@id/b42" android:fadingEdge="none" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="hihihihihi" android:maxLines="1" />
+            <ImageView android:layout_gravity="center_vertical" android:id="@id/b44" android:layout_width="20.0dp" android:layout_height="20.0dp" android:layout_marginLeft="4.0dp" android:src="@drawable/cloud_item_black_right_arrow" android:scaleType="fitCenter" />
+        </LinearLayout>
+        <RelativeLayout android:gravity="center_vertical" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="2.0dp" android:layout_below="@id/b46">
+            <TextView android:textSize="12.0sp" android:textColor="@color/skin_text_sub_color" android:ellipsize="end" android:id="@id/b47" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="hihihihihi" android:maxLines="1" />
+        </RelativeLayout>
+    </RelativeLayout>
+    <RelativeLayout android:id="@id/b3w" android:paddingLeft="18.0dp" android:paddingRight="20.0dp" android:layout_width="wrap_content" android:layout_height="25.0dp" android:layout_alignParentRight="true" android:layout_centerVertical="true">
+        <TextView android:textSize="@dimen/cck" android:textColor="@color/skin_text_main_color" android:gravity="center" android:id="@id/bx4" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="下载" android:layout_centerInParent="true" />
+    </RelativeLayout>
+</RelativeLayout>

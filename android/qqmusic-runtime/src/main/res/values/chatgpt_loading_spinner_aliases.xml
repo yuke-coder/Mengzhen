@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <item name="ai_interactive_msg_voice_loading_indicator" type="drawable">@drawable/chatgpt_loading_spinner_animated</item>
+    <item name="ai_interactive_msg_loading_indicator" type="drawable">@drawable/chatgpt_loading_spinner_animated</item>
+    <item name="ai_interactive_msg_list_loading_indicator" type="drawable">@drawable/chatgpt_loading_spinner_animated</item>
+    <item name="album_loading_indicator" type="drawable">@drawable/chatgpt_loading_spinner_animated</item>
+    <item name="bg_loading" type="drawable">@drawable/chatgpt_loading_spinner_animated</item>
+    <item name="common_loading_new" type="drawable">@drawable/chatgpt_loading_spinner_animated</item>
+    <item name="dialog_loading" type="drawable">@drawable/chatgpt_loading_spinner_animated</item>
+    <item name="ic_loading_white" type="drawable">@drawable/chatgpt_loading_spinner_animated</item>
+    <item name="ic_lp_loading_anim" type="drawable">@drawable/chatgpt_loading_spinner_animated</item>
+    <item name="icn_loading_indicator" type="drawable">@drawable/chatgpt_loading_spinner_animated</item>
+    <item name="icn_loading_indicator_musichall" type="drawable">@drawable/chatgpt_loading_spinner_animated</item>
+    <item name="icn_loading_indicator_white" type="drawable">@drawable/chatgpt_loading_spinner_animated</item>
+    <item name="im_session_icn_loading_indicator" type="drawable">@drawable/chatgpt_loading_spinner_animated</item>
+    <item name="image_picker_loading_indicator" type="drawable">@drawable/chatgpt_loading_spinner_animated</item>
+    <item name="loading_indicator" type="drawable">@drawable/chatgpt_loading_spinner_animated</item>
+    <item name="mlive_ic_loading_white" type="drawable">@drawable/chatgpt_loading_spinner_animated</item>
+    <item name="module_musichall_loading_indicator" type="drawable">@drawable/chatgpt_loading_spinner_animated</item>
+    <item name="ucrop_vector_loader_animated" type="drawable">@drawable/chatgpt_loading_spinner_animated</item>
+    <item name="voice_assistant_query_loading_anim" type="drawable">@drawable/chatgpt_loading_spinner_animated</item>
+    <item name="web_bg_loading" type="drawable">@drawable/chatgpt_loading_spinner_animated</item>
+</resources>

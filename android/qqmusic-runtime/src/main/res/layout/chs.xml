@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout android:gravity="center" android:clipChildren="false" android:layout_width="match_parent" android:layout_height="match_parent"
+  xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">
+    <com.tencent.component.widget.AsyncEffectImageView android:id="@id/cyw" android:layout_width="34.0dp" android:layout_height="34.0dp" app:a1d="hnz" app:a1j="hnz" app:a23="hnz" app:a27="hnz" />
+    <androidx.constraintlayout.widget.Guideline android:orientation="vertical" android:id="@id/d8g" android:layout_width="wrap_content" android:layout_height="wrap_content" app:a1n="0.55" />
+    <androidx.constraintlayout.widget.Guideline android:orientation="horizontal" android:id="@id/d8h" android:layout_width="wrap_content" android:layout_height="wrap_content" app:a1n="0.4" />
+    <androidx.appcompat.widget.AppCompatTextView android:textSize="10.0sp" android:textColor="@color/white" android:ellipsize="end" android:gravity="center" android:id="@id/cyx" android:background="@drawable/background_search_function_item_red" android:layout_width="wrap_content" android:layout_height="15.0dp" android:minWidth="28.0dp" android:lines="1" android:maxLength="5" app:a1e="@id/d8h" app:a22="@id/d8g" />
+    <androidx.appcompat.widget.AppCompatTextView android:textSize="13.0dp" android:textColor="@color/skin_text_main_color" android:ellipsize="end" android:gravity="center" android:id="@id/cyz" android:paddingLeft="6.0dp" android:paddingRight="6.0dp" android:layout_width="wrap_content" android:layout_height="wrap_content" android:lines="1" app:a1j="hnz" app:a23="hnz" app:a26="@id/cyw" />
+</androidx.constraintlayout.widget.ConstraintLayout>

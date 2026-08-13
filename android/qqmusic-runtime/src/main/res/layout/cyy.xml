@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout android:id="@id/id4" android:paddingLeft="16.0dp" android:paddingRight="16.0dp" android:visibility="gone" android:layout_width="match_parent" android:layout_height="65.0dp"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <RelativeLayout android:id="@id/ceh" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_toLeftOf="@id/bmq" android:layout_centerHorizontal="true" android:layout_centerVertical="true">
+        <com.tencent.component.widget.AsyncEffectImageView android:id="@id/kc1" android:layout_width="35.0dp" android:layout_height="35.0dp" android:src="@drawable/default_folder_mid" android:scaleType="fitXY" android:layout_centerVertical="true" />
+        <LinearLayout android:orientation="vertical" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_toRightOf="@id/kc1" android:layout_centerVertical="true">
+            <TextView android:textSize="16.0sp" android:textColor="@color/skin_text_main_color" android:id="@id/kfb" android:layout_width="wrap_content" android:layout_marginLeft="10.0dp" android:includeFontPadding="false" style="@style/ln" />
+            <LinearLayout android:orientation="horizontal" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginLeft="10.0dp" android:layout_marginTop="3.0dp">
+                <include android:layout_gravity="center_vertical" android:id="@id/kzc" android:paddingRight="2.0dp" android:visibility="visible" android:layout_width="wrap_content" android:layout_height="wrap_content" layout="@layout/cn8" />
+                <include android:layout_gravity="center_vertical" android:id="@id/kgc" android:visibility="gone" android:layout_width="wrap_content" android:layout_height="wrap_content" layout="@layout/cn6" />
+                <TextView android:textSize="12.0sp" android:textColor="@color/skin_text_sub_color" android:ellipsize="end" android:gravity="center_vertical" android:id="@id/kbr" android:layout_width="wrap_content" android:layout_height="wrap_content" android:maxLines="1" />
+            </LinearLayout>
+        </LinearLayout>
+    </RelativeLayout>
+    <ImageView android:id="@id/bmq" android:layout_width="15.0dp" android:layout_height="15.0dp" android:src="@drawable/post_folder_delete_icon" android:layout_alignParentRight="true" android:layout_centerVertical="true" android:contentDescription="@null" android:layout_alignParentEnd="true" />
+</RelativeLayout>

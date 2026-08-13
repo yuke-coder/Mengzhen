@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout android:id="@id/i4h" android:layout_width="wrap_content" android:layout_height="match_parent"
+  xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">
+    <com.tencent.qqmusic.pag.QQMusicPAGSafeView android:id="@id/b60" android:focusable="true" android:visibility="visible" android:clickable="true" android:layout_width="0.0dp" android:layout_height="0.0dp" android:scaleType="fitCenter" android:contentDescription="@string/f80" app:a1d="hnz" app:a1i="H,1:1" app:a1x="hnz" app:a27="hnz" />
+    <com.tencent.qqmusic.ui.RepeatingImageButton android:id="@id/ac2" android:background="@color/transparent" android:focusable="true" android:visibility="gone" android:clickable="true" android:layout_width="0.0dp" android:layout_height="0.0dp" android:scaleType="fitCenter" android:contentDescription="@string/f80" app:a1d="hnz" app:a1i="H,1:1" app:a1x="hnz" app:a27="hnz" />
+    <View android:id="@id/b5y" android:focusable="true" android:clickable="true" android:layout_width="0.0dp" android:layout_height="0.0dp" app:a1d="@id/b60" app:a1i="H,1:1" app:a1x="@id/b60" app:a27="@id/b60" />
+    <Space android:id="@id/g17" android:layout_width="0.0dp" android:layout_height="0.0dp" app:a1i="W,3:1" app:a1j="@id/b60" app:a1s="0.1267" app:a27="@id/b60" />
+    <com.tencent.qqmusic.ui.customview.textview.MarqueeExtendTextView android:id="@id/b5z" android:layout_width="wrap_content" android:layout_height="wrap_content" android:importantForAccessibility="no" app:a23="@id/g17" app:a26="@id/g17" />
+</androidx.constraintlayout.widget.ConstraintLayout>

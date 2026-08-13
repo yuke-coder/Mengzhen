@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout android:background="@drawable/material_ripple_background" android:paddingTop="6.0dp" android:paddingRight="15.0dp" android:paddingBottom="6.0dp" android:layout_width="match_parent" android:layout_height="@dimen/lc"
+  xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">
+    <com.tencent.component.widget.AsyncEffectImageView android:id="@id/ej0" android:layout_width="50.0dp" android:layout_height="50.0dp" android:layout_marginLeft="16.0dp" android:layout_centerVertical="true" app:a1d="hnz" app:a23="hnz" app:a27="hnz" />
+    <TextView android:textSize="15.0dp" android:textColor="@color/skin_text_main_color" android:ellipsize="end" android:id="@id/mmc" android:layout_width="0.0dp" android:layout_marginLeft="14.0dp" android:layout_marginRight="@dimen/c7j" android:singleLine="true" android:includeFontPadding="false" android:layout_weight="1.0" app:a1e="@id/mlr" app:a1y="@id/ej0" app:a20="@id/esf" app:a27="@id/ej0" style="@style/ln" />
+    <TextView android:textSize="12.0dp" android:textColor="@color/skin_text_sub_color" android:ellipsize="end" android:id="@id/mlr" android:layout_width="0.0dp" android:layout_marginLeft="14.0dp" android:layout_marginTop="4.0dp" android:layout_marginRight="@dimen/c7j" android:singleLine="true" android:includeFontPadding="false" android:layout_weight="1.0" app:a1d="@id/ej0" app:a1y="@id/ej0" app:a20="@id/esf" app:a26="@id/mmc" style="@style/ln" />
+    <RelativeLayout android:id="@id/esf" android:layout_width="wrap_content" android:layout_height="wrap_content" app:a1d="hnz" app:a1j="hnz" app:a27="hnz">
+        <TextView android:textColor="@color/skin_text_sub_color" android:id="@id/m3u" android:visibility="gone" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/hba" android:layout_marginEnd="30.0dp" />
+        <ImageView android:id="@id/e9n" android:layout_width="wrap_content" android:layout_height="wrap_content" android:src="@drawable/auto_play_add_song" android:layout_marginEnd="30.0dp" app:a1d="hnz" app:a1j="hnz" app:a27="hnz" />
+    </RelativeLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>

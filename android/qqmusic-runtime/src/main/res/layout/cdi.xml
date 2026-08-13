@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout android:id="@id/jd3" android:paddingRight="9.0dp" android:layout_width="wrap_content" android:layout_height="wrap_content"
+  xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">
+    <View android:id="@id/f0x" android:visibility="gone" android:layout_width="@dimen/bns" android:layout_height="match_parent" app:a1x="hnz" />
+    <com.tencent.component.widget.AsyncEffectImageView android:id="@id/iqf" android:layout_width="110.0dp" android:layout_height="110.0dp" android:scaleType="fitXY" app:a1y="@id/f0x" app:a27="hnz" />
+    <include android:layout_width="wrap_content" android:layout_height="wrap_content" app:a1d="@id/iqf" app:a1x="@id/iqf" layout="@layout/cu7" />
+    <TextView android:textSize="12.0sp" android:textColor="@color/skin_text_main_color" android:ellipsize="end" android:gravity="left" android:id="@id/iqt" android:layout_width="110.0dp" android:layout_height="wrap_content" android:layout_marginTop="7.0dp" android:text="标题标题标题标题标题标题标题标题标题标题标题标题" android:maxLines="2" app:a1x="@id/iqf" app:a21="@id/iqf" app:a26="@id/ewd" />
+    <TextView android:textSize="12.0sp" android:textColor="@color/skin_text_sub_color" android:ellipsize="end" android:gravity="left" android:id="@id/iqs" android:layout_width="110.0dp" android:layout_height="wrap_content" android:layout_marginTop="1.0dp" android:text="测试" android:maxLines="1" android:layout_alignParentLeft="true" app:a1x="@id/iqf" app:a26="@id/iqt" style="@style/ll" />
+</androidx.constraintlayout.widget.ConstraintLayout>

@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout android:id="@id/gy_" android:layout_width="match_parent" android:layout_height="wrap_content"
+  xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">
+    <Space android:id="@id/lfz" android:layout_width="match_parent" android:layout_height="@dimen/i2" app:a23="hnz" app:a27="hnz" />
+    <androidx.appcompat.widget.AppCompatTextView android:textSize="18.0dp" android:textStyle="bold" android:textColor="@color/skin_text_main_color" android:ellipsize="end" android:id="@id/gye" android:layout_width="0.0dp" android:layout_height="wrap_content" android:layout_marginRight="@dimen/i3" android:singleLine="true" android:importantForAccessibility="no" app:a18="true" app:a1k="@id/gyc" app:a1t="0.0" app:a1u="hmg" app:a23="hnz" app:a26="@id/lfz" app:a2b="nug" />
+    <LinearLayout android:gravity="center_vertical" android:orientation="horizontal" android:id="@id/gyc" android:background="@drawable/music_central_title_side_icon" android:paddingLeft="4.0dp" android:paddingTop="3.0dp" android:paddingRight="4.0dp" android:paddingBottom="3.0dp" android:visibility="gone" android:layout_width="wrap_content" android:layout_height="wrap_content" android:paddingHorizontal="4.0dp" android:paddingVertical="3.0dp" app:a1d="@id/gye" app:a1k="@id/gyb" app:a22="@id/gye" app:a27="@id/gye">
+        <com.tencent.component.widget.AsyncEffectImageView android:id="@id/gyd" android:layout_width="14.0dp" android:layout_height="10.5dp" android:importantForAccessibility="no" />
+        <androidx.appcompat.widget.AppCompatTextView android:textSize="8.0dp" android:textColor="@color/skin_text_sub_color" android:ellipsize="end" android:id="@id/gya" android:layout_width="wrap_content" android:layout_height="wrap_content" android:singleLine="true" android:importantForAccessibility="no" android:layout_marginStart="1.0dp" />
+    </LinearLayout>
+    <ImageView android:id="@id/gyb" android:layout_width="20.0dp" android:layout_height="20.0dp" android:layout_alignParentRight="true" android:contentDescription="@string/e8e" android:importantForAccessibility="no" app:a1d="@id/gye" app:a1j="hnz" app:a27="@id/gye" />
+    <Space android:id="@id/lfy" android:layout_width="match_parent" android:layout_height="@dimen/i1" app:a23="hnz" app:a26="@id/gye" />
+</androidx.constraintlayout.widget.ConstraintLayout>

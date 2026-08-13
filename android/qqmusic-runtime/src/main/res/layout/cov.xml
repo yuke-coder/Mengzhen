@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout android:layout_width="match_parent" android:layout_height="wrap_content"
+  xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">
+    <ImageView android:id="@id/c0l" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginLeft="16.0dp" android:src="@drawable/ss_device_easy_car_log" app:a23="hnz" app:a27="hnz" />
+    <TextView android:textSize="12.0sp" android:textColor="@color/white_60_opacity" android:id="@id/ks_" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginRight="16.0dp" android:text="合作车载音效" android:layout_alignParentRight="true" app:a1j="hnz" app:a27="hnz" />
+    <include android:id="@id/azz" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginLeft="16.0dp" android:layout_marginTop="36.0dp" android:layout_marginRight="16.0dp" app:a1j="hnz" app:a23="hnz" app:a27="hnz" layout="@layout/coo" />
+    <include android:id="@id/b00" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginLeft="16.0dp" android:layout_marginTop="20.0dp" android:layout_marginRight="16.0dp" app:a23="hnz" app:a26="@id/azz" layout="@layout/coq" />
+    <include android:id="@id/azx" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginLeft="16.0dp" android:layout_marginTop="20.0dp" android:layout_marginRight="16.0dp" app:a23="hnz" app:a26="@id/b00" layout="@layout/cop" />
+</androidx.constraintlayout.widget.ConstraintLayout>

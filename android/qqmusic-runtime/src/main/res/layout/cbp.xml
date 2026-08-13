@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout android:id="@id/h70" android:background="@drawable/material_ripple_background" android:paddingLeft="16.0dp" android:paddingTop="6.0dp" android:paddingBottom="6.0dp" android:layout_width="match_parent" android:layout_height="wrap_content"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <com.tencent.qqmusic.ui.RoundedRelativeLayout android:id="@id/drm" android:layout_width="@dimen/blb" android:layout_height="wrap_content">
+        <com.tencent.qqmusic.ui.customview.SquareImageView android:id="@id/h6x" android:layout_width="@dimen/blb" android:layout_height="@dimen/blb" android:scaleType="centerCrop" />
+        <com.tencent.qqmusic.ui.customview.SquareImageView android:id="@id/h6y" android:layout_width="27.0dp" android:layout_height="27.0dp" android:layout_alignLeft="@id/h6x" android:layout_alignTop="@id/h6x" />
+        <com.tencent.qqmusic.ui.customview.SquareImageView android:id="@id/g1e" android:visibility="gone" android:layout_width="@dimen/blb" android:layout_height="@dimen/blb" />
+    </com.tencent.qqmusic.ui.RoundedRelativeLayout>
+    <ImageView android:id="@id/i8q" android:visibility="gone" android:layout_width="11.0dp" android:layout_height="10.0dp" android:layout_marginRight="4.0dp" android:layout_marginBottom="4.0dp" android:src="@drawable/ic_live_entrance_playing" android:layout_alignRight="@id/drm" android:layout_alignBottom="@id/drm" />
+    <ImageView android:id="@id/a09" android:paddingRight="14.0dp" android:layout_width="wrap_content" android:layout_height="wrap_content" android:src="@drawable/arrow_right_grey" android:layout_alignParentRight="true" android:layout_centerVertical="true" />
+    <RelativeLayout android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginLeft="12.0dp" android:layout_toLeftOf="@id/a09" android:layout_toRightOf="@id/drm" android:layout_centerVertical="true">
+        <TextView android:textSize="16.0sp" android:textColor="@color/skin_text_main_color" android:ellipsize="end" android:id="@id/h72" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="喜欢" android:singleLine="true" />
+        <TextView android:textSize="12.0sp" android:textColor="@color/skin_text_sub_color" android:ellipsize="end" android:id="@id/h71" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="0.5dp" android:text="0首歌曲 0张专辑 0张歌单" android:singleLine="true" android:layout_below="@id/h72" />
+    </RelativeLayout>
+</RelativeLayout>

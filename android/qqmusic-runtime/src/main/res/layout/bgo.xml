@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout android:layout_width="wrap_content" android:layout_height="wrap_content"
+  xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">
+    <androidx.constraintlayout.widget.ConstraintLayout android:id="@id/mlive_layout_convenient_comment_btn_cl" android:paddingTop="5.0dp" android:visibility="gone" android:layout_width="166.0dp" android:layout_height="wrap_content" app:a1d="hnz" app:a23="hnz">
+        <TextView android:textSize="12.0sp" android:textColor="@color/white" android:gravity="center" android:id="@id/mlive_layout_convenient_comment_new_left_tv" android:background="@drawable/mlive_convenient_comment_left" android:layout_width="83.0dp" android:layout_height="25.0dp" app:a1d="hnz" app:a23="hnz" app:a27="hnz" />
+        <TextView android:textSize="12.0sp" android:textColor="@color/white" android:gravity="center" android:id="@id/mlive_layout_convenient_comment_new_right_tv" android:background="@drawable/mlive_convenient_comment_right" android:layout_width="83.0dp" android:layout_height="25.0dp" app:a1d="hnz" app:a1j="hnz" app:a27="hnz" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+    <com.tme.mlive.ui.custom.LiveFadingRecyclerView android:id="@id/mlive_layout_convenient_comment_new_gift_rv" android:paddingTop="5.0dp" android:visibility="gone" android:layout_width="wrap_content" android:layout_height="40.0dp" app:a1d="hnz" app:a23="hnz" />
+</androidx.constraintlayout.widget.ConstraintLayout>

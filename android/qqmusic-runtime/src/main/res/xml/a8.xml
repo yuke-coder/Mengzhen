@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<shortcuts
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <shortcut android:icon="@drawable/shortcut_local" android:enabled="true" android:shortcutId="playLocal" android:shortcutShortLabel="@string/h6h" android:shortcutLongLabel="@string/h6h" android:shortcutDisabledMessage="@string/h6h">
+        <intent android:targetPackage="com.tencent.qqmusic" android:action="android.intent.action.VIEW" android:targetClass="com.tencent.qqmusic.third.DispacherActivityForThird">
+            <extra android:name="shortcutScheme" android:value="playLocal" />
+        </intent>
+    </shortcut>
+    <shortcut android:icon="@drawable/shortcut_recent" android:enabled="true" android:shortcutId="playRecent" android:shortcutShortLabel="@string/h6i" android:shortcutLongLabel="@string/h6i" android:shortcutDisabledMessage="@string/h6i">
+        <intent android:targetPackage="com.tencent.qqmusic" android:action="android.intent.action.VIEW" android:targetClass="com.tencent.qqmusic.third.DispacherActivityForThird">
+            <extra android:name="shortcutScheme" android:value="playRecent" />
+        </intent>
+    </shortcut>
+    <shortcut android:icon="@drawable/shortcut_search" android:enabled="true" android:shortcutId="searchSong" android:shortcutShortLabel="@string/h6k" android:shortcutLongLabel="@string/h6k" android:shortcutDisabledMessage="@string/h6k">
+        <intent android:targetPackage="com.tencent.qqmusic" android:action="android.intent.action.VIEW" android:targetClass="com.tencent.qqmusic.third.DispacherActivityForThird">
+            <extra android:name="shortcutScheme" android:value="searchSong" />
+        </intent>
+    </shortcut>
+    <shortcut android:icon="@drawable/shortcut_recog" android:enabled="true" android:shortcutId="recognize" android:shortcutShortLabel="@string/h6j" android:shortcutLongLabel="@string/h6j" android:shortcutDisabledMessage="@string/h6j">
+        <intent android:targetPackage="com.tencent.qqmusic" android:action="android.intent.action.VIEW" android:targetClass="com.tencent.qqmusic.third.DispacherActivityForThird">
+            <extra android:name="shortcutScheme" android:value="recognize" />
+        </intent>
+    </shortcut>
+</shortcuts>

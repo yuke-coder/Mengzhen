@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<merge android:background="@null" android:layout_width="match_parent" android:layout_height="match_parent"
+  xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">
+    <FrameLayout android:layout_gravity="bottom" android:id="@id/ck4" android:background="@drawable/float_window_bottom_bg" android:visibility="gone" android:layout_width="match_parent" android:layout_height="65.0dp">
+        <TextView android:layout_gravity="center" android:id="@id/ck5" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="拖动至此松手即可关闭浮窗" android:drawableLeft="@drawable/float_window_close" android:drawablePadding="5.0dp" />
+    </FrameLayout>
+</merge>

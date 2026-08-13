@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout android:orientation="horizontal" android:id="@id/dmz" android:paddingTop="6.0dp" android:visibility="invisible" android:layout_width="wrap_content" android:layout_height="26.0dp"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <RelativeLayout android:id="@id/dmx" android:background="@drawable/im_song_status_bg" android:paddingLeft="5.0dp" android:paddingRight="7.0dp" android:layout_width="wrap_content" android:layout_height="20.0dp">
+        <ImageView android:id="@id/dmw" android:layout_width="16.0dp" android:layout_height="16.0dp" android:src="@drawable/im_song_played" android:scaleType="fitCenter" android:layout_centerVertical="true" />
+        <TextView android:textSize="10.0dp" android:textColor="@color/skin_text_main_color" android:id="@id/dmy" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="TA已听" android:includeFontPadding="false" android:layout_centerVertical="true" android:layout_toEndOf="@id/dmw" />
+    </RelativeLayout>
+    <RelativeLayout android:id="@id/dms" android:background="@drawable/im_song_status_bg" android:paddingLeft="5.0dp" android:paddingRight="7.0dp" android:visibility="gone" android:layout_width="wrap_content" android:layout_height="20.0dp" android:layout_marginStart="5.0dp">
+        <ImageView android:id="@id/dmr" android:layout_width="16.0dp" android:layout_height="16.0dp" android:src="@drawable/im_song_collected" android:scaleType="fitCenter" android:layout_centerVertical="true" />
+        <TextView android:textSize="10.0dp" android:textColor="@color/skin_text_main_color" android:id="@id/dmt" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="TA已收藏" android:includeFontPadding="false" android:layout_centerVertical="true" android:layout_marginStart="2.0dp" android:layout_toEndOf="@id/dmr" />
+    </RelativeLayout>
+</LinearLayout>

@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout android:gravity="start|top" android:orientation="vertical" android:background="@color/transparent" android:fitsSystemWindows="true" android:layout_width="match_parent" android:layout_height="wrap_content"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <LinearLayout android:gravity="center_vertical" android:orientation="horizontal" android:id="@id/mlive_chat_operate_container" android:layout_width="wrap_content" android:layout_height="wrap_content">
+        <TextView android:textSize="8.0sp" android:textColor="@color/black" android:ellipsize="end" android:gravity="center" android:id="@id/mlive_chat_operate_copy" android:background="@null" android:paddingLeft="10.0dp" android:paddingRight="10.0dp" android:layout_width="wrap_content" android:layout_height="25.0dp" android:maxWidth="120.0dp" android:maxLines="1" android:singleLine="true" android:textAllCaps="false" />
+    </LinearLayout>
+    <com.tme.qqmusic.widget.base.view.TriangleView android:id="@id/mlive_chat_operate_pointer" android:layout_width="10.0dp" android:layout_height="5.0dp" />
+</LinearLayout>

@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout android:layout_gravity="center|bottom" android:id="@id/jdb" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginLeft="16.0dp" android:layout_marginRight="16.0dp" android:layout_marginBottom="16.0dp"
+  xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">
+    <com.tencent.component.widget.AsyncEffectImageView android:id="@id/dpz" android:layout_width="0.0dp" android:layout_height="0.0dp" android:scaleType="fitXY" android:importantForAccessibility="no" app:a1d="hnz" app:a1x="hnz" app:a21="hnz" app:a27="hnz" />
+    <androidx.constraintlayout.widget.ConstraintLayout android:id="@id/jdc" android:layout_width="match_parent" android:layout_height="312.0dp" app:a1d="hnz" app:a1x="hnz" app:a21="hnz" app:a27="hnz">
+        <androidx.viewpager2.widget.ViewPager2 android:id="@id/nn7" android:layout_width="match_parent" android:layout_height="match_parent" android:importantForAccessibility="no" app:a1d="hnz" app:a1x="hnz" app:a21="hnz" app:a27="hnz" />
+        <ImageView android:id="@id/aj6" android:background="@drawable/feature_close_icon" android:padding="5.0dp" android:focusable="true" android:clickable="true" android:layout_width="25.0dp" android:layout_height="25.0dp" android:layout_marginTop="42.0dp" android:layout_marginRight="15.0dp" android:contentDescription="@string/a75" app:a21="hnz" app:a27="hnz" />
+        <com.tencent.qqmusic.dialog.feature.FeatureCardPagerIndicator android:id="@id/dvj" android:paddingBottom="6.5dp" android:layout_width="match_parent" android:layout_height="13.0dp" android:layout_marginTop="20.0dp" android:importantForAccessibility="no" app:a1x="hnz" app:a21="hnz" app:a26="@id/nn7" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>

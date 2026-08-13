@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- QQ Music native IconListView resource closure. The original view reads the
+         single iconMargin slot (resource attr uk) at index 0. -->
+    <declare-styleable name="IconListView">
+        <attr name="uk" />
+    </declare-styleable>
+</resources>

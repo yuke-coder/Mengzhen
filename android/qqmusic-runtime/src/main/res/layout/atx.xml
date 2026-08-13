@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout android:layout_width="match_parent" android:layout_height="match_parent"
+  xmlns:app="http://schemas.android.com/apk/res-auto" xmlns:android="http://schemas.android.com/apk/res/android">
+    <androidx.constraintlayout.widget.Guideline android:orientation="horizontal" android:id="@id/clb" android:layout_width="wrap_content" android:layout_height="wrap_content" app:a1n="0.75" />
+    <com.tencent.qqmusic.fragment.folderalbum.folder.personalize.helper.FocusAwayMarqueeTextView android:textSize="18.0sp" android:textStyle="bold" android:textColor="@color/black" android:ellipsize="marquee" android:gravity="center_horizontal" android:id="@id/cl9" android:paddingLeft="16.0dp" android:paddingRight="16.0dp" android:focusable="true" android:focusableInTouchMode="true" android:layout_width="0.0dp" android:layout_height="wrap_content" android:singleLine="true" android:marqueeRepeatLimit="marquee_forever" android:fontFamily="PingFangSC-Semibold" app:a1x="hnz" app:a21="hnz" app:a27="@id/clb" />
+    <androidx.appcompat.widget.AppCompatTextView android:textSize="18.0sp" android:id="@id/cla" android:visibility="gone" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="3.0dp" android:singleLine="true" app:a1x="hnz" app:a21="hnz" app:a26="@id/cl9" />
+</androidx.constraintlayout.widget.ConstraintLayout>

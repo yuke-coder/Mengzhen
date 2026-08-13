@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="mb">13.0sp</dimen>
+    <dimen name="mc">15.0sp</dimen>
+    <dimen name="me">8.0dp</dimen>
+    <dimen name="mf">12.0dp</dimen>
+    <dimen name="mg">40.0dp</dimen>
+    <dimen name="mh">28.0sp</dimen>
+    <dimen name="mi">38.0dp</dimen>
+    <dimen name="mj">8.0dp</dimen>
+    <dimen name="ml">13.0sp</dimen>
+    <dimen name="mm">16.0sp</dimen>
+    <dimen name="cig">3.0dp</dimen>
+</resources>

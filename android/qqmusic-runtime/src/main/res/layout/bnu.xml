@@ -1,0 +1,3 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.tme.mlive.ui.custom.CreateUgcSeatPreView android:layout_gravity="center_horizontal" android:id="@id/mlive_ugc_create_audio_mode_ktv_rcv" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginTop="180.0dp"
+  xmlns:android="http://schemas.android.com/apk/res/android" />

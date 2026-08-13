@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout android:orientation="vertical" android:focusable="true" android:focusableInTouchMode="true" android:layout_width="300.0dp" android:layout_height="wrap_content" android:layout_marginLeft="10.0dp" android:layout_marginRight="10.0dp"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <LinearLayout android:gravity="center_vertical" android:orientation="vertical" android:paddingLeft="@dimen/c4m" android:paddingRight="@dimen/c4m" android:layout_width="match_parent" android:layout_height="66.0dp">
+        <TextView android:textSize="12.0sp" android:textColor="#777777" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/hdq" style="@style/lk" />
+        <EditText android:textSize="14.0sp" android:textColor="#000000" android:id="@id/kfb" android:background="@null" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginTop="@dimen/c4n" style="@style/lo" />
+        <View android:id="@id/kfg" android:background="#a6a6a6" android:layout_width="match_parent" android:layout_height="1.0px" />
+    </LinearLayout>
+    <LinearLayout android:gravity="center_vertical" android:orientation="vertical" android:paddingLeft="@dimen/c4m" android:paddingRight="@dimen/c4m" android:layout_width="match_parent" android:layout_height="66.0dp">
+        <TextView android:textSize="12.0sp" android:textColor="#777777" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/hdv" style="@style/lk" />
+        <EditText android:textSize="14.0sp" android:textColor="#000000" android:id="@id/k57" android:background="@null" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginTop="@dimen/c4n" style="@style/lo" />
+        <View android:id="@id/k5_" android:background="#a6a6a6" android:layout_width="match_parent" android:layout_height="1.0px" />
+    </LinearLayout>
+    <LinearLayout android:gravity="center_vertical" android:orientation="vertical" android:paddingLeft="@dimen/c4m" android:paddingRight="@dimen/c4m" android:layout_width="match_parent" android:layout_height="66.0dp">
+        <TextView android:textSize="12.0sp" android:textColor="#777777" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/hdn" style="@style/lk" />
+        <EditText android:textSize="14.0sp" android:textColor="#000000" android:id="@id/we" android:background="@null" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginTop="@dimen/c4n" style="@style/lo" />
+        <View android:id="@id/wf" android:background="#a6a6a6" android:layout_width="match_parent" android:layout_height="1.0px" />
+    </LinearLayout>
+    <LinearLayout android:orientation="horizontal" android:paddingRight="@dimen/c4m" android:layout_width="match_parent" android:layout_height="66.0dp" android:baselineAligned="false">
+        <LinearLayout android:gravity="center_vertical" android:orientation="vertical" android:paddingLeft="@dimen/c4m" android:layout_width="match_parent" android:layout_height="match_parent" android:layout_weight="1.0">
+            <TextView android:textSize="12.0sp" android:textColor="#777777" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/hdp" style="@style/lk" />
+            <TextView android:textSize="14.0sp" android:textColor="#000000" android:id="@id/cfp" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="@dimen/c4n" style="@style/lo" />
+        </LinearLayout>
+        <LinearLayout android:gravity="center_vertical" android:orientation="vertical" android:paddingLeft="@dimen/c4m" android:layout_width="match_parent" android:layout_height="match_parent" android:layout_weight="1.0">
+            <TextView android:textSize="12.0sp" android:textColor="#777777" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/hds" style="@style/lk" />
+            <TextView android:textSize="14.0sp" android:textColor="#000000" android:id="@id/kh8" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="@dimen/c4n" style="@style/lo" />
+        </LinearLayout>
+    </LinearLayout>
+    <LinearLayout android:orientation="horizontal" android:paddingRight="@dimen/c4m" android:layout_width="match_parent" android:layout_height="66.0dp" android:baselineAligned="false">
+        <LinearLayout android:gravity="center_vertical" android:orientation="vertical" android:paddingLeft="@dimen/c4m" android:layout_width="match_parent" android:layout_height="match_parent" android:layout_weight="1.0">
+            <TextView android:textSize="12.0sp" android:textColor="#777777" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/hdt" style="@style/lk" />
+            <TextView android:textSize="14.0sp" android:textColor="#000000" android:id="@id/jfy" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="@dimen/c4n" style="@style/lo" />
+        </LinearLayout>
+        <LinearLayout android:gravity="center_vertical" android:orientation="vertical" android:paddingLeft="@dimen/c4m" android:layout_width="match_parent" android:layout_height="match_parent" android:layout_weight="1.0">
+            <TextView android:textSize="12.0sp" android:textColor="#777777" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/hdm" style="@style/lk" />
+            <TextView android:textSize="14.0sp" android:textColor="#000000" android:id="@id/ko" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="@dimen/c4n" style="@style/lo" />
+        </LinearLayout>
+    </LinearLayout>
+    <LinearLayout android:orientation="horizontal" android:paddingRight="@dimen/c4m" android:layout_width="match_parent" android:layout_height="66.0dp" android:baselineAligned="false">
+        <LinearLayout android:gravity="center_vertical" android:orientation="vertical" android:paddingLeft="@dimen/c4m" android:layout_width="match_parent" android:layout_height="match_parent" android:layout_weight="1.0">
+            <TextView android:textSize="12.0sp" android:textColor="#777777" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/hdu" style="@style/lk" />
+            <TextView android:textSize="14.0sp" android:textColor="#000000" android:id="@id/cfo" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="@dimen/c4n" style="@style/lo" />
+        </LinearLayout>
+        <LinearLayout android:gravity="center_vertical" android:orientation="vertical" android:paddingLeft="@dimen/c4m" android:layout_width="match_parent" android:layout_height="match_parent" android:layout_weight="1.0">
+            <TextView android:textSize="12.0sp" android:textColor="#777777" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/hdo" style="@style/lk" />
+            <TextView android:textSize="14.0sp" android:textColor="#000000" android:id="@id/bys" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="@dimen/c4n" style="@style/lo" />
+        </LinearLayout>
+    </LinearLayout>
+    <LinearLayout android:gravity="center_vertical" android:orientation="vertical" android:paddingLeft="@dimen/c4m" android:paddingTop="17.0dp" android:paddingRight="@dimen/c4m" android:paddingBottom="17.0dp" android:layout_width="match_parent" android:layout_height="wrap_content">
+        <TextView android:textSize="12.0sp" android:textColor="#777777" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/hdr" style="@style/lk" />
+        <TextView android:textSize="14.0sp" android:textColor="#000000" android:id="@id/cfn" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginTop="@dimen/c4n" android:singleLine="false" style="@style/lo" />
+    </LinearLayout>
+</LinearLayout>

@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout android:id="@id/f65" android:layout_width="match_parent" android:layout_height="@dimen/c9u" android:layout_marginTop="7.0dp" android:layout_marginBottom="7.0dp"
+  xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">
+    <com.tencent.qqmusic.ui.RoundedConstraintLayout android:id="@id/f64" android:layout_width="@dimen/c9u" android:layout_height="match_parent" app:a1d="hnz" app:a1x="hnz" app:a27="hnz">
+        <com.tencent.component.widget.AsyncEffectImageView android:id="@id/ce2" android:layout_width="match_parent" android:layout_height="match_parent" android:src="@drawable/mask_bg" android:scaleType="fitXY" app:a1x="hnz" app:a27="hnz" />
+        <View android:id="@id/ce8" android:background="@drawable/vip_fans_video_holder_shade_bg" android:visibility="gone" android:layout_width="match_parent" android:layout_height="match_parent" android:scaleType="fitXY" app:a1x="hnz" app:a27="hnz" />
+        <androidx.constraintlayout.widget.ConstraintLayout android:id="@id/eul" android:paddingLeft="12.0dp" android:paddingRight="12.0dp" android:layout_width="wrap_content" android:layout_height="@dimen/c9v" app:a1d="@id/ce2" app:a1x="@id/ce2" app:a21="@id/ce2" app:a27="@id/ce2">
+            <com.tencent.qqmusic.business.timeline.post.LiveRhythmView android:id="@id/f_v" android:layout_width="14.5dp" android:layout_height="12.0dp" app:a1d="hnz" app:a20="@id/f_k" app:a27="hnz" />
+            <ImageView android:id="@id/ecu" android:paddingLeft="2.0dp" android:paddingRight="2.0dp" android:visibility="gone" android:layout_width="22.0dp" android:layout_height="22.0dp" android:src="@drawable/ic_putoo_baseline_radio_butto_24" app:a1d="hnz" app:a20="@id/f_k" app:a27="hnz" />
+            <TextView android:textSize="16.0sp" android:textColor="@color/white" android:ellipsize="end" android:id="@id/f_k" android:paddingLeft="5.0dp" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/cat" android:maxLines="1" app:a1d="hnz" app:a1y="@id/f_v" app:a27="hnz" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
+        <Button android:textSize="14.0sp" android:textColor="@color/white" android:gravity="center" android:layout_gravity="center" android:id="@id/aj8" android:background="@drawable/bg_putoo_ugc_title_edit_done" android:visibility="gone" android:layout_width="105.0dp" android:layout_height="32.0dp" android:layout_marginTop="8.0dp" android:text="@string/exb" app:a1x="hnz" app:a21="hnz" app:a26="@id/eul" />
+    </com.tencent.qqmusic.ui.RoundedConstraintLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>

@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout android:layout_width="match_parent" android:layout_height="wrap_content"
+  xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">
+    <TextView android:textSize="14.0sp" android:textColor="@color/skin_text_main_color" android:id="@id/btl" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/atk" android:layout_centerVertical="true" />
+    <com.tencent.qqmusic.ui.RoundedRelativeLayout android:id="@id/fy2" android:layout_width="90.0dp" android:layout_height="25.0dp" android:layout_centerVertical="true" android:layout_alignParentEnd="true" app:ado="12.5dp">
+        <com.tencent.qqmusic.ui.RoundedRelativeLayout android:id="@id/btk" android:layout_width="43.0dp" android:layout_height="22.0dp" android:layout_centerVertical="true" android:layout_marginStart="1.5dp" android:layout_alignParentStart="true" app:ado="11.0dp">
+            <TextView android:textSize="12.0sp" android:textColor="@color/skin_text_sub_color" android:id="@id/kfq" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/atm" android:layout_centerInParent="true" />
+        </com.tencent.qqmusic.ui.RoundedRelativeLayout>
+        <com.tencent.qqmusic.ui.RoundedRelativeLayout android:id="@id/btj" android:layout_width="43.0dp" android:layout_height="22.0dp" android:layout_centerVertical="true" android:layout_marginEnd="1.5dp" android:layout_alignParentEnd="true" app:ado="11.0dp">
+            <TextView android:textSize="12.0sp" android:textColor="@color/skin_text_main_color" android:id="@id/key" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/atl" android:layout_centerInParent="true" />
+        </com.tencent.qqmusic.ui.RoundedRelativeLayout>
+    </com.tencent.qqmusic.ui.RoundedRelativeLayout>
+</RelativeLayout>

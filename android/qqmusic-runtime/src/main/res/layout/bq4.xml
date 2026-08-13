@@ -1,0 +1,3 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.tencent.component.widget.AsyncImageView android:id="@id/gcm" android:layout_width="match_parent" android:layout_height="wrap_content" android:scaleType="fitXY" android:adjustViewBounds="true" android:minHeight="137.0dp" android:contentDescription="@string/e73"
+  xmlns:android="http://schemas.android.com/apk/res/android" />

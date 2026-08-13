@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout android:layout_width="match_parent" android:layout_height="match_parent"
+  xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">
+    <androidx.constraintlayout.widget.Guideline android:orientation="horizontal" android:id="@id/d9v" android:layout_width="match_parent" android:layout_height="1.0dp" app:a1n="0.55" app:a1x="hnz" app:a21="hnz" />
+    <ImageView android:id="@id/nfh" android:layout_width="90.0dp" android:layout_height="90.0dp" app:a1x="hnz" app:a21="hnz" app:a26="@id/d9v" />
+    <ImageView android:id="@id/nfi" android:layout_width="200.0dp" android:layout_height="60.0dp" android:layout_marginTop="@dimen/rr" app:a1x="hnz" app:a21="hnz" app:a26="@id/nfh" />
+</androidx.constraintlayout.widget.ConstraintLayout>

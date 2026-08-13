@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout android:layout_width="wrap_content" android:layout_height="wrap_content"
+  xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">
+    <androidx.constraintlayout.widget.ConstraintLayout android:id="@id/j55" android:background="@drawable/bg_switch_resolution_guide" android:paddingTop="9.0dp" android:paddingBottom="9.5dp" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="7.5dp" android:paddingStart="10.0dp" android:paddingEnd="10.0dp" app:a1j="hnz" app:a23="hnz" app:a27="hnz">
+        <ImageView android:id="@id/j56" android:layout_width="15.0dp" android:layout_height="15.0dp" android:src="@drawable/icon_super_vip_as" android:scaleType="fitCenter" app:a1d="hnz" app:a23="hnz" app:a27="hnz" />
+        <TextView android:textSize="12.0sp" android:textColor="@color/white_80_transparent" android:gravity="center" android:id="@id/ma4" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/ejq" android:layout_marginStart="4.0dp" app:a1d="hnz" app:a1j="hnz" app:a22="@id/j56" app:a27="hnz" app:a2q="0.0dp" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+    <com.tencent.qqmusic.fragment.mainpage.DeskPlusTriangleView android:id="@id/gc8" android:layout_width="15.0dp" android:layout_height="7.5dp" app:oa="#33d9d9d9" app:ob="mu_" app:a1e="@id/j55" app:a1j="@id/j55" app:a23="@id/j55" />
+</androidx.constraintlayout.widget.ConstraintLayout>

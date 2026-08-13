@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout android:background="@drawable/color_b2_click" android:paddingLeft="16.0dp" android:paddingRight="14.0dp" android:layout_width="match_parent" android:layout_height="61.0dp" android:paddingStart="16.0dp" android:paddingEnd="14.0dp"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <LinearLayout android:orientation="vertical" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_alignParentLeft="true" android:layout_centerVertical="true" android:layout_alignParentStart="true">
+        <TextView android:textSize="16.0sp" android:textColor="@color/skin_text_main_color" android:id="@id/mfl" android:layout_width="wrap_content" android:layout_height="wrap_content" />
+        <LinearLayout android:orientation="horizontal" android:layout_width="wrap_content" android:layout_height="wrap_content">
+            <TextView android:textSize="12.0sp" android:textColor="@color/skin_text_sub_color" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/grh" />
+            <TextView android:textSize="12.0sp" android:textColor="@color/skin_highlight_color" android:id="@id/mfi" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/gri" />
+        </LinearLayout>
+    </LinearLayout>
+    <LinearLayout android:gravity="end|center" android:orientation="horizontal" android:id="@id/ffh" android:layout_width="wrap_content" android:layout_height="match_parent" android:layout_alignParentRight="true" android:layout_centerVertical="true" android:layout_alignParentEnd="true">
+        <TextView android:textSize="12.0sp" android:textColor="@color/skin_text_sub_color" android:id="@id/mfj" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginRight="17.0dp" android:layout_marginEnd="17.0dp" />
+        <ImageView android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginRight="5.0dp" android:src="@drawable/arrow_right" android:layout_marginEnd="5.0dp" />
+    </LinearLayout>
+</RelativeLayout>

@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout android:background="@drawable/main_bg" android:layout_width="match_parent" android:layout_height="match_parent"
+  xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">
+    <include android:layout_width="match_parent" android:layout_height="@dimen/cau" layout="@layout/mu" />
+    <com.tencent.qqmusic.pag.QQMusicPAGView android:id="@id/hmw" android:layout_width="200.0dp" android:layout_height="200.0dp" app:a1d="hnz" app:a1x="hnz" app:a21="hnz" app:a27="hnz" />
+    <Button android:id="@id/j4o" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="换图片" app:a1x="hnz" app:a21="hnz" app:a26="@id/hmw" />
+</androidx.constraintlayout.widget.ConstraintLayout>

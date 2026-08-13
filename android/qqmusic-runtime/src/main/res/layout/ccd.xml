@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout android:layout_width="match_parent" android:layout_height="wrap_content"
+  xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">
+    <TextView android:textSize="12.0dp" android:textColor="@color/skin_text_sub_color" android:gravity="center" android:id="@id/ldq" android:paddingTop="15.0dp" android:paddingBottom="40.0dp" android:layout_width="match_parent" android:layout_height="wrap_content" android:text="- 你还没有关注人、小组、话题 -" app:a27="hnz" />
+    <View android:id="@id/bua" android:background="@drawable/skin_search_content_color" android:layout_width="match_parent" android:layout_height="8.0dp" app:a1d="@id/ldq" />
+    <TextView android:textSize="14.0dp" android:textColor="@color/skin_text_main_color" android:id="@id/lg3" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginLeft="16.0dp" android:layout_marginTop="18.0dp" android:layout_marginRight="16.0dp" android:layout_marginBottom="18.0dp" android:text="社区热门" app:a1d="hnz" app:a26="@id/bua" />
+</androidx.constraintlayout.widget.ConstraintLayout>

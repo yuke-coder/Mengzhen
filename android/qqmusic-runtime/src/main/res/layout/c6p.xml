@@ -1,0 +1,3 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.tencent.component.widget.AsyncImageView android:focusable="false" android:visibility="gone" android:clickable="false" android:layout_width="45.0dp" android:layout_height="30.0dp"
+  xmlns:android="http://schemas.android.com/apk/res/android" />

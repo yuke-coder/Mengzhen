@@ -1,0 +1,188 @@
+{
+  "router": "openHalf",
+  "page_name": "dialog_universal_style",
+  "debug": 0,
+  "container": {},
+  "params": {
+    "id": "513",
+    "viewId": "23168",
+    "renderType": "RENDER_TYPE_KUIKLY",
+    "styleType": 8,
+    "styleItemType": "STYLE_ITEM_TYPE_COMMON",
+    "display": {
+      "title": "您的豪华绿钻即将过期",
+      "subTitle": "续费会员，享受继续领续费会员",
+      "buttons": [
+        {
+          "name": "MAIN",
+          "title": "%d元立即续费",
+          "description": "角标文案",
+          "link": {
+            "type": "LINK_TYPE_PAY"
+          },
+          "color": "#1a5eb7",
+          "textColor": "#f1f2f4"
+        },
+        {
+          "name": "STOP",
+          "title": "3天内不再提示",
+          "link": {
+            "type": "LINK_TYPE_STOP"
+          }
+        }
+      ],
+      "images": [
+        {
+          "name": "CORNERIMAGE",
+          "url": "https://y.qq.com/music/common/upload/t_cm3_photo_publish/6977530.png"
+        },
+        {
+          "name": "BACKGROUND",
+          "url": "https://y.qq.com/music/common/upload/new_remind_viewid_v2/6983810.png"
+        },
+        {
+          "name": "ALBUMIMAGE",
+          "url": "https://y.qq.com/music/common/upload/new_remind_viewid_v2/6983798.gif"
+        }
+      ],
+      "countdown": {
+        "endTime": "24: 00: 00"
+      }
+    },
+    "memberShipInfo": {
+      "vipType": "VIP_TYPE_SVIP",
+      "priceItem": {
+        "reportId": "music_cjhy_1079165",
+        "price": 6800,
+        "originalPrice": 8000,
+        "productPayType": 2
+      }
+    },
+    "report": {
+      "abt": {
+        "moduleKey": "0"
+      }
+    },
+    "cycle": {},
+    "styleId": 53,
+    "businessCode": 1,
+    "data": {
+      "offer": [
+        {
+          "id": 1000010,
+          "offers": [
+            {
+              "id": "music_cjhy_1079165",
+              "type": 0,
+              "product": {
+                "business": "vip",
+                "productID": "1201613652741397",
+                "skuID": "2201612733897511",
+                "activityID": "0",
+                "periodUnit": 3,
+                "periodNumber": 2,
+                "marketPrice": 8000,
+                "price": 6800,
+                "renewPrice": 0,
+                "payType": 10,
+                "platform": 1,
+                "productExtraSpec": {
+                  "groupMemberNums": 0
+                },
+                "limit": {
+                  "limit": {
+                    "effectiveEndTime": 0,
+                    "availableStock": 0,
+                    "isShowStock": false
+                  },
+                  "isLimitStock": false
+                }
+              },
+              "pack": {
+                "name": "线上验证-号码包17553",
+                "group": "cjhy",
+                "text": "",
+                "icon": "",
+                "image": ""
+              },
+              "upgrade": {
+                "maxMonths": 0,
+                "maxDays": 0,
+                "defaultMonths": 0,
+                "defaultDays": 0
+              },
+              "paymentAction": {
+                "type": 0,
+                "jumpURL": ""
+              },
+              "incentive": {
+                "discountStyle": 1,
+                "discountText": "限时限量",
+                "buttonText": "",
+                "mainText": "2个月",
+                "mainOperateText": "限时5折",
+                "viceOperateText": "数量有限售完即止",
+                "icon": "",
+                "countdownDuration": 0,
+                "contractSignOperateText": ""
+              },
+              "abtStrategyID": "9499",
+              "categoryTag": "cjhy",
+              "gift": {
+                "gifts": [
+                  {
+                    "activityID": "21025031402193",
+                    "quantity": 1,
+                    "operateText": "",
+                    "items": [
+                      {
+                        "skuID": "2201593912280768",
+                        "title": "赠品2",
+                        "description": "333",
+                        "icon": "https://y.qq.com/pangu-img/P28124499R140X100T0311347.png",
+                        "jumpURL": "",
+                        "marketPrice": 1000,
+                        "qbNum": 0
+                      }
+                    ],
+                    "bindingMarketingActivityID": "",
+                    "title": "",
+                    "banner": ""
+                  }
+                ]
+              },
+              "deductionActivity": {
+                "deductionActivities": [
+                ]
+              },
+              "activityType": 0,
+              "rescissionConfig": {
+                "rescissionRecoveryDays": 0
+              },
+              "isContractTrial": false,
+              "priceOfferGroupID": 1000010,
+              "mutexType": 1,
+              "coupons": [
+              ],
+              "discountActivity": {
+                "activityID": "0",
+                "activityType": 0,
+                "limit": {
+                  "effectiveEndTime": 0,
+                  "availableStock": 0,
+                  "isShowStock": false
+                },
+                "isLimitStock": false
+              },
+              "conditionalActivity": {
+                "conditionalActivities": [
+                ]
+              }
+            }
+          ],
+          "abtExperimentID": 0
+        }
+      ]
+    }
+  }
+}

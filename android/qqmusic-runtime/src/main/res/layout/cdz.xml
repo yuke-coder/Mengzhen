@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.tencent.qqmusic.ui.UniversalPlayLayout android:id="@id/ewd" android:layout_width="wrap_content" android:layout_height="wrap_content" android:minWidth="20.0dp" android:minHeight="20.0dp"
+  xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">
+    <LinearLayout android:orientation="horizontal" android:id="@id/ewl" android:layout_width="wrap_content" android:layout_height="wrap_content" app:a1d="hnz" app:a21="hnz" app:a27="hnz">
+        <ImageView android:layout_gravity="center" android:id="@id/dse" android:layout_width="30.0dp" android:layout_height="30.0dp" android:src="@drawable/module_musichall_icon_play_new" />
+    </LinearLayout>
+</com.tencent.qqmusic.ui.UniversalPlayLayout>

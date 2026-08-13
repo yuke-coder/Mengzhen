@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.tencent.qqmusic.ui.RoundedConstraintLayout android:id="@id/r6" android:layout_width="110.0dp" android:layout_height="110.0dp" app:kj="9.0dp"
+  xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">
+    <com.tencent.component.widget.AsyncImageView android:id="@id/r5" android:layout_width="match_parent" android:layout_height="match_parent" android:scaleType="centerCrop" />
+    <com.tencent.component.widget.AsyncImageView android:id="@id/r4" android:layout_width="match_parent" android:layout_height="match_parent" android:scaleType="centerCrop" />
+    <androidx.constraintlayout.widget.ConstraintLayout android:id="@id/r1" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginLeft="9.0dp" android:layout_marginTop="7.0dp" android:layout_marginRight="9.0dp" app:a1x="hnz" app:a21="hnz" app:a27="hnz">
+        <com.tencent.component.widget.AsyncImageView android:id="@id/r3" android:background="@drawable/flag_svip" android:visibility="visible" android:layout_width="14.0dp" android:layout_height="14.0dp" app:a1d="hnz" app:a21="hnz" app:a27="hnz" />
+        <androidx.appcompat.widget.AppCompatTextView android:textSize="12.0sp" android:textColor="@color/default_text_main_color" android:ellipsize="end" android:gravity="center_vertical" android:id="@id/r2" android:layout_width="0.0dp" android:layout_height="wrap_content" android:maxLines="1" android:includeFontPadding="false" app:a18="true" app:a1d="hnz" app:a1x="hnz" app:a20="@id/r3" app:a27="hnz" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+    <androidx.appcompat.widget.AppCompatTextView android:textSize="8.0sp" android:textColor="@color/default_text_sub_color" android:ellipsize="end" android:id="@id/qz" android:layout_width="0.0dp" android:layout_height="wrap_content" android:layout_marginTop="1.5dp" android:layout_marginRight="9.0dp" android:maxLines="1" app:a1x="@id/r1" app:a21="hnz" app:a26="@id/r1" app:a2b="kqe" />
+    <ImageView android:gravity="center_vertical" android:layout_gravity="center_vertical" android:id="@id/r8" android:visibility="gone" android:layout_width="15.0dp" android:layout_height="15.0dp" android:layout_marginRight="9.0dp" android:layout_marginBottom="9.0dp" android:src="@drawable/ai_assistant_bot_select" app:a1d="hnz" app:a21="hnz" />
+</com.tencent.qqmusic.ui.RoundedConstraintLayout>

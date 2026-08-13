@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout android:layout_width="wrap_content" android:layout_height="wrap_content"
+  xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">
+    <ImageView android:id="@id/b2x" android:visibility="invisible" android:layout_width="38.0dp" android:layout_height="38.0dp" android:src="@drawable/status_lyric_color_clicked" />
+    <com.tencent.qqmusic.ui.RoundedRelativeLayout android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_centerInParent="true" app:ado="7.5dp">
+        <com.tencent.qqmusic.business.statusbarlyric.widget.HalfSquareColorView android:id="@id/da9" android:layout_width="30.0dp" android:layout_height="30.0dp" android:layout_centerInParent="true" />
+        <ImageView android:id="@id/b5l" android:visibility="gone" android:layout_width="30.0dp" android:layout_height="30.0dp" android:layout_centerInParent="true" />
+    </com.tencent.qqmusic.ui.RoundedRelativeLayout>
+</RelativeLayout>

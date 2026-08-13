@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout android:id="@id/cxa" android:background="@drawable/bg_free_mode_float_window" android:layout_width="65.0dp" android:layout_height="46.0dp"
+  xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">
+    <ViewStub android:id="@id/no2" android:layout="@layout/auf" android:inflatedId="@id/cy6" android:layout_width="39.0dp" android:layout_height="39.0dp" android:layout_marginStart="4.0dp" app:a1d="hnz" app:a1x="hnz" app:a27="hnz" />
+    <ViewStub android:id="@id/nnz" android:layout="@layout/arm" android:inflatedId="@id/y4" android:layout_width="39.0dp" android:layout_height="39.0dp" android:layout_marginStart="4.0dp" app:a1d="hnz" app:a1x="hnz" app:a27="hnz" />
+    <ImageView android:id="@id/cwz" android:padding="7.0dp" android:layout_width="22.0dp" android:layout_height="22.0dp" android:src="@drawable/player_video_btn_close" android:contentDescription="@string/a7j" android:alpha="0.6" app:a1d="hnz" app:a21="hnz" app:a27="hnz" />
+</androidx.constraintlayout.widget.ConstraintLayout>

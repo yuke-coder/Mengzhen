@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout android:background="@drawable/material_ripple_background" android:paddingLeft="20.0dp" android:paddingTop="6.0dp" android:paddingRight="14.0dp" android:paddingBottom="6.0dp" android:layout_width="match_parent" android:layout_height="72.0dp"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <RelativeLayout android:id="@id/cli" android:layout_width="wrap_content" android:layout_height="53.5dp" android:layout_centerVertical="true">
+        <com.tencent.component.widget.AsyncEffectImageView android:id="@id/clh" android:layout_width="53.5dp" android:layout_height="53.5dp" android:scaleType="centerCrop" />
+        <ImageView android:id="@id/a8m" android:layout_width="wrap_content" android:layout_height="43.5dp" android:layout_marginLeft="-2.0dp" android:src="@drawable/ic_folder_bg" android:layout_toRightOf="@id/clh" android:layout_centerVertical="true" />
+    </RelativeLayout>
+    <ImageView android:id="@id/h99" android:layout_width="wrap_content" android:layout_height="wrap_content" android:src="@drawable/arrow_right_grey" android:layout_alignParentRight="true" android:layout_centerVertical="true" />
+    <RelativeLayout android:id="@id/h9_" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginLeft="10.0dp" android:layout_marginRight="10.0dp" android:layout_toLeftOf="@id/h99" android:layout_toRightOf="@id/cli" android:layout_centerVertical="true">
+        <TextView android:textSize="16.0sp" android:textColor="@color/skin_text_main_color" android:ellipsize="end" android:id="@id/cll" android:layout_width="match_parent" android:layout_height="wrap_content" android:singleLine="true" />
+        <com.tencent.qqmusic.ui.customview.textview.CommaWrapTextView android:textSize="12.0sp" android:textColor="@color/skin_text_sub_color" android:id="@id/clj" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginTop="3.0dp" android:layout_toRightOf="@id/clk" android:layout_below="@id/cll" />
+    </RelativeLayout>
+</RelativeLayout>

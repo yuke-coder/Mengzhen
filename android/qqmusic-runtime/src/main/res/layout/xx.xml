@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout android:layout_width="match_parent" android:layout_height="match_parent"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <include android:id="@id/naf" android:layout_width="match_parent" android:layout_height="match_parent" layout="@layout/m6" />
+    <com.tencent.qqmusic.fragment.kuikly.view.TouchApiFrameLayout android:id="@id/eo_" android:layout_width="match_parent" android:layout_height="match_parent" />
+    <FrameLayout android:id="@id/ep6" android:visibility="gone" android:layout_width="match_parent" android:layout_height="match_parent" />
+    <androidx.appcompat.widget.AppCompatImageView android:id="@id/ep4" android:visibility="gone" android:layout_width="match_parent" android:layout_height="match_parent" android:src="@drawable/error_common" android:scaleType="center" />
+</FrameLayout>

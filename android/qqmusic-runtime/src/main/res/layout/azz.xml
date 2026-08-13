@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout android:layout_width="wrap_content" android:layout_height="wrap_content"
+  xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">
+    <FrameLayout android:id="@id/n_l" android:background="@drawable/bg_album_share_bubble" android:layout_width="wrap_content" android:layout_height="wrap_content" app:a23="hnz" app:a27="hnz">
+        <TextView android:textSize="13.0sp" android:textColor="@color/white" android:id="@id/ml5" android:visibility="gone" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginLeft="10.0dp" android:layout_marginTop="6.0dp" android:layout_marginRight="10.0dp" android:layout_marginBottom="6.0dp" android:text="@string/i2_" android:maxLines="1" app:a1d="hnz" app:a1x="hnz" app:a27="hnz" />
+        <ImageView android:id="@id/duz" android:layout_width="@dimen/eu" android:layout_height="@dimen/et" android:layout_margin="3.0dp" android:scaleType="fitCenter" app:a1d="hnz" app:a1x="hnz" app:a27="hnz" />
+    </FrameLayout>
+    <View android:id="@id/n_m" android:background="@drawable/bg_album_share_bubble_triangle" android:layout_width="10.0dp" android:layout_height="10.0dp" android:layout_below="@id/n_l" android:layout_marginEnd="11.0dp" app:a1j="hnz" app:a26="@id/n_l" />
+</androidx.constraintlayout.widget.ConstraintLayout>

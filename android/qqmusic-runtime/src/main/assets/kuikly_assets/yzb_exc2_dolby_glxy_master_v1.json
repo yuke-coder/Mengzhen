@@ -1,0 +1,136 @@
+{
+  "router": "openHalf",
+  "page_name": "dialog_anim_topbar",
+  "container": {
+    "h_weight": 1,
+    "w_weight": 0.95
+  },
+  "params": {
+    "models": {
+      "aids": {
+        "yzb_vip_packs": "qqmusic_vip_packs",
+        "yzb_packs": "qqmusic_vip_packs"
+      },
+      "kuikly_pay": {
+        "url_v1": "https://y.qq.com/m/basic/client/kuikly_pay/v1/index.html",
+        "url_vip_next": "https://y.qq.com/m/basic/client/kuikly_pay/vip_next/index.html"
+      }
+    },
+    "page": [
+      {
+        "exposure": {
+          "id": "5018337"
+        },
+        "height": 920,
+        "radius": [
+          20
+        ],
+        "topbar": {
+          "type": "album",
+          "height": 230,
+          "url": "",
+          "background": {
+            "type": "image",
+            "url": "https:\/\/musicx.y.qq.com\/kuikly\/assets\/svip_quality\/dialog_topbar_album_cover_bg_stars.webp"
+          }
+        },
+        "base": {
+          "title": "当前歌曲您未开启最高音质播放",
+          "title_color": "#FFECC1",
+          "title_font_size": 36,
+          "title_first": 1,
+          "subtitle": "",
+          "subtitle_color": "#FFECC1",
+          "subtitle_font_size": 28,
+          "background": {
+            "type": "gradient",
+            "direction": "to-top",
+            "colors": [
+              "#FF2A2A2A",
+              "#FF1C1C1C"
+            ]
+          }
+        },
+        "close": {
+          "design": "close_button_white",
+          "rules": {
+            "file_name": "qmkuikly_close_white",
+            "notify_event": "EVENT_DIALOG_CLOSE",
+            "click": {
+              "id": "1020614"
+            }
+          }
+        },
+        "body": {
+          "atoms": [
+            {
+              "design": "quality_price_card",
+              "rules": {
+                "quality": 0,
+                "margin_top": 20,
+                "margin_bottom": 0,
+                "quality_list": [
+                  {
+                    "title": "杜比全景声",
+                    "image_url": "https:\/\/musicx.y.qq.com\/kuikly\/assets\/svip_quality\/svip_dialog_quality_icon_dolby.webp"
+                  },
+                  {
+                    "title": "臻品音质2.0",
+                    "image_url": "https:\/\/musicx.y.qq.com\/kuikly\/assets\/svip_quality\/svip_dialog_quality_icon_excellent.webp"
+                  },
+                  {
+                    "title": "臻品母带2.0",
+                    "image_url": "https:\/\/musicx.y.qq.com\/kuikly\/assets\/svip_quality\/svip_dialog_quality_icon_master.webp"
+                  },
+                  {
+                    "title": "臻品全景声",
+                    "image_url": "https:\/\/musicx.y.qq.com\/kuikly\/assets\/svip_quality\/svip_dialog_quality_icon_glaxy.webp"
+                  }
+                ]
+              }
+            },
+            {
+              "design": "quality_buy_card",
+              "rules": {
+                "quality": 0,
+                "margin_top": 20,
+                "margin_bottom": 40,
+                "buttons": [
+                  {
+                    "color": "#FFCD4B",
+                    "text_color": "#2A2A2A",
+                    "url": "",
+                    "click": {
+                      "id": "1019640"
+                    },
+                    "text": "我知道了"
+                  }
+                ]
+              }
+            }
+          ]
+        }
+      }
+    ]
+  },
+  "p_extras": {
+    "page": [
+      {
+        "topbar": {
+          "type": "album",
+          "url": "http:\/\/y.gtimg.cn\/music\/photo_new\/T002R500x500M0000023YRbq0UUpdn_1.jpg"
+        }
+      }
+    ],
+    "models": {
+      "songinfo": {
+        "songid": 5105986,
+        "name": "一路向北",
+        "album": "十一月的肖邦",
+        "album_des": "《一路向北》",
+        "album_url": "http://y.gtimg.cn/music/photo_new/T002R150x150M000002MAeob3zLXwZ_4.jpg",
+        "singer": "周杰伦"
+      }
+    }
+  }
+}

@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout android:id="@id/ev_" android:focusable="true" android:visibility="gone" android:clickable="true" android:layout_width="match_parent" android:layout_height="match_parent"
+  xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">
+    <androidx.constraintlayout.widget.Guideline android:orientation="vertical" android:id="@id/i0c" android:layout_width="wrap_content" android:layout_height="wrap_content" app:a1n="0.0769" />
+    <androidx.constraintlayout.widget.Guideline android:orientation="vertical" android:id="@id/i08" android:layout_width="wrap_content" android:layout_height="wrap_content" app:a1n="0.9231" />
+    <androidx.constraintlayout.widget.ConstraintLayout android:id="@id/dv3" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginLeft="30.0dp" android:layout_marginTop="@dimen/bnh" android:layout_marginRight="80.0dp" app:a27="hnz">
+        <FrameLayout android:id="@id/kfh" android:layout_width="0.0dp" android:layout_height="wrap_content" android:layout_marginRight="16.0dp" app:a1j="hnz" app:a23="hnz" app:a27="hnz">
+            <com.tencent.qqmusic.ui.customview.textview.ScrollTextView android:textSize="24.0dp" android:textStyle="bold" android:textColor="@color/white_70_transparent" android:ellipsize="end" android:gravity="left|center" android:id="@id/mb0" android:layout_width="match_parent" android:layout_height="wrap_content" android:singleLine="true" />
+        </FrameLayout>
+        <androidx.constraintlayout.widget.ConstraintLayout android:id="@id/k5a" android:layout_width="0.0dp" android:layout_height="wrap_content" android:layout_marginTop="9.0dp" app:a1j="hnz" app:a23="hnz" app:a26="@id/kfh">
+            <com.tencent.qqmusic.ui.customview.textview.ScrollTextView android:textSize="14.0dp" android:textColor="@color/white_50_opacity" android:ellipsize="end" android:id="@id/maz" android:layout_width="0.0dp" android:layout_height="wrap_content" android:singleLine="true" app:a18="true" app:a1d="hnz" app:a1t="0.0" app:a1u="hmg" app:a1x="hnz" app:a21="hnz" app:a27="hnz" app:a2b="nug" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </androidx.constraintlayout.widget.ConstraintLayout>
+    <androidx.constraintlayout.widget.ConstraintLayout android:id="@id/fy8" android:layout_width="35.0dp" android:layout_height="35.0dp" android:layout_marginRight="20.0dp" app:a1d="@id/dv3" app:a21="hnz" app:a27="@id/dv3">
+        <ImageView android:id="@id/fy_" android:layout_width="match_parent" android:layout_height="match_parent" android:src="@drawable/player_btn_lyric_play_normal" android:scaleType="fitCenter" app:a1d="hnz" app:a1j="hnz" app:a23="hnz" app:a27="hnz" />
+        <com.airbnb.lottie.LottieAnimationView android:id="@id/fy9" android:visibility="invisible" android:layout_width="match_parent" android:layout_height="match_parent" android:scaleType="fitCenter" app:a1d="hnz" app:a1j="hnz" app:a23="hnz" app:a27="hnz" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+    <FrameLayout android:id="@id/jit" android:clipChildren="true" android:layout_width="match_parent" android:layout_height="0.0dp" android:layout_marginTop="30.0dp" app:a1e="@id/aip" app:a26="@id/dv3">
+        <androidx.constraintlayout.widget.ConstraintLayout android:id="@id/jis" android:layout_width="match_parent" android:layout_height="match_parent">
+            <com.lyricengine.ui.LineFeedAnimationLyricView android:id="@id/jir" android:focusable="false" android:scrollbars="none" android:fadingEdgeLength="@dimen/bgg" android:layout_width="match_parent" android:layout_height="match_parent" android:fillViewport="true" android:contentDescription="@string/atl" android:overScrollMode="never" android:requiresFadingEdge="vertical" app:a6i="#ffffffff" app:a6j="#80ffffff" app:a6k="#80ffffff" app:a6p="22.0dp" app:a6q="17.0dp" app:a6r="15.0dp" app:a6s="left" app:a6v="5.0dp" app:a72="50" app:a73="26.0dp" app:a7b="top" />
+            <androidx.appcompat.widget.AppCompatTextView android:textSize="16.0dp" android:textColor="@color/white" android:id="@id/mej" android:visibility="gone" android:layout_width="wrap_content" android:layout_height="wrap_content" app:a1d="hnz" app:a1x="hnz" app:a21="hnz" app:a27="hnz" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </FrameLayout>
+    <LinearLayout android:gravity="center" android:orientation="horizontal" android:id="@id/aip" android:background="@drawable/bg_rader_card_lyric_collapse" android:paddingLeft="16.0dp" android:paddingRight="10.5dp" android:layout_width="wrap_content" android:layout_height="29.0dp" app:a1d="hnz" app:a1x="hnz" app:a21="hnz">
+        <TextView android:textSize="12.0dp" android:textColor="@color/white_60_opacity" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="收起歌词" />
+        <ImageView android:layout_width="20.0dp" android:layout_height="20.0dp" android:src="@drawable/icon_half_fold_lyric_arrow_down" />
+    </LinearLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>

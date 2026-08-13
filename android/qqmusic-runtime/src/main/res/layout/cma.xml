@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout android:gravity="center" android:orientation="horizontal" android:id="@id/crc" android:background="@drawable/bg_ai_folder_preview_header_btn_normal" android:paddingTop="10.0dp" android:paddingBottom="10.0dp" android:focusable="true" android:focusableInTouchMode="false" android:layout_width="match_parent" android:layout_height="wrap_content" android:contentDescription="@string/bdk" android:paddingVertical="10.0dp"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <ImageView android:layout_gravity="center" android:id="@id/crb" android:layout_width="20.0dp" android:layout_height="20.0dp" android:src="@drawable/singer_follow_icon" />
+    <androidx.appcompat.widget.AppCompatTextView android:textSize="14.0sp" android:textColor="@color/skin_text_main_color" android:layout_gravity="center" android:id="@id/crd" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginLeft="8.0dp" android:text="@string/bdk" android:fontFamily="PingFang-SC-Regular" />
+</LinearLayout>

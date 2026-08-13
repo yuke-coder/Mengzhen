@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ripple android:color="@color/common_ripple_color_normal_dark"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <item android:id="@android:id/mask">
+        <layer-list>
+            <item android:left="2.0dp" android:top="2.0dp" android:right="2.0dp" android:bottom="2.0dp">
+                <shape android:shape="oval">
+                    <solid android:color="#e9a15e" />
+                    <size android:height="100.0dp" android:width="100.0dp" />
+                </shape>
+            </item>
+        </layer-list>
+    </item>
+</ripple>

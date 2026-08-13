@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout android:background="@drawable/material_ripple_background" android:paddingLeft="16.0dp" android:paddingBottom="6.0dp" android:layout_width="match_parent" android:layout_height="@dimen/b6k" android:minHeight="@dimen/b6k"
+  xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">
+    <com.tencent.qqmusic.ui.RoundedRelativeLayout android:id="@id/e2j" android:layout_width="wrap_content" android:layout_height="@dimen/b6m" android:layout_marginTop="5.0dp" android:layout_marginRight="10.0dp" android:layout_centerVertical="true" app:ado="7.5dp">
+        <com.tencent.qqmusic.ui.customview.ScaleImageView android:id="@id/e2i" android:layout_width="@dimen/b6n" android:layout_height="@dimen/b6m" android:scaleType="centerCrop" android:layout_centerVertical="true" />
+        <ImageView android:id="@id/e2h" android:visibility="gone" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_alignLeft="@id/e2i" android:layout_alignTop="@id/e2i" />
+        <RelativeLayout android:id="@id/h3w" android:visibility="gone" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginRight="7.0dp" android:layout_marginBottom="2.0dp" android:layout_alignRight="@id/e2i" android:layout_alignBottom="@id/e2i">
+            <ImageView android:id="@id/e2k" android:paddingTop="1.0dp" android:visibility="gone" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginRight="2.0dp" android:src="@drawable/mv_item_video" android:layout_centerVertical="true" />
+            <TextView android:textSize="10.0sp" android:textColor="@color/white" android:gravity="center_vertical" android:id="@id/e2l" android:visibility="gone" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="0.0万" android:layout_toRightOf="@id/e2k" android:layout_centerVertical="true" />
+        </RelativeLayout>
+    </com.tencent.qqmusic.ui.RoundedRelativeLayout>
+    <RelativeLayout android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginRight="12.0dp" android:layout_toRightOf="@id/e2j" android:layout_centerVertical="true">
+        <LinearLayout android:gravity="center" android:orientation="horizontal" android:id="@id/e2n" android:layout_width="wrap_content" android:layout_height="wrap_content">
+            <TextView android:textSize="14.0sp" android:textColor="@color/skin_text_main_color" android:ellipsize="end" android:id="@id/e2m" android:layout_width="wrap_content" android:text="我是mv的title" android:maxLines="1" android:layout_weight="1.0" style="@style/lj" />
+        </LinearLayout>
+        <RelativeLayout android:id="@id/e2g" android:visibility="visible" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginTop="6.0dp" android:layout_marginRight="12.0dp" android:layout_below="@id/e2n" android:layout_centerVertical="true">
+            <include android:id="@id/kh9" android:layout_width="wrap_content" android:layout_height="wrap_content" layout="@layout/cn8" />
+        </RelativeLayout>
+        <TextView android:textColor="@color/skin_text_sub_color" android:ellipsize="end" android:id="@id/e2o" android:visibility="gone" android:layout_width="wrap_content" android:layout_marginTop="6.0dp" android:maxLines="1" android:layout_below="@id/e2g" style="@style/ll" />
+    </RelativeLayout>
+</RelativeLayout>

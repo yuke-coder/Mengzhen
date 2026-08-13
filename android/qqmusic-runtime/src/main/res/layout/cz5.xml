@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.tencent.qqmusic.business.timeline.ui.ClipPathRelativeLayout android:layout_gravity="center" android:id="@id/jd3" android:background="@drawable/skin_mask_img" android:layout_width="match_parent" android:layout_height="@dimen/boo"
+  xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">
+    <ImageView android:id="@id/f0s" android:layout_width="40.0dp" android:layout_height="40.0dp" android:layout_marginLeft="7.0dp" android:src="@drawable/radio_live_entry_left_icon" android:layout_centerVertical="true" />
+    <ImageView android:id="@id/gt6" android:layout_width="30.0dp" android:layout_height="40.0dp" android:src="@drawable/icon_folder_action_sheet" android:scaleType="centerInside" android:layout_alignParentRight="true" android:layout_centerVertical="true" />
+    <ImageView android:id="@id/did" android:layout_width="55.0dp" android:layout_height="25.0dp" android:src="@drawable/radio_live_entry_icons" android:layout_toLeftOf="@id/gt6" android:layout_centerVertical="true" />
+    <TextView android:textSize="12.0sp" android:textColor="@color/skin_text_main_color" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginLeft="6.0dp" android:layout_marginRight="20.0dp" android:text="你喜欢的主播们搬家到乐馆-【一起听】了" android:layout_toLeftOf="@id/did" android:layout_toRightOf="@id/f0s" android:layout_centerVertical="true" />
+</com.tencent.qqmusic.business.timeline.ui.ClipPathRelativeLayout>

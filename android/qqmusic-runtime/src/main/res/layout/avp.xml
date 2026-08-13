@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout android:background="@drawable/transparent" android:clickable="true" android:layout_width="match_parent" android:layout_height="@dimen/aiq"
+  xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">
+    <androidx.constraintlayout.widget.Guideline android:orientation="horizontal" android:id="@id/f_n" android:layout_width="match_parent" android:layout_height="wrap_content" app:a1m="@dimen/aig" />
+    <com.tencent.qqmusic.ui.MiniBarContentChangeImageView android:id="@id/g02" android:focusableInTouchMode="false" android:visibility="invisible" android:layout_width="match_parent" android:layout_height="@dimen/aip" android:layout_marginBottom="@dimen/aig" android:src="@drawable/skin_mini_player_bg" android:scaleType="fitXY" app:a1d="hnz" />
+    <ImageView android:id="@id/g91" android:layout_width="@dimen/air" android:layout_height="@dimen/aiq" android:src="@drawable/minibar_pic_bottom_shadow_new" android:scaleType="fitXY" app:a1x="hnz" app:a27="hnz" />
+    <com.tencent.component.widget.AsyncEffectImageView android:id="@id/f_m" android:layout_width="@dimen/ae4" android:layout_height="@dimen/ae3" app:a1d="@id/f_n" app:a1x="hnz" />
+    <FrameLayout android:id="@id/ik8" android:visibility="gone" android:layout_width="@dimen/aiv" android:layout_height="@dimen/aiv" android:translationX="@dimen/aih" android:translationY="@dimen/aih" app:a1x="hnz" app:a27="hnz" />
+    <com.tencent.qqmusic.ui.minibar.RhythmView android:id="@id/f_q" android:layout_width="15.5dp" android:layout_height="16.0dp" android:layout_marginRight="@dimen/b44" app:a1d="@id/f_n" app:a21="hnz" app:a27="hnz" />
+    <com.tencent.qqmusic.ui.minibar.MinibarMarqueeTextView android:textSize="13.0sp" android:textColor="@color/white" android:ellipsize="marquee" android:id="@id/f_p" android:focusable="true" android:layout_width="0.0dp" android:layout_height="wrap_content" android:layout_marginLeft="12.0dp" android:layout_marginRight="20.0dp" android:singleLine="true" android:includeFontPadding="false" android:marqueeRepeatLimit="1" android:textDirection="ltr" app:a1d="@id/f_n" app:a1y="@id/f_m" app:a20="@id/f_q" app:a27="@id/g02" />
+</androidx.constraintlayout.widget.ConstraintLayout>

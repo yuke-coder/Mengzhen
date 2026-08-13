@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<shape
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <size android:height="@dimen/a_e" android:width="@dimen/a_e" />
+    <solid android:color="@color/kk_switch_selector_thumb" />
+    <corners android:radius="@dimen/a_d" />
+</shape>

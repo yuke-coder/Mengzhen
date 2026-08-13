@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout android:id="@id/ik3" android:layout_width="match_parent" android:layout_height="168.0dp"
+  xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">
+    <ImageView android:id="@id/dfc" android:layout_width="match_parent" android:layout_height="match_parent" android:src="@drawable/putoo_hot_spot_head_bg_normal" android:scaleType="centerCrop" app:a1d="hnz" app:a23="hnz" app:a27="hnz" />
+</androidx.constraintlayout.widget.ConstraintLayout>

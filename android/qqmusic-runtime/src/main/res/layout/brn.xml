@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<merge android:id="@id/gf8" android:layout_width="match_parent" android:layout_height="match_parent"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <FrameLayout android:layout_width="match_parent" android:layout_height="match_parent">
+        <include android:layout_width="match_parent" android:layout_height="match_parent" layout="@layout/m6" />
+        <RelativeLayout android:layout_width="match_parent" android:layout_height="match_parent">
+            <com.tencent.qqmusic.modular.module.musichall.views.recycler.MusicHallCellRecyclerView android:id="@id/gf7" android:paddingBottom="@dimen/aie" android:clipChildren="false" android:clipToPadding="false" android:layout_width="match_parent" android:layout_height="match_parent" android:layout_below="@id/lv1" />
+            <ImageView android:id="@id/elm" android:layout_width="match_parent" android:layout_height="0.0dp" android:layout_alignTop="@id/lv1" android:layout_alignBottom="@id/lv1" android:alpha="0.0" />
+            <include android:id="@id/lv1" layout="@layout/mu" />
+        </RelativeLayout>
+    </FrameLayout>
+</merge>

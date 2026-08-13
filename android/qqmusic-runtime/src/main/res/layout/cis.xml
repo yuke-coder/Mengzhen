@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <com.tencent.qqmusic.ClipTopFrameLayout android:id="@id/b39" android:layout_width="match_parent" android:layout_height="@dimen/lh">
+        <include android:id="@id/jme" android:layout_width="match_parent" android:layout_height="match_parent" layout="@layout/c2f" />
+    </com.tencent.qqmusic.ClipTopFrameLayout>
+</LinearLayout>

@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout android:id="@id/ldf" android:paddingLeft="16.0dp" android:paddingTop="16.0dp" android:paddingRight="16.0dp" android:paddingBottom="12.0dp" android:layout_width="match_parent" android:layout_height="wrap_content"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <androidx.appcompat.widget.AppCompatTextView android:textSize="15.0sp" android:textColor="@color/skin_text_main_color" android:id="@id/ldo" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/bch" android:layout_centerVertical="true" />
+    <com.tencent.component.widget.AsyncImageView android:id="@id/ngy" android:layout_width="18.0dp" android:layout_height="18.0dp" android:layout_marginLeft="4.0dp" android:layout_toRightOf="@id/ldo" android:layout_centerVertical="true" />
+</RelativeLayout>

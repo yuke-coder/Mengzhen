@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout android:paddingTop="20.0dp" android:layout_width="match_parent" android:layout_height="wrap_content"
+  xmlns:app="http://schemas.android.com/apk/res-auto" xmlns:android="http://schemas.android.com/apk/res/android">
+    <androidx.constraintlayout.widget.Guideline android:orientation="vertical" android:id="@id/cl7" android:layout_width="wrap_content" android:layout_height="wrap_content" app:a1n="0.05" />
+    <androidx.appcompat.widget.AppCompatTextView android:textSize="20.0sp" android:id="@id/cl5" android:layout_width="wrap_content" android:layout_height="wrap_content" android:fontFamily="PingFangSC-Light" app:a1y="@id/cl7" app:a27="hnz" />
+    <androidx.appcompat.widget.AppCompatTextView android:textSize="20.0sp" android:id="@id/cl6" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginLeft="20.0dp" android:fontFamily="PingFangSC-Light" app:a1y="@id/cl5" app:a27="hnz" />
+</androidx.constraintlayout.widget.ConstraintLayout>

@@ -1,0 +1,59 @@
+{
+  "router": "openHalf",
+  "page_name": "dialog_multi_image",
+  "debug": 0,
+  "container": {
+    "w_weight": "0.95",
+    "h_weight": "0.95",
+    "direction": "from-bottom",
+    "dim_behind": 1
+  },
+  "params": {
+    "page": [
+      {
+        "style": "top_webp",
+        "topbar": {
+          "type": "webp",
+          "url": "http://xxx/xxx.png"
+        },
+        "base": {
+          "title": "您已失去个性皮肤特权",
+          "title_color": "#3367d6",
+          "subtitle": "开通会员可继续使用个性皮肤",
+          "subtitle_color": "#FF7297E8",
+          "background": {
+            "type": "color",
+            "colors": [
+              "#FFFFFF"
+            ],
+            "direction": "to-top"
+          }
+        },
+        "buttons": [
+          {
+            "text": "¥1.9 开通超级会员",
+            "text_color": "#cc222222",
+            "color": "#F49D17",
+            "url": "https://i.y.qq.com/n2/m/myservice/index.html?entry=27&tab1=svip&tab2=eight&aid=music.tq.recent.vipsong&_hidehd=1"
+          }
+        ],
+        
+        "body": {
+          "gravity": "center",
+          "images": [
+            {
+              "url": "https://music-mdc-yunti-test-1258344705.cos.ap-guangzhou.myqcloud.com/test/PersonalizedSource/type2_body_1.png"
+            },
+            {
+              "url": "https://music-mdc-yunti-test-1258344705.cos.ap-guangzhou.myqcloud.com/test/PersonalizedSource/type2_body_2.png"
+            }
+          ],
+          "background": {
+            "type": "image",
+            "url": "http://xxx.background.png"
+          }
+        }
+      }
+    ]
+  }
+}

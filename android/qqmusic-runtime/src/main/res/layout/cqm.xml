@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout android:background="#b2000000" android:layout_width="match_parent" android:layout_height="match_parent"
+  xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">
+    <com.tencentmusic.ad.base.widget.TMEAdRoundImageView android:id="@id/lki" android:layout_width="55.0dp" android:layout_height="55.0dp" android:scaleType="centerCrop" app:a1e="@id/lnt" app:a1j="hnz" app:a23="hnz" app:a27="hnz" app:a29="hmg" />
+    <TextView android:textSize="11.0dp" android:textColor="#000000" android:id="@id/lnt" android:background="@drawable/tme_ad_action_button_bg" android:paddingTop="5.0dp" android:paddingBottom="5.0dp" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="15.0dp" android:text="点击查看详情" android:paddingStart="16.0dp" android:paddingEnd="16.0dp" app:a1d="hnz" app:a1j="hnz" app:a23="hnz" app:a26="@id/lki" />
+</androidx.constraintlayout.widget.ConstraintLayout>

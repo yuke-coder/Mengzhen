@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout android:layout_width="match_parent" android:layout_height="match_parent"
+  xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">
+    <View android:background="#232828" android:layout_width="match_parent" android:layout_height="match_parent" />
+    <ImageView android:id="@id/lvj" android:focusable="true" android:layout_width="30.0dp" android:layout_height="0.0dp" android:layout_marginLeft="10.0dp" android:layout_marginTop="52.0dp" android:src="@drawable/multistyle_poster_title_back" android:scaleType="centerInside" android:contentDescription="@string/wf" app:a1i="1:1" app:a1x="hnz" app:a27="hnz" />
+    <androidx.appcompat.widget.AppCompatTextView android:textSize="18.0sp" android:textColor="@color/white" android:id="@id/lz7" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="编辑卡片" app:a1d="@id/lvj" app:a1x="hnz" app:a21="hnz" app:a27="@id/lvj" />
+    <androidx.appcompat.widget.AppCompatTextView android:textSize="14.0sp" android:textColor="#fff" android:gravity="center" android:id="@id/c0x" android:background="@drawable/multistyle_poster_share_bg" android:layout_width="94.0dp" android:layout_height="30.0dp" android:layout_marginRight="16.0dp" android:text="保存/分享" app:a1d="@id/lvj" app:a21="hnz" app:a27="@id/lvj" />
+    <androidx.constraintlayout.widget.ConstraintLayout android:background="#484848" android:layout_width="0.0dp" android:layout_height="0.0dp" android:layout_marginLeft="36.0dp" android:layout_marginTop="18.0dp" android:layout_marginRight="36.0dp" android:layout_marginBottom="26.0dp" app:a17="true" app:a1e="@id/afh" app:a1i="W,300:480" app:a1p="nug" app:a1x="hnz" app:a21="hnz" app:a26="@id/lz7" app:a28="0.4073" app:a29="hmg">
+        <androidx.constraintlayout.widget.ConstraintLayout android:id="@id/c0y" android:layout_width="match_parent" android:layout_height="match_parent" app:a1d="hnz" app:a1x="hnz" app:a21="hnz" app:a27="hnz">
+            <com.tencent.qqmusic.camerascan.share.playercard.TouchEditViewContainer android:id="@id/m10" android:visibility="visible" android:layout_width="match_parent" android:layout_height="match_parent" />
+            <ImageView android:id="@id/inz" android:visibility="gone" android:layout_width="0.0dp" android:layout_height="0.0dp" android:layout_marginRight="24.0dp" android:layout_marginBottom="28.0dp" app:a1d="hnz" app:a1i="1:1" app:a21="hnz" app:a2e="0.1333" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
+        <include layout="@layout/cvp" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+    <androidx.constraintlayout.widget.ConstraintLayout android:id="@id/afh" android:layout_width="match_parent" android:layout_height="wrap_content" app:a1d="hnz" app:a1x="hnz" app:a21="hnz" />
+    <View android:id="@id/b3r" android:visibility="gone" android:layout_width="match_parent" android:layout_height="0.0dp" app:a1d="hnz" app:a27="hnz" />
+    <FrameLayout android:id="@id/l2k" android:layout_width="match_parent" android:layout_height="272.0dp" app:a1x="hnz" app:a21="hnz" app:a27="hnz" />
+</androidx.constraintlayout.widget.ConstraintLayout>

@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout android:orientation="vertical" android:layout_width="match_parent" android:layout_height="wrap_content"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <View android:background="@drawable/rounded_dialog_top_background" android:layout_width="match_parent" android:layout_height="4.0dp" />
+    <LinearLayout android:orientation="vertical" android:background="@color/common_dialog_background_color" android:paddingLeft="8.0dp" android:paddingRight="8.0dp" android:layout_width="match_parent" android:layout_height="wrap_content">
+        <TextView android:textSize="18.0sp" android:textColor="#000000" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="10.0dp" android:text="@string/hdw" />
+        <ScrollView android:layout_width="match_parent" android:layout_height="500.0dp" android:layout_marginTop="10.0dp">
+            <include android:id="@id/ba_" android:layout_width="match_parent" android:layout_height="wrap_content" layout="@layout/pg" />
+        </ScrollView>
+        <include android:id="@id/br0" layout="@layout/m7" />
+        <RelativeLayout android:layout_width="match_parent" android:layout_height="wrap_content">
+            <Button android:textSize="@dimen/ky" android:textColor="@color/common_dialog_button_text_color" android:id="@id/asx" android:background="@drawable/control_btn_bottom_rounded" android:fadingEdge="horizontal" android:layout_width="match_parent" android:layout_height="@dimen/biv" android:text="@string/evy" />
+        </RelativeLayout>
+    </LinearLayout>
+</LinearLayout>

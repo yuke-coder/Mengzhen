@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout android:layout_width="wrap_content" android:layout_height="wrap_content"
+  xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">
+    <com.tme.qqmusic.widget.base.view.GlideImageView android:id="@id/mlive_simple_live_operate_menu_item_icon" android:layout_width="40.0dp" android:layout_height="40.0dp" app:a1x="hnz" app:a21="hnz" app:a27="hnz" />
+    <TextView android:textSize="12.0sp" android:textColor="@color/white" android:id="@id/mlive_simple_live_operate_menu_item_title_tv" android:layout_width="wrap_content" android:layout_height="wrap_content" app:a1j="@id/mlive_simple_live_operate_menu_item_icon" app:a23="@id/mlive_simple_live_operate_menu_item_icon" app:a26="@id/mlive_simple_live_operate_menu_item_icon" />
+</androidx.constraintlayout.widget.ConstraintLayout>

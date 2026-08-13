@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout android:gravity="center" android:orientation="horizontal" android:background="@drawable/ai_assistant_popup_bg" android:layout_width="wrap_content" android:layout_height="wrap_content"
+  xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">
+    <ImageView android:gravity="center" android:id="@id/nm" android:layout_width="wrap_content" android:layout_height="wrap_content" android:src="@drawable/ai_assistant_copy_icon" android:contentDescription="@string/i8" app:a1d="hnz" app:a1x="hnz" app:a20="@id/o9" app:a27="hnz" />
+    <ImageView android:id="@id/o9" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginLeft="15.0dp" android:layout_marginRight="15.0dp" android:src="@drawable/ai_assistant_thumb_up_icon" android:contentDescription="@string/ic" app:a1d="hnz" app:a1y="@id/nm" app:a20="@id/o8" app:a27="hnz" />
+    <ImageView android:id="@id/o8" android:layout_width="wrap_content" android:layout_height="wrap_content" android:src="@drawable/ai_assistant_thumb_down_icon" android:contentDescription="@string/ib" app:a1d="hnz" app:a1y="@id/o9" app:a21="hnz" app:a27="hnz" />
+</androidx.constraintlayout.widget.ConstraintLayout>

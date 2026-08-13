@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout android:state_window_focused="false" android:id="@id/b99" android:paddingTop="1.0dp" android:paddingBottom="1.0dp" android:layout_width="match_parent" android:layout_height="wrap_content"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <RelativeLayout android:id="@id/k1h" android:layout_width="match_parent" android:layout_height="wrap_content">
+        <ImageView android:id="@id/k1i" android:focusable="true" android:layout_width="60.0dp" android:layout_height="44.0dp" android:src="@drawable/activity_back_selector_white" android:scaleType="centerInside" android:layout_alignParentLeft="true" android:layout_centerVertical="true" android:contentDescription="@string/wf" />
+        <TextView android:textSize="16.0sp" android:textColor="@color/white" android:gravity="center" android:id="@id/k1j" android:paddingRight="15.0dp" android:visibility="gone" android:layout_width="wrap_content" android:layout_height="44.0dp" android:layout_toRightOf="@id/k1i" />
+        <TextView android:textSize="16.0sp" android:textColor="@color/white" android:gravity="center" android:id="@id/k13" android:paddingLeft="15.0dp" android:paddingRight="15.0dp" android:visibility="gone" android:layout_width="wrap_content" android:layout_height="44.0dp" android:layout_alignParentLeft="true" />
+        <ImageView android:gravity="center" android:id="@id/k1k" android:background="@color/transparent" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginLeft="4.0dp" android:layout_marginRight="15.0dp" android:layout_alignParentRight="true" android:layout_centerVertical="true" />
+        <TextView android:textSize="18.0sp" android:textColor="@color/white" android:ellipsize="marquee" android:gravity="center" android:id="@id/k1m" android:layout_width="wrap_content" android:layout_height="wrap_content" android:singleLine="true" android:layout_centerInParent="true" style="@style/a4s" />
+        <ImageView android:id="@id/k1l" android:focusable="true" android:visibility="gone" android:layout_width="60.0dp" android:layout_height="44.0dp" android:src="@drawable/action_submit_white" android:scaleType="centerInside" android:layout_alignParentRight="true" android:layout_centerVertical="true" android:contentDescription="@string/e9w" />
+    </RelativeLayout>
+</RelativeLayout>

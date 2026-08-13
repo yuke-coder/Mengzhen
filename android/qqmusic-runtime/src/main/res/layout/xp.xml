@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout android:layout_width="match_parent" android:layout_height="match_parent"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <com.tencent.qqmusic.ui.TopAlignedImageView android:id="@id/naf" android:layout_width="match_parent" android:layout_height="match_parent" android:src="@drawable/skin_floor_img" android:scaleType="matrix" />
+    <com.tencent.qqmusic.fragment.message.chat.ImRootLinearLayout android:orientation="vertical" android:id="@id/dmb" android:layout_width="match_parent" android:layout_height="match_parent">
+        <RelativeLayout android:id="@id/dko" android:background="@drawable/skin_sub_mask_img" android:paddingTop="@dimen/c_q" android:layout_width="match_parent" android:layout_height="@dimen/cau">
+            <RelativeLayout android:id="@id/dl8" android:clickable="false" android:layout_width="wrap_content" android:layout_height="match_parent" android:layout_marginRight="4.0dp" android:layout_alignParentLeft="true">
+                <TextView android:textSize="16.0sp" android:ellipsize="end" android:gravity="center" android:id="@id/dl9" android:visibility="gone" android:layout_width="wrap_content" android:layout_height="match_parent" android:layout_marginLeft="15.0dp" android:singleLine="true" android:layout_alignParentLeft="true" style="@style/a4s" />
+                <ImageView android:id="@id/dkb" android:layout_width="@dimen/cao" android:layout_height="@dimen/cao" android:src="@drawable/activity_back_selector" android:scaleType="centerInside" android:layout_centerInParent="true" android:contentDescription="@string/wf" />
+            </RelativeLayout>
+            <RelativeLayout android:id="@id/dm_" android:layout_width="60.0dp" android:layout_height="match_parent" android:layout_marginTop="4.0dp" android:layout_marginBottom="2.0dp" android:layout_alignParentRight="true">
+                <ImageView android:id="@id/dma" android:focusable="false" android:layout_width="@dimen/cao" android:layout_height="@dimen/cao" android:src="@drawable/im_setting" android:scaleType="centerInside" android:layout_alignParentRight="true" android:layout_centerVertical="true" android:contentDescription="@string/e9w" />
+            </RelativeLayout>
+            <RelativeLayout android:id="@id/dkd" android:layout_width="wrap_content" android:layout_height="match_parent" android:layout_marginLeft="60.0dp" android:layout_marginRight="60.0dp" android:layout_centerHorizontal="true">
+                <TextView android:textSize="18.0sp" android:textStyle="bold" android:textColor="@color/skin_text_main_color" android:ellipsize="end" android:gravity="center" android:id="@id/dn7" android:layout_width="wrap_content" android:layout_height="wrap_content" android:singleLine="true" android:layout_centerVertical="true" />
+            </RelativeLayout>
+        </RelativeLayout>
+        <FrameLayout android:layout_width="match_parent" android:layout_height="match_parent" android:layout_weight="1.0">
+            <com.tencent.qqmusic.business.timeline.ui.refreshable.RefreshableRecyclerViewNew android:id="@id/b7i" android:layout_width="match_parent" android:layout_height="match_parent" android:overScrollMode="never" />
+            <ViewStub android:layout_gravity="center" android:id="@id/b7f" android:visibility="gone" android:layout="@layout/mj" android:layout_width="wrap_content" android:layout_height="wrap_content" />
+            <ViewStub android:layout_gravity="center" android:id="@id/b7q" android:visibility="gone" android:layout="@layout/mh" android:layout_width="match_parent" android:layout_height="match_parent" />
+            <ViewStub android:layout_gravity="center" android:id="@id/b7r" android:visibility="gone" android:layout="@layout/yc" android:layout_width="match_parent" android:layout_height="match_parent" />
+            <ViewStub android:layout_gravity="center" android:id="@id/b7x" android:visibility="gone" android:layout="@layout/ye" android:layout_width="match_parent" android:layout_height="match_parent" />
+            <ViewStub android:layout_gravity="center" android:id="@id/b7v" android:visibility="gone" android:layout="@layout/a_c" android:layout_width="match_parent" android:layout_height="wrap_content" />
+            <ViewStub android:layout_gravity="center" android:id="@id/b7w" android:visibility="gone" android:layout="@layout/yc" android:layout_width="match_parent" android:layout_height="match_parent" />
+        </FrameLayout>
+        <include layout="@layout/b8q" />
+    </com.tencent.qqmusic.fragment.message.chat.ImRootLinearLayout>
+</RelativeLayout>

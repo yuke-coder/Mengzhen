@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout android:layout_width="match_parent" android:layout_height="match_parent"
+  xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">
+    <androidx.constraintlayout.widget.Guideline android:orientation="vertical" android:id="@id/hfn" android:layout_width="wrap_content" android:layout_height="match_parent" app:a1n="0.933" />
+    <androidx.constraintlayout.widget.Guideline android:orientation="horizontal" android:id="@id/hfo" android:layout_width="match_parent" android:layout_height="wrap_content" app:a1n="0.388" />
+    <com.lyricengine.ui.LineFeedAnimationLyricView android:id="@id/hw1" android:focusable="false" android:scrollbars="none" android:fadingEdgeLength="24.0dp" android:layout_width="295.0dp" android:layout_height="178.0dp" android:layout_marginLeft="24.0dp" android:layout_marginTop="83.0dp" android:layout_marginRight="@dimen/s2" android:overScrollMode="never" android:requiresFadingEdge="vertical" app:a1x="hnz" app:a27="hnz" app:a6i="@color/white" app:a6j="#66ffffff" app:a6l="true" app:a6m="false" app:a6p="20.0dp" app:a6q="20.0dp" app:a6s="left" app:a6v="3.0dp" app:a72="50" app:a73="14.0dp" app:a7a="3.0dp" app:a7b="top" />
+    <androidx.appcompat.widget.AppCompatTextView android:textSize="12.0sp" android:textColor="@color/white_80_opacity" android:gravity="start" android:id="@id/hfm" android:paddingLeft="@dimen/rr" android:visibility="gone" android:layout_width="140.0dp" android:layout_height="wrap_content" android:layout_marginTop="208.0dp" app:a21="@id/hfn" app:a26="@id/hfo" />
+</androidx.constraintlayout.widget.ConstraintLayout>

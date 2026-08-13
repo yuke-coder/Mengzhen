@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout android:layout_width="match_parent" android:layout_height="match_parent"
+  xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">
+    <include android:id="@id/naf" android:layout_width="match_parent" android:layout_height="match_parent" layout="@layout/m6" />
+    <androidx.constraintlayout.widget.ConstraintLayout android:id="@id/a6x" android:paddingTop="@dimen/c_q" android:layout_width="match_parent" android:layout_height="@dimen/cau" android:layout_alignParentTop="true">
+        <ImageView android:id="@id/a5t" android:background="@drawable/material_ripple_background_circle" android:layout_width="@dimen/cao" android:layout_height="@dimen/cao" android:src="@drawable/activity_back_selector" android:scaleType="centerInside" android:contentDescription="@string/wf" app:a1d="hnz" app:a23="hnz" app:a27="hnz" />
+        <com.tencent.qqmusic.ui.RelationScrollTab android:id="@id/j3z" android:layout_width="wrap_content" android:layout_height="match_parent" app:a1d="hnz" app:a1j="hnz" app:a23="hnz" app:a27="hnz" />
+        <ImageView android:id="@id/j8u" android:background="@drawable/material_ripple_background_circle" android:focusable="false" android:layout_width="30.0dp" android:layout_height="30.0dp" android:src="@drawable/action_friend_fans_search" android:scaleType="centerInside" android:contentDescription="@string/search" android:layout_marginEnd="10.0dp" app:a1d="hnz" app:a1j="hnz" app:a27="hnz" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+    <androidx.viewpager.widget.ViewPager android:id="@id/j40" android:layout_width="match_parent" android:layout_height="match_parent" android:layout_below="@id/a6x" />
+</RelativeLayout>

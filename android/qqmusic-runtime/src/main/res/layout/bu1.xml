@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout android:id="@id/kfy" android:layout_width="match_parent" android:layout_height="match_parent"
+  xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">
+    <LinearLayout android:gravity="start|top" android:orientation="vertical" android:id="@id/kfx" android:background="@drawable/color_b15" android:layout_width="match_parent" android:layout_height="wrap_content" app:a1d="hnz" app:a1j="hnz" app:a23="hnz">
+        <TextView android:textSize="18.0sp" android:textColor="@color/black" android:gravity="center" android:id="@id/kg2" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginTop="25.0dp" android:layout_marginBottom="25.0dp" />
+        <com.tme.qqmusic.widget.base.view.MaxHeightRecyclerView android:gravity="center_vertical" android:id="@id/kg0" android:visibility="gone" android:scrollbars="none" android:clipToPadding="true" android:layout_width="match_parent" android:layout_height="wrap_content" android:overScrollMode="never" app:a87="143.0dp" />
+        <View android:id="@id/kg1" android:background="@drawable/skin_divider_img" android:layout_width="match_parent" android:layout_height="0.5dp" android:layout_marginTop="25.0dp" />
+    </LinearLayout>
+    <androidx.constraintlayout.widget.ConstraintLayout android:id="@id/kfz" android:visibility="gone" android:layout_width="match_parent" android:layout_height="match_parent">
+        <LinearLayout android:gravity="center" android:orientation="vertical" android:layout_width="wrap_content" android:layout_height="wrap_content" app:a1d="hnz" app:a1j="hnz" app:a23="hnz" app:a27="hnz">
+            <com.airbnb.lottie.LottieAnimationView android:id="@id/fid" android:layout_width="50.0dp" android:layout_height="50.0dp" />
+            <TextView android:textSize="16.0sp" android:textColor="@color/white" android:id="@id/fit" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/cd1" />
+        </LinearLayout>
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>

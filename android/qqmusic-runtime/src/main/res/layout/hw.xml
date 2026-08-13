@@ -1,0 +1,3 @@
+<?xml version="1.0" encoding="utf-8"?>
+<TextView android:textSize="32.0sp" android:textColor="@color/skin_button_text_color" android:gravity="center" android:background="@drawable/focused_alphabet_bg" android:padding="2.0dp" android:visibility="invisible" android:layout_width="75.0dp" android:layout_height="48.0dp" android:layout_centerInParent="true"
+  xmlns:android="http://schemas.android.com/apk/res/android" />

@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.tencent.qqmusic.ui.RoundedConstraintLayout android:id="@id/gyz" android:background="@drawable/skin_mask_shape" android:paddingBottom="16.0dp" android:layout_width="170.0dp" android:layout_height="wrap_content"
+  xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">
+    <com.tencent.component.widget.AsyncEffectImageView android:id="@id/gz0" android:layout_width="0.0dp" android:layout_height="0.0dp" android:scaleType="fitXY" app:a1i="0.82:1" app:a1x="hnz" app:a21="hnz" app:a27="hnz" />
+    <androidx.appcompat.widget.AppCompatTextView android:textSize="11.0dp" android:textColor="@color/skin_button_icon_color" android:gravity="center" android:id="@id/gz1" android:background="@drawable/module_musichall_button_bg_new" android:layout_width="wrap_content" android:layout_height="30.0dp" android:layout_marginTop="16.0dp" android:maxLines="1" android:paddingStart="14.0dp" android:paddingEnd="14.0dp" app:a1x="hnz" app:a21="hnz" app:a26="@id/gz0" />
+</com.tencent.qqmusic.ui.RoundedConstraintLayout>

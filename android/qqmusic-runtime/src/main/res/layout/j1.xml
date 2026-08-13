@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout android:orientation="vertical" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginBottom="@dimen/ho"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <com.tencent.qqmusic.bigfont.view.BigFontTextView android:textSize="@dimen/hu" android:textColor="@color/big_font_voice_assistant_desc_text_color" android:id="@id/mok" android:layout_width="wrap_content" android:layout_height="wrap_content" />
+</LinearLayout>

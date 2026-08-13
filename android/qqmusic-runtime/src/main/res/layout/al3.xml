@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout android:layout_width="wrap_content" android:layout_height="wrap_content"
+  xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">
+    <com.tencent.qqmusic.ui.RoundedRelativeLayout android:id="@id/ey5" android:layout_width="@dimen/c1u" android:layout_height="@dimen/c1q" app:a1x="hnz" app:a27="hnz" app:ado="4.0dp">
+        <com.tencent.component.widget.AsyncEffectImageView android:id="@id/dtv" android:layout_width="match_parent" android:layout_height="match_parent" android:src="@drawable/share_music_action_sheet_default_card" android:scaleType="centerCrop" />
+        <TextView android:textSize="11.0dp" android:textStyle="normal" android:textColor="#00bb78" android:ellipsize="end" android:id="@id/ml0" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="62.5dp" android:maxLines="1" android:layout_centerHorizontal="true" android:textAlignment="center" android:lineHeight="11.0dp" />
+    </com.tencent.qqmusic.ui.RoundedRelativeLayout>
+    <TextView android:textSize="12.0dp" android:textColor="@color/common_grid_title_color_selector" android:ellipsize="end" android:id="@id/mlb" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="9.5dp" android:text="@string/h55" app:a1x="hnz" app:a21="hnz" app:a26="@id/ey5" />
+</androidx.constraintlayout.widget.ConstraintLayout>

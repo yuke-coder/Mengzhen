@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout android:layout_width="55.0dp" android:layout_height="60.0dp"
+  xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">
+    <com.tme.qqmusic.widget.base.view.GlideImageView android:id="@id/mlive_friend_relation_bg" android:visibility="gone" android:layout_width="55.0dp" android:layout_height="60.0dp" android:src="@drawable/mlive_friend_seat_relation_bg" android:scaleType="centerCrop" app:a1j="hnz" app:a23="hnz" app:a27="hnz" />
+    <TextView android:textSize="6.0dp" android:textColor="@color/white" android:id="@id/mlive_friend_relation_content" android:visibility="gone" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="29.0dp" android:includeFontPadding="false" app:a1j="@id/mlive_friend_relation_bg" app:a23="@id/mlive_friend_relation_bg" app:a27="@id/mlive_friend_relation_bg" />
+    <com.tme.mlive.ui.animation.NewPagView android:id="@id/mlive_friend_relation_pag" android:visibility="gone" android:layout_width="55.0dp" android:layout_height="60.0dp" android:contentDescription="@null" app:a1j="hnz" app:a23="hnz" app:a27="hnz" />
+</androidx.constraintlayout.widget.ConstraintLayout>

@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout android:id="@id/ijj" android:background="@drawable/transparent" android:layout_width="match_parent" android:layout_height="match_parent"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <LinearLayout android:gravity="center_horizontal" android:orientation="vertical" android:id="@id/b_6" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_alignParentBottom="true">
+        <TextView android:textSize="18.0dp" android:textStyle="bold" android:textColor="@color/skin_text_main_color" android:ellipsize="end" android:gravity="center_vertical" android:id="@id/cqw" android:layout_width="wrap_content" android:layout_height="25.0dp" android:layout_marginTop="47.5dp" android:singleLine="true" />
+        <LinearLayout android:gravity="center_vertical" android:orientation="horizontal" android:id="@id/djr" android:paddingLeft="30.0dp" android:paddingRight="30.0dp" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="6.5dp" android:layout_marginBottom="1.5dp">
+            <com.tencent.component.widget.AsyncEffectImageView android:id="@id/djt" android:layout_width="16.0dp" android:layout_height="16.0dp" android:src="@drawable/icon" android:scaleType="fitXY" />
+            <TextView android:textSize="14.0sp" android:textColor="@color/skin_text_sub_color" android:ellipsize="end" android:id="@id/djs" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginLeft="2.0dp" android:singleLine="true" />
+        </LinearLayout>
+        <TextView android:textSize="14.0sp" android:textColor="@color/skin_text_sub_color" android:id="@id/cqx" android:layout_width="wrap_content" android:layout_height="20.0dp" android:layout_marginTop="5.5dp" android:text="@string/fv9" android:contentDescription="@string/fv8" />
+        <TextView android:textSize="15.0sp" android:textColor="@color/white" android:gravity="center" android:id="@id/ctk" android:background="@drawable/putoo_follow_guide_follow_btn_bg" android:layout_width="190.0dp" android:layout_height="35.0dp" android:layout_marginTop="15.0dp" android:layout_marginBottom="39.5dp" android:text="@string/fv8" android:contentDescription="@string/fv8" />
+    </LinearLayout>
+    <com.tencent.qqmusic.business.live.ui.view.RoundAvatarImage android:id="@id/cqu" android:layout_width="75.0dp" android:layout_height="75.0dp" android:layout_marginTop="-37.5dp" android:scaleType="centerCrop" android:layout_alignTop="@id/b_6" android:layout_centerHorizontal="true" />
+</RelativeLayout>

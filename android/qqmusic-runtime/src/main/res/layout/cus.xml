@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout android:layout_width="match_parent" android:layout_height="match_parent"
+  xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">
+    <com.tencent.qqmusic.ui.minibar.video.VideoMinibarMarqueeView android:textSize="13.0dp" android:textColor="@color/white" android:ellipsize="marquee" android:gravity="center_vertical" android:id="@id/n4z" android:focusable="true" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginLeft="@dimen/b3s" android:text="视频名称" android:singleLine="true" android:includeFontPadding="false" android:layout_centerVertical="true" android:marqueeRepeatLimit="1" />
+</RelativeLayout>

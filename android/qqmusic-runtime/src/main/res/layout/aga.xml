@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout android:layout_width="wrap_content" android:layout_height="wrap_content"
+  xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">
+    <com.tencent.qqmusic.ui.RoundedRelativeLayout android:id="@id/dm0" android:background="@color/transparent" android:layout_width="wrap_content" android:layout_height="wrap_content" app:ado="@dimen/b47">
+        <ImageView android:gravity="center_vertical" android:id="@id/dm1" android:layout_width="wrap_content" android:layout_height="wrap_content" android:scaleType="centerCrop" android:adjustViewBounds="true" android:maxWidth="@dimen/b49" android:maxHeight="@dimen/b48" android:minWidth="@dimen/b4a" android:minHeight="@dimen/b4_" />
+        <TextView android:textSize="10.0sp" android:textColor="#fff" android:gravity="center" android:id="@id/k8w" android:background="@drawable/rounded_shape_alpha_black" android:visibility="gone" android:layout_width="28.0dp" android:layout_height="15.0dp" android:layout_margin="5.0dp" android:text="动图" android:layout_alignParentRight="true" android:layout_alignParentBottom="true" />
+    </com.tencent.qqmusic.ui.RoundedRelativeLayout>
+    <com.tencent.qqmusic.ui.RoundedRelativeLayout android:id="@id/dkv" android:background="@drawable/default_skin_mask_color_bg" android:visibility="gone" android:layout_width="wrap_content" android:layout_height="wrap_content" app:ado="@dimen/b47">
+        <RelativeLayout android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_centerInParent="true">
+            <ImageView android:id="@id/dkw" android:layout_width="wrap_content" android:layout_height="wrap_content" android:src="@drawable/music_planet_error_pic_icon" android:layout_centerHorizontal="true" />
+            <TextView android:textSize="9.0dp" android:textColor="@color/skin_text_main_color" android:id="@id/dkx" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="4.0dp" android:text="@string/ef9" android:layout_below="@id/dkw" android:layout_centerHorizontal="true" android:alpha="0.3" />
+        </RelativeLayout>
+    </com.tencent.qqmusic.ui.RoundedRelativeLayout>
+</FrameLayout>

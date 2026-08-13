@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout android:orientation="vertical" android:background="@color/white" android:layout_width="match_parent" android:layout_height="match_parent"
+  xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">
+    <kk.design.compose.KKTitleBar android:background="@color/kk_color_white" android:focusable="true" android:layout_width="match_parent" android:layout_height="wrap_content" android:elevation="6.0dp" android:outlineProvider="bounds" app:yv="a5h" app:yy="did" app:a0g="f25" app:a0k="true" app:a0l="协议延时设置" />
+    <RelativeLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginTop="20.0dp">
+        <kk.design.KKTextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginLeft="10.0dp" android:layout_marginRight="10.0dp" android:text="是否开启wns协议延时功能" android:layout_alignParentLeft="true" android:layout_centerVertical="true" app:y4="bxb" app:a0f="a9k" app:a0g="f25" />
+        <kk.design.KKSwitch android:id="@id/bkw" android:layout_width="80.0dp" android:layout_height="wrap_content" android:layout_marginRight="10.0dp" android:layout_alignParentRight="true" android:layout_centerVertical="true" />
+    </RelativeLayout>
+    <RelativeLayout android:orientation="horizontal" android:layout_width="wrap_content" android:layout_height="wrap_content">
+        <LinearLayout android:orientation="vertical" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginTop="10.0dp">
+            <LinearLayout android:orientation="horizontal" android:layout_width="wrap_content" android:layout_height="wrap_content">
+                <kk.design.KKTextView android:gravity="center" android:layout_gravity="center" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginLeft="10.0dp" android:layout_marginRight="10.0dp" android:text="最小延时时间:" app:a0f="a9b" />
+                <EditText android:textSize="12.0sp" android:gravity="center" android:layout_gravity="center" android:id="@id/g8e" android:layout_width="80.0dp" android:layout_height="35.0dp" android:layout_marginLeft="10.0dp" android:layout_marginRight="10.0dp" />
+            </LinearLayout>
+            <LinearLayout android:orientation="horizontal" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="10.0dp">
+                <kk.design.KKTextView android:gravity="center" android:layout_gravity="center" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginLeft="10.0dp" android:layout_marginRight="10.0dp" android:text="最大延时时间:" app:a0f="a9b" />
+                <EditText android:textSize="12.0sp" android:gravity="center" android:layout_gravity="center" android:id="@id/g23" android:layout_width="80.0dp" android:layout_height="35.0dp" android:layout_marginLeft="10.0dp" android:layout_marginRight="10.0dp" />
+            </LinearLayout>
+        </LinearLayout>
+        <Button android:textSize="15.0dp" android:gravity="center" android:layout_gravity="center" android:id="@id/jtm" android:layout_width="100.0dp" android:layout_height="wrap_content" android:layout_marginRight="10.0dp" android:text="确认" android:layout_alignParentRight="true" android:layout_centerVertical="true" />
+    </RelativeLayout>
+</LinearLayout>

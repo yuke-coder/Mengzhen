@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout android:orientation="vertical" android:layout_width="@dimen/c5m" android:layout_height="wrap_content"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <ImageView android:id="@id/dau" android:layout_width="match_parent" android:layout_height="@dimen/c5k" android:src="@drawable/bg_song_recommend_header" />
+    <TextView android:textSize="14.0dp" android:textColor="#155436" android:ellipsize="end" android:id="@id/ldr" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginLeft="26.0dp" android:layout_marginTop="87.5dp" android:text="Hi～欢迎回来\n为你精心推荐了一些好歌 快听听看" android:maxLines="2" android:lineSpacingMultiplier="1.5" />
+    <RelativeLayout android:id="@id/kei" android:background="@drawable/bg_song_recommend" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_below="@id/dau">
+        <LinearLayout android:gravity="center" android:id="@id/hth" android:background="@drawable/bg_recommend_song_play_all" android:paddingLeft="16.0dp" android:paddingRight="16.0dp" android:visibility="visible" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="17.0dp" android:layout_marginBottom="17.0dp" android:layout_below="@id/izv" android:layout_centerHorizontal="true">
+            <ImageView android:layout_gravity="center_vertical" android:id="@id/hti" android:visibility="visible" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginRight="10.0dp" android:src="@drawable/icon_song_rec_paly" android:layout_centerVertical="true" />
+            <TextView android:textSize="16.0dp" android:textColor="@color/white" android:gravity="center" android:layout_gravity="center_vertical" android:id="@id/htm" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="全部播放" />
+        </LinearLayout>
+        <com.tencent.qqmusic.business.timeline.ui.RefreshableRecyclerView android:scrollbarThumbVertical="@drawable/scrollbar_song_recommend" android:id="@id/izv" android:background="@drawable/bg_song_rec_list" android:scrollbars="vertical" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginLeft="15.0dp" android:layout_marginTop="16.0dp" android:layout_marginRight="15.0dp" />
+    </RelativeLayout>
+    <ImageView android:id="@id/close_btn" android:layout_width="35.0dp" android:layout_height="35.0dp" android:layout_marginTop="25.0dp" android:src="@drawable/dialog_fragment_btn_close" android:layout_below="@id/kei" android:layout_centerHorizontal="true" />
+</RelativeLayout>

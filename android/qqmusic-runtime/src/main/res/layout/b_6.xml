@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout android:background="#f7f7f7" android:layout_width="match_parent" android:layout_height="match_parent"
+  xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">
+    <Button android:id="@id/mlive_debug_back_bt" android:background="@drawable/mlive_audio_history_back" android:layout_width="30.0dp" android:layout_height="30.0dp" android:layout_marginStart="10.0dp" app:a1d="@id/mlive_debug_title" app:a23="hnz" app:a27="@id/mlive_debug_title" />
+    <TextView android:textSize="@dimen/al8" android:textColor="@color/black" android:gravity="center" android:id="@id/mlive_debug_title" android:layout_width="wrap_content" android:layout_height="50.0dp" android:text="@string/d3u" app:a1x="hnz" app:a21="hnz" app:a27="hnz" />
+    <LinearLayout android:orientation="vertical" android:background="@drawable/mlive_debug_white_bg" android:visibility="visible" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginLeft="16.0dp" android:layout_marginTop="8.0dp" android:layout_marginRight="16.0dp" android:paddingStart="10.0dp" android:paddingEnd="10.0dp" app:a26="@id/mlive_debug_title">
+        <TextView android:textColor="@color/black" android:gravity="center" android:id="@id/mlive_debug_im_detail_tv" android:layout_width="match_parent" android:layout_height="40.0dp" android:text="@string/d3t" android:lines="1" />
+        <View android:background="@color/black_20_transparent" android:layout_width="match_parent" android:layout_height="1.0dp" />
+        <TextView android:textColor="@color/black" android:gravity="center" android:layout_gravity="center" android:id="@id/mlive_debug_webview_toast_tv" android:layout_width="match_parent" android:layout_height="40.0dp" android:text="@string/d3v" android:lines="1" />
+        <View android:background="@color/black_20_transparent" android:layout_width="match_parent" android:layout_height="1.0dp" />
+        <TextView android:textColor="@color/black" android:gravity="center" android:layout_gravity="center" android:id="@id/mlive_debug_room_info_tv" android:layout_width="match_parent" android:layout_height="40.0dp" android:lines="1" />
+        <View android:background="@color/black_20_transparent" android:layout_width="match_parent" android:layout_height="1.0dp" />
+        <LinearLayout android:orientation="horizontal" android:layout_width="match_parent" android:layout_height="40.0dp">
+            <com.tme.mlive.ui.custom.SwitchOptionView android:layout_gravity="center" android:id="@id/mlive_debug_chorus_anim_avatar" android:layout_width="wrap_content" android:layout_height="match_parent" android:layout_marginTop="2.0dp" android:layout_marginBottom="2.0dp" android:layout_weight="1.0" android:layout_marginStart="10.0dp" android:layout_marginEnd="10.0dp" app:amc="@color/black_15_transparent" app:ame="10.0dp" app:amf="@color/mlive_switch_option_button_selected" />
+            <com.tme.mlive.ui.custom.SwitchOptionView android:layout_gravity="center" android:id="@id/mlive_debug_chorus_anim_background" android:layout_width="wrap_content" android:layout_height="match_parent" android:layout_marginTop="2.0dp" android:layout_marginBottom="2.0dp" android:layout_weight="1.0" android:layout_marginStart="10.0dp" android:layout_marginEnd="10.0dp" app:amc="@color/black_15_transparent" app:ame="10.0dp" app:amf="@color/mlive_switch_option_button_selected" />
+        </LinearLayout>
+    </LinearLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>

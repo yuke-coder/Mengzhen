@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView android:orientation="vertical" android:scrollbars="vertical" android:layout_width="match_parent" android:layout_height="match_parent"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <LinearLayout android:orientation="vertical" android:layout_width="match_parent" android:layout_height="match_parent">
+        <androidx.recyclerview.widget.RecyclerView android:id="@id/gad" android:layout_width="match_parent" android:layout_height="100.0dp" android:layout_marginTop="20.0dp" />
+        <LinearLayout android:orientation="vertical" android:background="@drawable/ss_equalizer_round_bg" android:paddingBottom="20.0dp" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginLeft="16.0dp" android:layout_marginTop="0.0dp" android:layout_marginRight="16.0dp">
+            <RelativeLayout android:orientation="horizontal" android:id="@id/bh6" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginLeft="16.0dp" android:layout_marginTop="20.0dp" android:layout_marginRight="16.0dp">
+                <TextView android:textSize="14.0sp" android:textColor="#ffffff" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/hxp" />
+                <TextView android:textSize="13.0sp" android:textColor="@color/white" android:gravity="center" android:id="@id/bfe" android:layout_width="wrap_content" android:layout_height="20.0dp" android:text="@string/hx9" android:layout_alignParentRight="true" android:layout_marginEnd="40.0dp" />
+                <TextView android:textSize="13.0sp" android:textColor="@color/white" android:gravity="center" android:id="@id/bff" android:layout_width="wrap_content" android:layout_height="20.0dp" android:text="@string/hxu" android:layout_alignParentRight="true" />
+            </RelativeLayout>
+            <FrameLayout android:id="@id/c9d" android:layout_width="match_parent" android:layout_height="230.0dp" android:layout_marginTop="20.0dp" android:layout_below="@id/gae" android:layout_alignParentTop="true">
+                <com.tencent.qqmusic.ui.customview.equalizer.EqualizerView android:id="@id/c9c" android:paddingLeft="15.0dp" android:paddingRight="15.0dp" android:layout_width="match_parent" android:layout_height="match_parent" />
+            </FrameLayout>
+            <LinearLayout android:orientation="horizontal" android:id="@id/c9e" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginLeft="15.0dp" android:layout_marginTop="10.0dp" android:layout_marginRight="15.0dp" android:layout_below="@id/c9d" />
+            <LinearLayout android:orientation="horizontal" android:id="@id/c9f" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginLeft="15.0dp" android:layout_marginTop="5.0dp" android:layout_marginRight="15.0dp" android:layout_below="@id/c9e" />
+            <TextView android:textSize="12.0sp" android:textColor="#4cffffff" android:layout_gravity="center" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="30.0dp" android:text="@string/hwy" />
+            <LinearLayout android:orientation="horizontal" android:layout_width="match_parent" android:layout_height="0.0dp" android:layout_marginTop="20.0dp" android:baselineAligned="false" android:layout_weight="1.0">
+                <include android:layout_gravity="center" android:id="@id/eq9" android:layout_width="0.0dp" android:layout_height="wrap_content" android:layout_weight="1.0" layout="@layout/cow" />
+                <include android:layout_gravity="center" android:id="@id/eqb" android:layout_width="0.0dp" android:layout_height="wrap_content" android:layout_weight="1.0" layout="@layout/cow" />
+            </LinearLayout>
+            <LinearLayout android:orientation="horizontal" android:layout_width="match_parent" android:layout_height="0.0dp" android:layout_marginTop="30.0dp" android:baselineAligned="false" android:layout_weight="1.0">
+                <include android:layout_gravity="center" android:id="@id/eqc" android:layout_width="0.0dp" android:layout_height="wrap_content" android:layout_weight="1.0" layout="@layout/cow" />
+                <include android:layout_gravity="center" android:id="@id/eq8" android:layout_width="0.0dp" android:layout_height="wrap_content" android:layout_weight="1.0" layout="@layout/cow" />
+            </LinearLayout>
+            <LinearLayout android:orientation="horizontal" android:layout_width="match_parent" android:layout_height="0.0dp" android:layout_marginTop="30.0dp" android:baselineAligned="false" android:weightSum="2.0" android:layout_weight="1.0">
+                <include android:layout_gravity="center" android:id="@id/eq7" android:layout_width="0.0dp" android:layout_height="wrap_content" android:layout_weight="1.0" layout="@layout/cow" />
+            </LinearLayout>
+        </LinearLayout>
+    </LinearLayout>
+</ScrollView>

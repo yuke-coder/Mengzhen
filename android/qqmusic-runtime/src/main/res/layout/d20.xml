@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<merge android:orientation="vertical" android:id="@id/nu0" android:layout_width="match_parent" android:layout_height="wrap_content"
+  xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">
+    <LinearLayout android:gravity="center" android:layout_gravity="center" android:orientation="horizontal" android:id="@id/es5" android:visibility="gone" android:layout_width="match_parent" android:layout_height="wrap_content">
+        <kk.design.KKLineView android:layout_width="20.0dp" android:layout_height="0.5dp" />
+        <kk.design.KKTextView android:id="@id/mrq" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/ccv" android:layout_marginStart="10.0dp" android:layout_marginEnd="10.0dp" app:a0f="ka9" />
+        <kk.design.KKLineView android:layout_width="20.0dp" android:layout_height="0.5dp" />
+    </LinearLayout>
+    <kk.design.KKLoadingView android:layout_gravity="center" android:id="@id/fiu" android:layout_width="wrap_content" android:layout_height="wrap_content" />
+</merge>

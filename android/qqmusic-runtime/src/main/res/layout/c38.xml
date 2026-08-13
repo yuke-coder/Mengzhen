@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.tencent.picker.SquareFrameLayout android:layout_width="match_parent" android:layout_height="match_parent"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <ImageView android:id="@id/dne" android:layout_width="match_parent" android:layout_height="match_parent" android:scaleType="centerCrop" />
+    <View android:id="@id/g18" android:background="#53ffffff" android:layout_width="match_parent" android:layout_height="match_parent" />
+    <View android:layout_gravity="bottom" android:id="@id/n6n" android:background="@drawable/picker_video_item_bottom_bg" android:layout_width="match_parent" android:layout_height="26.0dp" />
+    <TextView android:textSize="14.0sp" android:textStyle="bold" android:textColor="#ffffff" android:layout_gravity="right|bottom" android:id="@id/byp" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginRight="6.0dp" android:layout_marginBottom="5.0dp" />
+    <FrameLayout android:layout_gravity="right|top" android:id="@id/jry" android:layout_width="30.0dp" android:layout_height="30.0dp">
+        <com.tencent.picker.SelectionDotView android:layout_gravity="center" android:id="@id/jrz" android:layout_width="wrap_content" android:layout_height="wrap_content" />
+    </FrameLayout>
+    <TextView android:textSize="10.0sp" android:textColor="#fff" android:gravity="center" android:layout_gravity="right|bottom" android:id="@id/k8w" android:background="@drawable/gif_label" android:visibility="gone" android:layout_width="28.0dp" android:layout_height="15.0dp" android:layout_margin="5.0dp" android:text="动图" />
+    <View android:id="@id/chc" android:layout_width="match_parent" android:layout_height="match_parent" />
+</com.tencent.picker.SquareFrameLayout>

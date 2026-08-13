@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout android:gravity="center" android:orientation="horizontal" android:id="@id/del" android:paddingTop="30.0dp" android:paddingBottom="30.0dp" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_centerInParent="true"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <androidx.appcompat.widget.AppCompatTextView android:textSize="11.0sp" android:textColor="@color/skin_text_sub_color" android:gravity="center" android:id="@id/dem" android:background="@drawable/module_musichall_bg_follow_button" android:layout_width="109.0dp" android:layout_height="30.0dp" android:text="@string/gxa" android:contentDescription="@string/gxa" />
+</LinearLayout>

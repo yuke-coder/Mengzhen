@@ -1,0 +1,19 @@
+{
+  "router": "openPage",
+  "page_name": "banner_acq_recall",
+  "container": {
+    "w_weight": "1",
+    "h_weight": "0.2",
+    "direction": "from-bottom"
+  },
+  "params": {
+    "imageType": "2",
+    "bannerConfig": {
+      "title": "专辑<highlight>高亮</highlight>标题",
+      "description": "专辑副标题",
+      "image": "https://dldir1v6.qq.com/music/release/upload/t_mm_file_publish/10191667.png",
+      "buttonText": "按钮文案",
+      "jumpURL": "https://y.qq.com"
+    }
+  }
+}

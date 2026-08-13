@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout android:paddingTop="@dimen/dj" android:paddingBottom="@dimen/dj" android:layout_width="match_parent" android:layout_height="wrap_content"
+  xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">
+    <androidx.appcompat.widget.AppCompatTextView android:textSize="11.0dp" android:textColor="@color/ai_agent_safe_tips_color_light_new" android:id="@id/n3" android:visibility="gone" android:layout_width="wrap_content" android:layout_height="wrap_content" android:singleLine="true" app:a1x="hnz" app:a21="hnz" app:a27="hnz" />
+    <FrameLayout android:id="@id/ms" android:paddingLeft="16.0dp" android:paddingTop="14.0dp" android:paddingRight="16.0dp" android:paddingBottom="14.0dp" android:layout_width="0.0dp" android:layout_height="wrap_content" android:layout_marginLeft="@dimen/cu" android:layout_marginTop="@dimen/a1z" android:layout_marginRight="@dimen/cw" android:minHeight="@dimen/cv" app:a1d="hnz" app:a1t="1.0" app:a1x="hnz" app:a21="hnz" app:a26="@id/n3" app:a2b="nug" app:a2r="0.0dp" />
+    <View android:id="@id/mr" android:layout_width="0.0dp" android:layout_height="0.0dp" app:a1x="hnz" app:a21="hnz" app:a26="@id/ms" />
+</androidx.constraintlayout.widget.ConstraintLayout>

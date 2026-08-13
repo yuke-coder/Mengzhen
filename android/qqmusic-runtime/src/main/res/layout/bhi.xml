@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout android:layout_width="wrap_content" android:layout_height="wrap_content"
+  xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">
+    <ImageView android:id="@id/mlive_gift_item_icon" android:layout_width="@dimen/aoi" android:layout_height="@dimen/aoh" android:scaleType="fitCenter" app:a1d="hnz" app:a1x="hnz" app:a27="hnz" />
+    <ImageView android:id="@id/mlive_gift_item_multiple" android:visibility="gone" android:layout_width="@dimen/aok" android:layout_height="@dimen/aoj" android:scaleType="fitCenter" app:a1d="hnz" app:a1y="@id/mlive_gift_item_icon" app:a27="hnz" />
+    <LinearLayout android:gravity="center_vertical" android:orientation="horizontal" android:id="@id/mlive_gift_item_count" android:visibility="gone" android:layout_width="wrap_content" android:layout_height="wrap_content" app:a1d="hnz" app:a1y="@id/mlive_gift_item_multiple" app:a27="hnz" />
+    <ImageView android:id="@id/mlive_gift_item_right_icon" android:visibility="gone" android:layout_width="37.0dp" android:layout_height="15.0dp" android:contentDescription="@null" android:layout_marginStart="6.0dp" app:a1d="hnz" app:a1y="@id/mlive_gift_item_count" app:a27="hnz" />
+</androidx.constraintlayout.widget.ConstraintLayout>

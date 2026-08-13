@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout android:orientation="vertical" android:id="@id/kk" android:tag="layout/live_cover_scene_crop_video_layout_0" android:layout_width="match_parent" android:layout_height="match_parent"
+  xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">
+    <kk.design.compose.KKTitleBar android:id="@id/kj" android:layout_width="match_parent" android:layout_height="wrap_content" app:yv="bfd" app:a0f="erm" app:a0g="bj0" app:a0l="画面裁切" />
+    <RelativeLayout android:id="@id/kl" android:background="#ff090712" android:layout_width="match_parent" android:layout_height="wrap_content">
+        <com.tme.karaoke.lib_livecover.common.widget.crop.LiveCoverUCropVideoView android:id="@id/mt4" android:layout_width="match_parent" android:layout_height="match_parent" android:alpha="0.0" />
+        <ViewStub android:id="@id/d6m" android:inflatedId="@id/d6l" android:layout_width="match_parent" android:layout_height="match_parent" />
+    </RelativeLayout>
+</LinearLayout>

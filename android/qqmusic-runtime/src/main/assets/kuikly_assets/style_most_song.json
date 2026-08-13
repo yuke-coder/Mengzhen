@@ -1,0 +1,97 @@
+{
+  "router": "openHalf",
+  "page_name": "dialog_universal_style",
+  "debug": 0,
+  "container": {},
+  "params": {
+    "id": "21",
+    "renderType": "RENDER_TYPE_KUIKLY",
+    "styleType": "STYLE_TYPE_SONG",
+    "styleItemType": "STYLE_ITEM_TYPE_COMMON",
+    "display": {
+      "title": "开通会员享珍藏VIP歌曲无限畅听",
+      "subTitle": "您的会员已过2天",
+      "buttons": [
+        {
+          "name": "MAIN",
+          "title": "15元立即续费畅听",
+          "description": "限时特惠",
+          "link": {
+            "type": "LINK_TYPE_WEB",
+            "url": "https://i2.y.qq.com/n3/cm/pages/vip/myservice/v3/index.html?tab1=svip&tab2=cjhy&entry=207&aid=music.general.myfavoritepop.vip.android"
+          }
+        },
+        {
+          "name": "STOP",
+          "title": "14天内不再提醒",
+          "link": {
+            "type": "LINK_TYPE_STOP"
+          }
+        }
+      ],
+      "countdown": {}
+    },
+    "memberShipInfo": {
+      "remainDays": -2,
+      "vipType": "VIP_TYPE_SVIP",
+      "priceItem": {
+        "reportId": "music_hhlz_1109546",
+        "month": 1,
+        "price": 1500,
+        "originalPrice": 1800,
+        "productPayType": 1
+      }
+    },
+    "report": {
+      "abt": {}
+    },
+    "cycle": {
+      "spanKey": "2",
+      "count": 1
+    },
+    "styleId": 72,
+    "businessCode": 2,
+    "extra": {
+      "TopListenSongList": {
+        "songList": [
+          {
+            "listenTimes": 15,
+            "songInfo": {
+              "coverImage": "http://y.gtimg.cn/music/photo_new/T002R500x500M000000MkMni19ClKG_5.jpg",
+              "singers": [
+                {
+                  "name": "周杰伦"
+                }
+              ],
+              "songName": "晴天"
+            }
+          },
+          {
+            "listenTimes": 12,
+            "songInfo": {
+              "coverImage": "http://y.gtimg.cn/music/photo_new/T002R500x500M0000024bjiL2aocxT_5.jpg",
+              "singers": [
+                {
+                  "name": "周杰伦"
+                }
+              ],
+              "songName": "枫"
+            }
+          },
+          {
+            "listenTimes": 11,
+            "songInfo": {
+              "coverImage": "http://y.gtimg.cn/music/photo_new/T002R500x500M000002MAeob3zLXwZ_4.jpg",
+              "singers": [
+                {
+                  "name": "周杰伦"
+                }
+              ],
+              "songName": "一路向北"
+            }
+          }
+        ]
+      }
+    }
+  }
+}

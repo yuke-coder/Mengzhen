@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<selector
+  xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">
+    <item android:color="@color/kk_color_image_view_border_dark" app:alj="true" />
+    <item android:color="@color/kk_color_image_view_border_light" />
+</selector>

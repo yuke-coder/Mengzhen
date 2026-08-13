@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout android:id="@id/k54" android:paddingRight="20.0dp" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginBottom="10.0dp"
+  xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">
+    <com.tencent.qqmusic.ui.customview.SquareImageView android:id="@id/k52" android:layout_width="@dimen/c3i" android:layout_height="@dimen/c3i" app:a1x="hnz" app:a27="hnz" />
+    <com.tencent.qqmusic.ui.customview.SquareImageView android:id="@id/k53" android:layout_width="@dimen/c3i" android:layout_height="@dimen/c3i" app:a1x="hnz" app:a27="hnz" />
+    <ImageView android:id="@id/a09" android:layout_width="wrap_content" android:layout_height="wrap_content" android:src="@drawable/arrow_right_grey" app:a1d="hnz" app:a21="hnz" app:a27="hnz" />
+    <TextView android:textSize="15.0sp" android:textColor="@color/skin_text_main_color" android:ellipsize="end" android:id="@id/k56" android:paddingRight="100.0dp" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginLeft="12.0dp" android:layout_marginTop="8.0dp" android:text="喜欢" android:maxLines="1" android:singleLine="true" android:fontFamily="PingFangSC-Regular" app:a1y="@id/k52" app:a27="hnz" />
+    <TextView android:textSize="12.0sp" android:textColor="@color/skin_text_sub_color" android:ellipsize="end" android:id="@id/k55" android:paddingRight="100.0dp" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginLeft="12.0dp" android:layout_marginTop="8.0dp" android:text="0首歌曲 0张专辑 0张歌单0首歌曲 0张专辑 0张歌单0首歌曲 0张专辑 0张歌单" android:singleLine="true" android:fontFamily="PingFangSC-Regular" app:a1y="@id/k52" app:a26="@id/k56" />
+</androidx.constraintlayout.widget.ConstraintLayout>

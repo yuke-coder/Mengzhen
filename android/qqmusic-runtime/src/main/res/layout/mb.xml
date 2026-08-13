@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout android:layout_width="match_parent" android:layout_height="wrap_content"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <RelativeLayout android:id="@id/cse" android:paddingLeft="@dimen/b7r" android:paddingRight="@dimen/b7r" android:layout_width="match_parent" android:layout_height="72.0dp" android:paddingStart="@dimen/b7r" android:paddingEnd="@dimen/b7r">
+        <RelativeLayout android:id="@id/d3m" android:layout_width="65.0dp" android:layout_height="60.0dp" android:layout_centerVertical="true">
+            <com.tencent.qqmusic.ui.RoundedRelativeLayout android:id="@id/d3l" android:background="@drawable/skin_mask_img" android:layout_width="60.0dp" android:layout_height="60.0dp" />
+            <com.tencent.component.widget.AsyncEffectImageView android:id="@id/d3k" android:layout_width="60.0dp" android:layout_height="60.0dp" android:layout_marginRight="5.0dp" android:src="@drawable/ic_import_folder" android:scaleType="centerInside" android:layout_alignParentLeft="true" android:layout_alignParentRight="true" android:layout_centerInParent="true" />
+            <ImageView android:layout_width="5.0dp" android:layout_height="50.0dp" android:src="@drawable/ic_folder_bg" android:layout_alignParentRight="true" android:layout_centerVertical="true" />
+        </RelativeLayout>
+        <ImageView android:id="@id/el" android:background="@drawable/arrow_right_grey" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_alignParentRight="true" android:layout_centerVertical="true" />
+        <TextView android:textColor="@color/skin_text_main_color" android:id="@id/d45" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginLeft="12.0dp" android:layout_marginRight="8.0dp" android:layout_toRightOf="@id/d3m" android:layout_centerVertical="true" style="@style/nc" />
+    </RelativeLayout>
+</RelativeLayout>

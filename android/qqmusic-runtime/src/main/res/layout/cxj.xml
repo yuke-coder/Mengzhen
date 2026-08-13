@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout android:layout_width="match_parent" android:layout_height="wrap_content"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <RelativeLayout android:id="@id/hho" android:layout_width="@dimen/bam" android:layout_height="@dimen/bam">
+        <ImageView android:id="@id/v1" android:layout_width="@dimen/bam" android:layout_height="@dimen/bam" android:scaleType="centerCrop" android:layout_centerInParent="true" />
+    </RelativeLayout>
+    <RelativeLayout android:id="@id/hht" android:layout_width="match_parent" android:layout_height="60.0dp" android:layout_marginLeft="16.0dp" android:layout_toRightOf="@id/hho">
+        <TextView android:ellipsize="end" android:gravity="bottom" android:id="@id/hhy" android:focusable="true" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="20.0dp" android:text="Name" android:singleLine="true" android:includeFontPadding="false" android:layout_weight="1.0" style="@style/ni" />
+        <TextView android:ellipsize="end" android:id="@id/hhp" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="2.0dp" android:text="Jay" android:singleLine="true" android:includeFontPadding="false" android:layout_below="@id/hhy" style="@style/nh" />
+        <ImageButton android:layout_gravity="center_vertical" android:id="@id/hhq" android:background="@null" android:padding="8.0dp" android:layout_width="wrap_content" android:layout_height="wrap_content" android:src="@drawable/notification_exit" android:layout_alignParentTop="true" android:layout_alignParentRight="true" android:contentDescription="@string/euy" />
+    </RelativeLayout>
+    <LinearLayout android:gravity="center" android:orientation="horizontal" android:id="@id/hhr" android:layout_width="match_parent" android:layout_height="40.0dp" android:layout_marginTop="2.0dp" android:layout_toRightOf="@id/hho" android:layout_below="@id/hht">
+        <ImageView android:id="@id/hhs" android:background="@null" android:paddingTop="5.0dp" android:paddingBottom="5.0dp" android:layout_width="25.0dp" android:layout_height="32.0dp" android:src="@drawable/player_notification_not_favorite" android:scaleType="centerInside" android:layout_weight="1.0" android:contentDescription="@string/ev0" />
+        <ImageView android:id="@id/hhx" android:background="@null" android:paddingTop="5.0dp" android:paddingBottom="5.0dp" android:layout_width="25.0dp" android:layout_height="32.0dp" android:src="@drawable/player_notification_pre" android:scaleType="centerInside" android:layout_weight="1.0" android:contentDescription="@string/eve" />
+        <ImageView android:id="@id/hhw" android:background="@null" android:paddingTop="5.0dp" android:paddingBottom="5.0dp" android:layout_width="25.0dp" android:layout_height="32.0dp" android:src="@drawable/player_notification_play" android:scaleType="centerInside" android:layout_weight="1.0" />
+        <ImageView android:id="@id/hhv" android:background="@null" android:paddingTop="5.0dp" android:paddingBottom="5.0dp" android:layout_width="25.0dp" android:layout_height="32.0dp" android:src="@drawable/player_notification_next" android:scaleType="centerInside" android:layout_weight="1.0" android:contentDescription="@string/eva" />
+        <ImageView android:id="@id/hhu" android:background="@null" android:paddingTop="5.0dp" android:paddingBottom="5.0dp" android:layout_width="25.0dp" android:layout_height="32.0dp" android:src="@drawable/player_notification_lyric_closed" android:scaleType="centerInside" android:layout_weight="1.0" />
+    </LinearLayout>
+</RelativeLayout>

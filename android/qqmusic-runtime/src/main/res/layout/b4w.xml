@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout android:layout_width="match_parent" android:layout_height="match_parent"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <TextView android:textSize="18.0sp" android:textColor="@color/white_50_transparent" android:layout_gravity="center" android:id="@id/c75" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="暂无内容" android:textAlignment="center" />
+</FrameLayout>

@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout android:layout_width="match_parent" android:layout_height="wrap_content"
+  xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">
+    <com.tme.mlive.ui.custom.LivePKRankView android:layout_gravity="center_horizontal" android:id="@id/mlive_link_pk_rank_view_video" android:visibility="gone" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginTop="8.0dp" app:adr="3" app:ads="n6j" />
+    <FrameLayout android:id="@id/mlive_live_pk_first_blood_container_video" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_centerHorizontal="true">
+        <androidx.constraintlayout.widget.ConstraintLayout android:id="@id/mlive_link_pk_first_blood_tips_container_video" android:background="@drawable/mlive_shape_bg_live_pk_props" android:paddingLeft="8.0dp" android:paddingRight="8.0dp" android:visibility="gone" android:layout_width="wrap_content" android:layout_height="26.0dp" android:layout_marginTop="5.0dp">
+            <TextView android:textSize="10.0sp" android:textColor="@color/white" android:gravity="center" android:id="@id/mlive_video_link_pk_first_blood_tips_tv_video" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/cx1" android:layout_marginStart="2.5dp" app:a1d="hnz" app:a1j="hnz" app:a1u="hmg" app:a22="@id/mlive_video_link_pk_first_blood_tip_anim_video" app:a27="hnz" />
+            <org.libpag.PAGView android:id="@id/mlive_video_link_pk_first_blood_tip_anim_video" android:layout_width="20.0dp" android:layout_height="20.0dp" app:a1d="hnz" app:a1k="@id/mlive_video_link_pk_first_blood_tips_tv_video" app:a1u="hmg" app:a23="hnz" app:a27="hnz" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </FrameLayout>
+    <FrameLayout android:id="@id/mlive_link_pk_prop_container_video" android:visibility="visible" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="-22.0dp" android:layout_centerHorizontal="true">
+        <com.tme.mlive.ui.custom.LivePKPropView android:layout_gravity="center_horizontal" android:id="@id/mlive_link_pk_container_prop_progress_video" android:visibility="gone" android:layout_width="wrap_content" android:layout_height="wrap_content" />
+        <com.tme.mlive.ui.custom.LivePKPropEndResultView android:layout_gravity="center_horizontal" android:id="@id/mlive_link_pk_container_prop_end_video" android:visibility="gone" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="30.0dp" />
+    </FrameLayout>
+    <com.tme.mlive.ui.custom.PkContentTipsView android:id="@id/mlive_pk_content_tips_first_blood_view_video" android:visibility="gone" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="8.0dp" android:layout_centerHorizontal="true" />
+    <com.tme.mlive.ui.custom.PkContentTipsView android:id="@id/mlive_pk_content_tips_result_view_video" android:visibility="gone" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="8.0dp" android:layout_centerHorizontal="true" />
+</RelativeLayout>

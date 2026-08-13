@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout android:gravity="center" android:orientation="vertical" android:focusable="true" android:clickable="true" android:layout_width="match_parent" android:layout_height="match_parent" android:layout_marginTop="80.0dp" android:layout_marginBottom="44.0dp"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <FrameLayout android:layout_width="wrap_content" android:layout_height="wrap_content">
+        <ImageView android:layout_gravity="center_horizontal" android:id="@id/gg1" android:layout_width="wrap_content" android:layout_height="wrap_content" android:scaleType="fitXY" />
+        <TextView android:textSize="14.0dp" android:textStyle="bold" android:textColor="@color/skin_text_main_color" android:layout_gravity="center|bottom" android:id="@id/gg2" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginBottom="26.0dp" android:text="@string/e8k" />
+    </FrameLayout>
+    <com.tencent.qqmusic.ui.RoundedRelativeLayout android:gravity="center" android:orientation="horizontal" android:id="@id/fm8" android:layout_width="@dimen/avp" android:layout_height="@dimen/avo" android:layout_marginTop="38.0dp">
+        <ImageView android:id="@id/mwe" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginRight="9.0dp" android:src="@drawable/not_login_default_image" android:layout_centerVertical="true" />
+        <TextView android:textSize="18.0dp" android:textColor="@color/skin_button_text_color" android:id="@id/gg5" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/e8c" android:singleLine="true" android:layout_toRightOf="@id/mwe" android:layout_centerVertical="true" />
+    </com.tencent.qqmusic.ui.RoundedRelativeLayout>
+</LinearLayout>

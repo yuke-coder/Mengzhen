@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout android:id="@id/a_s" android:layout_width="wrap_content" android:layout_height="wrap_content"
+  xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">
+    <com.tencent.component.widget.AsyncEffectImageView android:id="@id/gga" android:layout_width="150.0dp" android:layout_height="150.0dp" android:scaleType="centerCrop" android:importantForAccessibility="no" app:a1x="hnz" app:a21="hnz" app:a27="hnz" />
+    <ViewStub android:id="@id/gf0" android:layout="@layout/bqh" android:inflatedId="@id/gf1" android:layout_width="150.0dp" android:layout_height="150.0dp" app:a1x="hnz" app:a27="hnz" />
+    <ViewStub android:id="@id/gew" android:layout="@layout/bs0" android:layout_width="0.0dp" android:layout_height="0.0dp" app:a1d="@id/gga" app:a1x="hnz" app:a21="hnz" />
+    <ViewStub android:id="@id/gf_" android:layout="@layout/bqg" android:layout_width="0.0dp" android:layout_height="0.0dp" android:importantForAccessibility="no" app:a1d="@id/gga" app:a1x="@id/gga" app:a21="@id/gga" app:a27="@id/gga" />
+    <ViewStub android:id="@id/gi4" android:layout="@layout/bqt" android:layout_width="0.0dp" android:layout_height="0.0dp" app:a1d="@id/gga" app:a1j="@id/gga" app:a23="@id/gga" app:a27="@id/gga" />
+    <ViewStub android:id="@id/ghd" android:layout="@layout/by1" android:layout_width="0.0dp" android:layout_height="0.0dp" app:a1d="@id/gga" app:a1j="@id/gga" app:a23="@id/gga" app:a27="@id/gga" />
+    <ViewStub android:id="@id/ge3" android:layout="@layout/by0" android:layout_width="0.0dp" android:layout_height="0.0dp" app:a1d="@id/gga" app:a1j="@id/gga" app:a23="@id/gga" app:a27="@id/gga" />
+    <com.tencent.component.widget.AsyncEffectImageView android:id="@id/ger" android:layout_width="0.0dp" android:layout_height="0.0dp" android:scaleType="centerCrop" android:importantForAccessibility="no" app:a1d="@id/gga" app:a1j="@id/gga" app:a23="@id/gga" app:a27="@id/gga" />
+    <ViewStub android:id="@id/gdx" android:layout="@layout/bqc" android:layout_width="wrap_content" android:layout_height="wrap_content" app:a23="@id/gga" app:a27="@id/gga" />
+    <com.tencent.component.widget.AsyncEffectImageView android:id="@id/gfo" android:visibility="gone" android:layout_width="26.0dp" android:layout_height="26.0dp" android:layout_marginLeft="6.0dp" android:layout_marginBottom="6.0dp" android:importantForAccessibility="no" app:a1d="@id/gga" app:a1x="@id/gga" />
+    <ViewFlipper android:id="@id/h24" android:layout_width="0.0dp" android:layout_height="wrap_content" android:layout_marginTop="8.0dp" android:flipInterval="3000" android:animateFirstView="false" app:a1x="@id/gga" app:a21="@id/gga" app:a26="@id/gga">
+        <LinearLayout android:orientation="vertical" android:id="@id/gk1" android:layout_width="match_parent" android:layout_height="match_parent">
+            <com.tencent.qqmusic.modular.module.musichall.views.viewholders.block.AutoTagTextView android:textSize="14.0dp" android:id="@id/gka" android:visibility="gone" android:layout_width="match_parent" android:layout_height="wrap_content" android:importantForAccessibility="no" />
+            <com.tencent.qqmusic.modular.framework.ui.text.SimpleTextView android:id="@id/gkb" android:layout_width="match_parent" android:layout_height="60.0dp" android:importantForAccessibility="no" />
+            <com.tencent.qqmusic.modular.framework.ui.text.SimpleTextView android:id="@id/gjp" android:visibility="gone" android:layout_width="match_parent" android:layout_height="60.0dp" android:layout_marginTop="1.0dp" android:importantForAccessibility="no" />
+        </LinearLayout>
+        <TextView android:textSize="10.0dp" android:textStyle="bold" android:textColor="@color/skin_highlight_color" android:ellipsize="end" android:id="@id/h25" android:background="@drawable/my_music_single_border" android:visibility="gone" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="3.0dp" android:maxLines="1" />
+    </ViewFlipper>
+    <androidx.constraintlayout.widget.ConstraintLayout android:id="@id/hur" android:layout_width="wrap_content" android:layout_height="wrap_content" app:a1d="@id/gga" app:a23="@id/gga">
+        <include android:layout_width="wrap_content" android:layout_height="20.0dp" app:a1x="hnz" app:a27="hnz" layout="@layout/cu7" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+    <FrameLayout android:id="@id/fbe" android:visibility="gone" android:layout_width="150.0dp" android:layout_height="150.0dp" app:a1d="@id/gga" app:a1x="@id/gga" app:a21="@id/gga" app:a27="@id/gga" />
+    <LinearLayout android:orientation="horizontal" android:id="@id/gfx" android:background="@drawable/module_musichall_live_label_background" android:visibility="gone" android:layout_width="wrap_content" android:layout_height="18.0dp" app:a1x="hnz" app:a27="hnz">
+        <com.tencent.qqmusic.fragment.search.view.SearchLiveWaveView android:id="@id/gfw" android:layout_width="18.0dp" android:layout_height="18.0dp" android:importantForAccessibility="no" />
+        <TextView android:textSize="11.0dp" android:textColor="@color/white" android:ellipsize="end" android:gravity="center" android:layout_gravity="center_vertical" android:id="@id/gfv" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginRight="6.0dp" android:maxLines="1" android:includeFontPadding="false" />
+    </LinearLayout>
+    <com.tencent.component.widget.AsyncEffectImageView android:id="@id/geb" android:visibility="gone" android:layout_width="0.0dp" android:layout_height="0.0dp" android:scaleType="fitXY" android:importantForAccessibility="no" app:a1d="@id/gga" app:a1j="@id/gga" app:a23="@id/gga" app:a27="@id/gga" />
+</androidx.constraintlayout.widget.ConstraintLayout>

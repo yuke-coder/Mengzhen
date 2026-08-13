@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout android:orientation="vertical" android:id="@id/c7j" android:layout_width="wrap_content" android:layout_height="wrap_content"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <TextView android:textSize="12.0dp" android:textColor="@color/skin_text_sub_color" android:layout_gravity="center_horizontal" android:id="@id/c7p" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/e88" />
+    <TextView android:textSize="12.0dp" android:textColor="@color/skin_highlight_color" android:gravity="center" android:layout_gravity="center_horizontal" android:id="@id/c7m" android:background="@drawable/module_musichall_bottom_refresh" android:paddingBottom="1.0dp" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="9.5dp" android:text="@string/fwi" />
+</LinearLayout>

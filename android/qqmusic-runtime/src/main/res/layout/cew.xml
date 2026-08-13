@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout android:layout_width="match_parent" android:layout_height="match_parent"
+  xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">
+    <LinearLayout android:layout_gravity="center_horizontal" android:id="@id/hmc" android:background="@android:color/black" android:paddingTop="4.0dp" android:paddingBottom="4.0dp" android:visibility="invisible" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="65.0dp" android:layout_marginBottom="10.0dp">
+        <kk.design.KKImageView android:layout_gravity="center" android:id="@id/hmb" android:layout_width="18.0dp" android:layout_height="18.0dp" android:layout_marginLeft="5.0dp" android:layout_marginRight="5.0dp" app:kkImageRadiusDirection="xt" app:kkImageRadiusSize="18.0dp" />
+        <TextView android:textSize="12.0sp" android:textStyle="bold" android:textColor="@android:color/white" android:ellipsize="end" android:layout_gravity="center" android:id="@id/hmd" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginRight="2.0dp" android:maxWidth="140.0dp" android:maxLines="1" android:singleLine="true" />
+        <TextView android:textSize="12.0sp" android:textColor="@android:color/white" android:layout_gravity="center" android:id="@id/hme" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="被你超越" />
+    </LinearLayout>
+</FrameLayout>

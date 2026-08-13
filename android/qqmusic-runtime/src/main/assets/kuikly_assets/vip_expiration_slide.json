@@ -1,0 +1,73 @@
+{
+  "preload": {
+    "images": [
+      {
+        "url": "https://y.qq.com/music/common/upload/t_music_commercial_operation_ads/5643318.png"
+      }
+    ]
+  },
+  "dialogInfo": {
+    "router": "openHalf",
+    "page_name": "vip_expiration_slide",
+    "container": {
+      "w_weight": "0.9",
+      "h_weight": "0.9",
+      "dim_behind": 1
+    },
+    "params": {
+      "page": [
+        {
+          "base": {
+            "title": "数字专辑",
+            "subtitle": "技术全新升级，畅销高品质音质"
+          },
+          "buttons": [
+            {
+              "text": "开通会员",
+              "color": "#FFCD4B",
+              "text_color": "#000000",
+              "url": "http://xxx",
+              "click": {
+                "_key": "vip_pay",
+                "os_type": "11",
+                "version": "12070000",
+                "datatype": "2",
+                "type_1": "14",
+                "type_2": "vip"
+              }
+            }
+          ],
+          "body": {
+            "images": [
+              {
+                "url": "https://y.qq.com/music/common/upload/t_music_commercial_operation_ads/5643318.png"
+              }
+            ]
+          },
+          "exposure": {
+            "_key": "vip_pay",
+            "kk_key_opt_time": "expose_time",
+            "os_type": "11",
+            "version": "12070000",
+            "datatype": "11",
+            "type_1": "14",
+            "type_2": "vip"
+          }
+        },
+        {
+          "base": {
+            "title": "开机语音",
+            "subtitle": "技术全新升级，畅销高品质音质"
+          },
+          "body": {
+            "images": [
+              {
+                "url": "https://y.qq.com/music/common/upload/t_music_commercial_operation_ads/5643305.png"
+              }
+            ]
+          }
+        }
+      ]
+    }
+  }
+}

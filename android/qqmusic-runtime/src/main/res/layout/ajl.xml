@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout android:orientation="horizontal" android:layout_width="wrap_content" android:layout_height="wrap_content"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <RelativeLayout android:id="@id/e6g" android:layout_width="@dimen/bnw" android:layout_height="wrap_content">
+        <TextView android:textSize="14.0sp" android:textColor="@color/radio_selection_unselected_text_color" android:ellipsize="marquee" android:gravity="center|bottom" android:id="@id/e6h" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginBottom="7.0dp" android:minHeight="30.0dp" android:text="哈哈" android:maxLines="1" android:layout_centerHorizontal="true" android:marqueeRepeatLimit="marquee_forever" />
+        <ImageView android:id="@id/iq0" android:layout_width="match_parent" android:layout_height="5.0dp" android:src="@drawable/radio_group_selection_bg_middle" android:scaleType="fitXY" android:layout_below="@id/e6h" android:layout_centerHorizontal="true" />
+        <ImageView android:id="@id/iqr" android:layout_width="5.0dp" android:layout_height="5.0dp" android:src="@drawable/radio_group_selected_bg" android:scaleType="centerInside" android:layout_below="@id/e6h" android:layout_centerHorizontal="true" android:contentDescription="@string/go1" />
+    </RelativeLayout>
+</RelativeLayout>

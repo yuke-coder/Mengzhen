@@ -1,0 +1,11 @@
+{
+  "router": "openPage",
+  "page_name": "coin_center_day_sign_record",
+  "container": {
+    "w_weight": "1",
+    "h_weight": "1",
+    "direction": "from-bottom",
+    "tabbar_mode": "4"
+  },
+  "params": {}
+}

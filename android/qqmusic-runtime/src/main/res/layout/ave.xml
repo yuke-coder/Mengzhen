@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout android:id="@id/a_s" android:layout_width="wrap_content" android:layout_height="wrap_content"
+  xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">
+    <com.tencent.component.widget.AsyncEffectImageView android:id="@id/gga" android:layout_width="136.0dp" android:layout_height="158.0dp" android:scaleType="centerCrop" android:importantForAccessibility="no" app:a1x="hnz" app:a21="hnz" app:a27="hnz" />
+    <View android:id="@id/cpd" android:background="@drawable/shadow_v13_folder" android:layout_width="0.0dp" android:layout_height="54.0dp" app:a1d="@id/gga" app:a1x="@id/gga" app:a21="@id/gga" />
+    <include android:id="@id/n08" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginRight="14.0dp" android:layout_marginBottom="6.0dp" android:layout_centerInParent="true" android:layout_marginStart="6.0dp" app:a1d="@id/gga" app:a23="@id/gga" layout="@layout/by6" />
+    <androidx.appcompat.widget.AppCompatTextView android:textSize="12.0dp" android:textColor="@color/skin_text_main_color" android:ellipsize="end" android:id="@id/gkb" android:layout_width="0.0dp" android:layout_height="wrap_content" android:layout_marginTop="6.0dp" android:lines="1" android:importantForAccessibility="no" app:a1x="@id/gga" app:a21="@id/gga" app:a26="@id/gga" />
+    <androidx.appcompat.widget.AppCompatTextView android:textSize="12.0dp" android:textColor="@color/skin_text_mid_color" android:ellipsize="end" android:id="@id/ens" android:layout_width="0.0dp" android:layout_height="wrap_content" android:layout_marginTop="2.0dp" android:lines="1" android:importantForAccessibility="no" app:a1x="@id/gga" app:a21="@id/gga" app:a26="@id/gkb" />
+</androidx.constraintlayout.widget.ConstraintLayout>

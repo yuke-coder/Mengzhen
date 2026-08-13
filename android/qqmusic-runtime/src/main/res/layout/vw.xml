@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout android:layout_width="match_parent" android:layout_height="match_parent"
+  xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">
+    <include android:layout_width="match_parent" android:layout_height="match_parent" layout="@layout/m6" />
+    <ScrollView android:paddingBottom="@dimen/ait" android:layout_width="match_parent" android:layout_height="match_parent">
+        <RelativeLayout android:layout_width="match_parent" android:layout_height="match_parent">
+            <androidx.constraintlayout.widget.ConstraintLayout android:id="@id/ja1" android:background="@drawable/bluetooth_buds_setting_bg" android:layout_width="match_parent" android:layout_height="255.0dp">
+                <com.tencent.component.widget.AsyncEffectImageView android:id="@id/edt" android:layout_width="125.0dp" android:layout_height="125.0dp" android:layout_marginTop="@dimen/cau" android:layout_centerInParent="true" app:a1d="hnz" app:a1j="hnz" app:a23="hnz" app:a27="hnz" />
+            </androidx.constraintlayout.widget.ConstraintLayout>
+            <TextView android:textSize="14.0sp" android:textColor="@color/skin_text_mid_color" android:gravity="center_vertical" android:id="@id/mfk" android:background="@drawable/skin_common_listitem_bg" android:paddingLeft="22.5dp" android:layout_width="match_parent" android:layout_height="30.0dp" android:layout_marginTop="22.0dp" android:text="开启以下权限，激活耳机/音箱权益" android:layout_below="@id/ja1" />
+            <RelativeLayout android:id="@id/ja0" android:background="@drawable/skin_common_listitem_bg" android:paddingLeft="22.5dp" android:layout_width="match_parent" android:layout_height="45.0dp" android:layout_below="@id/mfk">
+                <TextView android:textSize="14.0sp" android:textColor="@color/skin_text_main_color" android:id="@id/m_w" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/fyf" android:layout_alignParentLeft="true" android:layout_centerVertical="true" />
+                <ImageView android:id="@id/edc" android:background="@drawable/ic_bluetooth_setting_authorized" android:visibility="gone" android:layout_width="20.0dp" android:layout_height="20.0dp" android:layout_marginRight="16.0dp" android:layout_alignParentRight="true" android:layout_centerVertical="true" />
+                <ImageView android:id="@id/edb" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginRight="16.0dp" android:src="@drawable/arrow_right_grey" android:layout_alignParentRight="true" android:layout_centerVertical="true" />
+                <TextView android:textSize="12.0sp" android:textColor="@color/skin_text_mid_color" android:id="@id/m_x" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginRight="@dimen/ax8" android:text="@string/fz8" android:layout_toLeftOf="@id/edb" android:layout_centerVertical="true" />
+            </RelativeLayout>
+            <RelativeLayout android:id="@id/jaa" android:background="@drawable/skin_common_listitem_bg" android:paddingLeft="22.5dp" android:layout_width="match_parent" android:layout_height="45.0dp" android:layout_below="@id/ja0">
+                <TextView android:textSize="14.0sp" android:textColor="@color/skin_text_main_color" android:id="@id/mbz" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/fyg" android:layout_centerVertical="true" />
+                <ImageView android:id="@id/efu" android:background="@drawable/ic_bluetooth_setting_authorized" android:layout_width="20.0dp" android:layout_height="20.0dp" android:layout_marginRight="16.0dp" android:layout_alignParentRight="true" android:layout_centerVertical="true" />
+                <ImageView android:id="@id/eft" android:visibility="gone" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginRight="16.0dp" android:src="@drawable/arrow_right_grey" android:baselineAlignBottom="true" android:layout_alignParentRight="true" android:layout_centerVertical="true" />
+                <TextView android:textSize="12.0sp" android:textColor="@color/skin_text_mid_color" android:id="@id/mc0" android:visibility="gone" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginRight="@dimen/ax8" android:text="@string/fz8" android:layout_toLeftOf="@id/eft" android:layout_centerVertical="true" />
+            </RelativeLayout>
+            <TextView android:textSize="14.0sp" android:textColor="@color/skin_text_mid_color" android:gravity="center_vertical" android:id="@id/mgq" android:background="@drawable/skin_common_listitem_bg" android:paddingLeft="22.5dp" android:layout_width="match_parent" android:layout_height="30.0dp" android:layout_marginTop="5.0dp" android:text="耳机/音箱用户尊享以下权益" android:layout_below="@id/jaa" />
+            <RelativeLayout android:id="@id/ja_" android:background="@drawable/skin_common_listitem_bg" android:paddingLeft="22.5dp" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_below="@id/mgq">
+                <TextView android:textSize="14.0sp" android:textColor="@color/skin_text_main_color" android:id="@id/mbj" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="15.0dp" android:text="@string/zb" />
+                <TextView android:textSize="12.0sp" android:textColor="@color/skin_text_mid_color" android:id="@id/mbk" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="5.0dp" android:layout_below="@id/mbj" />
+            </RelativeLayout>
+            <RelativeLayout android:id="@id/jb4" android:background="@drawable/skin_common_listitem_bg" android:paddingLeft="22.5dp" android:paddingRight="16.0dp" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_below="@id/ja_">
+                <TextView android:textSize="14.0sp" android:textColor="@color/skin_text_main_color" android:id="@id/mgo" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="15.0dp" android:text="@string/ze" />
+                <TextView android:textSize="12.0sp" android:textColor="@color/skin_text_mid_color" android:id="@id/mgp" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="5.0dp" android:layout_below="@id/mgo" />
+            </RelativeLayout>
+            <RelativeLayout android:id="@id/jcc" android:background="@drawable/skin_common_listitem_bg" android:paddingLeft="22.5dp" android:paddingBottom="@dimen/rr" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_below="@id/jb4">
+                <TextView android:textSize="14.0sp" android:textColor="@color/skin_text_main_color" android:id="@id/mra" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="15.0dp" android:text="@string/zg" />
+                <TextView android:textSize="12.0sp" android:textColor="@color/skin_text_mid_color" android:id="@id/mrb" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="5.0dp" android:layout_below="@id/mra" />
+                <ImageView android:id="@id/emn" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginRight="16.0dp" android:src="@drawable/arrow_right_grey" android:layout_alignParentRight="true" android:layout_centerVertical="true" />
+            </RelativeLayout>
+        </RelativeLayout>
+    </ScrollView>
+    <include android:id="@id/lv1" layout="@layout/mu" />
+</RelativeLayout>

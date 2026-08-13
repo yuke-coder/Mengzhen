@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout android:orientation="vertical" android:layout_width="wrap_content" android:layout_height="wrap_content"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <TextView android:textSize="14.0sp" android:textColor="#ffffff" android:layout_gravity="center_horizontal" android:id="@id/l8d" android:layout_width="wrap_content" android:layout_height="wrap_content" />
+    <com.tencent.qqmusic.ui.customview.RoundKnobButton android:layout_gravity="center_horizontal" android:id="@id/eq6" android:layout_width="105.0dp" android:layout_height="105.0dp" android:layout_marginTop="12.0dp" />
+</LinearLayout>

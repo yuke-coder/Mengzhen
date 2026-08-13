@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout android:layout_width="match_parent" android:layout_height="match_parent"
+  xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">
+    <RelativeLayout android:padding="@dimen/sd" android:layout_width="match_parent" android:layout_height="match_parent">
+        <ImageView android:id="@id/hsl" android:visibility="gone" android:layout_width="match_parent" android:layout_height="match_parent" android:scaleType="centerCrop" android:layout_centerInParent="true" app:kkImageBorderOverlay="false" app:kkImageRadiusDirection="xt" app:kkImageRadiusSize="@dimen/sl" />
+        <RelativeLayout android:id="@id/f_t" android:layout_width="match_parent" android:layout_height="match_parent" android:layout_centerInParent="true" />
+        <ImageView android:id="@id/fbl" android:padding="@dimen/sj" android:focusable="true" android:focusableInTouchMode="true" android:layout_width="@dimen/se" android:layout_height="@dimen/se" android:src="@drawable/live_window_close_icon" android:layout_alignParentRight="true" android:contentDescription="@string/c_9" />
+        <TextView android:textSize="@dimen/s1" android:textColor="@color/white" android:id="@id/hsm" android:visibility="gone" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginLeft="@dimen/sg" android:drawableLeft="@drawable/pip_tip_tag" android:drawablePadding="@dimen/sg" android:layout_centerInParent="true" />
+    </RelativeLayout>
+    <View android:background="@drawable/live_window_outside_shape" android:layout_width="match_parent" android:layout_height="match_parent" />
+    <View android:id="@id/hsj" android:background="@drawable/pip_tip_scale_btn" android:focusable="true" android:focusableInTouchMode="true" android:visibility="gone" android:layout_width="28.0dp" android:layout_height="28.0dp" android:layout_alignParentTop="true" android:contentDescription="@string/c__" android:layout_alignParentStart="true" />
+</RelativeLayout>

@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout android:background="@drawable/bg_ai_feature_card" android:paddingTop="@dimen/s1" android:paddingBottom="@dimen/s1" android:layout_width="94.0dp" android:layout_height="wrap_content" android:layout_marginRight="@dimen/c7j" android:minHeight="126.0dp"
+  xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">
+    <com.tencent.component.widget.AsyncImageView android:id="@id/mc" android:layout_width="50.0dp" android:layout_height="50.0dp" app:a1j="hnz" app:a23="hnz" app:a27="hnz" />
+    <androidx.appcompat.widget.AppCompatTextView android:textSize="14.0dp" android:textStyle="normal" android:textColor="@color/black_90_opacity" android:ellipsize="end" android:gravity="center" android:id="@id/me" android:layout_width="0.0dp" android:layout_height="@dimen/s3" android:layout_marginTop="@dimen/c7j" android:maxLines="1" app:a1j="hnz" app:a23="hnz" app:a26="@id/mc" />
+    <androidx.appcompat.widget.AppCompatTextView android:textSize="12.0dp" android:textColor="@color/black_50_opacity" android:ellipsize="end" android:gravity="center" android:id="@id/md" android:layout_width="0.0dp" android:layout_height="@dimen/c7s" android:layout_marginTop="5.0dp" android:maxLines="1" app:a1j="hnz" app:a23="hnz" app:a26="@id/me" />
+</androidx.constraintlayout.widget.ConstraintLayout>

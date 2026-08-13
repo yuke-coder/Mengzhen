@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.tencent.qqmusic.ui.RoundedConstraintLayout android:id="@id/iz3" android:background="@drawable/skin_mask_img" android:layout_width="155.0dp" android:layout_height="251.0dp"
+  xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">
+    <com.tencent.component.widget.AsyncEffectImageView android:id="@id/iz4" android:layout_width="0.0dp" android:layout_height="0.0dp" android:scaleType="centerCrop" app:a1i="1:1" app:a1x="hnz" app:a21="hnz" app:a27="hnz" />
+    <View android:id="@id/iz5" android:background="@drawable/shape_recommend_bubble_mask_gradient" android:layout_width="0.0dp" android:layout_height="0.0dp" app:a1d="@id/iz4" app:a1i="155:44" app:a1x="hnz" app:a21="hnz" />
+    <LinearLayout android:gravity="center_vertical" android:orientation="horizontal" android:id="@id/iz6" android:visibility="gone" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginBottom="7.0dp" android:layout_marginStart="8.859985dp" app:a1d="@id/iz4" app:a1x="hnz">
+        <com.tencent.component.widget.AsyncEffectImageView android:id="@id/iz7" android:layout_width="9.639984dp" android:layout_height="9.639984dp" android:scaleType="centerCrop" />
+        <androidx.appcompat.widget.AppCompatTextView android:textSize="11.0dp" android:textStyle="bold" android:textColor="#ffffffff" android:id="@id/iz8" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginStart="3.0dp" />
+    </LinearLayout>
+    <androidx.appcompat.widget.AppCompatTextView android:textSize="11.0dp" android:textColor="@color/skin_text_main_color" android:ellipsize="end" android:gravity="center" android:id="@id/iz_" android:layout_width="0.0dp" android:layout_height="wrap_content" android:layout_marginLeft="8.0dp" android:layout_marginRight="8.0dp" android:maxLines="2" app:a1e="@id/iz9" app:a1x="hnz" app:a21="hnz" app:a26="@id/iz4" />
+    <androidx.appcompat.widget.AppCompatTextView android:textSize="12.0dp" android:textColor="@color/skin_button_icon_color" android:gravity="center" android:id="@id/iz9" android:background="@drawable/module_musichall_button_bg_new" android:layout_width="80.0dp" android:layout_height="32.0dp" android:layout_marginBottom="10.0dp" android:text="解锁订阅" android:maxLines="1" app:a1d="hnz" app:a1x="hnz" app:a21="hnz" />
+</com.tencent.qqmusic.ui.RoundedConstraintLayout>

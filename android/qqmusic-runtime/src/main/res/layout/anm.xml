@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout android:layout_width="match_parent" android:layout_height="wrap_content"
+  xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">
+    <View android:id="@id/nj3" android:background="@color/gray" android:layout_width="match_parent" android:layout_height="@dimen/cg9" android:alpha="0.5" app:a27="hnz" />
+    <androidx.appcompat.widget.AppCompatTextView android:textSize="@dimen/cf5" android:ellipsize="end" android:id="@id/nj5" android:layout_width="0.0dp" android:layout_height="wrap_content" android:layout_marginTop="@dimen/cga" android:layout_marginBottom="@dimen/cga" android:maxLines="1" android:layout_marginVertical="@dimen/cga" app:a1d="hnz" app:a1k="@id/nj4" app:a1u="kqe" app:a23="hnz" app:a26="@id/nj3" />
+    <androidx.appcompat.widget.AppCompatImageView android:id="@id/nj4" android:layout_width="@dimen/cg_" android:layout_height="@dimen/cg_" app:a1d="hnz" app:a1j="hnz" app:a1u="kqe" app:a22="@id/nj5" app:a27="@id/nj3" app:aj8="@drawable/icon_vip_tab_music_life_playlist_play_button_play_unselect" />
+</androidx.constraintlayout.widget.ConstraintLayout>

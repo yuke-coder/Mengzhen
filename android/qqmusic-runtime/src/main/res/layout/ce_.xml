@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout android:background="@drawable/black_color_without_alpha" android:layout_width="match_parent" android:layout_height="match_parent"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <TextureView android:id="@id/j9o" android:layout_width="match_parent" android:layout_height="match_parent" android:layout_centerInParent="true" />
+    <ImageView android:id="@id/j9j" android:layout_width="@dimen/bqb" android:layout_height="@dimen/bqb" android:layout_marginLeft="16.5dp" android:layout_marginTop="38.5dp" android:src="@drawable/ringbell_close_guide" android:scaleType="centerInside" android:layout_alignParentLeft="true" android:layout_alignParentTop="true" android:contentDescription="@string/wf" android:layout_marginStart="16.5dp" />
+    <ImageView android:id="@id/j9l" android:visibility="gone" android:layout_width="@dimen/bqb" android:layout_height="@dimen/bqb" android:src="@drawable/ringbell_guide_video_resume" android:layout_centerInParent="true" />
+    <LinearLayout android:gravity="center" android:orientation="horizontal" android:id="@id/j9m" android:background="@drawable/recognize_desk_guide_retry_btn_bg" android:paddingLeft="64.0dp" android:paddingRight="64.0dp" android:visibility="gone" android:layout_width="wrap_content" android:layout_height="@dimen/bqd" android:layout_marginBottom="230.0dp" android:layout_alignParentBottom="true" android:layout_centerHorizontal="true" android:paddingStart="64.0dp" android:paddingEnd="64.0dp">
+        <TextView android:textSize="18.0sp" android:textColor="@color/white" android:ellipsize="end" android:id="@id/j9n" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/g_o" android:singleLine="true" />
+    </LinearLayout>
+    <TextView android:textSize="16.0sp" android:textColor="@color/white" android:ellipsize="end" android:id="@id/j9k" android:visibility="gone" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginBottom="185.0dp" android:text="@string/gav" android:singleLine="true" android:layout_alignParentBottom="true" android:layout_centerHorizontal="true" />
+</RelativeLayout>

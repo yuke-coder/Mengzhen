@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout android:gravity="center" android:orientation="horizontal" android:id="@id/bhk" android:background="@drawable/bg_custom_player_loading_container" android:visibility="gone" android:layout_width="wrap_content" android:layout_height="30.0dp" android:paddingStart="5.0dp" android:paddingEnd="5.0dp"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <ImageView android:id="@id/bhl" android:background="@drawable/icn_loading_indicator" android:layout_width="16.0dp" android:layout_height="16.0dp" android:contentDescription="@null" android:layout_marginStart="5.0dp" android:layout_marginEnd="5.0dp" />
+    <androidx.appcompat.widget.AppCompatTextView android:textSize="12.0sp" android:textColor="@color/white" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/ae9" />
+    <androidx.appcompat.widget.AppCompatImageView android:id="@id/l4p" android:padding="5.0dp" android:layout_width="30.0dp" android:layout_height="30.0dp" android:src="@drawable/close_tab_setting" />
+</LinearLayout>

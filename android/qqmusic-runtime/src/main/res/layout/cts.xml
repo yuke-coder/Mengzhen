@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout android:layout_width="match_parent" android:layout_height="match_parent"
+  xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">
+    <ImageView android:id="@id/msj" android:layout_width="25.0dp" android:layout_height="wrap_content" android:layout_marginTop="18.0dp" android:src="@drawable/txy_huiyan_icon_back" android:layout_marginStart="@dimen/cbd" />
+    <TextView android:textSize="18.0sp" android:textStyle="bold" android:textColor="@color/txy_black" android:id="@id/msk" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/ikm" android:layout_centerInParent="true" />
+    <ImageView android:id="@id/msf" android:layout_width="180.0dp" android:layout_height="180.0dp" android:layout_marginBottom="20.0dp" android:src="@drawable/txy_face_head_white_style" android:layout_above="@id/msk" android:layout_centerHorizontal="true" />
+    <Button android:enabled="false" android:textSize="16.0sp" android:textStyle="bold" android:textColor="@color/txy_white" android:id="@id/msv" android:background="@drawable/txy_huiyan_default_button_bg" android:layout_width="match_parent" android:layout_height="50.0dp" android:layout_marginTop="80.0dp" android:text="@string/ikw" android:layout_below="@id/msk" android:layout_centerHorizontal="true" android:layout_marginStart="25.0dp" android:layout_marginEnd="25.0dp" />
+    <com.tencent.cloud.huiyan.pub.view.ProtocolCheckView android:id="@id/msw" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginTop="10.0dp" android:layout_below="@id/msv" android:layout_centerHorizontal="true" android:layout_alignStart="@id/msv" />
+    <TextView android:textSize="12.0sp" android:textColor="@color/txy_black" android:id="@id/msm" android:visibility="invisible" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="5.0dp" android:text="@string/ikn" android:layout_below="@id/msk" android:layout_centerHorizontal="true" />
+</RelativeLayout>

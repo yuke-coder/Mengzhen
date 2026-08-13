@@ -89,9 +89,10 @@
             <ImageView
                 android:id="@+id/login_v2_pe_loading"
                 android:visibility="gone"
-                android:layout_width="18dp"
-                android:layout_height="18dp"
-                android:src="@drawable/arg_res_0x7f0817ae"
+                android:layout_width="22dp"
+                android:layout_height="22dp"
+                android:src="@drawable/chatgpt_loading_spinner"
+                android:tint="@color/arg_res_0x7f06080f"
                 android:contentDescription="@null"
                 android:layout_marginEnd="6dp"/>
             <TextView

@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout android:layout_width="match_parent" android:layout_height="60.0dp" android:minHeight="60.0dp"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <TextView android:textColor="@color/skin_text_main_color" android:layout_width="wrap_content" android:layout_marginLeft="@dimen/c16" android:text="同步本设备的本地歌曲" android:layout_alignParentLeft="true" android:layout_centerVertical="true" style="@style/ln" />
+    <ImageButton android:id="@id/b4_" android:background="@drawable/switch_off" android:layout_width="55.0dp" android:layout_height="33.0dp" android:layout_marginRight="12.5dp" android:layout_alignParentRight="true" android:layout_centerVertical="true" android:contentDescription="@string/gi5" />
+</RelativeLayout>

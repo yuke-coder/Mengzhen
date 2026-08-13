@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout android:layout_width="match_parent" android:layout_height="match_parent"
+  xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">
+    <ImageView android:id="@id/fv5" android:layout_width="match_parent" android:layout_height="match_parent" android:scaleType="centerCrop" />
+    <View android:background="#232828" android:layout_width="match_parent" android:layout_height="match_parent" />
+    <androidx.constraintlayout.widget.ConstraintLayout android:id="@id/h5" android:layout_width="match_parent" android:layout_height="wrap_content" app:a27="hnz" />
+    <androidx.constraintlayout.widget.ConstraintLayout android:id="@id/h3" android:layout_width="match_parent" android:layout_height="wrap_content" app:a1d="hnz" />
+    <com.tencent.qqmusic.ui.UnScrollableViewPager android:id="@id/fw_" android:layout_width="match_parent" android:layout_height="0.0dp" android:overScrollMode="never" app:a1e="@id/h3" app:a1x="hnz" app:a21="hnz" app:a26="@id/h5" />
+    <View android:id="@id/fvn" android:visibility="gone" android:layout_width="match_parent" android:layout_height="0.0dp" app:a1d="hnz" app:a27="hnz" />
+    <com.tencent.qqmusic.ui.UnScrollableViewPager android:id="@id/fvo" android:layout_width="match_parent" android:layout_height="272.0dp" android:overScrollMode="never" app:a27="hnz" />
+</androidx.constraintlayout.widget.ConstraintLayout>

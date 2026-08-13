@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout android:background="#ff090c13" android:layout_width="match_parent" android:layout_height="match_parent"
+  xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">
+    <androidx.recyclerview.widget.RecyclerView android:id="@id/ica" android:paddingLeft="15.0dp" android:paddingTop="5.0dp" android:paddingRight="15.0dp" android:paddingBottom="90.0dp" android:clipToPadding="false" android:layout_width="match_parent" android:layout_height="match_parent" android:paddingHorizontal="15.0dp" />
+    <View android:layout_gravity="top" android:id="@id/k3q" android:layout_width="match_parent" android:layout_height="140.0dp" />
+    <LinearLayout android:gravity="center_vertical" android:orientation="horizontal" android:id="@id/icc" android:paddingLeft="16.0dp" android:paddingRight="16.0dp" android:layout_width="match_parent" android:layout_height="56.0dp" android:layout_marginTop="40.0dp" android:paddingHorizontal="16.0dp">
+        <com.tencent.qqmusic.ui.RoundedRelativeLayout android:layout_width="35.0dp" android:layout_height="35.0dp" app:ado="17.5dp">
+            <com.tencent.qqmusic.ui.blurmask.BlurOverlayView android:layout_gravity="start|top" android:id="@id/k3p" android:layout_width="35.0dp" android:layout_height="35.0dp" app:ae2="17.5dp" app:ae4="#66000000" />
+            <ImageView android:focusable="true" android:clickable="true" android:layout_width="6.0dp" android:layout_height="10.399994dp" android:src="@drawable/singer_portait_back" android:scaleType="centerInside" android:layout_centerInParent="true" />
+        </com.tencent.qqmusic.ui.RoundedRelativeLayout>
+        <TextView android:textSize="18.0dp" android:textStyle="bold" android:textColor="@color/white" android:ellipsize="end" android:id="@id/icb" android:layout_width="0.0dp" android:layout_height="wrap_content" android:singleLine="true" android:layout_weight="1.0" android:layout_marginStart="8.0dp" />
+        <TextView android:textSize="15.0dp" android:textColor="#99ffffff" android:id="@id/icd" android:layout_width="wrap_content" android:layout_height="wrap_content" />
+    </LinearLayout>
+</FrameLayout>

@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout android:orientation="vertical" android:paddingBottom="20.0dp" android:layout_width="match_parent" android:layout_height="wrap_content"
+  xmlns:app="http://schemas.android.com/apk/res-auto" xmlns:android="http://schemas.android.com/apk/res/android">
+    <ImageView android:id="@id/g37" android:layout_width="30.0dp" android:layout_height="30.0dp" android:layout_marginRight="20.0dp" android:src="@drawable/medal_invite_follow_close" app:a21="hnz" />
+    <ImageView android:id="@id/g38" android:layout_width="0.0dp" android:layout_height="0.0dp" android:layout_marginLeft="20.0dp" android:layout_marginTop="10.0dp" android:layout_marginRight="20.0dp" android:src="@drawable/medal_invite_follow" android:layout_marginHorizontal="20.0dp" app:a1i="2:1" app:a1x="hnz" app:a21="hnz" app:a26="@id/g37" />
+    <com.tencent.qqmusic.ui.RoundedRelativeLayout android:background="@color/white" android:layout_width="0.0dp" android:layout_height="0.0dp" android:layout_marginLeft="20.0dp" android:layout_marginTop="-1.0dp" android:layout_marginRight="20.0dp" android:layout_marginHorizontal="20.0dp" app:jc="true" app:a1i="2:1" app:a1x="hnz" app:a21="hnz" app:a26="@id/g38" app:adm="ezp|isw" app:afv="12.0dp">
+        <androidx.appcompat.widget.LinearLayoutCompat android:gravity="center_horizontal" android:orientation="vertical" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_centerInParent="true">
+            <androidx.appcompat.widget.AppCompatTextView android:textSize="18.0dp" android:textColor="@color/black" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="邀请你互相关注" />
+            <androidx.appcompat.widget.AppCompatTextView android:textSize="14.0dp" android:textColor="@color/black" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="5.0dp" android:text="解锁专属好友羁绊勋章" />
+            <androidx.appcompat.widget.AppCompatTextView android:textSize="14.0dp" android:textColor="@color/black" android:gravity="center" android:id="@id/cq8" android:background="@drawable/bg_medal_invite_follow_text" android:layout_width="180.0dp" android:layout_height="50.0dp" android:layout_marginTop="12.0dp" android:text="立刻关注" />
+        </androidx.appcompat.widget.LinearLayoutCompat>
+    </com.tencent.qqmusic.ui.RoundedRelativeLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>

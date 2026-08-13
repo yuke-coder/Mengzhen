@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout android:id="@id/mlive_dialog_single_btn_alert_root" android:background="@drawable/mlive_bg_round_all_x10" android:layout_width="match_parent" android:layout_height="match_parent"
+  xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">
+    <TextView android:textSize="18.0sp" android:textColor="@color/black" android:ellipsize="end" android:gravity="center" android:id="@id/mlive_dialog_user_agreement_title" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginLeft="45.0dp" android:layout_marginTop="30.0dp" android:layout_marginRight="45.0dp" android:text="@string/czk" android:maxLines="1" android:singleLine="true" />
+    <LinearLayout android:gravity="center_horizontal" android:orientation="horizontal" android:id="@id/mlive_dialog_user_agreement_content" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginLeft="30.0dp" android:layout_marginTop="12.0dp" android:layout_marginRight="30.0dp" android:layout_below="@id/mlive_dialog_user_agreement_title">
+        <TextView android:textColor="@color/black" android:ellipsize="none" android:id="@id/mlive_dialog_user_agreement_content_text" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginLeft="7.0dp" android:text="@string/czj" android:scrollHorizontally="false" />
+    </LinearLayout>
+    <LinearLayout android:orientation="horizontal" android:id="@id/mlive_dialog_user_btn_ll" android:layout_width="215.0dp" android:layout_height="wrap_content" android:layout_margin="30.0dp" android:layout_below="@id/mlive_dialog_user_agreement_content" android:layout_centerHorizontal="true">
+        <Button android:textColor="@color/black" android:id="@id/mlive_dialog_user_agreement_negative_btn" android:background="@drawable/mlive_bg_common_btn_stroke" android:layout_width="100.0dp" android:layout_height="40.0dp" android:layout_marginRight="15.0dp" android:text="@string/czv" />
+        <Button android:textColor="@color/white" android:id="@id/mlive_dialog_user_agreement_positive_btn" android:background="@drawable/mlive_bg_common_btn" android:layout_width="100.0dp" android:layout_height="40.0dp" android:text="@string/d1i" />
+    </LinearLayout>
+</RelativeLayout>

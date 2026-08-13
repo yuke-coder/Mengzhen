@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout android:orientation="vertical" android:background="@drawable/setting_list_item_bg" android:layout_width="match_parent" android:layout_height="match_parent"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <LinearLayout android:orientation="vertical" android:id="@id/fx7" android:background="@drawable/my_music_green_bg" android:layout_width="match_parent" android:layout_height="wrap_content">
+        <include android:id="@id/lv1" android:layout_width="match_parent" android:layout_height="@dimen/cau" layout="@layout/mu" />
+    </LinearLayout>
+    <RelativeLayout android:id="@id/fka" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_below="@id/fx7">
+        <EditText android:textSize="14.0sp" android:id="@id/fkb" android:layout_width="match_parent" android:layout_height="wrap_content" android:hint="请简要描述您的问题" />
+        <ListView android:layout_gravity="fill" android:id="@id/fk7" android:paddingLeft="@dimen/acj" android:paddingTop="@dimen/acl" android:paddingRight="@dimen/acj" android:paddingBottom="@dimen/ach" android:scrollbars="none" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginLeft="@dimen/c18" android:layout_marginRight="@dimen/c19" android:cacheColorHint="#00000000" android:divider="@color/black" android:dividerHeight="0.5dp" android:layout_below="@id/fkb" android:overScrollMode="never" />
+    </RelativeLayout>
+    <TextView android:id="@id/fk_" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_centerInParent="true" />
+    <Button android:gravity="center" android:layout_gravity="center_horizontal" android:id="@id/fk9" android:layout_width="match_parent" android:layout_height="wrap_content" android:text="@string/eq4" android:layout_alignParentBottom="true" />
+</RelativeLayout>

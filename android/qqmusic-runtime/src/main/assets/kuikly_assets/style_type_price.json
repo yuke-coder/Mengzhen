@@ -1,0 +1,171 @@
+{
+  "router": "openHalf",
+  "page_name": "dialog_universal_style",
+  "debug": 0,
+  "container": {
+  },
+  "params": {
+    "renderType": "RENDER_TYPE_KUIKLY",
+    "styleType": "STYLE_TYPE_PRICE",
+    "styleItemType": "STYLE_ITEM_TYPE_COMMON",
+    "display": {
+      "title": "限时升级超级会员福利",
+      "subTitle": "豪华绿钻剩余时长可以升级为超级会员",
+      "buttons": [
+        {
+          "name": "MAIN",
+          "title": "%d元立即签约",
+          "link": {
+          }
+        }
+      ],
+      "images": [
+        {
+          "name": "BACKGROUND",
+          "url": "https://y.qq.com/music/common/upload/ocs/be79625a80123ee62925f66b590c5e97.png"
+        },
+        {
+          "name": "MAIN",
+          "url": "https://y.qq.com/music/common/upload/ocs/7f9037fe8d1e7bbf57b5fe683c6021ac.png"
+        }
+      ],
+      "countdown": {
+      },
+      "attributeList": [
+        {
+          "name": "pop_url",
+          "value": {
+            "auto_rene_url": "https://y.qq.com/forest/R__a7LX00UtR-A2y/index.html",
+            "vip_argument": "https://y.qq.com/forest/ou5v6U56CuFum3Yz/index.html",
+            "pay_url": "https://fastest.y.qq.com/m/basic/client/kuikly_pay/vip_next/index.html?_tde_id=40017"
+          }
+        },
+        {
+          "name": "ThemeColor",
+          "value": "#1a5eb7"
+        },
+        {
+          "name": "FontColor",
+          "value": "#000000"
+        },
+        {
+          "name": "LabelColor",
+          "value": "#3d4d82"
+        }
+      ]
+    },
+    "memberShipInfo": {
+      "vipType": "VIP_TYPE_HVIP",
+      "priceItem": {
+      }
+    },
+    "report": {
+      "abt": {
+      }
+    },
+    "cycle": {
+    },
+    "styleId": 46,
+    "businessCode": 3,
+    "data": {
+      "offer": [
+        {
+          "id": 1000092,
+          "offers": [
+            {
+              "id": "music_cjhy_sync_764_881310",
+              "type": 0,
+              "product": {
+                "business": "vip",
+                "productID": 1200293501314625,
+                "skuID": 2200293484786166,
+                "activityID": 0,
+                "periodUnit": 3,
+                "periodNumber": 1,
+                "marketPrice": 4000,
+                "price": 240,
+                "renewPrice": 3000,
+                "payType": 11,
+                "platform": 2,
+                "productExtraSpec": {
+                  "groupMemberNums": 0
+                }
+              },
+              "pack": {
+                "name": "豪华绿钻首开超会12元【老平台自动同步】itemTag:764_881310",
+                "group": "cjhy",
+                "text": "",
+                "icon": "",
+                "image": ""
+              },
+              "upgrade": {
+                "maxMonths": 3,
+                "maxDays": 12,
+                "defaultMonths": 1,
+                "defaultDays": 12
+              },
+              "paymentAction": {
+                "type": 0,
+                "jumpURL": ""
+              },
+              "incentive": {
+                "discountStyle": 0,
+                "discountText": "",
+                "buttonText": "",
+                "mainText": "连续包月",
+                "mainOperateText": "限时特惠",
+                "viceOperateText": "次月续费30元/月，可随时取消；同一个Apple ID仅可享一次优惠，请以实际支付价格为准",
+                "icon": "",
+                "countdownDuration": 0,
+                "contractSignOperateText": ""
+              },
+              "abtStrategyID": "25390",
+              "categoryTag": "cjhy",
+              "gift": {
+                "gifts": [
+                ]
+              },
+              "deductionActivity": {
+                "deductionActivities": [
+                ]
+              },
+              "activityType": 0,
+              "rescissionConfig": {
+                "rescissionRecoveryDays": 0
+              },
+              "isContractTrial": false,
+              "mutexType": 1,
+              "abtExperimentID": 0,
+              "priceOfferGroupID": 1000092,
+              "discountActivity": {
+                "activityID": 0,
+                "activityType": 0,
+                "limit": {
+                  "effectiveEndTime": 0,
+                  "availableStock": 0,
+                  "isShowStock": false
+                },
+                "isLimitStock": false
+              }
+            }
+          ],
+          "abtExperimentID": 900764
+        }
+      ],
+      "pop_url": {
+        "auto_rene_url": "https://y.qq.com/forest/R__a7LX00UtR-A2y/index.html",
+        "vip_argument": "https://y.qq.com/forest/ou5v6U56CuFum3Yz/index.html",
+        "pay_url": "https://fastest.y.qq.com/m/basic/client/kuikly_pay/vip_next/index.html?_tde_id=40017",
+        "aid": "music.cg.wanliu.return.svip"
+      }
+    }
+  },
+  "passThrough": {
+    "ackid": "1913a13ac40559d4",
+    "continue": "0"
+  },
+  "position": {
+    "pageID": 0,
+    "scheme": ""
+  }
+}

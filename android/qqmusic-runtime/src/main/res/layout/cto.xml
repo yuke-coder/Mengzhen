@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout android:background="@color/txy_white" android:layout_width="match_parent" android:layout_height="match_parent"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <TextView android:textSize="16.0sp" android:textStyle="bold" android:textColor="@color/txy_black" android:id="@id/msh" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="@dimen/cbb" android:text="@string/ikv" android:layout_alignParentTop="true" android:layout_centerHorizontal="true" />
+    <TextView android:textColor="@color/txy_black" android:gravity="center" android:id="@id/mse" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginTop="25.0dp" android:layout_marginBottom="36.0dp" android:layout_above="@id/ms5" android:layout_below="@id/msh" />
+    <Button android:textColor="@color/txy_white" android:id="@id/ms5" android:background="@color/txy_btn_bg" android:layout_width="180.0dp" android:layout_height="40.0dp" android:layout_marginTop="30.0dp" android:layout_marginBottom="@dimen/cbb" android:text="@string/ijr" android:layout_alignParentBottom="true" android:layout_centerHorizontal="true" />
+</RelativeLayout>

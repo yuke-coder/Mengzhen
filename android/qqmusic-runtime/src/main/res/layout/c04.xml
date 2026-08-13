@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout android:layout_width="match_parent" android:layout_height="wrap_content"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <LinearLayout android:gravity="center_vertical" android:orientation="horizontal" android:id="@id/del" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="20.0dp" android:layout_marginBottom="20.0dp" android:layout_centerInParent="true">
+        <TextView android:textSize="12.0sp" android:textColor="@color/skin_text_sub_color" android:gravity="center" android:id="@id/dem" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/emx" android:includeFontPadding="false" />
+        <ImageView android:id="@id/dek" android:layout_width="wrap_content" android:layout_height="wrap_content" android:src="@drawable/mymusic_list_more_normal" />
+    </LinearLayout>
+</RelativeLayout>

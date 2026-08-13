@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.tme.qqmusic.widget.base.view.CornerConstraintLayout android:layout_width="match_parent" android:layout_height="wrap_content" app:lm="10.0dp"
+  xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">
+    <LinearLayout android:gravity="center" android:orientation="vertical" android:id="@id/mlive_song_quality_high_ll" android:layout_width="match_parent" android:layout_height="54.0dp" android:layout_marginTop="10.0dp" app:a27="hnz">
+        <TextView android:textSize="16.0sp" android:textColor="@drawable/mlive_song_quality_item_tx_selector" android:gravity="center" android:id="@id/mlive_song_quality_high_tv" android:layout_width="match_parent" android:layout_height="wrap_content" android:text="@string/e08" />
+        <TextView android:textSize="12.0sp" android:textColor="@color/gray_15_70_transparent" android:gravity="center" android:layout_gravity="center" android:id="@id/mlive_song_quality_high_desc_tv" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="2.0dp" android:text="@string/e09" app:a1j="@id/mlive_song_quality_high_tv" app:a23="@id/mlive_song_quality_high_tv" app:a26="@id/mlive_song_quality_high_tv" />
+    </LinearLayout>
+    <LinearLayout android:gravity="center" android:orientation="vertical" android:id="@id/mlive_song_quality_general_ll" android:layout_width="match_parent" android:layout_height="54.0dp" android:layout_marginBottom="34.0dp" app:a1d="hnz" app:a26="@id/mlive_song_quality_high_ll">
+        <TextView android:textSize="16.0sp" android:textColor="@drawable/mlive_song_quality_item_tx_selector" android:gravity="center" android:id="@id/mlive_song_quality_general_tv" android:layout_width="match_parent" android:layout_height="wrap_content" android:text="@string/e07" />
+        <TextView android:textSize="12.0sp" android:textColor="@color/gray_15_70_transparent" android:gravity="center" android:layout_gravity="center" android:id="@id/mlive_song_quality_general_desc_tv" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="2.0dp" android:text="@string/e0_" app:a1j="@id/mlive_song_quality_general_tv" app:a23="@id/mlive_song_quality_general_tv" app:a26="@id/mlive_song_quality_general_tv" />
+    </LinearLayout>
+</com.tme.qqmusic.widget.base.view.CornerConstraintLayout>

@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout android:layout_width="match_parent" android:layout_height="60.0dp"
+  xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">
+    <ImageView android:id="@id/mlive_finish_audio_history_item_selection" android:layout_width="30.0dp" android:layout_height="30.0dp" android:layout_marginLeft="15.0dp" app:a1d="hnz" app:a1x="hnz" app:a27="hnz" />
+    <TextView android:textSize="15.0sp" android:textColor="#e6d8d8d8" android:ellipsize="end" android:id="@id/mlive_finish_audio_history_item_title" android:layout_width="0.0dp" android:layout_height="wrap_content" android:layout_marginLeft="2.5dp" android:layout_marginTop="12.5dp" app:a1e="@id/mlive_finish_audio_history_item_desc" app:a1y="@id/mlive_finish_audio_history_item_selection" app:a21="hnz" app:a27="hnz" />
+    <TextView android:textSize="12.0sp" android:textColor="#66d8d8d8" android:ellipsize="end" android:id="@id/mlive_finish_audio_history_item_desc" android:layout_width="0.0dp" android:layout_height="wrap_content" android:layout_marginLeft="2.5dp" android:layout_marginBottom="12.5dp" app:a1d="hnz" app:a1y="@id/mlive_finish_audio_history_item_selection" app:a21="hnz" app:a26="@id/mlive_finish_audio_history_item_title" />
+</androidx.constraintlayout.widget.ConstraintLayout>

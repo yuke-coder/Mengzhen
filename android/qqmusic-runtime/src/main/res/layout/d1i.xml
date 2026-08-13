@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout android:orientation="vertical" android:id="@id/nql" android:background="@color/white" android:layout_width="match_parent" android:layout_height="match_parent"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <ImageView android:textSize="25.0dp" android:layout_gravity="right" android:id="@id/daa" android:layout_width="24.0dp" android:layout_height="24.0dp" android:layout_marginTop="12.0dp" android:layout_marginRight="16.0dp" android:src="@drawable/web_view_error_close_small" />
+    <ImageView android:layout_gravity="center_horizontal" android:background="@drawable/icon_web_network_error" android:layout_width="125.0dp" android:layout_height="125.0dp" android:layout_marginTop="125.0dp" />
+    <TextView android:textSize="15.0dp" android:textColor="@color/black" android:layout_gravity="center_horizontal" android:id="@id/c9m" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/epj" />
+    <Button android:textSize="14.0dp" android:textColor="@color/white" android:layout_gravity="center_horizontal" android:id="@id/c9v" android:background="#fe4f4f" android:layout_width="166.0dp" android:layout_height="36.0dp" android:layout_marginTop="37.5dp" android:text="@string/fnb" />
+    <Button android:textSize="14.0dp" android:textColor="#fe4f4f" android:layout_gravity="center_horizontal" android:id="@id/c9j" android:background="@color/white" android:layout_width="166.0dp" android:layout_height="36.0dp" android:layout_marginTop="15.0dp" android:text="@string/a7j" />
+</LinearLayout>

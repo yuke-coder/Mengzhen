@@ -1,0 +1,13 @@
+{
+  "router": "openPage",
+  "page_name": "brain_wave_healing_sub_mode",
+  "container": {
+    "w_weight": "1",
+    "h_weight": "1",
+    "direction": "from-bottom"
+  },
+  "params": {
+    "mode": "sleep",
+    "scene_name": "ocean"
+  }
+}

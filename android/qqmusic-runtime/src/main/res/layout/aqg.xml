@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout android:id="@id/i9z" android:padding="5.0dp" android:layout_width="wrap_content" android:layout_height="wrap_content"
+  xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">
+    <androidx.cardview.widget.CardView android:id="@id/ffp" android:layout_width="wrap_content" android:layout_height="wrap_content" app:gr="@color/white" app:gs="9.0dp" app:gt="2.0dp" app:h2="false" app:h3="true">
+        <LinearLayout android:gravity="center_vertical" android:orientation="vertical" android:layout_width="wrap_content" android:layout_height="wrap_content">
+            <LinearLayout android:gravity="center" android:orientation="horizontal" android:id="@id/ffv" android:layout_width="165.0dp" android:layout_height="73.0dp">
+                <LinearLayout android:gravity="center" android:orientation="vertical" android:id="@id/ffu" android:layout_width="0.0dp" android:layout_height="wrap_content" android:layout_weight="1.0">
+                    <ImageView android:id="@id/ehz" android:layout_width="@dimen/c6" android:layout_height="@dimen/c6" android:src="@drawable/icon_ai_agent_pop_like" />
+                    <androidx.appcompat.widget.AppCompatTextView android:textSize="13.0dp" android:textColor="@color/ai_agent_text_main_light" android:id="@id/mg8" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/gb" />
+                </LinearLayout>
+                <LinearLayout android:gravity="center" android:orientation="vertical" android:id="@id/ffs" android:layout_width="0.0dp" android:layout_height="wrap_content" android:layout_weight="1.0">
+                    <ImageView android:id="@id/ehx" android:layout_width="@dimen/c6" android:layout_height="@dimen/c6" android:src="@drawable/icon_ai_agent_pop_dislike" />
+                    <androidx.appcompat.widget.AppCompatTextView android:textSize="13.0dp" android:textColor="@color/ai_agent_text_main_light" android:id="@id/mg6" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/g_" />
+                </LinearLayout>
+            </LinearLayout>
+            <View android:id="@id/jt1" android:background="@color/ai_agent_pop_separator_light" android:layout_width="match_parent" android:layout_height="1.0px" />
+            <View android:id="@id/n1d" android:layout_width="match_parent" android:layout_height="@dimen/c9" />
+            <LinearLayout android:gravity="center_vertical" android:orientation="horizontal" android:id="@id/ffq" android:paddingLeft="@dimen/c7" android:paddingTop="@dimen/c9" android:paddingRight="@dimen/c8" android:paddingBottom="@dimen/c9" android:layout_width="match_parent" android:layout_height="wrap_content" app:a1x="hnz" app:a21="hnz" app:a27="hnz">
+                <ImageView android:id="@id/ehv" android:layout_width="@dimen/c6" android:layout_height="@dimen/c6" android:src="@drawable/icon_ai_agent_pop_copy" />
+                <androidx.appcompat.widget.AppCompatTextView android:textSize="13.0dp" android:textColor="@color/ai_agent_text_main_light" android:id="@id/mg4" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginLeft="10.0dp" android:text="@string/g8" />
+            </LinearLayout>
+            <LinearLayout android:gravity="center_vertical" android:orientation="horizontal" android:id="@id/ffx" android:paddingLeft="@dimen/c7" android:paddingTop="@dimen/c9" android:paddingRight="@dimen/c8" android:paddingBottom="@dimen/c9" android:layout_width="wrap_content" android:layout_height="wrap_content" app:a1x="hnz" app:a21="hnz" app:a27="hnz">
+                <ImageView android:id="@id/ei1" android:layout_width="@dimen/c6" android:layout_height="@dimen/c6" android:src="@drawable/icon_ai_agent_pop_save" />
+                <androidx.appcompat.widget.AppCompatTextView android:textSize="13.0dp" android:textColor="@color/ai_agent_text_main_light" android:id="@id/mg_" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginLeft="10.0dp" android:text="@string/gd" />
+            </LinearLayout>
+            <LinearLayout android:gravity="center_vertical" android:orientation="horizontal" android:id="@id/fft" android:paddingLeft="@dimen/c7" android:paddingTop="@dimen/c9" android:paddingRight="@dimen/c8" android:paddingBottom="@dimen/c9" android:layout_width="wrap_content" android:layout_height="wrap_content" app:a1x="hnz" app:a21="hnz" app:a27="hnz">
+                <ImageView android:id="@id/ehy" android:layout_width="@dimen/c6" android:layout_height="@dimen/c6" android:src="@drawable/icon_ai_agent_pop_except" />
+                <androidx.appcompat.widget.AppCompatTextView android:textSize="13.0dp" android:textColor="@color/ai_agent_text_main_light" android:id="@id/mg7" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginLeft="10.0dp" android:text="@string/ga" />
+            </LinearLayout>
+            <LinearLayout android:gravity="center_vertical" android:orientation="horizontal" android:id="@id/ffw" android:paddingLeft="@dimen/c7" android:paddingTop="@dimen/c9" android:paddingRight="@dimen/c8" android:paddingBottom="@dimen/c9" android:layout_width="wrap_content" android:layout_height="wrap_content" app:a1x="hnz" app:a21="hnz" app:a27="hnz">
+                <ImageView android:id="@id/ei0" android:layout_width="@dimen/c6" android:layout_height="@dimen/c6" android:src="@drawable/icon_ai_agent_pop_report" />
+                <androidx.appcompat.widget.AppCompatTextView android:textSize="13.0dp" android:textColor="@color/ai_agent_text_main_light" android:id="@id/mg9" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginLeft="10.0dp" android:text="@string/gc" />
+            </LinearLayout>
+            <LinearLayout android:gravity="center_vertical" android:orientation="horizontal" android:id="@id/ffr" android:paddingLeft="@dimen/c7" android:paddingTop="@dimen/c9" android:paddingRight="@dimen/c8" android:paddingBottom="@dimen/c9" android:layout_width="wrap_content" android:layout_height="wrap_content" app:a1x="hnz" app:a21="hnz" app:a27="hnz">
+                <ImageView android:id="@id/ehw" android:layout_width="@dimen/c6" android:layout_height="@dimen/c6" android:src="@drawable/icon_ai_agent_pop_delete" />
+                <androidx.appcompat.widget.AppCompatTextView android:textSize="13.0dp" android:textColor="@color/ai_agent_pop_delete" android:id="@id/mg5" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginLeft="10.0dp" android:text="@string/g9" />
+            </LinearLayout>
+            <View android:id="@id/n1f" android:layout_width="match_parent" android:layout_height="@dimen/c9" />
+        </LinearLayout>
+    </androidx.cardview.widget.CardView>
+</LinearLayout>

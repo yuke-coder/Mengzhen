@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout android:gravity="center_horizontal" android:orientation="vertical" android:id="@id/jd8" android:paddingLeft="42.0dp" android:paddingRight="42.0dp" android:visibility="gone" android:layout_width="match_parent" android:layout_height="match_parent"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <androidx.appcompat.widget.AppCompatTextView android:textSize="12.0sp" android:textColor="@color/default_text_sub_color" android:id="@id/cps" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="30.0dp" android:text="@string/clj" />
+    <androidx.appcompat.widget.LinearLayoutCompat android:gravity="center_horizontal" android:orientation="horizontal" android:id="@id/fuv" android:background="@drawable/lover_folder_buy_btn_bg" android:layout_width="match_parent" android:layout_height="40.0dp" android:layout_marginTop="25.0dp">
+        <androidx.appcompat.widget.AppCompatTextView android:textSize="16.0sp" android:textColor="@color/white" android:gravity="center" android:layout_gravity="center_vertical" android:id="@id/fuw" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/clh" />
+    </androidx.appcompat.widget.LinearLayoutCompat>
+</LinearLayout>

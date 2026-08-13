@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout android:orientation="vertical" android:background="#ffffff" android:clickable="true" android:layout_width="match_parent" android:layout_height="match_parent"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <include android:layout_width="match_parent" android:layout_height="wrap_content" layout="@layout/c39" />
+    <RelativeLayout android:layout_width="match_parent" android:layout_height="0.0dp" android:layout_weight="1.0">
+        <com.tencent.picker.VideoCoverSelectorView android:id="@id/n6l" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_alignParentBottom="true" />
+        <FrameLayout android:id="@id/n6k" android:layout_width="match_parent" android:layout_height="match_parent" android:layout_above="@id/n6l">
+            <TextureView android:layout_gravity="center" android:id="@id/n_1" android:layout_width="match_parent" android:layout_height="match_parent" android:foregroundGravity="center" />
+            <ImageView android:layout_gravity="center" android:id="@id/if9" android:layout_width="match_parent" android:layout_height="match_parent" android:scaleType="fitXY" />
+        </FrameLayout>
+    </RelativeLayout>
+    <FrameLayout android:id="@id/he0" android:background="#ffffff" android:focusable="true" android:clickable="true" android:layout_width="match_parent" android:layout_height="58.0dp">
+        <TextView android:textSize="16.0sp" android:textColor="#8f1a1a1a" android:gravity="center" android:layout_gravity="center_vertical" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginLeft="16.0dp" android:text="@string/e9s" />
+        <TextView android:enabled="false" android:textSize="14.0sp" android:textColor="#ffffff" android:gravity="center" android:layout_gravity="right|center" android:id="@id/b_1" android:background="@drawable/picker_selection_next_step_btn" android:layout_width="74.0dp" android:layout_height="30.0dp" android:layout_marginRight="16.0dp" android:text="@string/e9n" />
+    </FrameLayout>
+</LinearLayout>

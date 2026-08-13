@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout android:layout_width="match_parent" android:layout_height="match_parent"
+  xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">
+    <include android:id="@id/naf" android:layout_width="match_parent" android:layout_height="match_parent" layout="@layout/m6" />
+    <ImageView android:id="@id/a46" android:layout_width="match_parent" android:layout_height="match_parent" android:scaleType="centerCrop" />
+    <LinearLayout android:orientation="vertical" android:id="@id/dmb" android:layout_width="match_parent" android:layout_height="match_parent">
+        <RelativeLayout android:state_window_focused="false" android:id="@id/dko" android:background="@drawable/skin_sub_mask_img" android:layout_width="match_parent" android:layout_height="50.0dp">
+            <RelativeLayout android:id="@id/dl8" android:clickable="false" android:layout_width="wrap_content" android:layout_height="match_parent" android:layout_marginRight="4.0dp" android:layout_alignParentLeft="true">
+                <TextView android:textSize="16.0sp" android:ellipsize="end" android:gravity="center" android:id="@id/dl9" android:visibility="gone" android:layout_width="wrap_content" android:layout_height="match_parent" android:layout_marginLeft="15.0dp" android:singleLine="true" android:layout_alignParentLeft="true" style="@style/a4s" />
+                <ImageView android:id="@id/dkb" android:layout_width="@dimen/cao" android:layout_height="@dimen/cao" android:src="@drawable/activity_back_selector" android:scaleType="centerInside" android:layout_centerInParent="true" android:contentDescription="@string/wf" />
+            </RelativeLayout>
+            <RelativeLayout android:id="@id/dm_" android:layout_width="45.0dp" android:layout_height="match_parent" android:layout_alignParentRight="true">
+                <ImageView android:id="@id/dma" android:focusable="false" android:layout_width="@dimen/cao" android:layout_height="@dimen/cao" android:layout_marginRight="5.0dp" android:src="@drawable/maintabbar_button_more_normal" android:scaleType="centerInside" android:layout_alignParentRight="true" android:layout_centerVertical="true" android:contentDescription="@string/e9w" android:rotation="90.0" />
+            </RelativeLayout>
+            <RelativeLayout android:gravity="center" android:id="@id/dkd" android:layout_width="wrap_content" android:layout_height="match_parent" android:layout_marginLeft="118.0dp" android:layout_marginRight="118.0dp" android:layout_centerHorizontal="true">
+                <TextView android:textSize="18.0sp" android:textStyle="bold" android:textColor="@color/skin_text_main_color" android:ellipsize="end" android:gravity="center" android:id="@id/dn7" android:layout_width="wrap_content" android:layout_height="wrap_content" android:maxWidth="180.0dp" android:singleLine="true" android:includeFontPadding="false" android:layout_centerHorizontal="true" />
+            </RelativeLayout>
+        </RelativeLayout>
+        <FrameLayout android:layout_width="match_parent" android:layout_height="match_parent" android:layout_weight="1.0">
+            <com.tencent.qqmusic.business.timeline.ui.refreshable.RefreshableRecyclerViewNew android:id="@id/b7i" android:layout_width="match_parent" android:layout_height="match_parent" android:overScrollMode="never" />
+            <TextView android:textSize="14.0sp" android:textColor="@color/skin_text_main_color" android:gravity="center_horizontal" android:id="@id/f3s" android:visibility="gone" android:layout_width="match_parent" android:layout_height="match_parent" android:layout_marginTop="@dimen/bdx" android:text="@string/i1w" android:lineSpacingExtra="7.0sp" />
+        </FrameLayout>
+        <include layout="@layout/b8u" />
+    </LinearLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>

@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout android:layout_width="match_parent" android:layout_height="@dimen/c__"
+  xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">
+    <androidx.constraintlayout.widget.ConstraintLayout android:layout_gravity="center_vertical" android:layout_width="match_parent" android:layout_height="35.0dp" android:layout_marginTop="10.0dp">
+        <com.tencent.component.widget.AsyncEffectImageView android:id="@id/a47" android:layout_width="32.0dp" android:layout_height="32.0dp" android:scaleType="centerCrop" app:a1d="hnz" app:a1x="hnz" app:a27="hnz" />
+        <com.tencent.component.widget.AsyncEffectImageView android:id="@id/djo" android:layout_width="9.5dp" android:layout_height="9.5dp" app:a1d="@id/a47" app:a21="@id/a47" />
+        <View android:background="@color/black_auth_foreground" android:layout_width="32.0dp" android:layout_height="32.0dp" android:layout_alignLeft="@id/a47" android:layout_alignTop="@id/a47" app:a1d="@id/a47" app:a1x="@id/a47" app:a21="@id/a47" app:a27="@id/a47" />
+        <RelativeLayout android:id="@id/mza" android:layout_width="0.0dp" android:layout_height="wrap_content" android:layout_marginLeft="12.0dp" android:layout_marginRight="12.0dp" app:a1d="hnz" app:a1t="0.0" app:a1u="hmg" app:a1y="@id/a47" app:a20="@id/cr7" app:a27="hnz" app:a2b="nug">
+            <TextView android:textSize="15.0sp" android:textColor="@color/timeline_black_text" android:id="@id/mz_" android:layout_width="wrap_content" android:layout_height="wrap_content" android:singleLine="true" android:layout_alignParentLeft="true" android:layout_alignParentStart="true" />
+            <TextView android:textSize="10.0dp" android:textColor="@color/timeline_black_text" android:id="@id/mwa" android:visibility="gone" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginRight="6.0dp" android:maxWidth="120.0dp" android:singleLine="true" android:layout_below="@id/mz_" android:layout_alignParentLeft="true" android:layout_marginEnd="6.0dp" android:layout_alignParentStart="true" />
+            <TextView android:textSize="10.0dp" android:textColor="@color/timeline_black_text" android:ellipsize="end" android:id="@id/mzj" android:visibility="gone" android:layout_width="wrap_content" android:layout_height="wrap_content" android:maxLines="1" android:layout_toRightOf="@id/mwa" android:layout_below="@id/mz_" android:layout_toEndOf="@id/mwa" />
+        </RelativeLayout>
+        <LinearLayout android:gravity="center" android:orientation="vertical" android:id="@id/cr7" android:layout_width="0.0dp" android:layout_height="match_parent" android:layout_centerVertical="true" app:a1d="hnz" app:a1j="hnz" app:a27="hnz" app:a2b="nug">
+            <com.tencent.qqmusic.follow.FollowPlusButton android:id="@id/cq_" android:layout_width="wrap_content" android:layout_height="wrap_content" />
+        </LinearLayout>
+        <com.tencent.component.widget.AsyncEffectImageView android:gravity="center" android:layout_gravity="end" android:id="@id/bll" android:visibility="gone" android:layout_width="63.0dp" android:layout_height="34.0dp" android:src="@drawable/default_folder_mid" android:scaleType="centerCrop" app:a1d="hnz" app:a1j="hnz" app:a27="hnz" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+    <TextView android:textColor="@color/timeline_black_text" android:id="@id/lcr" android:background="@color/timeline_black_mask" android:layout_width="match_parent" android:layout_height="match_parent" />
+</FrameLayout>

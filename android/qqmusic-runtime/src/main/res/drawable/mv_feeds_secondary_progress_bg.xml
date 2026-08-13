@@ -1,0 +1,3 @@
+<?xml version="1.0" encoding="utf-8"?>
+<clip android:gravity="left" android:drawable="@drawable/mv_feeds_seek_secondary_progress_bg" android:clipOrientation="horizontal"
+  xmlns:android="http://schemas.android.com/apk/res/android" />

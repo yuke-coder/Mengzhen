@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout android:id="@id/vw" android:background="@color/transparent" android:layout_width="match_parent" android:layout_height="wrap_content"
+  xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">
+    <com.tencent.component.widget.AsyncEffectImageView android:id="@id/e_m" android:background="@color/transparent" android:layout_width="match_parent" android:layout_height="390.0dp" android:scaleType="fitXY" app:a1j="hnz" app:a23="hnz" app:a27="hnz" />
+    <FrameLayout android:id="@id/xb" android:background="@color/transparent" android:visibility="gone" android:layout_width="0.0dp" android:layout_height="0.0dp" app:a1d="@id/e_m" app:a1j="@id/e_m" app:a23="@id/e_m" app:a27="@id/e_m" />
+    <FrameLayout android:layout_width="match_parent" android:layout_height="390.0dp" app:a1d="hnz" app:a1j="hnz" app:a23="hnz">
+        <View android:layout_gravity="bottom" android:id="@id/ea1" android:visibility="invisible" android:layout_width="match_parent" android:layout_height="80.0dp" />
+    </FrameLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>

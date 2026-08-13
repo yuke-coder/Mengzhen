@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout android:gravity="center_vertical" android:background="@drawable/skin_mask_img" android:padding="7.0dp" android:layout_width="match_parent" android:layout_height="match_parent"
+  xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">
+    <com.tencent.qqmusic.ui.RoundedRelativeLayout android:id="@id/drm" android:layout_width="wrap_content" android:layout_height="20.0dp" android:layout_marginRight="2.0dp" app:jc="true" app:adm="fwy|je9|ezp|isw">
+        <com.tencent.component.widget.AsyncImageView android:id="@id/dos" android:layout_width="20.0dp" android:layout_height="20.0dp" android:scaleType="centerCrop" />
+    </com.tencent.qqmusic.ui.RoundedRelativeLayout>
+    <androidx.appcompat.widget.AppCompatTextView android:textSize="14.0dp" android:textColor="@color/skin_text_sub_color" android:ellipsize="end" android:id="@id/ldr" android:layout_width="0.0dp" android:layout_height="wrap_content" android:layout_marginRight="10.0dp" android:maxLines="1" android:layout_weight="1.0" />
+    <androidx.appcompat.widget.AppCompatTextView android:textSize="11.0dp" android:textColor="@color/skin_text_mid_color" android:ellipsize="end" android:id="@id/kzh" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginRight="5.0dp" android:maxLines="1" />
+    <androidx.appcompat.widget.AppCompatTextView android:textSize="11.0dp" android:textColor="@color/skin_text_mid_color" android:ellipsize="end" android:id="@id/kzi" android:layout_width="wrap_content" android:layout_height="wrap_content" android:maxLines="1" />
+    <ImageView android:id="@id/a08" android:layout_width="10.0dp" android:layout_height="10.0dp" android:src="@drawable/singer_new_banner_arrow" />
+</LinearLayout>

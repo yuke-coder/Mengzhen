@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout android:gravity="center" android:layout_width="match_parent" android:layout_height="wrap_content"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <LinearLayout android:orientation="vertical" android:id="@id/iql" android:layout_width="match_parent" android:layout_height="match_parent" android:layout_marginBottom="15.0dp">
+        <TextView android:textSize="20.0sp" android:textColor="@color/black" android:gravity="center" android:layout_gravity="center_horizontal" android:id="@id/h1e" android:visibility="gone" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/efs" />
+        <LinearLayout android:orientation="vertical" android:layout_width="match_parent" android:layout_height="wrap_content">
+            <androidx.recyclerview.widget.RecyclerView android:id="@id/iq1" android:scrollbars="none" android:layout_width="wrap_content" android:layout_height="wrap_content" android:cacheColorHint="#00000000" android:divider="@null" android:overScrollMode="never" />
+            <androidx.recyclerview.widget.RecyclerView android:id="@id/iqe" android:scrollbars="none" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="20.0dp" android:cacheColorHint="#00000000" android:divider="@null" android:overScrollMode="never" />
+            <ViewStub android:id="@id/iqc" android:layout="@layout/mh" android:layout_width="match_parent" android:layout_height="match_parent" />
+        </LinearLayout>
+    </LinearLayout>
+</FrameLayout>

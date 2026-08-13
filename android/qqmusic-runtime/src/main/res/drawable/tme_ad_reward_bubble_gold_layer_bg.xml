@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layer-list
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <item android:drawable="@drawable/tme_ad_reward_bubble_gold_bg" />
+    <item android:left="0.0dp" android:top="50.0dp" android:right="50.0dp" android:bottom="50.0dp">
+        <rotate android:fromDegrees="-10.0" android:pivotX="0.0%" android:pivotY="100.0%">
+            <shape android:shape="rectangle">
+                <solid android:color="@android:color/black" />
+            </shape>
+        </rotate>
+    </item>
+</layer-list>

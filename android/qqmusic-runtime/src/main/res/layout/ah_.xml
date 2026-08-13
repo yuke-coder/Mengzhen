@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.tencent.qqmusic.ui.customview.RatioLayout android:layout_width="109.0dp" android:layout_height="75.0dp"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <RelativeLayout android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_centerInParent="true" android:paddingStart="7.0dp">
+        <TextView android:textSize="15.0dp" android:textStyle="bold" android:textColor="@color/skin_text_main_color" android:id="@id/f99" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/c4t" />
+        <TextView android:textSize="10.0dp" android:textColor="@color/skin_text_guide_color" android:id="@id/f9a" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_below="@id/f99" android:layout_alignStart="@id/f99" />
+        <ImageView android:id="@id/f95" android:layout_width="19.0dp" android:layout_height="19.0dp" android:src="@drawable/live_follow_more" android:layout_centerVertical="true" android:layout_toEndOf="@id/f99" />
+    </RelativeLayout>
+</com.tencent.qqmusic.ui.customview.RatioLayout>

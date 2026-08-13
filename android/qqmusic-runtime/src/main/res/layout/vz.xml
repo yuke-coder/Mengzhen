@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout android:background="@color/white" android:layout_width="match_parent" android:layout_height="match_parent"
+  xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">
+    <FrameLayout android:id="@id/zf" android:layout_width="match_parent" android:layout_height="@dimen/bd0" app:a1j="hnz" app:a23="hnz" app:a27="hnz">
+        <com.tencent.qqmusic.audioedit.widget.TitleToolbar android:id="@id/luu" android:layout_width="match_parent" android:layout_height="match_parent" app:aql="@string/ay3" />
+        <FrameLayout android:id="@id/ci9" android:visibility="gone" android:layout_width="match_parent" android:layout_height="match_parent">
+            <androidx.appcompat.widget.AppCompatTextView android:textSize="@dimen/c68" android:textColor="@color/color_1A1A1A" android:gravity="center_vertical" android:id="@id/m91" android:layout_width="wrap_content" android:layout_height="match_parent" android:text="@string/gna" android:layout_marginStart="17.0dp" />
+            <androidx.appcompat.widget.AppCompatTextView android:textSize="@dimen/c69" android:textColor="@color/color_1A1A1A" android:layout_gravity="center" android:id="@id/m6j" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/wl" />
+            <androidx.appcompat.widget.AppCompatTextView android:textSize="@dimen/c68" android:textColor="@color/color_1A1A1A" android:gravity="center_vertical" android:layout_gravity="right" android:id="@id/m8y" android:layout_width="wrap_content" android:layout_height="match_parent" android:text="@string/aui" android:layout_marginEnd="17.0dp" />
+        </FrameLayout>
+    </FrameLayout>
+    <LinearLayout android:gravity="center" android:orientation="vertical" android:id="@id/fdd" android:visibility="visible" android:layout_width="match_parent" android:layout_height="0.0dp" app:a1d="hnz" app:a26="@id/zf">
+        <androidx.appcompat.widget.AppCompatImageView android:layout_width="103.5dp" android:layout_height="103.5dp" android:src="@drawable/empty_music_list_no_skin" />
+        <androidx.appcompat.widget.AppCompatTextView android:textSize="@dimen/c67" android:textColor="@color/color_1A1A1A" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="9.5dp" android:text="@string/ay1" />
+    </LinearLayout>
+    <androidx.appcompat.widget.AppCompatTextView android:textSize="@dimen/c8d" android:textColor="#1a1a1a" android:id="@id/m8w" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginLeft="15.0dp" android:layout_marginTop="18.0dp" app:a1x="hnz" app:a26="@id/zf" />
+    <androidx.appcompat.widget.AppCompatImageView android:id="@id/eci" android:visibility="gone" android:layout_width="29.0dp" android:layout_height="29.0dp" android:layout_marginRight="15.0dp" android:src="@drawable/icon_draft_multiple_select" app:a1d="@id/m8w" app:a21="hnz" app:a27="@id/m8w" />
+    <androidx.recyclerview.widget.RecyclerView android:id="@id/jeq" android:visibility="gone" android:layout_width="match_parent" android:layout_height="0.0dp" android:layout_marginTop="11.0dp" app:a1e="@id/mdr" app:a26="@id/m8w" />
+    <com.tencent.qqmusic.audioedit.widget.TextViewDrawableSize android:textSize="@dimen/c8c" android:textColor="@color/color_801A1A1A" android:gravity="center_horizontal" android:id="@id/mdr" android:visibility="gone" android:layout_width="0.0dp" android:layout_height="wrap_content" android:layout_marginTop="10.0dp" android:layout_marginBottom="10.0dp" android:text="@string/aiq" android:drawableTop="@drawable/ic_edit_delete_disable_no_skin" app:kf="30.0dp" app:kg="30.0dp" app:a1d="hnz" app:a1j="hnz" app:a23="hnz" app:a26="@id/jeq" />
+</androidx.constraintlayout.widget.ConstraintLayout>

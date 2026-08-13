@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout android:layout_width="match_parent" android:layout_height="match_parent"
+  xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">
+    <include android:id="@id/mlive_room_folder_intro_background" android:layout_width="match_parent" android:layout_height="match_parent" layout="@layout/m6" />
+    <ImageView android:id="@id/mlive_room_folder_intro_bg_iv" android:layout_width="match_parent" android:layout_height="match_parent" />
+    <LinearLayout android:gravity="center" android:orientation="horizontal" android:id="@id/mlive_room_folder_intro_container_ll" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginTop="20.0dp" app:a26="@id/mlive_room_folder_intro_head_iv">
+        <com.tencent.qqmusic.business.live.ui.view.RoundAvatarImage android:id="@id/mlive_room_folder_intro_icon_iv" android:layout_width="25.0dp" android:layout_height="25.0dp" android:src="@drawable/default_avatar" />
+        <TextView android:textSize="16.0sp" android:textColor="@color/white" android:id="@id/mlive_room_folder_intro_name_tv" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginLeft="5.0dp" />
+    </LinearLayout>
+    <LinearLayout android:gravity="center" android:orientation="horizontal" android:id="@id/mlive_room_folder_intro_label_container_ll" android:padding="5.0dp" android:layout_width="0.0dp" android:layout_height="wrap_content" android:layout_marginTop="20.0dp" app:a1j="hnz" app:a23="hnz" app:a26="@id/mlive_room_folder_intro_container_ll" />
+    <TextView android:textSize="16.0sp" android:textColor="@color/half_white" android:id="@id/mlive_room_folder_intro_info_tv" android:padding="20.0dp" android:layout_width="match_parent" android:layout_height="wrap_content" app:a1j="hnz" app:a23="hnz" app:a26="@id/mlive_room_folder_intro_label_container_ll" />
+    <com.tencent.component.widget.AsyncImageView android:id="@id/mlive_room_folder_intro_head_iv" android:layout_width="200.0dp" android:layout_height="200.0dp" android:src="@drawable/default_folder_small" android:layout_centerVertical="true" android:contentDescription="@string/iry" app:a1j="hnz" app:a23="hnz" app:a26="@id/mlive_room_folder_intro_title_bar_layout" />
+    <include android:id="@id/mlive_room_folder_intro_title_bar_layout" android:background="@color/transparent" android:visibility="visible" android:layout_width="0.0dp" android:layout_height="@dimen/cau" app:a1j="hnz" app:a23="hnz" app:a27="hnz" layout="@layout/mu" />
+</androidx.constraintlayout.widget.ConstraintLayout>

@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.tencent.qqmusic.business.playernew.view.playersong.tme3dplayer.SizeChangeAwareFrameLayout android:paddingLeft="21.0dp" android:paddingRight="21.0dp" android:layout_width="match_parent" android:layout_height="wrap_content"
+  xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">
+    <com.tencent.qqmusic.ui.RoundedConstraintLayout android:layout_gravity="left" android:id="@id/content" android:layout_width="170.0dp" android:layout_height="106.0dp" android:layout_marginTop="100.0dp" app:kj="20.0dp">
+        <ImageView android:id="@id/a_z" android:layout_width="match_parent" android:layout_height="match_parent" />
+        <ImageView android:id="@id/aa0" android:layout_width="match_parent" android:layout_height="match_parent" />
+        <androidx.constraintlayout.widget.Guideline android:orientation="vertical" android:id="@id/baa" android:layout_width="wrap_content" android:layout_height="wrap_content" app:a1l="14.0dp" />
+        <androidx.constraintlayout.widget.Guideline android:orientation="vertical" android:id="@id/bac" android:layout_width="match_parent" android:layout_height="match_parent" app:a1m="14.0dp" />
+        <androidx.constraintlayout.widget.Guideline android:orientation="horizontal" android:id="@id/baf" android:layout_width="match_parent" android:layout_height="match_parent" app:a1l="11.0dp" />
+        <androidx.constraintlayout.widget.Guideline android:orientation="horizontal" android:id="@id/ba3" android:layout_width="match_parent" android:layout_height="match_parent" app:a1m="7.0dp" />
+        <ImageView android:id="@id/did" android:layout_width="19.5dp" android:layout_height="22.5dp" app:a1y="@id/baa" app:a27="@id/baf" />
+        <androidx.appcompat.widget.AppCompatTextView android:textSize="12.0dp" android:textStyle="bold" android:id="@id/f1x" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginLeft="4.0dp" app:a1d="@id/did" app:a1y="@id/did" app:a27="@id/did" />
+        <View android:id="@id/bu2" android:background="@color/white" android:layout_width="match_parent" android:layout_height="1.0px" android:layout_marginTop="7.0dp" app:a26="@id/did" />
+        <androidx.appcompat.widget.AppCompatTextView android:textSize="12.0dp" android:id="@id/f5_" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="7.0dp" android:text="情侣听歌时长" android:alpha="0.6" app:a1x="@id/f59" app:a26="@id/bu2" />
+        <ImageView android:id="@id/a08" android:layout_width="4.799988dp" android:layout_height="8.0dp" android:layout_marginLeft="7.0dp" android:alpha="0.6" app:a1d="@id/f5_" app:a1y="@id/f5_" app:a27="@id/f5_" />
+        <androidx.appcompat.widget.AppCompatTextView android:id="@id/f59" android:layout_width="wrap_content" android:layout_height="wrap_content" android:includeFontPadding="false" app:a1e="@id/ba3" app:a1x="@id/baa" />
+        <View android:id="@id/aal" android:background="@drawable/player_3d_couple_info_layer_border" android:layout_width="match_parent" android:layout_height="match_parent" />
+    </com.tencent.qqmusic.ui.RoundedConstraintLayout>
+    <androidx.constraintlayout.widget.ConstraintLayout android:id="@id/a3w" android:layout_width="170.0dp" android:layout_height="wrap_content" android:layout_marginTop="95.0dp">
+        <View android:id="@id/a3g" android:background="@drawable/player_3d_couple_info_avatar_border" android:layout_width="34.0dp" android:layout_height="34.0dp" android:layout_marginLeft="97.0dp" app:a1x="hnz" app:a27="hnz" />
+        <ImageView android:id="@id/a3d" android:layout_width="30.0dp" android:layout_height="30.0dp" android:src="@drawable/player_3d_couple_avatar_default" app:a1d="@id/a3g" app:a1x="@id/a3g" app:a21="@id/a3g" app:a27="@id/a3g" />
+        <View android:id="@id/a3h" android:background="@drawable/player_3d_couple_info_avatar_border" android:layout_width="34.0dp" android:layout_height="34.0dp" android:layout_marginLeft="124.0dp" app:a1x="hnz" app:a1y="@id/a3g" app:a27="hnz" />
+        <ImageView android:id="@id/a3e" android:layout_width="30.0dp" android:layout_height="30.0dp" android:src="@drawable/player_3d_couple_avatar_default" app:a1d="@id/a3h" app:a1x="@id/a3h" app:a21="@id/a3h" app:a27="@id/a3h" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</com.tencent.qqmusic.business.playernew.view.playersong.tme3dplayer.SizeChangeAwareFrameLayout>

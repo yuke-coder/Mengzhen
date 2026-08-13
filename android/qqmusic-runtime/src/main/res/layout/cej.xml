@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout android:layout_gravity="bottom" android:id="@id/if6" android:background="@color/record_preview_background_color" android:layout_width="match_parent" android:layout_height="wrap_content" app:a1d="hnz" app:a1x="hnz" app:a21="hnz"
+  xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">
+    <View android:id="@id/afl" android:background="@color/white_transparent_10_percent" android:layout_width="match_parent" android:layout_height="0.5dp" />
+    <FrameLayout android:id="@id/aen" android:layout_width="match_parent" android:layout_height="wrap_content">
+        <FrameLayout android:orientation="horizontal" android:id="@id/afi" android:background="@drawable/preview_bottom_ranl_tip_bg" android:visibility="gone" android:layout_width="match_parent" android:layout_height="36.0dp" app:a1x="hnz" app:a21="hnz" app:a27="hnz">
+            <LinearLayout android:layout_gravity="center_vertical" android:layout_width="wrap_content" android:layout_height="wrap_content">
+                <kk.design.KKIconView android:layout_gravity="center" android:layout_width="11.0dp" android:layout_height="18.0dp" android:layout_marginLeft="25.0dp" android:src="@drawable/preview_hit_rank" app:yc="@null" />
+                <kk.design.KKTextView android:textSize="13.0dp" android:textColor="#ae5e00" android:ellipsize="marquee" android:gravity="center_vertical" android:layout_gravity="center_vertical" android:id="@id/afj" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginLeft="5.0dp" android:text="发布将登上全国好声音榜TOP10" android:singleLine="true" android:layout_weight="1.0" app:a0f="hfs" />
+            </LinearLayout>
+        </FrameLayout>
+    </FrameLayout>
+    <RelativeLayout android:id="@id/af8" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginTop="10.0dp" android:layout_below="@id/aen">
+        <kk.design.KKButton android:id="@id/enf" android:layout_width="wrap_content" android:layout_height="wrap_content" android:minWidth="165.0dp" android:text="@string/hde" android:layout_centerHorizontal="true" android:layout_centerVertical="true" app:xm="g7e" app:xr="c72" />
+    </RelativeLayout>
+</RelativeLayout>

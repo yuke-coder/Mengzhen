@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.tencent.qqmusic.shimmer.ShimmerFrameLayout android:id="@id/h73" android:layout_width="wrap_content" android:layout_height="wrap_content"
+  xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">
+    <androidx.constraintlayout.widget.ConstraintLayout android:id="@id/db9" android:layout_width="match_parent" android:layout_height="match_parent">
+        <View android:id="@id/cbx" android:background="@drawable/common_song_list_loading_play_all_bg" android:layout_width="36.0dp" android:layout_height="27.0dp" android:layout_marginLeft="20.0dp" android:layout_marginTop="30.0dp" app:a1x="hnz" app:a27="hnz" />
+        <View android:id="@id/cby" android:background="@drawable/button_mask_drawable" android:layout_width="100.0dp" android:layout_height="21.0dp" android:layout_marginLeft="10.0dp" app:a1d="@id/cbx" app:a1y="@id/cbx" app:a27="@id/cbx" />
+        <View android:id="@id/cbw" android:background="@drawable/button_mask_drawable" android:layout_width="20.0dp" android:layout_height="20.0dp" android:layout_marginRight="20.0dp" app:a1d="@id/cbx" app:a21="hnz" app:a27="@id/cbx" />
+        <include android:id="@id/cwk" android:layout_width="match_parent" android:layout_height="40.0dp" android:layout_marginTop="30.0dp" android:layout_marginStart="20.0dp" android:layout_marginEnd="20.0dp" app:a1x="hnz" app:a21="hnz" app:a26="@id/cbx" layout="@layout/a4c" />
+        <include android:id="@id/cwl" android:layout_width="match_parent" android:layout_height="40.0dp" android:layout_marginTop="25.0dp" android:layout_marginStart="20.0dp" android:layout_marginEnd="20.0dp" app:a1x="hnz" app:a21="hnz" app:a26="@id/cwk" layout="@layout/a4c" />
+        <include android:id="@id/cwm" android:layout_width="match_parent" android:layout_height="40.0dp" android:layout_marginTop="25.0dp" android:layout_marginStart="20.0dp" android:layout_marginEnd="20.0dp" app:a1x="hnz" app:a21="hnz" app:a26="@id/cwl" layout="@layout/a4c" />
+        <include android:id="@id/cwn" android:layout_width="match_parent" android:layout_height="40.0dp" android:layout_marginTop="25.0dp" android:layout_marginStart="20.0dp" android:layout_marginEnd="20.0dp" app:a1x="hnz" app:a21="hnz" app:a26="@id/cwm" layout="@layout/a4c" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</com.tencent.qqmusic.shimmer.ShimmerFrameLayout>

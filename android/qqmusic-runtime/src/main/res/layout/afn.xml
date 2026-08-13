@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout android:layout_width="match_parent" android:layout_height="65.0dp"
+  xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">
+    <ImageView android:id="@id/eis" android:layout_width="30.0dp" android:layout_height="30.0dp" android:layout_marginLeft="15.0dp" android:layout_centerVertical="true" />
+    <TextView android:textSize="18.0dp" android:textStyle="bold" android:textColor="@color/white" android:gravity="center" android:id="@id/mhc" android:layout_width="36.0dp" android:layout_height="36.0dp" android:layout_marginLeft="12.0dp" android:text="-" android:layout_centerVertical="true" />
+    <com.tencent.qqmusic.business.live.ui.view.RoundAvatarImage android:id="@id/eaf" android:layout_width="40.0dp" android:layout_height="40.0dp" android:layout_marginLeft="55.0dp" android:scaleType="fitXY" android:layout_centerVertical="true" />
+    <androidx.constraintlayout.widget.ConstraintLayout android:orientation="horizontal" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginRight="8.0dp" android:layout_toLeftOf="@id/fdp" android:layout_toRightOf="@id/eaf" android:layout_centerVertical="true">
+        <TextView android:textSize="14.0sp" android:textStyle="bold" android:textColor="@color/white" android:id="@id/mqt" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginLeft="10.0dp" android:layout_marginRight="2.0dp" android:singleLine="true" app:a18="true" app:a1d="hnz" app:a1t="0.0" app:a1u="hmg" app:a1x="hnz" app:a20="@id/em2" app:a27="hnz" app:a2p="9.0dp" />
+        <ImageView android:id="@id/em2" android:visibility="gone" android:layout_width="14.0dp" android:layout_height="14.0dp" android:layout_centerVertical="true" app:a1d="hnz" app:a1y="@id/mqt" app:a21="hnz" app:a27="hnz" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+    <LinearLayout android:orientation="horizontal" android:id="@id/fdp" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginRight="14.0dp" android:layout_alignParentRight="true" android:layout_centerVertical="true">
+        <TextView android:textSize="18.0sp" android:textStyle="bold" android:textColor="@color/white_80_opacity" android:gravity="right" android:layout_gravity="bottom" android:id="@id/mji" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginRight="7.0dp" android:minWidth="40.0dp" android:text="-" />
+        <ImageView android:id="@id/ed7" android:visibility="gone" android:layout_width="24.0dp" android:layout_height="24.0dp" android:src="@drawable/ic_game_rank_share" />
+    </LinearLayout>
+</RelativeLayout>

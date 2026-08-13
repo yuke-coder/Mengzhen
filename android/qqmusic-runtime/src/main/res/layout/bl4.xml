@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout android:gravity="center" android:orientation="vertical" android:background="@color/white" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginEnd="30.0dp"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <com.tme.qqmusic.widget.base.view.GlideImageView android:id="@id/mlive_live_game_dialog_game_item_img" android:layout_width="40.0dp" android:layout_height="40.0dp" />
+    <TextView android:textSize="11.0sp" android:textColor="@color/black_70_transparent" android:id="@id/mlive_live_game_dialog_game_item_name" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="10.0dp" />
+</LinearLayout>

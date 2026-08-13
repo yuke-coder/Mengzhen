@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout android:gravity="center" android:orientation="vertical" android:paddingTop="@dimen/a4d" android:paddingBottom="@dimen/a4c" android:clipChildren="false" android:clipToPadding="false" android:layout_width="match_parent" android:layout_height="wrap_content" android:minHeight="@dimen/a4a"
+  xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">
+    <kk.design.KKTextView android:ellipsize="end" android:id="@id/mru" android:visibility="gone" android:layout_width="wrap_content" android:layout_height="wrap_content" android:lines="1" app:a0c="ifr" app:a0d="kyp" app:a0e="j3u" />
+    <kk.design.KKTextView android:ellipsize="end" android:id="@id/mrn" android:visibility="gone" android:layout_width="wrap_content" android:layout_height="wrap_content" android:lines="1" app:a0c="jp3" app:a0d="hr3" app:a0e="j3u" />
+</LinearLayout>

@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout android:layout_width="match_parent" android:layout_height="wrap_content"
+  xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">
+    <include android:id="@id/gby" android:layout_width="0.0dp" android:layout_height="50.0dp" app:a1k="@id/gbz" app:a23="hnz" app:a27="hnz" layout="@layout/bpo" />
+    <include android:id="@id/gbz" android:layout_width="0.0dp" android:layout_height="50.0dp" android:layout_marginStart="10.0dp" app:a1k="@id/gc0" app:a22="@id/gby" app:a27="@id/gby" layout="@layout/bpo" />
+    <include android:id="@id/gc0" android:layout_width="0.0dp" android:layout_height="50.0dp" android:layout_marginStart="10.0dp" app:a1j="hnz" app:a22="@id/gbz" app:a27="@id/gby" layout="@layout/bpo" />
+</androidx.constraintlayout.widget.ConstraintLayout>

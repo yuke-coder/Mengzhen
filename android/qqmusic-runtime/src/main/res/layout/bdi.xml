@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout android:layout_width="match_parent" android:layout_height="@dimen/ao0"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <Space android:id="@id/mlive_gift_card_fragment_model_bg" android:layout_width="@dimen/any" android:layout_height="match_parent" android:layout_centerInParent="true" />
+    <com.tme.qqmusic.widget.base.view.GlideImageView android:id="@id/mlive_gift_card_fragment_model_icon" android:layout_width="@dimen/ao2" android:layout_height="@dimen/ao2" android:layout_marginTop="@dimen/ao1" android:src="@drawable/mlive_gift_live_default" android:layout_centerHorizontal="true" />
+    <TextView android:textSize="@dimen/ao5" android:textColor="@color/white" android:ellipsize="end" android:id="@id/mlive_gift_card_fragment_model_title" android:layout_width="wrap_content" android:layout_height="wrap_content" android:maxLines="1" android:layout_below="@id/mlive_gift_card_fragment_model_icon" android:layout_centerInParent="true" />
+    <com.tme.mlive.ui.custom.gift.GiftCornerView android:id="@id/mlive_gift_card_fragment_model_corner" android:visibility="gone" android:layout_width="wrap_content" android:layout_height="13.0dp" android:layout_marginTop="@dimen/ao4" android:layout_marginEnd="@dimen/ao3" android:layout_alignEnd="@id/mlive_gift_card_fragment_model_bg" />
+</RelativeLayout>

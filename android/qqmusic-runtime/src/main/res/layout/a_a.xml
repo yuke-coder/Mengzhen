@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout android:orientation="horizontal" android:background="@drawable/material_ripple_background" android:paddingLeft="12.0dp" android:paddingTop="5.0dp" android:descendantFocusability="blocksDescendants" android:layout_width="match_parent" android:layout_height="@dimen/bl0" android:minHeight="@dimen/bl0"
+  xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">
+    <RelativeLayout android:id="@id/dyn" android:layout_width="@dimen/bkn" android:layout_height="@dimen/bkn" android:layout_marginRight="12.0dp" android:layout_centerVertical="true">
+        <com.tencent.component.widget.AsyncEffectImageView android:id="@id/dym" android:layout_width="match_parent" android:layout_height="match_parent" android:src="@drawable/default_avatar_singer" android:scaleType="fitXY" />
+        <ImageView android:id="@id/dys" android:visibility="gone" android:layout_width="18.0dp" android:layout_height="20.0dp" android:layout_marginRight="5.0dp" android:src="@drawable/singer_vip_icon" android:layout_alignParentRight="true" android:layout_alignParentBottom="true" />
+    </RelativeLayout>
+    <Button android:textColor="@color/interested_people_follow_text_color" android:gravity="center" android:id="@id/dyo" android:background="@drawable/interested_btn_bg" android:layout_width="67.0dp" android:layout_height="30.0dp" android:layout_marginRight="12.0dp" android:layout_alignParentRight="true" android:layout_centerVertical="true" />
+    <com.tencent.qqmusic.follow.FollowPlusButton android:id="@id/dyp" android:visibility="gone" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginRight="12.0dp" android:layout_alignParentRight="true" android:layout_centerVertical="true" />
+    <LinearLayout android:layout_gravity="center" android:orientation="vertical" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_margin="5.0dp" android:layout_toLeftOf="@id/dyo" android:layout_toRightOf="@id/dyn" android:layout_centerVertical="true">
+        <androidx.constraintlayout.widget.ConstraintLayout android:orientation="horizontal" android:layout_width="match_parent" android:layout_height="wrap_content">
+            <TextView android:textSize="@dimen/b35" android:textColor="@color/skin_text_main_color" android:ellipsize="end" android:layout_gravity="center_vertical" android:id="@id/dyr" android:layout_width="0.0dp" android:layout_height="wrap_content" android:lines="1" app:a1d="hnz" app:a1t="0.0" app:a1u="hmg" app:a1x="hnz" app:a20="@id/hd5" app:a27="hnz" app:a2b="nug" />
+            <com.tencent.qqmusic.ui.commercial.IconListView android:orientation="horizontal" android:id="@id/hd5" android:visibility="gone" android:layout_width="wrap_content" android:layout_height="23.0dp" android:layout_marginLeft="@dimen/cep" app:uk="4.0dp" app:a1d="hnz" app:a1y="@id/dyr" app:a21="hnz" app:a27="hnz" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
+        <TextView android:textColor="@color/skin_text_sub_color" android:id="@id/dyq" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginTop="5.0dp" android:singleLine="true" style="@style/ll" />
+    </LinearLayout>
+    <View android:id="@id/e2b" android:background="@drawable/z_color_l1" android:layout_width="match_parent" android:layout_height="0.5dp" android:layout_toRightOf="@id/dyn" android:layout_alignParentBottom="true" />
+</RelativeLayout>

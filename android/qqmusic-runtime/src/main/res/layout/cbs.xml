@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout android:layout_width="match_parent" android:layout_height="match_parent"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <include android:id="@id/naf" android:layout_width="match_parent" android:layout_height="match_parent" layout="@layout/m6" />
+    <include android:id="@id/igs" android:layout_width="match_parent" android:layout_height="@dimen/cau" layout="@layout/mu" />
+    <ScrollView android:layout_width="match_parent" android:layout_height="match_parent" android:layout_below="@id/igs">
+        <LinearLayout android:orientation="vertical" android:layout_width="match_parent" android:layout_height="match_parent">
+            <RelativeLayout android:id="@id/igv" android:background="@drawable/color_b2_click" android:paddingLeft="@dimen/bli" android:layout_width="match_parent" android:layout_height="50.5dp">
+                <TextView android:textSize="16.0sp" android:textColor="@color/skin_text_main_color" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/h4p" android:layout_alignParentLeft="true" android:layout_centerVertical="true" />
+                <ImageView android:id="@id/igu" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginRight="12.5dp" android:src="@drawable/arrow_right" android:layout_alignParentRight="true" android:layout_centerVertical="true" />
+                <View android:background="@drawable/z_color_l1" android:layout_width="match_parent" android:layout_height="1.0px" android:layout_alignParentRight="true" android:layout_alignParentBottom="true" />
+            </RelativeLayout>
+            <RelativeLayout android:id="@id/igf" android:background="@drawable/color_b2_click" android:paddingLeft="@dimen/bli" android:layout_width="match_parent" android:layout_height="50.5dp">
+                <TextView android:textSize="16.0sp" android:textColor="@color/skin_text_main_color" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/fta" android:layout_alignParentLeft="true" android:layout_centerVertical="true" />
+                <ImageView android:id="@id/gti" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginRight="12.5dp" android:src="@drawable/arrow_right" android:layout_alignParentRight="true" android:layout_centerVertical="true" />
+                <View android:background="@drawable/z_color_l1" android:layout_width="match_parent" android:layout_height="1.0px" android:layout_alignParentRight="true" android:layout_alignParentBottom="true" />
+            </RelativeLayout>
+            <RelativeLayout android:id="@id/ig9" android:background="@drawable/color_b2_click" android:paddingLeft="@dimen/bli" android:layout_width="match_parent" android:layout_height="50.5dp">
+                <TextView android:textSize="16.0sp" android:textColor="@color/skin_text_main_color" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/ftd" android:layout_alignParentLeft="true" android:layout_centerVertical="true" />
+                <ImageView android:id="@id/gth" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginRight="12.5dp" android:src="@drawable/arrow_right" android:layout_alignParentRight="true" android:layout_centerVertical="true" />
+                <TextView android:textColor="@color/skin_text_sub_color" android:id="@id/ig8" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginRight="10.0dp" android:text="默认皮肤" android:layout_toLeftOf="@id/gth" android:layout_centerVertical="true" />
+                <View android:background="@drawable/z_color_l1" android:layout_width="match_parent" android:layout_height="1.0px" android:layout_alignParentRight="true" android:layout_alignParentBottom="true" />
+            </RelativeLayout>
+            <RelativeLayout android:id="@id/ign" android:background="@drawable/skin_common_listitem_bg" android:paddingLeft="@dimen/bli" android:visibility="gone" android:layout_width="match_parent" android:layout_height="50.5dp">
+                <TextView android:textSize="16.0sp" android:textColor="@color/skin_text_main_color" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/ftb" android:layout_alignParentLeft="true" android:layout_centerVertical="true" />
+                <ImageView android:id="@id/gtj" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginRight="12.5dp" android:src="@drawable/arrow_right" android:layout_alignParentRight="true" android:layout_centerVertical="true" />
+                <TextView android:textColor="@color/skin_text_sub_color" android:id="@id/hei" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginRight="10.0dp" android:text="让主页更有音乐味道" android:layout_toLeftOf="@id/gtj" android:layout_centerVertical="true" />
+                <View android:background="@drawable/z_color_l1" android:layout_width="match_parent" android:layout_height="1.0px" android:layout_alignParentRight="true" android:layout_alignParentBottom="true" />
+            </RelativeLayout>
+            <View android:id="@id/igq" android:visibility="gone" android:layout_width="match_parent" android:layout_height="10.0dp" />
+            <RelativeLayout android:id="@id/igp" android:background="@drawable/skin_common_listitem_bg" android:paddingLeft="8.0dp" android:visibility="gone" android:layout_width="match_parent" android:layout_height="50.5dp">
+                <TextView android:textSize="16.0sp" android:textColor="@color/skin_text_main_color" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/a2e" android:layout_centerVertical="true" />
+                <ImageView android:id="@id/asz" android:background="@drawable/switch_off" android:layout_width="55.0dp" android:layout_height="33.0dp" android:layout_marginRight="12.5dp" android:layout_alignParentRight="true" android:layout_centerVertical="true" android:contentDescription="@string/a2e" />
+                <View android:background="@drawable/z_color_l1" android:layout_width="match_parent" android:layout_height="1.0px" android:layout_toRightOf="@id/asz" android:layout_alignParentRight="true" android:layout_alignParentBottom="true" />
+            </RelativeLayout>
+            <RelativeLayout android:layout_width="match_parent" android:layout_height="wrap_content">
+                <TextView android:textColor="@color/skin_text_sub_color" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginLeft="20.0dp" android:layout_marginTop="10.0dp" android:layout_marginBottom="10.0dp" android:text="@string/ft9" android:includeFontPadding="false" />
+                <TextView android:textColor="@color/skin_text_sub_color" android:id="@id/igt" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="10.0dp" android:layout_marginRight="20.0dp" android:layout_marginBottom="10.0dp" android:text="@string/ft_" android:includeFontPadding="false" android:layout_alignParentRight="true" />
+            </RelativeLayout>
+            <include android:id="@id/igm" layout="@layout/cbl" />
+            <View android:background="@drawable/z_color_l1" android:layout_width="match_parent" android:layout_height="1.0px" />
+            <include android:id="@id/h6u" android:visibility="gone" layout="@layout/cbl" />
+            <include android:id="@id/j3v" android:visibility="gone" layout="@layout/cbl" />
+            <include android:id="@id/h74" android:visibility="gone" layout="@layout/cbl" />
+            <include android:id="@id/hap" android:visibility="gone" layout="@layout/cbl" />
+            <include android:id="@id/hej" android:visibility="gone" layout="@layout/cbl" />
+            <include android:id="@id/h6z" android:visibility="gone" layout="@layout/cbl" />
+            <include android:id="@id/h6v" android:visibility="gone" layout="@layout/cbl" />
+        </LinearLayout>
+    </ScrollView>
+</RelativeLayout>

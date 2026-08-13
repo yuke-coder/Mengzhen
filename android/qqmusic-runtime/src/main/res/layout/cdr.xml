@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout android:orientation="vertical" android:layout_width="match_parent" android:layout_height="match_parent"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <include android:id="@id/naf" android:layout_width="match_parent" android:layout_height="match_parent" layout="@layout/m6" />
+    <com.tencent.qqmusic.ClipTopFrameLayout android:id="@id/jd3" android:layout_width="match_parent" android:layout_height="match_parent">
+        <com.tencent.qqmusic.activity.base.QMusicBaseViewPager android:id="@id/hng" android:layout_width="match_parent" android:layout_height="match_parent" />
+    </com.tencent.qqmusic.ClipTopFrameLayout>
+    <ImageView android:id="@id/lvk" android:layout_width="match_parent" android:layout_height="@dimen/cau" android:scaleType="centerCrop" />
+    <include android:id="@id/iqm" android:layout_width="match_parent" android:layout_height="@dimen/cau" layout="@layout/cds" />
+    <View android:id="@id/jvc" android:background="@drawable/head_shadow" android:visibility="visible" android:layout_width="match_parent" android:layout_height="@dimen/l9" android:layout_below="@id/iqm" />
+</RelativeLayout>

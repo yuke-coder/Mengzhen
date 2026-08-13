@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<merge
+  xmlns:app="http://schemas.android.com/apk/res-auto" xmlns:android="http://schemas.android.com/apk/res/android">
+    <ImageView android:id="@id/iic" android:visibility="gone" android:layout_width="70.0dp" android:layout_height="70.0dp" android:src="@drawable/putoo_group_post_feeds_shadow_icon" app:a1d="@id/iib" app:a1x="@id/iib" app:a21="@id/iib" app:a27="@id/iib" />
+    <ImageView android:id="@id/iib" android:visibility="gone" android:layout_width="70.0dp" android:layout_height="70.0dp" android:layout_marginBottom="40.0dp" android:src="@drawable/putoo_group_post_feeds_outter_icon" android:scaleType="centerInside" app:a1d="@id/jdj" app:a21="@id/jdj" />
+    <ImageView android:id="@id/iia" android:visibility="gone" android:layout_width="70.0dp" android:layout_height="70.0dp" android:layout_marginBottom="40.0dp" android:src="@drawable/putoo_group_post_feeds_inner_icon" android:scaleType="centerInside" app:a1d="@id/jdj" app:a21="@id/jdj" />
+</merge>

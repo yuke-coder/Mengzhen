@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout android:id="@id/g41" android:padding="0.5dp" android:layout_width="match_parent" android:layout_height="match_parent"
+  xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">
+    <androidx.constraintlayout.widget.ConstraintLayout android:id="@id/dsg" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginBottom="35.0dp" app:a1d="hnz" app:a1j="hnz" app:a23="hnz">
+        <LinearLayout android:orientation="horizontal" android:id="@id/g3w" android:layout_width="wrap_content" android:layout_height="wrap_content" app:a1d="hnz" app:a1x="hnz">
+            <TextView android:textSize="@dimen/c8b" android:textColor="#ffffff" android:gravity="center_vertical" android:layout_gravity="bottom" android:id="@id/mfu" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginLeft="8.0dp" android:layout_marginRight="5.0dp" android:maxLines="1" android:includeFontPadding="false" />
+            <TextView android:textSize="@dimen/c8b" android:textColor="#ccffffff" android:ellipsize="end" android:gravity="center_vertical" android:layout_gravity="bottom" android:id="@id/mfs" android:layout_width="wrap_content" android:layout_height="27.0dp" android:maxLines="1" android:maxEms="7" android:includeFontPadding="false" />
+            <View android:gravity="center_vertical" android:layout_gravity="bottom" android:background="#66ffffff" android:layout_width="1.0dp" android:layout_height="13.0dp" android:layout_marginLeft="6.0dp" android:layout_marginRight="6.0dp" android:layout_marginBottom="7.0dp" />
+            <TextView android:textSize="@dimen/c8b" android:textColor="#9affffff" android:ellipsize="end" android:gravity="center_vertical" android:layout_gravity="bottom" android:id="@id/mft" android:paddingRight="10.0dp" android:layout_width="wrap_content" android:layout_height="27.0dp" android:text="关闭广告" android:maxLines="1" android:includeFontPadding="false" />
+        </LinearLayout>
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>

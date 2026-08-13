@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout android:background="@drawable/color_b15" android:layout_width="match_parent" android:layout_height="wrap_content"
+  xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">
+    <com.tencent.qqmusic.ui.actionsheet.GroupedHorizontalMenuLayout android:id="@id/g5w" android:background="@color/transparent" android:visibility="visible" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginTop="20.0dp" android:layout_marginBottom="10.0dp" app:a1e="@id/htb" app:a27="hnz" />
+    <ImageView android:id="@id/htb" android:background="@drawable/skin_divider_img" android:layout_width="match_parent" android:layout_height="0.5dp" app:a1e="@id/g5r" app:a26="@id/g5w" />
+    <TextView android:textSize="15.0sp" android:textStyle="normal" android:textColor="@color/common_grid_title_color_selector" android:gravity="center" android:id="@id/g5r" android:layout_width="match_parent" android:layout_height="70.0dp" android:text="@string/cancel" android:layout_below="@id/htb" app:a1d="hnz" app:a26="@id/htb" />
+</androidx.constraintlayout.widget.ConstraintLayout>

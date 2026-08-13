@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout android:gravity="center" android:id="@id/jdj" android:background="@color/notepad_history_bg" android:layout_width="match_parent" android:layout_height="match_parent"
+  xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">
+    <androidx.constraintlayout.widget.ConstraintLayout android:id="@id/hhk" android:layout_width="match_parent" android:layout_height="44.0dp" android:layout_marginTop="44.0dp" app:a1x="hnz" app:a21="hnz" app:a27="hnz">
+        <androidx.appcompat.widget.AppCompatTextView android:textSize="18.0sp" android:textColor="@color/white" android:id="@id/hhj" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/euu" app:a1d="hnz" app:a1j="hnz" app:a23="hnz" app:a27="hnz" />
+        <ImageButton android:id="@id/hh3" android:background="@color/transparent" android:layout_width="44.0dp" android:layout_height="44.0dp" android:layout_marginLeft="10.0dp" android:src="@drawable/activity_back_selector" android:contentDescription="@string/wf" app:a23="hnz" app:a27="hnz" />
+        <ImageButton android:id="@id/hhi" android:background="@color/transparent" android:visibility="gone" android:layout_width="44.0dp" android:layout_height="44.0dp" android:src="@drawable/icon_top_bar_multi_choose" android:contentDescription="@string/eus" android:layout_marginEnd="10.0dp" app:a1j="hnz" app:a27="hnz" />
+        <Button android:textSize="16.0sp" android:textColor="@color/white" android:gravity="start|center" android:id="@id/hh7" android:background="@color/transparent" android:visibility="gone" android:layout_width="wrap_content" android:layout_height="44.0dp" android:text="@string/gna" android:layout_marginStart="16.0dp" app:a23="hnz" app:a27="hnz" />
+        <Button android:textSize="16.0sp" android:textColor="@color/white" android:gravity="end|center" android:id="@id/hh8" android:background="@color/transparent" android:visibility="gone" android:layout_width="wrap_content" android:layout_height="44.0dp" android:text="@string/aui" android:layout_marginEnd="16.0dp" app:a1j="hnz" app:a27="hnz" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+    <FrameLayout android:id="@id/hhc" android:layout_width="match_parent" android:layout_height="match_parent" android:layout_marginTop="88.0dp" app:a1d="hnz" app:a1j="hnz" app:a23="hnz" app:a27="hnz">
+        <com.tencent.component.widget.refresh.SmartRefreshLayout android:id="@id/j3l" android:layout_width="match_parent" android:layout_height="match_parent">
+            <RelativeLayout android:layout_width="match_parent" android:layout_height="match_parent">
+                <androidx.recyclerview.widget.RecyclerView android:id="@id/j33" android:layout_width="match_parent" android:layout_height="match_parent" android:layout_above="@id/hh9" android:layout_alignParentTop="true" />
+                <View android:id="@id/hh9" android:visibility="gone" android:layout_width="match_parent" android:layout_height="109.0dp" android:layout_alignParentBottom="true" />
+            </RelativeLayout>
+        </com.tencent.component.widget.refresh.SmartRefreshLayout>
+        <LinearLayout android:gravity="center|top" android:layout_gravity="bottom" android:orientation="vertical" android:id="@id/hha" android:background="@color/notepad_history_delete_btn_bg" android:visibility="gone" android:layout_width="match_parent" android:layout_height="109.0dp">
+            <ImageView android:id="@id/hh_" android:layout_width="30.0dp" android:layout_height="30.0dp" android:layout_marginTop="12.0dp" android:src="@drawable/ic_edit_delete" android:contentDescription="@string/aiq" />
+            <TextView android:textSize="12.0sp" android:id="@id/hhb" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="3.0dp" android:text="@string/aiq" />
+        </LinearLayout>
+        <ViewStub android:id="@id/b7f" android:layout_width="match_parent" android:layout_height="match_parent" />
+        <ViewStub android:id="@id/b7x" android:layout="@layout/ye" android:layout_width="match_parent" android:layout_height="match_parent" />
+        <ViewStub android:id="@id/b7r" android:layout="@layout/cat" android:layout_width="match_parent" android:layout_height="match_parent" />
+        <ViewStub android:id="@id/b7q" android:layout="@layout/mh" android:layout_width="match_parent" android:layout_height="match_parent" />
+    </FrameLayout>
+    <ViewStub android:id="@id/nos" android:layout="@layout/c1h" android:layout_width="match_parent" android:layout_height="match_parent" />
+</androidx.constraintlayout.widget.ConstraintLayout>

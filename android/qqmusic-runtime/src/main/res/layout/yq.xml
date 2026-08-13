@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.tencent.qqmusic.fragment.radio.views.LongRadioChannelContainerView android:id="@id/l3r" android:layout_width="match_parent" android:layout_height="match_parent" app:a53="@id/l3s"
+  xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">
+    <com.tencent.qqmusic.ui.customview.viewpager.MainDesckChildViewPager android:id="@id/nf3" android:layout_width="match_parent" android:layout_height="match_parent" />
+    <com.google.android.material.tabs.TabLayout android:id="@id/l3s" android:paddingTop="6.0dp" android:paddingBottom="6.0dp" android:layout_width="match_parent" android:layout_height="@dimen/afi" android:layout_marginStart="16.0dp" android:layout_marginEnd="16.0dp" app:ami="cfq" app:amo="false" app:amq="0.0dp" app:amt="32.0dp" app:amu="jj1" app:an1="@color/skin_text_main_color" app:an4="@color/skin_text_sub_color" />
+</com.tencent.qqmusic.fragment.radio.views.LongRadioChannelContainerView>

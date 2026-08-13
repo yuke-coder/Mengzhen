@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout android:id="@id/jku" android:paddingLeft="@dimen/by6" android:paddingTop="@dimen/c0h" android:paddingRight="@dimen/by6" android:layout_width="match_parent" android:layout_height="wrap_content"
+  xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">
+    <View android:id="@id/a8e" android:layout_width="0.0dp" android:layout_height="0.0dp" app:a1x="hnz" app:a21="hnz" app:a27="hnz" />
+    <androidx.constraintlayout.widget.Guideline android:orientation="vertical" android:id="@id/f2z" android:layout_width="wrap_content" android:layout_height="wrap_content" app:a1l="18.0dp" app:a1x="@id/a8e" />
+    <androidx.constraintlayout.widget.Guideline android:orientation="vertical" android:id="@id/f2x" android:layout_width="wrap_content" android:layout_height="wrap_content" app:a1l="58.0dp" app:a1x="@id/a8e" />
+    <androidx.constraintlayout.widget.Guideline android:orientation="vertical" android:id="@id/f2y" android:layout_width="wrap_content" android:layout_height="wrap_content" app:a1l="25.0dp" app:a1x="@id/a8e" />
+    <androidx.constraintlayout.widget.Guideline android:orientation="vertical" android:id="@id/f30" android:layout_width="wrap_content" android:layout_height="wrap_content" app:a1m="18.0dp" app:a21="@id/a8e" />
+    <androidx.constraintlayout.widget.Guideline android:orientation="horizontal" android:id="@id/f33" android:layout_width="wrap_content" android:layout_height="wrap_content" app:a1l="18.0dp" app:a27="@id/a8e" />
+    <androidx.constraintlayout.widget.Guideline android:orientation="horizontal" android:id="@id/f2w" android:layout_width="wrap_content" android:layout_height="wrap_content" app:a1d="@id/a8e" app:a1m="18.0dp" />
+    <ImageView android:id="@id/ea7" android:background="@drawable/album_featured_shadow_bg" android:layout_width="match_parent" android:layout_height="65.0dp" app:a1d="@id/e_m" app:a1i="w, 1:1" app:a1j="hnz" app:a23="hnz" />
+    <ImageView android:id="@id/e_v" android:layout_width="0.0dp" android:layout_height="0.0dp" android:src="@drawable/module_musichall_digital_album_mask" app:a1d="@id/e_m" app:a1i="w, 1:1" app:a1x="@id/f2x" app:a27="@id/e_m" />
+    <ImageView android:id="@id/ea5" android:layout_width="0.0dp" android:layout_height="0.0dp" android:src="@drawable/album_featured_clear_plastic_pic" app:a1d="@id/e_m" app:a1i="w, 1:1" app:a1x="@id/f2y" app:a27="@id/e_m" />
+    <com.tencent.component.widget.AsyncEffectImageView android:id="@id/e_m" android:padding="@dimen/bjk" android:layout_width="0.0dp" android:layout_height="0.0dp" app:a1i="H,1:1" app:a1x="@id/f2z" app:a27="@id/f33" />
+    <ImageView android:id="@id/ea8" android:background="@drawable/preferred_album_cover_fourth_layer" android:layout_width="0.0dp" android:layout_height="0.0dp" app:a1d="@id/e_m" app:a1i="w, 1:1" app:a1x="@id/e_m" app:a21="@id/e_m" app:a27="@id/e_m" />
+    <LinearLayout android:gravity="right|center" android:orientation="vertical" android:id="@id/fc6" android:layout_width="0.0dp" android:layout_height="wrap_content" app:a1e="@id/fc8" app:a1y="@id/e_v" app:a21="@id/f30" app:a27="@id/e_m" app:a29="kqe">
+        <TextView android:textSize="13.0dp" android:textColor="@color/skin_text_main_color" android:ellipsize="end" android:id="@id/mlp" android:layout_width="wrap_content" android:layout_height="wrap_content" android:singleLine="true" android:textFontWeight="500" />
+        <com.tencent.qqmusic.ui.customview.textview.ScrollTextView android:textSize="13.0dp" android:textColor="@color/skin_text_main_color" android:id="@id/m4v" android:layout_width="wrap_content" android:layout_height="wrap_content" android:textFontWeight="300" />
+    </LinearLayout>
+    <LinearLayout android:gravity="right|center" android:orientation="vertical" android:id="@id/fc8" android:layout_width="0.0dp" android:layout_height="wrap_content" app:a1e="@id/na2" app:a1y="@id/e_v" app:a21="@id/f30" app:a26="@id/fc6">
+        <TextView android:textSize="16.0dp" android:textColor="@color/skin_text_main_color" android:id="@id/m4w" android:layout_width="wrap_content" android:layout_height="wrap_content" android:textFontWeight="700" />
+        <TextView android:textSize="8.0dp" android:textColor="@color/skin_text_main_color" android:id="@id/m4x" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="2.5dp" android:text="@string/frk" android:textFontWeight="300" />
+    </LinearLayout>
+    <ViewFlipper android:id="@id/na2" android:layout_width="0.0dp" android:layout_height="wrap_content" android:inAnimation="@anim/fg" android:outAnimation="@anim/fh" android:flipInterval="3000" android:autoStart="false" app:a1d="@id/e_m" app:a1y="@id/e_v" app:a21="@id/f30" app:a26="@id/fc8" />
+    <LinearLayout android:gravity="center" android:orientation="vertical" android:id="@id/fc5" android:paddingLeft="18.5dp" android:paddingRight="18.0dp" android:layout_width="wrap_content" android:layout_height="0.0dp" app:a1d="@id/f2w" app:a21="hnz" app:a26="@id/e_m">
+        <ImageView android:id="@id/e_t" android:layout_width="18.0dp" android:layout_height="18.0dp" android:contentDescription="收藏" />
+        <TextView android:textSize="9.0dp" android:textColor="@color/skin_text_main_color" android:id="@id/e_u" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="2.0dp" android:includeFontPadding="false" android:textFontWeight="400" />
+    </LinearLayout>
+    <TextView android:textSize="11.0dp" android:textColor="@color/skin_text_main_color" android:ellipsize="end" android:id="@id/m4p" android:layout_width="0.0dp" android:layout_height="wrap_content" android:maxLines="2" android:textFontWeight="400" app:a1d="@id/fc5" app:a1x="@id/e_m" app:a20="@id/fc5" app:a27="@id/fc5" />
+</androidx.constraintlayout.widget.ConstraintLayout>

@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout android:gravity="center_vertical" android:orientation="horizontal" android:paddingTop="@dimen/a02" android:paddingRight="20.0dp" android:paddingBottom="10.0dp" android:layout_width="match_parent" android:layout_height="wrap_content"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <TextView android:textSize="16.0sp" android:textStyle="bold" android:textColor="@color/skin_text_main_color" android:ellipsize="end" android:id="@id/b6" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="基本信息" android:maxLines="1" />
+    <View android:layout_width="0.0dp" android:layout_height="0.0dp" android:layout_weight="1.0" />
+    <TextView android:textSize="13.0sp" android:textColor="@color/skin_text_sub_color" android:gravity="center" android:id="@id/b7" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/e9w" />
+    <ImageView android:id="@id/a09" android:layout_width="wrap_content" android:layout_height="wrap_content" android:src="@drawable/arrow_right_grey" />
+</LinearLayout>

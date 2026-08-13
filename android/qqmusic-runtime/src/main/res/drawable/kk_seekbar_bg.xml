@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layer-list
+  xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">
+    <item android:gravity="center_vertical" android:id="@android:id/background" android:height="@dimen/a_a" app:alj="true">
+        <shape>
+            <corners android:radius="14.5dp" />
+            <solid android:color="@color/kk_color_seekbar_bg_dark" />
+        </shape>
+    </item>
+    <item android:gravity="center_vertical" android:id="@android:id/background" android:height="@dimen/a_a">
+        <shape>
+            <corners android:radius="14.5dp" />
+            <solid android:color="@color/kk_color_seekbar_bg_light" />
+        </shape>
+    </item>
+    <item android:gravity="center_vertical" android:id="@android:id/progress" android:height="@dimen/a_a" app:alj="true">
+        <clip>
+            <shape>
+                <corners android:radius="14.5dp" />
+                <solid android:color="@color/kk_color_seekbar_progress_bg_dark" />
+            </shape>
+        </clip>
+    </item>
+    <item android:gravity="center_vertical" android:id="@android:id/progress" android:height="@dimen/a_a">
+        <clip>
+            <shape>
+                <corners android:radius="14.5dp" />
+                <solid android:color="@color/kk_color_seekbar_progress_bg_light" />
+            </shape>
+        </clip>
+    </item>
+    <item android:gravity="center_vertical" android:id="@android:id/secondaryProgress" android:height="@dimen/a_a" app:alj="true">
+        <clip>
+            <shape>
+                <corners android:radius="14.5dp" />
+                <solid android:color="@color/kk_color_seekbar_second_progress_bg_dark" />
+            </shape>
+        </clip>
+    </item>
+    <item android:gravity="center_vertical" android:id="@android:id/secondaryProgress" android:height="@dimen/a_a">
+        <clip>
+            <shape>
+                <corners android:radius="14.5dp" />
+                <solid android:color="@color/kk_color_seekbar_second_progress_bg_light" />
+            </shape>
+        </clip>
+    </item>
+</layer-list>

@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.tencent.qqmusic.business.playernew.view.playersong.guidepop.LimitFrameLayout android:id="@id/c0i" android:clipChildren="false" android:clipToPadding="false" android:layout_width="wrap_content" android:layout_height="wrap_content"
+  xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">
+    <androidx.constraintlayout.widget.ConstraintLayout android:gravity="center" android:layout_gravity="center" android:id="@id/c0g" android:background="@drawable/bg_canopy_effect_dialog_close_btn" android:paddingLeft="7.0dp" android:paddingRight="7.0dp" android:layout_width="wrap_content" android:layout_height="30.0dp">
+        <com.tencent.component.widget.AsyncEffectImageView android:id="@id/c0h" android:layout_width="20.0dp" android:layout_height="20.0dp" android:layout_marginLeft="5.0dp" android:scaleType="fitCenter" app:a1d="hnz" app:a1x="hnz" app:a20="@id/c0j" app:a27="hnz" />
+        <com.tencent.qqmusic.ui.customview.textview.ScrollTextView android:textSize="12.0dp" android:textColor="@color/white" android:id="@id/c0j" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginLeft="5.0dp" android:layout_marginRight="5.0dp" android:maxLines="1" android:includeFontPadding="false" app:a18="true" app:a1d="hnz" app:a1y="@id/c0h" app:a20="@id/c0f" app:a27="hnz" />
+        <ImageView android:id="@id/c0f" android:layout_width="20.0dp" android:layout_height="20.0dp" android:layout_marginRight="1.0dp" android:src="@drawable/player_tips_arrow_dark" android:scaleType="center" app:a1d="hnz" app:a1y="@id/c0j" app:a21="hnz" app:a27="hnz" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</com.tencent.qqmusic.business.playernew.view.playersong.guidepop.LimitFrameLayout>

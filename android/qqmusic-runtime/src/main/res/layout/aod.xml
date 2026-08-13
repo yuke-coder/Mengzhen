@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<kk.design.layout.KKConstraintLayout android:id="@id/eoa" android:paddingTop="@dimen/a6i" android:paddingBottom="@dimen/a6h" android:clipChildren="false" android:clipToPadding="false" android:layout_width="match_parent" android:layout_height="wrap_content"
+  xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">
+    <kk.design.KKTextView android:gravity="center_vertical" android:id="@id/mru" android:paddingTop="@dimen/a6p" android:paddingBottom="@dimen/a6n" android:layout_width="0.0dp" android:layout_height="wrap_content" android:paddingStart="@dimen/a6o" android:paddingEnd="@dimen/a6o" app:y4="bxb" app:a0f="a9b" app:a1j="hnz" app:a23="hnz" app:a27="hnz" />
+    <kk.design.layout.KKRecyclerView android:id="@id/j2z" android:fadingEdge="none" android:clipChildren="false" android:clipToPadding="false" android:layout_width="0.0dp" android:layout_height="wrap_content" android:overScrollMode="never" android:paddingStart="@dimen/a6f" android:paddingEnd="@dimen/a6f" app:a1j="hnz" app:a23="hnz" app:a26="@id/mru" />
+</kk.design.layout.KKConstraintLayout>

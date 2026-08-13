@@ -1,0 +1,68 @@
+{
+  "router": "openHalf",
+  "page_name": "dialog_free_flow_rate",
+  "container": {
+    "w_weight": "0.9",
+    "h_weight": "0.95",
+    "dim_behind": 1
+  },
+  "params": {
+    "page": [
+      {
+        "base": {
+          "subtitle": "【限时领取】开通免流量特权送24个月vip+话费，2G/3G/4G网络下，在线听歌、歌曲下载、MV视频播放免流量。",
+          "subtitle_color": "#000000",
+          "subtitle_font_size": "26",
+          "title": "免流量送24个月vip",
+          "title_color": "#000000",
+          "title_font_size": "36"
+        },
+        "buttons": [
+          {
+            "border_color": "",
+            "button_height": 100.0,
+            "click": {
+              "event_name": "free_flow_pos_click",
+              "id": "88241505",
+              "click_action_type": "open_native"
+            },
+            "color": "#00F8AC",
+            "font_weight": 500.0,
+            "text": "免流量领会员",
+            "text_color": "#000000",
+            "url": "https://dx.10086.cn/sLdcCw"
+          },
+          {
+            "border_color": "",
+            "button_height": 40.0,
+            "click": {
+              "id": "1019887",
+              "click_action_type": "close"
+            },
+            "color": "#FFFFFF",
+            "font_weight": 400.0,
+            "padding": 40.0,
+            "text": "流量够用",
+            "text_color": "#80000000",
+            "url": ""
+          }
+        ],
+        "topbar": {
+          "type": "image",
+          "url": ""
+        },
+        "exposure": {
+          "id": "99241505"
+        },
+        "close": {
+          "design": "close_button_white",
+          "rules": {
+            "click": {
+              "id": "1019888"
+            }
+          }
+        }
+      }
+    ]
+  }
+}

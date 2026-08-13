@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout android:gravity="center_horizontal" android:orientation="vertical" android:paddingBottom="12.0dp" android:layout_width="wrap_content" android:layout_height="wrap_content" android:paddingStart="8.0dp"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <FrameLayout android:layout_width="wrap_content" android:layout_height="wrap_content">
+        <com.tencent.component.widget.AsyncEffectImageView android:layout_gravity="center" android:id="@id/dr3" android:layout_width="106.0dp" android:layout_height="106.0dp" android:scaleType="centerCrop" />
+        <ImageView android:layout_gravity="center" android:id="@id/dr0" android:background="@drawable/icon_edit_folder_detail_persnal_bg_default" android:visibility="gone" android:layout_width="30.0dp" android:layout_height="30.0dp" />
+        <ImageView android:layout_gravity="right|top" android:id="@id/dr2" android:background="@drawable/diy_folder_vip_background" android:visibility="gone" android:layout_width="15.0dp" android:layout_height="9.0dp" android:layout_marginTop="3.0dp" android:layout_marginRight="3.0dp" android:scaleType="centerCrop" />
+        <com.tencent.component.widget.AsyncEffectImageView android:layout_gravity="right|top" android:id="@id/dr1" android:visibility="gone" android:layout_width="9.0dp" android:layout_height="9.0dp" android:layout_marginTop="3.0dp" android:layout_marginRight="6.0dp" android:scaleType="centerCrop" />
+    </FrameLayout>
+    <TextView android:textSize="13.0sp" android:textColor="@color/skin_text_main_color" android:ellipsize="end" android:id="@id/m98" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="8.0dp" android:maxWidth="162.0dp" android:text="@string/b_f" android:maxLines="1" />
+    <TextView android:textSize="12.0sp" android:textColor="@color/white" android:gravity="center" android:id="@id/m99" android:background="@drawable/edit_folder_dynamic_head_pic_card_btn_bg" android:layout_width="75.0dp" android:layout_height="28.0dp" android:layout_marginTop="13.0dp" android:text="@string/ha2" />
+</LinearLayout>

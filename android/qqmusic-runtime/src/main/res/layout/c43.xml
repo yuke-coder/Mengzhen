@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout android:id="@id/hw6" android:background="@drawable/color_b15" android:layout_width="match_parent" android:layout_height="wrap_content"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <com.tencent.qqmusic.ui.customview.textview.ScrollTextView android:textSize="15.0sp" android:textColor="@color/skin_text_main_color" android:gravity="left|center" android:id="@id/ey" android:paddingLeft="15.0dp" android:paddingTop="12.0dp" android:paddingRight="5.0dp" android:visibility="gone" android:layout_width="match_parent" android:layout_height="wrap_content" />
+    <RelativeLayout android:orientation="horizontal" android:id="@id/i11" android:background="@color/transparent" android:focusable="false" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_below="@id/ey">
+        <TextView android:textSize="15.0sp" android:textColor="@color/main_top_bar_text_color" android:gravity="left|center" android:id="@id/hw7" android:paddingLeft="15.0dp" android:paddingRight="12.0dp" android:focusable="false" android:visibility="gone" android:clickable="false" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="12.0dp" android:minHeight="10.0dp" android:layout_centerVertical="true" />
+        <ImageView android:id="@id/hw8" android:visibility="gone" android:layout_width="10.0dp" android:layout_height="10.0dp" android:layout_alignRight="@id/hw7" android:layout_centerVertical="true" />
+    </RelativeLayout>
+    <LinearLayout android:layout_gravity="right" android:orientation="vertical" android:id="@id/z9" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_below="@id/i11">
+        <include android:id="@id/i12" android:visibility="gone" android:layout_width="match_parent" android:layout_height="wrap_content" layout="@layout/ap" />
+        <include android:id="@id/i1x" android:visibility="gone" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginTop="4.0dp" layout="@layout/an" />
+    </LinearLayout>
+    <ImageView android:id="@id/ht_" android:background="@drawable/skin_divider_img" android:visibility="gone" android:layout_width="match_parent" android:layout_height="0.5dp" android:layout_marginTop="13.0dp" android:layout_below="@id/z9" />
+    <com.tencent.qqmusic.ui.actionsheet.GroupedHorizontalMenuLayout android:id="@id/i14" android:background="@color/transparent" android:visibility="visible" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginTop="17.0dp" android:layout_marginBottom="10.0dp" android:layout_below="@id/ht_" />
+    <LinearLayout android:gravity="center" android:orientation="horizontal" android:id="@id/htc" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginBottom="10.0dp" android:layout_above="@id/hta" />
+    <ImageView android:id="@id/hta" android:background="@drawable/skin_divider_img" android:layout_width="match_parent" android:layout_height="0.5dp" android:layout_below="@id/i14" />
+    <LinearLayout android:orientation="horizontal" android:id="@id/e0" android:background="@color/transparent" android:layout_width="match_parent" android:layout_height="@dimen/cau" android:layout_below="@id/hta">
+        <ImageView android:layout_gravity="center_vertical" android:id="@id/ez" android:visibility="visible" android:layout_width="wrap_content" android:layout_height="22.0dp" android:layout_marginLeft="30.0dp" android:src="@drawable/playing_volumn_slide_icon" android:scaleType="fitXY" android:contentDescription="@string/ab9" />
+        <SeekBar android:layout_gravity="center_vertical" android:id="@id/nmz" android:focusable="true" android:focusableInTouchMode="true" android:layout_width="0.0dp" android:layout_height="32.0dp" android:layout_marginLeft="0.0dp" android:maxHeight="32.0dp" android:progressDrawable="@drawable/voice_progress_bar" android:minHeight="32.0dp" android:thumb="@drawable/progress_thum_selector" android:thumbOffset="0.0dp" android:layout_weight="1.0" />
+        <ImageView android:layout_gravity="center_vertical" android:id="@id/f0" android:visibility="visible" android:layout_width="wrap_content" android:layout_height="22.0dp" android:layout_marginRight="30.0dp" android:src="@drawable/playing_volumn_slide_loud_icon" android:scaleType="fitXY" />
+    </LinearLayout>
+    <ImageView android:id="@id/htb" android:background="@drawable/skin_divider_img" android:layout_width="match_parent" android:layout_height="0.5dp" android:layout_below="@id/e0" />
+    <TextView android:textSize="15.0sp" android:textStyle="normal" android:textColor="@color/common_grid_title_color_selector" android:gravity="center" android:id="@id/d38" android:layout_width="match_parent" android:layout_height="70.0dp" android:text="@string/cancel" android:layout_below="@id/htb" />
+</RelativeLayout>

@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout android:layout_width="match_parent" android:layout_height="50.0dp"
+  xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">
+    <TextView android:textSize="15.0sp" android:textColor="@color/white" android:ellipsize="end" android:id="@id/mlive_dialog_info_card_item_title_tv" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginRight="16.0dp" android:maxLines="1" android:singleLine="true" android:layout_marginStart="16.0dp" app:a1d="hnz" app:a1k="@id/mlive_dialog_info_card_item_holder_btn" app:a1t="0.0" app:a23="hnz" app:a27="hnz" />
+    <TextView android:id="@id/mlive_dialog_info_card_item_holder_btn" android:layout_width="20.0dp" android:layout_height="20.0dp" android:layout_marginEnd="20.0dp" app:a1d="hnz" app:a1k="@id/mlive_dialog_info_card_item_comment_btn" app:a27="hnz" />
+    <TextView android:id="@id/mlive_dialog_info_card_item_recommend_btn" android:background="@drawable/mlive_info_card_musician_selector_recommand" android:layout_width="20.0dp" android:layout_height="20.0dp" android:layout_marginEnd="20.0dp" app:a1d="hnz" app:a1k="@id/mlive_dialog_info_card_item_comment_btn" app:a27="hnz" />
+    <TextView android:id="@id/mlive_dialog_info_card_item_favour_btn" android:background="@drawable/mlive_info_card_musician_selector_favour" android:layout_width="20.0dp" android:layout_height="20.0dp" android:layout_marginEnd="20.0dp" app:a1d="hnz" app:a1k="@id/mlive_dialog_info_card_item_comment_btn" app:a27="hnz" />
+    <TextView android:id="@id/mlive_dialog_info_card_item_comment_btn" android:background="@drawable/mlive_info_card_musican_ic_comment" android:layout_width="20.0dp" android:layout_height="20.0dp" android:layout_marginEnd="16.0dp" app:a1d="hnz" app:a1j="hnz" app:a27="hnz" />
+</androidx.constraintlayout.widget.ConstraintLayout>

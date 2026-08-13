@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout android:id="@id/ka" android:background="@drawable/bg_ad_vip_player_float_ball" android:layout_width="68.0dp" android:layout_height="49.0dp"
+  xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">
+    <androidx.constraintlayout.widget.ConstraintLayout android:id="@id/k8" android:layout_width="49.0dp" android:layout_height="49.0dp" app:a1d="hnz" app:a1x="hnz" app:a27="hnz">
+        <com.tencent.qqmusic.fragment.message.views.CircleProgressbar android:id="@id/k9" android:layout_width="match_parent" android:layout_height="match_parent" android:layout_margin="1.0dp" android:indeterminate="false" android:indeterminateOnly="false" android:rotation="180.0" />
+        <androidx.appcompat.widget.AppCompatImageView android:id="@id/kb" android:layout_width="16.0dp" android:layout_height="16.0dp" android:src="@drawable/icon_ad_vip" app:a1e="@id/k_" app:a1j="hnz" app:a23="hnz" app:a27="hnz" app:a29="hmg" />
+        <androidx.appcompat.widget.AppCompatTextView android:textSize="7.0dp" android:textStyle="bold" android:gravity="center" android:layout_gravity="center_horizontal" android:id="@id/k_" android:layout_width="30.0dp" android:layout_height="wrap_content" android:text="@string/d8" android:maxLines="2" android:alpha="0.6" app:a1d="hnz" app:a1x="hnz" app:a21="hnz" app:a26="@id/kb" app:a29="hmg" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+    <androidx.appcompat.widget.AppCompatImageView android:id="@id/k7" android:layout_width="22.0dp" android:layout_height="22.0dp" android:src="@drawable/icon_close_normal_black" android:contentDescription="@string/a7j" android:alpha="0.6" app:a1d="hnz" app:a21="hnz" app:a27="hnz" />
+</androidx.constraintlayout.widget.ConstraintLayout>

@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout android:id="@id/ia5" android:background="@color/transparent" android:focusable="false" android:visibility="gone" android:layout_width="match_parent" android:layout_height="wrap_content"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <com.tencent.component.widget.AsyncEffectImageView android:id="@id/hbw" android:background="@color/transparent" android:layout_width="match_parent" android:layout_height="@dimen/bu" android:scaleType="fitStart" android:maxHeight="@dimen/bu" android:layout_alignParentLeft="true" android:layout_alignWithParentIfMissing="true" />
+    <View android:id="@id/ek0" android:background="@drawable/bg_ad_share_close" android:layout_width="16.5dp" android:layout_height="16.5dp" android:layout_alignParentTop="true" android:layout_alignParentRight="true" />
+    <ImageView android:layout_width="8.0dp" android:layout_height="7.5dp" android:layout_marginTop="2.5dp" android:layout_marginRight="2.0dp" android:src="@drawable/ic_share_ad_close" android:scaleType="fitXY" android:layout_alignParentTop="true" android:layout_alignParentRight="true" />
+    <ImageView android:id="@id/ev" android:background="@drawable/color_b17" android:layout_width="match_parent" android:layout_height="1.0px" />
+</RelativeLayout>

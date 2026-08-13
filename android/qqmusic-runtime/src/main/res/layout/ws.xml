@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout android:orientation="vertical" android:layout_width="match_parent" android:layout_height="match_parent" android:importantForAccessibility="no"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <include android:id="@id/naf" android:layout_width="match_parent" android:layout_height="match_parent" layout="@layout/m6" />
+    <include android:id="@id/lv1" layout="@layout/n0" />
+    <ScrollView android:layout_width="match_parent" android:layout_height="match_parent" android:fillViewport="true" android:layout_below="@id/lv1">
+        <LinearLayout android:orientation="vertical" android:padding="16.0dp" android:layout_width="match_parent" android:layout_height="wrap_content">
+            <Button android:textSize="16.0dp" android:id="@id/ako" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginTop="20.0dp" android:text="选择文件" />
+            <TextView android:textSize="14.0dp" android:textColor="@color/skin_text_main_color" android:textColorHint="@color/skin_text_sub_color" android:id="@id/m_1" android:background="@android:drawable/edit_text" android:padding="12.0dp" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginTop="16.0dp" android:minHeight="48.0dp" android:hint="未选择文件" />
+            <EditText android:textSize="14.0dp" android:textColor="@color/skin_text_main_color" android:textColorHint="@color/skin_text_sub_color" android:id="@id/c_e" android:padding="12.0dp" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginTop="16.0dp" android:minHeight="48.0dp" android:hint="请输入解密密钥" android:inputType="text" />
+            <Button android:textSize="16.0dp" android:id="@id/aiw" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginTop="24.0dp" android:text="解密" />
+        </LinearLayout>
+    </ScrollView>
+</RelativeLayout>

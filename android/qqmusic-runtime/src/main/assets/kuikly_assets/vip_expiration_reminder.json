@@ -1,0 +1,30 @@
+{
+  "router": "openHalf",
+  "page_name": "vip_expiration_reminder",
+  "container": {
+    "w_weight": "0.9",
+    "h_weight": "0.9",
+    "dim_behind": 1
+  },
+  "ui_debug": 0,
+  "params": {
+    "page": [
+      {
+        "base": {
+          "title": "数字专辑",
+          "subtitle": "技术全新升级，畅销高品质音质"
+        },
+        "buttons": [
+          {
+            "text": "开通会员",
+            "color": "#F49D17",
+            "url": "http://xxx"
+          }
+        ],
+        "body": {
+          "img": "https://music-mdc-yunti-test-1258344705.cos.ap-guangzhou.myqcloud.com/test/PersonalizedSource/type2_body_1.png"
+        }
+      }
+    ]
+  }
+}

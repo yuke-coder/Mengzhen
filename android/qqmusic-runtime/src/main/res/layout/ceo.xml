@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout android:id="@id/n6i" android:background="#aa000000" android:paddingTop="@dimen/c5s" android:paddingBottom="@dimen/c5s" android:visibility="gone" android:layout_width="match_parent" android:layout_height="match_parent" android:paddingVertical="@dimen/c5s"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <FrameLayout android:gravity="center" android:id="@id/n6h" android:background="@drawable/songedit_bg_float" android:paddingTop="20.0dp" android:layout_width="match_parent" android:layout_height="@dimen/c5u" android:layout_marginLeft="10.0dp" android:layout_marginTop="71.0dp" android:layout_marginRight="10.0dp" />
+    <ImageView android:id="@id/n6g" android:padding="12.0dp" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="73.0dp" android:layout_marginRight="12.0dp" android:src="@drawable/gb_pf" android:layout_alignParentTop="true" android:layout_alignParentRight="true" android:contentDescription="@string/a7j" />
+</RelativeLayout>

@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout android:layout_width="wrap_content" android:layout_height="wrap_content"
+  xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">
+    <androidx.constraintlayout.widget.ConstraintLayout android:id="@id/ldf" android:paddingLeft="10.0dp" android:paddingTop="7.5dp" android:paddingRight="10.0dp" android:paddingBottom="7.5dp" android:layout_width="wrap_content" android:layout_height="match_parent" app:a1e="@id/a0_" app:a1x="hnz" app:a21="hnz">
+        <TextView android:textSize="11.0dp" android:textColor="@color/white" android:ellipsize="end" android:gravity="center" android:id="@id/mpc" android:layout_width="wrap_content" android:layout_height="wrap_content" android:maxLines="1" app:a1d="hnz" app:a1x="hnz" app:a27="hnz" />
+        <ImageView android:id="@id/mni" android:paddingLeft="2.0dp" android:layout_width="10.0dp" android:layout_height="10.0dp" app:a1d="hnz" app:a1y="@id/mpc" app:a27="hnz" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+    <View android:id="@id/a0_" android:background="@drawable/bg_music_pet_bubble_triangle" android:layout_width="12.0dp" android:layout_height="12.0dp" android:layout_marginLeft="15.0dp" app:a1x="@id/ldf" app:a26="@id/ldf" />
+</androidx.constraintlayout.widget.ConstraintLayout>

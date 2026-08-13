@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layer-list
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <item android:id="@android:id/background">
+        <shape>
+            <corners android:radius="5.0dp" />
+            <gradient android:startColor="#d9d9d9" android:endColor="#d9d9d9" android:angle="0.0" />
+        </shape>
+    </item>
+    <item android:id="@android:id/progress" android:drawable="@drawable/download_path_progress_bg" />
+</layer-list>

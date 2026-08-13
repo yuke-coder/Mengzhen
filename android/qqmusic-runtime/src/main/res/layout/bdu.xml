@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout android:layout_width="wrap_content" android:layout_height="wrap_content" android:contentDescription="@string/d4f"
+  xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">
+    <RelativeLayout android:id="@id/mlive_rank_top_3_layout" android:padding="0.100000024dp" android:visibility="gone" android:layout_width="25.0dp" android:layout_height="25.0dp" android:layout_marginLeft="3.0dp" app:a22="@id/mlive_rank_top_2_layout" app:a27="hnz">
+        <com.tme.qqmusic.widget.base.view.GlideImageView android:id="@id/mlive_rank_top_3" android:layout_width="23.0dp" android:layout_height="23.0dp" android:src="@drawable/mlive_default_avatar" android:layout_centerInParent="true" />
+        <ImageView android:layout_width="match_parent" android:layout_height="match_parent" android:src="@drawable/mlive_gift_rank_circle_top_3" />
+        <TextView android:textSize="5.5dp" android:textColor="@color/black" android:gravity="center" android:id="@id/mlive_rank_top_3_num" android:background="@drawable/mlive_gift_rank_circle_num_3" android:layout_width="8.0dp" android:layout_height="8.0dp" android:layout_alignParentLeft="true" android:layout_alignParentRight="true" android:layout_alignParentBottom="true" />
+    </RelativeLayout>
+    <RelativeLayout android:id="@id/mlive_rank_top_2_layout" android:padding="0.100000024dp" android:visibility="gone" android:layout_width="25.0dp" android:layout_height="25.0dp" android:layout_marginLeft="3.0dp" app:a22="@id/mlive_rank_top_1_layout" app:a27="hnz">
+        <com.tme.qqmusic.widget.base.view.GlideImageView android:id="@id/mlive_rank_top_2" android:layout_width="23.0dp" android:layout_height="23.0dp" android:src="@drawable/mlive_default_avatar" android:layout_centerInParent="true" />
+        <ImageView android:layout_width="match_parent" android:layout_height="match_parent" android:src="@drawable/mlive_gift_rank_circle_top_2" />
+        <TextView android:textSize="5.5dp" android:textColor="@color/black" android:gravity="center" android:id="@id/mlive_rank_top_2_num" android:background="@drawable/mlive_gift_rank_circle_num_2" android:layout_width="8.0dp" android:layout_height="8.0dp" android:layout_alignParentLeft="true" android:layout_alignParentRight="true" android:layout_alignParentBottom="true" />
+    </RelativeLayout>
+    <RelativeLayout android:id="@id/mlive_rank_top_1_layout" android:padding="0.100000024dp" android:layout_width="25.0dp" android:layout_height="25.0dp" app:a23="hnz" app:a27="hnz">
+        <com.tme.qqmusic.widget.base.view.GlideImageView android:id="@id/mlive_rank_top_1" android:layout_width="23.0dp" android:layout_height="23.0dp" android:src="@drawable/mlive_default_avatar" android:layout_centerInParent="true" />
+        <ImageView android:layout_width="match_parent" android:layout_height="match_parent" android:src="@drawable/mlive_gift_rank_circle_top_1" />
+        <TextView android:textSize="5.5dp" android:textColor="@color/black" android:gravity="center" android:id="@id/mlive_rank_top_1_num" android:background="@drawable/mlive_gift_rank_circle_num_1" android:layout_width="8.0dp" android:layout_height="8.0dp" android:layout_alignParentLeft="true" android:layout_alignParentRight="true" android:layout_alignParentBottom="true" />
+    </RelativeLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>

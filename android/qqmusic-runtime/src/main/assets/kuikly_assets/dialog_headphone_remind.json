@@ -1,0 +1,85 @@
+{
+  "router": "openHalf",
+  "page_name": "dialog_headphone_remind",
+  "container": {
+    "w_weight": "0.95",
+    "h_weight": "0.95",
+    "dim_behind": 1
+  },
+  "params":  {
+    "page": [
+      {
+        "topbar": {
+          "type": "image",
+          "height": 320,
+          "url": "https://y.qq.com/music/common/upload/t_cm3_photo_publish/6862245.png"
+        },
+        "base": {
+          "subtitle": "",
+          "subtitle_font_size": 40,
+          "title_font_size": 32,
+          "title": "你的长名称长名称长名称长名称长名称长名称长名称长名称长名称长名称长名称长名称长名称长名称长名称长名称已连接",
+          "title_color": "#685C42",
+          "subtitle_color": "#EBD6A6",
+          "title_margin_bottom": 40,
+          "background": {
+            "type": "gradient",
+            "colors": [
+              "#0B0700",
+              "#2B1E06",
+              "#0B0700"
+            ],
+            "direction": "to-top",
+            "foreground": {
+              "height": 664,
+              "url": "https://musicx.y.qq.com/kuikly/assets/headphone/svip_quality_dialog_headphone_v3_bg.png"
+            }
+          }
+        },
+        "extend": {
+          "label": "3天体验音质",
+          "days": 3,
+          "userKind": 1,
+          "trySoundType": 3,
+          "popupName": "Headset",
+          "style": "StyleNormalV3",
+          "upgrade_level": "60"
+        },
+        "buttons": [
+          {
+            "text": "立即还原100%音质细节",
+            "text_color": "#000000",
+            "url": "qmkuikly://qq.com/miniPackPay/pay",
+            "button_height": 100,
+            "text_size": 32,
+            "click": {
+              "id": "1018365",
+              "int6": "1",
+              "string3": "Apple"
+            },
+            "background": {
+              "type": "gradient",
+              "colors": [
+                "#D1922C",
+                "#FFECC4",
+                "#D1922C"
+              ],
+              "direction": "to-left"
+            }
+          }
+        ],
+        "body": {
+          "height": "464"
+        },
+        "radius": [
+          24
+        ],
+        "exposure": {
+          "id": "5017062",
+          "int5": "1",
+          "str2": "Apple"
+        }
+      }
+    ]
+  }
+}

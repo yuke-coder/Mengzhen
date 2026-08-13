@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout android:id="@id/a6_" android:background="@drawable/skin_common_listitem_bg" android:layout_width="match_parent" android:layout_height="wrap_content"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <RelativeLayout android:id="@id/dnz" android:layout_width="wrap_content" android:layout_height="wrap_content">
+        <ImageView android:id="@id/a69" android:layout_width="match_parent" android:layout_height="match_parent" android:scaleType="fitXY" />
+        <TextView android:id="@id/a6f" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/cv" android:layout_alignBottom="@id/a69" style="@style/a2t" />
+        <ImageView android:id="@id/a64" android:clickable="true" android:layout_width="21.0dp" android:layout_height="21.0dp" android:src="@drawable/musichall_ad_close_btn" android:scaleType="fitXY" android:layout_alignParentTop="true" android:layout_alignParentRight="true" android:contentDescription="@string/a_6" />
+    </RelativeLayout>
+</RelativeLayout>

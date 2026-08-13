@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout android:layout_width="match_parent" android:layout_height="match_parent"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <ImageView android:id="@id/did" android:paddingLeft="5.0dp" android:paddingRight="5.0dp" android:layout_width="@dimen/bav" android:layout_height="@dimen/bau" android:src="@drawable/icon" android:layout_alignParentLeft="true" android:layout_centerVertical="true" />
+    <RelativeLayout android:id="@id/f2r" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginLeft="3.0dp" android:layout_toRightOf="@id/did" android:layout_centerVertical="true">
+        <TextView android:textAppearance="?android:textAppearanceMediumInverse" android:ellipsize="marquee" android:gravity="center_vertical" android:id="@id/ldr" android:focusable="true" android:fadingEdge="horizontal" android:layout_width="wrap_content" android:layout_height="wrap_content" android:singleLine="true" style="@style/ni" />
+        <TextView android:textAppearance="?android:textAppearanceSmallInverse" android:ellipsize="marquee" android:gravity="center_vertical" android:id="@id/l0k" android:fadingEdge="horizontal" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="1.0dp" android:maxLines="1" android:scrollHorizontally="true" android:layout_below="@id/ldr" style="@style/nh" />
+    </RelativeLayout>
+</RelativeLayout>

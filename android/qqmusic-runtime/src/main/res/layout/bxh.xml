@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout android:orientation="vertical" android:layout_width="match_parent" android:layout_height="match_parent"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <include layout="@layout/bxk" />
+    <FrameLayout android:id="@id/gwh" android:layout_width="match_parent" android:layout_height="match_parent">
+        <androidx.recyclerview.widget.RecyclerView android:layout_gravity="center_horizontal" android:id="@id/gwj" android:scrollbars="none" android:layout_width="wrap_content" android:layout_height="match_parent" />
+        <LinearLayout android:orientation="vertical" android:id="@id/gwc" android:layout_width="wrap_content" android:layout_height="match_parent">
+            <include layout="@layout/bxg" />
+            <include layout="@layout/bxl" />
+        </LinearLayout>
+    </FrameLayout>
+</LinearLayout>

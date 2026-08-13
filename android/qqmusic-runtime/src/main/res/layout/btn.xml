@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout android:id="@id/goh" android:layout_width="@dimen/bs4" android:layout_height="60.0dp"
+  xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">
+    <ImageView android:id="@id/ec9" android:layout_width="60.0dp" android:layout_height="60.0dp" android:layout_marginLeft="6.0dp" android:src="@drawable/module_musichall_digital_album_mask" android:scaleType="fitXY" android:contentDescription="@string/e5t" app:a1x="@id/ec_" app:a27="@id/ec_" />
+    <com.tencent.component.widget.AsyncEffectImageView android:id="@id/ec_" android:layout_width="60.0dp" android:layout_height="60.0dp" android:scaleType="centerCrop" android:importantForAccessibility="no" app:a1d="hnz" app:a1x="hnz" app:a27="hnz" />
+    <androidx.constraintlayout.widget.ConstraintLayout android:gravity="center_vertical" android:orientation="vertical" android:paddingLeft="16.0dp" android:layout_width="0.0dp" android:layout_height="wrap_content" android:layout_centerVertical="true" android:importantForAccessibility="no" app:a1d="@id/ec_" app:a1y="@id/ec_" app:a20="@id/m88" app:a27="@id/ec_">
+        <com.tencent.qqmusic.ui.PointTextView android:textSize="15.0sp" android:ellipsize="end" android:id="@id/m8a" android:layout_width="0.0dp" android:layout_height="21.0dp" android:maxLines="1" android:importantForAccessibility="no" app:a1x="hnz" app:a27="hnz" />
+        <androidx.constraintlayout.widget.ConstraintLayout android:gravity="start|center" android:orientation="horizontal" android:paddingTop="5.0dp" android:paddingBottom="5.0dp" android:layout_width="match_parent" android:layout_height="wrap_content" app:a1x="hnz" app:a21="hnz" app:a26="@id/m8a">
+            <ImageView android:id="@id/eca" android:visibility="gone" android:layout_width="wrap_content" android:layout_height="wrap_content" android:src="@drawable/pay_icon_in_cell_old" android:scaleType="fitXY" android:paddingEnd="6.0dp" app:a1d="hnz" app:a1x="hnz" app:a27="hnz" />
+            <TextView android:textSize="12.0sp" android:ellipsize="end" android:gravity="center_vertical" android:id="@id/m8_" android:layout_width="match_parent" android:layout_height="match_parent" android:maxLines="1" android:importantForAccessibility="no" app:a1d="hnz" app:a1y="@id/eca" app:a27="hnz" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </androidx.constraintlayout.widget.ConstraintLayout>
+    <TextView android:ellipsize="end" android:gravity="center" android:id="@id/m88" android:background="@drawable/module_recommend_album_buy_bg" android:visibility="visible" android:layout_width="60.0dp" android:layout_height="30.0dp" android:text="@string/f13" android:maxLines="1" android:contentDescription="@string/f13" android:layout_marginEnd="10.0dp" app:a1d="hnz" app:a21="hnz" app:a27="hnz" />
+</androidx.constraintlayout.widget.ConstraintLayout>

@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout android:gravity="center_horizontal" android:orientation="vertical" android:layout_width="match_parent" android:layout_height="wrap_content"
+  xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">
+    <ImageView android:id="@id/lwd" android:layout_width="match_parent" android:layout_height="1.0px" android:src="@color/dlna_device_divider_color" />
+    <LinearLayout android:gravity="center" android:orientation="horizontal" android:id="@id/fio" android:background="@color/white" android:layout_width="match_parent" android:layout_height="44.0dp">
+        <com.airbnb.lottie.LottieAnimationView android:id="@id/buv" android:layout_width="30.0dp" android:layout_height="30.0dp" app:a4n="true" app:a4u="true" />
+        <ImageView android:id="@id/bv2" android:visibility="gone" android:layout_width="30.0dp" android:layout_height="30.0dp" android:src="@drawable/ic_recognize_retry_new" />
+        <TextView android:textSize="12.0dp" android:textColor="@color/black_40_transparent" android:gravity="center" android:id="@id/bv1" android:layout_width="wrap_content" android:layout_height="20.0dp" android:layout_marginLeft="12.0dp" android:layout_marginTop="12.0dp" android:layout_marginBottom="12.0dp" android:text="@string/aud" />
+    </LinearLayout>
+    <TextView android:textSize="8.0sp" android:textColor="@color/white" android:paddingTop="3.0dp" android:paddingBottom="10.0dp" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/g1e" />
+    <ImageView android:id="@id/lwe" android:layout_width="match_parent" android:layout_height="1.0px" android:src="@color/dlna_device_divider_color" />
+    <TextView android:textSize="12.0sp" android:textColor="@color/black_40_transparent" android:id="@id/buz" android:layout_width="match_parent" android:layout_height="16.0dp" android:layout_marginLeft="16.0dp" android:layout_marginTop="20.0dp" android:layout_marginRight="16.0dp" android:layout_marginBottom="12.0dp" android:text="@string/atz" android:layout_marginStart="16.0dp" android:layout_marginEnd="16.0dp" />
+    <LinearLayout android:orientation="vertical" android:id="@id/buy" android:background="@color/white" android:paddingLeft="16.0dp" android:paddingTop="14.0dp" android:paddingRight="16.0dp" android:layout_width="match_parent" android:layout_height="wrap_content">
+        <TextView android:textColor="@color/dlna_device_text_color" android:id="@id/buo" android:layout_width="match_parent" android:layout_height="22.5dp" android:text="@string/au_" />
+        <TextView android:textColor="@color/white" android:gravity="center" android:background="@drawable/dlna_instruction_step_bg" android:layout_width="wrap_content" android:layout_height="20.0dp" android:layout_marginTop="10.0dp" android:minWidth="50.0dp" android:text="@string/au8" />
+        <TextView android:textColor="@color/dlna_device_text_color" android:id="@id/bup" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginTop="6.5dp" android:text="@string/aua" />
+        <ImageView android:id="@id/buu" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginTop="12.0dp" android:src="@drawable/dlna_instruction1" android:scaleType="fitCenter" />
+        <TextView android:textColor="@color/white" android:gravity="center" android:background="@drawable/dlna_instruction_step_bg" android:layout_width="wrap_content" android:layout_height="20.0dp" android:layout_marginTop="25.5dp" android:minWidth="50.0dp" android:text="@string/au9" />
+        <TextView android:textColor="@color/dlna_device_text_color" android:id="@id/buq" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginTop="6.5dp" android:text="@string/aub" />
+        <ImageView android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginTop="2.0dp" android:src="@drawable/dlna_instruction2" android:scaleType="fitCenter" />
+    </LinearLayout>
+</LinearLayout>

@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout android:id="@id/jdj" android:background="@drawable/main_bg" android:layout_width="match_parent" android:layout_height="wrap_content"
+  xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">
+    <TextView android:textSize="16.0sp" android:textStyle="bold" android:textColor="@color/skin_text_main_color" android:id="@id/ldr" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="26.0dp" android:text="@string/a5l" app:a1e="@id/j33" app:a1j="hnz" app:a23="hnz" app:a27="hnz" />
+    <androidx.recyclerview.widget.RecyclerView android:id="@id/j33" android:focusable="true" android:focusableInTouchMode="true" android:scrollbars="none" android:clipToPadding="true" android:layout_width="match_parent" android:layout_height="0.0dp" android:layout_margin="25.0dp" android:cacheColorHint="#00000000" android:divider="@null" android:minHeight="80.0dp" android:overScrollMode="never" app:a1e="@id/br0" app:a1p="nug" app:a26="@id/ldr" />
+    <View android:id="@id/br0" android:layout_width="match_parent" android:layout_height="@dimen/rh" app:a1e="@id/b3d" app:a26="@id/j33" />
+    <TextView android:textSize="16.0sp" android:textColor="@color/skin_text_main_color" android:ellipsize="end" android:gravity="center" android:id="@id/b3d" android:paddingTop="20.0dp" android:paddingBottom="20.0dp" android:fadingEdge="horizontal" android:layout_width="match_parent" android:layout_height="wrap_content" android:text="@string/cancel" android:singleLine="true" app:a1d="hnz" app:a26="@id/br0" />
+</androidx.constraintlayout.widget.ConstraintLayout>

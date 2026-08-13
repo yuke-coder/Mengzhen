@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginLeft="16.0dp" android:layout_marginTop="15.0dp" android:layout_marginRight="20.0dp"
+  xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">
+    <com.tencent.component.widget.AsyncEffectImageView android:id="@id/bdv" android:layout_width="60.0dp" android:layout_height="60.0dp" android:importantForAccessibility="no" app:a1x="hnz" app:a27="hnz" />
+    <androidx.appcompat.widget.AppCompatTextView android:textSize="15.0sp" android:textColor="@color/skin_text_main_color" android:ellipsize="end" android:id="@id/ldr" android:layout_width="0.0dp" android:layout_height="wrap_content" android:layout_marginLeft="16.0dp" android:maxLines="1" app:a1e="@id/kzh" app:a1y="@id/bdv" app:a20="@id/a08" app:a27="@id/bdv" />
+    <androidx.appcompat.widget.AppCompatTextView android:textSize="13.0sp" android:textColor="@color/skin_text_sub_color" android:ellipsize="end" android:id="@id/kzh" android:layout_width="0.0dp" android:layout_height="wrap_content" android:layout_marginLeft="16.0dp" android:maxLines="1" app:a1d="@id/bdv" app:a1y="@id/bdv" app:a20="@id/a08" app:a26="@id/ldr" />
+    <ImageView android:id="@id/a08" android:layout_width="wrap_content" android:layout_height="wrap_content" android:src="@drawable/arrow_right" app:a1d="hnz" app:a1j="hnz" app:a27="hnz" />
+</androidx.constraintlayout.widget.ConstraintLayout>

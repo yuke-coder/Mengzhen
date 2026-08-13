@@ -1,0 +1,11 @@
+{
+  "router": "openHalf",
+  "page_name": "dialog_vip_cashier_landscape",
+  "params": {
+    "scene": "landscape_dts",
+    "aid": "music.tq.soundeffect.dtswfhp"
+  },
+  "container": {
+    "tabbar_mode": 4
+  }
+}

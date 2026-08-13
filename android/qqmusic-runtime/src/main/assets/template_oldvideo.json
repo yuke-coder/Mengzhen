@@ -1,0 +1,226 @@
+{
+    "Id": "001",
+    "Title": "老电影",
+    "Icon": "icon",
+    "Overlayer": [
+        {
+            "StartTime": 0,
+            "Source": "overlayVideo.mp4",
+            "IsLoop": true,
+            "Type": "all",
+            "NeedMask": true,
+            "MaskSource": "overlayVideo_mask.mp4",
+            "DefaultSource": "default.mp4"
+        }
+    ],
+    "Video": {
+        "OverlayFilter": 104,
+        "Factor": 1
+    },
+    "PictureSwitch": [
+        {
+            "StartTime": 0,
+            "EndTime": 5070
+        },
+        {
+            "StartTime": 5070,
+            "EndTime": 9170
+        },
+        {
+            "StartTime": 9170,
+            "EndTime": 14000
+        },
+        {
+            "StartTime": 14000,
+            "EndTime": 18080
+        },
+        {
+            "StartTime": 18080,
+            "EndTime": 22160
+        },
+        {
+            "StartTime": 22160,
+            "EndTime": 26240
+        },
+        {
+            "StartTime": 26240,
+            "EndTime": 29080
+        },
+        {
+            "StartTime": 29080,
+            "EndTime": 31180
+        },
+        {
+            "StartTime": 31180,
+            "EndTime": 35000
+        },
+        {
+            "StartTime": 35000,
+            "EndTime": 38000
+        },
+        {
+            "StartTime": 38000,
+            "EndTime": 41000
+        }
+    ],
+    "AnimationArray": [
+        {
+            "AnimationType": 2,
+            "Durations": [
+                {
+                    "StartTime": 0,
+                    "EndTime": 5070,
+                    "FactorStart": 0,
+                    "FactorEnd": -0.4
+                }
+            ],
+            "Target": "source",
+            "Filter": 100
+        },
+        {
+            "AnimationType": 1,
+            "Durations": [
+                {
+                    "StartTime": 5070,
+                    "EndTime": 9000,
+                    "KeepTime": 3000,
+                    "FactorStart": 0.382,
+                    "FactorEnd": 0,
+                    "Factor1Start": 0.382,
+                    "Factor1End": 1
+                }
+            ],
+            "Target": "source",
+            "Filter": 105
+        },
+        {
+            "AnimationType": 1,
+            "Durations": [
+                {
+                    "StartTime": 11000,
+                    "EndTime": 14000,
+                    "KeepTime": 2000,
+                    "FactorStart": 1,
+                    "FactorEnd": 0
+                }
+            ],
+            "Target": "source",
+            "Filter": 108
+        },
+        {
+            "AnimationType": 2,
+            "Durations": [
+                {
+                    "StartTime": 14000,
+                    "EndTime": 18080,
+                    "FactorStart": 0,
+                    "FactorEnd": -0.4
+                }
+            ],
+            "Target": "source",
+            "Filter": 100
+        },
+        {
+            "AnimationType": 1,
+            "Durations": [
+                {
+                    "StartTime": 19080,
+                    "EndTime": 22160,
+                    "KeepTime": 1000,
+                    "FactorStart": 1,
+                    "FactorEnd": 0
+                }
+            ],
+            "Target": "source",
+            "Filter": 104
+        },
+        {
+            "AnimationType": 1,
+            "Durations": [
+                {
+                    "StartTime": 22160,
+                    "EndTime": 26240,
+                    "KeepTime": 2000,
+                    "FactorStart": 0,
+                    "FactorEnd": 1
+                }
+            ],
+            "Target": "source",
+            "Filter": 106
+        },
+        {
+            "AnimationType": 1,
+            "Durations": [
+                {
+                    "StartTime": 26240,
+                    "EndTime": 29080,
+                    "KeepTime": 2000,
+                    "FactorStart": 1,
+                    "FactorEnd": 0
+                }
+            ],
+            "Target": "source",
+            "Filter": 108
+        },
+		{
+            "AnimationType": 2,
+            "Durations": [
+                {
+                    "StartTime": 29080,
+                    "EndTime": 31180,
+                    "KeepTime": 1000,
+                    "FactorStart": 0,
+                    "FactorEnd": -0.4
+                }
+            ],
+            "Target": "source",
+            "Filter": 100
+        },
+        {
+            "AnimationType": 1,
+            "Durations": [
+                {
+                    "StartTime": 33000,
+                    "EndTime": 35000,
+                    "KeepTime": 800,
+                    "FactorStart": 0,
+                    "FactorEnd": 1
+                }
+            ],
+            "Target": "source",
+            "Filter": 107
+        },
+		
+        {
+            "AnimationType": 1,
+            "Durations": [
+                {
+                    "StartTime": 35000,
+                    "EndTime": 38000,
+                    "KeepTime": 1000,
+                    "FactorStart": 1,
+                    "FactorEnd": 0
+                }
+            ],
+            "Target": "source",
+            "Filter": 104
+        },
+        {
+            "AnimationType": 1,
+            "Durations": [
+                {
+                    "StartTime": 38000,
+                    "EndTime": 41000,
+                    "KeepTime": 1500,
+                    "FactorStart": 0,
+                    "FactorEnd": 0.382,
+                    "Factor1Start": 0,
+                    "Factor1End": 0.5
+                }
+            ],
+            "Target": "source",
+            "Filter": 103
+        }
+    ],
+    "Ending": {}
+}

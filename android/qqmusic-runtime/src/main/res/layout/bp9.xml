@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout android:orientation="vertical" android:layout_width="wrap_content" android:layout_height="wrap_content"
+  xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">
+    <com.tencent.qqmusic.fragment.mainpage.DeskPlusTriangleView android:layout_gravity="center" android:id="@id/gb_" android:layout_width="18.0dp" android:layout_height="10.0dp" app:oa="@color/module_live_homepage_guide_bg_color" app:ob="mu_" />
+    <TextView android:textSize="14.0sp" android:textStyle="bold" android:textColor="@color/black" android:gravity="center" android:id="@id/gb9" android:background="@drawable/module_live_homepage_guide_bg" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/c42" />
+</LinearLayout>

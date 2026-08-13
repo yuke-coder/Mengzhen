@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout android:orientation="vertical" android:layout_width="match_parent" android:layout_height="wrap_content"
+  xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">
+    <androidx.constraintlayout.widget.ConstraintLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginBottom="10.0dp">
+        <androidx.constraintlayout.widget.Guideline android:orientation="vertical" android:id="@id/d2c" android:layout_width="0.0dp" android:layout_height="0.0dp" app:a1n="0.25" />
+        <androidx.constraintlayout.widget.Guideline android:orientation="vertical" android:id="@id/d2d" android:layout_width="0.0dp" android:layout_height="0.0dp" app:a1n="0.5" />
+        <androidx.constraintlayout.widget.Guideline android:orientation="vertical" android:id="@id/d2e" android:layout_width="0.0dp" android:layout_height="0.0dp" app:a1n="0.75" />
+        <com.tme.karaoka.previewui.reverb.ReverbItemView android:id="@id/j0o" android:visibility="gone" android:layout_width="0.0dp" android:layout_height="wrap_content" app:a1d="hnz" app:a1u="hmg" app:a1x="hnz" app:a20="@id/d2c" app:a27="hnz" app:a2e="0.22" app:af3="#77ffffff" app:af5="false" />
+        <com.tme.karaoka.previewui.reverb.ReverbItemView android:id="@id/j0p" android:visibility="gone" android:layout_width="0.0dp" android:layout_height="wrap_content" app:a1d="hnz" app:a1y="@id/d2c" app:a20="@id/d2d" app:a27="hnz" app:a2e="0.22" app:af3="#77ffffff" app:af5="false" />
+        <com.tme.karaoka.previewui.reverb.ReverbItemView android:id="@id/j0q" android:visibility="gone" android:layout_width="0.0dp" android:layout_height="wrap_content" app:a1d="hnz" app:a1y="@id/d2d" app:a20="@id/d2e" app:a27="hnz" app:a2e="0.22" app:af3="#77ffffff" app:af5="false" />
+        <com.tme.karaoka.previewui.reverb.ReverbItemView android:id="@id/j0r" android:visibility="gone" android:layout_width="0.0dp" android:layout_height="wrap_content" app:a1d="hnz" app:a1y="@id/d2e" app:a21="hnz" app:a27="hnz" app:a2e="0.22" app:af3="#77ffffff" app:af5="false" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</LinearLayout>

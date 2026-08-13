@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout android:layout_width="match_parent" android:layout_height="wrap_content"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <TextView android:textSize="12.0dp" android:textColor="@color/mlive_item_room_label_unselect_color" android:gravity="center" android:id="@id/mlive_item_room_label_content_tv" android:padding="4.0dp" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_margin="5.0dp" />
+</FrameLayout>

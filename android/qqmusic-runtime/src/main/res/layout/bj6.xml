@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout android:id="@id/mlive_lyric_root_view" android:layout_width="match_parent" android:layout_height="wrap_content"
+  xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">
+    <com.lyricengine.ui.MultiLyricView android:id="@id/mlive_lyric_view" android:scrollbars="none" android:saveEnabled="false" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginLeft="30.0dp" android:layout_marginRight="30.0dp" android:fillViewport="false" android:overScrollMode="never" app:a6i="@color/themeColor" app:a6j="@color/white" app:a6k="#00bbff" app:a6p="@dimen/ath" app:a6q="@dimen/atj" app:a6s="center" app:a6v="@dimen/atl" app:a6w="2" app:a74="3" app:a75="true" app:a76="@color/black_50_transparent" app:a79="3.5" app:a7b="top" />
+</FrameLayout>

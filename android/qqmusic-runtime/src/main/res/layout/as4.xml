@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout android:layout_width="wrap_content" android:layout_height="wrap_content"
+  xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">
+    <androidx.appcompat.widget.AppCompatTextView android:textColor="@color/white" android:id="@id/alm" android:background="@drawable/bg_popup_setting_ringtone_tip" android:paddingLeft="10.0dp" android:paddingTop="6.0dp" android:paddingRight="10.0dp" android:paddingBottom="6.0dp" android:layout_width="match_parent" android:layout_height="wrap_content" android:text="@string/foo" android:drawablePadding="3.0dp" android:drawableEnd="@drawable/preference_arrow_right" android:paddingHorizontal="10.0dp" android:paddingVertical="6.0dp" app:a1j="hnz" app:a23="hnz" app:a27="hnz" />
+    <androidx.appcompat.widget.AppCompatImageView android:id="@id/alg" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginEnd="10.0dp" app:a1d="hnz" app:a1j="hnz" app:a26="@id/alm" app:aj8="@drawable/callout_popup_pointer_green_down" />
+</androidx.constraintlayout.widget.ConstraintLayout>

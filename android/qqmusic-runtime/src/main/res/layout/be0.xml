@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.tme.qqmusic.widget.base.view.CornerConstraintLayout android:gravity="center_vertical" android:orientation="horizontal" android:id="@id/mlive_info_card_item" android:layout_width="90.0dp" android:layout_height="38.0dp" android:layout_marginLeft="2.5dp" android:layout_marginRight="2.5dp" app:lg="7.0dp"
+  xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">
+    <RelativeLayout android:id="@id/mlive_info_card" android:layout_width="90.0dp" android:layout_height="38.0dp">
+        <com.tme.qqmusic.widget.base.view.GlideImageView android:id="@id/mlive_info_card_icon" android:layout_width="28.0dp" android:layout_height="28.0dp" android:layout_centerVertical="true" android:layout_marginStart="3.0dp" android:layout_marginEnd="5.0dp" />
+        <TextView android:textSize="12.0dp" android:textColor="@color/white" android:ellipsize="end" android:id="@id/mlive_info_card_title" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="5.0dp" android:text="@string/d6d" android:maxLines="1" android:includeFontPadding="false" android:layout_toEndOf="@id/mlive_info_card_icon" />
+        <TextView android:textSize="10.0dp" android:textColor="@color/white" android:ellipsize="end" android:id="@id/mlive_info_card_desc" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="24人" android:maxLines="1" android:includeFontPadding="false" android:layout_below="@id/mlive_info_card_title" android:layout_toEndOf="@id/mlive_info_card_icon" />
+    </RelativeLayout>
+    <RelativeLayout android:id="@id/mlive_info_card_reverse" android:visibility="gone" android:layout_width="match_parent" android:layout_height="match_parent">
+        <com.tme.qqmusic.widget.base.view.CornerConstraintLayout android:id="@id/mlive_info_card_reverse_progress" android:layout_width="50.0dp" android:layout_height="match_parent" app:lm="7.0dp" />
+        <TextView android:textSize="10.0dp" android:textColor="@color/white" android:ellipsize="end" android:id="@id/mlive_info_card_reverse_title" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="5.0dp" android:text="@string/d6f" android:maxLines="1" android:layout_marginStart="12.5dp" />
+        <TextView android:textSize="10.0dp" android:textColor="@color/white" android:ellipsize="end" android:id="@id/mlive_info_card_reverse_desc" android:layout_width="wrap_content" android:layout_height="wrap_content" android:maxLines="1" android:layout_below="@id/mlive_info_card_reverse_title" android:layout_alignStart="@id/mlive_info_card_reverse_title" />
+    </RelativeLayout>
+</com.tme.qqmusic.widget.base.view.CornerConstraintLayout>

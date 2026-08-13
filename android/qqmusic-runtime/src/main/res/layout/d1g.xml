@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout android:id="@id/da_" android:background="@color/transparent" android:layout_width="match_parent" android:layout_height="match_parent"
+  xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">
+    <com.tme.lib_webcontain_core.widget.RoundedLayout android:id="@id/dab" android:background="@color/transparent" android:layout_width="match_parent" android:layout_height="wrap_content" app:a1d="hnz" app:adl="5.0dp">
+        <FrameLayout android:id="@id/daf" android:layout_width="match_parent" android:layout_height="match_parent" />
+    </com.tme.lib_webcontain_core.widget.RoundedLayout>
+    <ImageView android:id="@id/b3d" android:focusable="true" android:visibility="gone" android:clickable="true" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="40.0dp" android:src="@drawable/web_circle_close_btn" app:a1d="hnz" app:a1j="hnz" app:a23="hnz" />
+    <FrameLayout android:id="@id/half_webview_top_layer" android:layout_width="match_parent" android:layout_height="match_parent" />
+</androidx.constraintlayout.widget.ConstraintLayout>

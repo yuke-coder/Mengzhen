@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout android:background="@drawable/bg_black_80" android:clipChildren="false" android:layout_width="match_parent" android:layout_height="match_parent"
+  xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">
+    <com.tencent.qqmusic.ui.RoundedRelativeLayout android:id="@id/bds" android:layout_width="wrap_content" android:layout_height="wrap_content" app:a1d="hnz" app:a1x="hnz" app:a21="hnz" app:a27="hnz">
+        <ImageView android:id="@id/aai" android:layout_width="0.0dp" android:layout_height="0.0dp" />
+    </com.tencent.qqmusic.ui.RoundedRelativeLayout>
+    <LinearLayout android:orientation="vertical" android:clipChildren="false" android:layout_width="match_parent" android:layout_height="match_parent" app:a1x="hnz" app:a21="hnz">
+        <androidx.recyclerview.widget.RecyclerView android:layout_gravity="center_horizontal" android:id="@id/aaj" android:layout_width="match_parent" android:layout_height="wrap_content" />
+    </LinearLayout>
+    <androidx.constraintlayout.widget.Guideline android:orientation="horizontal" android:id="@id/amj" android:layout_width="wrap_content" android:layout_height="wrap_content" app:a1n="0.788" />
+    <androidx.constraintlayout.widget.Guideline android:orientation="horizontal" android:id="@id/b3n" android:layout_width="wrap_content" android:layout_height="wrap_content" app:a1n="0.864" />
+    <LinearLayout android:orientation="horizontal" android:id="@id/amd" android:layout_width="wrap_content" android:layout_height="30.0dp" app:a1d="@id/amj" app:a1x="hnz" app:a21="hnz" app:a27="@id/amj">
+        <LinearLayout android:orientation="horizontal" android:id="@id/jgb" android:background="@drawable/bg_player_3d_lyric_page_button" android:paddingLeft="20.0dp" android:paddingRight="20.0dp" android:layout_width="wrap_content" android:layout_height="match_parent" android:contentDescription="@string/gi3" android:paddingHorizontal="20.0dp">
+            <TextView android:textSize="14.0sp" android:textColor="#ffffff" android:layout_gravity="center_vertical" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/gi3" />
+        </LinearLayout>
+        <LinearLayout android:orientation="horizontal" android:id="@id/itk" android:background="@drawable/bg_player_3d_lyric_page_button" android:paddingLeft="20.0dp" android:paddingRight="20.0dp" android:layout_width="wrap_content" android:layout_height="match_parent" android:layout_marginLeft="15.0dp" android:contentDescription="@string/g6t" android:paddingHorizontal="20.0dp">
+            <TextView android:textSize="14.0sp" android:textColor="#ffffff" android:layout_gravity="center_vertical" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/g6t" />
+        </LinearLayout>
+    </LinearLayout>
+    <ImageView android:id="@id/b3d" android:layout_width="30.0dp" android:layout_height="30.0dp" android:src="@drawable/player_3d_lyric_book_close" android:contentDescription="@string/a7j" app:a1d="@id/b3n" app:a1x="hnz" app:a21="hnz" app:a27="@id/b3n" />
+</androidx.constraintlayout.widget.ConstraintLayout>

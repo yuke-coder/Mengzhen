@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout android:gravity="center_vertical" android:orientation="horizontal" android:id="@id/eym" android:paddingBottom="@dimen/sh" android:layout_width="match_parent" android:layout_height="wrap_content"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <FrameLayout android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginLeft="@dimen/s8">
+        <androidx.appcompat.widget.AppCompatImageView android:id="@id/e66" android:layout_width="42.0dp" android:layout_height="34.0dp" />
+        <androidx.appcompat.widget.AppCompatImageView android:layout_gravity="center" android:id="@id/e3y" android:layout_width="16.0dp" android:layout_height="16.0dp" android:scaleType="centerCrop" />
+    </FrameLayout>
+    <TextView android:textSize="15.0dp" android:textColor="@color/skin_text_main_color" android:ellipsize="end" android:id="@id/mmd" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginLeft="8.0dp" android:maxLines="1" />
+    <Space android:layout_width="0.0dp" android:layout_height="1.0dp" android:layout_weight="1.0" />
+    <androidx.appcompat.widget.AppCompatImageView android:id="@id/eko" android:layout_width="30.0dp" android:layout_height="30.0dp" android:layout_marginRight="20.0dp" android:src="@drawable/common_list_header_mutilchoose" android:scaleType="fitXY" />
+</LinearLayout>

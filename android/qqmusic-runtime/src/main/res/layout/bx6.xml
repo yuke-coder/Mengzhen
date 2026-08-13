@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout android:orientation="vertical" android:id="@id/kxy" android:background="#b3151515" android:layout_width="match_parent" android:layout_height="wrap_content" android:paddingStart="20.0dp"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <TextView android:textColor="@color/white" android:gravity="center_vertical" android:id="@id/gvt" android:paddingTop="14.0dp" android:paddingBottom="14.0dp" android:layout_width="wrap_content" android:layout_height="wrap_content" android:maxLines="1" />
+    <androidx.recyclerview.widget.RecyclerView android:orientation="horizontal" android:id="@id/gvs" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_below="@id/gvt" />
+    <TextView android:textColor="@color/white" android:gravity="center_vertical" android:id="@id/gvv" android:paddingTop="14.0dp" android:paddingBottom="14.0dp" android:layout_width="wrap_content" android:layout_height="wrap_content" android:maxLines="1" />
+    <androidx.recyclerview.widget.RecyclerView android:orientation="horizontal" android:id="@id/gvu" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_below="@id/gvv" />
+    <TextView android:textColor="@color/white" android:gravity="center_vertical" android:id="@id/gw8" android:paddingTop="14.0dp" android:paddingBottom="14.0dp" android:layout_width="wrap_content" android:layout_height="wrap_content" android:maxLines="1" />
+    <androidx.recyclerview.widget.RecyclerView android:orientation="horizontal" android:id="@id/gw7" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_below="@id/gw8" />
+</LinearLayout>

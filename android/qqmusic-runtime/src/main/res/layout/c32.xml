@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout android:clipChildren="true" android:layout_width="match_parent" android:layout_height="match_parent"
+  xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">
+    <FrameLayout android:id="@id/ciu" android:layout_width="match_parent" android:layout_height="match_parent" app:a1j="hnz" app:a23="hnz" app:a27="hnz">
+        <com.tencent.qqmusic.business.playernew.view.playersong.definedplayer.square.immersive.EdgeTransparentView android:layout_gravity="center|top" android:id="@id/cit" android:layout_width="0.0dp" android:layout_height="0.0dp" app:p5="aax">
+            <ImageView android:layout_gravity="center|top" android:id="@id/bm4" android:layout_width="match_parent" android:layout_height="match_parent" android:scaleType="centerCrop" />
+            <ViewStub android:layout_gravity="center|top" android:id="@id/nff" android:layout="@layout/b16" android:inflatedId="@id/jaz" android:layout_width="match_parent" android:layout_height="match_parent" />
+            <ViewStub android:layout_gravity="center|top" android:id="@id/nfe" android:layout="@layout/b15" android:inflatedId="@id/jax" android:layout_width="match_parent" android:layout_height="match_parent" />
+            <com.tencent.qqmusic.business.playernew.view.playersong.definedplayer.personalradio.CustomAlphaImageView android:layout_gravity="center|top" android:id="@id/bm2" android:visibility="gone" android:layout_width="match_parent" android:layout_height="match_parent" android:scaleType="centerCrop" app:bi="lv0" app:pr="0.3641" app:ala="0.0971" />
+        </com.tencent.qqmusic.business.playernew.view.playersong.definedplayer.square.immersive.EdgeTransparentView>
+    </FrameLayout>
+    <FrameLayout android:id="@id/cia" android:layout_width="match_parent" android:layout_height="match_parent" app:a1j="hnz" app:a23="hnz" app:a27="hnz">
+        <ImageView android:id="@id/bm5" android:layout_width="match_parent" android:layout_height="wrap_content" android:scaleType="centerCrop" android:alpha="0.0" />
+    </FrameLayout>
+    <ImageView android:id="@id/bmb" android:layout_width="match_parent" android:layout_height="0.0dp" android:scaleType="fitXY" app:a1i="H,195:70" app:a1j="hnz" app:a23="hnz" app:a27="hnz" />
+    <androidx.constraintlayout.widget.Guideline android:orientation="horizontal" android:id="@id/bm8" android:layout_width="match_parent" android:layout_height="wrap_content" app:a1n="0.41" />
+    <com.tencent.qqmusic.business.playernew.view.playersong.definedplayer.square.immersive.EdgeTransparentView android:id="@id/bm3" android:layout_width="match_parent" android:layout_height="0.0dp" app:p5="lv0" app:p6="0.0dp" app:a1d="hnz" app:a1j="hnz" app:a23="hnz" app:a27="@id/bm8">
+        <ImageView android:layout_gravity="center_horizontal" android:id="@id/bm7" android:layout_width="match_parent" android:layout_height="match_parent" android:scaleType="centerCrop" android:scaleX="-1.0" android:rotation="180.0" />
+        <View android:id="@id/bma" android:background="@color/white" android:visibility="gone" android:layout_width="match_parent" android:layout_height="match_parent" />
+    </com.tencent.qqmusic.business.playernew.view.playersong.definedplayer.square.immersive.EdgeTransparentView>
+    <ImageView android:id="@id/bm9" android:layout_width="match_parent" android:layout_height="0.0dp" android:scaleType="fitXY" app:a1d="hnz" app:a1j="hnz" app:a23="hnz" app:a27="@id/bm3" />
+    <ImageView android:id="@id/bm_" android:visibility="gone" android:layout_width="0.0dp" android:layout_height="0.0dp" android:src="@color/black" android:alpha="0.4" app:a1d="hnz" app:a1j="hnz" app:a23="hnz" app:a27="hnz" />
+</androidx.constraintlayout.widget.ConstraintLayout>

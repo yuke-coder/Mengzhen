@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout android:gravity="center" android:orientation="vertical" android:background="@color/transparent" android:layout_width="@dimen/biz" android:layout_height="wrap_content"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <LinearLayout android:orientation="vertical" android:id="@id/hm8" android:focusable="true" android:layout_width="@dimen/biz" android:layout_height="wrap_content">
+        <View android:background="@drawable/rounded_dialog_top_background" android:layout_width="match_parent" android:layout_height="4.0dp" />
+        <com.tencent.qqmusic.ui.XQJustifyTextView android:textSize="15.0sp" android:textColor="@color/dialog_text_color" android:gravity="start" android:id="@id/g66" android:background="@color/common_dialog_background_color" android:paddingLeft="@dimen/q0" android:paddingTop="@dimen/q2" android:paddingRight="@dimen/q0" android:paddingBottom="17.0dp" android:scrollbars="none" android:layout_width="match_parent" android:layout_height="wrap_content" android:text="@string/i7y" android:maxLines="4" android:lineSpacingExtra="5.0dp" android:textAlignment="textStart" style="@style/a3d" />
+        <LinearLayout android:orientation="horizontal" android:id="@id/axh" android:background="@color/common_dialog_background_color" android:paddingLeft="@dimen/q0" android:paddingRight="@dimen/q0" android:paddingBottom="@dimen/q1" android:visibility="gone" android:layout_width="match_parent" android:layout_height="wrap_content">
+            <CheckBox android:textSize="@dimen/kz" android:textColor="@color/dialog_text_color" android:layout_gravity="center_vertical" android:id="@id/ax5" android:background="@drawable/dialog_edit_checkbox" android:focusableInTouchMode="false" android:layout_width="14.0dp" android:layout_height="14.0dp" android:checked="false" android:button="@null" />
+            <TextView android:textSize="@dimen/kz" android:textColor="@color/black_60_transparent" android:gravity="center_vertical" android:id="@id/ax6" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginLeft="10.0dp" android:text="@string/i7w" style="@style/a3d" />
+        </LinearLayout>
+        <include layout="@layout/m7" />
+        <TextView android:textSize="15.0sp" android:textColor="@color/common_dialog_button_text_color" android:ellipsize="end" android:gravity="center" android:id="@id/lnx" android:background="@drawable/control_btn_bottom" android:fadingEdge="horizontal" android:layout_width="match_parent" android:layout_height="@dimen/biv" android:maxWidth="@dimen/biz" android:minWidth="@dimen/biu" android:text="@string/i7x" android:singleLine="true" />
+        <include layout="@layout/m7" />
+        <TextView android:textSize="15.0sp" android:textColor="@color/black" android:ellipsize="end" android:gravity="center" android:id="@id/g84" android:background="@drawable/control_btn_bottom" android:fadingEdge="horizontal" android:layout_width="match_parent" android:layout_height="@dimen/biv" android:maxWidth="@dimen/biz" android:minWidth="@dimen/biu" android:text="@string/i7v" android:singleLine="true" />
+        <include layout="@layout/m7" />
+        <TextView android:textSize="15.0sp" android:textColor="@color/black" android:ellipsize="end" android:gravity="center" android:id="@id/lny" android:background="@drawable/control_btn_bottom_rounded" android:fadingEdge="horizontal" android:layout_width="match_parent" android:layout_height="@dimen/biv" android:maxWidth="@dimen/biz" android:minWidth="@dimen/biu" android:text="@string/a_6" android:singleLine="true" />
+    </LinearLayout>
+</LinearLayout>

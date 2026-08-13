@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout android:id="@id/jd7" android:background="@color/ss_all_effect_bg_color" android:layout_width="match_parent" android:layout_height="match_parent"
+  xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">
+    <ImageView android:id="@id/bzu" android:background="@color/white_10_transparent" android:layout_width="match_parent" android:layout_height="80.0dp" app:a1j="hnz" app:a1t="0.0" app:a23="hnz" app:a26="@id/f02" />
+    <ImageView android:id="@id/bhn" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="12.0dp" android:src="@drawable/ear_earscan_finish" app:a1k="@id/bhp" app:a1u="hmg" app:a23="hnz" app:a27="@id/bzu" />
+    <ImageView android:id="@id/bhp" android:layout_width="100.0dp" android:layout_height="1.0dp" android:layout_marginLeft="19.0dp" android:layout_marginRight="19.0dp" android:src="@drawable/ss_ear_scan_gap" android:layout_marginStart="19.0dp" android:layout_marginEnd="19.0dp" app:a1d="@id/bhn" app:a1k="@id/bhq" app:a22="@id/bhn" app:a27="@id/bhn" />
+    <ImageView android:id="@id/bhq" android:layout_width="wrap_content" android:layout_height="wrap_content" android:src="@drawable/ear_earscan_two_highlight" app:a1j="hnz" app:a22="@id/bhp" app:a27="@id/bhn" />
+    <TextView android:textSize="13.0sp" android:textColor="@color/ss_highlight_color" android:id="@id/bho" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="8.0dp" android:text="@string/hqm" app:a1j="@id/bhn" app:a23="@id/bhn" app:a26="@id/bhn" />
+    <TextView android:textSize="13.0sp" android:textColor="@color/ss_highlight_color" android:id="@id/bhr" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="8.0dp" android:text="@string/hpu" app:a1j="@id/bhq" app:a23="@id/bhq" app:a26="@id/bhq" />
+    <FrameLayout android:id="@id/bh0" android:layout_width="match_parent" android:layout_height="0.0dp" app:a1d="hnz" app:a1j="hnz" app:a23="hnz" app:a26="@id/bzu" />
+    <RelativeLayout android:state_window_focused="false" android:id="@id/f02" android:background="@color/white_10_transparent" android:paddingTop="@dimen/c_q" android:layout_width="match_parent" android:layout_height="@dimen/cau" app:a1j="hnz" app:a23="hnz" app:a27="hnz">
+        <RelativeLayout android:clickable="false" android:layout_width="match_parent" android:layout_height="match_parent" android:layout_marginTop="4.0dp" android:layout_marginRight="4.0dp" android:layout_marginBottom="2.0dp" android:layout_alignParentLeft="true">
+            <ImageView android:id="@id/a5j" android:background="@drawable/material_ripple_background_circle" android:focusable="true" android:layout_width="@dimen/can" android:layout_height="@dimen/can" android:src="@drawable/activity_back_selector_white" android:scaleType="centerInside" android:layout_centerVertical="true" android:contentDescription="@string/wf" />
+            <TextView android:textSize="18.0sp" android:textStyle="bold" android:textColor="@color/white" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/htg" android:layout_centerInParent="true" />
+            <ImageView android:id="@id/bh1" android:focusable="true" android:layout_width="wrap_content" android:layout_height="wrap_content" android:src="@drawable/custom_help" android:layout_centerVertical="true" android:layout_marginEnd="10.0dp" android:layout_alignParentEnd="true" />
+        </RelativeLayout>
+    </RelativeLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>

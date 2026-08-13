@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout android:layout_width="match_parent" android:layout_height="wrap_content" app:a1d="hnz" app:a1j="hnz" app:a23="hnz" app:a27="hnz"
+  xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">
+    <com.tencent.qqmusic.ui.RoundedConstraintLayout android:id="@id/eqe" android:background="@color/white" android:layout_width="250.0dp" android:layout_height="wrap_content" app:kj="5.0dp" app:a1j="hnz" app:a23="hnz" app:a27="hnz">
+        <TextView android:textSize="16.0sp" android:textStyle="bold" android:textColor="#1a1a1a" android:id="@id/kx_" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="27.0dp" android:text="@string/hlu" app:a1j="hnz" app:a23="hnz" app:a27="hnz" />
+        <TextView android:textSize="14.0sp" android:textColor="#1a1a1a" android:id="@id/kx9" android:layout_width="0.0dp" android:layout_height="wrap_content" android:layout_marginTop="20.0dp" android:layout_marginStart="16.0dp" android:layout_marginEnd="16.0dp" app:a1j="hnz" app:a23="hnz" app:a26="@id/kx_" />
+        <com.tencent.qqmusic.ui.RoundedRelativeLayout android:id="@id/kx5" android:background="#3ce68e" android:layout_width="196.0dp" android:layout_height="35.0dp" android:layout_marginTop="20.0dp" android:layout_marginBottom="20.0dp" app:a1d="hnz" app:a1j="hnz" app:a23="hnz" app:a26="@id/kx9" app:ado="15.0dp">
+            <TextView android:textSize="15.0sp" android:textStyle="bold" android:textColor="@color/white" android:gravity="center" android:id="@id/kx4" android:layout_width="wrap_content" android:layout_height="match_parent" android:text="@string/f2n" android:includeFontPadding="false" android:layout_centerInParent="true" />
+        </com.tencent.qqmusic.ui.RoundedRelativeLayout>
+    </com.tencent.qqmusic.ui.RoundedConstraintLayout>
+    <ImageView android:id="@id/kx7" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="25.0dp" android:src="@drawable/close_ksing_choose" android:contentDescription="@string/a7j" app:a1j="hnz" app:a23="hnz" app:a26="@id/eqe" />
+</androidx.constraintlayout.widget.ConstraintLayout>

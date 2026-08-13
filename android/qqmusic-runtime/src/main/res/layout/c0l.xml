@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout android:layout_width="0.0dp" android:layout_height="wrap_content"
+  xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">
+    <androidx.appcompat.widget.AppCompatTextView android:textSize="11.0dp" android:textColor="@color/skin_text_mid_color" android:id="@id/myz" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/ins" android:layout_marginEnd="3.0dp" app:a1d="hnz" app:a1j="hnz" />
+    <com.tencent.component.widget.AsyncImageView android:id="@id/mys" android:layout_width="20.0dp" android:layout_height="20.0dp" android:layout_marginBottom="1.0dp" android:src="@drawable/user_info_rt_icon_default" app:a1e="@id/myz" app:a1j="hnz" app:a27="hnz" />
+    <com.tencent.qqmusic.fragment.mymusic.userinfo.RollingTextView android:id="@id/myy" android:layout_width="@dimen/cd0" android:layout_height="wrap_content" app:a1d="@id/mys" app:a1k="@id/mys" app:a27="@id/mys" app:afn="1000" app:afo="c7u|auo" app:afp="@string/inr" app:afq="@color/skin_text_main_color" app:afr="16.0dp" />
+</androidx.constraintlayout.widget.ConstraintLayout>

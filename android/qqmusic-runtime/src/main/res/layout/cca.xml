@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.tencent.qqmusic.ui.RoundedConstraintLayout android:id="@id/ath" android:background="@drawable/putoo_recommend_item_bg" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginLeft="16.0dp" android:layout_marginRight="16.0dp" android:layout_marginBottom="8.0dp" app:kh="true" app:ki="fwy|je9|ezp|isw" app:kj="@dimen/bm"
+  xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">
+    <include android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginLeft="16.0dp" android:layout_marginTop="14.0dp" android:layout_marginRight="16.0dp" app:a1x="hnz" app:a21="hnz" app:a27="hnz" layout="@layout/cce" />
+    <androidx.recyclerview.widget.RecyclerView android:id="@id/d39" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginLeft="16.0dp" android:layout_marginTop="10.0dp" android:layout_marginRight="16.0dp" android:layout_marginBottom="14.0dp" app:a1d="hnz" app:a1x="hnz" app:a21="hnz" app:a26="@id/mz1" />
+</com.tencent.qqmusic.ui.RoundedConstraintLayout>

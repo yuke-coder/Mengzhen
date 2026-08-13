@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout android:id="@id/mlive_ugc_background_container" android:layout_width="match_parent" android:layout_height="match_parent"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <com.tme.qqmusic.widget.base.view.GlideImageView android:id="@id/mlive_ugc_background_iv" android:visibility="gone" android:layout_width="match_parent" android:layout_height="match_parent" android:scaleType="centerCrop" />
+    <com.tme.mlive.ui.custom.LiveFullVideoView android:id="@id/mlive_ugc_video_background_vi" android:visibility="gone" android:layout_width="match_parent" android:layout_height="match_parent" />
+    <View android:layout_gravity="top" android:background="@drawable/mlive_black_gradient_bg" android:layout_width="match_parent" android:layout_height="305.0dp" />
+    <View android:layout_gravity="bottom" android:background="@drawable/mlive_black_gradient_bg" android:layout_width="match_parent" android:layout_height="305.0dp" android:rotation="180.0" />
+</FrameLayout>

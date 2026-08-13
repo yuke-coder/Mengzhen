@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout android:id="@id/ber" android:background="@color/desk_lyric_bg_transparent" android:visibility="visible" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_alignWithParentIfMissing="true"
+  xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">
+    <androidx.constraintlayout.widget.ConstraintLayout android:id="@id/bui" android:layout_width="match_parent" android:layout_height="wrap_content" app:a1e="@id/bnj" app:a1x="hnz" app:a21="hnz" app:a27="hnz">
+        <ImageView android:id="@id/by5" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginLeft="9.0dp" android:layout_marginTop="1.0dp" android:src="@drawable/lyric_logo" app:a1x="hnz" app:a27="hnz" />
+        <ImageView android:id="@id/fjs" android:layout_width="30.0dp" android:layout_height="30.0dp" android:src="@drawable/tablelyric_icon_lock" android:scaleType="centerCrop" app:a1d="hnz" app:a20="@id/b3u" app:a27="hnz" />
+        <ImageView android:id="@id/b3u" android:layout_width="30.0dp" android:layout_height="30.0dp" android:src="@drawable/lycancel_btn" android:scaleType="centerCrop" app:a1d="hnz" app:a21="hnz" app:a27="hnz" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+    <androidx.constraintlayout.widget.ConstraintLayout android:id="@id/bnj" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginLeft="37.0dp" android:layout_marginTop="34.0dp" android:layout_marginRight="37.0dp" app:a1x="hnz" app:a21="hnz" app:a27="hnz">
+        <com.lyricengine.ui.doublelyric.DoubleLyricView20 android:id="@id/bv9" android:layout_width="match_parent" android:layout_height="wrap_content" app:a27="hnz" app:a6i="@color/desk_lyric_high_color" app:a6j="@color/desk_lyric_text_color" app:a6n="true" app:a6q="@dimen/pc" app:a6v="@dimen/pa" app:a6x="优化双行歌词" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+    <androidx.constraintlayout.widget.ConstraintLayout android:id="@id/bao" android:visibility="visible" android:layout_width="match_parent" android:layout_height="62.0dp" app:a1x="hnz" app:a21="hnz" app:a26="@id/bnj">
+        <com.airbnb.lottie.LottieAnimationView android:id="@id/b4t" android:layout_width="48.0dp" android:layout_height="48.0dp" android:scaleType="fitCenter" app:a1d="hnz" app:a21="hnz" app:a27="hnz" app:a4s="lottie/collect_button_guide.json" />
+        <ImageView android:id="@id/b4y" android:layout_width="30.0dp" android:layout_height="30.0dp" android:layout_marginRight="9.0dp" android:src="@drawable/tablelyric_icon_like" android:scaleType="centerCrop" app:a1d="hnz" app:a21="hnz" app:a27="hnz" />
+        <ImageView android:id="@id/b5m" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginLeft="9.0dp" android:src="@drawable/lyskin_btn" app:a1d="hnz" app:a1x="hnz" app:a27="hnz" />
+        <ImageView android:id="@id/bas" android:layout_width="wrap_content" android:layout_height="wrap_content" android:src="@drawable/lyric_playbutton" app:a1d="hnz" app:a1x="hnz" app:a21="hnz" app:a27="hnz" />
+        <ImageView android:id="@id/bau" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginRight="23.0dp" android:src="@drawable/lyric_pervious_playbutton" app:a1d="hnz" app:a20="@id/bas" app:a27="hnz" />
+        <ImageView android:id="@id/bar" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginLeft="23.0dp" android:src="@drawable/lyric_next_playbutton" app:a1d="hnz" app:a1y="@id/bas" app:a27="hnz" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+    <LinearLayout android:gravity="center_vertical" android:orientation="horizontal" android:id="@id/b5h" android:paddingBottom="5.0dp" android:visibility="gone" android:layout_width="match_parent" android:layout_height="40.0dp" app:a26="@id/bao">
+        <View android:layout_width="17.5dp" android:layout_height="match_parent" android:layout_weight="1.0" />
+        <ImageButton android:id="@id/b52" android:tag="Green" android:background="@drawable/skin_green" android:layout_width="22.0dp" android:layout_height="22.0dp" />
+        <View android:layout_width="22.0dp" android:layout_height="match_parent" android:layout_weight="1.0" />
+        <ImageButton android:id="@id/b53" android:tag="Orange" android:background="@drawable/skin_orange" android:layout_width="22.0dp" android:layout_height="22.0dp" />
+        <View android:layout_width="22.0dp" android:layout_height="match_parent" android:layout_weight="1.0" />
+        <ImageButton android:id="@id/b54" android:tag="LightBlue" android:background="@drawable/skin_blue" android:layout_width="22.0dp" android:layout_height="22.0dp" />
+        <View android:layout_width="22.0dp" android:layout_height="match_parent" android:layout_weight="1.0" />
+        <ImageButton android:id="@id/b55" android:tag="Purple" android:background="@drawable/skin_purple" android:layout_width="22.0dp" android:layout_height="22.0dp" />
+        <View android:layout_width="22.0dp" android:layout_height="match_parent" android:layout_weight="1.0" />
+        <ImageButton android:id="@id/b56" android:tag="Pink" android:background="@drawable/skin_pink" android:layout_width="22.0dp" android:layout_height="22.0dp" />
+        <View android:layout_width="17.0dp" android:layout_height="match_parent" android:layout_weight="1.0" />
+        <ImageView android:id="@id/by3" android:padding="5.0dp" android:layout_width="wrap_content" android:layout_height="wrap_content" android:src="@drawable/text_size_add_selector_two" />
+        <View android:layout_width="12.0dp" android:layout_height="match_parent" android:layout_weight="1.0" />
+        <ImageView android:id="@id/by4" android:padding="5.0dp" android:layout_width="wrap_content" android:layout_height="wrap_content" android:src="@drawable/text_size_reduce_selector_two" />
+        <View android:layout_width="12.5dp" android:layout_height="match_parent" android:layout_weight="1.0" />
+    </LinearLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>

@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout android:background="@drawable/main_bg" android:layout_width="match_parent" android:layout_height="match_parent" android:layerType="software"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <include android:id="@id/lv1" android:layout_width="match_parent" android:layout_height="@dimen/cau" android:layout_alignParentTop="true" layout="@layout/mu" />
+    <RelativeLayout android:id="@id/jmo" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_below="@id/lv1">
+        <RelativeLayout android:id="@id/kfr" android:layout_width="match_parent" android:layout_height="40.0dp" android:layout_marginLeft="12.0dp" android:layout_marginTop="12.0dp" android:layout_marginRight="12.0dp">
+            <EditText android:textSize="16.0sp" android:textColor="@color/skin_text_main_color" android:ellipsize="end" android:id="@id/kfl" android:background="@drawable/search_item_bg" android:paddingLeft="@dimen/tk" android:focusable="true" android:layout_width="match_parent" android:layout_height="match_parent" android:text="song_name_input_edittextsong_name_input_edittextsong_name_input_edittext" android:singleLine="true" android:imeOptions="actionDone" style="@style/a3d" />
+            <TextView android:textSize="16.0sp" android:textColor="@color/skin_text_main_color" android:id="@id/kft" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginLeft="12.0dp" android:text="歌名:" android:singleLine="true" android:layout_centerVertical="true" />
+        </RelativeLayout>
+        <LinearLayout android:id="@id/k5h" android:layout_width="match_parent" android:layout_height="40.0dp" android:layout_marginLeft="12.0dp" android:layout_marginTop="10.0dp" android:layout_marginRight="12.0dp" android:layout_marginBottom="14.0dp" android:layout_below="@id/kfr">
+            <RelativeLayout android:id="@id/k5d" android:layout_width="wrap_content" android:layout_height="match_parent" android:layout_weight="1.0">
+                <EditText android:textSize="16.0sp" android:textColor="@color/skin_text_main_color" android:ellipsize="end" android:id="@id/k5c" android:background="@drawable/search_item_bg" android:paddingLeft="@dimen/tk" android:focusable="true" android:layout_width="match_parent" android:layout_height="wrap_content" android:text="singer_name_input_edittext" android:singleLine="true" android:imeOptions="actionDone" style="@style/a3d" />
+                <TextView android:textSize="16.0sp" android:textColor="@color/skin_text_main_color" android:id="@id/k5j" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginLeft="12.0dp" android:text="歌手:" android:singleLine="true" android:layout_centerVertical="true" />
+            </RelativeLayout>
+            <ImageButton android:id="@id/jk2" android:background="@null" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginLeft="12.0dp" android:src="@drawable/search_button_xml" android:scaleType="centerCrop" />
+        </LinearLayout>
+    </RelativeLayout>
+    <ImageView android:id="@id/jnh" android:background="@drawable/z_color_l1" android:layout_width="match_parent" android:layout_height="1.0px" android:layout_marginTop="14.0dp" android:scaleType="fitXY" android:layout_below="@id/jmo" />
+    <RelativeLayout android:id="@id/jng" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_below="@id/jnh">
+        <TextView android:textSize="16.0sp" android:textColor="@color/skin_text_sub_color" android:gravity="center" android:id="@id/la3" android:layout_width="wrap_content" android:layout_height="56.0dp" android:singleLine="true" android:layout_centerHorizontal="true" />
+        <TextView android:textSize="13.5sp" android:gravity="center" android:id="@id/bf4" android:visibility="gone" android:layout_width="wrap_content" android:layout_height="56.0dp" android:text="" android:singleLine="true" android:layout_alignParentBottom="true" android:layout_centerHorizontal="true" />
+        <RelativeLayout android:id="@id/nf6" android:layout_width="match_parent" android:layout_height="56.0dp" android:layout_alignParentBottom="true">
+            <com.tencent.qqmusic.ui.ViewPagerCircleIndicator android:id="@id/nf5" android:layout_width="match_parent" android:layout_height="36.0dp" android:layout_alignParentTop="true" />
+        </RelativeLayout>
+        <androidx.viewpager.widget.ViewPager android:layout_gravity="center" android:id="@id/fym" android:clipChildren="false" android:layout_width="match_parent" android:layout_height="match_parent" android:layout_marginLeft="@dimen/cea" android:layout_marginRight="@dimen/cea" android:layout_above="@id/nf6" android:layout_below="@id/la3" android:layout_centerHorizontal="true" />
+    </RelativeLayout>
+    <RelativeLayout android:id="@id/jnw" android:visibility="gone" android:layout_width="match_parent" android:layout_height="match_parent" android:layout_below="@id/jnh">
+        <RelativeLayout android:id="@id/ii4" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_centerInParent="true">
+            <ProgressBar android:layout_gravity="center" android:id="@id/ih6" android:visibility="gone" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginLeft="5.0dp" android:layout_marginRight="5.0dp" android:indeterminate="true" android:indeterminateOnly="true" android:indeterminateDrawable="@drawable/icn_loading_indicator" android:indeterminateDuration="2000" android:layout_centerVertical="true" />
+            <TextView android:textSize="18.0sp" android:textColor="@color/skin_text_main_color" android:ellipsize="end" android:gravity="center" android:id="@id/jnu" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/coh" android:singleLine="true" android:layout_toRightOf="@id/ih6" android:layout_centerVertical="true" />
+        </RelativeLayout>
+        <TextView android:textSize="14.0sp" android:textColor="@color/skin_text_sub_color" android:ellipsize="end" android:gravity="center" android:id="@id/jnv" android:layout_width="match_parent" android:layout_height="wrap_content" android:text="@string/cob" android:singleLine="true" android:layout_below="@id/ii4" android:layout_centerHorizontal="true" />
+    </RelativeLayout>
+    <ImageView android:id="@id/jni" android:background="#80000000" android:visibility="gone" android:layout_width="match_parent" android:layout_height="match_parent" android:scaleType="fitXY" android:layout_below="@id/jnh" />
+</RelativeLayout>

@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout android:gravity="center_vertical" android:orientation="horizontal" android:background="?android:selectableItemBackground" android:layout_width="match_parent" android:layout_height="56.0dp" android:paddingStart="20.0dp" android:paddingEnd="20.0dp"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <TextView android:textSize="15.0sp" android:textColor="@color/white" android:ellipsize="end" android:id="@id/me6" android:layout_width="0.0dp" android:layout_height="wrap_content" android:text="不喜欢歌曲：听妈妈的话" android:maxLines="1" android:layout_weight="1.0" />
+</LinearLayout>

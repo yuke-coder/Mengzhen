@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout android:layout_width="match_parent" android:layout_height="match_parent"
+  xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">
+    <androidx.constraintlayout.widget.Guideline android:orientation="vertical" android:id="@id/ni2" android:layout_width="wrap_content" android:layout_height="wrap_content" app:a1n="0.333" />
+    <androidx.constraintlayout.widget.Guideline android:orientation="vertical" android:id="@id/ni3" android:layout_width="wrap_content" android:layout_height="wrap_content" app:a1n="0.666" />
+    <androidx.constraintlayout.widget.Guideline android:orientation="horizontal" android:id="@id/nhz" android:layout_width="wrap_content" android:layout_height="wrap_content" app:a1n="0.25" />
+    <androidx.constraintlayout.widget.Guideline android:orientation="horizontal" android:id="@id/ni0" android:layout_width="wrap_content" android:layout_height="wrap_content" app:a1n="0.5" />
+    <androidx.constraintlayout.widget.Guideline android:orientation="horizontal" android:id="@id/ni1" android:layout_width="wrap_content" android:layout_height="wrap_content" app:a1n="0.75" />
+    <com.tencent.component.widget.AsyncEffectImageView android:id="@id/ni4" android:layout_width="0.0dp" android:layout_height="0.0dp" android:scaleType="centerCrop" app:a1d="@id/ni0" app:a1j="@id/ni3" app:a23="hnz" app:a27="hnz" />
+    <com.tencent.component.widget.AsyncEffectImageView android:id="@id/ni5" android:layout_width="0.0dp" android:layout_height="0.0dp" android:scaleType="centerCrop" app:a1d="hnz" app:a1j="hnz" app:a23="@id/ni2" app:a27="@id/ni0" />
+    <com.tencent.component.widget.AsyncEffectImageView android:id="@id/ni6" android:layout_width="0.0dp" android:layout_height="0.0dp" android:scaleType="centerCrop" app:a1d="@id/nhz" app:a1j="hnz" app:a23="@id/ni3" app:a27="hnz" />
+    <com.tencent.component.widget.AsyncEffectImageView android:id="@id/ni7" android:layout_width="0.0dp" android:layout_height="0.0dp" android:scaleType="centerCrop" app:a1d="@id/ni0" app:a1j="hnz" app:a23="@id/ni3" app:a27="@id/nhz" />
+    <com.tencent.component.widget.AsyncEffectImageView android:id="@id/ni8" android:layout_width="0.0dp" android:layout_height="0.0dp" android:scaleType="centerCrop" app:a1d="@id/ni1" app:a1j="@id/ni2" app:a23="hnz" app:a27="@id/ni0" />
+    <com.tencent.component.widget.AsyncEffectImageView android:id="@id/ni9" android:layout_width="0.0dp" android:layout_height="0.0dp" android:scaleType="centerCrop" app:a1d="hnz" app:a1j="@id/ni2" app:a23="hnz" app:a27="@id/ni1" />
+    <com.tencent.component.widget.AsyncEffectImageView android:id="@id/nhy" android:layout_width="match_parent" android:layout_height="match_parent" />
+    <androidx.constraintlayout.widget.Guideline android:orientation="horizontal" android:id="@id/njk" android:layout_width="wrap_content" android:layout_height="wrap_content" app:a1n="0.449" />
+    <androidx.appcompat.widget.AppCompatImageView android:id="@id/njj" android:visibility="gone" android:layout_width="match_parent" android:layout_height="0.0dp" app:a1d="@id/njk" app:a27="hnz" app:aj8="@drawable/drawable_vip_tab_card_top_gradient" />
+    <androidx.constraintlayout.widget.Guideline android:orientation="horizontal" android:id="@id/nib" android:layout_width="wrap_content" android:layout_height="wrap_content" app:a1n="0.558" />
+    <androidx.appcompat.widget.AppCompatImageView android:id="@id/nia" android:visibility="gone" android:layout_width="match_parent" android:layout_height="0.0dp" app:a1d="hnz" app:a27="@id/nib" app:aj8="@drawable/drawable_vip_tab_card_bottom_gradient" />
+    <androidx.constraintlayout.widget.Group android:id="@id/nj2" android:layout_width="wrap_content" android:layout_height="wrap_content" app:ko="vip_tab_card_background_image_1, vip_tab_card_background_image_2, vip_tab_card_background_image_3, vip_tab_card_background_image_4, vip_tab_card_background_image_5, vip_tab_card_background_image_6, vip_tab_card_bottom_gradient, vip_tab_card_top_gradient" />
+</androidx.constraintlayout.widget.ConstraintLayout>

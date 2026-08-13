@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout android:fitsSystemWindows="true" android:layout_width="match_parent" android:layout_height="match_parent"
+  xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">
+    <View android:id="@id/a98" android:layout_width="match_parent" android:layout_height="0.0dp" android:contentDescription="关闭，在页面控制项外" app:a1e="@id/hni" app:a1x="hnz" app:a21="hnz" app:a27="hnz" />
+    <LinearLayout android:orientation="vertical" android:id="@id/hni" android:background="@drawable/color_b15_dark_theme" android:fitsSystemWindows="true" android:layout_width="match_parent" android:layout_height="wrap_content" app:a1d="hnz" app:a1x="hnz" app:a21="hnz" app:a26="@id/a98">
+        <TextView android:textSize="18.0dp" android:textColor="#ffffff" android:id="@id/l9r" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginLeft="16.0dp" android:layout_marginTop="20.0dp" android:text="@string/f6l" />
+        <com.tencent.qqmusic.business.playernew.customlyric.TypeSeekbarView android:id="@id/cs7" android:paddingLeft="20.0dp" android:paddingTop="29.0dp" android:paddingRight="20.0dp" android:layout_width="match_parent" android:layout_height="wrap_content" app:u="#00f168" app:a1="#ffffff" app:a2="小,标准,大,超大" app:a3="14.0dp" app:a26="@id/na4" />
+        <TextView android:textSize="18.0dp" android:textColor="#ffffff" android:id="@id/l98" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginLeft="16.0dp" android:layout_marginTop="29.0dp" android:layout_marginBottom="17.0dp" android:text="歌词版式" />
+        <androidx.recyclerview.widget.RecyclerView android:id="@id/l99" android:scrollbars="none" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginLeft="16.0dp" />
+        <TextView android:textSize="18.0dp" android:textColor="#ffffff" android:id="@id/l9s" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginLeft="16.0dp" android:layout_marginTop="29.0dp" android:layout_marginBottom="17.0dp" android:text="@string/f6m" />
+        <FrameLayout android:id="@id/fxt" android:layout_width="match_parent" android:layout_height="88.0dp">
+            <androidx.recyclerview.widget.RecyclerView android:id="@id/jeu" android:scrollbars="none" android:layout_width="match_parent" android:layout_height="match_parent" android:layout_marginLeft="16.0dp" />
+            <include android:id="@id/fwe" android:visibility="gone" android:layout_width="match_parent" android:layout_height="match_parent" layout="@layout/mj" />
+            <TextView android:textSize="17.0sp" android:textColor="@color/white" android:gravity="center" android:id="@id/fwd" android:visibility="gone" android:layout_width="match_parent" android:layout_height="match_parent" android:text="未加载到字体" app:a1d="hnz" app:a1x="hnz" app:a21="hnz" app:a26="@id/fwq" />
+        </FrameLayout>
+        <androidx.constraintlayout.widget.ConstraintLayout android:id="@id/fxr" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginTop="20.0dp" android:layout_marginBottom="25.0dp">
+            <TextView android:textSize="13.0dp" android:textStyle="normal" android:textColor="@color/white" android:gravity="center" android:id="@id/fxq" android:paddingTop="15.0dp" android:paddingBottom="15.0dp" android:layout_width="wrap_content" android:layout_height="wrap_content" android:scaleType="centerInside" android:text="更多设置" android:includeFontPadding="false" app:a1d="hnz" app:a1k="@id/fxp" app:a1u="hmg" app:a23="hnz" app:a27="hnz" />
+            <ImageView android:id="@id/fxp" android:layout_width="6.0dp" android:layout_height="10.0dp" android:src="@drawable/lyric_setting_font_donw_arrow" android:scaleType="centerInside" android:layout_marginStart="2.0dp" app:a1d="hnz" app:a1j="hnz" app:a22="@id/fxq" app:a27="hnz" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </LinearLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>

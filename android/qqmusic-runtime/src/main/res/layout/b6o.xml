@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout android:id="@id/fov" android:paddingRight="10.0dp" android:layout_width="wrap_content" android:layout_height="23.0dp"
+  xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">
+    <androidx.constraintlayout.widget.ConstraintLayout android:layout_width="wrap_content" android:layout_height="23.0dp" app:a1d="hnz" app:a23="hnz" app:a27="hnz">
+        <com.tencent.qqmusic.business.live.ui.view.RoundAvatarImage android:id="@id/i9m" android:visibility="gone" android:layout_width="13.0dp" android:layout_height="13.0dp" app:a1d="hnz" app:a1x="hnz" app:a27="hnz" />
+        <TextView android:textSize="14.0sp" android:textStyle="bold" android:textColor="@color/white" android:ellipsize="end" android:gravity="center" android:id="@id/fou" android:paddingRight="3.0dp" android:layout_width="wrap_content" android:layout_height="match_parent" android:maxLines="1" app:a1d="hnz" app:a22="@id/i9m" app:a27="hnz" />
+        <TextView android:textSize="12.0sp" android:textColor="@color/white" android:ellipsize="end" android:gravity="center" android:id="@id/fot" android:paddingRight="5.0dp" android:paddingBottom="1.0dp" android:layout_width="wrap_content" android:layout_height="23.0dp" android:maxLines="1" app:a1d="hnz" app:a22="@id/fou" app:a27="hnz" />
+        <ImageView android:id="@id/qq_kw_for" android:layout_width="4.0dp" android:layout_height="9.0dp" android:src="@drawable/ic_next" app:a1d="hnz" app:a1j="hnz" app:a22="@id/fot" app:a27="hnz" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>

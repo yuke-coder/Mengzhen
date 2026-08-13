@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout android:orientation="vertical" android:layout_width="match_parent" android:layout_height="wrap_content"
+  xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">
+    <FrameLayout android:id="@id/num" android:layout_width="match_parent" android:layout_height="@dimen/cbt" android:layout_marginBottom="0.0dp" android:layout_alignParentTop="true">
+        <ImageView android:background="@drawable/ucrop_wrapper_controls_shape" android:layout_width="match_parent" android:layout_height="match_parent" />
+        <LinearLayout android:gravity="center" android:orientation="horizontal" android:id="@id/esp" android:layout_width="match_parent" android:layout_height="match_parent" />
+        <include android:id="@id/exd" layout="@layout/cu0" />
+        <include android:id="@id/exg" layout="@layout/cu1" />
+    </FrameLayout>
+    <ImageView android:id="@id/bb4" android:layout_width="match_parent" android:layout_height="8.0dp" android:src="@drawable/ucrop_shadow_upside" android:layout_alignBottom="@id/num" />
+    <LinearLayout android:gravity="center" android:orientation="horizontal" android:id="@id/nup" android:background="@color/ucrop_color_widget_background" android:layout_width="match_parent" android:layout_height="@dimen/cbu" android:baselineAligned="false" android:layout_below="@id/bb4">
+        <LinearLayout android:id="@id/kvw" style="@style/a5n">
+            <ImageView android:gravity="center" android:orientation="vertical" android:id="@id/doj" app:aj8="@drawable/ucrop_crop" style="@style/a5j" />
+            <TextView android:id="@id/laj" android:text="@string/il5" style="@style/a5l" />
+        </LinearLayout>
+        <LinearLayout android:id="@id/kw0" style="@style/a5n">
+            <ImageView android:id="@id/dok" app:aj8="@drawable/ucrop_rotate" style="@style/a5j" />
+            <TextView android:id="@id/lak" android:text="@string/ila" style="@style/a5l" />
+        </LinearLayout>
+        <LinearLayout android:id="@id/kw1" style="@style/a5n">
+            <ImageView android:id="@id/dol" app:aj8="@drawable/ucrop_scale" style="@style/a5j" />
+            <TextView android:id="@id/lal" android:text="@string/ilb" style="@style/a5l" />
+        </LinearLayout>
+    </LinearLayout>
+</RelativeLayout>

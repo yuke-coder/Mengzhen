@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout android:paddingBottom="@dimen/c9e" android:layout_width="match_parent" android:layout_height="wrap_content"
+  xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">
+    <com.tencent.qqmusic.ui.customview.RatioLayout android:orientation="vertical" android:id="@id/n4j" android:background="@color/black" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginLeft="@dimen/ld" android:layout_marginRight="@dimen/ld" android:layout_marginHorizontal="@dimen/ld">
+        <View android:id="@id/c9h" android:background="@color/black" android:layout_width="match_parent" android:layout_height="match_parent" android:layout_alignParentBottom="true" />
+        <FrameLayout android:id="@id/n9w" android:layout_width="match_parent" android:layout_height="match_parent" />
+        <RelativeLayout android:layout_width="match_parent" android:layout_height="match_parent">
+            <ImageView android:background="@drawable/mv_feeds_controller_bg" android:layout_width="match_parent" android:layout_height="50.0dp" android:layout_alignParentBottom="true" />
+            <RelativeLayout android:layout_width="match_parent" android:layout_height="@dimen/c_c" android:layout_marginBottom="8.0dp" android:layout_alignParentBottom="true">
+                <com.tencent.component.widget.AsyncImageView android:id="@id/hv6" android:visibility="gone" android:layout_width="@dimen/c_c" android:layout_height="@dimen/c_c" android:layout_marginLeft="8.0dp" android:src="@drawable/module_musichall_video_tab_watch_icon" android:layout_centerVertical="true" />
+                <TextView android:textSize="10.0dp" android:textStyle="bold" android:textColor="@color/white" android:gravity="center" android:id="@id/hv5" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginLeft="6.0dp" android:text="123213" android:layout_toRightOf="@id/hv6" android:layout_centerVertical="true" />
+                <TextView android:textSize="10.0dp" android:textStyle="bold" android:textColor="@color/white" android:gravity="center" android:id="@id/byq" android:layout_width="wrap_content" android:layout_height="26.0dp" android:layout_marginLeft="8.0dp" android:layout_marginRight="8.0dp" android:layout_alignParentRight="true" android:layout_centerVertical="true" />
+            </RelativeLayout>
+        </RelativeLayout>
+        <RelativeLayout android:id="@id/jc3" android:visibility="gone" android:layout_width="match_parent" android:layout_height="match_parent">
+            <com.tencent.qqmusic.ui.customview.ScaleImageView android:id="@id/bdq" android:layout_width="match_parent" android:layout_height="match_parent" android:scaleType="matrix" />
+            <com.tencent.qqmusic.ui.customview.ScaleImageView android:id="@id/bdk" android:layout_width="match_parent" android:layout_height="match_parent" android:scaleType="matrix" />
+            <ImageView android:background="@color/black" android:layout_width="match_parent" android:layout_height="match_parent" android:layout_alignParentBottom="true" android:alpha="0.25" />
+            <RelativeLayout android:layout_width="match_parent" android:layout_height="@dimen/c_c" android:layout_marginBottom="8.0dp" android:layout_alignParentBottom="true">
+                <com.tencent.component.widget.AsyncImageView android:id="@id/hv7" android:visibility="gone" android:layout_width="@dimen/c_c" android:layout_height="@dimen/c_c" android:layout_marginLeft="8.0dp" android:src="@drawable/module_musichall_video_tab_watch_icon" android:layout_alignParentLeft="true" android:layout_centerVertical="true" />
+                <TextView android:textSize="10.0dp" android:textStyle="bold" android:textColor="@color/white" android:gravity="center" android:id="@id/hv8" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginLeft="6.0dp" android:text="123213" android:layout_toRightOf="@id/hv7" android:layout_centerVertical="true" />
+                <TextView android:textSize="10.0dp" android:textStyle="bold" android:textColor="@color/white" android:gravity="center" android:id="@id/byr" android:layout_width="wrap_content" android:layout_height="26.0dp" android:layout_marginLeft="8.0dp" android:layout_marginRight="8.0dp" android:layout_alignParentRight="true" android:layout_centerVertical="true" />
+            </RelativeLayout>
+            <ImageView android:id="@id/ehm" android:background="@drawable/feed_video_play" android:layout_width="25.0dp" android:layout_height="30.0dp" android:scaleType="center" android:layout_centerInParent="true" android:contentDescription="@null" />
+            <include android:visibility="gone" android:layout_width="match_parent" android:layout_height="match_parent" layout="@layout/d13" />
+        </RelativeLayout>
+        <TextView android:textSize="16.0sp" android:textColor="@color/white" android:gravity="center" android:id="@id/m9q" android:visibility="gone" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_centerInParent="true" />
+        <com.airbnb.lottie.LottieAnimationView android:id="@id/fiu" android:visibility="gone" android:layout_width="40.0dp" android:layout_height="40.0dp" android:layout_centerInParent="true" android:alpha="0.7" />
+    </com.tencent.qqmusic.ui.customview.RatioLayout>
+    <TextView android:textSize="14.0sp" android:textColor="#ffffff" android:gravity="center" android:layout_gravity="center" android:id="@id/n37" android:background="@drawable/timeline_video_auto_play_guide" android:visibility="gone" android:layout_width="260.0dp" android:layout_height="35.0dp" android:layout_marginTop="30.0dp" android:text="你可以开启视频自动播放，点击设置" android:layout_centerHorizontal="true" />
+    <FrameLayout android:id="@id/cqz" android:visibility="gone" android:layout_width="40.0dp" android:layout_height="48.5dp" android:layout_marginRight="7.5dp" android:layout_marginBottom="7.0dp" android:layout_alignBottom="@id/n4j" android:layout_alignEnd="@id/n4j">
+        <ViewStub android:layout_gravity="right|bottom" android:id="@id/crp" android:visibility="gone" android:layout="@layout/cuq" android:layout_width="wrap_content" android:layout_height="wrap_content" />
+    </FrameLayout>
+</RelativeLayout>

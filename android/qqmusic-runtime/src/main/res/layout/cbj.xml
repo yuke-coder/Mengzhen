@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout android:layout_width="match_parent" android:layout_height="wrap_content"
+  xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">
+    <androidx.constraintlayout.widget.ConstraintLayout android:id="@id/js9" android:layout_width="match_parent" android:layout_height="60.0dp">
+        <com.tencent.qqmusic.business.live.ui.view.RoundAvatarImage android:id="@id/a3c" android:background="@drawable/personal_page_banner_avatar_bg" android:layout_width="40.0dp" android:layout_height="40.0dp" android:layout_marginLeft="12.0dp" android:layout_centerVertical="true" app:a1d="hnz" app:a23="hnz" app:a27="hnz" />
+        <LinearLayout android:gravity="center_vertical" android:orientation="horizontal" android:id="@id/lf5" android:layout_width="0.0dp" android:layout_height="wrap_content" android:layout_marginLeft="10.0dp" app:a1e="@id/kz7" app:a1y="@id/a3c" app:a20="@id/g80" app:a27="hnz" app:a29="hmg" app:a2o="12.0dp">
+            <LinearLayout android:gravity="center_vertical" android:orientation="horizontal" android:id="@id/eqs" android:paddingLeft="4.0dp" android:paddingRight="4.0dp" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginRight="4.0dp">
+                <com.airbnb.lottie.LottieAnimationView android:id="@id/lf3" android:layout_width="18.0dp" android:layout_height="14.0dp" android:layout_marginLeft="-4.0dp" android:importantForAccessibility="no" />
+                <ImageView android:id="@id/lf4" android:layout_width="10.0dp" android:layout_height="10.0dp" android:layout_marginRight="2.0dp" android:src="@drawable/home_page_banner_putoo_logo" />
+                <ImageView android:id="@id/lfo" android:visibility="gone" android:layout_width="5.0dp" android:layout_height="5.0dp" android:layout_marginRight="2.0dp" android:src="@drawable/putoo_comment_red" />
+                <TextView android:textSize="10.0dp" android:textColor="@color/skin_floor_color" android:ellipsize="end" android:gravity="center" android:layout_gravity="center_vertical" android:id="@id/lf2" android:paddingTop="1.0dp" android:paddingBottom="1.0dp" android:layout_width="wrap_content" android:layout_height="wrap_content" android:maxWidth="48.0dp" android:singleLine="true" android:includeFontPadding="false" />
+            </LinearLayout>
+            <com.tencent.qqmusic.ui.customview.textview.BracketsEllipsisTextView android:textSize="14.0dp" android:textStyle="bold" android:textColor="@color/skin_text_main_color" android:ellipsize="end" android:id="@id/ldr" android:layout_width="0.0dp" android:layout_height="wrap_content" android:maxLines="1" android:layout_weight="1.0" />
+        </LinearLayout>
+        <LinearLayout android:orientation="horizontal" android:id="@id/kz7" android:layout_width="0.0dp" android:layout_height="wrap_content" android:layout_marginLeft="10.0dp" android:layout_marginTop="2.0dp" app:a1d="hnz" app:a1y="@id/a3c" app:a20="@id/g80" app:a26="@id/lf5" app:a2o="12.0dp">
+            <LinearLayout android:gravity="center" android:id="@id/kze" android:background="@drawable/homepage_banner_sub_tag_bg" android:visibility="gone" android:layout_width="wrap_content" android:layout_height="15.0dp" android:layout_marginTop="1.5dp" android:layout_marginRight="3.5dp">
+                <TextView android:textSize="10.0dp" android:textColor="@color/skin_text_sub_color" android:ellipsize="end" android:layout_gravity="center_vertical" android:id="@id/kzf" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginLeft="5.0dp" android:layout_marginRight="5.0dp" android:maxWidth="80.0dp" android:maxLines="1" />
+            </LinearLayout>
+            <TextView android:textSize="11.0dp" android:textColor="@color/skin_text_sub_color" android:ellipsize="end" android:layout_gravity="center_vertical" android:id="@id/l02" android:layout_width="wrap_content" android:layout_height="wrap_content" android:maxLines="1" />
+            <com.tencent.qqmusic.ui.countdownview.CountDownView android:layout_gravity="center_vertical" android:id="@id/bbo" android:visibility="gone" android:layout_width="wrap_content" android:layout_height="wrap_content" />
+        </LinearLayout>
+        <LinearLayout android:id="@id/amq" android:layout_width="wrap_content" android:layout_height="25.0dp" android:layout_marginRight="12.0dp" app:a1d="hnz" app:a1j="hnz" app:a27="hnz">
+            <com.tencent.component.widget.AsyncEffectImageView android:layout_gravity="center_vertical" android:id="@id/js8" android:layout_width="15.0dp" android:layout_height="15.0dp" android:layout_marginLeft="8.5dp" android:layout_marginRight="-6.0dp" android:src="@drawable/homepage_profile_banner_buy" />
+            <TextView android:textSize="14.0dp" android:textStyle="bold" android:textColor="@color/skin_text_main_color" android:gravity="center_vertical" android:id="@id/js6" android:paddingLeft="8.0dp" android:layout_width="wrap_content" android:layout_height="match_parent" android:layout_marginRight="8.5dp" android:text="@string/mf" android:layout_alignParentRight="true" />
+        </LinearLayout>
+        <LinearLayout android:gravity="center_horizontal" android:orientation="vertical" android:id="@id/ifq" android:visibility="gone" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginLeft="8.0dp" android:layout_marginRight="11.0dp" app:a1d="hnz" app:a20="@id/amq" app:a27="hnz">
+            <TextView android:textSize="15.0dp" android:textStyle="bold" android:textColor="@color/skin_text_main_color" android:id="@id/a9l" android:layout_width="wrap_content" android:layout_height="wrap_content" />
+            <TextView android:textSize="11.0dp" android:textColor="@color/skin_text_sub_color" android:id="@id/ka_" android:layout_width="wrap_content" android:layout_height="wrap_content" />
+        </LinearLayout>
+        <TextView android:textSize="15.0dp" android:textStyle="bold" android:textColor="@color/skin_text_main_color" android:layout_gravity="center_vertical" android:id="@id/an2" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginLeft="8.0dp" android:layout_marginRight="13.0dp" android:layout_alignParentRight="true" android:layout_centerInParent="true" app:a1d="hnz" app:a20="@id/amq" app:a27="hnz" />
+        <com.tencent.component.widget.AsyncEffectImageView android:id="@id/a08" android:layout_width="30.0dp" android:layout_height="30.0dp" android:layout_marginRight="5.0dp" android:src="@drawable/arrow_right_grey" app:a1d="hnz" app:a1j="hnz" app:a27="hnz" />
+        <androidx.constraintlayout.widget.Barrier android:id="@id/g80" android:layout_width="wrap_content" android:layout_height="wrap_content" app:d8="ezx" app:ko="buy_price,buy_container,arrow,price_layout" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</FrameLayout>

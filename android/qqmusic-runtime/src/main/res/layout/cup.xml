@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout android:id="@id/ibl" android:background="@color/black" android:layout_width="match_parent" android:layout_height="match_parent"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <com.tencent.qqmusic.business.fullscreen.video.PortVideoLayout android:id="@id/iba" android:focusable="true" android:visibility="gone" android:layout_width="match_parent" android:layout_height="match_parent" />
+    <ViewStub android:layout_gravity="center" android:id="@id/b7x" android:layout="@layout/ye" android:layout_width="match_parent" android:layout_height="match_parent" />
+    <ViewStub android:layout_gravity="center" android:id="@id/b7f" android:layout_width="match_parent" android:layout_height="match_parent" />
+    <ViewStub android:layout_gravity="center" android:id="@id/b7r" android:layout_width="match_parent" android:layout_height="match_parent" />
+    <ViewStub android:layout_gravity="center" android:id="@id/b80" android:layout_width="match_parent" android:layout_height="match_parent" />
+</FrameLayout>

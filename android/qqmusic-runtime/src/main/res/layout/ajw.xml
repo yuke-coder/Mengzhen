@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout android:background="@drawable/material_ripple_background" android:paddingTop="6.0dp" android:paddingRight="15.0dp" android:paddingBottom="6.0dp" android:layout_width="match_parent" android:layout_height="@dimen/lc"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <TextView android:textColor="@color/skin_text_sub_color" android:id="@id/l3" android:visibility="gone" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/hba" android:layout_alignParentRight="true" android:layout_centerVertical="true" android:layout_alignParentEnd="true" />
+    <LinearLayout android:orientation="horizontal" android:id="@id/f37" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_alignParentRight="true" android:layout_centerVertical="true">
+        <RelativeLayout android:id="@id/n_4" android:layout_width="wrap_content" android:layout_height="wrap_content">
+            <ImageView android:id="@id/cdi" android:paddingLeft="7.0dp" android:paddingTop="8.0dp" android:paddingRight="7.0dp" android:paddingBottom="8.0dp" android:layout_width="30.0dp" android:layout_height="30.0dp" android:src="@drawable/auto_play_song_like_with_num" android:scaleType="center" android:layout_centerVertical="true" />
+            <TextView android:textSize="6.0dp" android:textColor="@color/black_50_opacity" android:id="@id/kcg" android:layout_width="19.0dp" android:layout_height="8.0dp" android:layout_marginLeft="18.5dp" android:layout_marginTop="4.0dp" android:text="999w+" android:maxLines="1" android:layout_alignLeft="@id/cdi" android:layout_alignTop="@id/cdi" />
+        </RelativeLayout>
+        <ImageView android:id="@id/hl9" android:paddingLeft="10.0dp" android:layout_width="wrap_content" android:layout_height="wrap_content" android:src="@drawable/auto_play_add_song" />
+    </LinearLayout>
+    <FrameLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginLeft="55.0dp" android:layout_marginRight="10.0dp" android:layout_toLeftOf="@id/f37">
+        <include android:layout_width="match_parent" android:layout_height="wrap_content" layout="@layout/b3o" />
+    </FrameLayout>
+    <com.tencent.component.widget.AsyncEffectImageView android:id="@id/j02" android:layout_width="50.0dp" android:layout_height="50.0dp" android:layout_marginLeft="16.0dp" android:layout_centerVertical="true" />
+</RelativeLayout>

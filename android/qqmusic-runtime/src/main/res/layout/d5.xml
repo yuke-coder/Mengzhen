@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout android:id="@id/g8w" android:background="@drawable/transparent" android:clipChildren="false" android:layout_width="match_parent" android:layout_height="wrap_content"
+  xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">
+    <androidx.constraintlayout.widget.ConstraintLayout android:layout_gravity="bottom" android:id="@id/g03" android:clipChildren="false" android:layout_width="match_parent" android:layout_height="@dimen/aiq">
+        <com.tencent.qqmusic.ui.MiniBarContentChangeImageView android:id="@id/g02" android:focusableInTouchMode="false" android:layout_width="match_parent" android:layout_height="@dimen/aip" android:layout_marginBottom="@dimen/aig" android:scaleType="fitXY" app:a1d="hnz" />
+        <com.tencent.qqmusic.ui.RoundedConstraintLayout android:id="@id/fzx" android:layout_width="match_parent" android:layout_height="0.0dp" android:layout_marginLeft="2.0dp" android:layout_marginRight="12.0dp" android:layout_marginBottom="14.0dp" android:alpha="0.0" app:a1d="hnz" app:a27="@id/g02" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+    <com.tencent.qqmusic.ui.minibar.music.view.MinibarRootLayout android:layout_gravity="bottom" android:id="@id/g0d" android:clipChildren="false" android:layout_width="match_parent" android:layout_height="@dimen/aiq">
+        <FrameLayout android:id="@id/g08" android:layout_width="match_parent" android:layout_height="wrap_content" app:a1d="hnz">
+            <include android:layout_width="match_parent" android:layout_height="@dimen/aiq" layout="@layout/c1f" />
+        </FrameLayout>
+    </com.tencent.qqmusic.ui.minibar.music.view.MinibarRootLayout>
+    <ViewStub android:layout_gravity="bottom" android:id="@id/f_o" android:visibility="gone" android:layout="@layout/avp" android:inflatedId="@id/f_l" android:layout_width="match_parent" android:layout_height="@dimen/aiq" />
+    <ViewStub android:layout_gravity="bottom" android:id="@id/n52" android:visibility="gone" android:layout="@layout/b30" android:inflatedId="@id/n4v" android:layout_width="match_parent" android:layout_height="@dimen/aiq" />
+    <ViewStub android:layout_gravity="bottom" android:id="@id/g43" android:visibility="gone" android:layout="@layout/ax5" android:inflatedId="@id/g42" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginBottom="@dimen/aig" />
+    <ViewStub android:layout_gravity="right|bottom" android:id="@id/g99" android:layout="@layout/axm" android:inflatedId="@id/g98" android:layout_width="130.0dp" android:layout_height="20.0dp" android:layout_marginBottom="50.0dp" />
+</FrameLayout>

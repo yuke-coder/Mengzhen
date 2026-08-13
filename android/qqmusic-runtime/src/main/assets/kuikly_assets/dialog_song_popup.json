@@ -1,0 +1,27 @@
+{
+  "router": "openPage",
+  "page_name": "dialog_song_popup",
+  "container": {
+    "tabbar_mode": 4
+  },
+  "animated": 0,
+  "params": {
+    "__alert_id": "42",
+    "_miniplayer": "1",
+    "aid": "music.android.listenpaid.30s.new42",
+    "albumImgUrl": "https://y.gtimg.cn/music/photo_new/T002R150x150M000002m3tD01HIzcn_1.jpg",
+    "albumid": "31337999",
+    "albummid": "002m3tD01HIzcn",
+    "clickId": "21113",
+    "desc": "正在试听 完整播放需开通VIP$畅享会员歌曲 支持好音乐",
+    "from": "1,4,42800625,",
+    "hideyb": "1",
+    "scene": "cell_p",
+    "showid": "21113",
+    "songid": "379091339",
+    "sourceid": "s379091339.ct11.u1725000342.t1746675139218",
+    "sub_scene": "drag",
+    "tjreport": "",
+    "trace": ""
+  }
+}

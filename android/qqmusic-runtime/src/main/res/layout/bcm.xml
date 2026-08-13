@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout android:background="@color/mlive_bottom_sheet_back_color" android:layout_width="match_parent" android:layout_height="310.0dp" android:paddingStart="15.0dp" android:paddingEnd="15.0dp"
+  xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">
+    <TextView android:textColor="@color/white" android:id="@id/mlive_song_voice_control_panel_voice_tip" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="15.0dp" android:text="@string/e0s" app:a23="hnz" app:a27="hnz" />
+    <TextView android:textSize="10.0sp" android:textColor="@color/white_50_transparent" android:id="@id/mlive_song_voice_control_panel_voice_sub_tip" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="20.0dp" android:text="@string/e0r" app:a23="hnz" app:a26="@id/mlive_song_voice_control_panel_voice_tip" />
+    <LinearLayout android:orientation="vertical" android:background="@drawable/mlive_bottom_sheet_gray_bg" android:paddingTop="15.0dp" android:paddingBottom="15.0dp" android:layout_width="match_parent" android:layout_height="140.0dp" android:layout_marginTop="35.0dp" app:a23="hnz" app:a26="@id/mlive_song_voice_control_panel_voice_sub_tip">
+        <com.tme.mlive.ui.custom.song.ScaleBar android:layout_gravity="center_vertical" android:id="@id/mlive_song_opt_tuing_panel_voice_scale_bar" android:layout_width="match_parent" android:layout_height="35.0dp" android:layout_margin="15.0dp" app:a1d="hnz" app:a27="hnz" app:aga="#ff393231" />
+        <TextView android:textColor="@color/white" android:layout_gravity="center" android:id="@id/mlive_song_opt_tuing_panel_voice_tv" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="10.0dp" android:layout_marginBottom="10.0dp" android:text="@string/e0q" />
+    </LinearLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>

@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout android:orientation="vertical" android:id="@id/k3x" android:background="@drawable/color_b15" android:layout_width="match_parent" android:layout_height="wrap_content"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <com.tencent.qqmusic.bigfont.view.BigFontTextView android:textSize="@dimen/i0" android:textColor="@color/common_grid_title_color_selector" android:gravity="left|center" android:id="@id/k4h" android:layout_width="match_parent" android:layout_height="70.0dp" android:layout_marginLeft="16.0dp" android:text="@string/fos" />
+    <View android:id="@id/afl" android:background="@drawable/z_color_l1" android:layout_width="match_parent" android:layout_height="1.0px" />
+    <ListView android:id="@id/k43" android:layout_width="match_parent" android:layout_height="wrap_content" android:listSelector="@drawable/transparent" android:cacheColorHint="@color/transparent" android:minHeight="70.0dp" />
+    <ImageView android:id="@id/at5" android:background="@drawable/color_b17" android:layout_width="match_parent" android:layout_height="1.0px" />
+    <com.tencent.qqmusic.bigfont.view.BigFontTextView android:textSize="18.0sp" android:textStyle="normal" android:textColor="@color/common_grid_title_color_selector" android:gravity="center" android:id="@id/d38" android:paddingTop="18.0dp" android:paddingBottom="18.0dp" android:layout_width="match_parent" android:layout_height="wrap_content" android:text="@string/cancel" />
+</LinearLayout>

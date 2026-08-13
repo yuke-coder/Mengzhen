@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout android:orientation="vertical" android:paddingTop="20.0dp" android:paddingBottom="20.0dp" android:layout_width="match_parent" android:layout_height="match_parent"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <TextView android:textSize="16.0sp" android:textColor="@color/skin_text_main_color" android:layout_gravity="center" android:id="@id/czo" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="270.0dp" />
+    <TextView android:textSize="14.0sp" android:textColor="@color/skin_highlight_color" android:gravity="center" android:layout_gravity="center_horizontal" android:id="@id/czn" android:background="@drawable/bg_to_grant_friend_list" android:paddingLeft="20.0dp" android:paddingRight="20.0dp" android:visibility="gone" android:layout_width="wrap_content" android:layout_height="30.0dp" android:layout_marginTop="20.0dp" android:text="@string/bj2" android:paddingStart="20.0dp" android:paddingEnd="20.0dp" />
+    <TextView android:textSize="14.0sp" android:textColor="@color/skin_text_guide_color" android:gravity="center" android:id="@id/czm" android:visibility="gone" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginLeft="32.0dp" android:layout_marginTop="15.0dp" android:layout_marginRight="32.0dp" android:text="@string/bj3" android:layout_marginStart="32.0dp" android:layout_marginEnd="32.0dp" />
+</LinearLayout>

@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout android:layout_width="match_parent" android:layout_height="116.0dp"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <ImageView android:id="@id/gu1" android:background="@color/mr_cast_meta_default_background" android:layout_width="match_parent" android:layout_height="match_parent" android:scaleType="centerCrop" />
+    <View android:id="@id/gu2" android:background="@color/mr_cast_meta_black_scrim" android:visibility="gone" android:layout_width="match_parent" android:layout_height="match_parent" />
+    <RelativeLayout android:paddingLeft="24.0dp" android:paddingTop="12.0dp" android:paddingRight="24.0dp" android:paddingBottom="32.0dp" android:layout_width="match_parent" android:layout_height="match_parent">
+        <ImageButton android:layout_gravity="center_vertical" android:id="@id/gtt" android:background="?selectableItemBackgroundBorderless" android:layout_width="24.0dp" android:layout_height="24.0dp" android:src="?a8p" android:contentDescription="@string/e_h" />
+        <LinearLayout android:gravity="center_vertical" android:orientation="horizontal" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginTop="12.0dp" android:layout_below="@id/gtt">
+            <ImageView android:id="@id/gu0" android:layout_width="@dimen/axu" android:layout_height="@dimen/axu" android:scaleType="fitCenter" />
+            <LinearLayout android:gravity="center_vertical" android:orientation="vertical" android:paddingLeft="8.0dp" android:paddingRight="8.0dp" android:layout_width="0.0dp" android:layout_height="wrap_content" android:layout_weight="1.0">
+                <TextView android:textAppearance="@style/tc" android:ellipsize="end" android:gravity="start" android:id="@id/gu4" android:layout_width="match_parent" android:layout_height="wrap_content" android:maxLines="1" android:textAlignment="viewStart" />
+                <TextView android:textAppearance="@style/td" android:ellipsize="end" android:gravity="start" android:id="@id/gu3" android:layout_width="match_parent" android:layout_height="wrap_content" android:maxLines="1" android:textAlignment="viewStart" />
+            </LinearLayout>
+            <Button android:textAppearance="@style/tc" android:id="@id/gu9" android:background="@drawable/mr_cast_stop" android:layout_width="114.0dp" android:layout_height="36.0sp" android:text="@string/e_q" android:textAllCaps="false" />
+        </LinearLayout>
+    </RelativeLayout>
+</FrameLayout>

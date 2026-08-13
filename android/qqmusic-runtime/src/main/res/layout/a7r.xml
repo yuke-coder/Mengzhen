@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.tencent.qqmusic.business.playercommon.normalplayer.ui.PlayerFrameLayout android:id="@id/k98" android:clipChildren="false" android:layout_width="match_parent" android:layout_height="match_parent"
+  xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">
+    <ImageView android:id="@id/hwn" android:visibility="gone" android:layout_width="match_parent" android:layout_height="match_parent" android:scaleType="centerCrop" />
+    <ImageView android:id="@id/i0i" android:visibility="gone" android:layout_width="match_parent" android:layout_height="match_parent" android:scaleType="centerCrop" />
+    <ImageView android:id="@id/lbf" android:visibility="gone" android:layout_width="match_parent" android:layout_height="match_parent" android:scaleType="centerCrop" />
+    <ViewStub android:id="@id/i5n" android:visibility="gone" android:layout="@layout/c9e" android:layout_width="match_parent" android:layout_height="match_parent" />
+    <ViewStub android:id="@id/hyy" android:visibility="gone" android:layout="@layout/c52" android:layout_width="match_parent" android:layout_height="match_parent" />
+    <ViewStub android:id="@id/hxy" android:visibility="gone" android:layout="@layout/c4z" android:layout_width="match_parent" android:layout_height="match_parent" />
+    <ViewStub android:id="@id/hqe" android:visibility="gone" android:layout="@layout/az1" android:inflatedId="@id/hqa" android:layout_width="match_parent" android:layout_height="match_parent" />
+    <FrameLayout android:id="@id/lbh" android:visibility="gone" android:layout_width="match_parent" android:layout_height="match_parent" android:layout_centerInParent="true" />
+    <FrameLayout android:id="@id/hzu" android:visibility="gone" android:layout_width="match_parent" android:layout_height="match_parent" android:layout_centerInParent="true" />
+    <View android:id="@id/i2_" android:visibility="gone" android:layout_width="match_parent" android:layout_height="match_parent" />
+    <View android:id="@id/hxd" android:visibility="gone" android:layout_width="match_parent" android:layout_height="match_parent" />
+    <View android:id="@id/hqo" android:visibility="gone" android:layout_width="match_parent" android:layout_height="match_parent" />
+    <ViewStub android:id="@id/i3v" android:visibility="gone" android:layout="@layout/c6j" android:layout_width="match_parent" android:layout_height="match_parent" />
+    <View android:id="@id/i0p" android:visibility="gone" android:layout_width="match_parent" android:layout_height="match_parent" />
+    <FrameLayout android:id="@id/i2a" android:visibility="gone" android:layout_width="match_parent" android:layout_height="match_parent" android:layout_centerInParent="true" />
+    <FrameLayout android:id="@id/hxq" android:visibility="gone" android:layout_width="match_parent" android:layout_height="match_parent" android:layout_centerInParent="true" />
+    <FrameLayout android:id="@id/i2b" android:visibility="gone" android:layout_width="match_parent" android:layout_height="match_parent" android:layout_centerInParent="true" />
+    <FrameLayout android:id="@id/hxs" android:visibility="gone" android:layout_width="match_parent" android:layout_height="match_parent" android:layout_centerInParent="true" />
+    <com.tencent.component.widget.AsyncImageView android:id="@id/i6z" android:visibility="gone" android:layout_width="match_parent" android:layout_height="match_parent" android:scaleType="centerCrop" />
+    <FrameLayout android:id="@id/i4u" android:visibility="gone" android:layout_width="match_parent" android:layout_height="match_parent" android:layout_centerInParent="true" />
+    <com.tencent.component.widget.AsyncImageView android:id="@id/hxr" android:visibility="gone" android:layout_width="match_parent" android:layout_height="match_parent" android:scaleType="centerCrop" />
+    <FrameLayout android:id="@id/hxv" android:visibility="gone" android:clipChildren="true" android:layout_width="match_parent" android:layout_height="match_parent" android:scaleType="centerCrop" />
+    <FrameLayout android:id="@id/hxt" android:visibility="gone" android:clipChildren="true" android:layout_width="match_parent" android:layout_height="match_parent" android:scaleType="centerCrop" />
+    <FrameLayout android:layout_gravity="end" android:id="@id/hxu" android:visibility="gone" android:clipChildren="true" android:layout_width="match_parent" android:layout_height="match_parent" android:scaleType="centerCrop" />
+    <FrameLayout android:id="@id/hxw" android:visibility="gone" android:clipChildren="true" android:layout_width="match_parent" android:layout_height="match_parent" />
+    <FrameLayout android:id="@id/i55" android:visibility="gone" android:layout_width="match_parent" android:layout_height="match_parent" android:layout_centerInParent="true" />
+    <FrameLayout android:id="@id/hqp" android:visibility="gone" android:layout_width="match_parent" android:layout_height="match_parent" android:layout_centerInParent="true" />
+    <FrameLayout android:id="@id/hf9" android:visibility="gone" android:layout_width="match_parent" android:layout_height="match_parent" android:layout_centerInParent="true" />
+    <androidx.constraintlayout.widget.ConstraintLayout android:id="@id/hx5" android:clipChildren="false" android:layout_width="match_parent" android:layout_height="match_parent">
+        <androidx.constraintlayout.widget.Guideline android:orientation="vertical" android:id="@id/hwj" android:layout_width="wrap_content" android:layout_height="wrap_content" app:a1n="1.0" />
+        <ImageView android:id="@id/lbg" android:visibility="gone" android:layout_width="0.0dp" android:layout_height="match_parent" android:scaleType="centerCrop" app:a1k="@id/hwj" app:a23="hnz" />
+        <ViewStub android:id="@id/lc7" android:visibility="gone" android:layout="@layout/d11" android:inflatedId="@id/lc2" android:layout_width="0.0dp" android:layout_height="match_parent" app:a1k="@id/hwj" app:a23="hnz" />
+        <ViewStub android:id="@id/a4_" android:visibility="gone" android:layout="@layout/d11" android:inflatedId="@id/a49" android:layout_width="0.0dp" android:layout_height="match_parent" app:a1k="@id/hwj" app:a23="hnz" />
+        <View android:id="@id/lc3" android:visibility="gone" android:layout_width="0.0dp" android:layout_height="match_parent" app:a1k="@id/hwj" app:a23="hnz" />
+        <FrameLayout android:id="@id/i7l" android:visibility="gone" android:layout_width="0.0dp" android:layout_height="match_parent" android:layout_centerInParent="true" app:a1k="@id/hwj" app:a23="hnz" />
+        <ImageView android:id="@id/n3l" android:visibility="gone" android:layout_width="0.0dp" android:layout_height="match_parent" android:scaleType="centerCrop" app:a1k="@id/hwj" app:a23="hnz" />
+        <ImageView android:id="@id/n4t" android:visibility="gone" android:layout_width="0.0dp" android:layout_height="match_parent" android:scaleType="centerCrop" app:a1k="@id/hwj" app:a23="hnz" />
+        <FrameLayout android:id="@id/hwm" android:visibility="gone" android:layout_width="0.0dp" android:layout_height="match_parent" android:layout_centerInParent="true" app:a1k="@id/hwj" app:a23="hnz" />
+        <com.tencent.qqmusic.business.playernew.view.playersong.tme3dplayer.TME3dPlayerContainerView android:id="@id/bha" android:visibility="gone" android:layout_width="0.0dp" android:layout_height="match_parent" app:a1k="@id/hwj" app:a23="hnz" />
+        <ViewStub android:id="@id/hy9" android:visibility="gone" android:layout="@layout/c51" android:inflatedId="@id/hy8" android:layout_width="0.0dp" android:layout_height="match_parent" app:a1k="@id/hwj" app:a23="hnz" />
+        <ViewStub android:id="@id/i7p" android:layout="@layout/ax8" android:inflatedId="@id/i7m" android:layout_width="0.0dp" android:layout_height="match_parent" app:a1k="@id/hwj" app:a23="hnz" />
+        <FrameLayout android:id="@id/hz3" android:clipChildren="true" android:layout_width="match_parent" android:layout_height="match_parent" android:scaleType="centerCrop" app:a1d="hnz" app:a1x="hnz" app:a21="hnz" app:a27="hnz" />
+        <FrameLayout android:id="@id/cii" android:clipChildren="false" android:layout_width="0.0dp" android:layout_height="0.0dp" app:a1d="hnz" app:a1j="hnz" app:a1v="1.0" app:a22="@id/ci0" app:a26="@id/lvf">
+            <com.tencent.qqmusic.ui.customview.viewpager.HorizontalScrollInterceptViewPager android:id="@id/i7u" android:clipChildren="false" android:clipToPadding="false" android:layout_width="match_parent" android:layout_height="match_parent" />
+        </FrameLayout>
+        <include android:id="@id/ci0" android:visibility="gone" android:layout_width="0.0dp" android:layout_height="0.0dp" app:a1d="hnz" app:a1k="@id/cii" app:a1v="1.0" app:a23="hnz" app:a26="@id/lvf" layout="@layout/cwi" />
+        <include layout="@layout/c4a" />
+        <include layout="@layout/c4b" />
+        <include layout="@layout/c48" />
+        <include android:id="@id/lvf" layout="@layout/ctg" />
+        <androidx.constraintlayout.widget.ConstraintLayout android:id="@id/hy7" android:visibility="gone" android:clipChildren="false" android:layout_width="match_parent" android:layout_height="match_parent" android:importantForAccessibility="no" app:a1d="hnz" app:a1k="@id/hwj" app:a23="hnz">
+            <FrameLayout android:id="@id/hy5" android:visibility="visible" android:clipChildren="false" android:layout_width="match_parent" android:layout_height="0.0dp" android:importantForAccessibility="no" app:a1d="hnz" app:a1x="hnz" app:a21="hnz" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
+        <include android:layout_width="110.0dp" android:layout_height="110.0dp" app:a1j="hnz" app:a23="hnz" app:a27="hnz" layout="@layout/c5m" />
+        <com.tencent.qqmusic.pag.BasePAGView android:id="@id/i3n" android:visibility="gone" android:layout_width="0.0dp" android:layout_height="0.0dp" android:importantForAccessibility="no" app:a1d="hnz" app:a1i="1:1" app:a21="hnz" app:a2e="0.3333" />
+        <androidx.constraintlayout.widget.Placeholder android:id="@id/i3r" android:visibility="gone" android:layout_width="0.0dp" android:layout_height="0.0dp" android:importantForAccessibility="no" app:a1d="@id/i3n" app:a1i="W,73:28" app:a21="@id/i3n" app:a2e="0.0718" />
+        <View android:id="@id/i3s" android:visibility="gone" android:layout_width="0.0dp" android:layout_height="0.0dp" android:importantForAccessibility="no" app:a1d="hnz" app:a1x="hnz" app:a21="hnz" app:a27="hnz" />
+        <View android:id="@id/i3o" android:visibility="gone" android:layout_width="0.0dp" android:layout_height="0.0dp" android:contentDescription="@string/fja" app:a1d="hnz" app:a1i="1:1" app:a21="hnz" app:a2e="0.25" />
+        <androidx.constraintlayout.widget.ConstraintLayout android:id="@id/i3q" android:visibility="gone" android:layout_width="0.0dp" android:layout_height="0.0dp" app:a1e="@id/i3r" app:a1i="1:1" app:a21="hnz" app:a2e="0.0718">
+            <ImageView android:id="@id/i3p" android:visibility="visible" android:layout_width="0.0dp" android:layout_height="0.0dp" android:src="@drawable/player_right_bottom_close_icon" android:contentDescription="@string/fja" app:a1d="hnz" app:a1i="1:1" app:a1x="hnz" app:a21="hnz" app:a27="hnz" app:a2e="0.7857" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
+        <View android:id="@id/cyl" android:background="@color/black_70_opacity" android:visibility="gone" android:layout_width="match_parent" android:layout_height="match_parent" android:importantForAccessibility="no" />
+        <com.tencent.qqmusic.pag.QQMusicPAGView android:id="@id/cyk" android:focusable="false" android:visibility="gone" android:layout_width="match_parent" android:layout_height="match_parent" android:contentDescription="@string/aa8" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+    <FrameLayout android:id="@id/h0" android:layout_width="match_parent" android:layout_height="match_parent" />
+    <ViewStub android:id="@id/hqi" android:visibility="gone" android:layout="@layout/az3" android:inflatedId="@id/hqh" android:layout_width="match_parent" android:layout_height="match_parent" />
+    <ViewStub android:id="@id/hyc" android:visibility="gone" android:layout="@layout/ax3" android:inflatedId="@id/hy_" android:layout_width="match_parent" android:layout_height="match_parent" />
+    <ViewStub android:id="@id/hz_" android:visibility="gone" android:layout="@layout/azh" android:inflatedId="@id/hz9" android:layout_width="match_parent" android:layout_height="match_parent" />
+    <ViewStub android:id="@id/i0u" android:visibility="gone" android:layout="@layout/aq3" android:inflatedId="@id/i0t" android:layout_width="match_parent" android:layout_height="match_parent" />
+    <ViewStub android:id="@id/i3m" android:visibility="gone" android:layout="@layout/aq3" android:inflatedId="@id/i3l" android:layout_width="match_parent" android:layout_height="match_parent" />
+    <ViewStub android:id="@id/fs_" android:visibility="gone" android:layout="@layout/b7_" android:inflatedId="@id/fs9" android:layout_width="match_parent" android:layout_height="match_parent" />
+    <ViewStub android:id="@id/fnk" android:visibility="gone" android:layout="@layout/b6_" android:inflatedId="@id/fnj" android:layout_width="match_parent" android:layout_height="wrap_content" />
+    <ViewStub android:id="@id/kot" android:visibility="gone" android:layout="@layout/cny" android:inflatedId="@id/koq" android:layout_width="match_parent" android:layout_height="match_parent" />
+    <ViewStub android:id="@id/kou" android:visibility="gone" android:layout="@layout/cnz" android:inflatedId="@id/kor" android:layout_width="match_parent" android:layout_height="match_parent" />
+    <ViewStub android:layout_gravity="start" android:id="@id/i7r" android:visibility="gone" android:layout="@layout/b2z" android:inflatedId="@id/i7q" android:layout_width="match_parent" android:layout_height="match_parent" />
+    <ViewStub android:layout_gravity="start" android:id="@id/hzy" android:visibility="gone" android:layout="@layout/tk" android:inflatedId="@id/cfc" android:layout_width="match_parent" android:layout_height="match_parent" />
+    <ViewStub android:layout_gravity="start|bottom" android:id="@id/c6s" android:visibility="gone" android:layout="@layout/at8" android:inflatedId="@id/c6r" android:layout_width="match_parent" android:layout_height="match_parent" />
+</com.tencent.qqmusic.business.playercommon.normalplayer.ui.PlayerFrameLayout>

@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout android:layout_width="match_parent" android:layout_height="wrap_content"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <include android:id="@id/gxh" android:visibility="gone" android:layout_width="match_parent" android:layout_height="60.0dp" android:layout_marginTop="-2.0dp" android:layout_marginBottom="-3.0dp" layout="@layout/blt" />
+    <LinearLayout android:orientation="horizontal" android:id="@id/gx8" android:visibility="gone" android:layout_width="match_parent" android:layout_height="60.0dp">
+        <LinearLayout android:gravity="center" android:orientation="horizontal" android:id="@id/gxm" android:layout_width="wrap_content" android:layout_height="match_parent" android:layout_weight="1.0">
+            <TextView android:textSize="16.0sp" android:textColor="@color/white" android:gravity="center" android:id="@id/gxl" android:layout_width="wrap_content" android:layout_height="match_parent" android:text="@string/dmk" />
+            <ProgressBar android:layout_gravity="center_vertical" android:id="@id/gxn" android:visibility="gone" android:layout_width="14.0dp" android:layout_height="14.0dp" android:layout_marginLeft="5.0dp" android:indeterminate="true" android:indeterminateOnly="true" android:indeterminateDrawable="@drawable/mlive_ic_loading_white" android:indeterminateDuration="2000" android:layout_marginStart="5.0dp" />
+        </LinearLayout>
+        <View android:layout_gravity="center" android:background="#303030" android:layout_width="1.0dp" android:layout_height="30.0dp" />
+        <LinearLayout android:gravity="center" android:orientation="horizontal" android:id="@id/gx6" android:layout_width="wrap_content" android:layout_height="match_parent" android:layout_weight="1.0">
+            <TextView android:textSize="16.0sp" android:textColor="@color/white" android:gravity="center" android:id="@id/gx5" android:layout_width="wrap_content" android:layout_height="match_parent" android:text="@string/dlt" />
+            <ProgressBar android:layout_gravity="center_vertical" android:id="@id/gx7" android:visibility="gone" android:layout_width="14.0dp" android:layout_height="14.0dp" android:layout_marginLeft="5.0dp" android:indeterminate="true" android:indeterminateOnly="true" android:indeterminateDrawable="@drawable/mlive_ic_loading_white" android:indeterminateDuration="2000" android:layout_marginStart="5.0dp" />
+        </LinearLayout>
+    </LinearLayout>
+    <LinearLayout android:gravity="center" android:orientation="horizontal" android:id="@id/gxj" android:background="@drawable/mlive_friend_bg_button" android:visibility="gone" android:layout_width="180.0dp" android:layout_height="40.0dp" android:layout_marginBottom="47.5dp" android:layout_centerInParent="true">
+        <TextView android:textSize="16.0sp" android:textColor="@color/white" android:gravity="center" android:id="@id/gxi" android:layout_width="wrap_content" android:layout_height="55.0dp" android:text="@string/dme" />
+        <ProgressBar android:layout_gravity="center_vertical" android:id="@id/gxk" android:visibility="gone" android:layout_width="14.0dp" android:layout_height="14.0dp" android:layout_marginLeft="5.0dp" android:indeterminate="true" android:indeterminateOnly="true" android:indeterminateDrawable="@drawable/mlive_ic_loading_white" android:indeterminateDuration="2000" android:layout_marginStart="5.0dp" />
+    </LinearLayout>
+</RelativeLayout>

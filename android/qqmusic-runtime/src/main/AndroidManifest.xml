@@ -1,0 +1,410 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android">
+    <uses-permission android:name="android.permission.DETECT_SCREEN_CAPTURE" />
+    <uses-permission android:name="android.permission.FOREGROUND_SERVICE_MICROPHONE" />
+
+    <application>
+        <activity
+            android:name="com.tencent.qqmusic.activity.base.FragmentActivityWithMinibar"
+            android:configChanges="keyboard|keyboardHidden|orientation|screenLayout|uiMode|screenSize|smallestScreenSize"
+            android:exported="false"
+            android:launchMode="standard"
+            android:screenOrientation="portrait"
+            android:theme="@style/os"
+            android:windowSoftInputMode="adjustPan" />
+        <activity
+            android:name="com.tencent.qqmusic.business.privacypolicy.litemode.PrivacyBaseModeActivity"
+            android:configChanges="orientation|screenLayout|screenSize|smallestScreenSize"
+            android:exported="false"
+            android:launchMode="singleTask"
+            android:screenOrientation="portrait"
+            android:theme="@style/oq" />
+        <activity
+            android:name="com.tencent.qqmusic.activity.baseactivity.StartUpPrivacyPolicyActivity"
+            android:configChanges="orientation|screenLayout|screenSize|smallestScreenSize"
+            android:exported="false"
+            android:screenOrientation="portrait"
+            android:theme="@style/o_" />
+        <activity
+            android:name="com.tencent.qqmusic.activity.baseactivity.StartConfigActivity"
+            android:configChanges="orientation|screenLayout|screenSize|smallestScreenSize"
+            android:exported="false"
+            android:screenOrientation="portrait"
+            android:theme="@style/o_" />
+        <activity
+            android:name="com.tencent.qqmusic.business.playernew.view.NewPlayerActivity"
+            android:configChanges="keyboardHidden|orientation|screenLayout|uiMode|screenSize|smallestScreenSize|fontScale"
+            android:exported="false"
+            android:launchMode="singleTop"
+            android:rotationAnimation="crossfade"
+            android:screenOrientation="portrait"
+            android:theme="@style/oc" />
+        <activity
+            android:name="com.tencent.qqmusic.business.playernew.view.PadNewPlayerActivity"
+            android:configChanges="keyboardHidden|orientation|screenLayout|uiMode|screenSize|smallestScreenSize"
+            android:exported="false"
+            android:launchMode="singleTop"
+            android:rotationAnimation="crossfade"
+            android:screenOrientation="portrait"
+            android:theme="@style/oc" />
+        <activity
+            android:name="com.tencent.qqmusic.business.playernew.view.FoldScreenNewPlayerActivity"
+            android:configChanges="keyboardHidden|orientation|screenLayout|uiMode|screenSize|smallestScreenSize"
+            android:exported="false"
+            android:launchMode="singleTop"
+            android:screenOrientation="portrait"
+            android:theme="@style/oc" />
+        <activity
+            android:name="com.tencent.qqmusic.business.playernew.view.HalfFoldedPlayerActivity"
+            android:configChanges="keyboardHidden|orientation|screenLayout|uiMode|screenSize|smallestScreenSize"
+            android:exported="false"
+            android:launchMode="singleTop"
+            android:screenOrientation="portrait"
+            android:theme="@style/os" />
+        <activity
+            android:name="com.tencent.qqmusic.business.playernew.view.HorizontalScreenPlayerActivity"
+            android:configChanges="keyboardHidden|orientation|screenLayout|uiMode|screenSize|smallestScreenSize|fontScale"
+            android:exported="false"
+            android:launchMode="singleTop"
+            android:rotationAnimation="crossfade"
+            android:screenOrientation="sensorLandscape"
+            android:theme="@style/os" />
+        <activity
+            android:name="com.tencent.mobileqq.webviewplugin.common.CustomPreviewShareActivity"
+            android:exported="false"
+            android:screenOrientation="portrait"
+            android:theme="@style/os" />
+        <activity
+            android:name="com.tencent.qqmusic.activity.DanmuCommentActivity"
+            android:configChanges="keyboardHidden|orientation|screenLayout|screenSize|smallestScreenSize"
+            android:exported="false"
+            android:theme="@style/oi"
+            android:windowSoftInputMode="adjustResize" />
+        <activity
+            android:name="com.tencent.qqmusic.activity.FolderAddSongActivity"
+            android:configChanges="keyboardHidden|orientation|screenLayout|screenSize|smallestScreenSize"
+            android:exported="false"
+            android:launchMode="singleTop"
+            android:screenOrientation="portrait"
+            android:theme="@style/os"
+            android:windowSoftInputMode="stateAlwaysHidden">
+            <intent-filter>
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name="com.tencent.qqmusic.activity.LyricSearchActivity"
+            android:configChanges="keyboardHidden|orientation|screenLayout|screenSize|smallestScreenSize"
+            android:exported="false"
+            android:hardwareAccelerated="true"
+            android:launchMode="singleTop"
+            android:screenOrientation="portrait"
+            android:theme="@style/os"
+            android:windowSoftInputMode="adjustPan" />
+        <activity
+            android:name="com.tencent.qqmusic.activity.ShareFeedActivity"
+            android:configChanges="keyboardHidden|orientation|screenLayout|screenSize|smallestScreenSize"
+            android:exported="false"
+            android:launchMode="singleTask"
+            android:theme="@style/o4"
+            android:windowSoftInputMode="adjustResize" />
+        <activity
+            android:name="com.tencent.qqmusic.activity.TranslucentWebViewActivity"
+            android:configChanges="keyboardHidden|orientation|screenLayout|uiMode|screenSize|smallestScreenSize"
+            android:exported="false"
+            android:theme="@style/od"
+            android:windowSoftInputMode="adjustPan" />
+        <activity
+            android:name="com.tencent.qqmusic.activity.WebViewActivity"
+            android:configChanges="keyboardHidden|orientation|screenLayout|screenSize|smallestScreenSize"
+            android:exported="false"
+            android:screenOrientation="portrait"
+            android:theme="@style/os"
+            android:windowSoftInputMode="adjustPan">
+            <intent-filter>
+                <action android:name="com.tencent.qqmusiccommon.PLAYLIST_VIEWER.PHONE" />
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name="com.tencent.qqmusic.business.playernew.customlyric.activity.CustomLyricEditActivity"
+            android:configChanges="keyboardHidden|orientation|screenLayout|uiMode|screenSize|smallestScreenSize"
+            android:exported="false"
+            android:launchMode="singleTop"
+            android:screenOrientation="portrait"
+            android:theme="@style/oc"
+            android:windowSoftInputMode="adjustPan" />
+        <activity
+            android:name="com.tencent.qqmusic.business.playernew.newdrivemode.NewDriveModePlayerActivity"
+            android:configChanges="mcc|mnc|keyboardHidden|orientation|screenLayout|screenSize|smallestScreenSize"
+            android:launchMode="singleTask"
+            android:theme="@style/os"
+            android:windowSoftInputMode="adjustPan" />
+        <activity
+            android:name="com.tencent.qqmusic.business.playernew.view.SelectCheckInActivity"
+            android:configChanges="keyboardHidden|orientation|screenLayout|screenSize|smallestScreenSize"
+            android:exported="false"
+            android:launchMode="singleTop"
+            android:screenOrientation="portrait"
+            android:theme="@style/os"
+            android:windowSoftInputMode="adjustPan" />
+        <activity
+            android:name="com.tencent.qqmusic.business.playernew.view.horizontalscreen.previewedit.HSPlayerEditActivity"
+            android:configChanges="keyboardHidden|orientation|screenLayout|uiMode|screenSize|smallestScreenSize|fontScale"
+            android:exported="false"
+            android:launchMode="singleTop"
+            android:rotationAnimation="crossfade"
+            android:screenOrientation="sensorLandscape"
+            android:theme="@style/os" />
+        <activity
+            android:name="com.tencent.qqmusic.business.playernew.view.horizontalscreen.previewedit.HSPlayerLightBoardEditActivity"
+            android:configChanges="keyboardHidden|orientation|screenLayout|uiMode|screenSize|smallestScreenSize|fontScale"
+            android:exported="false"
+            android:launchMode="singleTop"
+            android:rotationAnimation="crossfade"
+            android:screenOrientation="sensorLandscape"
+            android:theme="@style/os" />
+        <activity
+            android:name="com.tencent.qqmusic.business.playernew.view.horizontalscreen.previewedit.HSPlayerSeriesSelectedActivity"
+            android:configChanges="keyboardHidden|orientation|screenLayout|uiMode|screenSize|smallestScreenSize|fontScale"
+            android:exported="false"
+            android:launchMode="singleTop"
+            android:rotationAnimation="crossfade"
+            android:screenOrientation="sensorLandscape"
+            android:theme="@style/os" />
+        <activity
+            android:name="com.tencent.qqmusic.business.playernew.view.playerroom.PlayerRoomHistoryActivity"
+            android:configChanges="mcc|mnc|keyboardHidden|orientation|screenLayout|uiMode|screenSize|smallestScreenSize"
+            android:exported="false"
+            android:screenOrientation="portrait"
+            android:theme="@style/os" />
+        <activity
+            android:name="com.tencent.qqmusic.business.playernew.view.playerroom.im.PlayerRoomTalkInputActivity"
+            android:configChanges="keyboardHidden|orientation|screenLayout|screenSize|smallestScreenSize"
+            android:exported="false"
+            android:launchMode="singleTop"
+            android:theme="@style/g9"
+            android:windowSoftInputMode="stateAlwaysVisible|adjustResize" />
+        <activity
+            android:name="com.tencent.qqmusic.business.playernew.view.playersong.definedplayer.personalradio.scene.PrSceneSelectActivity"
+            android:configChanges="keyboardHidden|orientation|screenLayout|screenSize|smallestScreenSize"
+            android:exported="false"
+            android:launchMode="singleTop"
+            android:screenOrientation="portrait"
+            android:theme="@style/os"
+            android:windowSoftInputMode="adjustPan" />
+        <activity
+            android:name="com.tencent.qqmusic.business.playernew.view.playersong.tme3dplayer.fragment.list.SchoolListSelectActivity"
+            android:configChanges="keyboardHidden|orientation|screenLayout|screenSize|smallestScreenSize"
+            android:exported="false"
+            android:launchMode="singleTop"
+            android:screenOrientation="portrait"
+            android:theme="@style/os"
+            android:windowSoftInputMode="adjustPan" />
+        <activity
+            android:name="com.tencent.qqmusic.business.playernew.view.playersong.tme3dplayer.fragment.list.SchoolPicUploadActivity"
+            android:configChanges="keyboardHidden|orientation|screenLayout|screenSize|smallestScreenSize"
+            android:exported="false"
+            android:launchMode="singleTop"
+            android:screenOrientation="portrait"
+            android:theme="@style/os"
+            android:windowSoftInputMode="adjustPan" />
+        <activity
+            android:name="com.tencent.qqmusic.business.ringcut.block.RingToneBlockActivity"
+            android:configChanges="keyboardHidden|orientation|screenLayout|screenSize|smallestScreenSize"
+            android:exported="false"
+            android:hardwareAccelerated="true"
+            android:launchMode="singleTop"
+            android:screenOrientation="portrait"
+            android:theme="@style/os"
+            android:windowSoftInputMode="adjustResize">
+            <intent-filter>
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name="com.tencent.qqmusic.camerascan.share.SharePicSetActivity"
+            android:exported="false"
+            android:screenOrientation="portrait"
+            android:theme="@style/p" />
+        <activity
+            android:name="com.tencent.qqmusic.activity.ShareToTargetActivity"
+            android:exported="false"
+            android:theme="@android:style/Theme.Translucent.NoTitleBar.Fullscreen" />
+        <activity
+            android:name="com.tencent.qqmusic.business.customskin.player.OfflineCustomPlayerActivity"
+            android:configChanges="keyboardHidden|orientation|screenLayout|screenSize|smallestScreenSize"
+            android:exported="false"
+            android:launchMode="singleTop"
+            android:screenOrientation="portrait"
+            android:theme="@style/os"
+            android:windowSoftInputMode="adjustPan" />
+        <activity
+            android:name="com.tencent.qqmusic.share.musicvideo.MusicVideoSaveActivity"
+            android:exported="false"
+            android:screenOrientation="portrait"
+            android:theme="@style/p" />
+        <activity
+            android:name="com.tencent.qqmusic.share.musicvideo.ShareMusicVideoActivity"
+            android:exported="false"
+            android:screenOrientation="portrait"
+            android:theme="@style/p" />
+        <activity
+            android:name="com.tencent.qqmusic.share.virtualaccompany.VirtualAccompanyVideoSaveActivity"
+            android:exported="false"
+            android:screenOrientation="portrait"
+            android:theme="@style/p" />
+        <activity
+            android:name="com.tencent.qqmusic.wxstatus.CardDisplayActivity"
+            android:configChanges="keyboardHidden|orientation|screenLayout|screenSize|smallestScreenSize"
+            android:launchMode="singleTop"
+            android:screenOrientation="portrait"
+            android:theme="@style/os" />
+        <service
+            android:name="com.tencent.qqmusicplayerprocess.servicenew.QQPlayerServiceNew"
+            android:enabled="true"
+            android:exported="false"
+            android:foregroundServiceType="mediaPlayback"
+            android:process=":QQPlayerService">
+            <intent-filter>
+                <action android:name="android.intent.action.MEDIA_BUTTON" />
+            </intent-filter>
+        </service>
+        <service
+            android:name="com.tencent.qqmusicplayerprocess.qqmusicdlna.QPlayService"
+            android:enabled="true"
+            android:exported="false"
+            android:process=":QQPlayerService" />
+        <service
+            android:name="com.tencent.qqmusic.service.MainService"
+            android:enabled="true"
+            android:exported="false"
+            android:foregroundServiceType="mediaPlayback|microphone">
+            <intent-filter android:priority="999">
+                <action android:name="com.tencent.qqmusic.service.IMainService" />
+            </intent-filter>
+        </service>
+        <service
+            android:name="com.tencent.qqmusic.common.ipc.MusicIPCService"
+            android:enabled="true"
+            android:exported="false"
+            android:process=":QQPlayerService" />
+        <service
+            android:name="com.tencent.qqmusicplayerprocess.qplayauto.QPlayAutoService"
+            android:enabled="true"
+            android:exported="false"
+            android:process=":QQPlayerService" />
+        <service
+            android:name="com.tencent.qqmusicplayerprocess.daemon.DaemonService"
+            android:exported="false" />
+        <provider
+            android:name="com.tencent.qqmusic.common.providers.MusicDbContentProvider"
+            android:authorities="com.mengzhen.app.musicdbaccessor.MusicDbContentProvider"
+            android:exported="false" />
+        <provider
+            android:name="com.tencent.qqmusic.share.ShareFileProvider"
+            android:authorities="com.mengzhen.app.shareFileProvider"
+            android:exported="false"
+            android:grantUriPermissions="true">
+            <meta-data
+                android:name="android.support.FILE_PROVIDER_PATHS"
+                android:resource="@xml/a7" />
+        </provider>
+        <receiver
+            android:name="androidx.media.session.MediaButtonReceiver"
+            android:exported="false"
+            android:process=":QQPlayerService">
+            <intent-filter>
+                <action android:name="android.intent.action.MEDIA_BUTTON" />
+            </intent-filter>
+        </receiver>
+        <activity
+            android:name="com.tencent.qqmusic.activity.ShareActivity"
+            android:configChanges="keyboardHidden|orientation|screenLayout|screenSize|smallestScreenSize"
+            android:exported="false"
+            android:launchMode="singleTask"
+            android:screenOrientation="portrait"
+            android:theme="@style/o4"
+            android:windowSoftInputMode="adjustResize" />
+        <activity
+            android:name="com.tencent.qqmusic.share.sharedialog.ShareSongDialogActivity"
+            android:configChanges="keyboardHidden|orientation|screenLayout|screenSize|smallestScreenSize"
+            android:exported="false"
+            android:launchMode="singleTask"
+            android:screenOrientation="portrait"
+            android:theme="@style/o4"
+            android:windowSoftInputMode="adjustResize" />
+        <activity
+            android:name="com.tencent.qqmusic.share.sharedialog.ShareScreenShotDialogActivity"
+            android:configChanges="keyboardHidden|orientation|screenLayout|screenSize|smallestScreenSize"
+            android:exported="false"
+            android:launchMode="singleTask"
+            android:screenOrientation="portrait"
+            android:theme="@style/o4"
+            android:windowSoftInputMode="adjustResize" />
+        <activity
+            android:name="com.tencent.qqmusic.share.sharedialog.folder.ShareFolderDialogActivity"
+            android:configChanges="keyboardHidden|orientation|screenLayout|screenSize|smallestScreenSize"
+            android:exported="false"
+            android:launchMode="singleTask"
+            android:screenOrientation="portrait"
+            android:theme="@style/o4"
+            android:windowSoftInputMode="adjustResize" />
+        <activity
+            android:name="com.tencent.qqmusic.business.customskin.skin2.CustomSkin2Activity"
+            android:configChanges="keyboardHidden|orientation|screenLayout|uiMode|screenSize|smallestScreenSize"
+            android:exported="false"
+            android:launchMode="singleTop"
+            android:screenOrientation="portrait"
+            android:theme="@style/oc"
+            android:windowSoftInputMode="adjustPan" />
+        <activity
+            android:name="com.tencent.qqmusic.business.customskin.typeface.SkinTypeFaceEditPhotoActivity"
+            android:configChanges="keyboard|keyboardHidden|orientation|screenLayout|uiMode|screenSize|smallestScreenSize"
+            android:exported="false"
+            android:launchMode="singleTop"
+            android:screenOrientation="portrait"
+            android:theme="@style/oc"
+            android:windowSoftInputMode="adjustPan" />
+        <activity
+            android:name="com.tencent.qqmusic.business.customskin.player.CustomPlayerActivity"
+            android:configChanges="keyboardHidden|orientation|screenLayout|uiMode|screenSize|smallestScreenSize"
+            android:exported="false"
+            android:launchMode="singleTop"
+            android:screenOrientation="portrait"
+            android:theme="@style/os"
+            android:windowSoftInputMode="adjustPan" />
+        <activity
+            android:name="com.tencent.qqmusic.business.playernew.customlyric.activity.CustomLyricPreviewActivity"
+            android:configChanges="keyboardHidden|orientation|screenLayout|uiMode|screenSize|smallestScreenSize"
+            android:exported="false"
+            android:launchMode="singleTop"
+            android:screenOrientation="portrait"
+            android:theme="@style/oc"
+            android:windowSoftInputMode="adjustPan" />
+        <activity
+            android:name="com.tencent.qqmusic.business.customskin.player.PDPreviewActivity"
+            android:configChanges="keyboardHidden|orientation|screenLayout|uiMode|screenSize|smallestScreenSize"
+            android:exported="false"
+            android:launchMode="singleTop"
+            android:screenOrientation="portrait"
+            android:theme="@style/oc"
+            android:windowSoftInputMode="adjustPan" />
+        <activity
+            android:name="com.tencent.qqmusic.business.customskin.player.PDEditActivity"
+            android:configChanges="keyboardHidden|orientation|screenLayout|uiMode|screenSize|smallestScreenSize"
+            android:exported="false"
+            android:launchMode="singleTop"
+            android:screenOrientation="portrait"
+            android:theme="@style/oc"
+            android:windowSoftInputMode="adjustPan" />
+        <activity
+            android:name="com.tencent.qqmusic.business.multistylelyric.LyricMultiStyleActivity"
+            android:configChanges="keyboardHidden|orientation|screenLayout|uiMode|screenSize|smallestScreenSize"
+            android:exported="false"
+            android:launchMode="singleTop"
+            android:screenOrientation="portrait"
+            android:theme="@style/oc"
+            android:windowSoftInputMode="adjustPan" />
+    </application>
+</manifest>

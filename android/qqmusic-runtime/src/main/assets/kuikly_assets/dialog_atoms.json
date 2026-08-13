@@ -1,0 +1,72 @@
+{
+  "router": "openHalf",
+  "page_name": "dialog_atoms",
+  "params": {
+    "atoms":{
+      "design": "flex_layout",
+      "rules": {
+        "id": "xw6b3d5i",
+        "children": [
+          {
+            "design": "flex_layout",
+            "rules": {
+              "id": "u0m91ezb",
+              "width": 700,
+              "height": 60,
+              "flex_direction": "row_reverse",
+              "children": [
+                {
+                  "design": "atoms_image",
+                  "rules": {
+                    "id": "q2s2eqb0",
+                    "width": 60,
+                    "height": 60,
+                    "src": "data:image/webp;base64,UklGRqYBAABXRUJQVlA4WAoAAAAQAAAAdwAAdwAAQUxQSOUAAAABL0CYbZzasyiHcRERnYHjRpIUaeEMQAPQAP6DC6v235eF7oL7nhTRfwZuGynq7p2PGb/Q/LOVz4XbJjKHiB7PNaLl8o544RkiVmxGcOmsY4QwOnLEgHOt9obYNGpnFBBKINQAKwJWBagMUB2QQiCVAEoB1FIqplRNoZxCPakGUh0kWkj0sNDEQhNzXcz1sNBIb461x+cMm3PM16T3XjDfg9Z73+UCkws8JlhMcJhiMEVvgdwCtSViS7QCSAVQCiEUQieITBCVMCI9HJgtGyKi9f5b/e4/3Zo6EVf+v+y7J7fpj600AFZQOCCaAAAAkAwAnQEqeAB4AD6RQJ1JJaOjIS0ViKCwEglpbt0KbJ8AfwD3/e/wKcapW0RlOxDCh2wf/jKtyBPPDs3c+F4HXfQe1K6lowCvrbxpb7IyoSX71eVQ51RVaQkEdqNYjm5c4aeJnmM1KJUQpWJMAAD++M9CwC1WzPa0vpTrdQ/882Jdtc8xwZz6+bPYP/POMGbwYcdcsQgAAAAAAA==",
+                    "scale": "contain",
+                    "align_self": "flex_end"
+                  }
+                }
+              ]
+            }
+          },
+          {
+            "design": "flex_layout",
+            "rules": {
+              "id": "xarm67mq",
+              "flex_direction": "column",
+              "align_items": "center",
+              "width": 700,
+              "height": 800,
+              "radius": 40,
+              "background": {
+                "type": "color",
+                "colors": [
+                  "#ffffff"
+                ]
+              },
+              "margin_rules": {
+                "margin_bottom": 40
+              },
+              "children": [
+                {
+                  "design": "text_link",
+                  "rules": {
+                    "id": "vduyu81k",
+                    "text": "文字的萨的",
+                    "text_color": "#000000"
+                  }
+                }
+              ]
+            }
+          }
+        ],
+        "width": 780,
+        "height": 1688,
+        "radius": 40,
+        "flex_direction": "column",
+        "align_items": "center",
+        "justify_content": "flex_end"
+      }
+    }
+  }
+}

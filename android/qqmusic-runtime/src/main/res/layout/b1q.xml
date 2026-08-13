@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout android:gravity="center_horizontal" android:background="@color/white" android:layout_width="match_parent" android:layout_height="match_parent"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <include android:id="@id/lv1" layout="@layout/mu" />
+    <EditText android:id="@id/mlp" android:layout_width="match_parent" android:layout_height="70.0dp" android:layout_marginTop="20.0dp" android:hint="输入歌手ID(默认4558)" android:layout_below="@id/lv1" android:layout_centerHorizontal="true" android:inputType="number" />
+    <Button android:id="@id/b_0" android:layout_width="100.0dp" android:layout_height="wrap_content" android:text="发起播放" android:layout_below="@id/mlp" android:layout_centerHorizontal="true" />
+</RelativeLayout>

@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout android:id="@id/ibl" android:background="@color/black" android:layout_width="match_parent" android:layout_height="match_parent"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <com.tencent.qqmusic.business.fullscreen.video.PortVideoLayout android:id="@id/iba" android:focusable="true" android:visibility="gone" android:layout_width="match_parent" android:layout_height="match_parent" android:accessibilityTraversalAfter="@id/ibo" />
+    <androidx.appcompat.widget.AppCompatImageView android:layout_gravity="right" android:id="@id/ibo" android:focusable="true" android:visibility="gone" android:layout_width="33.0dp" android:layout_height="33.0dp" android:layout_marginTop="49.0dp" android:layout_marginRight="13.0dp" android:src="@drawable/port_video_mute" android:contentDescription="@string/ir3" android:accessibilityTraversalBefore="@id/iba" android:accessibilityTraversalAfter="@id/ibc" />
+    <ViewStub android:layout_gravity="center" android:id="@id/b7x" android:layout="@layout/ye" android:layout_width="match_parent" android:layout_height="match_parent" />
+    <ViewStub android:layout_gravity="center" android:id="@id/b7f" android:layout_width="match_parent" android:layout_height="match_parent" />
+    <ViewStub android:layout_gravity="center" android:id="@id/b7r" android:layout_width="match_parent" android:layout_height="match_parent" />
+    <ViewStub android:layout_gravity="center" android:id="@id/b80" android:layout_width="match_parent" android:layout_height="match_parent" />
+</FrameLayout>

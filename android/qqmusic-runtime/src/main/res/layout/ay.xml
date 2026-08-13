@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout android:id="@id/esv" android:background="@drawable/main_bg" android:layout_width="match_parent" android:layout_height="match_parent"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <include android:id="@id/et0" layout="@layout/mu" />
+    <FrameLayout android:id="@id/esw" android:layout_width="match_parent" android:layout_height="match_parent" android:layout_below="@id/et0" />
+    <ViewStub android:id="@id/esy" android:visibility="gone" android:layout="@layout/yc" android:layout_width="match_parent" android:layout_height="match_parent" android:layout_below="@id/et0" />
+    <ViewStub android:id="@id/esx" android:visibility="gone" android:layout="@layout/mh" android:layout_width="match_parent" android:layout_height="match_parent" android:layout_below="@id/et0" />
+    <include android:id="@id/esz" android:visibility="gone" android:layout_width="match_parent" android:layout_height="match_parent" android:layout_below="@id/et0" layout="@layout/mj" />
+</RelativeLayout>

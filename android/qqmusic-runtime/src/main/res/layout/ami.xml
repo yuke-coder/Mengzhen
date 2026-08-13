@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout android:id="@id/kh4" android:background="@drawable/material_ripple_background" android:paddingLeft="@dimen/ld" android:paddingTop="6.0dp" android:paddingRight="@dimen/ld" android:paddingBottom="10.0dp" android:layout_width="match_parent" android:layout_height="wrap_content" android:paddingHorizontal="@dimen/ld"
+  xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">
+    <RelativeLayout android:layout_width="match_parent" android:layout_height="wrap_content">
+        <com.tencent.qqmusic.ui.RoundedConstraintLayout android:layout_gravity="center_vertical" android:id="@id/mwi" android:layout_width="40.0dp" android:layout_height="40.0dp" android:layout_alignParentLeft="true" android:layout_centerVertical="true" app:kj="20.0dp">
+            <com.tencent.qqmusic.business.live.ui.view.RoundAvatarImage android:layout_gravity="center_vertical" android:id="@id/mwe" android:layout_width="match_parent" android:layout_height="match_parent" android:layout_centerVertical="true" />
+        </com.tencent.qqmusic.ui.RoundedConstraintLayout>
+        <TextView android:textSize="14.0sp" android:textColor="@color/skin_text_main_color" android:ellipsize="end" android:id="@id/ig5" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginLeft="12.0dp" android:maxLines="1" android:layout_toRightOf="@id/mwi" android:layout_centerVertical="true" android:fontFamily="PingFangSC-Regular" android:layout_marginEnd="72.0dp" />
+        <com.tencent.qqmusic.follow.FollowPlusButton android:id="@id/cq_" android:visibility="gone" android:layout_width="60.0dp" android:layout_height="25.0dp" android:layout_centerVertical="true" android:layout_alignParentEnd="true" />
+    </RelativeLayout>
+</RelativeLayout>

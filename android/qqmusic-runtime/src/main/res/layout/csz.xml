@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout android:gravity="center_vertical" android:orientation="vertical" android:layout_width="match_parent" android:layout_height="wrap_content"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <View android:id="@id/e3m" android:visibility="gone" android:layout_width="match_parent" android:layout_height="7.5dp" />
+    <LinearLayout android:gravity="center_vertical" android:orientation="horizontal" android:layout_width="match_parent" android:layout_height="wrap_content">
+        <RelativeLayout android:gravity="center_vertical" android:paddingLeft="19.0dp" android:layout_width="0.0dp" android:layout_height="56.0dp" android:layout_weight="1.0">
+            <com.tencent.component.widget.AsyncEffectImageView android:id="@id/e7k" android:layout_width="41.0dp" android:layout_height="41.0dp" android:layout_marginRight="10.0dp" android:scaleType="matrix" android:layout_centerVertical="true" android:contentDescription="@string/app_name" />
+            <LinearLayout android:gravity="center_vertical" android:orientation="vertical" android:layout_width="match_parent" android:layout_height="41.0dp" android:layout_toRightOf="@id/e7k" android:layout_centerVertical="true">
+                <TextView android:textSize="13.0sp" android:textColor="@color/together_play_list_item_name_select" android:ellipsize="end" android:gravity="center_vertical" android:id="@id/e7o" android:layout_width="wrap_content" android:layout_height="wrap_content" android:maxLines="1" android:includeFontPadding="false" />
+                <TextView android:textSize="11.0sp" android:textColor="@color/together_play_list_item_from_select" android:ellipsize="end" android:gravity="center_vertical" android:id="@id/e7m" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="4.0dp" android:singleLine="true" android:includeFontPadding="false" />
+            </LinearLayout>
+        </RelativeLayout>
+        <ImageView android:layout_gravity="center_vertical" android:id="@id/e7p" android:visibility="gone" android:layout_width="20.0dp" android:layout_height="20.0dp" android:layout_marginLeft="15.0dp" android:src="@drawable/together_play_list_play_flag_icon" />
+        <ImageView android:id="@id/e7n" android:padding="6.0dp" android:visibility="gone" android:layout_width="32.0dp" android:layout_height="32.0dp" android:layout_marginLeft="9.0dp" android:layout_marginRight="13.0dp" android:src="@drawable/together_play_list_item_like_selector" android:contentDescription="@string/bzd" />
+        <ImageView android:id="@id/e7l" android:padding="6.0dp" android:visibility="gone" android:layout_width="32.0dp" android:layout_height="32.0dp" android:layout_marginLeft="9.0dp" android:layout_marginRight="13.0dp" android:src="@drawable/together_play_list_item_delete_icon" />
+    </LinearLayout>
+    <View android:id="@id/e3e" android:visibility="gone" android:layout_width="match_parent" android:layout_height="18.5dp" />
+</LinearLayout>

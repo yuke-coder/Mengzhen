@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout android:gravity="center" android:orientation="horizontal" android:paddingLeft="21.0dp" android:paddingRight="21.0dp" android:layout_width="match_parent" android:layout_height="wrap_content" android:paddingStart="21.0dp" android:paddingEnd="21.0dp"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <TextView android:textSize="14.0sp" android:textColor="@color/ringtone_skin_text_sub_color" android:ellipsize="marquee" android:gravity="center" android:layout_gravity="center_vertical" android:id="@id/a7r" android:visibility="invisible" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="03:20.35" android:singleLine="true" />
+    <LinearLayout android:gravity="center_vertical" android:layout_gravity="center_vertical" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginLeft="10.0dp" android:layout_weight="1.0" android:layout_marginStart="10.0dp">
+        <ImageView android:id="@id/a7p" android:layout_width="4.0dp" android:layout_height="4.0dp" android:src="@drawable/ringtone_select_begin_lyric_icon" android:scaleType="fitCenter" />
+        <ImageView android:id="@id/a7q" android:layout_width="0.0dp" android:layout_height="2.0dp" android:src="@drawable/ringtone_select_begin_lyric_line" android:scaleType="fitXY" android:layout_weight="1.0" />
+        <ImageView android:id="@id/a7o" android:layout_width="50.0dp" android:layout_height="24.0dp" android:src="@drawable/ringtone_select_begin_lyric_start_button" />
+    </LinearLayout>
+</LinearLayout>

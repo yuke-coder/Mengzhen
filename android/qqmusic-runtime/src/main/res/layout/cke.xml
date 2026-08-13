@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout android:orientation="vertical" android:layout_width="match_parent" android:layout_height="match_parent"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <com.tencent.component.widget.SeekbarWithDots android:id="@id/jpr" android:layout_width="match_parent" android:layout_height="wrap_content" android:maxHeight="2.0dp" android:minHeight="2.0dp" />
+    <RelativeLayout android:orientation="horizontal" android:id="@id/dzm" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginTop="9.0dp" />
+</LinearLayout>

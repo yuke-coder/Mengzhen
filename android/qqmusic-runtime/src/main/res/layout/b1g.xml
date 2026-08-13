@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout android:orientation="horizontal" android:layout_width="match_parent" android:layout_height="wrap_content"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <LinearLayout android:gravity="center_vertical" android:id="@id/exm" android:layout_width="wrap_content" android:layout_height="63.0dp" android:layout_marginLeft="15.0dp">
+        <CheckBox android:id="@id/exl" android:background="@drawable/ic_edit_song_checkbox_live" android:focusable="false" android:focusableInTouchMode="false" android:clickable="false" android:layout_width="30.0dp" android:layout_height="30.0dp" android:checked="false" android:button="@null" />
+        <TextView android:textSize="14.0sp" android:textColor="@color/skin_text_main_color" android:ellipsize="end" android:id="@id/exn" android:paddingLeft="8.0dp" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/b0x" android:singleLine="true" android:layout_toRightOf="@id/exl" />
+    </LinearLayout>
+    <TextView android:textSize="14.0sp" android:textColor="@color/skin_text_sub_color" android:ellipsize="end" android:id="@id/exo" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginRight="14.0dp" android:singleLine="true" android:layout_alignParentRight="true" android:layout_centerVertical="true" />
+</RelativeLayout>

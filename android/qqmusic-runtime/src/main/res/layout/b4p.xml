@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout android:id="@id/f6t" android:background="@color/black" android:layout_width="match_parent" android:layout_height="match_parent"
+  xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">
+    <ImageView android:id="@id/f_w" android:visibility="visible" android:layout_width="match_parent" android:layout_height="0.0dp" app:a1e="@id/f_x" app:a1i="h,1:1" app:a1x="hnz" app:a21="hnz" app:a27="hnz" />
+    <androidx.recyclerview.widget.RecyclerView android:id="@id/f_x" android:layout_width="match_parent" android:layout_height="80.0dp" android:layout_marginBottom="40.0dp" android:layout_marginStart="10.0dp" app:a1d="hnz" app:a1x="hnz" />
+    <kk.design.KKTextView android:id="@id/jrc" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginBottom="15.0dp" android:text="编辑" android:layout_marginStart="20.0dp" app:a0f="g7y" app:a0g="bj0" app:a1_="@id/jre" app:a1x="hnz" />
+    <TextView android:textSize="14.0sp" android:textStyle="bold" android:textColor="@android:color/white" android:gravity="center" android:id="@id/jre" android:background="@drawable/live_cover_button_bg_black_green" android:layout_width="100.0dp" android:layout_height="30.0dp" android:layout_marginRight="15.0dp" android:layout_marginBottom="15.0dp" android:text="@string/c2n" android:layout_centerVertical="true" app:a1e="@id/f_x" app:a21="hnz" />
+    <RelativeLayout android:id="@id/jrd" android:layout_width="match_parent" android:layout_height="64.0dp" app:a1d="hnz" />
+</androidx.constraintlayout.widget.ConstraintLayout>

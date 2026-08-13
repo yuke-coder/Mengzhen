@@ -1,0 +1,43 @@
+{
+  "router": "openHalf",
+  "page_name": "dialog_image_topbar",
+  "ui_debug": 0,
+  "container": {
+    "w_weight": "0.95",
+    "h_weight": "0.95",
+    "gravity": "bottom",
+    "direction": "from-bottom"
+  },
+  "params": {
+    "page": [
+      {
+        "style": "top_webp",
+        "topbar": {
+          "type": "png",
+          "url": "http://y.gtimg.cn/music/common/upload/t_music_icon_conf/4440668.png"
+        },
+        "base": {
+          "title": "您已失去APP ICON特权",
+          "subtitle": "开通会员可任选APP图标",
+          "background": {
+            "type": "gradient",
+            "colors": [
+              "#FFFFF7E7",
+              "#FFFBDDA2"
+            ],
+            "direction": "to-top"
+          }
+        },
+        "buttons": [
+          {
+            "text": "¥1.9 开通超级会员",
+            "color": "#FFFFCD4B",
+            "url": "https://i.y.qq.com/n2/m/myservice/index.html?entry=27&tab1=svip&tab2=eight&aid=music.tq.recent.vipsong&_hidehd=1"
+          }
+        ],
+        "body": {
+        }
+      }
+    ]
+  }
+}

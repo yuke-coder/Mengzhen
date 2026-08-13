@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout android:background="@color/ss_all_effect_bg_color" android:layout_width="match_parent" android:layout_height="match_parent"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <com.tencent.qqmusic.ui.ObservableScrollView android:id="@id/ks3" android:layout_width="match_parent" android:layout_height="match_parent">
+        <RelativeLayout android:layout_width="wrap_content" android:layout_height="wrap_content">
+            <com.tencent.component.widget.AsyncImageView android:id="@id/c3q" android:layout_width="match_parent" android:layout_height="280.0dp" android:scaleType="centerCrop" />
+            <LinearLayout android:orientation="vertical" android:id="@id/lv0" android:layout_width="match_parent" android:layout_height="match_parent">
+                <com.tencent.component.widget.AsyncImageView android:layout_gravity="center" android:id="@id/c3m" android:layout_width="50.0dp" android:layout_height="50.0dp" android:layout_marginTop="69.0dp" />
+                <TextView android:layout_gravity="center" android:id="@id/c3s" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="10.0dp" style="@style/pk" />
+                <TextView android:textSize="16.0sp" android:textColor="#0c0d1d" android:gravity="center" android:layout_gravity="center" android:id="@id/c3t" android:background="@drawable/ss_detail_page_select_bg" android:layout_width="130.0dp" android:layout_height="36.0dp" android:layout_marginTop="20.0dp" android:text="@string/htr" />
+                <LinearLayout android:orientation="vertical" android:background="@drawable/ss_official_effect_item_round_bg" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginLeft="16.0dp" android:layout_marginTop="40.0dp" android:layout_marginRight="16.0dp">
+                    <TextView android:textSize="12.0sp" android:textColor="#ffffff" android:id="@id/a27" android:visibility="gone" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginLeft="16.0dp" android:layout_marginTop="12.0dp" android:text="@string/htj" />
+                    <TextView android:textSize="12.0sp" android:textColor="#ffffff" android:id="@id/iii" android:visibility="gone" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginLeft="16.0dp" android:layout_marginTop="12.0dp" android:text="@string/htp" />
+                    <TextView android:textSize="12.0sp" android:textColor="#ffffff" android:id="@id/f4v" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginLeft="16.0dp" android:layout_marginTop="12.0dp" android:text="@string/hto" />
+                    <LinearLayout android:orientation="horizontal" android:id="@id/eqk" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginLeft="16.0dp" android:layout_marginTop="12.0dp" android:layout_marginRight="16.0dp">
+                        <TextView android:textSize="12.0sp" android:textColor="#ffffff" android:layout_gravity="center" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/huc" />
+                        <TextView android:textSize="13.0sp" android:textColor="@color/ss_all_effect_choosen_color" android:gravity="center" android:id="@id/l4z" android:background="@drawable/ss_detail_page_tag_item_round_bg" android:paddingLeft="12.0dp" android:paddingRight="12.0dp" android:layout_width="wrap_content" android:layout_height="25.0dp" android:layout_marginRight="10.0dp" />
+                        <TextView android:textSize="13.0sp" android:textColor="@color/ss_all_effect_choosen_color" android:gravity="center" android:id="@id/l50" android:background="@drawable/ss_detail_page_tag_item_round_bg" android:paddingLeft="12.0dp" android:paddingRight="12.0dp" android:layout_width="wrap_content" android:layout_height="25.0dp" android:layout_marginRight="10.0dp" />
+                        <TextView android:textSize="13.0sp" android:textColor="@color/ss_all_effect_choosen_color" android:gravity="center" android:id="@id/l51" android:background="@drawable/ss_detail_page_tag_item_round_bg" android:paddingLeft="12.0dp" android:paddingRight="12.0dp" android:layout_width="wrap_content" android:layout_height="25.0dp" android:layout_marginRight="10.0dp" />
+                    </LinearLayout>
+                    <TextView android:textSize="12.0sp" android:textColor="#ffffff" android:layout_gravity="center" android:id="@id/c3l" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginLeft="16.0dp" android:layout_marginTop="10.0dp" android:layout_marginRight="16.0dp" android:layout_marginBottom="10.0dp" android:lineSpacingMultiplier="1.5" />
+                </LinearLayout>
+                <RelativeLayout android:id="@id/c3w" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginLeft="16.0dp" android:layout_marginTop="20.0dp" android:layout_marginRight="16.0dp" />
+            </LinearLayout>
+        </RelativeLayout>
+    </com.tencent.qqmusic.ui.ObservableScrollView>
+    <include android:layout_width="match_parent" android:layout_height="@dimen/cau" layout="@layout/n2" />
+</RelativeLayout>

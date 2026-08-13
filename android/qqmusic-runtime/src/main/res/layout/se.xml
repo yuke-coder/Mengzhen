@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout android:clipChildren="false" android:clipToPadding="false" android:layout_width="match_parent" android:layout_height="wrap_content" android:minHeight="40.0dp"
+  xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">
+    <FrameLayout android:id="@id/mwi" android:layout_width="58.0dp" android:layout_height="60.0dp" android:translationX="-9.0dp">
+        <com.tme.mlive.ui.custom.LiveWaveView android:id="@id/mwq" android:layout_width="56.0dp" android:layout_height="56.0dp" android:layout_marginLeft="1.5dp" android:layout_marginTop="2.5dp" android:importantForAccessibility="no" />
+        <com.tencent.component.widget.AsyncEffectImageView android:id="@id/a47" android:layout_width="40.0dp" android:layout_height="40.0dp" android:layout_marginLeft="9.0dp" android:layout_marginTop="11.0dp" android:scaleType="centerCrop" />
+        <TextView android:textSize="8.0dp" android:gravity="center" android:id="@id/mwr" android:layout_width="32.0dp" android:layout_height="12.0dp" android:layout_marginLeft="13.0dp" android:layout_marginTop="40.0dp" android:text="直播中" />
+        <ImageView android:id="@id/mwu" android:layout_width="58.0dp" android:layout_height="58.0dp" android:layout_marginTop="2.0dp" android:scaleType="fitXY" />
+        <com.tencent.component.widget.AsyncEffectImageView android:id="@id/djo" android:layout_width="14.0dp" android:layout_height="14.0dp" android:layout_marginLeft="35.0dp" android:layout_marginTop="37.0dp" />
+    </FrameLayout>
+    <LinearLayout android:gravity="center" android:orientation="vertical" android:id="@id/cr7" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_alignParentRight="true" android:layout_centerVertical="true">
+        <com.tencent.qqmusic.follow.FollowPlusButton android:id="@id/cq_" android:layout_width="wrap_content" android:layout_height="wrap_content" app:aif="0" />
+    </LinearLayout>
+    <androidx.constraintlayout.widget.ConstraintLayout android:id="@id/mza" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginLeft="3.0dp" android:layout_marginTop="12.0dp" android:layout_marginRight="12.0dp" android:layout_toLeftOf="@id/cr7" android:layout_toRightOf="@id/mwi">
+        <com.tencent.qqmusic.ui.commercial.LightTextView android:textSize="14.0dp" android:textColor="@color/skin_text_main_color" android:id="@id/mz_" android:layout_width="wrap_content" android:layout_height="wrap_content" android:singleLine="true" android:layout_alignParentLeft="true" android:layout_alignParentStart="true" app:a1x="hnz" app:a20="@id/ccn" app:a27="hnz" />
+        <com.tencent.component.widget.AsyncEffectImageView android:id="@id/ccn" android:visibility="gone" android:layout_width="55.0dp" android:layout_height="17.0dp" android:layout_marginLeft="5.0dp" android:src="@drawable/fans_community_group_leader_icon" android:scaleType="fitXY" android:maxWidth="85.0dp" app:a1d="@id/mz_" app:a1y="@id/mz_" app:a20="@id/j8y" app:a27="@id/mz_" />
+        <Space android:id="@id/j8y" android:layout_width="0.0dp" android:layout_height="0.0dp" app:a1d="@id/mz_" app:a1y="@id/ccn" app:a21="hnz" app:a27="@id/mz_" />
+        <LinearLayout android:gravity="center_vertical" android:orientation="horizontal" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginTop="2.0dp" app:a1x="hnz" app:a26="@id/mz_">
+            <TextView android:textSize="11.0sp" android:textColor="@color/skin_text_sub_color" android:id="@id/mwa" android:layout_width="wrap_content" android:layout_height="wrap_content" android:maxWidth="120.0dp" android:singleLine="true" android:includeFontPadding="false" />
+            <TextView android:textSize="11.0sp" android:textColor="@color/skin_text_sub_color" android:ellipsize="end" android:id="@id/mzj" android:visibility="gone" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginLeft="6.0dp" android:maxLines="1" android:includeFontPadding="false" android:layout_marginStart="6.0dp" />
+            <TextView android:textSize="11.0sp" android:textColor="@color/skin_highlight_color" android:ellipsize="end" android:id="@id/mwo" android:layout_width="0.0dp" android:layout_height="wrap_content" android:layout_marginLeft="4.0dp" android:maxLines="1" android:singleLine="true" android:includeFontPadding="false" android:layout_weight="1.0" />
+        </LinearLayout>
+    </androidx.constraintlayout.widget.ConstraintLayout>
+    <com.tencent.component.widget.AsyncEffectImageView android:gravity="center" android:orientation="vertical" android:id="@id/bll" android:visibility="gone" android:layout_width="63.0dp" android:layout_height="34.0dp" android:layout_marginTop="4.0dp" android:src="@drawable/default_folder_mid" android:scaleType="centerCrop" android:layout_alignParentEnd="true" />
+</RelativeLayout>

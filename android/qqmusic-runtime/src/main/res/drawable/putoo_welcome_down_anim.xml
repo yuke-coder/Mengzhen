@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<animation-list android:oneshot="true"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <item android:duration="@integer/v" android:drawable="@drawable/putoo_welcome_down_125" />
+    <item android:duration="@integer/v" android:drawable="@drawable/putoo_welcome_down_126" />
+    <item android:duration="@integer/v" android:drawable="@drawable/putoo_welcome_down_127" />
+    <item android:duration="@integer/v" android:drawable="@drawable/putoo_welcome_down_128" />
+    <item android:duration="@integer/v" android:drawable="@drawable/putoo_welcome_down_129" />
+    <item android:duration="@integer/v" android:drawable="@drawable/putoo_welcome_down_130" />
+    <item android:duration="@integer/v" android:drawable="@drawable/putoo_welcome_down_131" />
+    <item android:duration="@integer/v" android:drawable="@drawable/putoo_welcome_down_132" />
+    <item android:duration="@integer/v" android:drawable="@drawable/putoo_welcome_down_133" />
+    <item android:duration="@integer/v" android:drawable="@drawable/putoo_welcome_down_134" />
+    <item android:duration="@integer/v" android:drawable="@drawable/putoo_welcome_down_135" />
+    <item android:duration="@integer/v" android:drawable="@drawable/putoo_welcome_down_136" />
+    <item android:duration="@integer/v" android:drawable="@drawable/putoo_welcome_down_137" />
+    <item android:duration="@integer/v" android:drawable="@drawable/putoo_welcome_down_138" />
+</animation-list>

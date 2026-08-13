@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout android:orientation="vertical" android:background="@drawable/main_bg" android:layout_width="match_parent" android:layout_height="match_parent"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <RelativeLayout android:layout_width="match_parent" android:layout_height="match_parent">
+        <include android:id="@id/k2m" android:layout_width="match_parent" android:layout_height="match_parent" android:layout_marginBottom="@dimen/ait" layout="@layout/cm6" />
+        <include android:id="@id/k4b" layout="@layout/hw" />
+        <RelativeLayout android:paddingTop="40.0dp" android:paddingBottom="10.0dp" android:layout_width="wrap_content" android:layout_height="match_parent" android:layout_marginRight="10.0dp" android:layout_alignParentRight="true" android:layout_alignParentEnd="true">
+            <include android:id="@id/k44" android:layout_width="@dimen/li" android:layout_height="450.0dp" layout="@layout/cmm" />
+        </RelativeLayout>
+        <LinearLayout android:orientation="vertical" android:id="@id/k46" android:background="@drawable/skin_floor_img" android:visibility="invisible" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_alignParentTop="true">
+            <TextView android:textSize="14.0sp" android:textColor="@color/skin_text_sub_color" android:gravity="center_vertical" android:id="@id/k45" android:layout_width="match_parent" android:layout_height="match_parent" android:layout_marginLeft="16.0dp" android:layout_marginTop="6.0dp" android:layout_marginRight="20.0dp" android:layout_marginBottom="6.0dp" />
+        </LinearLayout>
+    </RelativeLayout>
+</LinearLayout>

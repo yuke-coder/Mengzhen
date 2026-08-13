@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout android:id="@id/a_6" android:layout_width="match_parent" android:layout_height="wrap_content"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <ImageView android:id="@id/a_5" android:visibility="gone" android:layout_width="4.0dp" android:layout_height="wrap_content" android:src="@drawable/bg_bigfont_divide" android:layout_alignTop="@id/a_2" android:layout_alignBottom="@id/a_2" />
+    <TextView android:textSize="@dimen/hy" android:id="@id/a_3" android:visibility="gone" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginLeft="24.0dp" android:layout_marginRight="3.0dp" android:layout_centerVertical="true" />
+    <LinearLayout android:orientation="vertical" android:id="@id/a_2" android:paddingTop="14.0dp" android:paddingBottom="14.0dp" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginLeft="16.0dp" android:layout_toLeftOf="@id/a_4" android:layout_toRightOf="@id/a_3" android:layout_centerVertical="true">
+        <com.tencent.qqmusic.bigfont.view.BigFontTextView android:textSize="@dimen/hr" android:textColor="@color/skin_text_main_color" android:ellipsize="end" android:id="@id/a_8" android:layout_width="wrap_content" android:layout_height="wrap_content" android:lines="1" android:includeFontPadding="false" />
+        <com.tencent.qqmusic.bigfont.view.BigFontTextView android:textSize="@dimen/hy" android:textColor="@color/skin_text_sub_color" android:ellipsize="end" android:id="@id/a_7" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginTop="6.0dp" android:lines="1" android:includeFontPadding="false" />
+    </LinearLayout>
+    <ImageView android:id="@id/a_4" android:background="@drawable/color_transparent_click" android:visibility="gone" android:layout_width="45.0dp" android:layout_height="45.0dp" android:layout_marginRight="14.0dp" android:src="@drawable/ic_bigfont_item_more" android:layout_alignParentRight="true" android:layout_centerVertical="true" />
+</RelativeLayout>

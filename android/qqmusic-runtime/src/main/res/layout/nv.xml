@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout android:orientation="vertical" android:layout_width="match_parent" android:layout_height="wrap_content"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <TextView android:textSize="13.0sp" android:textColor="#cccccc" android:gravity="center" android:layout_gravity="center_horizontal" android:id="@id/muf" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="正在升级数据库, 请稍候 ..." />
+    <ProgressBar android:layout_gravity="center_horizontal" android:id="@id/bje" android:layout_width="240.0dp" android:layout_height="2.0dp" android:layout_marginTop="14.0dp" android:layout_marginBottom="55.0dp" android:indeterminate="false" android:indeterminateOnly="false" android:progressDrawable="@drawable/database_loading_bar_progressdrawable" android:indeterminateBehavior="repeat" />
+</LinearLayout>

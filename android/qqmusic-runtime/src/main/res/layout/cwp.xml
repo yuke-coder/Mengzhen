@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout android:layout_width="wrap_content" android:layout_height="wrap_content"
+  xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">
+    <com.tencent.component.widget.AsyncEffectImageView android:id="@id/fpj" android:layout_width="wrap_content" android:layout_height="wrap_content" app:a1d="hnz" app:a23="hnz" app:a27="hnz" />
+    <com.tencent.component.widget.AsyncEffectImageView android:id="@id/fpg" android:layout_width="wrap_content" android:layout_height="wrap_content" app:a1d="hnz" app:a1j="hnz" app:a23="hnz" />
+    <com.tencent.qqmusic.ui.CircularProgressView android:id="@id/fpi" android:layout_width="30.0dp" android:layout_height="30.0dp" app:cc="1.5dp" app:a1j="hnz" app:a27="hnz" app:ac9="@color/black" app:acb="1.5dp" />
+    <ImageView android:id="@id/fph" android:layout_width="0.0dp" android:layout_height="0.0dp" android:src="@drawable/ic_long_audio_brand_close" app:a1d="@id/fpi" app:a1j="@id/fpi" app:a23="@id/fpi" app:a27="@id/fpi" />
+</androidx.constraintlayout.widget.ConstraintLayout>

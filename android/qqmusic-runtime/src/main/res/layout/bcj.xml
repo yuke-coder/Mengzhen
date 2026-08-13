@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout android:layout_width="match_parent" android:layout_height="match_parent"
+  xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">
+    <com.tme.mlive.ui.custom.CustomScrollViewPager android:id="@id/mlive_live_root_pager" android:clickable="false" android:layout_width="match_parent" android:layout_height="match_parent" android:overScrollMode="never" app:a1d="hnz" app:a1x="hnz" app:a21="hnz" app:a27="hnz" />
+    <ImageView android:id="@id/mlive_live_top_exit" android:padding="6.5dp" android:visibility="gone" android:layout_width="27.0dp" android:layout_height="27.0dp" android:layout_marginTop="3.5dp" android:src="@drawable/mlive_close" android:scaleType="center" android:contentDescription="@string/d5t" android:layout_marginEnd="9.0dp" app:a21="hnz" app:a27="hnz" />
+    <com.tme.mlive.ui.custom.VideoControlLayer android:id="@id/mlive_video_controler_fake_layer" android:visibility="gone" android:layout_width="50.0dp" android:layout_height="50.0dp" app:a1j="hnz" app:a27="hnz" />
+</androidx.constraintlayout.widget.ConstraintLayout>

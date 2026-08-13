@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="ac1">126.0dp</dimen>
+    <dimen name="ac2">127.0dp</dimen>
+    <dimen name="ac4">9.0dp</dimen>
+    <dimen name="ac5">21.0dp</dimen>
+    <dimen name="ac6">21.0dp</dimen>
+    <dimen name="bds">15.0dp</dimen>
+    <dimen name="bdt">38.0dp</dimen>
+    <dimen name="beq">720.0px</dimen>
+</resources>

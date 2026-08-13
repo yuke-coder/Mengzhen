@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout android:id="@id/d3r" android:visibility="gone" android:layout_width="30.0dp" android:layout_height="30.0dp"
+  xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">
+    <com.airbnb.lottie.LottieAnimationView android:id="@id/ekr" android:visibility="gone" android:layout_width="30.0dp" android:layout_height="30.0dp" app:a1d="hnz" app:a1x="hnz" app:a20="@id/ekp" app:a27="hnz" app:a4n="false" app:a4s="lottie/putoo_group_super_im_entrance.json" app:a4u="false" />
+    <com.tencent.component.widget.AsyncImageView android:id="@id/ekq" android:layout_width="22.0dp" android:layout_height="22.0dp" android:src="@drawable/putoo_group_super_unread" app:a1d="hnz" app:a1x="hnz" app:a20="@id/ekp" app:a27="hnz" />
+    <ImageView android:id="@id/ekp" android:visibility="gone" android:layout_width="7.0dp" android:layout_height="7.0dp" android:src="@drawable/ic_red_dot" app:a1j="hnz" app:a27="hnz" />
+</androidx.constraintlayout.widget.ConstraintLayout>

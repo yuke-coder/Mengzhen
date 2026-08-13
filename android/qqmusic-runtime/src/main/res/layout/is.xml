@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout android:id="@id/jt3" android:layout_width="match_parent" android:layout_height="match_parent" android:minHeight="300.0dp" android:layout_centerInParent="true"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <LinearLayout android:gravity="center_horizontal" android:orientation="vertical" android:id="@id/f3n" android:layout_width="match_parent" android:layout_height="wrap_content">
+        <ImageView android:id="@id/c9o" android:background="@drawable/error_common" android:layout_width="@dimen/list_empty_image_length" android:layout_height="@dimen/list_empty_image_length" />
+        <com.tencent.qqmusic.bigfont.view.BigFontTextView android:textSize="20.0dp" android:textStyle="bold" android:textColor="@color/black" android:gravity="center_horizontal" android:id="@id/c_4" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginTop="10.0dp" android:text="@string/ewm" android:singleLine="true" />
+        <com.tencent.qqmusic.bigfont.view.BigFontTextView android:textSize="@dimen/ht" android:textColor="@color/empty_view_color" android:gravity="center_horizontal" android:id="@id/c9n" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginTop="8.0dp" android:text="@string/ewl" android:maxLines="1" />
+        <com.tencent.qqmusic.bigfont.view.BigFontTextView android:textSize="@dimen/ht" android:textColor="@color/skin_highlight_color" android:ellipsize="end" android:gravity="center" android:id="@id/c9i" android:background="@drawable/homepage_unfollow_singer_bg" android:visibility="gone" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="16.0dp" android:maxLines="1" android:includeFontPadding="false" />
+    </LinearLayout>
+</RelativeLayout>

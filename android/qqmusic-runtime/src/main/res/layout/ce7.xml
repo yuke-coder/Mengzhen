@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout android:layout_width="match_parent" android:layout_height="match_parent"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <com.tencent.qqmusic.recognize.RecognizeFocusAnimView android:id="@id/ivp" android:layout_width="270.0dp" android:layout_height="270.0dp" android:layout_centerInParent="true" />
+    <View android:id="@id/as7" android:background="@drawable/recognize_focus_camera_box" android:layout_width="246.0dp" android:layout_height="246.0dp" android:layout_centerInParent="true" />
+</RelativeLayout>

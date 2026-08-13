@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.tencent.qqmusic.ui.RoundedRelativeLayout android:layout_width="match_parent" android:layout_height="120.0dp" app:ado="5.0dp"
+  xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">
+    <com.tencent.component.widget.AsyncEffectImageView android:id="@id/tw" android:background="@drawable/universal_rank_list_bg" android:layout_width="match_parent" android:layout_height="match_parent" />
+    <com.tencent.component.widget.AsyncEffectImageView android:id="@id/tx" android:layout_width="match_parent" android:layout_height="match_parent" android:src="@drawable/default_folder_mid" android:scaleType="centerCrop" />
+    <ImageView android:id="@id/kul" android:layout_width="105.0dp" android:layout_height="105.0dp" android:layout_marginLeft="16.5dp" android:src="@drawable/topic_airborne_book_shadow" android:scaleType="fitXY" android:layout_centerVertical="true" />
+    <com.tencent.qqmusic.ui.RoundedRelativeLayout android:id="@id/kuk" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginLeft="22.5dp" android:layout_marginRight="18.5dp" android:layout_centerVertical="true" app:ado="5.0dp">
+        <com.tencent.component.widget.AsyncEffectImageView android:id="@id/kuj" android:layout_width="93.0dp" android:layout_height="93.0dp" android:scaleType="centerCrop" />
+        <com.tencent.component.widget.AsyncEffectImageView android:id="@id/kui" android:layout_width="62.5dp" android:layout_height="19.5dp" android:layout_marginBottom="5.0dp" android:scaleType="centerCrop" android:layout_alignBottom="@id/kuj" android:layout_centerHorizontal="true" />
+    </com.tencent.qqmusic.ui.RoundedRelativeLayout>
+    <LinearLayout android:orientation="vertical" android:id="@id/ba_" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginRight="16.0dp" android:layout_toRightOf="@id/kuk" android:layout_centerVertical="true">
+        <TextView android:textSize="14.0sp" android:textColor="@color/skin_text_main_color" android:ellipsize="end" android:id="@id/cgz" android:layout_width="wrap_content" android:layout_height="wrap_content" android:maxLines="2" android:includeFontPadding="false" />
+        <TextView android:textSize="13.0sp" android:textColor="@color/skin_text_main_color" android:ellipsize="end" android:id="@id/joz" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="4.0dp" android:singleLine="true" />
+        <TextView android:textSize="14.0sp" android:textColor="@color/skin_text_main_color" android:gravity="center" android:id="@id/aak" android:background="@drawable/star_airborne_booking_btn_bg" android:layout_width="wrap_content" android:layout_height="25.0dp" android:layout_marginTop="12.0dp" android:minWidth="71.0dp" android:maxLines="1" />
+    </LinearLayout>
+</com.tencent.qqmusic.ui.RoundedRelativeLayout>

@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<shape
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <size android:height="@dimen/a_f" android:width="@dimen/a_i" />
+    <solid android:color="@color/kk_switch_selector_track" />
+    <corners android:radius="@dimen/a_h" />
+    <padding android:left="@dimen/a_g" android:top="@dimen/a_g" android:right="@dimen/a_g" android:bottom="@dimen/a_g" />
+</shape>

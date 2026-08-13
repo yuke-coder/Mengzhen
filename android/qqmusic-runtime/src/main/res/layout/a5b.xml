@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout android:layout_width="match_parent" android:layout_height="wrap_content"
+  xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">
+    <TextView android:textSize="14.0sp" android:textStyle="bold" android:textColor="@color/white" android:gravity="start|bottom" android:id="@id/m3b" android:layout_width="match_parent" android:layout_height="wrap_content" android:text="专辑详情" android:paddingStart="@dimen/eo" android:paddingEnd="@dimen/eo" app:a23="hnz" app:a27="hnz" />
+    <com.google.android.flexbox.FlexboxLayout android:id="@id/cjh" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginTop="10.0dp" android:paddingStart="@dimen/eo" android:paddingEnd="@dimen/eo" app:be="auo" app:nw="@drawable/shape_album_tag_h_divider" app:nx="@drawable/shape_album_tag_h_divider" app:ro="jdw" app:rp="nug" app:wo="cjg" app:a1j="hnz" app:a23="hnz" app:a26="@id/m3b" app:ahu="g7e" app:ahv="g7e" />
+    <TextView android:textSize="14.0sp" android:textColor="@color/white" android:id="@id/m2e" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginTop="10.0dp" android:lineSpacingMultiplier="1.2" android:paddingStart="@dimen/eo" android:paddingEnd="@dimen/eo" app:a26="@id/cjh" app:a2r="10.0dp" />
+</androidx.constraintlayout.widget.ConstraintLayout>

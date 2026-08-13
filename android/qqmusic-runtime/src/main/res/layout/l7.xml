@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout android:layout_width="match_parent" android:layout_height="match_parent"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <RelativeLayout android:id="@id/b25" android:layout_width="match_parent" android:layout_height="68.0dp" android:layout_alignWithParentIfMissing="true">
+        <View android:background="@color/my_music_divider" android:layout_width="match_parent" android:layout_height="0.5dp" />
+        <Button android:textSize="18.0sp" android:textColor="@color/white" android:gravity="center" android:id="@id/b1z" android:background="@drawable/bg_solid_button" android:layout_width="match_parent" android:layout_height="40.0dp" android:layout_marginLeft="12.0dp" android:layout_marginRight="12.0dp" android:text="@string/a6d" android:layout_centerInParent="true" />
+    </RelativeLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>

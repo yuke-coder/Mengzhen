@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout android:id="@id/jdg" android:layout_width="match_parent" android:layout_height="wrap_content"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <FrameLayout android:id="@id/ba_" android:background="@color/transparent" android:padding="@dimen/fa" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_centerInParent="true">
+        <com.tencent.qqmusic.ui.RoundedRelativeLayout android:layout_gravity="center" android:orientation="vertical" android:id="@id/jdr" android:background="@color/white" android:layout_width="wrap_content" android:layout_height="wrap_content">
+            <RelativeLayout android:id="@id/dbe" android:layout_width="@dimen/fh" android:layout_height="@dimen/fb">
+                <androidx.viewpager.widget.ViewPager android:id="@id/dc6" android:layout_width="match_parent" android:layout_height="match_parent" />
+                <LinearLayout android:id="@id/k8z" android:layout_width="match_parent" android:layout_height="match_parent" />
+                <com.tencent.qqmusic.ui.ViewPagerCircleIndicator android:id="@id/nf5" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_alignBottom="@id/dc6" />
+            </RelativeLayout>
+            <LinearLayout android:orientation="vertical" android:id="@id/g83" android:background="@color/white" android:paddingLeft="@dimen/fd" android:paddingRight="@dimen/fd" android:layout_width="@dimen/fh" android:layout_height="wrap_content" android:layout_below="@id/dbe" android:layout_alignWithParentIfMissing="true">
+                <View android:layout_width="match_parent" android:layout_height="10.0dp" />
+                <TextView android:textSize="16.0sp" android:textColor="@color/black" android:gravity="center" android:id="@id/xo" android:paddingTop="5.0dp" android:layout_width="match_parent" android:layout_height="wrap_content" android:text="XXXXXXXXXXXX" android:singleLine="true" />
+                <View android:id="@id/czb" android:background="@drawable/alert_dialog_dot_line" android:visibility="gone" android:layout_width="match_parent" android:layout_height="2.0dp" />
+                <EditText android:textSize="16.0dp" android:textColor="@color/dialog_text_color" android:gravity="left|center" android:id="@id/xn" android:background="@null" android:paddingTop="5.0dp" android:focusable="false" android:layout_width="wrap_content" android:layout_height="wrap_content" android:singleLine="false" android:editable="false" />
+                <View android:layout_width="match_parent" android:layout_height="10.0dp" />
+            </LinearLayout>
+            <LinearLayout android:orientation="vertical" android:id="@id/ad_" android:background="@color/white" android:paddingLeft="@dimen/fd" android:paddingTop="@dimen/fc" android:paddingRight="@dimen/fd" android:paddingBottom="@dimen/fc" android:layout_width="@dimen/fh" android:layout_height="wrap_content" android:layout_below="@id/g83" android:layout_alignWithParentIfMissing="true" />
+            <FrameLayout android:id="@id/csg" android:background="@color/white" android:paddingLeft="@dimen/fd" android:paddingRight="@dimen/fd" android:paddingBottom="@dimen/fc" android:visibility="gone" android:layout_width="@dimen/fh" android:layout_height="wrap_content" android:layout_below="@id/ad_" android:layout_alignWithParentIfMissing="true" />
+        </com.tencent.qqmusic.ui.RoundedRelativeLayout>
+    </FrameLayout>
+    <ImageView android:id="@id/close_btn" android:background="@drawable/alertview_btn_close" android:layout_width="@dimen/f_" android:layout_height="@dimen/f_" android:layout_alignTop="@id/ba_" android:layout_alignRight="@id/ba_" android:contentDescription="@string/a_6" />
+</RelativeLayout>

@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout android:id="@id/k38" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginRight="7.0dp"
+  xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">
+    <com.tencent.qqmusic.ui.RoundedRelativeLayout android:id="@id/k8b" android:layout_width="@dimen/c33" android:layout_height="@dimen/c32" app:ado="7.5dp">
+        <com.tencent.component.widget.AsyncEffectImageView android:id="@id/k8a" android:background="@drawable/default_album_mid" android:layout_width="match_parent" android:layout_height="match_parent" android:scaleType="centerCrop" />
+        <LinearLayout android:gravity="center_vertical" android:orientation="horizontal" android:background="@drawable/bg_singer_pedia_mvinfo" android:paddingLeft="8.0dp" android:paddingRight="11.5dp" android:layout_width="match_parent" android:layout_height="24.0dp" android:layout_alignParentBottom="true">
+            <ImageView android:layout_width="16.0dp" android:layout_height="16.0dp" android:src="@drawable/icon_singer_pedia_video" />
+            <TextView android:textSize="10.0sp" android:textColor="@color/white" android:ellipsize="end" android:id="@id/k8r" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginLeft="6.0dp" android:maxLines="1" android:maxEms="8" android:fontFamily="PingFangSC-Semibold" />
+            <View android:layout_width="0.0dp" android:layout_height="wrap_content" android:layout_weight="1.0" />
+            <TextView android:textSize="10.0sp" android:textColor="@color/white" android:ellipsize="end" android:id="@id/k8q" android:layout_width="wrap_content" android:layout_height="wrap_content" android:maxLines="1" android:maxEms="8" android:fontFamily="PingFangSC-Semibold" />
+        </LinearLayout>
+    </com.tencent.qqmusic.ui.RoundedRelativeLayout>
+    <TextView android:textSize="11.0sp" android:textColor="@color/skin_text_main_color" android:ellipsize="end" android:id="@id/k8c" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="10.0dp" android:maxLines="2" android:layout_below="@id/k8b" android:fontFamily="PingFangSC-Regular" />
+</RelativeLayout>
