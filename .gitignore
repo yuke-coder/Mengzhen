@@ -118,6 +118,7 @@ android/build/
 android/app/build/
 android/qqmusic-runtime/build/
 android/app/build-setting-icon/
+android/.kotlin/
 
 # Device diagnostics & temp files
 android/diag_*

@@ -22,6 +22,20 @@ public final class MengzhenMusicApplication extends MusicApplication {
         // CgiUtil.init() → sp.a.c() → a.c() → getSharedPreferences()
         // throws a NullPointerException.
         com.tencent.qqmusic.module.common.a.d(getApplicationContext());
+
+        // The QQ player page (NewPlayerActivity) uses a translucent theme and relies
+        // on the skin engine to draw its background/colors. In the original app the
+        // skin engine is initialised by the SkinEngineInitTask boot task, which is
+        // only scheduled by QQ's own AppStarterActivity launch chain. Since Mengzhen
+        // uses its own MainActivity as the entry point, that boot task never runs,
+        // so the player shows a blank/white screen. Trigger the same initialisation
+        // directly. SkinManager.c0() has internal guards (K flag) and try/catch, so
+        // it is safe to call even if some dependency is missing.
+        try {
+            com.tencent.qqmusic.ui.skin.SkinManager.c0();
+        } catch (Throwable ignored) {
+            // Skin initialisation is best-effort; the player still opens.
+        }
     }
 
     @Override
