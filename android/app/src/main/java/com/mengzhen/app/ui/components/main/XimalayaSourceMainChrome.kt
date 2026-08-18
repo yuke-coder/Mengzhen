@@ -174,7 +174,14 @@ fun XimalayaSourceHomeTopBar(
                     popup.t(darkTheme)
                     popup.r(selectedMode.qqSourceValue)
                     popup.s(y())
-                    popup.u(trigger, false)
+                    try {
+                        popup.u(trigger, false)
+                    } catch (error: NullPointerException) {
+                        // QQ's source popup is already visible when its optional exposure tracker
+                        // asks for a QQ account-process Context. Dream Pillow does not host that
+                        // process, so only ignore this post-display analytics failure.
+                        if (!popup.isShowing) throw error
+                    }
                     val accessibility = context.getSystemService(Context.ACCESSIBILITY_SERVICE)
                         as? AccessibilityManager
                     if (accessibility?.isTouchExplorationEnabled != true) {
@@ -282,7 +289,6 @@ fun XimalayaSourceBottomNavigation(
                         }
                     }
                     group.setOnCheckedChangeListener { changedGroup, checkedId ->
-                        changedGroup.tag = checkedId
                         updateTabSelection(root, checkedId)
                     }
                     listOf(
@@ -295,7 +301,6 @@ fun XimalayaSourceBottomNavigation(
                             if (group.checkedRadioButtonId != id) {
                                 group.check(id)
                             } else {
-                                group.tag = id
                                 updateTabSelection(root, id)
                             }
                             navigateTopLevel(navController, destinationFor(id))
@@ -331,13 +336,10 @@ fun XimalayaSourceBottomNavigation(
                     Screen.Profile.route -> R.id.xm_main_tab_mine
                     else -> R.id.xm_main_tab_home
                 }
-                if (group.tag != selectedId) {
-                    group.tag = selectedId
-                    if (group.checkedRadioButtonId != selectedId) {
-                        group.check(selectedId)
-                    } else {
-                        updateTabSelection(root, selectedId)
-                    }
+                if (group.checkedRadioButtonId != selectedId) {
+                    group.check(selectedId)
+                } else {
+                    updateTabSelection(root, selectedId)
                 }
 
                 root.findViewById<View>(R.id.xm_main_player).setOnClickListener { openPlayer() }
@@ -432,6 +434,17 @@ internal fun updateTabSelection(root: View, checkedId: Int) {
 
 private fun navigateTopLevel(navController: NavController, route: String) {
     if (navController.currentDestination?.route == route) return
+    if (route == Screen.Settings.route) {
+        val returnedHome = navController.popBackStack(
+            route = Screen.Settings.route,
+            inclusive = false,
+            saveState = true,
+        )
+        if (!returnedHome) {
+            navController.navigate(Screen.Settings.route) { launchSingleTop = true }
+        }
+        return
+    }
     navController.navigate(route) {
         popUpTo(Screen.Settings.route) { saveState = true }
         launchSingleTop = true

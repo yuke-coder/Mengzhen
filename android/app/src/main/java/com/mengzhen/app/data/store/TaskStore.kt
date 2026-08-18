@@ -418,7 +418,7 @@ class TaskStore private constructor(context: Context) {
                 gender = json.optString("gender", "").ifEmpty { null },
                 birthday = json.optString("birthday", "").ifEmpty { null },
                 location = json.optString("location", "").ifEmpty { null },
-                bio = json.optString("bio", "").ifEmpty { null },
+                bio = json.optString("bio", "").ifEmpty { null }?.takeIf { it != "null" },
                 signature = json.optString("signature", "").ifEmpty { null },
                 backgroundUrl = json.optString("backgroundUrl", "").ifEmpty { null },
                 createdAt = json.optString("createdAt", ""),

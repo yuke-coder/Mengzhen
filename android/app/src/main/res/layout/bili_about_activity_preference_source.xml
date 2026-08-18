@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Migrated from Bilibili 9.7.0 bili_app_layout_activity_preference.xml. -->
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/bili_about_activity_root"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <com.google.android.material.appbar.MaterialToolbar
+        android:id="@+id/bili_about_nav_top_bar"
+        style="@style/BiliAboutToolbar"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/navigation_top_bar_size"
+        android:background="@color/theme_color_primary_tr_background"
+        android:elevation="0dp"
+        app:titleCentered="true"
+        app:titleTextColor="@color/theme_color_primary_tr_title" />
+
+    <FrameLayout
+        android:id="@+id/bili_about_content_layout"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1" />
+
+</LinearLayout>

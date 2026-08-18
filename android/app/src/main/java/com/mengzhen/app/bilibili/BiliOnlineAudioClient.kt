@@ -1,5 +1,6 @@
 package com.mengzhen.app.bilibili
 
+import android.content.Context
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.withContext
 import okhttp3.HttpUrl.Companion.toHttpUrl
@@ -9,8 +10,11 @@ import org.json.JSONObject
 import java.io.IOException
 
 class BiliOnlineAudioClient(
+    context: Context,
     private val client: OkHttpClient = OkHttpClient(),
 ) {
+    private val authorizationStore = BiliAuthorizationStore(context.applicationContext)
+
     suspend fun resolveSharedVideo(sharedText: String): BiliCacheItem =
         withContext(Dispatchers.IO) {
             val resolvedText = resolveShortLink(sharedText)
@@ -111,14 +115,28 @@ class BiliOnlineAudioClient(
         .build()
 
     private fun getJson(url: String, referer: String): JSONObject {
+        val authorization = authorizationStore.load()
+        val requestUrl = authorization?.accessKey
+            ?.takeIf(String::isNotBlank)
+            ?.let { accessKey ->
+                url.toHttpUrl().newBuilder()
+                    .addQueryParameter("access_key", accessKey)
+                    .build()
+            }
+            ?: url.toHttpUrl()
         val request = Request.Builder()
-            .url(url)
+            .url(requestUrl)
             .header("User-Agent", USER_AGENT)
             .header("Referer", referer)
+            .apply {
+                authorization?.cookieHeader
+                    ?.takeIf(String::isNotBlank)
+                    ?.let { header("Cookie", it) }
+            }
             .build()
         client.newCall(request).execute().use { response ->
             if (!response.isSuccessful) throw IOException("B 站请求失败：HTTP ${response.code}")
-            return JSONObject(response.body?.string().orEmpty())
+            return JSONObject(response.body.string())
         }
     }
 

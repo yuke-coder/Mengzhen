@@ -315,6 +315,11 @@ class ApiClient private constructor(
 
     fun getProfile(): JSONObject = get("/api/profile")
 
+    fun getWechatProfileForSync(code: String): JSONObject = post(
+        "/api/profile/wechat-sync",
+        JSONObject().put("code", code),
+    )
+
     fun updateProfile(
         username: String? = null,
         nickname: String? = null,

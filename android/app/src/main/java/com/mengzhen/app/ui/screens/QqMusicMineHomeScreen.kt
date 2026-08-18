@@ -19,8 +19,10 @@ import androidx.compose.runtime.DisposableEffect
 import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.collectAsState
 import androidx.compose.runtime.getValue
+import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
 import androidx.compose.runtime.rememberCoroutineScope
+import androidx.compose.runtime.setValue
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color as ComposeColor
 import androidx.compose.ui.platform.LocalContext
@@ -29,17 +31,14 @@ import androidx.appcompat.content.res.AppCompatResources
 import androidx.core.view.WindowCompat
 import androidx.lifecycle.Observer
 import androidx.navigation.NavController
-import com.bumptech.glide.Glide
 import com.mengzhen.app.R as AppR
 import com.mengzhen.app.data.model.UserInfo
 import com.mengzhen.app.data.store.TaskStore
 import com.mengzhen.app.ui.components.main.absoluteAvatarUrl
 import com.mengzhen.app.ui.components.rememberQqMusicImagePicker
 import com.mengzhen.app.ui.navigation.Screen
-import com.tencent.component.widget.AsyncEffectImageView
-import com.tencent.component.widget.AsyncImageView
-import com.tencent.component.widget.b
-import com.tencent.qqmusic.R as QqR
+import android.graphics.drawable.GradientDrawable
+import coil3.load
 import com.tencent.qqmusic.homepage.header.viewdelegate.i as SourceHeaderBackground
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
@@ -84,8 +83,17 @@ fun QqMusicMineHomeScreen(navController: NavController) {
     val profile = user ?: return Box(
         Modifier.fillMaxSize().background(ComposeColor.Black),
     )
+    var showNicknameCompletion by remember(profile.id) { mutableStateOf(false) }
     val sourceView = remember(context) { QqMusicSourceProfileView(context) }
     sourceView.onEdit = { navController.navigate(Screen.ProfileEdit.route) }
+    sourceView.onNickname = {
+        if (XimalayaNicknameCompletionTrigger.shouldShow(context, profile)) {
+            XimalayaNicknameCompletionTrigger.markShown(context)
+            showNicknameCompletion = true
+        } else {
+            navController.navigate(Screen.ProfileEdit.route)
+        }
+    }
     sourceView.onSettings = { navController.navigate(Screen.AppSettings.route) }
     sourceView.onBackground = backgroundPicker
 
@@ -97,6 +105,12 @@ fun QqMusicMineHomeScreen(navController: NavController) {
         update = { it.bind(profile) },
         modifier = Modifier.fillMaxSize(),
     )
+    if (showNicknameCompletion) {
+        XimalayaNicknameCompletionSheet(
+            user = profile,
+            onDismiss = { showNicknameCompletion = false },
+        )
+    }
 }
 
 /**
@@ -105,16 +119,17 @@ fun QqMusicMineHomeScreen(navController: NavController) {
  */
 private class QqMusicSourceProfileView(context: Context) : FrameLayout(context) {
     var onEdit: () -> Unit = {}
+    var onNickname: () -> Unit = {}
     var onSettings: () -> Unit = {}
     var onBackground: () -> Unit = {}
 
     private val scope = CoroutineScope(SupervisorJob() + Dispatchers.Main.immediate)
     private val backgroundComposer = SourceHeaderBackground()
-    private val header = LayoutInflater.from(context).inflate(QqR.layout.a6c, this, false)
-    private val rawBackground = header.findViewById<AsyncEffectImageView>(QqR.id.dbt)
-    private val combinedBackground = header.findViewById<AsyncEffectImageView>(QqR.id.dbr)
-    private val defaultBackground = header.findViewById<AsyncEffectImageView>(QqR.id.blu)
-    private val avatar = header.findViewById<AsyncEffectImageView>(QqR.id.hdt)
+    private val header = LayoutInflater.from(context).inflate(SOURCE_LAYOUT_HEADER, this, false)
+    private val rawBackground = header.findViewById<ImageView>(SOURCE_ID_RAW_BACKGROUND)
+    private val combinedBackground = header.findViewById<ImageView>(SOURCE_ID_COMBINED_BACKGROUND)
+    private val defaultBackground = header.findViewById<ImageView>(SOURCE_ID_DEFAULT_BACKGROUND)
+    private val avatar = header.findViewById<ImageView>(SOURCE_ID_AVATAR)
     private var lastBoundUser: UserInfo? = null
 
     private val backgroundObserver = Observer<Bitmap> { bitmap ->
@@ -145,11 +160,11 @@ private class QqMusicSourceProfileView(context: Context) : FrameLayout(context) 
         val backgroundHeight = adjustedWidth * 2
         header.layoutParams = LayoutParams(screenWidth, backgroundHeight)
 
-        header.findViewById<View>(QqR.id.my0).let { card ->
+        header.findViewById<View>(SOURCE_ID_PROFILE_CARD).let { card ->
             card.layoutParams = card.layoutParams.apply {
                 height = (backgroundHeight * SOURCE_CARD_HEIGHT_PERCENT).roundToInt()
             }
-            card.setBackgroundResource(QqR.drawable.homepage_card_bg_dark)
+            card.setBackgroundResource(0x7f080b64)
         }
 
     }
@@ -162,30 +177,33 @@ private class QqMusicSourceProfileView(context: Context) : FrameLayout(context) 
     }
 
     private fun bindHeader(user: UserInfo) {
-        header.findViewById<TextView>(QqR.id.hbu).text = user.username
-        header.findViewById<TextView>(QqR.id.kzb).text = user.profileSummary()
+        header.findViewById<TextView>(SOURCE_ID_NAME).apply {
+            text = user.nickname?.takeIf(String::isNotBlank) ?: user.username
+            setOnClickListener { onNickname() }
+        }
+        header.findViewById<TextView>(SOURCE_ID_PROFILE_SUMMARY).text = user.profileSummary()
 
         avatar.apply {
-            setRadius(32f * resources.displayMetrics.density)
-            Glide.with(this).clear(this)
+            scaleType = ImageView.ScaleType.CENTER_CROP
+            clipToOutline = true
+            background = GradientDrawable().apply {
+                shape = GradientDrawable.RECTANGLE
+                cornerRadius = 32f * resources.displayMetrics.density
+                setColor(SOURCE_HEADER_FALLBACK_COLOR)
+            }
             setImageDrawable(null)
             user.avatarUrl?.takeIf(String::isNotBlank)?.let { url ->
-                Glide.with(this)
-                    .load(absoluteAvatarUrl(url))
-                    .circleCrop()
-                    .into(this)
+                load(absoluteAvatarUrl(url))
             }
             setOnClickListener { onEdit() }
         }
-        header.findViewById<ImageView>(QqR.id.mzd).visibility = View.GONE
-        header.findViewById<View>(QqR.id.cq_).visibility = View.GONE
 
-        header.findViewById<Button>(QqR.id.j8e).apply {
+        header.findViewById<Button>(SOURCE_ID_EDIT).apply {
             visibility = View.VISIBLE
             text = "编辑资料"
             setOnClickListener { onEdit() }
         }
-        header.findViewById<Button>(QqR.id.j8r).apply {
+        header.findViewById<Button>(SOURCE_ID_SETTINGS).apply {
             visibility = View.VISIBLE
             text = null
             contentDescription = "设置"
@@ -216,24 +234,28 @@ private class QqMusicSourceProfileView(context: Context) : FrameLayout(context) 
             setOnClickListener { onSettings() }
         }
 
-        header.findViewById<View>(QqR.id.mxz).visibility = View.INVISIBLE
-        header.findViewById<TextView>(QqR.id.cr3).text = "0"
-        header.findViewById<TextView>(QqR.id.cct).text = "0"
-        header.findViewById<TextView>(QqR.id.nkv).apply {
-            visibility = View.VISIBLE
-            text = "0"
+        // === 喜马拉雅真实简介组件（迁移自 main_anchor_space_top_view_v5.xml 的 main_csl_honor_and_personal_info） ===
+        val introBio = user.bio?.takeIf(String::isNotBlank)
+        val introSignature = user.signature?.takeIf { it.isNotBlank() && it != introBio }
+        header.findViewById<TextView>(SOURCE_ID_PERSONAL_INTRO).apply {
+            text = introBio ?: "点击填写介绍，让大家认识你吧～"
+            setTextColor(if (introBio != null) Color.WHITE else SOURCE_SECONDARY_TEXT_COLOR)
+            setOnClickListener { onEdit() }
         }
-        header.findViewById<View>(QqR.id.nkt).visibility = View.GONE
-        header.findViewById<View>(QqR.id.nku).visibility = View.GONE
-        header.findViewById<View>(QqR.id.hol).visibility = View.VISIBLE
-        header.findViewById<TextView>(QqR.id.hom).text = "0"
+        header.findViewById<TextView>(SOURCE_ID_PERSONAL_TITLE).apply {
+            text = introSignature ?: ""
+            setTextColor(SOURCE_SECONDARY_TEXT_COLOR)
+            setOnClickListener { onEdit() }
+        }
+        header.findViewById<ImageView>(SOURCE_ID_MORE_INFO).apply {
+            setOnClickListener { onEdit() }
+        }
         applySourceDarkPalette()
     }
 
     private fun bindBackground(user: UserInfo) {
         val url = user.backgroundUrl?.takeIf(String::isNotBlank)
         if (url == null) {
-            rawBackground.setAsyncImageListener(null)
             rawBackground.visibility = View.GONE
             combinedBackground.visibility = View.GONE
             defaultBackground.visibility = View.GONE
@@ -245,42 +267,31 @@ private class QqMusicSourceProfileView(context: Context) : FrameLayout(context) 
         rawBackground.visibility = View.VISIBLE
         combinedBackground.visibility = View.VISIBLE
         defaultBackground.visibility = View.GONE
-        rawBackground.setAsyncImageListener(object : b.a {
-            override fun onImageStarted(view: b) = Unit
-            override fun onImageProgress(view: b, progress: Float) = Unit
-            override fun onImageFailed(view: b) = Unit
-
-            override fun onImageLoaded(view: b) {
-                val drawable = (view as? AsyncImageView)?.drawable ?: return
-                val bitmap = com.tencent.component.widget.e.a(drawable) ?: return
-                scope.launch(Dispatchers.Default) {
-                    backgroundComposer.L6(bitmap)
-                }
-            }
-        })
-        rawBackground.m(url)
+        rawBackground.load(url) {
+            target(
+                onSuccess = {
+                    val drawable = rawBackground.drawable ?: return@target
+                    val bitmap = com.tencent.component.widget.e.a(drawable) ?: return@target
+                    scope.launch(Dispatchers.Default) {
+                        backgroundComposer.L6(bitmap)
+                    }
+                },
+            )
+        }
     }
 
     private fun installSourceActions() {
-        header.findViewById<View>(QqR.id.db7).setOnClickListener { onBackground() }
+        header.findViewById<View>(SOURCE_ID_BACKGROUND_ACTION).setOnClickListener { onBackground() }
     }
 
     private fun applySourceDarkPalette() {
-        header.findViewById<TextView>(QqR.id.hbu).setTextColor(SOURCE_NAME_COLOR)
-        header.findViewById<TextView>(QqR.id.kzb).setTextColor(Color.WHITE)
-        intArrayOf(QqR.id.cq7, QqR.id.cc0, QqR.id.nks, QqR.id.hoj).forEach { id ->
-            header.findViewById<TextView>(id).setTextColor(SOURCE_SECONDARY_TEXT_COLOR)
-        }
-        intArrayOf(QqR.id.cr3, QqR.id.cct, QqR.id.nkv, QqR.id.hom).forEach { id ->
-            header.findViewById<TextView>(id).setTextColor(Color.WHITE)
-        }
-        header.findViewById<Button>(QqR.id.j8e).setTextColor(Color.WHITE)
-        header.findViewById<Button>(QqR.id.j8r).setTextColor(Color.WHITE)
+        header.findViewById<TextView>(SOURCE_ID_NAME).setTextColor(SOURCE_NAME_COLOR)
+        header.findViewById<TextView>(SOURCE_ID_PROFILE_SUMMARY).setTextColor(Color.WHITE)
+        header.findViewById<Button>(SOURCE_ID_EDIT).setTextColor(Color.WHITE)
+        header.findViewById<Button>(SOURCE_ID_SETTINGS).setTextColor(Color.WHITE)
     }
 
     fun release() {
-        Glide.with(avatar).clear(avatar)
-        rawBackground.setAsyncImageListener(null)
         backgroundComposer.M6().removeObserver(backgroundObserver)
         scope.cancel()
     }
@@ -291,6 +302,20 @@ private class QqMusicSourceProfileView(context: Context) : FrameLayout(context) 
         const val SOURCE_HEADER_FALLBACK_COLOR = 0xFF1A1A1A.toInt()
         const val SOURCE_NAME_COLOR = 0xFFD7B45D.toInt()
         const val SOURCE_SECONDARY_TEXT_COLOR = 0xB3FFFFFF.toInt()
+        const val SOURCE_LAYOUT_HEADER = 0x7f0c04c9
+        const val SOURCE_ID_DEFAULT_BACKGROUND = 0x7f090c8c
+        const val SOURCE_ID_BACKGROUND_ACTION = 0x7f0915b4
+        const val SOURCE_ID_COMBINED_BACKGROUND = 0x7f0915c9
+        const val SOURCE_ID_RAW_BACKGROUND = 0x7f0915cb
+        const val SOURCE_ID_NAME = 0x7f093651
+        const val SOURCE_ID_AVATAR = 0x7f09369a
+        const val SOURCE_ID_EDIT = 0x7f094061
+        const val SOURCE_ID_SETTINGS = 0x7f09406e
+        const val SOURCE_ID_PROFILE_SUMMARY = 0x7f0949c6
+        const val SOURCE_ID_PROFILE_CARD = 0x7f095446
+        const val SOURCE_ID_MORE_INFO = 0x7f095b85
+        const val SOURCE_ID_PERSONAL_INTRO = 0x7f095c16
+        const val SOURCE_ID_PERSONAL_TITLE = 0x7f095c18
     }
 }
 

@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Source-adapted from Bilibili 9.7.0 bili_app_activity_test_ping.xml. -->
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/Ga1"
+    android:orientation="vertical">
+
+    <com.google.android.material.appbar.MaterialToolbar
+        android:id="@+id/bili_about_network_toolbar"
+        style="@style/BiliAboutToolbar"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/navigation_top_bar_size"
+        android:elevation="0dp"
+        app:titleCentered="true"
+        app:titleTextColor="@color/theme_color_primary_tr_title" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="6dp"
+        android:layout_marginTop="6dp"
+        android:layout_marginBottom="6dp"
+        android:gravity="center_vertical"
+        android:orientation="horizontal">
+
+        <Button
+            android:id="@+id/bili_about_network_test"
+            style="?android:borderlessButtonStyle"
+            android:layout_width="70dp"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="10dp"
+            android:text="@string/bili_about_network_start_test"
+            android:textColor="@color/theme_color_secondary" />
+
+        <Button
+            android:id="@+id/bili_about_network_copy"
+            style="?android:borderlessButtonStyle"
+            android:layout_width="100dp"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="10dp"
+            android:enabled="false"
+            android:text="@string/bili_about_network_copy_result"
+            android:textColor="@color/theme_color_secondary" />
+
+        <ProgressBar
+            android:id="@+id/bili_about_network_progress"
+            android:layout_width="35dp"
+            android:layout_height="35dp"
+            android:indeterminateTint="@color/theme_color_secondary"
+            android:visibility="invisible" />
+    </LinearLayout>
+
+    <TextView
+        android:id="@+id/bili_about_network_local_ip"
+        android:layout_width="wrap_content"
+        android:layout_height="25dp"
+        android:layout_marginStart="7dp"
+        android:gravity="center_vertical"
+        android:text="@string/bili_about_network_getting_ip"
+        android:textColor="@color/Ga9" />
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:background="@color/Wh0">
+
+        <TextView
+            android:id="@+id/bili_about_network_log"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="12dp"
+            android:textColor="@color/Ga9"
+            android:textIsSelectable="true"
+            android:textSize="13sp" />
+    </ScrollView>
+
+</LinearLayout>

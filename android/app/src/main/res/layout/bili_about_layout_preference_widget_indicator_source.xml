@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Migrated from Bilibili 9.7.0 bili_app_layout_preference_widget_intent_indicator.xml. -->
+<ImageView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/bili_about_indicator"
+    android:layout_width="16dp"
+    android:layout_height="16dp"
+    android:cropToPadding="true"
+    android:src="@drawable/bili_about_ic_vector_arrow_right_source"
+    android:tint="@color/Ga5" />

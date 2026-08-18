@@ -10,6 +10,7 @@ import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.Spacer
+import androidx.compose.foundation.layout.aspectRatio
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
@@ -23,11 +24,12 @@ import androidx.compose.foundation.text.KeyboardOptions
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.automirrored.filled.ArrowBack
 import androidx.compose.material.icons.filled.ChevronRight
+import androidx.compose.material.icons.filled.Clear
 import androidx.compose.material.icons.filled.Edit
-import androidx.compose.material3.AlertDialog
 import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.Icon
 import androidx.compose.material3.IconButton
+import androidx.compose.material3.LinearProgressIndicator
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.OutlinedTextField
 import androidx.compose.material3.Scaffold
@@ -73,16 +75,27 @@ import kotlinx.coroutines.withContext
 import java.util.Calendar
 
 /**
- * 喜马拉雅 MyDetailFragment 完整闭包迁移：保留原页的头像、背景和资料行顺序，
- * 字段修改沿用原版的逐项保存语义。包含昵称编辑（带字数统计）、性别选择、
- * 生日 DatePicker、地区选择（省市联动）、个性签名/个人简介编辑（带字数统计与示例）。
+ * 喜马拉雅 MyDetailFragment 直接迁移 — 非仿写。
  *
- * 对标源码：
- * - MyDetailFragment.java — 主资料编辑页
- * - EditPersonalInfoFragment.java — 昵称/生日/简介子页
- * - RegionSelectFragment.java — 地区选择子页
- * - main_fra_my_detail_new.xml — 主页布局
- * - main_fra_personal_edit.xml — 编辑子页布局
+ * 源码文件对照：
+ * - MyDetailFragment.java → 主页面布局与数据绑定（a() 方法）
+ * - EditPersonalInfoFragment.java → 昵称(type=1)/生日(type=2)/简介(type=3) 编辑子页
+ * - RegionSelectFragment.java → 省市两级地区选择
+ * - MyDetailInfo.java → 数据模型
+ * - com.ximalaya.ting.android.main.dialog.c → 性别选择 Dialog
+ *
+ * 布局结构（从设备 UI dump 还原）：
+ * 1. 标题栏：返回 | 编辑资料
+ * 2. 背景图（375:200 比例）+ 阴影遮罩 + 居中头像(88dp) + 编辑头像图标 + "编辑主页背景"
+ * 3. 完善资料引导（本地计算完成度百分比 + 进度条）
+ * 4. 昵称行（完善度 +30%）
+ * 5. 性别行（完善度 +20%）
+ * 6. 生日行（完善度 +10%）
+ * 7. 地区行（完善度 +10%）
+ * 8. [间距]
+ * 9. 简介行
+ *
+ * 不含：声音签名、标签、认证、同步微信/QQ（Mengzhen API 不支持）
  */
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
@@ -95,12 +108,12 @@ fun XimalayaPersonalEditScreen(navController: NavController) {
     var profile by remember(sessionUser) { mutableStateOf(sessionUser) }
     var saving by remember { mutableStateOf(false) }
     var loading by remember { mutableStateOf(true) }
-    var editor by remember { mutableStateOf<ProfileEditor?>(null) }
+    var editor by remember { mutableStateOf<EditorTarget?>(null) }
     var showGenderPicker by remember { mutableStateOf(false) }
     var showRegionPicker by remember { mutableStateOf(false) }
     var showBirthdayPicker by remember { mutableStateOf(false) }
 
-    // 初始加载远端资料
+    // MyDetailFragment.loadData() → e() → b.cG(map, callback)
     LaunchedEffect(Unit) {
         loading = true
         runCatching {
@@ -111,23 +124,11 @@ fun XimalayaPersonalEditScreen(navController: NavController) {
                 profile = merged
                 store.getSession()?.first?.let { token -> store.saveUserSession(token, merged) }
             }
-        }.onFailure {
-            // 加载失败也允许使用本地缓存的 sessionUser 继续编辑
-        }
+        }.onFailure { }
         loading = false
     }
 
-    // 背景图选择器
-    val backgroundPicker = rememberQqMusicImagePicker(maxSelection = 1) { selected ->
-        val uri = selected.firstOrNull() ?: return@rememberQqMusicImagePicker
-        scope.launch {
-            saving = true
-            uploadSelectedProfileBackground(context, uri, profile)?.let { profile = it }
-            saving = false
-        }
-    }
-
-    // 头像选择器
+    // MyDetailFragment.a(String, int) → 头像上传
     val avatarPicker = rememberQqMusicImagePicker(maxSelection = 1) { selected ->
         val uri = selected.firstOrNull() ?: return@rememberQqMusicImagePicker
         scope.launch {
@@ -159,31 +160,27 @@ fun XimalayaPersonalEditScreen(navController: NavController) {
         }
     }
 
-    fun saveField(field: ProfileEditor, value: String) {
-        val current = profile ?: return
-        val next = when (field) {
-            ProfileEditor.USERNAME -> current.copy(username = value.ifBlank { current.username })
-            ProfileEditor.NICKNAME -> current.copy(nickname = value.ifBlank { null })
-            ProfileEditor.BIRTHDAY -> current.copy(birthday = value.ifBlank { null })
-            ProfileEditor.LOCATION -> current.copy(location = value.ifBlank { null })
-            ProfileEditor.SIGNATURE -> current.copy(signature = value.ifBlank { null })
-            ProfileEditor.BIO -> current.copy(bio = value.ifBlank { null })
+    // MyDetailFragment.d(String) → 背景图上传
+    val backgroundPicker = rememberQqMusicImagePicker(maxSelection = 1) { selected ->
+        val uri = selected.firstOrNull() ?: return@rememberQqMusicImagePicker
+        scope.launch {
+            saving = true
+            uploadSelectedProfileBackground(context, uri, profile)?.let { profile = it }
+            saving = false
         }
+    }
+
+    // === 保存函数 — 对标 EditPersonalInfoFragment.e() + MyDetailFragment.c() ===
+
+    fun saveNickname(value: String) {
+        val current = profile ?: return
+        val next = current.copy(nickname = value.ifBlank { null })
         profile = next
         editor = null
         scope.launch {
             saving = true
             runCatching {
-                withContext(Dispatchers.IO) {
-                    when (field) {
-                        ProfileEditor.USERNAME -> api.updateProfile(username = next.username)
-                        ProfileEditor.NICKNAME -> api.updateProfile(nickname = next.nickname)
-                        ProfileEditor.BIRTHDAY -> api.updateProfile(birthday = next.birthday)
-                        ProfileEditor.LOCATION -> api.updateProfile(location = next.location)
-                        ProfileEditor.SIGNATURE -> api.updateProfile(signature = next.signature)
-                        ProfileEditor.BIO -> api.updateProfile(bio = next.bio)
-                    }
-                }
+                withContext(Dispatchers.IO) { api.updateProfile(nickname = next.nickname) }
             }.onSuccess { response ->
                 val server = parseProfile(response)
                 val merged = (server ?: next).copy(
@@ -202,6 +199,34 @@ fun XimalayaPersonalEditScreen(navController: NavController) {
         }
     }
 
+    fun saveBrief(value: String) {
+        val current = profile ?: return
+        val next = current.copy(bio = value.ifBlank { null })
+        profile = next
+        editor = null
+        scope.launch {
+            saving = true
+            runCatching {
+                withContext(Dispatchers.IO) { api.updateProfile(bio = next.bio) }
+            }.onSuccess { response ->
+                val server = parseProfile(response)
+                val merged = (server ?: next).copy(
+                    avatarUrl = next.avatarUrl,
+                    backgroundUrl = next.backgroundUrl,
+                )
+                profile = merged
+                store.getSession()?.first?.let { token -> store.saveUserSession(token, merged) }
+                if (response.optBoolean("success")) {
+                    AppNotice.success(context, "资料已更新")
+                } else {
+                    AppNotice.error(context, response.optString("error", "资料更新失败"))
+                }
+            }.onFailure { AppNotice.error(context, it.message ?: "资料更新失败") }
+            saving = false
+        }
+    }
+
+    // MyDetailFragment.c(String) → 性别保存
     fun saveGender(value: String) {
         showGenderPicker = false
         val current = profile ?: return
@@ -224,6 +249,7 @@ fun XimalayaPersonalEditScreen(navController: NavController) {
         }
     }
 
+    // RegionSelectFragment.a(City, String) → 地区保存
     fun saveRegion(region: String) {
         showRegionPicker = false
         val current = profile ?: return
@@ -246,10 +272,28 @@ fun XimalayaPersonalEditScreen(navController: NavController) {
         }
     }
 
+    // EditPersonalInfoFragment.b(String) → 生日保存
     fun saveBirthday(year: Int, month: Int, day: Int) {
         showBirthdayPicker = false
         val birthday = "$year-${month.toString().padStart(2, '0')}-${day.toString().padStart(2, '0')}"
-        saveField(ProfileEditor.BIRTHDAY, birthday)
+        val current = profile ?: return
+        val next = current.copy(birthday = birthday)
+        profile = next
+        scope.launch {
+            saving = true
+            runCatching {
+                withContext(Dispatchers.IO) { api.updateProfile(birthday = next.birthday) }
+            }.onSuccess { response ->
+                val merged = (parseProfile(response) ?: next).copy(
+                    avatarUrl = next.avatarUrl,
+                    backgroundUrl = next.backgroundUrl,
+                )
+                profile = merged
+                store.getSession()?.first?.let { token -> store.saveUserSession(token, merged) }
+                AppNotice.success(context, "资料已更新")
+            }.onFailure { AppNotice.error(context, it.message ?: "资料更新失败") }
+            saving = false
+        }
     }
 
     val user = profile
@@ -269,8 +313,6 @@ fun XimalayaPersonalEditScreen(navController: NavController) {
                             loadingDescription = "正在保存资料",
                         )
                         Spacer(Modifier.width(16.dp))
-                    } else {
-                        TextButton(onClick = navController::popBackStack) { Text("完成") }
                     }
                 },
             )
@@ -303,9 +345,8 @@ fun XimalayaPersonalEditScreen(navController: NavController) {
         } else {
             LazyColumn(
                 modifier = Modifier.fillMaxSize().padding(padding),
-                verticalArrangement = Arrangement.spacedBy(2.dp),
             ) {
-                // 头部：背景图 + 头像 + 昵称
+                // MyDetailFragment.c() → 头部绑定
                 item {
                     ProfileHero(
                         user = user,
@@ -313,80 +354,83 @@ fun XimalayaPersonalEditScreen(navController: NavController) {
                         onEditBackground = backgroundPicker,
                     )
                 }
-                // 资料行 — 顺序对标 main_fra_my_detail_new.xml
+                // 完善资料引导 — 对标 ProfilePercentCouponInfo
                 item {
-                    Spacer(Modifier.height(12.dp))
-                    ProfileRow(
-                        label = "用户名",
-                        value = user.username,
-                        onClick = { editor = ProfileEditor.USERNAME },
-                    )
+                    ProfileCompletionGuide(user = user)
+                }
+                // 资料行 — 对标 MyDetailFragment onClick 顺序
+                item {
+                    // 昵称 — MyDetailFragment.i()
                     ProfileRow(
                         label = "昵称",
-                        value = user.nickname ?: user.username,
-                        onClick = { editor = ProfileEditor.NICKNAME },
+                        value = user.nickname,
+                        percentGuide = "+30%",
+                        onClick = { editor = EditorTarget.Nickname(user.nickname.orEmpty()) },
                     )
+                    // 性别 — MyDetailFragment.y()
                     ProfileRow(
                         label = "性别",
                         value = genderText(user.gender),
+                        percentGuide = "+20%",
                         onClick = { showGenderPicker = true },
                     )
+                    // 生日 — MyDetailFragment.l()
                     ProfileRow(
                         label = "生日",
-                        value = user.birthday ?: "未填写",
+                        value = user.birthday,
+                        percentGuide = "+10%",
                         onClick = { showBirthdayPicker = true },
                     )
+                    // 地区 — MyDetailFragment.onClick → RegionSelectFragment
                     ProfileRow(
                         label = "地区",
                         value = formatLocation(user.location),
+                        percentGuide = "+10%",
                         onClick = { showRegionPicker = true },
                     )
-                    ProfileRow(
-                        label = "个性签名",
-                        value = user.signature ?: "未填写",
-                        onClick = { editor = ProfileEditor.SIGNATURE },
-                    )
-                    ProfileRow(
-                        label = "个人简介",
-                        value = user.bio ?: "未填写",
-                        onClick = { editor = ProfileEditor.BIO },
-                    )
-                    Spacer(Modifier.height(24.dp))
                 }
+                // 间距 — 对标 main_space_1
+                item { Spacer(Modifier.height(24.dp)) }
+                // 简介 — MyDetailFragment.k()
+                item {
+                    BriefRow(
+                        value = user.bio,
+                        onClick = { editor = EditorTarget.Brief(user.bio.orEmpty()) },
+                    )
+                }
+                item { Spacer(Modifier.height(48.dp)) }
             }
         }
     }
 
-    // 昵称/签名/简介编辑器 — 对标 EditPersonalInfoFragment
-    editor?.let { field ->
-        NicknameOrBriefEditor(
-            field = field,
-            initialValue = field.value(user),
-            onSave = { value -> saveField(field, value) },
-            onDismiss = { editor = null },
-        )
+    // === 编辑器 ===
+
+    // EditPersonalInfoFragment type=1 → 昵称编辑
+    editor?.let { target ->
+        when (target) {
+            is EditorTarget.Nickname -> NicknameEditorDialog(
+                initialValue = target.value,
+                onSave = { saveNickname(it) },
+                onDismiss = { editor = null },
+            )
+            is EditorTarget.Brief -> BriefEditorDialog(
+                initialValue = target.value,
+                onSave = { saveBrief(it) },
+                onDismiss = { editor = null },
+            )
+        }
     }
 
-    // 性别选择 — 对标喜马拉雅性别 Dialog (com.ximalaya.ting.android.main.dialog.c)
+    // com.ximalaya.ting.android.main.dialog.c → 性别选择
     if (showGenderPicker) {
-        AlertDialog(
-            onDismissRequest = { showGenderPicker = false },
-            title = { Text("性别") },
-            text = {
-                Column {
-                    listOf("male" to "男", "female" to "女", "secret" to "保密").forEach { (value, label) ->
-                        TextButton(
-                            onClick = { saveGender(value) },
-                            modifier = Modifier.fillMaxWidth(),
-                        ) { Text(label) }
-                    }
-                }
-            },
-            confirmButton = {},
+        GenderPickerDialog(
+            currentGender = user?.gender,
+            onConfirm = { saveGender(it) },
+            onDismiss = { showGenderPicker = false },
         )
     }
 
-    // 生日选择 — 对标 EditPersonalInfoFragment 的 DatePickerDialog
+    // EditPersonalInfoFragment type=2 → 生日 DatePicker
     if (showBirthdayPicker) {
         BirthdayPickerDialog(
             currentBirthday = user?.birthday,
@@ -395,7 +439,7 @@ fun XimalayaPersonalEditScreen(navController: NavController) {
         )
     }
 
-    // 地区选择 — 对标 RegionSelectFragment
+    // RegionSelectFragment → 地区选择
     if (showRegionPicker) {
         RegionPickerDialog(
             currentLocation = user?.location,
@@ -403,42 +447,241 @@ fun XimalayaPersonalEditScreen(navController: NavController) {
             onDismiss = { showRegionPicker = false },
         )
     }
-
 }
 
-// === 编辑器子页 ===
+// === 编辑目标 ===
 
-private enum class ProfileEditor(
-    val title: String,
-    val maxLength: Int,
-    val isMultiLine: Boolean,
-    val value: (UserInfo?) -> String,
+private sealed class EditorTarget {
+    data class Nickname(val value: String) : EditorTarget()
+    data class Brief(val value: String) : EditorTarget()
+}
+
+// === 头部 Hero — 对标 main_fra_my_detail_new.xml 头部布局 ===
+// MyDetailFragment.f(): 背景图 ratio=375:200, 居中头像 88dp
+
+@Composable
+private fun ProfileHero(
+    user: UserInfo,
+    onEditAvatar: () -> Unit,
+    onEditBackground: () -> Unit,
 ) {
-    USERNAME("用户名", 30, false, { it?.username.orEmpty() }),
-    NICKNAME("昵称", 50, false, { it?.nickname ?: it?.username.orEmpty() }),
-    SIGNATURE("个性签名", 200, false, { it?.signature.orEmpty() }),
-    BIO("个人简介", 500, true, { it?.bio.orEmpty() }),
-    BIRTHDAY("生日", 0, false, { it?.birthday.orEmpty() }),
-    LOCATION("地区", 0, false, { it?.location.orEmpty() }),
+    Box(
+        modifier = Modifier
+            .fillMaxWidth()
+            .aspectRatio(375f / 200f),
+    ) {
+        // main_iv_top_bg — 背景图
+        if (user.backgroundUrl.isNullOrBlank()) {
+            Box(
+                Modifier
+                    .fillMaxSize()
+                    .background(
+                        Brush.linearGradient(
+                            listOf(Color(0xFFB7D8D0), Color(0xFFE9F2EF)),
+                        ),
+                    ),
+            )
+        } else {
+            AsyncImage(
+                model = user.backgroundUrl,
+                contentDescription = "头像背景",
+                modifier = Modifier.fillMaxSize(),
+                contentScale = ContentScale.Crop,
+            )
+        }
+        // main_view_shadow — 渐变遮罩
+        Box(
+            Modifier
+                .fillMaxSize()
+                .background(Brush.verticalGradient(listOf(Color.Transparent, Color(0x66000000)))),
+        )
+        // main_iv_avatar — 居中头像 88dp，顶部偏上
+        Box(
+            modifier = Modifier
+                .align(Alignment.TopCenter)
+                .padding(top = 32.dp)
+                .size(88.dp)
+                .clip(CircleShape)
+                .background(MaterialTheme.colorScheme.surface.copy(alpha = 0.9f))
+                .clickable(onClick = onEditAvatar),
+            contentAlignment = Alignment.Center,
+        ) {
+            if (!user.avatarUrl.isNullOrBlank()) {
+                AsyncImage(
+                    model = absoluteAvatarUrl(user.avatarUrl),
+                    contentDescription = "头像",
+                    modifier = Modifier.fillMaxSize(),
+                    contentScale = ContentScale.Crop,
+                )
+            }
+            // main_iv_edit_avatar — 编辑图标，头像右下角
+            Icon(
+                Icons.Default.Edit,
+                contentDescription = "编辑头像",
+                tint = Color.White,
+                modifier = Modifier
+                    .align(Alignment.BottomEnd)
+                    .padding(4.dp)
+                    .size(20.dp),
+            )
+        }
+        // main_tv_edit_bg — "编辑主页背景"，居中底部
+        TextButton(
+            onClick = onEditBackground,
+            modifier = Modifier
+                .align(Alignment.BottomCenter)
+                .padding(bottom = 20.dp),
+        ) {
+            Text("编辑主页背景", color = Color.White, fontSize = 13.sp)
+        }
+    }
 }
 
-/**
- * 用户名/昵称/签名/简介编辑器 — 对标 EditPersonalInfoFragment
- * 使用标准字符长度计数，与 Web API 验证规则对齐。
- */
+// === 完善资料引导 — 对标 ProfilePercentCouponInfo ===
+// 本地计算完成度：头像15% + 昵称30% + 性别20% + 生日10% + 地区10% + 简介15% = 100%
+
+@Composable
+private fun ProfileCompletionGuide(user: UserInfo) {
+    val percent = calculateProfilePercent(user)
+    if (percent >= 100) return
+    Row(
+        modifier = Modifier
+            .fillMaxWidth()
+            .padding(horizontal = 16.dp, vertical = 8.dp),
+        verticalAlignment = Alignment.CenterVertically,
+    ) {
+        Column(
+            modifier = Modifier.weight(1f),
+        ) {
+            Text(
+                text = "完善个人资料",
+                fontSize = 15.sp,
+                style = MaterialTheme.typography.titleSmall,
+            )
+            Spacer(Modifier.height(4.dp))
+            Text(
+                text = "已完善 $percent%",
+                fontSize = 12.sp,
+                color = MaterialTheme.colorScheme.onSurfaceVariant,
+            )
+            Spacer(Modifier.height(6.dp))
+            LinearProgressIndicator(
+                progress = { percent / 100f },
+                modifier = Modifier.fillMaxWidth(),
+            )
+        }
+    }
+}
+
+private fun calculateProfilePercent(user: UserInfo): Int {
+    var percent = 0
+    if (!user.avatarUrl.isNullOrBlank()) percent += 15
+    if (!user.nickname.isNullOrBlank()) percent += 30
+    if (!user.gender.isNullOrBlank() && user.gender != "secret") percent += 20
+    if (!user.birthday.isNullOrBlank()) percent += 10
+    if (!user.location.isNullOrBlank()) percent += 10
+    if (!user.bio.isNullOrBlank()) percent += 15
+    return percent
+}
+
+// === 资料行 — 对标 main_rl_modify_nickname / sex / birth_date / region ===
+
+@Composable
+private fun ProfileRow(
+    label: String,
+    value: String?,
+    percentGuide: String,
+    onClick: () -> Unit,
+) {
+    Row(
+        modifier = Modifier
+            .fillMaxWidth()
+            .clickable(onClick = onClick)
+            .padding(horizontal = 16.dp, vertical = 16.dp),
+        verticalAlignment = Alignment.CenterVertically,
+    ) {
+        Text(label, style = MaterialTheme.typography.bodyLarge)
+        Spacer(Modifier.weight(1f))
+        if (value.isNullOrBlank()) {
+            // 未填写时显示完善度引导 — 对标 MyDetailFragment.a() 中 guide 可见逻辑
+            Text(
+                text = "完善度 $percentGuide",
+                color = Color(0xFFFF6B35),
+                fontSize = 12.sp,
+                modifier = Modifier.padding(end = 6.dp),
+            )
+        } else {
+            Text(
+                value,
+                color = MaterialTheme.colorScheme.onSurfaceVariant,
+                maxLines = 1,
+                modifier = Modifier.padding(end = 6.dp),
+            )
+        }
+        Icon(
+            Icons.Default.ChevronRight,
+            contentDescription = null,
+            tint = MaterialTheme.colorScheme.onSurfaceVariant,
+            modifier = Modifier.size(18.dp),
+        )
+    }
+    // main_divide_1/2/3 — 分隔线
+    androidx.compose.material3.HorizontalDivider(
+        modifier = Modifier.padding(horizontal = 16.dp),
+        color = MaterialTheme.colorScheme.outlineVariant.copy(alpha = 0.3f),
+    )
+}
+
+// === 简介行 — 对标 main_rl_modify_brief ===
+
+@Composable
+private fun BriefRow(
+    value: String?,
+    onClick: () -> Unit,
+) {
+    Row(
+        modifier = Modifier
+            .fillMaxWidth()
+            .clickable(onClick = onClick)
+            .padding(horizontal = 16.dp, vertical = 16.dp),
+        verticalAlignment = Alignment.CenterVertically,
+    ) {
+        Text("简介", style = MaterialTheme.typography.bodyLarge)
+        Spacer(Modifier.weight(1f))
+        Text(
+            value ?: "未填写",
+            color = MaterialTheme.colorScheme.onSurfaceVariant,
+            maxLines = 1,
+            modifier = Modifier.padding(end = 6.dp),
+        )
+        Icon(
+            Icons.Default.ChevronRight,
+            contentDescription = null,
+            tint = MaterialTheme.colorScheme.onSurfaceVariant,
+            modifier = Modifier.size(18.dp),
+        )
+    }
+    androidx.compose.material3.HorizontalDivider(
+        modifier = Modifier.padding(horizontal = 16.dp),
+        color = MaterialTheme.colorScheme.outlineVariant.copy(alpha = 0.3f),
+    )
+}
+
+// === 昵称编辑器 — 对标 EditPersonalInfoFragment type=1 ===
+// 中文占2字符，英文/数字占1字符，上限20
+// 规则文案来自 configurecenter 默认值
+
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
-private fun NicknameOrBriefEditor(
-    field: ProfileEditor,
+private fun NicknameEditorDialog(
     initialValue: String,
     onSave: (String) -> Unit,
     onDismiss: () -> Unit,
 ) {
     var text by remember { mutableStateOf(initialValue) }
-    val charCount = text.length
-    val maxCount = field.maxLength
+    val charCount = remember(text) { countNicknameChars(text) }
+    val maxCount = 20
 
-    // 使用全屏 Dialog 对标 EditPersonalInfoFragment 的 startFragment 全页编辑
     Dialog(
         onDismissRequest = onDismiss,
         properties = DialogProperties(usePlatformDefaultWidth = false),
@@ -446,7 +689,7 @@ private fun NicknameOrBriefEditor(
         Scaffold(
             topBar = {
                 TopAppBar(
-                    title = { Text(field.title) },
+                    title = { Text("编辑昵称") },
                     navigationIcon = {
                         IconButton(onClick = onDismiss) {
                             Icon(Icons.AutoMirrored.Filled.ArrowBack, contentDescription = "取消")
@@ -455,7 +698,130 @@ private fun NicknameOrBriefEditor(
                     actions = {
                         TextButton(
                             onClick = { onSave(text.trim()) },
-                            enabled = charCount <= maxCount && text.isNotBlank(),
+                            enabled = charCount <= maxCount && charCount > 0 && text.trim() != initialValue.trim(),
+                        ) { Text("保存") }
+                    },
+                )
+            },
+            containerColor = MaterialTheme.colorScheme.surface,
+        ) { padding ->
+            Column(
+                modifier = Modifier
+                    .fillMaxSize()
+                    .padding(padding)
+                    .padding(16.dp),
+            ) {
+                OutlinedTextField(
+                    value = text,
+                    onValueChange = { newText ->
+                        if (countNicknameChars(newText) <= maxCount) {
+                            text = newText
+                        }
+                    },
+                    singleLine = true,
+                    placeholder = { Text("请输入昵称") },
+                    trailingIcon = {
+                        if (text.isNotEmpty()) {
+                            IconButton(onClick = { text = "" }) {
+                                Icon(
+                                    androidx.compose.material.icons.Icons.Default.Clear,
+                                    contentDescription = "清除",
+                                    modifier = Modifier.size(18.dp),
+                                )
+                            }
+                        }
+                    },
+                    modifier = Modifier.fillMaxWidth(),
+                    keyboardOptions = KeyboardOptions.Default,
+                )
+                Spacer(Modifier.height(8.dp))
+                // 字数统计 — 对标 EditPersonalInfoFragment.a(int)
+                Row(
+                    modifier = Modifier.fillMaxWidth(),
+                    horizontalArrangement = Arrangement.End,
+                ) {
+                    Text(
+                        text = buildAnnotatedString {
+                            append("$charCount")
+                            if (charCount > maxCount) {
+                                withStyle(SpanStyle(color = Color(0xFFCE2424))) {
+                                    append("/$maxCount")
+                                }
+                            } else {
+                                withStyle(SpanStyle(color = MaterialTheme.colorScheme.onSurfaceVariant)) {
+                                    append("/$maxCount")
+                                }
+                            }
+                        },
+                        fontSize = 12.sp,
+                    )
+                }
+                Spacer(Modifier.height(16.dp))
+                // 规则文案 — 来自 configurecenter "nickname_modify_new" 默认值
+                Text(
+                    text = buildAnnotatedString {
+                        withStyle(SpanStyle(color = MaterialTheme.colorScheme.onSurfaceVariant)) {
+                            append("剩余修改次数：不限\n")
+                        }
+                        withStyle(SpanStyle(color = Color(0xFFFF4444))) {
+                            append(
+                                "1.昵称修改次数：非认证用户，每自然月可修改1次；认证用户，每自然年可修改4次；\n" +
+                                    "2.每天最多修改3次；\n" +
+                                    "3. 仅支持数字/字母/汉字/下划线；不建议使用生僻字；\n" +
+                                    "4. 昵称限20字符，中文占2字符，英文/数字占1字符；\n" +
+                                    "5. 使用健康/财经/司法/教育类昵称，请先完成相关资质认证；\n" +
+                                    "6. 禁止使用色情/违法/低俗昵称；",
+                            )
+                        }
+                    },
+                    fontSize = 12.sp,
+                    lineHeight = 18.sp,
+                )
+            }
+        }
+    }
+}
+
+// EditPersonalInfoFragment.a(CharSequence) — 中文字符=2，其他=1
+private fun countNicknameChars(text: String): Int {
+    var count = 0
+    for (c in text) {
+        count += if (Character.UnicodeScript.of(c.code) == Character.UnicodeScript.HAN) 2 else 1
+    }
+    return count
+}
+
+// === 简介编辑器 — 对标 EditPersonalInfoFragment type=3 ===
+// 上限300字，显示"还能输入X字"
+
+@OptIn(ExperimentalMaterial3Api::class)
+@Composable
+private fun BriefEditorDialog(
+    initialValue: String,
+    onSave: (String) -> Unit,
+    onDismiss: () -> Unit,
+) {
+    var text by remember { mutableStateOf(initialValue) }
+    val maxCount = 300
+    val remaining = maxCount - text.length
+
+    Dialog(
+        onDismissRequest = onDismiss,
+        properties = DialogProperties(usePlatformDefaultWidth = false),
+    ) {
+        Scaffold(
+            topBar = {
+                TopAppBar(
+                    title = { Text("编辑简介") },
+                    navigationIcon = {
+                        IconButton(onClick = onDismiss) {
+                            Icon(Icons.AutoMirrored.Filled.ArrowBack, contentDescription = "取消")
+                        }
+                    },
+                    actions = {
+                        TextButton(
+                            onClick = { onSave(text.trim()) },
+                            enabled = text.isNotEmpty() && text.trim() != initialValue.trim(),
                         ) { Text("保存") }
                     },
                 )
@@ -475,94 +841,44 @@ private fun NicknameOrBriefEditor(
                             text = newText
                         }
                     },
-                    singleLine = !field.isMultiLine,
-                    minLines = if (field.isMultiLine) 5 else 1,
-                    maxLines = if (field.isMultiLine) 10 else 1,
-                    placeholder = {
-                        Text(
-                            when (field) {
-                                ProfileEditor.USERNAME -> "请输入用户名"
-                                ProfileEditor.NICKNAME -> "请输入昵称"
-                                ProfileEditor.SIGNATURE -> "请输入个性签名"
-                                ProfileEditor.BIO -> "请输入个人简介"
-                                else -> ""
-                            }
-                        )
-                    },
+                    singleLine = false,
+                    minLines = 5,
+                    maxLines = 10,
+                    placeholder = { Text("请输入个人简介") },
                     modifier = Modifier.fillMaxWidth(),
                     keyboardOptions = KeyboardOptions.Default,
                 )
                 Spacer(Modifier.height(8.dp))
+                // EditPersonalInfoFragment.13 → "还能输入X字" / "无法输入更多"
                 Row(
                     modifier = Modifier.fillMaxWidth(),
                     horizontalArrangement = Arrangement.End,
                 ) {
-                    Text(
-                        text = "$charCount/$maxCount",
-                        fontSize = 12.sp,
-                        color = if (charCount > maxCount) {
-                            Color(0xFFCE2424)
-                        } else {
-                            MaterialTheme.colorScheme.onSurfaceVariant
-                        },
-                    )
+                    if (text.isEmpty()) {
+                        Text("", fontSize = 12.sp)
+                    } else if (remaining <= 0) {
+                        Text("无法输入更多", fontSize = 12.sp, color = Color(0xFFCE2424))
+                    } else {
+                        Text(
+                            "还能输入 $remaining 字",
+                            fontSize = 12.sp,
+                            color = MaterialTheme.colorScheme.onSurfaceVariant,
+                        )
+                    }
                 }
-                // 简介编辑时显示示例文案
-                if (field == ProfileEditor.BIO) {
-                    Spacer(Modifier.height(24.dp))
-                    Text(
-                        text = "据说，写一段有趣的简介，被关注的概率会翻倍哦～",
-                        fontSize = 13.sp,
-                        color = MaterialTheme.colorScheme.onSurfaceVariant,
-                    )
-                    Spacer(Modifier.height(8.dp))
-                    Text(
-                        text = "示例",
-                        fontSize = 13.sp,
-                        color = MaterialTheme.colorScheme.onSurfaceVariant,
-                    )
-                }
-                // 用户名编辑时显示规则提示
-                if (field == ProfileEditor.USERNAME) {
-                    Spacer(Modifier.height(16.dp))
-                    Text(
-                        text = buildAnnotatedString {
-                            withStyle(SpanStyle(color = Color(0xFFFF4444))) {
-                                append(
-                                    "1. 仅支持数字/字母/汉字/下划线\n" +
-                                        "2. 用户名限 $maxCount 个字符\n" +
-                                        "3. 修改用户名后需重新登录其他设备",
-                                )
-                            }
-                        },
-                        fontSize = 12.sp,
-                        lineHeight = 18.sp,
-                    )
-                }
-                // 昵称编辑时显示规则提示
-                if (field == ProfileEditor.NICKNAME) {
-                    Spacer(Modifier.height(16.dp))
-                    Text(
-                        text = buildAnnotatedString {
-                            append("剩余修改次数：不限\n")
-                            withStyle(SpanStyle(color = Color(0xFFFF4444))) {
-                                append(
-                                    "1. 仅支持数字/字母/汉字/下划线\n" +
-                                        "2. 昵称限 $maxCount 个字符\n" +
-                                        "3. 禁止使用色情/违法/低俗昵称",
-                                )
-                            }
-                        },
-                        fontSize = 12.sp,
-                        lineHeight = 18.sp,
-                    )
-                }
+                Spacer(Modifier.height(24.dp))
+                Text(
+                    text = "据说，写一段有趣的简介，被关注的概率会翻倍哦～",
+                    fontSize = 13.sp,
+                    color = MaterialTheme.colorScheme.onSurfaceVariant,
+                )
             }
         }
     }
 }
 
 // === 生日 DatePicker — 对标 EditPersonalInfoFragment.c() ===
+// minDate=1900-01-01, maxDate=今天, title="填写生日信息，当天会有神秘惊喜噢~"
 
 @Composable
 private fun BirthdayPickerDialog(
@@ -608,11 +924,46 @@ private fun BirthdayPickerDialog(
     }.show()
 }
 
+// === 性别选择 — 对标 com.ximalaya.ting.android.main.dialog.c ===
+// 选项：男(male) / 女(female) / 不展示(secret)
+
+@Composable
+private fun GenderPickerDialog(
+    currentGender: String?,
+    onConfirm: (String) -> Unit,
+    onDismiss: () -> Unit,
+) {
+    androidx.compose.material3.AlertDialog(
+        onDismissRequest = onDismiss,
+        title = { Text("性别") },
+        text = {
+            Column {
+                listOf("male" to "男", "female" to "女", "secret" to "不展示").forEach { (value, label) ->
+                    TextButton(
+                        onClick = { onConfirm(value) },
+                        modifier = Modifier.fillMaxWidth(),
+                    ) {
+                        Text(
+                            label,
+                            color = if (currentGender == value) {
+                                MaterialTheme.colorScheme.primary
+                            } else {
+                                MaterialTheme.colorScheme.onSurface
+                            },
+                        )
+                    }
+                }
+            }
+        },
+        confirmButton = {},
+    )
+}
+
 // === 地区选择 — 对标 RegionSelectFragment ===
+// 省市两级选择，数据来自 province_cities.json（本地等价）
 
 private data class Province(val name: String, val cities: List<String>)
 
-// 省市数据 — 对标喜马拉雅 RegionSelectFragment 使用的 Provinces 模型
 private val chinaProvinces = listOf(
     Province("北京", listOf("东城区", "西城区", "朝阳区", "海淀区", "丰台区", "石景山区", "通州区", "昌平区", "大兴区", "顺义区")),
     Province("上海", listOf("黄浦区", "徐汇区", "长宁区", "静安区", "普陀区", "虹口区", "杨浦区", "浦东新区", "闵行区", "宝山区")),
@@ -684,7 +1035,6 @@ private fun RegionPickerDialog(
             containerColor = MaterialTheme.colorScheme.surface,
         ) { padding ->
             if (selectedProvince == null) {
-                // 省份列表
                 LazyColumn(
                     modifier = Modifier.fillMaxSize().padding(padding),
                 ) {
@@ -707,7 +1057,6 @@ private fun RegionPickerDialog(
                     }
                 }
             } else {
-                // 城市列表
                 LazyColumn(
                     modifier = Modifier.fillMaxSize().padding(padding),
                 ) {
@@ -737,138 +1086,19 @@ private fun RegionPickerDialog(
     }
 }
 
-// === 头部 Hero 区域 — 对标 main_fra_my_detail_new.xml 的头部布局 ===
-
-@Composable
-private fun ProfileHero(
-    user: UserInfo,
-    onEditAvatar: () -> Unit,
-    onEditBackground: () -> Unit,
-) {
-    Box(
-        modifier = Modifier
-            .fillMaxWidth()
-            .height(224.dp),
-    ) {
-        // 背景图
-        if (user.backgroundUrl.isNullOrBlank()) {
-            Box(
-                Modifier
-                    .fillMaxSize()
-                    .background(
-                        Brush.linearGradient(
-                            listOf(Color(0xFFB7D8D0), Color(0xFFE9F2EF)),
-                        ),
-                    ),
-            )
-        } else {
-            AsyncImage(
-                model = user.backgroundUrl,
-                contentDescription = "个人背景",
-                modifier = Modifier.fillMaxSize(),
-                contentScale = ContentScale.Crop,
-            )
-        }
-        // 渐变遮罩
-        Box(
-            Modifier
-                .fillMaxSize()
-                .background(Brush.verticalGradient(listOf(Color.Transparent, Color(0xAA000000)))),
-        )
-        // 头像 + 昵称
-        Column(
-            modifier = Modifier
-                .align(Alignment.BottomStart)
-                .padding(18.dp),
-        ) {
-            Row(verticalAlignment = Alignment.Bottom) {
-                Box(
-                    modifier = Modifier
-                        .size(78.dp)
-                        .clip(CircleShape)
-                        .background(MaterialTheme.colorScheme.surface.copy(alpha = 0.9f))
-                        .clickable(onClick = onEditAvatar),
-                    contentAlignment = Alignment.Center,
-                ) {
-                    if (!user.avatarUrl.isNullOrBlank()) {
-                        AsyncImage(
-                            model = absoluteAvatarUrl(user.avatarUrl),
-                            contentDescription = "头像",
-                            modifier = Modifier.fillMaxSize(),
-                            contentScale = ContentScale.Crop,
-                        )
-                    }
-                    Icon(
-                        Icons.Default.Edit,
-                        contentDescription = "编辑头像",
-                        tint = Color.White,
-                        modifier = Modifier
-                            .align(Alignment.BottomEnd)
-                            .padding(6.dp)
-                            .size(16.dp),
-                    )
-                }
-                Spacer(Modifier.width(12.dp))
-                Column(Modifier.padding(bottom = 4.dp)) {
-                    Text(
-                        user.nickname ?: user.username,
-                        color = Color.White,
-                        style = MaterialTheme.typography.titleMedium,
-                    )
-                    Text("编辑个人资料", color = Color.White.copy(alpha = 0.8f), fontSize = 12.sp)
-                }
-            }
-            Spacer(Modifier.height(8.dp))
-            TextButton(onClick = onEditAvatar) {
-                Text("更换头像", color = Color.White, fontSize = 12.sp)
-            }
-        }
-        // 编辑背景按钮
-        TextButton(
-            onClick = onEditBackground,
-            modifier = Modifier.align(Alignment.BottomEnd).padding(end = 10.dp, bottom = 12.dp),
-        ) { Text("编辑背景", color = Color.White) }
-    }
-}
-
-@Composable
-private fun ProfileRow(label: String, value: String, onClick: () -> Unit) {
-    Row(
-        modifier = Modifier
-            .fillMaxWidth()
-            .clickable(onClick = onClick)
-            .padding(horizontal = 20.dp, vertical = 16.dp),
-        verticalAlignment = Alignment.CenterVertically,
-    ) {
-        Text(label, style = MaterialTheme.typography.bodyLarge)
-        Spacer(Modifier.weight(1f))
-        Text(
-            value,
-            color = MaterialTheme.colorScheme.onSurfaceVariant,
-            maxLines = 1,
-            modifier = Modifier.padding(end = 6.dp),
-        )
-        Icon(
-            Icons.Default.ChevronRight,
-            contentDescription = null,
-            tint = MaterialTheme.colorScheme.onSurfaceVariant,
-            modifier = Modifier.size(18.dp),
-        )
-    }
-}
-
 // === 工具函数 ===
 
+// MyDetailFragment.a(MyDetailInfo) → 性别显示
+// gender: 1/male → 男, 2/female → 女, secret/其他 → 不展示
 private fun genderText(value: String?): String = when (value?.lowercase()) {
     "male", "男", "1" -> "男"
     "female", "女", "2" -> "女"
-    else -> "保密"
+    "secret" -> "不展示"
+    else -> "未填写"
 }
 
-/**
- * 格式化地区显示 — 兼容 Web 端 5 级格式（地球/中国/省/市/区）和 Android 端 2 级格式（省 市）。
- * Web 端格式按 '/' 分割后取最后 2 段（省+市/区），Android 端格式原样显示。
- */
+// MyDetailFragment.a(MyDetailInfo) → 地区显示
+// 格式兼容：Web 端 "地球/中国/省/市/区" → 取最后两段；Android 端 "省 市" → 原样
 private fun formatLocation(location: String?): String {
     if (location.isNullOrBlank()) return "未填写"
     if (location.contains('/')) {

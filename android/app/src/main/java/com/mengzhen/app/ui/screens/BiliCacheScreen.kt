@@ -1,60 +1,31 @@
 package com.mengzhen.app.ui.screens
 
+import android.app.Activity
 import android.content.Context
+import android.content.ContextWrapper
 import android.content.Intent
 import android.database.ContentObserver
 import android.net.Uri
 import android.os.Build
+import android.os.Environment
 import android.os.Handler
 import android.os.Looper
+import android.os.StatFs
+import android.util.Log
 import androidx.activity.compose.rememberLauncherForActivityResult
 import androidx.activity.compose.BackHandler
 import androidx.activity.result.contract.ActivityResultContracts
 import androidx.compose.foundation.background
-import androidx.compose.foundation.clickable
-import androidx.compose.foundation.layout.Arrangement
-import androidx.compose.foundation.layout.Box
-import androidx.compose.foundation.layout.Column
-import androidx.compose.foundation.layout.PaddingValues
-import androidx.compose.foundation.layout.Row
-import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
-import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.navigationBarsPadding
 import androidx.compose.foundation.layout.padding
-import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.layout.statusBarsPadding
-import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.items
-import androidx.compose.foundation.shape.RoundedCornerShape
-import androidx.compose.material.icons.Icons
-import androidx.compose.material.icons.automirrored.filled.ArrowBack
-import androidx.compose.material.icons.automirrored.filled.Login
-import androidx.compose.material.icons.filled.CheckCircle
-import androidx.compose.material.icons.filled.ChevronRight
-import androidx.compose.material.icons.filled.Memory
-import androidx.compose.material.icons.filled.Movie
-import androidx.compose.material.icons.filled.RadioButtonUnchecked
-import androidx.compose.material.icons.filled.VerifiedUser
-import androidx.compose.material3.Button
-import androidx.compose.material3.ButtonDefaults
-import androidx.compose.material3.Card
-import androidx.compose.material3.CardDefaults
 import androidx.compose.material3.ExperimentalMaterial3Api
-import androidx.compose.material3.Icon
-import androidx.compose.material3.IconButton
 import androidx.compose.material3.LinearProgressIndicator
-import androidx.compose.material3.ListItem
-import androidx.compose.material3.ListItemDefaults
-import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Scaffold
-import androidx.compose.material3.Surface
-import androidx.compose.material3.Text
-import androidx.compose.material3.TextButton
-import androidx.compose.material3.TopAppBar
-import androidx.compose.material3.TopAppBarDefaults
 import androidx.compose.material3.pulltorefresh.PullToRefreshBox
 import androidx.compose.material3.pulltorefresh.PullToRefreshDefaults
 import androidx.compose.material3.pulltorefresh.rememberPullToRefreshState
@@ -69,20 +40,17 @@ import androidx.compose.runtime.rememberCoroutineScope
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.graphics.toArgb
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.colorResource
-import androidx.compose.ui.text.font.FontWeight
-import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.unit.dp
-import androidx.compose.ui.unit.sp
+import androidx.core.view.WindowCompat
 import androidx.lifecycle.Lifecycle
 import androidx.lifecycle.LifecycleEventObserver
 import androidx.lifecycle.compose.LocalLifecycleOwner
 import androidx.navigation.NavController
 import com.mengzhen.app.R
-import com.mengzhen.app.bilibili.BiliAccountStatus
 import com.mengzhen.app.bilibili.BiliCacheAccessMode
 import com.mengzhen.app.bilibili.BiliCacheImporter
 import com.mengzhen.app.bilibili.BiliCacheItem
@@ -99,8 +67,7 @@ import com.mengzhen.app.scheduler.QuickPlaybackSessionFactory
 import com.mengzhen.app.ui.components.ChatGptLoadingSpinner
 import com.mengzhen.app.ui.feedback.AppNotice
 import com.mengzhen.app.ui.navigation.Screen
-import com.mengzhen.app.ui.theme.BrandGlow
-import com.mengzhen.app.ui.theme.MutedForeground
+import com.mengzhen.app.ui.theme.LocalIsDarkTheme
 import kotlinx.coroutines.CancellationException
 import kotlinx.coroutines.FlowPreview
 import kotlinx.coroutines.channels.BufferOverflow
@@ -116,9 +83,9 @@ fun BiliCacheScreen(
     navController: NavController,
     sharedVideo: String? = null,
     onSharedVideoConsumed: () -> Unit = {},
-    topLevel: Boolean = false,
 ) {
     val context = LocalContext.current
+    BiliOfflineSystemBarEffect(context)
     val scope = rememberCoroutineScope()
     val store = remember(context) { TaskStore.get(context) }
     val scanner = remember(context) { BiliCacheScanner(context) }
@@ -126,7 +93,7 @@ fun BiliCacheScreen(
     val root = remember(context) { BiliRootBridge(context) }
     val shizuku = remember(context) { BiliShizukuBridge(context) }
     val importer = remember(context) { BiliCacheImporter(context, root, shizuku) }
-    val online = remember { BiliOnlineAudioClient() }
+    val online = remember(context) { BiliOnlineAudioClient(context) }
     val scanMutex = remember { Mutex() }
     val cacheChangeEvents = remember {
         MutableSharedFlow<Unit>(
@@ -143,7 +110,7 @@ fun BiliCacheScreen(
     fun storedExtractedSourceIds() =
         store.getDraft().audios.mapNotNullTo(mutableSetOf(), TaskAudio::sourceId)
 
-    var account by remember { mutableStateOf(official.accountStatus()) }
+    var account by remember { mutableStateOf(official.officialAccountStatus()) }
     var cacheItems by remember { mutableStateOf<List<BiliCacheItem>>(emptyList()) }
     var artworkLocations by remember { mutableStateOf<Map<String, String>>(emptyMap()) }
     var selectedIds by remember { mutableStateOf<Set<String>>(emptySet()) }
@@ -154,7 +121,6 @@ fun BiliCacheScreen(
     var activeSource by remember { mutableStateOf<BiliRefreshSource?>(null) }
     var scanning by remember { mutableStateOf(false) }
     var refreshing by remember { mutableStateOf(false) }
-    var scannedFiles by remember { mutableIntStateOf(0) }
     var scanMessage by remember { mutableStateOf<String?>(null) }
     var importProgress by remember { mutableStateOf<BiliImportProgress?>(null) }
     var importing by remember { mutableStateOf(false) }
@@ -214,18 +180,13 @@ fun BiliCacheScreen(
         if (showLoading) {
             scanning = true
             scanMessage = null
-            scannedFiles = 0
         }
         if (showPull) refreshing = true
         try {
             scanMutex.withLock {
                 val items = when (source.mode) {
                     BiliCacheAccessMode.DOCUMENT -> {
-                        scanner.scanTree(Uri.parse(source.value)) { count ->
-                            if (showLoading || showPull) {
-                                scope.launch { scannedFiles = count }
-                            }
-                        }
+                        scanner.scanTree(Uri.parse(source.value))
                     }
                     BiliCacheAccessMode.ROOT -> root.scanDefaultCaches()
                     BiliCacheAccessMode.SHIZUKU -> shizuku.scanDefaultCaches()
@@ -241,8 +202,16 @@ fun BiliCacheScreen(
         } catch (cancelled: CancellationException) {
             throw cancelled
         } catch (error: Throwable) {
+            val message = error.message ?: "缓存刷新失败"
             if (showLoading || showPull || scanMessage == null) {
-                scanMessage = error.message ?: "缓存刷新失败"
+                scanMessage = message
+            }
+            if (source.mode == BiliCacheAccessMode.NETWORK) {
+                Log.w(
+                    BILI_CACHE_LOG_TAG,
+                    "分享视频解析失败：${error.javaClass.simpleName}: $message",
+                )
+                AppNotice.error(context, message)
             }
         } finally {
             if (showLoading) scanning = false
@@ -342,32 +311,9 @@ fun BiliCacheScreen(
         directoryLauncher.launch(DEFAULT_BILI_CACHE_TREE_URI)
     }
 
-    val authorizeLauncher = rememberLauncherForActivityResult(
-        ActivityResultContracts.StartActivityForResult(),
-    ) { result ->
-        val authorized = official.acceptAuthorizationResult(result.resultCode, result.data)
-        account = official.accountStatus()
-        if (authorized || account.loggedIn) {
-            AppNotice.success(context, "B站账号连接成功")
-            scope.launch {
-                if (!connectAvailableLocalCache(requestPrivilegedPermission = true)) {
-                    if (Build.VERSION.SDK_INT < Build.VERSION_CODES.R) {
-                        requestDefaultCachePermission(force = true)
-                    } else {
-                        scanMessage = if (shizuku.isManagerInstalled()) {
-                            "请完成一次本地缓存读取授权，返回后将自动显示缓存列表"
-                        } else {
-                            "当前系统需通过 Root 或 Shizuku 完成一次缓存读取授权"
-                        }
-                    }
-                }
-            }
-        }
-    }
-
     LaunchedEffect(Unit) {
         if (!sharedVideo.isNullOrBlank()) return@LaunchedEffect
-        account = official.accountStatus()
+        account = official.officialAccountStatus()
         if (
             !connectAvailableLocalCache(requestPrivilegedPermission = account.loggedIn) &&
             account.loggedIn
@@ -459,39 +405,15 @@ fun BiliCacheScreen(
 
     LaunchedEffect(resumeGeneration) {
         if (resumeGeneration > 0) {
+            account = official.officialAccountStatus()
             val source = activeSource?.takeUnless { it.mode == BiliCacheAccessMode.NETWORK }
             if (source != null) {
                 refreshSource(source)
             } else {
-                account = official.accountStatus()
                 if (root.hasPermission() || shizuku.isRunning()) {
                     connectAvailableLocalCache(requestPrivilegedPermission = true)
                 }
             }
-        }
-    }
-
-    fun scanDefaultCache() {
-        scope.launch {
-            if (connectAvailableLocalCache(requestPrivilegedPermission = true)) return@launch
-            if (root.hasPermission() || shizuku.hasPermission()) return@launch
-            if (!shizuku.isManagerInstalled()) {
-                if (Build.VERSION.SDK_INT < Build.VERSION_CODES.R) {
-                    requestDefaultCachePermission(force = true)
-                } else {
-                    scanMessage = "无 Root 设备需通过 Shizuku 完成一次缓存读取授权"
-                    AppNotice.info(context, "请先安装并启动 Shizuku，返回后会自动继续")
-                }
-                return@launch
-            }
-            if (!shizuku.isRunning()) {
-                shizuku.managerLaunchIntent()?.let(context::startActivity)
-                scanMessage = "请在 Shizuku 中启动服务，返回后会自动授权并显示缓存列表"
-                AppNotice.info(context, "启动 Shizuku 后直接返回即可")
-                return@launch
-            }
-            scanMessage = "本地缓存读取授权未完成"
-            AppNotice.warning(context, "未获得缓存读取授权")
         }
     }
 
@@ -579,6 +501,14 @@ fun BiliCacheScreen(
     }
     val downloading = remember(visibleItems) { visibleItems.filterNot(BiliCacheItem::completed) }
     val downloaded = remember(visibleItems) { visibleItems.filter(BiliCacheItem::completed) }
+    val usedStorageBytes = remember(cacheItems) {
+        cacheItems.sumOf { item -> item.audioSize.coerceAtLeast(0L) }
+    }
+    val availableStorageBytes = remember(cacheItems, activeSource) {
+        runCatching {
+            StatFs(Environment.getExternalStorageDirectory().path).availableBytes
+        }.getOrDefault(0L)
+    }
 
     BackHandler(enabled = searchMode || editMode) {
         if (editMode) {
@@ -591,6 +521,7 @@ fun BiliCacheScreen(
     }
 
     Scaffold(
+        containerColor = colorResource(R.color.theme_color_primary_tr_background),
         topBar = {
             if (searchMode) {
                 BiliOfflineSearchBar(
@@ -604,26 +535,30 @@ fun BiliCacheScreen(
                     },
                     modifier = Modifier
                         .fillMaxWidth()
+                        .background(colorResource(R.color.theme_color_primary_tr_background))
                         .statusBarsPadding(),
                 )
             } else {
                 BiliOfflineToolbar(
-                    topLevel = topLevel,
                     canEdit = hasCompletedItems,
                     editMode = editMode,
-                    onBack = navController::popBackStack,
                     onSearch = {
                         editMode = false
                         selectedIds = emptySet()
                         searchMode = true
                     },
-                    onSettings = ::scanDefaultCache,
+                    onSettings = {
+                        navController.navigate(Screen.BiliAuthorization.route) {
+                            launchSingleTop = true
+                        }
+                    },
                     onEdit = {
                         editMode = !editMode
                         if (!editMode) selectedIds = emptySet()
                     },
                     modifier = Modifier
                         .fillMaxWidth()
+                        .background(colorResource(R.color.theme_color_primary_tr_background))
                         .statusBarsPadding(),
                 )
             }
@@ -650,6 +585,14 @@ fun BiliCacheScreen(
                         .fillMaxWidth()
                         .navigationBarsPadding(),
                 )
+            } else if (!searchMode && activeSource != null) {
+                BiliOfflineStorageBar(
+                    usedBytes = usedStorageBytes,
+                    availableBytes = availableStorageBytes,
+                    modifier = Modifier
+                        .fillMaxWidth()
+                        .navigationBarsPadding(),
+                )
             }
         },
     ) { padding ->
@@ -659,7 +602,7 @@ fun BiliCacheScreen(
             onRefresh = {
                 if (activeSource == null) {
                     scope.launch {
-                        account = official.accountStatus()
+                        account = official.officialAccountStatus()
                         refreshing = true
                         try {
                             if (!connectAvailableLocalCache(requestPrivilegedPermission = account.loggedIn)) {
@@ -691,49 +634,17 @@ fun BiliCacheScreen(
             },
             modifier = Modifier
                 .fillMaxSize()
-                .background(colorResource(R.color.Ga0))
+                .background(colorResource(R.color.theme_color_primary_tr_background))
                 .padding(padding),
         ) {
             LazyColumn(
                 modifier = Modifier
                     .fillMaxSize()
-                    .background(colorResource(R.color.Ga0)),
+                    .background(colorResource(R.color.theme_color_primary_tr_background)),
             ) {
                 if (activeSource == null && cacheItems.isEmpty()) {
-                    item {
-                        Box(Modifier.padding(start = 16.dp, end = 16.dp, top = 16.dp)) {
-                        BiliAccountCard(
-                        status = account,
-                        onAuthorize = {
-                            if (account.installed) {
-                                runCatching {
-                                    authorizeLauncher.launch(official.authorizationIntent())
-                                }.onFailure {
-                                    AppNotice.error(context, "无法打开 B 站授权页面")
-                                }
-                            } else {
-                                context.startActivity(official.officialDownloadIntent())
-                            }
-                        },
-                        onOpenOffline = {
-                            runCatching { context.startActivity(official.offlineCacheIntent()) }
-                                .onFailure {
-                                    AppNotice.warning(context, "请先安装最新版 B 站客户端")
-                                }
-                        },
-                        )
-                        }
-                    }
-                    item {
-                        Box(Modifier.padding(16.dp)) {
-                        CacheAccessCard(
-                        scanning = scanning,
-                        scannedFiles = scannedFiles,
-                        scanMessage = scanMessage,
-                        automaticReady = root.hasPermission() || shizuku.hasPermission(),
-                        onAutomatic = ::scanDefaultCache,
-                        )
-                        }
+                    item(key = "cache_loading") {
+                        LinearProgressIndicator(modifier = Modifier.fillMaxWidth())
                     }
                 } else {
                     if (searchMode && searchQuery.isNotBlank()) {
@@ -763,9 +674,6 @@ fun BiliCacheScreen(
                         }
                     }
                     if (downloaded.isNotEmpty()) {
-                        item(key = "downloaded_section") {
-                            BiliOfflineSectionTitle(Modifier.fillMaxWidth())
-                        }
                         items(downloaded, key = BiliCacheItem::id) { item ->
                             BiliOfflineDownloadedItem(
                                 item = item,
@@ -822,115 +730,37 @@ fun BiliCacheScreen(
 }
 
 @Composable
-private fun BiliAccountCard(
-    status: BiliAccountStatus,
-    onAuthorize: () -> Unit,
-    onOpenOffline: () -> Unit,
-) {
-    Card(
-        shape = RoundedCornerShape(20.dp),
-        colors = CardDefaults.cardColors(containerColor = MaterialTheme.colorScheme.surface),
-    ) {
-        Column(Modifier.padding(18.dp)) {
-            Row(verticalAlignment = Alignment.CenterVertically) {
-                Surface(
-                    shape = RoundedCornerShape(14.dp),
-                    color = Color(0xFFFB7299).copy(alpha = 0.12f),
-                ) {
-                    Icon(
-                        Icons.Default.VerifiedUser,
-                        contentDescription = null,
-                        tint = Color(0xFFFB7299),
-                        modifier = Modifier.padding(10.dp),
-                    )
-                }
-                Spacer(Modifier.width(12.dp))
-                Column(Modifier.weight(1f)) {
-                    Text(
-                        when {
-                            !status.installed -> "未安装 B 站客户端"
-                            status.loggedIn -> "B站账号已连接"
-                            else -> "尚未登录 B 站"
-                        },
-                        fontWeight = FontWeight.SemiBold,
-                    )
-                    Text(
-                        status.uid?.let { "UID $it · 由官方客户端授权" }
-                            ?: "登录和授权均在官方 B 站中完成",
-                        color = MutedForeground,
-                        fontSize = 12.sp,
-                    )
-                }
-            }
-            Spacer(Modifier.height(14.dp))
-            Row(horizontalArrangement = Arrangement.spacedBy(10.dp)) {
-                Button(
-                    onClick = onAuthorize,
-                    modifier = Modifier.weight(1f),
-                    shape = RoundedCornerShape(14.dp),
-                    colors = ButtonDefaults.buttonColors(containerColor = Color(0xFFFB7299)),
-                ) {
-                    Icon(
-                        Icons.AutoMirrored.Filled.Login,
-                        contentDescription = null,
-                        modifier = Modifier.size(18.dp),
-                    )
-                    Spacer(Modifier.width(6.dp))
-                    Text(if (status.installed) "连接账号" else "获取客户端")
-                }
-                TextButton(onClick = onOpenOffline, modifier = Modifier.weight(1f)) {
-                    Icon(Icons.Default.Movie, contentDescription = null, modifier = Modifier.size(18.dp))
-                    Spacer(Modifier.width(6.dp))
-                    Text("离线缓存")
-                }
+private fun BiliOfflineSystemBarEffect(context: Context) {
+    val isDark = LocalIsDarkTheme.current
+    val statusBarColor = colorResource(R.color.theme_color_primary_tr_background).toArgb()
+    DisposableEffect(context, isDark, statusBarColor) {
+        val window = context.findBiliHostActivity()?.window
+        if (window == null) {
+            onDispose { }
+        } else {
+            @Suppress("DEPRECATION")
+            val previousColor = window.statusBarColor
+            val controller = WindowCompat.getInsetsController(window, window.decorView)
+            val previousLightStatusBars = controller.isAppearanceLightStatusBars
+            @Suppress("DEPRECATION")
+            run { window.statusBarColor = statusBarColor }
+            controller.isAppearanceLightStatusBars = !isDark
+            onDispose {
+                @Suppress("DEPRECATION")
+                run { window.statusBarColor = previousColor }
+                controller.isAppearanceLightStatusBars = previousLightStatusBars
             }
         }
     }
 }
 
-@Composable
-private fun CacheAccessCard(
-    scanning: Boolean,
-    scannedFiles: Int,
-    scanMessage: String?,
-    automaticReady: Boolean,
-    onAutomatic: () -> Unit,
-) {
-    Card(
-        shape = RoundedCornerShape(20.dp),
-        colors = CardDefaults.cardColors(containerColor = MaterialTheme.colorScheme.surface),
-    ) {
-        Column {
-            ListItem(
-                headlineContent = { Text("授权读取缓存") },
-                supportingContent = {
-                    Text(
-                        if (automaticReady) {
-                            "已完成一次授权，后续自动读取并实时更新"
-                        } else {
-                            "只需确认一次，完成后自动返回并显示缓存列表"
-                        }
-                    )
-                },
-                leadingContent = { Icon(Icons.Default.Memory, contentDescription = null) },
-                trailingContent = { Icon(Icons.Default.ChevronRight, contentDescription = null) },
-                colors = ListItemDefaults.colors(containerColor = Color.Transparent),
-                modifier = Modifier.clickable(enabled = !scanning, onClick = onAutomatic),
-            )
-            if (scanning || scanMessage != null) {
-                Column(Modifier.padding(start = 18.dp, end = 18.dp, bottom = 16.dp)) {
-                    if (scanning) LinearProgressIndicator(Modifier.fillMaxWidth())
-                    Spacer(Modifier.height(6.dp))
-                    Text(
-                        scanMessage ?: "正在扫描，已检查 $scannedFiles 个文件",
-                        color = MutedForeground,
-                        fontSize = 12.sp,
-                    )
-                }
-            }
-        }
-    }
+private tailrec fun Context.findBiliHostActivity(): Activity? = when (this) {
+    is Activity -> this
+    is ContextWrapper -> baseContext.findBiliHostActivity()
+    else -> null
 }
+
+private const val BILI_CACHE_LOG_TAG = "BiliCacheScreen"
 
 private const val PREFS_NAME = "bili_cache_preferences"
 private const val KEY_TREE_URI = "tree_uri"

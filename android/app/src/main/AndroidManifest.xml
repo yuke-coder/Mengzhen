@@ -3,6 +3,7 @@
     xmlns:tools="http://schemas.android.com/tools">
 
     <queries>
+        <package android:name="com.tencent.mm" />
         <package android:name="tv.danmaku.bili" />
         <package android:name="moe.shizuku.privileged.api" />
         <provider android:authorities="tv.danmaku.bili.providers.BiliDataProvider" />
@@ -62,6 +63,40 @@
             android:name=".auth.TurnstileChallengeActivity"
             android:exported="false"
             android:theme="@style/AppTheme.TransparentChallenge" />
+
+        <!-- WeChat OpenSDK requires this exact applicationId.wxapi callback path. -->
+        <activity
+            android:name=".wxapi.WXEntryActivity"
+            android:configChanges="keyboardHidden|orientation|screenSize|smallestScreenSize"
+            android:exported="true"
+            android:launchMode="singleTask"
+            android:taskAffinity="com.tencent.mm"
+            android:theme="@style/WechatProfileSyncCallbackTheme"
+            android:windowSoftInputMode="stateAlwaysHidden|adjustResize" />
+
+        <activity
+            android:name=".ui.about.AboutMengZhenActivity"
+            android:exported="false"
+            android:screenOrientation="portrait"
+            android:theme="@style/BiliAboutTheme" />
+
+        <activity
+            android:name=".ui.about.AboutCpuInfoActivity"
+            android:exported="false"
+            android:screenOrientation="portrait"
+            android:theme="@style/BiliAboutCpuInfoTheme" />
+
+        <activity
+            android:name=".ui.about.AboutNetworkDiagnosticsActivity"
+            android:exported="false"
+            android:screenOrientation="portrait"
+            android:theme="@style/BiliAboutTheme" />
+
+        <activity
+            android:name=".ui.about.AboutOpenSourceLicensesActivity"
+            android:exported="false"
+            android:screenOrientation="portrait"
+            android:theme="@style/BiliAboutTheme" />
 
         <activity
             android:name="com.tencent.picker.activity.PictureSelectorActivity"

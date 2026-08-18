@@ -1,0 +1,112 @@
+------------------------------
+ Android Open Source Project / AndroidX / Material Components
+------------------------------
+  https://source.android.com
+  https://github.com/androidx/androidx
+  https://github.com/material-components/material-components-android
+
+  Copyright The Android Open Source Project Authors
+
+  Licensed under the Apache License, Version 2.0;
+  https://www.apache.org/licenses/LICENSE-2.0
+
+------------------------------
+ Kotlin / kotlinx.coroutines
+------------------------------
+  https://github.com/JetBrains/kotlin
+  https://github.com/Kotlin/kotlinx.coroutines
+
+  Copyright JetBrains s.r.o. and Kotlin Programming Language contributors
+
+  Licensed under the Apache License, Version 2.0;
+  https://www.apache.org/licenses/LICENSE-2.0
+
+------------------------------
+ OkHttp / Okio
+------------------------------
+  https://github.com/square/okhttp
+  https://github.com/square/okio
+
+  Copyright 2019 Square, Inc.
+
+  Licensed under the Apache License, Version 2.0;
+  https://www.apache.org/licenses/LICENSE-2.0
+
+------------------------------
+ AndroidX Media3
+------------------------------
+  https://github.com/androidx/media
+
+  Copyright The Android Open Source Project Authors
+
+  Licensed under the Apache License, Version 2.0;
+  https://www.apache.org/licenses/LICENSE-2.0
+
+------------------------------
+ Coil
+------------------------------
+  https://github.com/coil-kt/coil
+
+  Copyright 2025 Coil Contributors
+
+  Licensed under the Apache License, Version 2.0;
+  https://www.apache.org/licenses/LICENSE-2.0
+
+------------------------------
+ Lottie Android
+------------------------------
+  https://github.com/airbnb/lottie-android
+
+  Copyright 2018 Airbnb, Inc.
+
+  Licensed under the Apache License, Version 2.0;
+  https://www.apache.org/licenses/LICENSE-2.0
+
+------------------------------
+ Shizuku
+------------------------------
+  https://github.com/RikkaApps/Shizuku-API
+
+  Copyright RikkaApps
+
+  Licensed under the Apache License, Version 2.0;
+  https://www.apache.org/licenses/LICENSE-2.0
+
+------------------------------
+ libsu
+------------------------------
+  https://github.com/topjohnwu/libsu
+
+  Copyright 2018-2026 John Wu
+
+  Licensed under the Apache License, Version 2.0;
+  https://www.apache.org/licenses/LICENSE-2.0
+
+------------------------------
+ Vosk API
+------------------------------
+  https://github.com/alphacep/vosk-api
+
+  Copyright 2019-2026 Alpha Cephei Inc.
+
+  Licensed under the Apache License, Version 2.0;
+  https://www.apache.org/licenses/LICENSE-2.0
+
+------------------------------
+ Java Native Access (JNA)
+------------------------------
+  https://github.com/java-native-access/jna
+
+  Copyright 2007-2026 JNA Contributors
+
+  Available under LGPL, version 2.1 or later, or the Apache License,
+  Version 2.0.
+
+------------------------------
+ JSON-java
+------------------------------
+  https://github.com/stleary/JSON-java
+
+  Copyright JSON-java contributors
+
+  Released into the public domain with the JSON-java license notice.

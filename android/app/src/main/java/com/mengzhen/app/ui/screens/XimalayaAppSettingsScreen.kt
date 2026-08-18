@@ -32,7 +32,6 @@ import androidx.lifecycle.Lifecycle
 import androidx.lifecycle.LifecycleEventObserver
 import androidx.lifecycle.compose.LocalLifecycleOwner
 import androidx.navigation.NavController
-import com.mengzhen.app.BuildConfig
 import com.mengzhen.app.R
 import com.mengzhen.app.audio.AudioPlaybackService
 import com.mengzhen.app.audio.PlayProgressStore
@@ -41,6 +40,7 @@ import com.mengzhen.app.data.api.ApiClient
 import com.mengzhen.app.data.store.AppSettingsStore
 import com.mengzhen.app.data.store.TaskStore
 import com.mengzhen.app.ui.feedback.AppNotice
+import com.mengzhen.app.ui.about.AboutMengZhenActivity
 import com.mengzhen.app.ui.navigation.Screen
 import com.mengzhen.app.ui.theme.LocalThemeMode
 import com.mengzhen.app.ui.theme.ThemeMode
@@ -242,11 +242,7 @@ fun XimalayaAppSettingsScreen(navController: NavController) {
             }
             root.findViewById<TextView>(R.id.main_setting_lock_screen_open_tv).text = "播放时开启"
             root.findViewById<View>(R.id.main_tv_about).setOnClickListener {
-                AlertDialog.Builder(context)
-                    .setTitle("关于梦枕")
-                    .setMessage("版本 ${BuildConfig.VERSION_NAME}")
-                    .setPositiveButton("知道了", null)
-                    .show()
+                context.startActivity(AboutMengZhenActivity.createIntent(context))
             }
 
             val changeAccount = root.findViewById<TextView>(R.id.main_tv_change_account)

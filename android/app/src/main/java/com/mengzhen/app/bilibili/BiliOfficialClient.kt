@@ -14,14 +14,38 @@ data class BiliAccountStatus(
 
 class BiliOfficialClient(context: Context) {
     private val appContext = context.applicationContext
+    private val authorizationStore = BiliAuthorizationStore(appContext)
 
     fun accountStatus(): BiliAccountStatus {
+        val savedAuthorization = authorizationStore.load()
+        val savedUid = savedAuthorization?.cookieHeader?.let(::extractBiliUidFromCookies)
+        val providerStatus = officialAccountStatus()
+        if (!providerStatus.installed) {
+            return BiliAccountStatus(
+                installed = false,
+                loggedIn = savedAuthorization != null,
+                uid = savedUid,
+            )
+        }
+        return providerStatus.copy(
+            loggedIn = providerStatus.loggedIn || savedAuthorization != null,
+            uid = selectAuthorizedBiliUid(
+                providerUid = providerStatus.uid,
+                savedAuthorization = savedAuthorization,
+                savedUid = savedUid,
+            ),
+        )
+    }
+
+    fun officialAccountStatus(): BiliAccountStatus {
         val installed = runCatching {
             appContext.packageManager.getApplicationInfo(BILI_PACKAGE, 0)
         }.isSuccess
-        if (!installed) return BiliAccountStatus(installed = false, loggedIn = false)
+        if (!installed) {
+            return BiliAccountStatus(installed = false, loggedIn = false)
+        }
 
-        val providerStatus = runCatching {
+        return runCatching {
             appContext.contentResolver.query(
                 Uri.parse(STATUS_URI),
                 arrayOf("uid", "logged"),
@@ -37,9 +61,6 @@ class BiliOfficialClient(context: Context) {
                 BiliAccountStatus(true, logged, uid)
             } ?: BiliAccountStatus(true, false)
         }.getOrDefault(BiliAccountStatus(true, false))
-        return providerStatus.copy(
-            loggedIn = providerStatus.loggedIn || BiliAuthorizationSession.isAuthorized,
-        )
     }
 
     fun authorizationIntent(): Intent = Intent(ACTION_AUTHORIZE).apply {
@@ -51,16 +72,26 @@ class BiliOfficialClient(context: Context) {
         if (resultCode != Activity.RESULT_OK) return false
         val accessKey = data?.getStringExtra("access_key").orEmpty()
         if (accessKey.isBlank()) return false
-        BiliAuthorizationSession.accessKey = accessKey
+        authorizationStore.saveOfficialConfirmation(accessKey)
         return true
+    }
+
+    internal fun acceptQrCodeAuthorization(
+        cookieHeader: String,
+        refreshToken: String?,
+    ) {
+        authorizationStore.saveQrCodeAuthorization(cookieHeader, refreshToken)
+    }
+
+    internal fun hasSavedAuthorization(): Boolean = authorizationStore.load() != null
+
+    fun clearSavedAuthorization() {
+        authorizationStore.clear()
     }
 
     fun offlineCacheIntent(): Intent = Intent().apply {
         component = ComponentName(BILI_PACKAGE, OFFLINE_ACTIVITY)
     }
-
-    fun officialDownloadIntent(): Intent =
-        Intent(Intent.ACTION_VIEW, Uri.parse("https://app.bilibili.com/"))
 
     companion object {
         const val BILI_PACKAGE = "tv.danmaku.bili"
@@ -73,11 +104,20 @@ class BiliOfficialClient(context: Context) {
     }
 }
 
-object BiliAuthorizationSession {
-    @Volatile
-    var accessKey: String? = null
-        internal set
+internal fun extractBiliUidFromCookies(cookieHeader: String): Long? = cookieHeader
+    .split(';')
+    .asSequence()
+    .map(String::trim)
+    .firstOrNull { it.startsWith("DedeUserID=") }
+    ?.substringAfter('=')
+    ?.toLongOrNull()
+    ?.takeIf { it > 0 }
 
-    val isAuthorized: Boolean
-        get() = !accessKey.isNullOrBlank()
+internal fun selectAuthorizedBiliUid(
+    providerUid: Long?,
+    savedAuthorization: BiliAuthorization?,
+    savedUid: Long?,
+): Long? = when (savedAuthorization?.method) {
+    BiliAuthorizationMethod.QR_CODE -> savedUid ?: providerUid
+    else -> providerUid ?: savedUid
 }

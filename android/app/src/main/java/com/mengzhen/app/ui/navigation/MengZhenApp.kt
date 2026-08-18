@@ -22,6 +22,7 @@ import androidx.navigation.compose.rememberNavController
 import androidx.navigation.navArgument
 import com.mengzhen.app.ui.components.main.XimalayaSourceBottomNavigation
 import com.mengzhen.app.ui.feedback.AppNoticeHost
+import com.mengzhen.app.ui.screens.BiliAuthorizationScreen
 import com.mengzhen.app.ui.screens.BiliCacheScreen
 import com.mengzhen.app.ui.screens.BiliHomeAvatarDestinationScreen
 import com.mengzhen.app.ui.screens.XimalayaAppSettingsScreen
@@ -64,6 +65,7 @@ private val topLevelRoutes = setOf(
 @Composable
 fun MengZhenApp(
     showLandingOnStart: Boolean = false,
+    startInBiliAuthorization: Boolean = false,
     onLandingCompleted: () -> Unit = {},
     openPlaybackTaskId: String? = null,
     onPlaybackNavigationConsumed: () -> Unit = {},
@@ -79,8 +81,8 @@ fun MengZhenApp(
         currentRoute
     }
 
-    LaunchedEffect(openPlaybackTaskId, showLandingOnStart) {
-        if (showLandingOnStart) return@LaunchedEffect
+    LaunchedEffect(openPlaybackTaskId, showLandingOnStart, startInBiliAuthorization) {
+        if (showLandingOnStart || startInBiliAuthorization) return@LaunchedEffect
         val taskId = openPlaybackTaskId ?: return@LaunchedEffect
         navController.navigate(Screen.Templates.createRoute(taskId)) {
             launchSingleTop = true
@@ -88,8 +90,8 @@ fun MengZhenApp(
         onPlaybackNavigationConsumed()
     }
 
-    LaunchedEffect(sharedBiliVideo, showLandingOnStart) {
-        if (showLandingOnStart) return@LaunchedEffect
+    LaunchedEffect(sharedBiliVideo, showLandingOnStart, startInBiliAuthorization) {
+        if (showLandingOnStart || startInBiliAuthorization) return@LaunchedEffect
         if (sharedBiliVideo.isNullOrBlank()) return@LaunchedEffect
         navController.navigate(Screen.BiliCache.route) {
             launchSingleTop = true
@@ -115,10 +117,10 @@ fun MengZhenApp(
         ) {
             NavHost(
                 navController = navController,
-                startDestination = if (showLandingOnStart) {
-                    Screen.Landing.route
-                } else {
-                    Screen.Settings.route
+                startDestination = when {
+                    showLandingOnStart -> Screen.Landing.route
+                    startInBiliAuthorization -> Screen.BiliAuthorization.route
+                    else -> Screen.Settings.route
                 },
                 enterTransition = { EnterTransition.None },
                 exitTransition = { ExitTransition.None },
@@ -155,8 +157,10 @@ fun MengZhenApp(
                         navController = navController,
                         sharedVideo = sharedBiliVideo,
                         onSharedVideoConsumed = onSharedBiliVideoConsumed,
-                        topLevel = true,
                     )
+                }
+                composable(Screen.BiliAuthorization.route) {
+                    BiliAuthorizationScreen(navController)
                 }
                 composable(Screen.Tasks.route) {
                     XimalayaAlarmManagerScreen(

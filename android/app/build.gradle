@@ -1,3 +1,14 @@
+def mengzhenLocalProperties = new Properties()
+def mengzhenLocalPropertiesFile = rootProject.file('local.properties')
+if (mengzhenLocalPropertiesFile.exists()) {
+    mengzhenLocalPropertiesFile.withInputStream { mengzhenLocalProperties.load(it) }
+}
+def mengzhenWechatAppId = (System.getenv('WECHAT_APP_ID')
+        ?: mengzhenLocalProperties.getProperty('WECHAT_APP_ID', '')).trim()
+if (mengzhenWechatAppId && !(mengzhenWechatAppId ==~ /wx[0-9A-Za-z]+/)) {
+    throw new GradleException('WECHAT_APP_ID must be a valid WeChat Open Platform AppID')
+}
+
 apply plugin: 'com.android.application'
 apply plugin: 'org.jetbrains.kotlin.plugin.compose'
 
@@ -12,6 +23,7 @@ android {
         versionCode 2
         versionName "2.0.0"
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+        buildConfigField "String", "WECHAT_APP_ID", "\"${mengzhenWechatAppId}\""
         aaptOptions {
             ignoreAssetsPattern = '!.svn:!.git:!.ds_store:!*.scc:.*:!CVS:!thumbs.db:!picasa.ini:!*~'
             // QQ 音乐原始字节码内联了完整资源表的整数 ID。
@@ -79,6 +91,11 @@ dependencies {
         version { strictly "1.0.4" }
     }
     implementation "androidx.recyclerview:recyclerview:1.4.0"
+    implementation("androidx.preference:preference:1.2.1") {
+        // qqmusic-runtime already embeds these exact AndroidX classes.
+        exclude group: "androidx.fragment", module: "fragment-ktx"
+        exclude group: "androidx.slidingpanelayout", module: "slidingpanelayout"
+    }
     implementation "androidx.viewpager:viewpager:1.1.0"
     implementation "androidx.palette:palette-ktx:1.0.0"
     implementation "com.google.android.material:material:1.14.0"

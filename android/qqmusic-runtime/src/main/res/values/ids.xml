@@ -22458,6 +22458,12 @@
     <id name="nkr" />
     <id name="nks" />
     <id name="nkt" />
+    <id name="main_csl_honor_and_personal_info" />
+    <id name="main_tv_honor" />
+    <id name="main_tv_ptitle" />
+    <id name="main_tv_personal_intro" />
+    <id name="main_iv_more_shadow" />
+    <id name="main_iv_more_info" />
     <id name="nku" />
     <id name="nkv" />
     <id name="nkw" />

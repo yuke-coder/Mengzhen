@@ -9,7 +9,9 @@ android {
         targetSdkVersion rootProject.ext.targetSdkVersion
         consumerProguardFiles 'consumer-rules.pro'
         aaptOptions {
-            ignoreAssetsPattern = '!.svn:!.git:!.ds_store:!*.scc:.*:!CVS:!thumbs.db:!picasa.ini:!*~'
+            // The source archive contains ART profiles for QQ Music's original APK.
+            // They are not valid for Mengzhen and collide with the app's release profile.
+            ignoreAssetsPattern = '!.svn:!.git:!.ds_store:!*.scc:.*:!CVS:!thumbs.db:!picasa.ini:!*~:!baseline.prof:!baseline.profm'
             additionalParameters '--stable-ids', file('qqmusic-runtime-stable-ids.txt').absolutePath
         }
     }

@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Migrated from Bilibili 9.7.0 help_preferences.xml. -->
+<androidx.preference.PreferenceScreen
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:key="@string/bili_about_pref_key_help"
+    android:title="@string/bili_about_title">
+
+    <androidx.preference.Preference
+        android:defaultValue="@null"
+        android:key="@string/bili_about_pref_key_check_update"
+        android:persistent="false"
+        android:title="@string/bili_about_check_update"
+        android:widgetLayout="@null" />
+
+    <androidx.preference.Preference
+        android:defaultValue="@null"
+        android:key="@string/bili_about_pref_key_cpu_info"
+        android:persistent="false"
+        android:title="@string/bili_about_cpu_info" />
+
+    <androidx.preference.Preference
+        android:defaultValue="@null"
+        android:key="@string/bili_about_pref_key_diagnostics"
+        android:persistent="false"
+        android:title="@string/bili_about_network_diagnostics" />
+
+    <androidx.preference.Preference
+        android:key="@string/bili_about_pref_key_reset"
+        android:persistent="false"
+        android:title="@string/bili_about_reset_preferences"
+        android:widgetLayout="@null" />
+
+    <androidx.preference.Preference
+        android:defaultValue="@null"
+        android:key="@string/bili_about_pref_key_license"
+        android:persistent="false"
+        android:title="@string/bili_about_open_source_licenses" />
+
+    <androidx.preference.Preference
+        android:defaultValue="@null"
+        android:key="@string/bili_about_pref_key_join_us"
+        android:persistent="false"
+        android:title="@string/bili_about_join_us" />
+
+    <androidx.preference.Preference
+        android:defaultValue="@null"
+        android:key="@string/bili_about_pref_key_record"
+        android:persistent="false"
+        android:title="@string/bili_about_app_record" />
+
+</androidx.preference.PreferenceScreen>

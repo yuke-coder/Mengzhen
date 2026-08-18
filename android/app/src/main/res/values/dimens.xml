@@ -10,5 +10,9 @@
     <dimen name="text_size_subtitle">14sp</dimen>
     <dimen name="text_size_headline">16sp</dimen>
     <dimen name="navigation_top_bar_size">44dp</dimen>
+    <dimen name="bili_about_preference_top_padding">16dp</dimen>
+    <dimen name="bili_about_preference_row_min_height">44dp</dimen>
+    <dimen name="bili_about_preference_divider_height">0.5dp</dimen>
+    <dimen name="bili_about_preference_divider_left_offset">12dp</dimen>
     <dimen name="bili_offline_toolbar_elevation">4dp</dimen>
 </resources>

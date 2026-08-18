@@ -28,6 +28,11 @@ class AppSettingsStore private constructor(context: Context) {
         prefs.edit().putInt(key, value).apply()
     }
 
+    /** Matches Bilibili's reset-preferences scope: settings only, never account or content. */
+    fun resetToDefaults() {
+        prefs.edit().clear().apply()
+    }
+
     companion object {
         const val KEY_BREAKPOINT_RESUME = "KEY_BREAKPOINT_RESUME"
         const val KEY_CONTINUE_AFTER_INTERRUPTION = "play_continue_when_interrupted"

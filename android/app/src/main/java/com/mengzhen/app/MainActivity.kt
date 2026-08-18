@@ -34,7 +34,7 @@ class MainActivity : ComponentActivity() {
     private var initialThemeMode = ThemeMode.SYSTEM
     private var openPlaybackTaskId by mutableStateOf<String?>(null)
     private var sharedBiliVideo by mutableStateOf<String?>(null)
-    private var showLandingOnStart by mutableStateOf(false)
+    private var startInBiliAuthorization by mutableStateOf(false)
 
     override fun attachBaseContext(newBase: Context) {
         initialThemeMode = ThemeModeStore.bootstrapMode(newBase)
@@ -56,7 +56,20 @@ class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         val splash = installSplashScreen()
         super.onCreate(savedInstanceState)
-        showLandingOnStart = !processHasEnteredMain
+
+        val biliPreferences = getSharedPreferences(BILI_CACHE_PREFS_NAME, Context.MODE_PRIVATE)
+        val shouldStartBiliAuthorization =
+            savedInstanceState == null &&
+                intent.action == Intent.ACTION_MAIN &&
+                intent.hasCategory(Intent.CATEGORY_LAUNCHER) &&
+                !biliPreferences.getBoolean(KEY_INITIAL_BILI_AUTH_PAGE_SHOWN, false)
+        if (shouldStartBiliAuthorization) {
+            startInBiliAuthorization = true
+            biliPreferences.edit()
+                .putBoolean(KEY_INITIAL_BILI_AUTH_PAGE_SHOWN, true)
+                .apply()
+        }
+
         openPlaybackTaskId = intent.getStringExtra(EXTRA_OPEN_PLAYBACK_TASK_ID)
         sharedBiliVideo = extractSharedBiliVideo(intent)
 
@@ -97,11 +110,7 @@ class MainActivity : ComponentActivity() {
                 ) {
                     MengZhenTheme(darkTheme = resolvedDark) {
                         MengZhenApp(
-                            showLandingOnStart = showLandingOnStart,
-                            onLandingCompleted = {
-                                processHasEnteredMain = true
-                                showLandingOnStart = false
-                            },
+                            startInBiliAuthorization = startInBiliAuthorization,
                             openPlaybackTaskId = openPlaybackTaskId,
                             onPlaybackNavigationConsumed = { openPlaybackTaskId = null },
                             sharedBiliVideo = sharedBiliVideo,
@@ -141,10 +150,11 @@ class MainActivity : ComponentActivity() {
     }?.takeIf(String::isNotBlank)
 
     companion object {
-        @Volatile
-        private var processHasEnteredMain = false
-
         const val EXTRA_OPEN_PLAYBACK_TASK_ID =
             "com.mengzhen.app.extra.OPEN_PLAYBACK_TASK_ID"
+
+        private const val BILI_CACHE_PREFS_NAME = "bili_cache_preferences"
+        private const val KEY_INITIAL_BILI_AUTH_PAGE_SHOWN =
+            "initial_bili_auth_page_shown_v2"
     }
 }

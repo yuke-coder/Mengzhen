@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- Bilibili 9.7.0 help_preferences.xml strings, with the product identity adapted. -->
+    <string name="bili_about_title">关于梦枕</string>
+    <string name="bili_about_check_update">检查更新</string>
+    <string name="bili_about_cpu_info">CPU 信息</string>
+    <string name="bili_about_network_diagnostics">网络诊断</string>
+    <string name="bili_about_reset_preferences">恢复初始设置</string>
+    <string name="bili_about_open_source_licenses">开放源代码许可</string>
+    <string name="bili_about_join_us">加入我们</string>
+    <string name="bili_about_app_record">应用备案</string>
+    <string name="bili_about_current_version">当前版本：%1$s</string>
+
+    <string name="bili_about_pref_key_help">pref_key_help_preferences</string>
+    <string name="bili_about_pref_key_check_update">pref_key_check_update</string>
+    <string name="bili_about_pref_key_cpu_info">pref_key_cpu_info</string>
+    <string name="bili_about_pref_key_diagnostics">pref_key_diagnostics</string>
+    <string name="bili_about_pref_key_reset">pref_key_resetPreferences</string>
+    <string name="bili_about_pref_key_license">pref_key_license</string>
+    <string name="bili_about_pref_key_join_us">pref_key_joinus</string>
+    <string name="bili_about_pref_key_record">pref_key_icp</string>
+
+    <!-- Prompts migrated verbatim from Bilibili 9.7.0 update/reset resources. -->
+    <string name="bili_about_update_check_failed">检查更新失败，请稍后再试/(ㄒoㄒ)/~~</string>
+    <string name="bili_about_update_no_new">您当前已经是最新版本了^_^</string>
+    <string name="bili_about_update_no_network">目前没有网络，请在连接到网络后下载更新</string>
+    <string name="bili_about_update_available">版本更新</string>
+    <string name="bili_about_update_version">版本:</string>
+    <string name="bili_about_update_content_title">更新内容:</string>
+    <string name="bili_about_update_package_size">更新包体积:</string>
+    <string name="bili_about_update_confirm">立即更新</string>
+    <string name="bili_about_update_not_now">以后再说</string>
+    <string name="bili_about_update_cannot_find_web">没有找到浏览器, 请手动打开driftcue.com下载更新</string>
+    <string name="bili_about_reset_message">真的要恢复成初始设置么?</string>
+    <string name="bili_about_yes">是</string>
+    <string name="bili_about_no">否</string>
+
+    <!-- Bilibili 9.7.0 PingTestActivity strings. -->
+    <string name="bili_about_network_start_test">开始测试</string>
+    <string name="bili_about_network_copy_result">复制测试结果</string>
+    <string name="bili_about_network_getting_ip">获取IP中...</string>
+    <string name="bili_about_network_not_connected">你的设备还没有联网呢！！！</string>
+    <string name="bili_about_network_slow_notice">\n网络暂不可达，诊断可能会较耗时，请耐心等待</string>
+    <string name="bili_about_network_copied">已复制</string>
+    <string name="bili_about_network_lookup_failed">域名查找失败</string>
+    <string name="bili_about_network_timeout">超时</string>
+</resources>

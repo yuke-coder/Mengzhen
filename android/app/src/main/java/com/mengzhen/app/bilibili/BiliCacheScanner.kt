@@ -1,6 +1,7 @@
 package com.mengzhen.app.bilibili
 
 import android.content.Context
+import android.database.sqlite.SQLiteDatabase
 import android.media.MediaExtractor
 import android.net.Uri
 import androidx.documentfile.provider.DocumentFile
@@ -232,9 +233,17 @@ internal object BiliShellCacheScanner {
 
     fun scanDefaultCaches(): List<BiliCacheItem> {
         val existingRoots = existingCacheRoots()
-        return existingRoots
+        val discovered = existingRoots
             .flatMap(::scanRoot)
             .distinctBy(BiliCacheItem::id)
+        val officialPaths = readOfficialStoragePaths()
+        return (officialPaths?.let { paths ->
+            discovered.filter { item ->
+                paths.any { officialPath ->
+                    isSameOrDescendant(item.audioLocation, officialPath)
+                }
+            }
+        } ?: discovered)
             .sortedWith(compareBy(String.CASE_INSENSITIVE_ORDER) { it.displayTitle() })
     }
 
@@ -330,6 +339,53 @@ internal object BiliShellCacheScanner {
                 )
             }
         return items
+    }
+
+    private fun readOfficialStoragePaths(): Set<String>? {
+        if (!officialCacheDatabase.isFile || !officialCacheDatabase.canRead()) return null
+        return runCatching {
+            SQLiteDatabase.openDatabase(
+                officialCacheDatabase.absolutePath,
+                null,
+                SQLiteDatabase.OPEN_READONLY or SQLiteDatabase.NO_LOCALIZED_COLLATORS,
+            ).use { database ->
+                database.query(
+                    OFFICIAL_CACHE_TABLE,
+                    arrayOf(OFFICIAL_STORAGE_PATH_COLUMN),
+                    null,
+                    null,
+                    null,
+                    null,
+                    null,
+                ).use { cursor ->
+                    buildSet {
+                        val pathIndex = cursor.getColumnIndexOrThrow(OFFICIAL_STORAGE_PATH_COLUMN)
+                        while (cursor.moveToNext()) {
+                            cursor.getString(pathIndex)
+                                ?.takeIf(String::isNotBlank)
+                                ?.let(::normalizeCachePath)
+                                ?.let(::add)
+                        }
+                    }
+                }
+            }
+        }.getOrNull()
+    }
+
+    private fun isSameOrDescendant(candidate: String, parent: String): Boolean {
+        val normalizedCandidate = normalizeCachePath(candidate)
+        return normalizedCandidate == parent || normalizedCandidate.startsWith("$parent/")
+    }
+
+    private fun normalizeCachePath(path: String): String {
+        val storagePath = path
+            .replace('\\', '/')
+            .replace(Regex("^/sdcard(?=/|$)"), "/storage/emulated/0")
+            .trimEnd('/')
+        return runCatching { File(storagePath).canonicalPath }
+            .getOrDefault(storagePath)
+            .replace('\\', '/')
+            .trimEnd('/')
     }
 
     private fun collectFiles(root: File): List<FileNode> {
@@ -428,6 +484,13 @@ internal object BiliShellCacheScanner {
     ) {
         val lowerName = name.lowercase(Locale.ROOT)
     }
+
+    private val officialCacheDatabase = File(
+        "/data/user/0/tv.danmaku.bili/databases/offlineVideo.db",
+    )
+
+    private const val OFFICIAL_CACHE_TABLE = "video_info"
+    private const val OFFICIAL_STORAGE_PATH_COLUMN = "storage_path"
 }
 
 private fun matchingHint(

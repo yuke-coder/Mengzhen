@@ -934,7 +934,7 @@ fun AudioUploadSection(
                     },
                 )
                 ListItem(
-                    headlineContent = { Text("B站已缓存视频") },
+                    headlineContent = { Text("B站离线缓存") },
                     supportingContent = { Text("无损提取缓存音轨并加入当前列表") },
                     leadingContent = {
                         Icon(Icons.Default.VideoLibrary, contentDescription = null)

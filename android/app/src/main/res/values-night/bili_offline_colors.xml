@@ -1,11 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <color name="Ga0">#FF101011</color>
+    <color name="Ga1">#FF0A0B0C</color>
     <color name="Ga2">#FF2F3134</color>
     <color name="Ga3_u">#FF45484C</color>
     <color name="Ga4">#FF5E6267</color>
     <color name="Ga5">#FF757A81</color>
     <color name="Ga8">#FFB9BDC2</color>
+    <color name="Ga9">#FFD0D3D7</color>
     <color name="Ga10">#FFE7E9EB</color>
     <color name="Wh0">#FF17181A</color>
     <color name="Wh0_u">#FFFFFFFF</color>
@@ -15,5 +17,6 @@
     <color name="theme_color_primary_tr_background">#FF17181A</color>
     <color name="theme_color_primary_tr_icon">#FFB9BDC2</color>
     <color name="theme_color_primary_tr_title">#FFE7E9EB</color>
+    <color name="bili_offline_search_surface">#FF232426</color>
     <color name="daynight_color_background_window">#FF1B1B1B</color>
 </resources>

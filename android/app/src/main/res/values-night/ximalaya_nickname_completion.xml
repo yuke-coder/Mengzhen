@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="ximalaya_nickname_sheet_primary_text">#CFCFCF</color>
+    <color name="ximalaya_nickname_sheet_skip_text">#A89382</color>
+    <color name="ximalaya_nickname_sheet_divider">#333333</color>
+    <color name="ximalaya_nickname_sheet_field">#333333</color>
+    <color name="ximalaya_nickname_sheet_avatar">#94333333</color>
+    <color name="ximalaya_nickname_sheet_surface">#121212</color>
+    <color name="ximalaya_nickname_sheet_upload_surface">#333333</color>
+    <color name="ximalaya_nickname_sheet_upload_stroke">#333333</color>
+    <color name="ximalaya_nickname_sheet_disabled_text">#888888</color>
+</resources>

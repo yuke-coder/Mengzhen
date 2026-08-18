@@ -70,6 +70,7 @@ internal fun persistProfileFile(context: Context, uri: Uri, name: String): File?
     val extension = when {
         type.contains("png") -> "png"
         type.contains("webp") -> "webp"
+        type.contains("gif") -> "gif"
         else -> "jpg"
     }
     val file = File(directory, "$name.$extension")

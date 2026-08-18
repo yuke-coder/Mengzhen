@@ -8,6 +8,7 @@ sealed class Screen(val route: String) {
         fun createRoute(voice: Boolean = false): String = "audio_search?voice=$voice"
     }
     object BiliCache : Screen("bili_cache")
+    object BiliAuthorization : Screen("bili_authorization")
     object Tasks : Screen("tasks")
     object Login : Screen("login")
     object History : Screen("history")

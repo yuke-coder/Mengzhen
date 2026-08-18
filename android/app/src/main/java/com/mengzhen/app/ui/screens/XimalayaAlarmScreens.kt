@@ -60,7 +60,6 @@ import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.items
 import androidx.compose.foundation.shape.RoundedCornerShape
-import androidx.compose.material3.FloatingActionButton
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text
 import androidx.compose.ui.Alignment
@@ -232,6 +231,8 @@ fun XimalayaAlarmManagerScreen(
                     visibility = View.VISIBLE
                     setOnClickListener { navController.navigate(Screen.AlarmHelp.route) }
                 }
+                root.findViewById<View>(R.id.main_alarm_rl_add_alarm)
+                    .setOnClickListener { onAdd() }
                 root
             },
         )
@@ -330,15 +331,6 @@ fun XimalayaAlarmManagerScreen(
                 }
             }
 
-            FloatingActionButton(
-                onClick = onAdd,
-                modifier = Modifier
-                    .align(Alignment.BottomEnd)
-                    .padding(16.dp),
-                containerColor = MaterialTheme.colorScheme.primary,
-            ) {
-                Text("+", fontSize = 24.sp, color = MaterialTheme.colorScheme.onPrimary)
-            }
         }
     }
 }

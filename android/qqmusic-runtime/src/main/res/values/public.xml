@@ -43792,6 +43792,12 @@
     <public type="id" name="nkr" id="0x7f0957b7" />
     <public type="id" name="nks" id="0x7f0957b8" />
     <public type="id" name="nkt" id="0x7f0957b9" />
+    <public type="id" name="main_csl_honor_and_personal_info" id="0x7f095b60" />
+    <public type="id" name="main_tv_honor" id="0x7f095c0b" />
+    <public type="id" name="main_tv_ptitle" id="0x7f095c18" />
+    <public type="id" name="main_tv_personal_intro" id="0x7f095c16" />
+    <public type="id" name="main_iv_more_shadow" id="0x7f095b86" />
+    <public type="id" name="main_iv_more_info" id="0x7f095b85" />
     <public type="id" name="nku" id="0x7f0957ba" />
     <public type="id" name="nkv" id="0x7f0957bb" />
     <public type="id" name="nkw" id="0x7f0957bc" />

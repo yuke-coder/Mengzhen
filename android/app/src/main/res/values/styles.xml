@@ -24,9 +24,9 @@
     </style>
 
 
-    <style name="AppTheme.NoActionBarLaunch" parent="AppTheme.NoActionBar">
-        <item name="android:background">@android:color/transparent</item>
-        <item name="android:windowBackground">@android:color/transparent</item>
+    <style name="AppTheme.NoActionBarLaunch" parent="Theme.SplashScreen">
+        <item name="android:background">@drawable/splash</item>
+        <item name="postSplashScreenTheme">@style/AppTheme.NoActionBar</item>
     </style>
 
     <style name="BiliOfflineToolbarTitle" parent="TextAppearance.AppCompat">
@@ -44,6 +44,66 @@
         <item name="maxButtonHeight">@dimen/navigation_top_bar_size</item>
         <item name="titleMargin">4dp</item>
         <item name="titleTextAppearance">@style/BiliOfflineToolbarTitle</item>
+    </style>
+
+    <!-- Migrated from Bilibili 9.7.0 AppTheme.Preference.Ios. -->
+    <style name="BiliAboutThemeBase" parent="Theme.MaterialComponents.DayNight.NoActionBar">
+        <item name="android:windowBackground">@color/Ga1</item>
+        <item name="android:colorBackground">@color/Ga1</item>
+        <item name="android:textColorPrimary">@color/Ga9</item>
+        <item name="android:textColorSecondary">@color/Ga5</item>
+        <item name="android:listPreferredItemHeight">@dimen/bili_about_preference_row_min_height</item>
+        <item name="android:statusBarColor">@color/theme_color_primary_tr_background</item>
+        <item name="android:navigationBarColor">@color/Ga1</item>
+        <item name="colorAccent">@color/theme_color_secondary</item>
+        <item name="preferenceTheme">@style/BiliAboutPreferenceThemeOverlay</item>
+    </style>
+
+    <style name="BiliAboutTheme" parent="BiliAboutThemeBase">
+        <item name="android:windowLightStatusBar">true</item>
+        <item name="android:windowLightNavigationBar">true</item>
+    </style>
+
+    <style name="BiliAboutPreferenceThemeOverlay" parent="PreferenceThemeOverlay">
+        <item name="preferenceFragmentCompatStyle">@style/BiliAboutPreferenceFragment</item>
+        <item name="preferenceScreenStyle">@style/BiliAboutPreferenceScreen</item>
+        <item name="preferenceStyle">@style/BiliAboutPreference</item>
+    </style>
+
+    <style name="BiliAboutPreferenceFragment" parent="PreferenceFragment.Material">
+        <item name="android:paddingBottom">16dp</item>
+        <item name="allowDividerAfterLastItem">false</item>
+    </style>
+
+    <style name="BiliAboutPreference" parent="Preference.Material">
+        <item name="android:layout">@layout/bili_about_layout_preference_source</item>
+        <item name="android:widgetLayout">@layout/bili_about_layout_preference_widget_indicator_source</item>
+    </style>
+
+    <style name="BiliAboutPreferenceScreen" parent="Preference.PreferenceScreen.Material">
+        <item name="android:layout">@layout/bili_about_layout_preference_source</item>
+        <item name="android:widgetLayout">@layout/bili_about_layout_preference_widget_indicator_source</item>
+    </style>
+
+    <style name="BiliAboutToolbar" parent="Widget.MaterialComponents.Toolbar">
+        <item name="android:gravity">center_vertical</item>
+        <item name="android:background">@color/theme_color_primary_tr_background</item>
+        <item name="android:minHeight">@dimen/navigation_top_bar_size</item>
+        <item name="android:elevation">0dp</item>
+        <item name="contentInsetStart">0dp</item>
+        <item name="contentInsetStartWithNavigation">0dp</item>
+        <item name="maxButtonHeight">@dimen/navigation_top_bar_size</item>
+        <item name="titleMargin">4dp</item>
+        <item name="titleTextAppearance">@style/BiliOfflineToolbarTitle</item>
+    </style>
+
+    <style name="BiliAboutCpuInfoTheme" parent="Theme.MaterialComponents.DayNight.NoActionBar">
+        <item name="android:windowFullscreen">true</item>
+        <item name="android:windowBackground">@android:color/black</item>
+        <item name="android:colorBackground">@android:color/black</item>
+        <item name="android:textColorPrimary">@android:color/white</item>
+        <item name="android:navigationBarColor">@android:color/black</item>
+        <item name="android:windowLightNavigationBar">false</item>
     </style>
 
     <!-- QQ 音乐 20.6.5.8 styles.xml/o9 + ga，仅稳定化资源名。 -->

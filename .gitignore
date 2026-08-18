@@ -52,6 +52,8 @@ bin/
 .cowork-temp/
 .trae/
 .claude/settings.local.json
+/.playwright-cli/
+/.workbuddy/
 
 # OS / misc
 Thumbs.db
@@ -124,3 +126,9 @@ android/mz_*
 android/our_launch.png
 android/.device_*
 tmp_*
+/android/build-*.txt
+/android/stdout*.txt
+/android/stderr*.txt
+/android/screen*.png
+/android/ui_*.xml
+/android/dream_pillow_session.xml

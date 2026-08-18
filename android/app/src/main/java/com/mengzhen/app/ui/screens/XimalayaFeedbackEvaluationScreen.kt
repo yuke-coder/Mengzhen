@@ -39,7 +39,7 @@ import kotlinx.coroutines.withContext
 import org.json.JSONArray
 import org.json.JSONObject
 
-private const val FeedbackAssetHost = "appassets.androidplatform.net"
+private const val FeedbackAssetHost = "m.ximalaya.com"
 private const val FeedbackAssetRoot = "ximalaya_feedback_source"
 private const val FeedbackBridgeName = "MengzhenFeedback"
 private const val FeedbackTemplatePath =

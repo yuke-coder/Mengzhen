@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <declare-styleable name="FlexibleRoundImageView">
+        <attr name="flexible_corners">
+            <flag name="left_top" value="1" />
+            <flag name="right_top" value="2" />
+            <flag name="left_bottom" value="4" />
+            <flag name="right_bottom" value="8" />
+        </attr>
+        <attr name="flexible_corner_radius" format="dimension" />
+    </declare-styleable>
+
+    <color name="ximalaya_nickname_sheet_primary_text">#333333</color>
+    <color name="ximalaya_nickname_sheet_hint_text">#999999</color>
+    <color name="ximalaya_nickname_sheet_skip_text">#C7AD98</color>
+    <color name="ximalaya_nickname_sheet_divider">#EEEEEE</color>
+    <color name="ximalaya_nickname_sheet_field">#F7F7F7</color>
+    <color name="ximalaya_nickname_sheet_avatar">#F7F7F7</color>
+    <color name="ximalaya_nickname_sheet_surface">#FFFFFF</color>
+    <color name="ximalaya_nickname_sheet_upload_surface">#FFFFFF</color>
+    <color name="ximalaya_nickname_sheet_upload_stroke">#E3E3E3</color>
+    <color name="ximalaya_nickname_sheet_disabled_text">#CCCCCC</color>
+
+    <string name="ximalaya_nickname_sheet_title">「补充头像和昵称」让大家更好的认识你吧</string>
+    <string name="ximalaya_nickname_sheet_skip">跳过</string>
+    <string name="ximalaya_nickname_sheet_upload_avatar">上传头像</string>
+    <string name="ximalaya_nickname_sheet_change_avatar">修改头像</string>
+    <string name="ximalaya_nickname_sheet_hint">请输入昵称</string>
+    <string name="ximalaya_nickname_sheet_sync_wechat">从微信一键同步\n头像和昵称</string>
+    <string name="ximalaya_nickname_sheet_complete">完成</string>
+
+    <style name="XimalayaNicknameCompletionDialogTheme" parent="@android:style/Theme.Dialog">
+        <item name="android:windowBackground">@android:color/transparent</item>
+        <item name="android:windowFrame">@null</item>
+        <item name="android:windowNoTitle">true</item>
+        <item name="android:windowIsFloating">true</item>
+        <item name="android:windowContentOverlay">@null</item>
+    </style>
+
+    <style name="XimalayaNicknameCompletionDialogAnimation">
+        <item name="android:windowEnterAnimation">@anim/ximalaya_nickname_sheet_in</item>
+        <item name="android:windowExitAnimation">@anim/ximalaya_nickname_sheet_out</item>
+    </style>
+
+    <style name="WechatProfileSyncCallbackTheme" parent="@android:style/Theme.Translucent.NoTitleBar">
+        <item name="android:windowBackground">@android:color/transparent</item>
+        <item name="android:backgroundDimEnabled">false</item>
+        <item name="android:windowDisablePreview">true</item>
+    </style>
+</resources>
