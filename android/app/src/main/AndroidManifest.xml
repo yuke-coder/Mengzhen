@@ -161,6 +161,17 @@
         <!-- MediaButtonReceiver is declared by qqmusic-runtime manifest
              (process=:QQPlayerService, exported=false). -->
 
+        <!-- 线控/耳机 MediaButton 兜底接收器，与 AudioPlaybackService 的 MediaSession
+             共同覆盖单击暂停/双击下一首/三击上一首。 -->
+        <receiver
+            android:name=".receiver.WireControlReceiver"
+            android:enabled="true"
+            android:exported="true">
+            <intent-filter android:priority="1000">
+                <action android:name="android.intent.action.MEDIA_BUTTON" />
+            </intent-filter>
+        </receiver>
+
         <provider
             android:name="androidx.core.content.FileProvider"
             android:authorities="${applicationId}.fileprovider;${applicationId}.fileProvider"
