@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+  喜马拉雅 Android 9.5.4.7 个人资料编辑 — 深色模式颜色变体。
+  对应 ximalaya-9.5.4.7-apktool/res/values-night/colors.xml。
+-->
+<resources>
+    <!-- 0x7f060e78: 浅 #FFFFFF / 深 #000000 -->
+    <color name="xm_personal_edit_container_bg">#000000</color>
+    <!-- 0x7f060e7f: 浅 #FFFFFF / 深 #121212 -->
+    <color name="xm_personal_edit_divider_line">#121212</color>
+    <!-- 0x7f060f49 → 0x7f060acf: 浅 #333333 / 深 #CFCFCF -->
+    <color name="xm_personal_edit_input_text">#CFCFCF</color>
+    <!-- 0x7f060f0a → 0x7f060c48: 浅 #B3B2B3 / 深 #888888 -->
+    <color name="xm_personal_edit_input_hint">#888888</color>
+    <!-- 0x7f060f4e → 0x7f060bc4: 浅 #999999 / 深 #888888 -->
+    <color name="xm_personal_edit_word_count">#888888</color>
+    <!-- 0x7f060f4f → 0x7f060b47: 浅 #666666 / 深 #888888 -->
+    <color name="xm_personal_edit_label_text">#888888</color>
+    <!-- 0x7f060b93: #888888（深浅一致） -->
+    <color name="xm_personal_edit_value_text">#888888</color>
+    <!-- 0x7f060bba: 浅 #999999 / 深 #888888（values-night 未覆盖，沿用 #999999） -->
+    <color name="xm_personal_edit_intro_guide">#999999</color>
+    <!-- 0x7f060bc4: 浅 #999999 / 深 #888888 -->
+    <color name="xm_personal_edit_example_name">#888888</color>
+    <!-- 0x7f060acf: 浅 #333333 / 深 #CFCFCF -->
+    <color name="xm_personal_edit_example_content">#CFCFCF</color>
+    <!-- 链接文字色 0x7f060acf: 浅 #333333 / 深 #CFCFCF -->
+    <color name="xm_personal_edit_link_text">#CFCFCF</color>
+    <!-- 0x7f060424: 浅 #d8d8d8 / 深 #2a2a2a — 资料编辑行 1px 描边 -->
+    <color name="xm_personal_edit_row_stroke">#2a2a2a</color>
+    <!-- 地区选择（RegionSelectFragment）深色模式 -->
+    <color name="xm_region_list_bg">#121212</color>
+    <color name="xm_region_divider">#2a2a2a</color>
+    <color name="xm_region_tag_text">#888888</color>
+    <color name="xm_region_tag_bg">#1e1e1e</color>
+    <!-- 剩余次数高亮 #FF4444（深浅一致，原版硬编码） -->
+    <color name="xm_personal_edit_count_highlight">#FF4444</color>
+    <!-- 保存按钮 #FF4444（深浅一致） -->
+    <color name="xm_personal_edit_save_enabled">#FF4444</color>
+    <color name="xm_personal_edit_save_disabled">#666666</color>
+    <color name="xm_personal_edit_over_limit">#CE2424</color>
+    <!-- 0x7f060d72: 浅 #f5f5f5 / 深 #1e1e1e — 简介输入框/示例卡片背景（8dp 圆角 drawable 引用） -->
+    <color name="xm_personal_edit_brief_input_bg">#1e1e1e</color>
+    <!-- type=3 简介保存按钮色（深浅一致，原版 values-night 未覆盖） -->
+    <color name="xm_personal_edit_brief_save_enabled">#FF4444</color>
+    <color name="xm_personal_edit_brief_save_disabled">#BBBBBB</color>
+
+    <!-- 性别选择 Dialog 深色模式 -->
+    <color name="xm_gender_select_container_bg">#1A1A1A</color>
+    <color name="xm_gender_select_switch_text">#CFCFCF</color>
+    <color name="xm_gender_select_item_text">#CFCFCF</color>
+    <color name="xm_gender_select_divider">#2A2A2A</color>
+    <color name="xm_gender_select_item_pressed">#2A2A2A</color>
+</resources>

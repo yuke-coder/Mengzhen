@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <item name="main_change_birth_date" type="id" />
+    <item name="main_change_brief" type="id" />
+    <item name="main_change_constellation" type="id" />
+    <item name="main_change_nickname" type="id" />
+    <item name="main_clear_nickname" type="id" />
+    <item name="main_et_edit_brief" type="id" />
+    <item name="main_et_edit_nickname" type="id" />
+    <item name="main_hint_vertified" type="id" />
+    <item name="main_left_word_count" type="id" />
+    <item name="main_rl_brief_guide" type="id" />
+    <item name="main_tv_change_birth_date" type="id" />
+    <item name="main_tv_change_constellation" type="id" />
+    <item name="main_tv_left_total" type="id" />
+    <item name="main_tv_rule" type="id" />
+    <item name="main_v_switch" type="id" />
+    <item name="tvIntro" type="id" />
+    <item name="main_cb_switch" type="id" />
+    <item name="main_tv_switch_title" type="id" />
+    <item name="main_edit_brief_example_left_avatar" type="id" />
+    <item name="main_edit_brief_example_left_content" type="id" />
+    <item name="main_edit_brief_example_left_nickname" type="id" />
+    <item name="main_edit_brief_example_right_avatar" type="id" />
+    <item name="main_edit_brief_example_right_content" type="id" />
+    <item name="main_edit_brief_example_right_nickname" type="id" />
+
+    <!-- 性别选择 Dialog（main_dialog_select_sex.xml / main_dialog_menu_item.xml）原版 ID 直接迁移 -->
+    <item name="main_ll_layout" type="id" />
+    <item name="main_ll_listview" type="id" />
+    <item name="main_title_tv" type="id" />
+    <item name="main_cb_sex" type="id" />
+    <item name="main_tv_switch_sex_title" type="id" />
+    <item name="group_item" type="id" />
+    <item name="new_feature" type="id" />
+
+    <!-- 地区选择（host_fra_list_2 / main_item_city / RegionSelectFragment）原版 ID 直接迁移 -->
+    <item name="host_listview1" type="id" />
+    <item name="main_divider1" type="id" />
+    <item name="main_ic_more" type="id" />
+    <item name="main_tv_city" type="id" />
+    <item name="main_tv_tag" type="id" />
+</resources>

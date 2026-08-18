@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+  喜马拉雅 Android 9.5.4.7 main_item_city.xml 直接迁移：地区列表项。
+  顶部分隔线 main_divider1 / 城市名 main_tv_city / 更多箭头 main_ic_more（省份态可见）。
+-->
+<LinearLayout
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    xmlns:android="http://schemas.android.com/apk/res/android">
+    <View
+        android:id="@id/main_divider1"
+        android:background="@color/xm_region_divider"
+        android:layout_width="match_parent"
+        android:layout_height="1.0px"
+        android:layout_marginLeft="16.0dp" />
+    <TextView
+        android:textSize="12.0sp"
+        android:textColor="@color/xm_region_tag_text"
+        android:gravity="center_vertical"
+        android:id="@id/main_tv_tag"
+        android:background="@color/xm_region_tag_bg"
+        android:paddingLeft="16.0dp"
+        android:visibility="gone"
+        android:layout_width="match_parent"
+        android:layout_height="30.0dp" />
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <TextView
+            android:textSize="16.0sp"
+            android:textColor="@color/xm_personal_edit_link_text"
+            android:gravity="center_vertical"
+            android:id="@id/main_tv_city"
+            android:paddingLeft="17.0dp"
+            android:layout_width="wrap_content"
+            android:layout_height="45.0dp"
+            android:drawablePadding="7.0dp"
+            android:layout_weight="1.0" />
+        <ImageView
+            android:layout_gravity="center_vertical"
+            android:id="@id/main_ic_more"
+            android:visibility="gone"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginRight="10.0dp"
+            android:src="@drawable/xm_alarm_v9514_0x7f0809d6"
+            android:contentDescription="@string/xm_personal_edit_region_more" />
+    </LinearLayout>
+</LinearLayout>

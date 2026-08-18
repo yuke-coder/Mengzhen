@@ -7,6 +7,7 @@ import android.graphics.Color
 import android.view.Gravity
 import android.view.LayoutInflater
 import android.view.View
+import android.view.ViewTreeObserver
 import android.widget.Button
 import android.widget.FrameLayout
 import android.widget.ImageView
@@ -39,6 +40,8 @@ import com.mengzhen.app.ui.components.rememberQqMusicImagePicker
 import com.mengzhen.app.ui.navigation.Screen
 import android.graphics.drawable.GradientDrawable
 import coil3.load
+import coil3.size.Size
+import coil3.toBitmap
 import com.tencent.qqmusic.homepage.header.viewdelegate.i as SourceHeaderBackground
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
@@ -58,8 +61,12 @@ fun QqMusicMineHomeScreen(navController: NavController) {
     val activity = context as? Activity
     val backgroundPicker = rememberQqMusicImagePicker(maxSelection = 1) { selected ->
         val uri = selected.firstOrNull() ?: return@rememberQqMusicImagePicker
+        android.widget.Toast.makeText(context, "正在上传背景图...", android.widget.Toast.LENGTH_SHORT).show()
         scope.launch {
-            uploadSelectedProfileBackground(context, uri, user)
+            val result = uploadSelectedProfileBackground(context, uri, user)
+            if (result != null) {
+                android.widget.Toast.makeText(context, "背景图已更新", android.widget.Toast.LENGTH_SHORT).show()
+            }
         }
     }
 
@@ -132,7 +139,8 @@ private class QqMusicSourceProfileView(context: Context) : FrameLayout(context) 
     private val avatar = header.findViewById<ImageView>(SOURCE_ID_AVATAR)
     private var lastBoundUser: UserInfo? = null
 
-    private val backgroundObserver = Observer<Bitmap> { bitmap ->
+    private val backgroundObserver = Observer<Bitmap?> { bitmap ->
+        if (bitmap == null) return@Observer
         combinedBackground.setImageBitmap(bitmap)
         combinedBackground.visibility = View.VISIBLE
         rawBackground.visibility = View.GONE
@@ -151,22 +159,22 @@ private class QqMusicSourceProfileView(context: Context) : FrameLayout(context) 
 
     override fun onSizeChanged(w: Int, h: Int, oldw: Int, oldh: Int) {
         super.onSizeChanged(w, h, oldw, oldh)
-        layoutSource(w)
+        if (w == oldw && h == oldh) return
+        post { layoutSource(w) }
     }
 
     private fun layoutSource(screenWidth: Int) {
         if (screenWidth <= 0) return
-        val adjustedWidth = (screenWidth * SOURCE_WIDTH_PERCENT).roundToInt()
+        val displayWidth = resources.displayMetrics.widthPixels
+        val adjustedWidth = (displayWidth * SOURCE_WIDTH_PERCENT).roundToInt()
         val backgroundHeight = adjustedWidth * 2
-        header.layoutParams = LayoutParams(screenWidth, backgroundHeight)
+        header.layoutParams = LayoutParams(displayWidth, backgroundHeight)
 
-        header.findViewById<View>(SOURCE_ID_PROFILE_CARD).let { card ->
-            card.layoutParams = card.layoutParams.apply {
-                height = (backgroundHeight * SOURCE_CARD_HEIGHT_PERCENT).roundToInt()
-            }
-            card.setBackgroundResource(0x7f080b64)
+        val cardView = header.findViewById<View>(SOURCE_ID_PROFILE_CARD)
+        cardView.setBackgroundResource(0x7f080b64)
+        cardView.layoutParams = cardView.layoutParams.apply {
+            height = (backgroundHeight * SOURCE_CARD_HEIGHT_PERCENT).roundToInt()
         }
-
     }
 
     fun bind(user: UserInfo) {
@@ -181,7 +189,14 @@ private class QqMusicSourceProfileView(context: Context) : FrameLayout(context) 
             text = user.nickname?.takeIf(String::isNotBlank) ?: user.username
             setOnClickListener { onNickname() }
         }
-        header.findViewById<TextView>(SOURCE_ID_PROFILE_SUMMARY).text = user.profileSummary()
+        val signature = user.signature?.takeIf(String::isNotBlank)
+        val summary = user.profileSummary().takeIf(String::isNotBlank)
+        header.findViewById<TextView>(SOURCE_ID_PROFILE_SUMMARY).apply {
+            setSingleLine(false)
+            setMaxLines(2)
+            text = listOfNotNull(summary, signature).joinToString("\n")
+            setTextColor(Color.WHITE)
+        }
 
         avatar.apply {
             scaleType = ImageView.ScaleType.CENTER_CROP
@@ -215,12 +230,10 @@ private class QqMusicSourceProfileView(context: Context) : FrameLayout(context) 
             setMinWidth(0)
             setMinHeight(0)
             val density = resources.displayMetrics.density
-            val buttonSize = (36f * density).roundToInt()
             val iconPadding = (6f * density).roundToInt()
             val iconSize = (24f * density).roundToInt()
             layoutParams = layoutParams.apply {
-                width = buttonSize
-                height = buttonSize
+                width = (36f * density).roundToInt()
             }
             setPadding(iconPadding, iconPadding, iconPadding, iconPadding)
             val settingsIcon = AppCompatResources
@@ -234,20 +247,15 @@ private class QqMusicSourceProfileView(context: Context) : FrameLayout(context) 
             setOnClickListener { onSettings() }
         }
 
-        // === 喜马拉雅真实简介组件（迁移自 main_anchor_space_top_view_v5.xml 的 main_csl_honor_and_personal_info） ===
         val introBio = user.bio?.takeIf(String::isNotBlank)
-        val introSignature = user.signature?.takeIf { it.isNotBlank() && it != introBio }
         header.findViewById<TextView>(SOURCE_ID_PERSONAL_INTRO).apply {
             text = introBio ?: "点击填写介绍，让大家认识你吧～"
             setTextColor(if (introBio != null) Color.WHITE else SOURCE_SECONDARY_TEXT_COLOR)
             setOnClickListener { onEdit() }
         }
-        header.findViewById<TextView>(SOURCE_ID_PERSONAL_TITLE).apply {
-            text = introSignature ?: ""
-            setTextColor(SOURCE_SECONDARY_TEXT_COLOR)
-            setOnClickListener { onEdit() }
-        }
+
         header.findViewById<ImageView>(SOURCE_ID_MORE_INFO).apply {
+            setColorFilter(Color.WHITE)
             setOnClickListener { onEdit() }
         }
         applySourceDarkPalette()
@@ -268,10 +276,14 @@ private class QqMusicSourceProfileView(context: Context) : FrameLayout(context) 
         combinedBackground.visibility = View.VISIBLE
         defaultBackground.visibility = View.GONE
         rawBackground.load(url) {
-            target(
-                onSuccess = {
-                    val drawable = rawBackground.drawable ?: return@target
-                    val bitmap = com.tencent.component.widget.e.a(drawable) ?: return@target
+            size(Size.ORIGINAL)
+            listener(
+                onSuccess = { _, result ->
+                    val bitmap = result.image.toBitmap()
+                    combinedBackground.setImageBitmap(bitmap)
+                    combinedBackground.visibility = View.VISIBLE
+                    rawBackground.visibility = View.GONE
+                    defaultBackground.visibility = View.GONE
                     scope.launch(Dispatchers.Default) {
                         backgroundComposer.L6(bitmap)
                     }
@@ -315,7 +327,6 @@ private class QqMusicSourceProfileView(context: Context) : FrameLayout(context) 
         const val SOURCE_ID_PROFILE_CARD = 0x7f095446
         const val SOURCE_ID_MORE_INFO = 0x7f095b85
         const val SOURCE_ID_PERSONAL_INTRO = 0x7f095c16
-        const val SOURCE_ID_PERSONAL_TITLE = 0x7f095c18
     }
 }
 

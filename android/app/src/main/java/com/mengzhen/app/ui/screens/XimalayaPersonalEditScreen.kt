@@ -1,11 +1,8 @@
 package com.mengzhen.app.ui.screens
 
-import android.app.DatePickerDialog
 import android.content.Context
-import android.widget.DatePicker
 import androidx.compose.foundation.background
 import androidx.compose.foundation.clickable
-import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
@@ -18,20 +15,16 @@ import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.lazy.LazyColumn
-import androidx.compose.foundation.lazy.items
 import androidx.compose.foundation.shape.CircleShape
-import androidx.compose.foundation.text.KeyboardOptions
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.automirrored.filled.ArrowBack
 import androidx.compose.material.icons.filled.ChevronRight
-import androidx.compose.material.icons.filled.Clear
 import androidx.compose.material.icons.filled.Edit
 import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.Icon
 import androidx.compose.material3.IconButton
 import androidx.compose.material3.LinearProgressIndicator
 import androidx.compose.material3.MaterialTheme
-import androidx.compose.material3.OutlinedTextField
 import androidx.compose.material3.Scaffold
 import androidx.compose.material3.Text
 import androidx.compose.material3.TextButton
@@ -51,14 +44,10 @@ import androidx.compose.ui.graphics.Brush
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.platform.LocalContext
-import androidx.compose.ui.text.SpanStyle
-import androidx.compose.ui.text.buildAnnotatedString
-import androidx.compose.ui.text.input.KeyboardType
-import androidx.compose.ui.text.withStyle
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
-import androidx.compose.ui.window.Dialog
-import androidx.compose.ui.window.DialogProperties
+import androidx.fragment.app.FragmentActivity
+import androidx.fragment.app.setFragmentResultListener
 import androidx.navigation.NavController
 import coil3.compose.AsyncImage
 import com.mengzhen.app.data.api.ApiClient
@@ -66,13 +55,15 @@ import com.mengzhen.app.data.model.UserInfo
 import com.mengzhen.app.data.model.parseProfile
 import com.mengzhen.app.data.store.TaskStore
 import com.mengzhen.app.ui.components.ChatGptLoadingSpinner
+import com.mengzhen.app.ui.fragments.EditPersonalInfoFragment
+import com.mengzhen.app.ui.fragments.GenderSelectDialog
+import com.mengzhen.app.ui.fragments.RegionSelectFragment
 import com.mengzhen.app.ui.components.main.absoluteAvatarUrl
 import com.mengzhen.app.ui.components.rememberQqMusicImagePicker
 import com.mengzhen.app.ui.feedback.AppNotice
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
-import java.util.Calendar
 
 /**
  * 喜马拉雅 MyDetailFragment 直接迁移 — 非仿写。
@@ -405,47 +396,130 @@ fun XimalayaPersonalEditScreen(navController: NavController) {
 
     // === 编辑器 ===
 
-    // EditPersonalInfoFragment type=1 → 昵称编辑
-    editor?.let { target ->
+    // EditPersonalInfoFragment type=1 → 昵称编辑（原版 Fragment 直接迁移）
+    // 通过 FragmentManager 弹出 EditPersonalInfoFragment（DialogFragment 全屏），
+    // 替换原 Compose NicknameEditorDialog 实现。
+    // Compose 的 LocalContext 可能是 ContextWrapper 链（如 ContextThemeWrapper），
+    // 需沿 baseContext 上溯定位真正的 FragmentActivity，否则 FragmentManager 为空。
+    val hostActivity = remember(context) { context.resolveFragmentActivity() }
+    val fragmentManager = remember(context) {
+        hostActivity?.supportFragmentManager
+    }
+    LaunchedEffect(fragmentManager) {
+        val fm = fragmentManager ?: return@LaunchedEffect
+        val owner = hostActivity ?: return@LaunchedEffect
+        fm.setFragmentResultListener(
+            EditPersonalInfoFragment.RESULT_KEY,
+            owner,
+        ) { _, bundle ->
+            if (bundle.containsKey(EditPersonalInfoFragment.RESULT_BIRTHDAY_YEAR)) {
+                // type=2 生日：DatePicker 选择后回调保存
+                val y = bundle.getInt(EditPersonalInfoFragment.RESULT_BIRTHDAY_YEAR)
+                val m = bundle.getInt(EditPersonalInfoFragment.RESULT_BIRTHDAY_MONTH) + 1
+                val d = bundle.getInt(EditPersonalInfoFragment.RESULT_BIRTHDAY_DAY)
+                if (y > 0 && d > 0) saveBirthday(y, m, d)
+                showBirthdayPicker = false
+            } else if (bundle.containsKey(EditPersonalInfoFragment.RESULT_BRIEF)) {
+                // type=3 简介：保存后回调
+                saveBrief(bundle.getString(EditPersonalInfoFragment.RESULT_BRIEF).orEmpty())
+                editor = null
+            } else {
+                val nickname = bundle.getString(EditPersonalInfoFragment.RESULT_NICKNAME)
+                if (!nickname.isNullOrEmpty()) saveNickname(nickname)
+                editor = null
+            }
+        }
+    }
+    // RegionSelectFragment → 地区编辑结果
+    LaunchedEffect(fragmentManager) {
+        val fm = fragmentManager ?: return@LaunchedEffect
+        val owner = hostActivity ?: return@LaunchedEffect
+        fm.setFragmentResultListener(
+            RegionSelectFragment.RESULT_KEY,
+            owner,
+        ) { _, bundle ->
+            val region = bundle.getString(RegionSelectFragment.RESULT_REGION)
+            if (!region.isNullOrBlank()) saveRegion(region)
+            showRegionPicker = false
+        }
+    }
+    LaunchedEffect(editor) {
+        val target = editor ?: return@LaunchedEffect
+        val fm = fragmentManager ?: return@LaunchedEffect
         when (target) {
-            is EditorTarget.Nickname -> NicknameEditorDialog(
-                initialValue = target.value,
-                onSave = { saveNickname(it) },
-                onDismiss = { editor = null },
-            )
-            is EditorTarget.Brief -> BriefEditorDialog(
-                initialValue = target.value,
-                onSave = { saveBrief(it) },
-                onDismiss = { editor = null },
+            is EditorTarget.Nickname -> {
+                // 仅在尚未弹出时启动，避免重入
+                if (fm.findFragmentByTag(NICKNAME_FRAGMENT_TAG) == null) {
+                    EditPersonalInfoFragment.newInstance(target.value)
+                        .show(fm, NICKNAME_FRAGMENT_TAG)
+                }
+            }
+            is EditorTarget.Brief -> {
+                if (fm.findFragmentByTag(BRIEF_FRAGMENT_TAG) == null) {
+                    EditPersonalInfoFragment.newBriefInstance(target.value)
+                        .show(fm, BRIEF_FRAGMENT_TAG)
+                }
+            }
+        }
+        // 立即清空，保证再次点击（即使同名）也能重新触发 LaunchedEffect
+        editor = null
+    }
+
+    // com.ximalaya.ting.android.main.dialog.c → 性别选择（原版 MenuDialog 直接迁移）
+    // 通过 hostActivity 弹出 GenderSelectDialog，替换原 Compose GenderPickerDialog。
+    if (showGenderPicker) {
+        val activity = hostActivity
+        LaunchedEffect(showGenderPicker, activity) {
+            // 立即重置标志，避免 Compose 重组时重入
+            showGenderPicker = false
+            if (activity == null || activity.isFinishing || activity.isDestroyed) {
+                return@LaunchedEffect
+            }
+            GenderSelectDialog.show(
+                activity = activity,
+                currentGender = user?.gender,
+                onSelected = { gender, _ -> saveGender(gender) },
+                onDismiss = {},
             )
         }
     }
 
-    // com.ximalaya.ting.android.main.dialog.c → 性别选择
-    if (showGenderPicker) {
-        GenderPickerDialog(
-            currentGender = user?.gender,
-            onConfirm = { saveGender(it) },
-            onDismiss = { showGenderPicker = false },
-        )
-    }
-
-    // EditPersonalInfoFragment type=2 → 生日 DatePicker
+    // EditPersonalInfoFragment type=2 → 生日编辑（原版 DatePickerDialog + 星座，直接迁移）
+    // 通过 FragmentManager 弹出 EditPersonalInfoFragment，替换原 Compose BirthdayPickerDialog。
     if (showBirthdayPicker) {
-        BirthdayPickerDialog(
-            currentBirthday = user?.birthday,
-            onConfirm = { year, month, day -> saveBirthday(year, month, day) },
-            onDismiss = { showBirthdayPicker = false },
-        )
+        val activity = hostActivity
+        LaunchedEffect(showBirthdayPicker, activity) {
+            // 立即重置标志，避免 Compose 重组时重入
+            showBirthdayPicker = false
+            if (activity == null || activity.isFinishing || activity.isDestroyed) {
+                return@LaunchedEffect
+            }
+            val fm = activity.supportFragmentManager
+            if (fm.findFragmentByTag(BIRTHDAY_FRAGMENT_TAG) != null) {
+                return@LaunchedEffect
+            }
+            val (y, m, d) = parseBirthday(user?.birthday)
+            EditPersonalInfoFragment.newInstance(y, m - 1, d, false)
+                .show(fm, BIRTHDAY_FRAGMENT_TAG)
+        }
     }
 
-    // RegionSelectFragment → 地区选择
+    // RegionSelectFragment → 地区编辑（原版 RegionSelectFragment 直接迁移）
+    // 通过 FragmentManager 弹出 RegionSelectFragment，替换原 Compose RegionPickerDialog。
     if (showRegionPicker) {
-        RegionPickerDialog(
-            currentLocation = user?.location,
-            onConfirm = { region -> saveRegion(region) },
-            onDismiss = { showRegionPicker = false },
-        )
+        val activity = hostActivity
+        LaunchedEffect(showRegionPicker, activity) {
+            // 立即重置标志，避免 Compose 重组时重入
+            showRegionPicker = false
+            if (activity == null || activity.isFinishing || activity.isDestroyed) {
+                return@LaunchedEffect
+            }
+            val fm = activity.supportFragmentManager
+            if (fm.findFragmentByTag(REGION_FRAGMENT_TAG) != null) {
+                return@LaunchedEffect
+            }
+            RegionSelectFragment.newInstance().show(fm, REGION_FRAGMENT_TAG)
+        }
     }
 }
 
@@ -454,6 +528,32 @@ fun XimalayaPersonalEditScreen(navController: NavController) {
 private sealed class EditorTarget {
     data class Nickname(val value: String) : EditorTarget()
     data class Brief(val value: String) : EditorTarget()
+}
+
+/** 沿 ContextWrapper 链上溯，定位真正的 FragmentActivity（Compose LocalContext 常为包装 Context）。 */
+private tailrec fun Context.resolveFragmentActivity(): FragmentActivity? = when (this) {
+    is FragmentActivity -> this
+    is android.content.ContextWrapper -> baseContext.resolveFragmentActivity()
+    else -> null
+}
+
+private const val NICKNAME_FRAGMENT_TAG = "ximalaya_edit_personal_info_fragment"
+private const val BIRTHDAY_FRAGMENT_TAG = "ximalaya_edit_birthday_fragment"
+private const val REGION_FRAGMENT_TAG = "ximalaya_edit_region_fragment"
+private const val BRIEF_FRAGMENT_TAG = "ximalaya_edit_brief_fragment"
+
+/** 解析生日串 "YYYY-M-D" → (year, month1, day)；非法返回 (0,0,0)（Fragment 会自动弹 DatePicker）。 */
+private fun parseBirthday(birthday: String?): Triple<Int, Int, Int> {
+    if (!birthday.isNullOrBlank() && birthday.contains("-")) {
+        val parts = birthday.split("-")
+        val y = parts.getOrNull(0)?.toIntOrNull()
+        val m = parts.getOrNull(1)?.toIntOrNull()
+        val d = parts.getOrNull(2)?.toIntOrNull()
+        if (y != null && m != null && d != null && y > 0 && m in 1..12 && d > 0) {
+            return Triple(y, m, d)
+        }
+    }
+    return Triple(0, 0, 0)
 }
 
 // === 头部 Hero — 对标 main_fra_my_detail_new.xml 头部布局 ===
@@ -667,424 +767,28 @@ private fun BriefRow(
     )
 }
 
-// === 昵称编辑器 — 对标 EditPersonalInfoFragment type=1 ===
-// 中文占2字符，英文/数字占1字符，上限20
-// 规则文案来自 configurecenter 默认值
+// === 昵称编辑器 — 已迁移至 com.mengzhen.app.ui.fragments.EditPersonalInfoFragment ===
+// 详见 main_fra_personal_edit.xml + EditPersonalInfoFragment.kt（原版 9.5.4.7 直接迁移）。
+// Compose NicknameEditorDialog 与 countNicknameChars 已删除，逻辑全部回归原版 Fragment。
 
-@OptIn(ExperimentalMaterial3Api::class)
-@Composable
-private fun NicknameEditorDialog(
-    initialValue: String,
-    onSave: (String) -> Unit,
-    onDismiss: () -> Unit,
-) {
-    var text by remember { mutableStateOf(initialValue) }
-    val charCount = remember(text) { countNicknameChars(text) }
-    val maxCount = 20
+// === 简介编辑器 — 已迁移至 com.mengzhen.app.ui.fragments.EditPersonalInfoFragment (type=3) ===
+// 原版 initUi i==3 分支直接迁移：main_change_brief 输入框（maxLength 300）+
+// "还能输入X字/无法输入更多"计数（AnonymousClass13）+ main_tv_rule SpanUtils 链路。
+// 详见 main_fra_personal_edit.xml + EditPersonalInfoFragment.kt。
+// Compose BriefEditorDialog 已删除，逻辑全部回归原版 Fragment。
 
-    Dialog(
-        onDismissRequest = onDismiss,
-        properties = DialogProperties(usePlatformDefaultWidth = false),
-    ) {
-        Scaffold(
-            topBar = {
-                TopAppBar(
-                    title = { Text("编辑昵称") },
-                    navigationIcon = {
-                        IconButton(onClick = onDismiss) {
-                            Icon(Icons.AutoMirrored.Filled.ArrowBack, contentDescription = "取消")
-                        }
-                    },
-                    actions = {
-                        TextButton(
-                            onClick = { onSave(text.trim()) },
-                            enabled = charCount <= maxCount && charCount > 0 && text.trim() != initialValue.trim(),
-                        ) { Text("保存") }
-                    },
-                )
-            },
-            containerColor = MaterialTheme.colorScheme.surface,
-        ) { padding ->
-            Column(
-                modifier = Modifier
-                    .fillMaxSize()
-                    .padding(padding)
-                    .padding(16.dp),
-            ) {
-                OutlinedTextField(
-                    value = text,
-                    onValueChange = { newText ->
-                        if (countNicknameChars(newText) <= maxCount) {
-                            text = newText
-                        }
-                    },
-                    singleLine = true,
-                    placeholder = { Text("请输入昵称") },
-                    trailingIcon = {
-                        if (text.isNotEmpty()) {
-                            IconButton(onClick = { text = "" }) {
-                                Icon(
-                                    androidx.compose.material.icons.Icons.Default.Clear,
-                                    contentDescription = "清除",
-                                    modifier = Modifier.size(18.dp),
-                                )
-                            }
-                        }
-                    },
-                    modifier = Modifier.fillMaxWidth(),
-                    keyboardOptions = KeyboardOptions.Default,
-                )
-                Spacer(Modifier.height(8.dp))
-                // 字数统计 — 对标 EditPersonalInfoFragment.a(int)
-                Row(
-                    modifier = Modifier.fillMaxWidth(),
-                    horizontalArrangement = Arrangement.End,
-                ) {
-                    Text(
-                        text = buildAnnotatedString {
-                            append("$charCount")
-                            if (charCount > maxCount) {
-                                withStyle(SpanStyle(color = Color(0xFFCE2424))) {
-                                    append("/$maxCount")
-                                }
-                            } else {
-                                withStyle(SpanStyle(color = MaterialTheme.colorScheme.onSurfaceVariant)) {
-                                    append("/$maxCount")
-                                }
-                            }
-                        },
-                        fontSize = 12.sp,
-                    )
-                }
-                Spacer(Modifier.height(16.dp))
-                // 规则文案 — 来自 configurecenter "nickname_modify_new" 默认值
-                Text(
-                    text = buildAnnotatedString {
-                        withStyle(SpanStyle(color = MaterialTheme.colorScheme.onSurfaceVariant)) {
-                            append("剩余修改次数：不限\n")
-                        }
-                        withStyle(SpanStyle(color = Color(0xFFFF4444))) {
-                            append(
-                                "1.昵称修改次数：非认证用户，每自然月可修改1次；认证用户，每自然年可修改4次；\n" +
-                                    "2.每天最多修改3次；\n" +
-                                    "3. 仅支持数字/字母/汉字/下划线；不建议使用生僻字；\n" +
-                                    "4. 昵称限20字符，中文占2字符，英文/数字占1字符；\n" +
-                                    "5. 使用健康/财经/司法/教育类昵称，请先完成相关资质认证；\n" +
-                                    "6. 禁止使用色情/违法/低俗昵称；",
-                            )
-                        }
-                    },
-                    fontSize = 12.sp,
-                    lineHeight = 18.sp,
-                )
-            }
-        }
-    }
-}
-
-// EditPersonalInfoFragment.a(CharSequence) — 中文字符=2，其他=1
-private fun countNicknameChars(text: String): Int {
-    var count = 0
-    for (c in text) {
-        count += if (Character.UnicodeScript.of(c.code) == Character.UnicodeScript.HAN) 2 else 1
-    }
-    return count
-}
-
-// === 简介编辑器 — 对标 EditPersonalInfoFragment type=3 ===
-// 上限300字，显示"还能输入X字"
-
-@OptIn(ExperimentalMaterial3Api::class)
-@Composable
-private fun BriefEditorDialog(
-    initialValue: String,
-    onSave: (String) -> Unit,
-    onDismiss: () -> Unit,
-) {
-    var text by remember { mutableStateOf(initialValue) }
-    val maxCount = 300
-    val remaining = maxCount - text.length
-
-    Dialog(
-        onDismissRequest = onDismiss,
-        properties = DialogProperties(usePlatformDefaultWidth = false),
-    ) {
-        Scaffold(
-            topBar = {
-                TopAppBar(
-                    title = { Text("编辑简介") },
-                    navigationIcon = {
-                        IconButton(onClick = onDismiss) {
-                            Icon(Icons.AutoMirrored.Filled.ArrowBack, contentDescription = "取消")
-                        }
-                    },
-                    actions = {
-                        TextButton(
-                            onClick = { onSave(text.trim()) },
-                            enabled = text.isNotEmpty() && text.trim() != initialValue.trim(),
-                        ) { Text("保存") }
-                    },
-                )
-            },
-            containerColor = MaterialTheme.colorScheme.surface,
-        ) { padding ->
-            Column(
-                modifier = Modifier
-                    .fillMaxSize()
-                    .padding(padding)
-                    .padding(16.dp),
-            ) {
-                OutlinedTextField(
-                    value = text,
-                    onValueChange = { newText ->
-                        if (newText.length <= maxCount) {
-                            text = newText
-                        }
-                    },
-                    singleLine = false,
-                    minLines = 5,
-                    maxLines = 10,
-                    placeholder = { Text("请输入个人简介") },
-                    modifier = Modifier.fillMaxWidth(),
-                    keyboardOptions = KeyboardOptions.Default,
-                )
-                Spacer(Modifier.height(8.dp))
-                // EditPersonalInfoFragment.13 → "还能输入X字" / "无法输入更多"
-                Row(
-                    modifier = Modifier.fillMaxWidth(),
-                    horizontalArrangement = Arrangement.End,
-                ) {
-                    if (text.isEmpty()) {
-                        Text("", fontSize = 12.sp)
-                    } else if (remaining <= 0) {
-                        Text("无法输入更多", fontSize = 12.sp, color = Color(0xFFCE2424))
-                    } else {
-                        Text(
-                            "还能输入 $remaining 字",
-                            fontSize = 12.sp,
-                            color = MaterialTheme.colorScheme.onSurfaceVariant,
-                        )
-                    }
-                }
-                Spacer(Modifier.height(24.dp))
-                Text(
-                    text = "据说，写一段有趣的简介，被关注的概率会翻倍哦～",
-                    fontSize = 13.sp,
-                    color = MaterialTheme.colorScheme.onSurfaceVariant,
-                )
-            }
-        }
-    }
-}
-
-// === 生日 DatePicker — 对标 EditPersonalInfoFragment.c() ===
-// minDate=1900-01-01, maxDate=今天, title="填写生日信息，当天会有神秘惊喜噢~"
-
-@Composable
-private fun BirthdayPickerDialog(
-    currentBirthday: String?,
-    onConfirm: (year: Int, month: Int, day: Int) -> Unit,
-    onDismiss: () -> Unit,
-) {
-    val calendar = remember {
-        if (currentBirthday != null && currentBirthday.contains("-")) {
-            val parts = currentBirthday.split("-")
-            val cal = Calendar.getInstance()
-            cal.set(
-                parts.getOrNull(0)?.toIntOrNull() ?: 2000,
-                (parts.getOrNull(1)?.toIntOrNull() ?: 1) - 1,
-                parts.getOrNull(2)?.toIntOrNull() ?: 1,
-            )
-            cal
-        } else {
-            Calendar.getInstance()
-        }
-    }
-
-    val year = calendar.get(Calendar.YEAR)
-    val month = calendar.get(Calendar.MONTH)
-    val day = calendar.get(Calendar.DAY_OF_MONTH)
-
-    val minCal = Calendar.getInstance().apply { set(1900, 0, 1) }
-    val maxCal = Calendar.getInstance()
-
-    DatePickerDialog(
-        LocalContext.current,
-        { _: DatePicker, selectedYear: Int, selectedMonth: Int, selectedDay: Int ->
-            onConfirm(selectedYear, selectedMonth + 1, selectedDay)
-        },
-        year,
-        month,
-        day,
-    ).apply {
-        datePicker.minDate = minCal.timeInMillis
-        datePicker.maxDate = maxCal.timeInMillis
-        setOnCancelListener { onDismiss() }
-        setTitle("填写生日信息，当天会有神秘惊喜噢~")
-    }.show()
-}
+// === 生日编辑 — 已迁移至 com.mengzhen.app.ui.fragments.EditPersonalInfoFragment (type=2) ===
+// 原版 EditPersonalInfoFragment.c() DatePickerDialog + com.ximalaya...util.ui.a 星座算法直接迁移。
+// 详见 main_fra_personal_edit.xml + main_v_switch_info.xml + ConstellationUtils.kt。
+// Compose BirthdayPickerDialog 已删除，逻辑全部回归原版 Fragment。
 
 // === 性别选择 — 对标 com.ximalaya.ting.android.main.dialog.c ===
-// 选项：男(male) / 女(female) / 不展示(secret)
+// 选项：男(male) / 女(female)；"不展示性别"作为 Dialog 内 CheckBox 开关
+// 实现：com.mengzhen.app.ui.fragments.GenderSelectDialog（原版 MenuDialog 子类直接迁移）
 
-@Composable
-private fun GenderPickerDialog(
-    currentGender: String?,
-    onConfirm: (String) -> Unit,
-    onDismiss: () -> Unit,
-) {
-    androidx.compose.material3.AlertDialog(
-        onDismissRequest = onDismiss,
-        title = { Text("性别") },
-        text = {
-            Column {
-                listOf("male" to "男", "female" to "女", "secret" to "不展示").forEach { (value, label) ->
-                    TextButton(
-                        onClick = { onConfirm(value) },
-                        modifier = Modifier.fillMaxWidth(),
-                    ) {
-                        Text(
-                            label,
-                            color = if (currentGender == value) {
-                                MaterialTheme.colorScheme.primary
-                            } else {
-                                MaterialTheme.colorScheme.onSurface
-                            },
-                        )
-                    }
-                }
-            }
-        },
-        confirmButton = {},
-    )
-}
-
-// === 地区选择 — 对标 RegionSelectFragment ===
-// 省市两级选择，数据来自 province_cities.json（本地等价）
-
-private data class Province(val name: String, val cities: List<String>)
-
-private val chinaProvinces = listOf(
-    Province("北京", listOf("东城区", "西城区", "朝阳区", "海淀区", "丰台区", "石景山区", "通州区", "昌平区", "大兴区", "顺义区")),
-    Province("上海", listOf("黄浦区", "徐汇区", "长宁区", "静安区", "普陀区", "虹口区", "杨浦区", "浦东新区", "闵行区", "宝山区")),
-    Province("广东", listOf("广州", "深圳", "珠海", "佛山", "东莞", "中山", "惠州", "汕头", "江门", "湛江")),
-    Province("浙江", listOf("杭州", "宁波", "温州", "绍兴", "嘉兴", "金华", "台州", "湖州", "丽水", "衢州")),
-    Province("江苏", listOf("南京", "苏州", "无锡", "常州", "南通", "徐州", "扬州", "泰州", "镇江", "盐城")),
-    Province("四川", listOf("成都", "绵阳", "德阳", "南充", "宜宾", "泸州", "乐山", "自贡", "内江", "达州")),
-    Province("湖北", listOf("武汉", "宜昌", "襄阳", "荆州", "十堰", "黄石", "荆门", "孝感", "黄冈", "咸宁")),
-    Province("湖南", listOf("长沙", "株洲", "湘潭", "衡阳", "岳阳", "常德", "郴州", "益阳", "永州", "怀化")),
-    Province("山东", listOf("济南", "青岛", "烟台", "潍坊", "淄博", "威海", "日照", "临沂", "济宁", "泰安")),
-    Province("河南", listOf("郑州", "洛阳", "开封", "新乡", "南阳", "安阳", "焦作", "许昌", "商丘", "信阳")),
-    Province("河北", listOf("石家庄", "唐山", "保定", "邯郸", "廊坊", "秦皇岛", "张家口", "承德", "沧州", "邢台")),
-    Province("福建", listOf("福州", "厦门", "泉州", "漳州", "莆田", "龙岩", "宁德", "三明", "南平")),
-    Province("安徽", listOf("合肥", "芜湖", "蚌埠", "淮南", "马鞍山", "淮北", "铜陵", "安庆", "黄山", "滁州")),
-    Province("江西", listOf("南昌", "九江", "上饶", "抚州", "宜春", "吉安", "赣州", "景德镇", "萍乡", "新余")),
-    Province("辽宁", listOf("沈阳", "大连", "鞍山", "抚顺", "本溪", "丹东", "锦州", "营口", "盘锦", "朝阳")),
-    Province("吉林", listOf("长春", "吉林", "四平", "辽源", "通化", "白山", "松原", "白城")),
-    Province("黑龙江", listOf("哈尔滨", "齐齐哈尔", "牡丹江", "佳木斯", "大庆", "鸡西", "双鸭山", "伊春", "七台河", "鹤岗")),
-    Province("陕西", listOf("西安", "宝鸡", "咸阳", "渭南", "延安", "汉中", "榆林", "安康", "商洛", "铜川")),
-    Province("山西", listOf("太原", "大同", "阳泉", "长治", "晋城", "朔州", "晋中", "运城", "忻州", "临汾")),
-    Province("云南", listOf("昆明", "曲靖", "玉溪", "保山", "昭通", "丽江", "普洱", "临沧", "大理", "楚雄")),
-    Province("贵州", listOf("贵阳", "遵义", "六盘水", "安顺", "毕节", "铜仁", "黔东南", "黔南", "黔西南")),
-    Province("广西", listOf("南宁", "柳州", "桂林", "梧州", "北海", "防城港", "钦州", "贵港", "玉林", "百色")),
-    Province("海南", listOf("海口", "三亚", "儋州", "三沙", "五指山", "琼海", "文昌", "万宁", "东方")),
-    Province("甘肃", listOf("兰州", "天水", "白银", "庆阳", "平凉", "酒泉", "张掖", "武威", "定西", "陇南")),
-    Province("青海", listOf("西宁", "海东", "海北", "黄南", "海南州", "果洛", "玉树", "海西")),
-    Province("宁夏", listOf("银川", "石嘴山", "吴忠", "固原", "中卫")),
-    Province("新疆", listOf("乌鲁木齐", "克拉玛依", "吐鲁番", "哈密", "昌吉", "博尔塔拉", "巴音郭楞", "阿克苏", "喀什", "伊犁")),
-    Province("内蒙古", listOf("呼和浩特", "包头", "乌海", "赤峰", "通辽", "鄂尔多斯", "呼伦贝尔", "巴彦淖尔", "乌兰察布")),
-    Province("西藏", listOf("拉萨", "日喀则", "昌都", "林芝", "山南", "那曲", "阿里")),
-    Province("天津", listOf("和平区", "河东区", "河西区", "南开区", "河北区", "红桥区", "东丽区", "西青区", "津南区", "北辰区")),
-    Province("重庆", listOf("渝中区", "江北区", "南岸区", "九龙坡区", "沙坪坝区", "大渡口区", "渝北区", "巴南区", "北碚区", "万州区")),
-    Province("香港", listOf("香港岛", "九龙", "新界")),
-    Province("澳门", listOf("澳门半岛", "氹仔", "路环")),
-    Province("台湾", listOf("台北", "新北", "桃园", "台中", "台南", "高雄", "基隆", "新竹", "嘉义")),
-    Province("海外", listOf("美国", "日本", "韩国", "新加坡", "马来西亚", "澳大利亚", "加拿大", "英国", "法国", "德国", "其他")),
-)
-
-@OptIn(ExperimentalMaterial3Api::class)
-@Composable
-private fun RegionPickerDialog(
-    currentLocation: String?,
-    onConfirm: (String) -> Unit,
-    onDismiss: () -> Unit,
-) {
-    var selectedProvince by remember { mutableStateOf<Province?>(null) }
-
-    Dialog(
-        onDismissRequest = onDismiss,
-        properties = DialogProperties(usePlatformDefaultWidth = false),
-    ) {
-        Scaffold(
-            topBar = {
-                TopAppBar(
-                    title = { Text(if (selectedProvince == null) "选择省份" else "选择城市") },
-                    navigationIcon = {
-                        IconButton(onClick = {
-                            if (selectedProvince != null) {
-                                selectedProvince = null
-                            } else {
-                                onDismiss()
-                            }
-                        }) {
-                            Icon(Icons.AutoMirrored.Filled.ArrowBack, contentDescription = "返回")
-                        }
-                    },
-                )
-            },
-            containerColor = MaterialTheme.colorScheme.surface,
-        ) { padding ->
-            if (selectedProvince == null) {
-                LazyColumn(
-                    modifier = Modifier.fillMaxSize().padding(padding),
-                ) {
-                    items(chinaProvinces) { province ->
-                        Row(
-                            modifier = Modifier
-                                .fillMaxWidth()
-                                .clickable { selectedProvince = province }
-                                .padding(horizontal = 20.dp, vertical = 16.dp),
-                            verticalAlignment = Alignment.CenterVertically,
-                        ) {
-                            Text(province.name, style = MaterialTheme.typography.bodyLarge)
-                            Spacer(Modifier.weight(1f))
-                            Icon(
-                                Icons.Default.ChevronRight,
-                                contentDescription = null,
-                                tint = MaterialTheme.colorScheme.onSurfaceVariant,
-                            )
-                        }
-                    }
-                }
-            } else {
-                LazyColumn(
-                    modifier = Modifier.fillMaxSize().padding(padding),
-                ) {
-                    items(selectedProvince!!.cities) { city ->
-                        Row(
-                            modifier = Modifier
-                                .fillMaxWidth()
-                                .clickable {
-                                    val region = "${selectedProvince!!.name} $city"
-                                    onConfirm(region)
-                                }
-                                .padding(horizontal = 20.dp, vertical = 16.dp),
-                            verticalAlignment = Alignment.CenterVertically,
-                        ) {
-                            Text(city, style = MaterialTheme.typography.bodyLarge)
-                            Spacer(Modifier.weight(1f))
-                            Icon(
-                                Icons.Default.ChevronRight,
-                                contentDescription = null,
-                                tint = MaterialTheme.colorScheme.onSurfaceVariant,
-                            )
-                        }
-                    }
-                }
-            }
-        }
-    }
-}
+// === 地区编辑 — 已迁移至 com.mengzhen.app.ui.fragments.RegionSelectFragment ===
+// 原版 RegionSelectFragment 直接迁移：host_fra_list_2 + main_item_city + assets/province_cities.json。
+// Compose RegionPickerDialog 与硬编码 chinaProvinces 已删除，逻辑全部回归原版 Fragment。
 
 // === 工具函数 ===
 

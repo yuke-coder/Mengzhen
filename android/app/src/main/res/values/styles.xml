@@ -123,4 +123,22 @@
         <item name="android:maxLines">10</item>
         <item name="android:scrollHorizontally">false</item>
     </style>
+
+    <!-- 喜马拉雅 9.5.4.7 0x7f13038c 直接迁移：生日 DatePickerDialog 主题（Holo.Light.Dialog + 透明窗口背景） -->
+    <style name="XmDatePickerDialog" parent="@android:style/Theme.Holo.Light.Dialog">
+        <item name="android:windowBackground">@color/xm_date_picker_bg</item>
+        <item name="android:windowFrame">@null</item>
+        <item name="android:windowNoTitle">true</item>
+        <item name="android:windowIsFloating">true</item>
+        <item name="android:windowContentOverlay">@null</item>
+    </style>
+
+    <!-- 喜马拉雅 9.5.4.7 0x7f1304d0 直接迁移：性别选择 Dialog 主题（Theme.Dialog + 透明窗口背景 + 浮动静中） -->
+    <style name="XmGenderSelectDialog" parent="@android:style/Theme.Dialog">
+        <item name="android:windowBackground">@color/xm_gender_select_list_cache</item>
+        <item name="android:windowFrame">@null</item>
+        <item name="android:windowNoTitle">true</item>
+        <item name="android:windowIsFloating">true</item>
+        <item name="android:windowContentOverlay">@null</item>
+    </style>
 </resources>

@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+  喜马拉雅 Android 9.5.4.7 host_fra_list_2.xml 迁移（地区选择 RegionSelectFragment 容器）。
+  原版为 merge：RefreshLoadMoreListView（下拉刷新已禁用）+ FrameLayout 标题栏。
+  适配为 LinearLayout：标题栏 include（复用 Mengzhen 统一标题栏）+ 普通 ListView。
+  列表背景 0x7f060e7f（浅 #FFFFFF / 深 #121212），与标题栏背景一致（原版 setTitleBar 同色）。
+-->
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <include
+        android:id="@+id/main_title_bar"
+        layout="@layout/ximalaya_alarm_title_bar"
+        android:background="@color/xm_region_list_bg"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/xm_personal_edit_title_bar_height" />
+
+    <!-- 原版 id host_listview1；底 padding 0x7f0700e4 = 70dp -->
+    <ListView
+        android:id="@id/host_listview1"
+        android:background="@color/xm_region_list_bg"
+        android:listSelector="@android:color/transparent"
+        android:divider="@null"
+        android:dividerHeight="0.0dp"
+        android:clipToPadding="false"
+        android:paddingBottom="70.0dp"
+        android:scrollbars="none"
+        android:overScrollMode="always"
+        android:focusable="false"
+        android:focusableInTouchMode="false"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" />
+</LinearLayout>

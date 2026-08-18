@@ -1,0 +1,328 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+  喜马拉雅 Android 9.5.4.7 main_fra_personal_edit.xml 迁移。
+  原版为 merge 布局，包含昵称(type=1)/生日(type=2)/简介(type=3) 三种编辑形态。
+  已迁移 type=1 昵称与 type=2 生日所需 View：
+  - main_title_bar：标题栏占位容器（高度 50dp，由 Fragment 动态填充标题栏）
+  - main_change_nickname：昵称输入区，含 EditText / 字数统计 / 清除按钮
+  - main_hint_vertified：规则文案 TextView
+  - main_v_switch：不展示生日开关（main_v_switch_info.xml）
+  - main_change_birth_date / main_change_constellation：生日、星座行
+  - main_change_brief：简介编辑区（type=3），含输入框 / 剩余字数 / 示例引导 / 规则链接
+    ConstraintLayout 属性映射（原版 apktool renamed attr，按约束语义还原）：
+    0x7f0403ea=layout_constraintStart_toEndOf, 0x7f0403ef=layout_constraintTop_toTopOf,
+    0x7f0403eb=layout_constraintStart_toStartOf, 0x7f0403d2=layout_constraintBottom_toBottomOf,
+    0x7f0403d8=layout_constraintEnd_toEndOf, 0x7f0403ee=layout_constraintTop_toBottomOf
+-->
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    android:background="@color/xm_personal_edit_container_bg"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <include
+        android:id="@+id/main_title_bar"
+        layout="@layout/ximalaya_alarm_title_bar"
+        android:background="@color/xm_personal_edit_container_bg"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/xm_personal_edit_title_bar_height" />
+
+    <RelativeLayout
+        android:id="@id/main_change_nickname"
+        android:background="@color/xm_personal_edit_container_bg"
+        android:paddingLeft="20.0dp"
+        android:paddingRight="20.0dp"
+        android:visibility="gone"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10.0dp"
+        android:minHeight="50.0dp">
+        <EditText
+            android:textSize="14.0sp"
+            android:textColor="@color/xm_personal_edit_input_text"
+            android:textColorHint="@color/xm_personal_edit_input_hint"
+            android:gravity="left|center"
+            android:id="@id/main_et_edit_nickname"
+            android:background="@null"
+            android:focusable="true"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="@string/xm_personal_edit_nickname_hint"
+            android:maxLines="1"
+            android:layout_weight="1.0"
+            android:layout_toLeftOf="@id/main_tv_left_total"
+            android:layout_centerVertical="true"
+            android:imeOptions="actionDone"
+            android:textCursorDrawable="@null" />
+        <TextView
+            android:textSize="11.0sp"
+            android:textColor="@color/xm_personal_edit_word_count"
+            android:id="@id/main_tv_left_total"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_toLeftOf="@id/main_clear_nickname"
+            android:layout_centerVertical="true" />
+        <ImageView
+            android:id="@id/main_clear_nickname"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="10.0dp"
+            android:src="@drawable/xm_personal_edit_clear_nickname"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:contentDescription="@string/xm_personal_edit_clear" />
+    </RelativeLayout>
+
+    <TextView
+        android:textSize="12.0sp"
+        android:textColor="@color/xm_personal_edit_word_count"
+        android:gravity="left"
+        android:id="@id/main_hint_vertified"
+        android:paddingLeft="16.0dp"
+        android:paddingTop="16.0dp"
+        android:paddingRight="16.0dp"
+        android:visibility="gone"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />
+
+    <!-- 生日编辑区（type=2）：不展示开关 / 生日行 / 分隔线 / 星座行，全部默认 gone，由 Fragment 按需显示 -->
+    <include
+        android:id="@id/main_v_switch"
+        layout="@layout/main_v_switch_info"
+        android:visibility="gone" />
+
+    <LinearLayout
+        android:gravity="center_vertical"
+        android:id="@id/main_change_birth_date"
+        android:background="@drawable/xm_personal_edit_row_bg"
+        android:paddingLeft="20.0dp"
+        android:paddingRight="20.0dp"
+        android:visibility="gone"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:minHeight="50.0dp">
+        <TextView
+            android:textSize="15.0sp"
+            android:textColor="@color/xm_personal_edit_label_text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/xm_personal_edit_birth_label" />
+        <TextView
+            android:textSize="13.0sp"
+            android:textColor="@color/xm_personal_edit_value_text"
+            android:textColorHint="@color/xm_personal_edit_value_text"
+            android:gravity="right|center"
+            android:id="@id/main_tv_change_birth_date"
+            android:background="@null"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:hint="@string/xm_personal_edit_unfilled"
+            android:maxLines="1"
+            android:layout_weight="1.0" />
+    </LinearLayout>
+
+    <View
+        android:background="@color/xm_personal_edit_divider_line"
+        android:visibility="gone"
+        android:layout_width="20.0dp"
+        android:layout_height="1.0px" />
+
+    <LinearLayout
+        android:gravity="center_vertical"
+        android:id="@id/main_change_constellation"
+        android:background="@drawable/xm_personal_edit_row_bg"
+        android:paddingLeft="20.0dp"
+        android:paddingRight="20.0dp"
+        android:visibility="gone"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:minHeight="50.0dp">
+        <TextView
+            android:textSize="15.0sp"
+            android:textColor="@color/xm_personal_edit_label_text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/xm_personal_edit_constellation_label" />
+        <TextView
+            android:textSize="13.0sp"
+            android:textColor="@color/xm_personal_edit_value_text"
+            android:textColorHint="@color/xm_personal_edit_value_text"
+            android:gravity="right|center"
+            android:id="@id/main_tv_change_constellation"
+            android:background="@null"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:hint="@string/xm_personal_edit_unfilled"
+            android:maxLines="1"
+            android:layout_weight="1.0" />
+    </LinearLayout>
+
+    <!-- 简介编辑区（type=3）：原版 main_change_brief，默认 gone，由 Fragment 按需显示 -->
+    <RelativeLayout
+        android:id="@id/main_change_brief"
+        android:background="@color/xm_personal_edit_container_bg"
+        android:visibility="gone"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+        <EditText
+            android:textSize="14.0sp"
+            android:textColor="@color/xm_personal_edit_input_text"
+            android:textColorHint="@color/xm_personal_edit_input_hint"
+            android:ellipsize="end"
+            android:gravity="left"
+            android:id="@id/main_et_edit_brief"
+            android:background="@drawable/xm_personal_edit_brief_field_bg"
+            android:paddingLeft="15.0dp"
+            android:paddingTop="15.0dp"
+            android:paddingRight="15.0dp"
+            android:paddingBottom="30.0dp"
+            android:focusable="true"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="10.0dp"
+            android:layout_marginTop="10.0dp"
+            android:layout_marginRight="10.0dp"
+            android:minHeight="200.0dp"
+            android:hint="@string/xm_personal_edit_brief_hint"
+            android:maxLength="300"
+            android:imeOptions="actionNext"
+            android:textCursorDrawable="@null" />
+        <TextView
+            android:textSize="11.0sp"
+            android:textColor="@color/xm_personal_edit_word_count"
+            android:id="@id/main_left_word_count"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginRight="10.0dp"
+            android:layout_marginBottom="10.0dp"
+            android:layout_alignRight="@id/main_et_edit_brief"
+            android:layout_alignBottom="@id/main_et_edit_brief" />
+        <!-- 示例引导区：原版依赖远端配置 gryjjsl，为空时整区 GONE（Mengzhen 恒走该路径） -->
+        <RelativeLayout
+            android:id="@id/main_rl_brief_guide"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/main_et_edit_brief">
+            <TextView
+                android:textColor="@color/xm_personal_edit_intro_guide"
+                android:id="@id/tvIntro"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="12.0dp"
+                android:text="@string/xm_personal_edit_brief_intro"
+                android:layout_marginStart="10.0dp" />
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="12.0dp"
+                android:text="@string/xm_personal_edit_brief_example"
+                android:layout_below="@id/tvIntro"
+                android:layout_marginStart="10.0dp" />
+            <LinearLayout
+                android:orientation="horizontal"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="72.0dp"
+                android:layout_marginStart="10.0dp"
+                android:layout_marginEnd="10.0dp">
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:background="@drawable/xm_personal_edit_brief_field_bg"
+                    android:layout_width="0.0dp"
+                    android:layout_height="match_parent"
+                    android:minHeight="90.0dp"
+                    android:layout_weight="1.0">
+                    <com.ximalaya.ting.android.framework.view.image.RoundImageView
+                        android:id="@id/main_edit_brief_example_left_avatar"
+                        android:layout_width="24.0dp"
+                        android:layout_height="24.0dp"
+                        android:layout_marginTop="10.0dp"
+                        android:scaleType="centerCrop"
+                        android:layout_marginStart="10.0dp"
+                        app:corner_radius="12.0dp"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent" />
+                    <TextView
+                        android:textColor="@color/xm_personal_edit_example_name"
+                        android:id="@id/main_edit_brief_example_left_nickname"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/xm_personal_edit_brief_example_nickname"
+                        android:layout_marginStart="6.0dp"
+                        app:layout_constraintBottom_toBottomOf="@id/main_edit_brief_example_left_avatar"
+                        app:layout_constraintStart_toEndOf="@id/main_edit_brief_example_left_avatar"
+                        app:layout_constraintTop_toTopOf="@id/main_edit_brief_example_left_avatar" />
+                    <TextView
+                        android:textColor="@color/xm_personal_edit_example_content"
+                        android:ellipsize="end"
+                        android:id="@id/main_edit_brief_example_left_content"
+                        android:layout_width="0.0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="6.0dp"
+                        android:layout_marginBottom="10.0dp"
+                        android:maxLength="300"
+                        android:layout_marginStart="12.0dp"
+                        android:layout_marginEnd="12.0dp"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@id/main_edit_brief_example_left_avatar" />
+                </androidx.constraintlayout.widget.ConstraintLayout>
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:background="@drawable/xm_personal_edit_brief_field_bg"
+                    android:layout_width="0.0dp"
+                    android:layout_height="match_parent"
+                    android:minHeight="90.0dp"
+                    android:layout_weight="1.0"
+                    android:layout_marginStart="8.0dp">
+                    <com.ximalaya.ting.android.framework.view.image.RoundImageView
+                        android:id="@id/main_edit_brief_example_right_avatar"
+                        android:layout_width="24.0dp"
+                        android:layout_height="24.0dp"
+                        android:layout_marginTop="10.0dp"
+                        android:scaleType="centerCrop"
+                        android:layout_marginStart="10.0dp"
+                        app:corner_radius="12.0dp"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent" />
+                    <TextView
+                        android:textColor="@color/xm_personal_edit_example_name"
+                        android:id="@id/main_edit_brief_example_right_nickname"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/xm_personal_edit_brief_example_nickname"
+                        android:layout_marginStart="6.0dp"
+                        app:layout_constraintBottom_toBottomOf="@id/main_edit_brief_example_right_avatar"
+                        app:layout_constraintStart_toEndOf="@id/main_edit_brief_example_right_avatar"
+                        app:layout_constraintTop_toTopOf="@id/main_edit_brief_example_right_avatar" />
+                    <TextView
+                        android:textColor="@color/xm_personal_edit_example_content"
+                        android:ellipsize="end"
+                        android:id="@id/main_edit_brief_example_right_content"
+                        android:layout_width="0.0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="6.0dp"
+                        android:layout_marginBottom="10.0dp"
+                        android:maxLength="300"
+                        android:layout_marginStart="12.0dp"
+                        android:layout_marginEnd="12.0dp"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@id/main_edit_brief_example_right_avatar" />
+                </androidx.constraintlayout.widget.ConstraintLayout>
+            </LinearLayout>
+        </RelativeLayout>
+        <TextView
+            android:textColor="@color/xm_personal_edit_link_text"
+            android:layout_gravity="bottom"
+            android:id="@id/main_tv_rule"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="70.0dp"
+            android:text="@string/xm_personal_edit_brief_rule"
+            android:layout_alignParentBottom="true"
+            android:layout_centerHorizontal="true" />
+    </RelativeLayout>
+</LinearLayout>

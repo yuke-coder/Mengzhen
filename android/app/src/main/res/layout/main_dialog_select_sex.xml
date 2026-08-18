@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+  喜马拉雅 Android 9.5.4.7 main_dialog_select_sex.xml 直接迁移。
+  对应原版 com.ximalaya.ting.android.main.dialog.c (性别选择 MenuDialog 子类) 的布局。
+  仅修改资源引用为 Mengzhen 命名（颜色/Drawable 均为原版同值迁移）。
+-->
+<!-- 根高度适配为 wrap_content：原版依赖其 Dialog 框架测量，直接 match_parent 会把
+     浮动静中窗口撑至近全屏，卡片四周仅剩 20dp dim 遮罩缝（呈现为贴身灰框）。 -->
+<FrameLayout android:layout_width="match_parent" android:layout_height="wrap_content"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <LinearLayout android:orientation="vertical" android:id="@id/main_ll_layout"
+        android:background="@drawable/xm_gender_select_container_bg"
+        android:layout_width="match_parent" android:layout_height="wrap_content"
+        android:layout_margin="20.0dp">
+        <TextView android:textSize="15.0sp" android:textColor="@color/xm_gender_select_title"
+            android:gravity="center" android:id="@id/main_title_tv"
+            android:layout_width="match_parent" android:layout_height="50.0dp"
+            android:text="@string/xm_gender_select_title" />
+        <View android:background="@color/xm_gender_select_divider"
+            android:layout_width="match_parent" android:layout_height="1.0px" />
+        <RelativeLayout android:layout_width="match_parent" android:layout_height="48.0dp">
+            <CheckBox android:id="@id/main_cb_sex"
+                android:background="@drawable/xm_gender_select_cb_selector"
+                android:layout_width="wrap_content" android:layout_height="wrap_content"
+                android:layout_marginRight="16.0dp" android:checked="false"
+                android:button="@null" android:layout_alignParentRight="true"
+                android:layout_centerVertical="true" />
+            <TextView android:textSize="15.0sp" android:textStyle="bold"
+                android:textColor="@color/xm_gender_select_switch_text"
+                android:id="@id/main_tv_switch_sex_title" android:paddingLeft="16.0dp"
+                android:layout_width="match_parent" android:layout_height="wrap_content"
+                android:layout_marginRight="20.0dp" android:text="@string/xm_gender_select_switch_text"
+                android:singleLine="true" android:layout_toLeftOf="@id/main_cb_sex"
+                android:layout_centerVertical="true" android:fontFamily="sans-serif-light" />
+        </RelativeLayout>
+        <View android:background="@color/xm_gender_select_divider"
+            android:layout_width="match_parent" android:layout_height="1.0px" />
+        <ListView android:id="@id/main_ll_listview" android:paddingBottom="3.0dp"
+            android:focusable="false" android:focusableInTouchMode="false"
+            android:scrollbars="none" android:fadingEdge="none"
+            android:layout_width="match_parent" android:layout_height="wrap_content"
+            android:layout_marginBottom="6.0dp" android:cacheColorHint="@color/xm_gender_select_list_cache"
+            android:divider="@color/xm_gender_select_divider" android:dividerHeight="1.0px" />
+    </LinearLayout>
+</FrameLayout>

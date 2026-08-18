@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+  喜马拉雅 Android 9.5.4.7 main_v_switch_info.xml 直接迁移。
+  生日编辑页"不展示生日"开关；CheckBox 背景 0x7f080df0 即性别弹窗已迁移的 selector。
+  Fragment 在 initUi(type=2) 中将标题覆盖为"不展示"（原版硬编码 setText("不展示")）。
+-->
+<RelativeLayout
+    android:background="@drawable/xm_personal_edit_row_bg"
+    android:layout_width="match_parent"
+    android:layout_height="50.0dp"
+    xmlns:android="http://schemas.android.com/apk/res/android">
+    <CheckBox
+        android:id="@id/main_cb_switch"
+        android:background="@drawable/xm_gender_select_cb_selector"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginRight="16.0dp"
+        android:checked="false"
+        android:button="@null"
+        android:layout_alignParentRight="true"
+        android:layout_centerVertical="true" />
+    <TextView
+        android:textSize="15.0sp"
+        android:textStyle="bold"
+        android:textColor="@color/xm_personal_edit_link_text"
+        android:id="@id/main_tv_switch_title"
+        android:paddingLeft="16.0dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginRight="20.0dp"
+        android:text="不展示"
+        android:singleLine="true"
+        android:layout_toLeftOf="@id/main_cb_switch"
+        android:layout_centerVertical="true"
+        android:fontFamily="sans-serif-light" />
+</RelativeLayout>

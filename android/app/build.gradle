@@ -81,6 +81,7 @@ dependencies {
     implementation "androidx.appcompat:appcompat:$androidxAppCompatVersion"
     implementation "androidx.core:core-ktx:1.19.0"
     implementation "androidx.core:core-splashscreen:$coreSplashScreenVersion"
+    implementation "androidx.fragment:fragment-ktx:$androidxFragmentVersion"
     implementation "androidx.activity:activity-compose:1.13.0"
     implementation "androidx.lifecycle:lifecycle-runtime-ktx:2.11.0"
     implementation "androidx.lifecycle:lifecycle-viewmodel-compose:2.11.0"
@@ -119,10 +120,10 @@ dependencies {
     
     // Media
     implementation "androidx.media:media:1.8.0"
-    implementation "androidx.media3:media3-exoplayer:1.10.1"
-    implementation "androidx.media3:media3-ui:1.10.1"
-    implementation "androidx.media3:media3-session:1.10.1"
-    implementation "androidx.media3:media3-datasource:1.10.1"
+    implementation "androidx.media3:media3-exoplayer:1.11.0"
+    implementation "androidx.media3:media3-ui:1.11.0"
+    implementation "androidx.media3:media3-session:1.11.0"
+    implementation "androidx.media3:media3-datasource:1.11.0"
 
     // 喜马拉雅 9.4.95.3 播放控制区使用的原始 Lottie 动画。
     implementation "com.airbnb.android:lottie:6.7.1"

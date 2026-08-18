@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- 喜马拉雅 9.5.4.7：0x7f081b56 / 0x7f081b57（内容完全相同，合并迁移）—
+     简介输入框与示例卡片背景：solid 0x7f060d72（浅 #f5f5f5 / 深 #1e1e1e）+ 8dp 圆角 -->
+<shape xmlns:android="http://schemas.android.com/apk/res/android">
+    <solid android:color="@color/xm_personal_edit_brief_input_bg" />
+    <corners android:radius="8.0dp" />
+</shape>

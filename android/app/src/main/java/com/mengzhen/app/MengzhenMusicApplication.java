@@ -13,6 +13,18 @@ import com.tencent.qqmusiccommon.util.Util4Process;
 
 public final class MengzhenMusicApplication extends MusicApplication {
     @Override
+    public void onCreate() {
+        super.onCreate();
+        // QQ Music image pipeline (e.g. PictureSelectorActivity) needs
+        // com.tencent.qqmusic.module.common.a to hold the Application context.
+        // MusicApplication only stores it in its own mContext field — the
+        // module-level holder is never primed, so the first call to
+        // CgiUtil.init() → sp.a.c() → a.c() → getSharedPreferences()
+        // throws a NullPointerException.
+        com.tencent.qqmusic.module.common.a.d(getApplicationContext());
+    }
+
+    @Override
     public Intent registerReceiver(BroadcastReceiver receiver, IntentFilter filter) {
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.TIRAMISU) {
             return super.registerReceiver(receiver, filter, Context.RECEIVER_NOT_EXPORTED);

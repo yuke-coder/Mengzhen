@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- 喜马拉雅 9.5.4.7 APKTOOL_RENAMED_0x7f080354 直接迁移：性别选择 Dialog 容器背景 -->
+<shape xmlns:android="http://schemas.android.com/apk/res/android">
+    <corners android:radius="4.0dp" />
+    <solid android:color="@color/xm_gender_select_container_bg" />
+</shape>
