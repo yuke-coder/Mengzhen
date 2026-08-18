@@ -132,3 +132,12 @@ tmp_*
 /android/screen*.png
 /android/ui_*.xml
 /android/dream_pillow_session.xml
+android/direct-*.txt
+android/final-*.txt
+android/xm_intro_edit*.png
+
+# Runtime repack backup (research material, large binaries)
+/android/qqmusic-runtime/libs/runtime.orig-bak/
+
+# Device screenshots from QA (never commit)
+/screenshot*.png
