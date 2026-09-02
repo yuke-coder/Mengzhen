@@ -12,6 +12,7 @@ export async function POST(request: NextRequest) {
     const username = typeof body.username === 'string' ? body.username.trim() : '';
     const password = typeof body.password === 'string' ? body.password : '';
     const turnstileToken = typeof body.turnstileToken === 'string' ? body.turnstileToken : '';
+    const isAndroidClient = request.headers.get('x-mengzhen-client') === 'android';
 
     // 验证必填字段
     if (!username || !password) {
@@ -36,8 +37,8 @@ export async function POST(request: NextRequest) {
       );
     }
 
-    // 验证 Turnstile 人机验证
-    if (!turnstileToken || !(await verifyTurnstileToken(turnstileToken))) {
+    // Web 端保留 Turnstile；安卓原生端不再启动验证页面。
+    if (!isAndroidClient && (!turnstileToken || !(await verifyTurnstileToken(turnstileToken)))) {
       return NextResponse.json(
         { success: false, error: '人机验证失败，请重试' },
         { status: 403 }
