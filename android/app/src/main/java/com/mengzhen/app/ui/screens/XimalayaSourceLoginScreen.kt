@@ -2,6 +2,7 @@ package com.mengzhen.app.ui.screens
 
 import android.app.Activity
 import android.content.Context
+import android.content.ContextWrapper
 import android.graphics.Typeface
 import android.text.Editable
 import android.text.InputType
@@ -20,8 +21,6 @@ import android.widget.FrameLayout
 import android.widget.ImageView
 import android.widget.TextView
 import androidx.activity.compose.BackHandler
-import androidx.activity.compose.rememberLauncherForActivityResult
-import androidx.activity.result.contract.ActivityResultContracts
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
@@ -37,7 +36,6 @@ import androidx.constraintlayout.widget.ConstraintLayout
 import androidx.core.content.ContextCompat
 import androidx.navigation.NavController
 import com.mengzhen.app.R
-import com.mengzhen.app.auth.TurnstileChallengeActivity
 import com.mengzhen.app.data.api.ApiClient
 import com.mengzhen.app.data.model.parseUser
 import com.mengzhen.app.data.store.TaskStore
@@ -72,7 +70,7 @@ private data class PendingSourceAuth(
  * 按钮状态、密码显隐、加载动画和返回行为均沿用客户端源码。
  */
 @Composable
-fun LoginScreen(navController: NavController) {
+fun LoginScreen(navController: NavController, returnTo: String? = null) {
     val context = androidx.compose.ui.platform.LocalContext.current
     val scope = rememberCoroutineScope()
     val store = remember(context) { TaskStore.get(context) }
@@ -84,9 +82,20 @@ fun LoginScreen(navController: NavController) {
     var password by rememberSaveable { mutableStateOf("") }
     var passwordVisible by rememberSaveable { mutableStateOf(false) }
     var loading by remember { mutableStateOf(false) }
-    var pendingAuth by remember { mutableStateOf<PendingSourceAuth?>(null) }
 
-    fun authenticate(request: PendingSourceAuth, turnstileToken: String) {
+    fun finishAuthentication() {
+        val destination = returnTo?.takeIf(String::isNotBlank)
+        if (destination != null) {
+            navController.navigate(destination) {
+                popUpTo(Screen.Login.ROUTE_PATTERN) { inclusive = true }
+                launchSingleTop = true
+            }
+        } else if (!navController.popBackStack()) {
+            navController.navigate(Screen.Settings.route) { launchSingleTop = true }
+        }
+    }
+
+    fun authenticate(request: PendingSourceAuth) {
         val failureMessage =
             if (request.mode == SourceAuthMode.LOGIN) "登录失败" else "注册失败"
         scope.launch(Dispatchers.IO) {
@@ -95,13 +104,11 @@ fun LoginScreen(navController: NavController) {
                     SourceAuthMode.LOGIN -> api.login(
                         request.username,
                         request.password,
-                        turnstileToken,
                     )
 
                     SourceAuthMode.REGISTER -> api.register(
                         request.username,
                         request.password,
-                        turnstileToken,
                     )
                 }
                 if (result.optBoolean("success", false)) {
@@ -121,9 +128,7 @@ fun LoginScreen(navController: NavController) {
                             context,
                             if (request.mode == SourceAuthMode.LOGIN) "登录成功" else "注册成功",
                         )
-                        if (!navController.popBackStack()) {
-                            navController.navigate(Screen.Settings.route) { launchSingleTop = true }
-                        }
+                        finishAuthentication()
                     }
                 } else {
                     val message = result.optString("error")
@@ -149,28 +154,9 @@ fun LoginScreen(navController: NavController) {
         }
     }
 
-    val turnstileLauncher = rememberLauncherForActivityResult(
-        ActivityResultContracts.StartActivityForResult(),
-    ) { result ->
-        val request = pendingAuth
-        pendingAuth = null
-        val token = result.data?.getStringExtra(TurnstileChallengeActivity.EXTRA_TOKEN)
-        if (result.resultCode == Activity.RESULT_OK && request != null && !token.isNullOrBlank()) {
-            authenticate(request, token)
-            return@rememberLauncherForActivityResult
-        }
-
-        loading = false
-        val error = result.data?.getStringExtra(TurnstileChallengeActivity.EXTRA_ERROR)
-        if (error.isNullOrBlank()) {
-            AppNotice.warning(context, "安全验证已取消")
-        } else {
-            AppNotice.error(context, error)
-        }
-    }
-
     fun showAccount() {
         if (loading) return
+        hideLoginKeyboard(context)
         password = ""
         passwordVisible = false
         step = SourceLoginStep.ACCOUNT
@@ -197,6 +183,15 @@ fun LoginScreen(navController: NavController) {
     }
 
     fun enterAsGuest() {
+        hideLoginKeyboard(context)
+        if (!navController.popBackStack()) {
+            navController.navigate(Screen.Settings.route) { launchSingleTop = true }
+        }
+    }
+
+    fun exitLogin() {
+        if (loading) return
+        hideLoginKeyboard(context)
         if (!navController.popBackStack()) {
             navController.navigate(Screen.Settings.route) { launchSingleTop = true }
         }
@@ -224,22 +219,15 @@ fun LoginScreen(navController: NavController) {
             password = password,
         )
         loading = true
-        pendingAuth = request
-        runCatching {
-            turnstileLauncher.launch(TurnstileChallengeActivity.createIntent(context))
-        }.onFailure {
-            pendingAuth = null
-            loading = false
-            AppNotice.error(context, "无法启动安全验证，请重试")
-        }
+        authenticate(request)
     }
 
-    BackHandler(
-        enabled = step == SourceLoginStep.PASSWORD || mode == SourceAuthMode.REGISTER,
-    ) {
+    BackHandler(enabled = !loading) {
         when {
+            // 密码页返回账号页是原页面的正常两步登录行为。
             step == SourceLoginStep.PASSWORD -> showAccount()
             mode == SourceAuthMode.REGISTER -> switchMode(SourceAuthMode.LOGIN)
+            else -> exitLogin()
         }
     }
 
@@ -257,7 +245,7 @@ fun LoginScreen(navController: NavController) {
                             if (mode == SourceAuthMode.REGISTER) {
                                 switchMode(SourceAuthMode.LOGIN)
                             } else {
-                                navController.popBackStack()
+                                exitLogin()
                             }
                         },
                         onGuest = ::enterAsGuest,
@@ -302,6 +290,14 @@ fun LoginScreen(navController: NavController) {
                     updateAccountButton(root, username, loading)
                 }
             },
+            onRelease = { root ->
+                // AndroidView 释放时 Compose 可能仍在处理一次返回手势；
+                // 先撤销输入焦点和 IME，避免旧字段在新页面挂载后重新抢焦点。
+                hideLoginKeyboard(root.context)
+                root.clearFocus()
+                root.findViewById<EditText>(R.id.login_v2_pe_input)?.clearFocus()
+                root.findViewById<EditText>(R.id.login_v2_pwd_input)?.clearFocus()
+            },
         )
     }
 }
@@ -324,6 +320,7 @@ private fun createAccountView(
 ): View {
     val root = LayoutInflater.from(context)
         .inflate(R.layout.login_phone_email_v2_layout, null, false)
+    root.isFocusableInTouchMode = true
 
     root.findViewById<TextView>(R.id.login_v2_pe_title).text =
         if (mode == SourceAuthMode.LOGIN) "账号登录" else "注册账号"
@@ -371,10 +368,9 @@ private fun createAccountView(
 
     clear.visibility = if (initialUsername.isNotEmpty()) View.VISIBLE else View.INVISIBLE
     updateAccountButton(root, initialUsername, loading = false)
-    input.post {
-        input.requestFocus()
-        input.showKeyboard()
-    }
+    // 账号页不主动抢焦点。系统返回手势不再先被自动弹出的 IME 消耗，
+    // 用户点击输入框后仍可按 Android 默认行为唤起键盘。
+    root.post { if (root.isAttachedToWindow) root.requestFocus() }
     return root
 }
 
@@ -448,8 +444,10 @@ private fun createPasswordView(
         mode = mode,
     )
     input.post {
-        input.requestFocus()
-        input.showKeyboard()
+        if (input.isAttachedToWindow) {
+            input.requestFocus()
+            input.showKeyboard()
+        }
     }
     return root
 }
@@ -585,6 +583,23 @@ private fun View.showKeyboard() {
 private fun View.hideKeyboard() {
     (context.getSystemService(Context.INPUT_METHOD_SERVICE) as? InputMethodManager)
         ?.hideSoftInputFromWindow(windowToken, 0)
+}
+
+private fun hideLoginKeyboard(context: Context) {
+    val activity = context.findActivity() ?: return
+    val focused = activity.currentFocus
+    focused?.clearFocus()
+    // Hide against the decor window as well as the focused field.  The latter
+    // can already be detached while a predictive-back gesture is finishing.
+    val tokenView = focused ?: activity.window.decorView
+    tokenView.hideKeyboard()
+    activity.window.decorView.clearFocus()
+}
+
+private tailrec fun Context.findActivity(): Activity? = when (this) {
+    is Activity -> this
+    is ContextWrapper -> baseContext.findActivity()
+    else -> null
 }
 
 private fun Context.dp(value: Int): Int =
