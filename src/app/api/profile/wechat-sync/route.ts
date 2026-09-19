@@ -26,6 +26,10 @@ type WechatAccessToken = WechatError & {
 type WechatUserInfo = WechatError & {
   nickname?: string;
   headimgurl?: string;
+  sex?: number;
+  country?: string;
+  province?: string;
+  city?: string;
 };
 
 async function fetchWithTimeout(
@@ -120,44 +124,27 @@ export async function POST(request: NextRequest) {
     const nickname = wechatProfile.nickname?.trim().slice(0, 50) ?? "";
     const headImageUrl = wechatProfile.headimgurl?.trim() ?? "";
     const avatarUrl = normalizeWechatAvatarUrl(headImageUrl);
-    if (wechatProfile.errcode || !nickname || !avatarUrl) {
+    const gender = wechatProfile.sex === 1
+      ? "male"
+      : wechatProfile.sex === 2
+        ? "female"
+        : null;
+    const location = [
+      wechatProfile.country,
+      wechatProfile.province,
+      wechatProfile.city,
+    ]
+      .map((part) => part?.trim())
+      .filter((part): part is string => Boolean(part))
+      .join(" ")
+      .trim() || null;
+
+    // 微信允许用户关闭头像/昵称等资料返回；缺失字段不是错误，调用方应
+    // 保留本地已有值。只有微信明确返回错误码时才提示授权失败。
+    if (wechatProfile.errcode) {
       return NextResponse.json(
-        { success: false, error: "未能读取微信头像和昵称" },
+        { success: false, error: "微信授权已失效，请重试" },
         { status: 502 },
-      );
-    }
-
-    const avatarResponse = await fetchWithTimeout(avatarUrl.toString(), {
-      redirect: "error",
-      headers: { Accept: "image/jpeg,image/png,image/webp" },
-    });
-    if (!avatarResponse.ok) throw new Error("WECHAT_AVATAR_HTTP_ERROR");
-
-    const declaredLength = Number(avatarResponse.headers.get("content-length") || "0");
-    if (declaredLength > MAX_AVATAR_BYTES) {
-      return NextResponse.json(
-        { success: false, error: "微信头像文件过大" },
-        { status: 413 },
-      );
-    }
-    const contentType = avatarResponse.headers
-      .get("content-type")
-      ?.split(";", 1)[0]
-      .trim()
-      .toLowerCase() ?? "";
-    const extension = IMAGE_TYPES.get(contentType);
-    if (!extension) {
-      return NextResponse.json(
-        { success: false, error: "微信头像格式不受支持" },
-        { status: 415 },
-      );
-    }
-
-    const avatarBytes = new Uint8Array(await avatarResponse.arrayBuffer());
-    if (avatarBytes.byteLength === 0 || avatarBytes.byteLength > MAX_AVATAR_BYTES) {
-      return NextResponse.json(
-        { success: false, error: "微信头像文件无效" },
-        { status: 413 },
       );
     }
 
@@ -168,23 +155,107 @@ export async function POST(request: NextRequest) {
         { status: 503 },
       );
     }
-    const fileKey = `avatars/${user.id}/wechat_${Date.now()}_${randomUUID().slice(0, 8)}.${extension}`;
-    const { error: uploadError } = await supabase.storage
-      .from("avatars")
-      .upload(fileKey, avatarBytes, {
-        contentType,
-        upsert: false,
-      });
-    if (uploadError) throw new Error("WECHAT_AVATAR_UPLOAD_ERROR");
 
-    const { data: publicUrl } = supabase.storage
-      .from("avatars")
-      .getPublicUrl(fileKey);
+    // 头像是可选字段。微信头像地址偶尔过期或存储服务暂时不可用时，
+    // 仍然要把昵称/性别/地区写入，不能让一个缺失头像阻断整次同步。
+    let syncedAvatarUrl: string | null = null;
+    if (avatarUrl) {
+      try {
+        const avatarResponse = await fetchWithTimeout(avatarUrl.toString(), {
+          redirect: "error",
+          headers: { Accept: "image/jpeg,image/png,image/webp" },
+        });
+        if (!avatarResponse.ok) throw new Error("WECHAT_AVATAR_HTTP_ERROR");
+
+        const declaredLength = Number(avatarResponse.headers.get("content-length") || "0");
+        if (declaredLength > MAX_AVATAR_BYTES) throw new Error("WECHAT_AVATAR_TOO_LARGE");
+
+        const contentType = avatarResponse.headers
+          .get("content-type")
+          ?.split(";", 1)[0]
+          .trim()
+          .toLowerCase() ?? "";
+        const extension = IMAGE_TYPES.get(contentType);
+        if (!extension) throw new Error("WECHAT_AVATAR_TYPE_UNSUPPORTED");
+
+        const avatarBytes = new Uint8Array(await avatarResponse.arrayBuffer());
+        if (avatarBytes.byteLength === 0 || avatarBytes.byteLength > MAX_AVATAR_BYTES) {
+          throw new Error("WECHAT_AVATAR_INVALID");
+        }
+
+        const fileKey = `avatars/${user.id}/wechat_${Date.now()}_${randomUUID().slice(0, 8)}.${extension}`;
+        const { error: uploadError } = await supabase.storage
+          .from("avatars")
+          .upload(fileKey, avatarBytes, {
+            contentType,
+            upsert: false,
+          });
+        if (uploadError) throw new Error("WECHAT_AVATAR_UPLOAD_ERROR");
+
+        const { data: publicUrl } = supabase.storage
+          .from("avatars")
+          .getPublicUrl(fileKey);
+        syncedAvatarUrl = publicUrl.publicUrl;
+      } catch (error) {
+        console.warn(
+          "微信头像同步跳过",
+          error instanceof Error ? error.message : "UNKNOWN",
+        );
+      }
+    }
+
+    // 只读取隐私状态，不把微信缺失字段写成 null。这样用户原来填写的
+    // 内容会保留；明确设置为“保密”的性别/地区也不会被微信覆盖。
+    type ExistingWechatProfile = {
+      gender?: string | null;
+      hide_region?: boolean | null;
+    };
+    let existingProfile: ExistingWechatProfile | null = null;
+    const existingResult = await supabase
+      .from("user_profiles")
+      .select("gender, hide_region")
+      .eq("user_id", user.id)
+      .maybeSingle();
+    if (existingResult.error) {
+      // 兼容 hide_region 迁移尚未上线的旧数据库；昵称/头像同步仍可继续。
+      const legacyResult = await supabase
+        .from("user_profiles")
+        .select("gender")
+        .eq("user_id", user.id)
+        .maybeSingle();
+      if (legacyResult.error) throw legacyResult.error;
+      existingProfile = legacyResult.data as ExistingWechatProfile | null;
+    } else {
+      existingProfile = existingResult.data as ExistingWechatProfile | null;
+    }
+
+    const profileData: Record<string, unknown> = { user_id: user.id };
+    if (nickname) profileData.nickname = nickname;
+    if (syncedAvatarUrl) profileData.avatar_url = syncedAvatarUrl;
+    if (gender && existingProfile?.gender?.toLowerCase() !== "secret") {
+      profileData.gender = gender;
+    }
+    if (location && existingProfile?.hide_region !== true) profileData.location = location;
+    if (Object.keys(profileData).length > 1) {
+      const { error: profileError } = await supabase
+        .from("user_profiles")
+        .upsert(profileData, { onConflict: "user_id" });
+      if (profileError) {
+        console.error("保存微信资料失败", profileError);
+        return NextResponse.json(
+          { success: false, error: "微信资料保存失败，请重试" },
+          { status: 500 },
+        );
+      }
+    }
 
     return NextResponse.json({
       success: true,
-      nickname,
-      avatar_url: publicUrl.publicUrl,
+      message: "微信资料同步成功",
+      nickname: nickname || null,
+      avatar_url: syncedAvatarUrl,
+      gender,
+      location,
     });
   } catch (error) {
     console.error("微信资料同步异常", error instanceof Error ? error.message : "UNKNOWN");
