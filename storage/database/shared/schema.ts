@@ -148,10 +148,13 @@ CREATE TABLE IF NOT EXISTS public.user_profiles (
   nickname VARCHAR(50) NOT NULL DEFAULT '',
   avatar_url TEXT,
   background_url TEXT,
-  gender VARCHAR(10) CHECK (gender IN ('male', 'female', 'other')),
+  gender VARCHAR(10) CHECK (gender IS NULL OR gender IN ('male', 'female', 'secret', 'other')),
   birthday DATE,
   constellation VARCHAR(20),
   location JSONB,
+  hide_birthday BOOLEAN NOT NULL DEFAULT FALSE,
+  hide_region BOOLEAN NOT NULL DEFAULT FALSE,
+  last_gender TEXT CHECK (last_gender IS NULL OR last_gender IN ('male', 'female', 'other')),
   bio TEXT,
   signature TEXT,
   username_change_count INTEGER NOT NULL DEFAULT 0,
@@ -162,7 +165,24 @@ CREATE TABLE IF NOT EXISTS public.user_profiles (
 
 ALTER TABLE public.user_profiles
   ADD COLUMN IF NOT EXISTS background_url TEXT,
-  ADD COLUMN IF NOT EXISTS constellation VARCHAR(20);
+  ADD COLUMN IF NOT EXISTS constellation VARCHAR(20),
+  ADD COLUMN IF NOT EXISTS hide_birthday BOOLEAN NOT NULL DEFAULT FALSE,
+  ADD COLUMN IF NOT EXISTS hide_region BOOLEAN NOT NULL DEFAULT FALSE,
+  ADD COLUMN IF NOT EXISTS last_gender TEXT;
+
+ALTER TABLE public.user_profiles
+  DROP CONSTRAINT IF EXISTS user_profiles_gender_check;
+
+ALTER TABLE public.user_profiles
+  ADD CONSTRAINT user_profiles_gender_check
+  CHECK (gender IS NULL OR gender IN ('male', 'female', 'secret', 'other'));
+
+ALTER TABLE public.user_profiles
+  DROP CONSTRAINT IF EXISTS user_profiles_last_gender_check;
+
+ALTER TABLE public.user_profiles
+  ADD CONSTRAINT user_profiles_last_gender_check
+  CHECK (last_gender IS NULL OR last_gender IN ('male', 'female', 'other'));
 
 -- 索引
 CREATE UNIQUE INDEX IF NOT EXISTS idx_user_profiles_user_id ON public.user_profiles(user_id);
