@@ -204,8 +204,8 @@ export async function POST(request: NextRequest) {
       }
     }
 
-    // 只读取隐私状态，不把微信缺失字段写成 null。这样用户原来填写的
-    // 内容会保留；明确设置为“保密”的性别/地区也不会被微信覆盖。
+    // 只读取地区隐私状态，不把微信缺失字段写成 null。这样用户原来填写的
+    // 内容会保留；性别只要由微信返回非空值，就按微信内容覆盖本地值。
     type ExistingWechatProfile = {
       gender?: string | null;
       hide_region?: boolean | null;
@@ -232,7 +232,9 @@ export async function POST(request: NextRequest) {
     const profileData: Record<string, unknown> = { user_id: user.id };
     if (nickname) profileData.nickname = nickname;
     if (syncedAvatarUrl) profileData.avatar_url = syncedAvatarUrl;
-    if (gender && existingProfile?.gender?.toLowerCase() !== "secret") {
+    // A non-empty value returned by WeChat is authoritative, including when
+    // the local profile previously used the explicit "secret" value.
+    if (gender) {
       profileData.gender = gender;
     }
     if (location && existingProfile?.hide_region !== true) profileData.location = location;
