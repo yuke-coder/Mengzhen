@@ -26,7 +26,7 @@ export async function GET() {
 
     const { data: profile, error: profileError } = await client
       .from("user_profiles")
-      .select("nickname, avatar_url, background_url, gender, birthday, location, bio, signature")
+      .select("nickname, avatar_url, background_url, gender, birthday, constellation, location, bio, signature, hide_birthday, hide_region, last_gender")
       .eq("user_id", session.user.id)
       .maybeSingle();
 
@@ -45,9 +45,15 @@ export async function GET() {
         nickname: profile?.nickname || null,
         gender: profile?.gender || null,
         birthday: profile?.birthday || null,
+        constellation: profile?.constellation || null,
         location: profile?.location || null,
         bio: profile?.bio || null,
         signature: profile?.signature || null,
+        // 生日 / 地区「保密」开关：Android「不展示」与 Web 共用同一字段
+        hide_birthday: profile?.hide_birthday ?? false,
+        hide_region: profile?.hide_region ?? false,
+        // 「保密」前的真实性别，供 Android 取消保密时回退（见 supabase/profile_last_gender.sql）
+        last_gender: profile?.last_gender || null,
         createdAt: session.user.created_at,
       },
     });

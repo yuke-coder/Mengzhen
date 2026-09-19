@@ -12,9 +12,16 @@ export interface User {
   nickname?: string | null;
   gender?: 'male' | 'female' | 'secret' | null;
   birthday?: string | null;
+  constellation?: string | null;
   location?: string | null;
   signature?: string | null;
   bio?: string | null;
+  /** 生日对外隐藏（Android「不展示生日」/ Web「保密」），与 Android 共用同一字段 */
+  hide_birthday?: boolean | null;
+  /** 地区对外隐藏（Android「不展示地区」/ Web「保密」），与 Android 共用同一字段 */
+  hide_region?: boolean | null;
+  /** 「保密」前的真实性别，供取消保密时回退 */
+  last_gender?: 'male' | 'female' | 'other' | null;
 }
 
 interface AuthContextType {

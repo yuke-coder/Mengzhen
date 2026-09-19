@@ -41,9 +41,13 @@ export interface UserProfile {
   nickname: string; // 显示昵称
   avatar_url: string | null; // 头像 URL（Supabase Storage 路径）
   background_url: string | null; // 个人主页背景图 URL（Supabase Storage 公开 URL）
-  gender: "male" | "female" | "other" | null; // 性别
+  gender: "male" | "female" | "secret" | "other" | null; // 性别（secret = 保密）
   birthday: string | null; // 生日 (YYYY-MM-DD)
+  constellation: string | null; // 星座代码（如 Aries）
   location: string | null; // 所在地（JSON 字符串：{planet,country,province,city,district}）
+  hide_birthday: boolean; // 生日是否对外隐藏
+  hide_region: boolean; // 地区是否对外隐藏
+  last_gender: "male" | "female" | "other" | null; // 保密前的真实性别
   bio: string | null; // 个人简介
   signature: string | null; // 个性签名
   username_change_count: number; // 自然月内用户名修改次数（重置逻辑在应用层）
@@ -65,9 +69,10 @@ export interface Audio {
   file_size: number; // 文件大小（字节）
   duration: number; // 时长（秒，0 表示未知）
   mime_type: string; // MIME 类型（audio/mp3, audio/wav 等）
+  lyric_text: string | null; // 来源提供的定时歌词，统一为 LRC；不存模型转写
   sort_order: number; // 播放排序（越小越靠前）
   is_active: boolean; // 是否启用（软删除用）
-  library_saved_at: string | null; // 用户手动存入音频库的时间，null 表示仅供任务使用
+  library_saved_at: string | null; // 上传完成后自动加入音频库的时间（兼容旧数据）
   created_at: string;
   updated_at: string;
 }
@@ -145,6 +150,7 @@ CREATE TABLE IF NOT EXISTS public.user_profiles (
   background_url TEXT,
   gender VARCHAR(10) CHECK (gender IN ('male', 'female', 'other')),
   birthday DATE,
+  constellation VARCHAR(20),
   location JSONB,
   bio TEXT,
   signature TEXT,
@@ -155,7 +161,8 @@ CREATE TABLE IF NOT EXISTS public.user_profiles (
 );
 
 ALTER TABLE public.user_profiles
-  ADD COLUMN IF NOT EXISTS background_url TEXT;
+  ADD COLUMN IF NOT EXISTS background_url TEXT,
+  ADD COLUMN IF NOT EXISTS constellation VARCHAR(20);
 
 -- 索引
 CREATE UNIQUE INDEX IF NOT EXISTS idx_user_profiles_user_id ON public.user_profiles(user_id);
@@ -172,6 +179,7 @@ CREATE TABLE IF NOT EXISTS public.audios (
   file_size INTEGER NOT NULL DEFAULT 0,
   duration REAL NOT NULL DEFAULT 0,
   mime_type VARCHAR(50) NOT NULL DEFAULT 'audio/mpeg',
+  lyric_text TEXT,
   sort_order INTEGER NOT NULL DEFAULT 0,
   is_active BOOLEAN NOT NULL DEFAULT true,
   library_saved_at TIMESTAMPTZ,
@@ -180,7 +188,8 @@ CREATE TABLE IF NOT EXISTS public.audios (
 );
 
 ALTER TABLE public.audios
-  ADD COLUMN IF NOT EXISTS library_saved_at TIMESTAMPTZ;
+  ADD COLUMN IF NOT EXISTS library_saved_at TIMESTAMPTZ,
+  ADD COLUMN IF NOT EXISTS lyric_text TEXT;
 
 -- 索引：按用户查询自己的音频
 CREATE INDEX IF NOT EXISTS idx_audios_user_id ON public.audios(user_id);
@@ -191,7 +200,7 @@ DROP INDEX IF EXISTS public.idx_audios_file_key;
 CREATE UNIQUE INDEX IF NOT EXISTS idx_audios_user_file_key
   ON public.audios(user_id, file_key)
   WHERE file_key IS NOT NULL;
--- 索引：只扫描已存入音频库的资源
+-- 索引：兼容旧数据及收藏状态查询
 CREATE INDEX IF NOT EXISTS idx_audios_library
   ON public.audios(user_id, library_saved_at DESC)
   WHERE library_saved_at IS NOT NULL;
