@@ -65,7 +65,9 @@ function ProfileCard({ user, onEditProfile }: { user: NonNullable<ReturnType<typ
       </button>
 
       <div className="mt-2.5 space-y-1.5">
-        {user.location && (
+        {/* hide_region / hide_birthday 是 Android「不展示地区 / 不展示生日」共用的字段，
+            与下面 gender !== 'secret' 是同一套「保密」语义：值仍在，只是对外不展示。 */}
+        {user.location && !user.hide_region && (
           <div className="flex items-center gap-1.5 text-xs text-muted-foreground">
             <MapPin className="w-3 h-3 flex-shrink-0 text-[var(--brand-start)]/60" />
             <span className="truncate">{user.location}</span>
@@ -77,7 +79,7 @@ function ProfileCard({ user, onEditProfile }: { user: NonNullable<ReturnType<typ
             <span>{GENDER_MAP[user.gender] || user.gender}</span>
           </div>
         )}
-        {user.birthday && (
+        {user.birthday && !user.hide_birthday && (
           <div className="flex items-center gap-1.5 text-xs text-muted-foreground">
             <Calendar className="w-3 h-3 flex-shrink-0 text-[var(--brand-start)]/60" />
             <span>{user.birthday}</span>
