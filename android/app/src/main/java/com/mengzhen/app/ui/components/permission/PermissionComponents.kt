@@ -147,34 +147,6 @@ fun AlternateCard(text: String, modifier: Modifier = Modifier) {
     }
 }
 
-/** StatusBanner 状态回检横条（§4.9：Primary 10% 底，无边框） */
-@Composable
-fun StatusBanner(unfinishedCount: Int, onClick: () -> Unit, modifier: Modifier = Modifier) {
-    Row(
-        modifier = modifier
-            .fillMaxWidth()
-            .clip(RoundedCornerShape(12.dp))
-            .background(MaterialTheme.colorScheme.primary.copy(alpha = 0.10f))
-            .clickable(onClick = onClick)
-            .padding(14.dp),
-        verticalAlignment = Alignment.CenterVertically,
-    ) {
-        Icon(
-            Icons.Default.Info,
-            contentDescription = null,
-            tint = MaterialTheme.colorScheme.primary,
-            modifier = Modifier.size(20.dp),
-        )
-        Spacer(Modifier.width(10.dp))
-        Text(
-            "还有 $unfinishedCount 项必要设置未完成，完成后夜间播放才有保障",
-            fontSize = 13.sp,
-            lineHeight = 19.5.sp,
-            color = MaterialTheme.colorScheme.onBackground.copy(alpha = 0.9f),
-        )
-    }
-}
-
 /** 单个路径 Chip（§4.6：Primary 10% 底，圆角 8dp，无边框） */
 @Composable
 fun PathChip(text: String, modifier: Modifier = Modifier) {
