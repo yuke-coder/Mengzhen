@@ -4,6 +4,7 @@ import android.app.Activity
 import android.content.Context
 import android.graphics.Bitmap
 import android.graphics.Color
+import android.graphics.Typeface
 import android.view.Gravity
 import android.view.LayoutInflater
 import android.view.View
@@ -30,14 +31,25 @@ import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.viewinterop.AndroidView
 import androidx.appcompat.content.res.AppCompatResources
 import androidx.core.view.WindowCompat
+import androidx.lifecycle.Lifecycle
+import androidx.lifecycle.LifecycleEventObserver
 import androidx.lifecycle.Observer
+import androidx.lifecycle.compose.LocalLifecycleOwner
 import androidx.navigation.NavController
+import androidx.navigation.compose.currentBackStackEntryAsState
 import com.mengzhen.app.R as AppR
+import com.mengzhen.app.data.api.ApiClient
 import com.mengzhen.app.data.model.UserInfo
+import com.mengzhen.app.data.model.parseUser
 import com.mengzhen.app.data.store.TaskStore
 import com.mengzhen.app.ui.components.main.absoluteAvatarUrl
 import com.mengzhen.app.ui.components.rememberQqMusicImagePicker
 import com.mengzhen.app.ui.navigation.Screen
+import com.mengzhen.app.ui.navigation.TOP_LEVEL_REFRESH_KEY
+import com.mengzhen.app.ui.membership.MengzhenMembershipDialog
+import com.mengzhen.app.util.ConstellationUtils
+import com.mengzhen.app.util.genderLabel
+import com.mengzhen.app.util.isGenderSecret
 import android.graphics.drawable.GradientDrawable
 import coil3.load
 import coil3.size.Size
@@ -47,7 +59,9 @@ import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.SupervisorJob
 import kotlinx.coroutines.cancel
+import kotlinx.coroutines.flow.collect
 import kotlinx.coroutines.launch
+import kotlinx.coroutines.withContext
 import java.time.LocalDate
 import java.time.format.DateTimeFormatter
 import kotlin.math.roundToInt
@@ -56,9 +70,15 @@ import kotlin.math.roundToInt
 fun QqMusicMineHomeScreen(navController: NavController) {
     val context = LocalContext.current
     val store = remember(context) { TaskStore.get(context) }
+    val api = remember(context) { ApiClient.get(context) }
     val scope = rememberCoroutineScope()
     val user by store.sessionUser.collectAsState()
+    // 资料卡的性别 / 生日(星座) / 地区跟随编辑资料页的「不展示」开关：
+    // 开关写的是服务端 hide_birthday / hide_region，保存后 sessionUser 会带新值重新发射，
+    // 卡片随之重画 —— 用户勾了不展示、回到我的页不会仍然看到真值。
     val activity = context as? Activity
+    val currentBackStackEntry by navController.currentBackStackEntryAsState()
+
     val backgroundPicker = rememberQqMusicImagePicker(maxSelection = 1) { selected ->
         val uri = selected.firstOrNull() ?: return@rememberQqMusicImagePicker
         android.widget.Toast.makeText(context, "正在上传背景图...", android.widget.Toast.LENGTH_SHORT).show()
@@ -83,13 +103,75 @@ fun QqMusicMineHomeScreen(navController: NavController) {
 
     LaunchedEffect(user) {
         if (user == null) {
-            navController.navigate(Screen.Login.route) { launchSingleTop = true }
+            // 未登录的个人页只是登录入口，不应留在返回栈中；否则返回登录页后
+            // 个人页会再次触发这段跳转，形成“返回键只闪键盘”的循环。
+            navController.navigate(Screen.Login.createRoute(Screen.Profile.route)) {
+                popUpTo(Screen.Profile.route) { inclusive = true }
+                launchSingleTop = true
+            }
         }
     }
 
     val profile = user ?: return Box(
         Modifier.fillMaxSize().background(ComposeColor.Black),
     )
+    // Do not render a previous account's snapshot during the one composition
+    // frame before bindAccount() completes.
+    val lifecycleOwner = LocalLifecycleOwner.current
+    val refreshProfile = {
+        scope.launch {
+            val current = store.sessionUser.value ?: return@launch
+            val remote = withContext(Dispatchers.IO) {
+                runCatching { api.me() }
+                    .getOrNull()
+                    ?.let(::parseUser)
+            } ?: return@launch
+            if (remote.id != current.id) return@launch
+
+            val merged = current.copy(
+                username = remote.username.ifBlank { current.username },
+                avatarUrl = remote.avatarUrl ?: current.avatarUrl,
+                nickname = remote.nickname ?: current.nickname,
+                gender = remote.gender ?: current.gender,
+                birthday = remote.birthday ?: current.birthday,
+                location = remote.location ?: current.location,
+                bio = remote.bio ?: current.bio,
+                signature = remote.signature ?: current.signature,
+                backgroundUrl = remote.backgroundUrl ?: current.backgroundUrl,
+                createdAt = remote.createdAt.ifBlank { current.createdAt },
+                mobile = remote.mobile ?: current.mobile,
+                usernameChangeCount = remote.usernameChangeCount ?: current.usernameChangeCount,
+                usernameChangeResetAt = remote.usernameChangeResetAt
+                    ?: current.usernameChangeResetAt,
+                // 保密开关也要合并：Web 端改过之后回到本页要能反映出来
+                hideBirthday = remote.hideBirthday ?: current.hideBirthday,
+                hideRegion = remote.hideRegion ?: current.hideRegion,
+                // 「保密」前的真实性别（取消保密时回退用）同理：可能是刚在 Web 端选的
+                lastGender = remote.lastGender ?: current.lastGender,
+            )
+            if (merged != current) {
+                store.getSession()?.first?.let { token ->
+                    store.saveUserSession(token, merged)
+                }
+            }
+        }
+    }
+    DisposableEffect(lifecycleOwner, profile) {
+        val observer = LifecycleEventObserver { _, event ->
+            if (event == Lifecycle.Event.ON_RESUME) refreshProfile()
+        }
+        lifecycleOwner.lifecycle.addObserver(observer)
+        onDispose { lifecycleOwner.lifecycle.removeObserver(observer) }
+    }
+    LaunchedEffect(currentBackStackEntry) {
+        val savedStateHandle = currentBackStackEntry?.savedStateHandle ?: return@LaunchedEffect
+        savedStateHandle.getStateFlow(TOP_LEVEL_REFRESH_KEY, 0L).collect { token ->
+            if (token > 0L) {
+                savedStateHandle[TOP_LEVEL_REFRESH_KEY] = 0L
+                refreshProfile()
+            }
+        }
+    }
     var showNicknameCompletion by remember(profile.id) { mutableStateOf(false) }
     val sourceView = remember(context) { QqMusicSourceProfileView(context) }
     sourceView.onEdit = { navController.navigate(Screen.ProfileEdit.route) }
@@ -103,6 +185,7 @@ fun QqMusicMineHomeScreen(navController: NavController) {
     }
     sourceView.onSettings = { navController.navigate(Screen.AppSettings.route) }
     sourceView.onBackground = backgroundPicker
+    sourceView.onMembership = { MengzhenMembershipDialog.show(context) }
 
     DisposableEffect(sourceView) {
         onDispose(sourceView::release)
@@ -129,15 +212,31 @@ private class QqMusicSourceProfileView(context: Context) : FrameLayout(context) 
     var onNickname: () -> Unit = {}
     var onSettings: () -> Unit = {}
     var onBackground: () -> Unit = {}
+    var onMembership: () -> Unit = {}
 
-    private val scope = CoroutineScope(SupervisorJob() + Dispatchers.Main.immediate)
+    private var scope = CoroutineScope(SupervisorJob() + Dispatchers.Main.immediate)
     private val backgroundComposer = SourceHeaderBackground()
     private val header = LayoutInflater.from(context).inflate(SOURCE_LAYOUT_HEADER, this, false)
     private val rawBackground = header.findViewById<ImageView>(SOURCE_ID_RAW_BACKGROUND)
     private val combinedBackground = header.findViewById<ImageView>(SOURCE_ID_COMBINED_BACKGROUND)
     private val defaultBackground = header.findViewById<ImageView>(SOURCE_ID_DEFAULT_BACKGROUND)
     private val avatar = header.findViewById<ImageView>(SOURCE_ID_AVATAR)
+    private val membershipEntry = TextView(context).apply {
+        text = "梦枕会员  ¥6起"
+        textSize = 12f
+        setTextColor(0xFFFFE5D8.toInt())
+        gravity = Gravity.CENTER
+        typeface = Typeface.DEFAULT_BOLD
+        background = GradientDrawable().apply {
+            shape = GradientDrawable.RECTANGLE
+            cornerRadius = 18f * resources.displayMetrics.density
+            setColor(0x553A211B)
+        }
+        contentDescription = "梦枕会员"
+        setOnClickListener { onMembership() }
+    }
     private var lastBoundUser: UserInfo? = null
+    private var released = false
 
     private val backgroundObserver = Observer<Bitmap?> { bitmap ->
         if (bitmap == null) return@Observer
@@ -152,9 +251,18 @@ private class QqMusicSourceProfileView(context: Context) : FrameLayout(context) 
         clipChildren = false
         clipToPadding = false
         addView(header)
-        backgroundComposer.M6().observeForever(backgroundObserver)
+        addView(
+            membershipEntry,
+            LayoutParams(dp(116f), dp(36f), Gravity.TOP or Gravity.END),
+        )
+        attachBackgroundObserver()
         installSourceActions()
         applySourceDarkPalette()
+    }
+
+    private fun attachBackgroundObserver() {
+        backgroundComposer.M6().observeForever(backgroundObserver)
+        released = false
     }
 
     override fun onSizeChanged(w: Int, h: Int, oldw: Int, oldh: Int) {
@@ -169,6 +277,14 @@ private class QqMusicSourceProfileView(context: Context) : FrameLayout(context) 
         val adjustedWidth = (displayWidth * SOURCE_WIDTH_PERCENT).roundToInt()
         val backgroundHeight = adjustedWidth * 2
         header.layoutParams = LayoutParams(displayWidth, backgroundHeight)
+        val membershipParams = membershipEntry.layoutParams as LayoutParams
+        membershipEntry.layoutParams = membershipParams.apply {
+            width = dp(116f)
+            height = dp(36f)
+            gravity = Gravity.TOP or Gravity.END
+            topMargin = (backgroundHeight * 0.401f).roundToInt() + dp(142f)
+            rightMargin = dp(18f)
+        }
 
         val cardView = header.findViewById<View>(SOURCE_ID_PROFILE_CARD)
         cardView.setBackgroundResource(0x7f080b64)
@@ -178,6 +294,10 @@ private class QqMusicSourceProfileView(context: Context) : FrameLayout(context) 
     }
 
     fun bind(user: UserInfo) {
+        if (released) {
+            scope = CoroutineScope(SupervisorJob() + Dispatchers.Main.immediate)
+            attachBackgroundObserver()
+        }
         if (lastBoundUser == user) return
         lastBoundUser = user
         bindHeader(user)
@@ -206,9 +326,15 @@ private class QqMusicSourceProfileView(context: Context) : FrameLayout(context) 
                 cornerRadius = 32f * resources.displayMetrics.density
                 setColor(SOURCE_HEADER_FALLBACK_COLOR)
             }
-            setImageDrawable(null)
+            setImageResource(0x7f0808db)
             user.avatarUrl?.takeIf(String::isNotBlank)?.let { url ->
-                load(absoluteAvatarUrl(url))
+                load(absoluteAvatarUrl(url)) {
+                    listener(
+                        onError = { _, _ ->
+                            setImageResource(0x7f0808db)
+                        },
+                    )
+                }
             }
             setOnClickListener { onEdit() }
         }
@@ -265,7 +391,8 @@ private class QqMusicSourceProfileView(context: Context) : FrameLayout(context) 
         val url = user.backgroundUrl?.takeIf(String::isNotBlank)
         if (url == null) {
             rawBackground.visibility = View.GONE
-            combinedBackground.visibility = View.GONE
+            combinedBackground.setImageResource(0x7f080b6b)
+            combinedBackground.visibility = View.VISIBLE
             defaultBackground.visibility = View.GONE
             header.setBackgroundColor(SOURCE_HEADER_FALLBACK_COLOR)
             return
@@ -273,9 +400,10 @@ private class QqMusicSourceProfileView(context: Context) : FrameLayout(context) 
 
         header.setBackgroundColor(SOURCE_HEADER_FALLBACK_COLOR)
         rawBackground.visibility = View.VISIBLE
+        combinedBackground.setImageResource(0x7f080b6b)
         combinedBackground.visibility = View.VISIBLE
         defaultBackground.visibility = View.GONE
-        rawBackground.load(url) {
+        rawBackground.load(absoluteAvatarUrl(url)) {
             size(Size.ORIGINAL)
             listener(
                 onSuccess = { _, result ->
@@ -304,13 +432,16 @@ private class QqMusicSourceProfileView(context: Context) : FrameLayout(context) 
     }
 
     fun release() {
+        if (released) return
         backgroundComposer.M6().removeObserver(backgroundObserver)
         scope.cancel()
+        lastBoundUser = null
+        released = true
     }
 
     private companion object {
         const val SOURCE_WIDTH_PERCENT = 0.975f
-        const val SOURCE_CARD_HEIGHT_PERCENT = 0.23f
+        const val SOURCE_CARD_HEIGHT_PERCENT = 0.35f
         const val SOURCE_HEADER_FALLBACK_COLOR = 0xFF1A1A1A.toInt()
         const val SOURCE_NAME_COLOR = 0xFFD7B45D.toInt()
         const val SOURCE_SECONDARY_TEXT_COLOR = 0xB3FFFFFF.toInt()
@@ -326,36 +457,38 @@ private class QqMusicSourceProfileView(context: Context) : FrameLayout(context) 
         const val SOURCE_ID_PROFILE_SUMMARY = 0x7f0949c6
         const val SOURCE_ID_PROFILE_CARD = 0x7f095446
         const val SOURCE_ID_MORE_INFO = 0x7f095b85
+        const val SOURCE_ID_PERSONAL_INFO = 0x7f095b60
         const val SOURCE_ID_PERSONAL_INTRO = 0x7f095c16
     }
+
+    private fun dp(value: Float): Int = (value * resources.displayMetrics.density + 0.5f).toInt()
 }
 
+/**
+ * 资料卡摘要行：性别 + 星座 + 地区。
+ *
+ * 三个字段都受「保密」（Android 旧文案叫「不展示」）控制，取值一律读服务端下发的字段：
+ * - 性别：`gender == "secret"`，与 Web 端同一个编码
+ * - 生日：`hide_birthday` / 地区：`hide_region`，与 Web 端共用同一后端字段
+ *   （null 表示服务端没下发该字段，按可见处理；只有明确 true 才隐藏）
+ *
+ * 保密中的字段**整段不出现在摘要行里**，不显示「保密」字样：
+ * 摘要行是卡片上给人看的一行字，没有字段标签，写「保密」既不美观也说不清是哪一项。
+ * 编辑资料页保留文字是因为那里是带标签的列表行。
+ * 星座由生日推导而来，所以生日保密时星座一并隐藏。
+ */
 private fun UserInfo.profileSummary(): String = listOfNotNull(
-    when (gender?.lowercase()) {
-        "male", "男", "1" -> "男"
-        "female", "女", "2" -> "女"
-        else -> null
-    },
-    birthday?.let { value ->
-        runCatching {
-            LocalDate.parse(value, DateTimeFormatter.ISO_LOCAL_DATE)
-        }.getOrNull()
-    }
-        ?.let { date ->
-            when (date.monthValue * 100 + date.dayOfMonth) {
-                in 120..218 -> "水瓶座"
-                in 219..320 -> "双鱼座"
-                in 321..419 -> "白羊座"
-                in 420..520 -> "金牛座"
-                in 521..621 -> "双子座"
-                in 622..722 -> "巨蟹座"
-                in 723..822 -> "狮子座"
-                in 823..922 -> "处女座"
-                in 923..1023 -> "天秤座"
-                in 1024..1122 -> "天蝎座"
-                in 1123..1221 -> "射手座"
-                else -> "摩羯座"
-            }
-        },
-    location?.takeIf(String::isNotBlank),
+    if (isGenderSecret()) null else genderLabel(),
+    if (hideBirthday == true) null else constellationLabel(),
+    if (hideRegion == true) null else location?.takeIf(String::isNotBlank),
 ).joinToString(" ")
+
+/** 性别文案走共享实现（`util/GenderLabels.kt`），不在这里再维护一份映射。 */
+/** 星座沿用真本迁移来的 ConstellationUtils（0 基月份），不在这里再维护一份边界日表。 */
+private fun UserInfo.constellationLabel(): String? = birthday?.let { value ->
+    runCatching {
+        LocalDate.parse(value, DateTimeFormatter.ISO_LOCAL_DATE)
+    }.getOrNull()
+}
+    ?.let { date -> ConstellationUtils.calculate(date.monthValue - 1, date.dayOfMonth) }
+    ?.takeIf(String::isNotBlank)

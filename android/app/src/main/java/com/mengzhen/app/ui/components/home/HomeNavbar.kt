@@ -8,14 +8,11 @@ import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.automirrored.filled.Login
 import androidx.compose.material.icons.automirrored.filled.Logout
-import androidx.compose.material.icons.filled.DarkMode
 import androidx.compose.material.icons.filled.DateRange
 import androidx.compose.material.icons.filled.Description
 import androidx.compose.material.icons.filled.EditNote
 import androidx.compose.material.icons.filled.Favorite
 import androidx.compose.material.icons.filled.History
-import androidx.compose.material.icons.filled.LightMode
-import androidx.compose.material.icons.filled.Monitor
 import androidx.compose.material.icons.filled.Place
 import androidx.compose.material3.DropdownMenu
 import androidx.compose.material3.HorizontalDivider
@@ -46,6 +43,8 @@ import com.mengzhen.app.data.store.TaskStore
 import com.mengzhen.app.ui.components.main.absoluteAvatarUrl
 import com.mengzhen.app.ui.navigation.Screen
 import com.mengzhen.app.ui.theme.*
+import com.mengzhen.app.util.genderLabel
+import com.mengzhen.app.util.isGenderSecret
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
@@ -109,13 +108,15 @@ fun HomeNavbar(
                     style = androidx.compose.ui.text.TextStyle(brush = NavbarPurpleGradient),
                 )
             }
-            // 右：用户菜单 + 主题切换
+            // 右：用户菜单
+            // 注：这里原本还有一个 HomeThemeToggle（Web theme-toggle.tsx 的 Compose 复刻版），
+            // 已删除 —— 主页面顶栏已有同一功能的真本实现 QqThemeModePopupWindow
+            // （含浅色/深色/自动），留着就是同一套主题切换的两份 UI。
             Row(
                 horizontalArrangement = Arrangement.spacedBy(8.dp),
                 verticalAlignment = Alignment.CenterVertically,
             ) {
                 HomeUserMenu(navController)
-                HomeThemeToggle()
             }
         }
         // 品牌色渐变光条（Web nav-fade-edge::after：bottom -5px, h-10px, blur 4px）
@@ -277,6 +278,9 @@ fun HomeUserMenu(navController: NavController) {
 /** ProfileCard（Web user-menu.tsx 内部组件）：头像 + 昵称 + 签名 + 编辑资料 + 信息行 */
 @Composable
 private fun UserProfileCard(user: UserInfo, onEditProfile: () -> Unit) {
+    // 与 Web user-menu.tsx 的 ProfileCard 行为保持一致：保密中的字段整行不渲染。
+    // 可见性直接读服务端下发的 hide_birthday / hide_region（与 Web 端共用同一后端字段），
+    // 只有明确为 true 才隐藏 —— null 表示服务端没下发该字段，按可见处理。
     Column(Modifier.padding(horizontal = 16.dp, vertical = 12.dp)) {
         Row(verticalAlignment = Alignment.CenterVertically) {
             // 头像 48dp + border-2 brand-start/30
@@ -353,17 +357,25 @@ private fun UserProfileCard(user: UserInfo, onEditProfile: () -> Unit) {
             )
         }
 
-        // 信息行（位置/性别/生日/简介）
+        // 信息行（位置/性别/生日/简介）—— 保密中的不渲染
         val infoRows = buildList<@Composable () -> Unit> {
-            user.location?.let { loc ->
-                add { UserInfoRow(Icons.Default.Place, loc) }
+            user.location
+                ?.takeIf { user.hideRegion != true }
+                ?.let { loc ->
+                    add { UserInfoRow(Icons.Default.Place, loc) }
+                }
+            // 性别：保密态整行消失；文案走共享的 genderLabel()，
+            // 不用手写 `if (g == "male") "男" else "女"` —— 那样任何其它值都会被显示成「女」
+            if (!user.isGenderSecret()) {
+                user.genderLabel()?.let { label ->
+                    add { UserInfoRow(Icons.Default.Favorite, label) }
+                }
             }
-            user.gender?.takeIf { it != "secret" }?.let { g ->
-                add { UserInfoRow(Icons.Default.Favorite, if (g == "male") "男" else "女") }
-            }
-            user.birthday?.let { b ->
-                add { UserInfoRow(Icons.Default.DateRange, b) }
-            }
+            user.birthday
+                ?.takeIf { user.hideBirthday != true }
+                ?.let { b ->
+                    add { UserInfoRow(Icons.Default.DateRange, b) }
+                }
             user.bio?.let { bio ->
                 add { UserInfoRow(Icons.Default.Description, bio, maxLines = 3) }
             }
@@ -420,111 +432,5 @@ private fun UserMenuItem(
         icon()
         Spacer(Modifier.width(12.dp))
         Text(label, fontSize = 14.sp, color = labelColor)
-    }
-}
-
-// ==================== 主题切换 ====================
-
-/**
- * ThemeToggle —— 复刻 Web 端 theme-toggle.tsx
- * - 按钮：36dp 圆形，bg black/[0.05] / dark white/[0.12]，图标 = 当前模式
- * - 菜单：154dp 宽，三项（浅色/深色/自动 + 描述），选中高亮，system 时底部"当前跟随系统：X"
- */
-@Composable
-fun HomeThemeToggle() {
-    val dark = LocalIsDarkTheme.current
-    val mode = LocalThemeMode.current
-    val context = LocalContext.current
-    val scope = rememberCoroutineScope()
-    var expanded by remember { mutableStateOf(false) }
-
-    val triggerBg = if (dark) Color.White.copy(alpha = 0.12f) else Color.Black.copy(alpha = 0.05f)
-
-    Box {
-        Box(
-            modifier = Modifier
-                .size(36.dp)
-                .clip(CircleShape)
-                .background(triggerBg)
-                .clickable { expanded = true },
-            contentAlignment = Alignment.Center,
-        ) {
-            Icon(
-                when (mode) {
-                    ThemeMode.LIGHT -> Icons.Default.LightMode
-                    ThemeMode.DARK -> Icons.Default.DarkMode
-                    ThemeMode.SYSTEM -> Icons.Default.Monitor
-                },
-                contentDescription = "切换页面模式",
-                tint = MaterialTheme.colorScheme.onSurface,
-                modifier = Modifier.size(18.dp),
-            )
-        }
-
-        DropdownMenu(
-            expanded = expanded,
-            onDismissRequest = { expanded = false },
-            offset = DpOffset(0.dp, 8.dp),
-            shape = RoundedCornerShape(6.dp),
-            containerColor = if (dark) Color(0xFF43444A) else Color.White,
-            modifier = Modifier.width(154.dp),
-        ) {
-            ThemeMode.entries.forEach { item ->
-                val selected = item == mode
-                Row(
-                    modifier = Modifier
-                        .fillMaxWidth()
-                        .background(
-                            when {
-                                selected && dark -> Color(0xFF54A9FF).copy(alpha = 0.2f)
-                                selected -> Color(0xFFEFF8FF)
-                                else -> Color.Transparent
-                            }
-                        )
-                        .clickable {
-                            scope.launch { ThemeModeStore.setMode(context, item) }
-                            expanded = false
-                        }
-                        .padding(horizontal = 16.dp, vertical = 8.dp),
-                ) {
-                    Icon(
-                        when (item) {
-                            ThemeMode.LIGHT -> Icons.Default.LightMode
-                            ThemeMode.DARK -> Icons.Default.DarkMode
-                            ThemeMode.SYSTEM -> Icons.Default.Monitor
-                        },
-                        contentDescription = null,
-                        tint = MaterialTheme.colorScheme.onSurface,
-                        modifier = Modifier.size(18.dp).padding(top = 2.dp),
-                    )
-                    Spacer(Modifier.width(9.dp))
-                    Column {
-                        Text(
-                            item.label,
-                            fontSize = 14.sp,
-                            lineHeight = 18.sp,
-                            fontWeight = if (selected) FontWeight.SemiBold else FontWeight.Normal,
-                            color = MaterialTheme.colorScheme.onSurface,
-                        )
-                        Text(
-                            item.description,
-                            fontSize = 12.sp,
-                            lineHeight = 16.sp,
-                            color = MaterialTheme.colorScheme.onSurface.copy(alpha = 0.6f),
-                        )
-                    }
-                }
-            }
-            if (mode == ThemeMode.SYSTEM) {
-                HorizontalDivider(color = MaterialTheme.colorScheme.onSurface.copy(alpha = 0.08f))
-                Text(
-                    "当前跟随系统：${if (dark) "深色" else "浅色"}",
-                    fontSize = 12.sp,
-                    lineHeight = 16.sp,
-                    color = MaterialTheme.colorScheme.onSurface.copy(alpha = 0.6f),
-                    modifier = Modifier.padding(horizontal = 12.dp, vertical = 8.dp),
-                )
-            }
-        }
     }
 }

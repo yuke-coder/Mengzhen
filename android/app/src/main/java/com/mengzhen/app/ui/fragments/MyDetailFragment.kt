@@ -24,8 +24,6 @@ import com.mengzhen.app.R
 import com.mengzhen.app.data.api.ApiClient
 import com.mengzhen.app.data.model.UserInfo
 import com.mengzhen.app.data.model.parseProfile
-import com.mengzhen.app.data.store.ProfileVisibilityStore
-import com.mengzhen.app.data.store.ProfileVisibilityStore.Field
 import com.mengzhen.app.data.store.TaskStore
 import com.mengzhen.app.ui.components.main.absoluteAvatarUrl
 import com.mengzhen.app.ui.feedback.AppNotice
@@ -36,6 +34,7 @@ import com.mengzhen.app.ui.screens.uploadSelectedProfileBackground
 import com.mengzhen.app.wechat.WechatProfileDraft
 import com.mengzhen.app.wechat.WechatProfileSyncCoordinator
 import com.mengzhen.app.wechat.WechatProfileSyncEvent
+import com.mengzhen.app.util.GENDER_SECRET
 import com.mengzhen.app.util.genderLabel
 import com.mengzhen.app.util.isGenderSecret
 import kotlinx.coroutines.CancellationException
@@ -236,10 +235,6 @@ class MyDetailFragment : Fragment(), View.OnClickListener {
             // region 可为 null：只勾「保密地区」开关而未选地区时，值不动、只改可见性
             val region = bundle.getString(RegionSelectFragment.RESULT_REGION)
             val hide = bundle.getBoolean(RegionSelectFragment.RESULT_HIDE_REGION, false)
-            // 两边都写：后端字段（权威，与 Web 端共用）+ 本机镜像（部署落后时兜底）
-            viewLifecycleOwner.lifecycleScope.launch {
-                ProfileVisibilityStore.setHidden(requireContext(), Field.REGION, hide)
-            }
             if (region == null) {
                 saveField(hideRegion = hide) { bindRegion(currentUser, hidden = hide) }
             } else {
@@ -419,67 +414,58 @@ class MyDetailFragment : Fragment(), View.OnClickListener {
     }
 
     private fun openGenderEditor() {
-        val ctx = requireContext()
         val user = currentUser
-        val secret = ProfileVisibilityStore.isSecret(user?.gender)
-        viewLifecycleOwner.lifecycleScope.launch {
-            // 取消「保密」要回退到开启保密前勾选的那一项，但保密会把 gender 覆写成 'secret'，
-            // 真值只能另存：优先服务端下发的 last_gender，线上还没部署到带该列的版本时
-            // 退回本机镜像（见 ProfileVisibilityStore.KEY_LAST_GENDER 注释）。
-            // 真本同样是「保留真值 + 单独开关」（MyDetailInfo.publicGender），
-            // 这里只是把真值挪到了 last_gender。
-            val fallback = user?.lastGender ?: ProfileVisibilityStore.lastGender(ctx)
-            GenderSelectDialog.show(
-                requireActivity(),
-                // 保密状态下列表勾中的正是这个回退值；两边都拿不到时才是 null
-                // —— 没有任何可回退的项，此时取消保密也不写值，用户需重选一次。
-                currentGender = if (secret) fallback else user?.gender,
-                initialHideGender = secret,
-                onSelected = { gender, hide ->
-                    // 「保密」= 往 gender 写 Web 端同款字面量 "secret"（跨端、跨设备一致）。
-                    // 绝不把 gender 清空 —— 清空 = 删数据且不可还原。
-                    // 不勾保密时 gender 即用户选中的项：既可能是他新选的，也可能是这个回退值，
-                    // 两种都由 saveField 写回并同步本机镜像。
-                    val value = if (hide) ProfileVisibilityStore.GENDER_SECRET else gender
-                    if (value == null) {
-                        bindGender(currentUser?.gender)
-                    } else {
-                        saveField(gender = value) { bindGender(currentUser?.gender) }
-                    }
-                },
-                onDismiss = {},
-            )
-        }
+        val secret = isGenderSecret(user?.gender)
+        // 取消「保密」要回退到开启保密前勾选的那一项，但保密会把 gender 覆写成 'secret'，
+        // 真值只能另存：由服务端在 gender 被写成真值时自动维护 `user_profiles.last_gender`，
+        // 客户端只读（见 UserInfo.lastGender 注释）。
+        // 真本同样是「保留真值 + 单独开关」（MyDetailInfo.publicGender），
+        // 这里只是把真值挪到了 last_gender。
+        GenderSelectDialog.show(
+            requireActivity(),
+            // 保密状态下列表勾中的正是这个回退值；拿不到时才是 null
+            // —— 没有任何可回退的项，此时取消保密也不写值，用户需重选一次。
+            currentGender = if (secret) user?.lastGender else user?.gender,
+            initialHideGender = secret,
+            onSelected = { gender, hide ->
+                // 「保密」= 往 gender 写 Web 端同款字面量 "secret"（跨端、跨设备一致）。
+                // 绝不把 gender 清空 —— 清空 = 删数据且不可还原。
+                // 不勾保密时 gender 即用户选中的项：既可能是他新选的，也可能是这个回退值，
+                // 两种都由 saveField 写回服务端。
+                val value = if (hide) GENDER_SECRET else gender
+                if (value == null) {
+                    bindGender(currentUser?.gender)
+                } else {
+                    saveField(gender = value) { bindGender(currentUser?.gender) }
+                }
+            },
+            onDismiss = {},
+        )
     }
 
     private fun openBirthdayEditor() {
         val user = currentUser
         val (y, m, d) = parseBirthday(user?.birthday)
-        viewLifecycleOwner.lifecycleScope.launch {
-            val mirror = ProfileVisibilityStore.current(requireContext())
-            val hidden = user?.hideBirthday ?: mirror.birthday
-            // 真本 EditPersonalInfoFragment.a(year, month, day, hideBirthday) 的 month 是 **0 基**
-            // （DatePicker / Calendar.MONTH 语义，见 ConstellationUtils 的参数说明），
-            // 而 parseBirthday 给的是 1 基，所以这里必须减 1。
-            // 曾经直接传 m，导致每次打开生日小窗都多算一个月（2 月显示成 3 月，
-            // 一勾「保密」就把 2011-02-25 回写成 2011-04-25）。
-            val fragment = if (y > 0 && m in 1..12 && d > 0) {
-                EditPersonalInfoFragment.newInstance(y, m - 1, d, hidden)
-            } else {
-                EditPersonalInfoFragment.newInstance(0, 0, 0, hidden)
-            }
-            fragment.show(childFragmentManager, "edit_birthday")
+        val hidden = user?.hideBirthday == true
+        // 真本 EditPersonalInfoFragment.a(year, month, day, hideBirthday) 的 month 是 **0 基**
+        // （DatePicker / Calendar.MONTH 语义，见 ConstellationUtils 的参数说明），
+        // 而 parseBirthday 给的是 1 基，所以这里必须减 1。
+        // 曾经直接传 m，导致每次打开生日小窗都多算一个月（2 月显示成 3 月，
+        // 一勾「保密」就把 2011-02-25 回写成 2011-04-25）。
+        val fragment = if (y > 0 && m in 1..12 && d > 0) {
+            EditPersonalInfoFragment.newInstance(y, m - 1, d, hidden)
+        } else {
+            EditPersonalInfoFragment.newInstance(0, 0, 0, hidden)
         }
+        fragment.show(childFragmentManager, "edit_birthday")
     }
 
     private fun openRegionEditor() {
         val user = currentUser
-        viewLifecycleOwner.lifecycleScope.launch {
-            val mirror = ProfileVisibilityStore.current(requireContext())
-            val hidden = user?.hideRegion ?: mirror.region
-            RegionSelectFragment.newInstance(hideRegion = hidden, currentRegion = user?.location)
-                .show(childFragmentManager, "edit_region")
-        }
+        RegionSelectFragment.newInstance(
+            hideRegion = user?.hideRegion == true,
+            currentRegion = user?.location,
+        ).show(childFragmentManager, "edit_region")
     }
 
     private fun openVerify() {
@@ -520,14 +506,13 @@ class MyDetailFragment : Fragment(), View.OnClickListener {
                 val previous = currentUser
                     ?: TaskStore.get(ctx).getSession()?.second
                     ?: UserInfo()
-                val mirror = ProfileVisibilityStore.current(ctx)
                 val nickname = profile.nickname?.trim()?.takeIf(String::isNotBlank)
                 val avatarUrl = profile.avatarUrl?.trim()?.takeIf(String::isNotBlank)
                 // A non-empty WeChat value is authoritative, including when
                 // the local profile previously used "secret".
                 val gender = profile.gender?.trim()?.takeIf(String::isNotBlank)
                 val location = profile.location?.trim()?.takeIf(String::isNotBlank)
-                    ?.takeUnless { previous.hideRegion == true || mirror.region }
+                    ?.takeUnless { previous.hideRegion == true }
                 val response = withContext(Dispatchers.IO) {
                     ApiClient.get(ctx).updateProfile(
                         nickname = nickname,
@@ -613,16 +598,10 @@ class MyDetailFragment : Fragment(), View.OnClickListener {
         bindNickname(user)
         bindSignature(user)
         bindBrief(user)
-        // 生日 / 地区的可见性：优先用服务端字段（hide_birthday / hide_region，与 Web 端共用），
-        // 服务端未下发时（线上还没部署到该版本）退回本机镜像，否则重进页面状态会丢
-        viewLifecycleOwner.lifecycleScope.launch {
-            val mirror = ProfileVisibilityStore.current(requireContext())
-            bindBirthday(user, hidden = user.hideBirthday ?: mirror.birthday)
-            bindRegion(user, hidden = user.hideRegion ?: mirror.region)
-            // 服务端下发的性别若为真值，顺手记进本机镜像，
-            // 这样即使用户是在网页选的性别，本机也有可回退的值（保密覆写后要靠它）
-            ProfileVisibilityStore.rememberGender(requireContext(), user.gender)
-        }
+        // 生日 / 地区的可见性直接读服务端字段（hide_birthday / hide_region，与 Web 端共用），
+        // null（服务端没下发）按可见处理。
+        bindBirthday(user, hidden = user.hideBirthday == true)
+        bindRegion(user, hidden = user.hideRegion == true)
         // 性别不在此列：它走后端 gender='secret'，值本身即状态
         bindGender(user.gender)
         bindVerify(user)
@@ -822,17 +801,14 @@ class MyDetailFragment : Fragment(), View.OnClickListener {
                     email = remote?.email?.takeIf(String::isNotBlank) ?: previous.email,
                     backgroundUrl = remote?.backgroundUrl ?: previous.backgroundUrl,
                     mobile = remote?.mobile ?: previous.mobile,
-                    // 「保密」前的真值：服务端自动维护的那份优先；线上还没部署到该列时
-                    // （remote 不带 last_gender）用刚写进去的真值兜底，再不济保留原值。
+                    // 「保密」前的真值：服务端自动维护的那份优先；remote 不带该列时
+                    // （极端情况）用刚写进去的真值兜底，再不济保留原值。
                     lastGender = remote?.lastGender
-                        ?: gender?.takeIf { !ProfileVisibilityStore.isSecret(it) }
+                        ?: gender?.takeIf { !isGenderSecret(it) }
                         ?: previous.lastGender,
                 )
                 persistSession(updated)
                 currentUser = updated
-                // 写入真值时同步本机镜像（取消保密时的回退值）；null / 'secret' 会被忽略，
-                // 所以这里无条件调用。
-                ProfileVisibilityStore.rememberGender(ctx, gender)
                 onUi()
             } catch (error: CancellationException) {
                 throw error
@@ -879,10 +855,6 @@ class MyDetailFragment : Fragment(), View.OnClickListener {
                 // 回传里本就带 hide，此前漏读 →「保密生日」勾了等于没勾
                 val hide = bundle.getBoolean(EditPersonalInfoFragment.RESULT_BIRTHDAY_HIDE, false)
                 val text = String.format(Locale.CHINA, "%d-%d-%d", y, m + 1, d)
-                // 两边都写：后端字段（权威，与 Web 端共用）+ 本机镜像（部署落后时兜底）
-                viewLifecycleOwner.lifecycleScope.launch {
-                    ProfileVisibilityStore.setHidden(requireContext(), Field.BIRTHDAY, hide)
-                }
                 saveField(birthday = text, hideBirthday = hide) {
                     bindBirthday(currentUser!!, hidden = hide)
                 }

@@ -23,6 +23,8 @@ data class TaskAudio(
     val name: String = "",
     val duration: Long = 0,
     val size: Long = 0,
+    /** Source-provided timed lyric normalized to LRC for cloud restoration. */
+    val lyricText: String? = null,
     /**
      * Durable device-side source used for immediate/offline playback.
      *
@@ -39,6 +41,8 @@ data class TaskAudio(
     val sourceId: String? = null,
     val artist: String? = null,
     val artworkUri: String? = null,
+    /** Cloud copy of artwork, kept separate from the local source artwork URI. */
+    val cloudArtworkUrl: String? = null,
     val createdAt: String = "",
 )
 
@@ -154,6 +158,23 @@ data class UserInfo(
     val usernameChangeCount: Int? = null,
     /** API /api/profile 返回的用户名修改次数重置时间。 */
     val usernameChangeResetAt: String? = null,
+    /**
+     * 生日是否对外隐藏 —— 与 Web 端「保密」共用同一个后端字段（`user_profiles.hide_birthday`）。
+     *
+     * 可空：服务端没下发该字段时为 null。调用方统一按「只有 `true` 才隐藏」处理，
+     * null 即视为可见 —— 不存在本机镜像，也不存在"本地比服务端更权威"的粘滞。
+     */
+    val hideBirthday: Boolean? = null,
+    /** 地区是否对外隐藏；语义同 [hideBirthday]，对应 `user_profiles.hide_region`。 */
+    val hideRegion: Boolean? = null,
+    /**
+     * 「保密」之前的真实性别（male / female / other），对应 `user_profiles.last_gender`。
+     *
+     * 用途：性别用 `gender = "secret"` 表达保密时会**把真值覆写掉**，
+     * 取消保密时后端已不知道该回退到男还是女，所以由后端额外留一份真值。
+     * 该字段由服务端在 gender 被写成真值时自动维护，客户端只读不写。
+     */
+    val lastGender: String? = null,
 )
 
 // === JSON 序列化 ===
@@ -163,6 +184,7 @@ fun TaskAudio.toJson(): JSONObject = JSONObject().apply {
     put("name", name)
     put("duration", duration)
     put("size", size)
+    lyricText?.takeIf(String::isNotBlank)?.let { put("lyricText", it) }
     localUri?.let { put("localUri", it) }
     fileKey?.let { put("fileKey", it) }
     serverUrl?.let { put("serverUrl", it) }
@@ -173,14 +195,27 @@ fun TaskAudio.toJson(): JSONObject = JSONObject().apply {
     sourceId?.let { put("sourceId", it) }
     artist?.let { put("artist", it) }
     artworkUri?.let { put("artworkUri", it) }
+    cloudArtworkUrl?.let { put("cloudArtworkUrl", it) }
     put("createdAt", createdAt)
 }
 
+private val generatedMediaNameSuffix = Regex(
+    """\s*[·•|]\s*lv_\d+_\d{14}(?=\.[A-Za-z0-9]{1,8}$|$)""",
+    RegexOption.IGNORE_CASE,
+)
+
+private fun normalizeStoredAudioName(value: String): String =
+    generatedMediaNameSuffix.replace(value.trim(), "").trim().ifBlank { value.trim() }
+
 fun JSONObject.toTaskAudio(): TaskAudio = TaskAudio(
     id = optString("id"),
-    name = optString("name"),
+    // Older Bilibili imports persisted the internal cache filename after the
+    // display title. It is not part of the user's audio name and must not reach
+    // either the task list or QQ's native title view.
+    name = normalizeStoredAudioName(optString("name")),
     duration = optLong("duration"),
     size = optLong("size"),
+    lyricText = optString("lyricText", "").ifEmpty { null },
     localUri = optString("localUri", "").ifEmpty { null },
     fileKey = optString("fileKey", "").ifEmpty { null },
     serverUrl = optString("serverUrl", "").ifEmpty { null },
@@ -191,6 +226,7 @@ fun JSONObject.toTaskAudio(): TaskAudio = TaskAudio(
     sourceId = optString("sourceId", "").ifEmpty { null },
     artist = optString("artist", "").ifEmpty { null },
     artworkUri = optString("artworkUri", "").ifEmpty { null },
+    cloudArtworkUrl = optString("cloudArtworkUrl", "").ifEmpty { null },
     createdAt = optString("createdAt", ""),
 )
 
@@ -355,15 +391,21 @@ fun parseAudioList(json: JSONObject): List<TaskAudio> {
     val arr = json.optJSONArray("audios") ?: return emptyList()
     return (0 until arr.length()).map { i ->
         val a = arr.getJSONObject(i)
+        val artworkUrl = a.optString("artwork_url", "").takeUnless {
+            it.isBlank() || it.equals("null", ignoreCase = true)
+        }
         TaskAudio(
             id = a.optString("id"),
             name = a.optString("title", a.optString("file_name", "")),
             duration = a.optLong("duration", 0),
             size = a.optLong("file_size", 0),
+            lyricText = a.optString("lyric_text", "").ifEmpty { null },
             fileKey = a.optString("file_key", "").ifEmpty { null },
             serverUrl = a.optString("file_url", "").ifEmpty { null },
-            savedToLibrary = true,
+            savedToLibrary = a.optBoolean("saved_to_library", false),
             mimeType = a.optString("mime_type", "").ifEmpty { null },
+            artworkUri = artworkUrl,
+            cloudArtworkUrl = artworkUrl,
             createdAt = a.optString("created_at", ""),
         )
     }
@@ -390,6 +432,16 @@ fun parseUser(json: JSONObject): UserInfo? {
         signature = user.optString("signature", "").ifEmpty { null },
         backgroundUrl = user.optString("background_url", "").ifEmpty { null },
         createdAt = user.optString("createdAt", user.optString("created_at", "")),
+        // 只有服务端真的下发了这两个字段才置值；没下发就留 null，
+        // 让上层退回本机镜像（见 UserInfo.hideBirthday 注释）
+        hideBirthday = if (user.has("hide_birthday")) user.optBoolean("hide_birthday") else null,
+        hideRegion = if (user.has("hide_region")) user.optBoolean("hide_region") else null,
+        // 必须判 isNull：optString 遇到 JSON null 会返回字符串 "null"（同 bio 那行的 takeIf 就是这个原因）
+        lastGender = if (user.has("last_gender") && !user.isNull("last_gender")) {
+            user.optString("last_gender").ifEmpty { null }
+        } else {
+            null
+        },
     )
 }
 
@@ -414,5 +466,13 @@ fun parseProfile(json: JSONObject): UserInfo? {
         createdAt = profile.optString("createdAt", ""),
         usernameChangeCount = if (profile.has("username_change_count")) profile.optInt("username_change_count") else null,
         usernameChangeResetAt = profile.optString("username_change_reset_at", "").ifEmpty { null },
+        // 语义同 parseUser：没下发就留 null，上层退回本机镜像
+        hideBirthday = if (profile.has("hide_birthday")) profile.optBoolean("hide_birthday") else null,
+        hideRegion = if (profile.has("hide_region")) profile.optBoolean("hide_region") else null,
+        lastGender = if (profile.has("last_gender") && !profile.isNull("last_gender")) {
+            profile.optString("last_gender").ifEmpty { null }
+        } else {
+            null
+        },
     )
 }
