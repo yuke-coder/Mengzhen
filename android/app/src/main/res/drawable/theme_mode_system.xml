@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+  「跟随系统」图标 —— 与 Web 端同源：lucide-react v0.468.0 的 "Monitor"（ISC 许可），
+  取自 node_modules/lucide-react/dist/esm/icons/monitor.js。
+  与 src/components/theme-toggle.tsx 里 system 用的 Monitor 是同一个图标
+  （显示器 + 底座；lucide 的 rect/line 在 Android vector 里只能表达成 path）。
+  strokeColor 只是基底色，实际颜色由调用方 setColorFilter(SRC_IN) 决定。
+-->
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:width="24dp"
+    android:height="24dp"
+    android:viewportWidth="24"
+    android:viewportHeight="24">
+    <!-- 显示器外框：原 rect x=2 y=3 w=20 h=14 rx=2 -->
+    <path
+        android:pathData="M4 3H20A2 2 0 0 1 22 5V15A2 2 0 0 1 20 17H4A2 2 0 0 1 2 15V5A2 2 0 0 1 4 3Z"
+        android:strokeColor="#FF000000"
+        android:strokeWidth="2"
+        android:strokeLineCap="round"
+        android:strokeLineJoin="round" />
+    <!-- 底座横线：原 line (8,21)-(16,21) -->
+    <path
+        android:pathData="M8 21H16"
+        android:strokeColor="#FF000000"
+        android:strokeWidth="2"
+        android:strokeLineCap="round"
+        android:strokeLineJoin="round" />
+    <!-- 支架竖线：原 line (12,17)-(12,21) -->
+    <path
+        android:pathData="M12 17V21"
+        android:strokeColor="#FF000000"
+        android:strokeWidth="2"
+        android:strokeLineCap="round"
+        android:strokeLineJoin="round" />
+</vector>

@@ -1,15 +1,19 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <!-- QQ 音乐 20.6.5.8 播放模式弹层与播放列表的原始文案。 -->
-    <string name="qq_player_play_mode">播放模式</string>
-    <string name="qq_player_playlist">歌曲队列</string>
-    <string name="qq_mode_shuffle">随机播放</string>
-    <string name="qq_mode_list_repeat">顺序播放</string>
-    <string name="qq_mode_single_repeat">单曲循环</string>
-    <string name="qq_mode_multi_repeat">循环%1$d次</string>
-    <string name="qq_mode_set_count">设置次数</string>
-    <string name="qq_theme_mode_light">普通模式</string>
+    <!--
+      这里原本还有 QQ 音乐「播放模式弹层 / 歌曲队列」的原始文案七条：
+      qq_player_play_mode、qq_player_playlist、qq_mode_shuffle、qq_mode_list_repeat、
+      qq_mode_single_repeat、qq_mode_multi_repeat、qq_mode_set_count。
+      弹层改成页面模式三选一之后这七条全项目零引用（连 runtime 模块也没有反向依赖），
+      按「禁止死代码」一并删除。
+    -->
+    <!--
+      页面模式（主题）文案 —— 必须与 Web 端一致：
+      src/components/theme-toggle.tsx 里是 浅色模式 / 深色模式 / 自动模式。
+      安卓端曾用「普通模式」「跟随系统」，与网页两个说法，已统一。
+    -->
+    <string name="qq_theme_mode_light">浅色模式</string>
     <string name="qq_theme_mode_dark">深色模式</string>
-    <string name="qq_theme_mode_system">跟随系统</string>
+    <string name="qq_theme_mode_system">自动模式</string>
 
 </resources>

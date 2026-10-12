@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+  页面模式弹窗的单行 —— 结构取自真本 QQ 音乐 20.9.0.8 的
+  res/layout/c45.xml（PlayModePopupWindowItem 的行），107x40dp 与真本一致。
+
+  与真本的两处差异：
+  1. 图标 src 换成 @drawable/theme_mode_*（lucide 三态图标，与 Web 端同源），
+     真本这里是 popup_window_play_mode_*（播歌顺序图标），跟主题毫无关系。
+     具体用哪一个由代码 setImageResource 决定，layout 里的只是默认值。
+  2. 默认文案指到 @string/qq_theme_mode_light，同样只作占位，代码会 setText 覆盖。
+
+  真本这里还有个 hsz（「单曲重复次数」的计数角标，默认 gone，只有
+  TYPE_ONESHOT_MULTI_REPEAT 那行才 setVisibility）—— 梦枕不装配该行，连 View 一起删，
+  不留一块永远看不见的死 UI。
+-->
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="107dp"
+    android:layout_height="40dp">
+
+    <RelativeLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_vertical"
+        android:layout_marginStart="8dp"
+        android:gravity="center_vertical">
+
+        <ImageView
+            android:id="@+id/ht0"
+            android:layout_width="20dp"
+            android:layout_height="20dp"
+            android:layout_centerInParent="true"
+            android:contentDescription="@string/qq_theme_mode_light"
+            android:src="@drawable/theme_mode_light" />
+
+    </RelativeLayout>
+
+    <TextView
+        android:id="@+id/ht2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_vertical"
+        android:layout_marginStart="4dp"
+        android:text="@string/qq_theme_mode_light"
+        android:textColor="@color/black"
+        android:textSize="13dp" />
+
+</LinearLayout>

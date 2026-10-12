@@ -8,9 +8,12 @@ import android.os.Bundle
 import androidx.activity.compose.setContent
 import androidx.fragment.app.FragmentActivity
 import androidx.compose.runtime.CompositionLocalProvider
+import androidx.compose.runtime.LaunchedEffect
+import androidx.compose.runtime.collectAsState
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.setValue
+import androidx.compose.ui.platform.LocalConfiguration
 import androidx.core.splashscreen.SplashScreen.Companion.installSplashScreen
 import androidx.core.view.WindowCompat
 import androidx.lifecycle.lifecycleScope
@@ -101,14 +104,26 @@ class MainActivity : FragmentActivity() {
                 recreate()
                 return@launch
             }
-            val resolvedDark = (resources.configuration.uiMode and
-                Configuration.UI_MODE_NIGHT_MASK) == Configuration.UI_MODE_NIGHT_YES
             setContent {
+                // 主题必须「点了就变」：这里要持续收集 modeFlow，不能用 first() 取一次
+                // 就塞进 CompositionLocal —— 那样切换后 DataStore 变了、Compose 树却不重组，
+                // 只有重启应用才看得到效果（用户反馈的「提示要重启、重启又没变化」就是它）。
+                // 顺带监听 LocalConfiguration，连系统深浅色切换也能实时跟随。
+                val liveMode by ThemeModeStore.modeFlow(this@MainActivity)
+                    .collectAsState(initial = themeMode)
+                val liveConfiguration = LocalConfiguration.current
+                val liveDark = when (liveMode) {
+                    ThemeMode.LIGHT -> false
+                    ThemeMode.DARK -> true
+                    ThemeMode.SYSTEM -> (liveConfiguration.uiMode and
+                        Configuration.UI_MODE_NIGHT_MASK) == Configuration.UI_MODE_NIGHT_YES
+                }
+                LaunchedEffect(liveDark) { applySystemBarAppearance(liveDark) }
                 CompositionLocalProvider(
-                    LocalThemeMode provides themeMode,
-                    LocalIsDarkTheme provides resolvedDark,
+                    LocalThemeMode provides liveMode,
+                    LocalIsDarkTheme provides liveDark,
                 ) {
-                    MengZhenTheme(darkTheme = resolvedDark) {
+                    MengZhenTheme(darkTheme = liveDark) {
                         MengZhenApp(
                             startInBiliAuthorization = startInBiliAuthorization,
                             openPlaybackTaskId = openPlaybackTaskId,
@@ -119,7 +134,6 @@ class MainActivity : FragmentActivity() {
                     }
                 }
             }
-            applySystemBarAppearance(resolvedDark)
             themeReady = true
         }
     }

@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+  播放顺序弹窗（PageModePopupWindow）用到的颜色。
+  取值来自真本 QQ 音乐 20.9.0.8 的 res/values/colors.xml
+  （apktool 解 base.apk 得到），不是随手挑的。
+-->
+<resources>
+    <!-- 弹窗底色（深色主题） -->
+    <color name="as_background_dark">#1e1e1f</color>
+    <!-- 弹窗底色（浅色主题） -->
+    <color name="ds_background_light">#ffffff</color>
+    <!-- 选中指示块：深色主题下用白色半透明 -->
+    <color name="white_5_transparent">#0cffffff</color>
+    <!-- 选中指示块：浅色主题下用黑色半透明 -->
+    <color name="black_5_transparent">#0d000000</color>
+    <!-- 行分隔线 -->
+    <color name="black_10_opacity">#19000000</color>
+    <!-- 行内文案/角标的前景色，真本 res/values/colors.xml 同值 -->
+    <color name="black">#000000</color>
+    <color name="white">#ffffff</color>
+</resources>

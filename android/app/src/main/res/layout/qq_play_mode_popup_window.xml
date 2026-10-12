@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+  页面模式弹窗的根布局 —— 结构取自真本 QQ 音乐 20.9.0.8 的
+  res/layout/azr.xml（PageModePopupWindow 的根）。
+
+  真本根下有三个容器，梦枕只保留两个：
+  - jb3 (RelativeLayout)：选中指示块的容器，滑动动画在这个坐标系里做
+  - ht1 (LinearLayout)：行容器，三种模式各一个 item
+  - ~~nsp (FrameLayout 40x40dp)~~ **去掉** —— 真本它是「播放次数设置」的点击/长按区，
+    触发的回调（b.c / b.b）在梦枕没有任何实现，留着就是一块点了没反应的死区域。
+
+  宽度 115dp = item 107dp + 左右各 4dp margin，与真本一致。
+-->
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/jb3"
+    android:layout_width="115dp"
+    android:layout_height="wrap_content">
+
+    <LinearLayout
+        android:id="@+id/ht1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@drawable/bg_play_mode_popup_window"
+        android:orientation="vertical" />
+
+</RelativeLayout>

@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+  选中指示块（跟着选中行滑动的那块）背景 —— 取自真本 QQ 音乐 20.9.0.8 的
+  res/drawable/bg_play_mode_popup_window_item.xml（圆角 4dp，白色 5%）。
+  底色同样只是占位，运行时由 PageModePopupWindow.t(dark) 重新 setColor()。
+-->
+<shape xmlns:android="http://schemas.android.com/apk/res/android"
+    android:shape="rectangle">
+    <corners android:radius="4dp" />
+    <solid android:color="@color/white_5_transparent" />
+</shape>

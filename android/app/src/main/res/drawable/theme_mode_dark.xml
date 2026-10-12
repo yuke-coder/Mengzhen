@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+  深色模式图标 —— 与 Web 端同源：lucide-react v0.468.0 的 "Moon"（ISC 许可），
+  取自 node_modules/lucide-react/dist/esm/icons/moon.js。
+  与 src/components/theme-toggle.tsx 里 dark 用的 Moon 是同一个图标。
+  strokeColor 只是基底色，实际颜色由调用方 setColorFilter(SRC_IN) 决定。
+-->
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:width="24dp"
+    android:height="24dp"
+    android:viewportWidth="24"
+    android:viewportHeight="24">
+    <path
+        android:pathData="M12 3a6 6 0 0 0 9 9 9 9 0 1 1-9-9Z"
+        android:strokeColor="#FF000000"
+        android:strokeWidth="2"
+        android:strokeLineCap="round"
+        android:strokeLineJoin="round" />
+</vector>
